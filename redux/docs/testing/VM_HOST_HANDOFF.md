@@ -1,5 +1,14 @@
 # Complete the BG Redux Lab host setup
 
+October 21 LAB update: Phase 0 technical evidence is consolidated in [the release record](../PHASE0_RELEASE.md). Base/context transfer and native validation are complete; engine source/binaries are unchanged. Host input isolation is user-confirmed. VM snapshots are optional and excluded from gates by explicit user instruction. Earlier pending-transfer/snapshot statements below are historical. Phase 1 engine implementation remains separately authorized work.
+
+## Historical host-side record
+
+October 21 guest continuation: this project now executes on LAB. See
+[guest bring-up results](lab-guest-bringup.md) for independently verified system,
+source and game hashes, partial harness failures and the remaining private
+transfer gate. The physical-host execution statements below are historical.
+
 Current execution is still on the physical host. The connected device is named Lab (`remote-control:env_e_6ad921094914832d8d5bda6f49aa37e4`), but no Lab project was returned by list_projects on October21,2026. The running chat cannot hand itself to another host with the available tool. The user must open/move this chat onto a saved project on Lab before its shell and Computer Use can be verified there. Do not claim remote execution from a connection label alone.
 
 The user reports Windows installed/booted, Codex remote access paired, and Steam BG2EE installed inside Lab at:

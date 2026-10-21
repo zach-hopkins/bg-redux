@@ -1,5 +1,7 @@
 # Phase 0 — equipped weapons, defenses and AI fallback execution
 
+October 21 LAB continuation: [final coverage and limits](phase0-expanded-coverage.md) and [release evidence](../PHASE0_RELEASE.md) supersede historical pending-run statements below. Original live branch/combat capture, repeated-query state observations and the 151-test consolidated baseline are now executed; known differences remain.
+
 October 21, 2026 PDT. Engine checkout and engine/plugin binaries remain unchanged. The external GUI test host gained read-only action/target samples and a final runtime snapshot; that host is outside engine source.
 
 ## Executed equipped/defense cases

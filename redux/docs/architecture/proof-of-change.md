@@ -1,6 +1,6 @@
 # Proof-of-change — source-only bounded probe
 
-Status: **static change-surface assessment only; no engine change executed**. The user's explicit instruction prohibits engine code modifications in this task. The charter permits a justified deferral when a safe experiment cannot yet be executed. A Windows build and test baseline is now available; required effect/save/timing fixtures are not yet established. This report therefore does not claim an observed implementation change surface or passed behavioral tests.
+Status: **static change-surface assessment only; no engine change executed**. The user's explicit instruction prohibits engine code modifications in this task. The charter permits a justified deferral when a safe experiment cannot yet be executed. A Windows build and test baseline, vanilla save/reload fixtures, normal GUI callbacks, equipped-effect observations and bounded pause/resume measurements are now available, including fresh LAB execution. Those do not supply the full MR-specific acceptance matrix: deterministic extreme-value MR, sequencer exceptions, block-versus-component immunity, saves/half-damage, observer non-interference and lifecycle-safe causal records remain to be tested. This report therefore does not claim an observed implementation change surface or passed MR instrumentation tests. Implementation requires separate authorization after Phase 0.
 
 ## Probe: one authoritative MR rejection diagnostic
 

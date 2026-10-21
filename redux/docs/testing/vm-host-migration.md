@@ -1,5 +1,15 @@
 # Dedicated Windows VM host preparation
 
+October 21 LAB update: Phase 0 technical evidence is consolidated in [the release record](../PHASE0_RELEASE.md). Base/context transfer and native validation are complete; engine source/binaries are unchanged. Host input isolation is user-confirmed. VM snapshots are optional and excluded from gates by explicit user instruction. Earlier pending-transfer/snapshot statements below are historical. Phase 1 engine implementation remains separately authorized work.
+
+## Historical host-side record
+
+Latest continuation: [verified LAB guest bring-up](lab-guest-bringup.md). Guest
+shell/display identity and all 2,324 installed/test-copy reference hashes now
+pass. Private build/toolchain/save/oracle transfer remains unavailable; native
+execution, input isolation and snapshots remain pending. Older status below is
+historical and does not override this update.
+
 October21,2026. User requested a new local VM host for BG Redux. This supersedes desktop sharing as the intended test environment, while retaining Phase0's engine-code freeze. The VM has now been created and powered on; Windows installation and guest validation remain incomplete. See the latest status below.
 
 ## Host inspection and selected configuration

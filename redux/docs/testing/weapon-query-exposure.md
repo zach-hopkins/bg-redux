@@ -1,5 +1,7 @@
 # Phase 0 — EE weapon-query exposure and compatibility plan
 
+October 21 LAB continuation: [final coverage and limits](phase0-expanded-coverage.md) and [release evidence](../PHASE0_RELEASE.md) supersede historical pending-run statements below. Original live branch/combat capture, repeated-query state observations and the 151-test consolidated baseline are now executed; known differences remain.
+
 October 20, 2026 PDT / October 21 UTC. Read-only source/resource inspection; no engine changes or proposed gameplay change is implemented.
 
 ## Verified limitation and packaged use

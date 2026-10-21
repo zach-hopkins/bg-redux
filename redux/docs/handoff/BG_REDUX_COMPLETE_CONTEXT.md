@@ -1,5 +1,12 @@
 # BG Redux — complete continuation context
 
+October 21 LAB update: Phase 0 technical evidence is consolidated in [the release record](../PHASE0_RELEASE.md). Base/context transfer and native validation are complete; engine source/binaries are unchanged. Host input isolation is user-confirmed. VM snapshots are optional and excluded from gates by explicit user instruction. Earlier pending-transfer/snapshot statements below are historical. Phase 1 engine implementation remains separately authorized work.
+
+Guest continuation, October 21: [LAB bring-up results](../testing/lab-guest-bringup.md)
+supersede historical physical-host-only status below. Guest execution and game
+reference hashes are verified; private runtime transfer and migration acceptance
+remain incomplete. Engine freeze and all prior compatibility limits still apply.
+
 Prepared October 21, 2026. Read this file first, then the embedded specifications and linked evidence. This is a transfer of an ongoing project, not a fresh architectural proposal. Historical reports retain earlier states; the latest decision ledger below resolves conflicts.
 
 ## Immediate assignment and authority
