@@ -1,0 +1,141 @@
+{
+  "schema": "bg-redux-original-equipped-case/1",
+  "case": {
+    "id": "03-normal-magprot",
+    "kind": "weapon-defense",
+    "folder": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\original-equipped-profile\\save\\000000009-03-normal-magprot",
+    "files": {
+      "BALDUR.bmp": {
+        "bytes": 65590,
+        "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+      },
+      "BALDUR.gam": {
+        "bytes": 77500,
+        "sha256": "cac8f49e8135c530a426df5bea9c459f65cef4997e8dbdab06b0b6da7b50d419"
+      },
+      "BALDUR.SAV": {
+        "bytes": 19443,
+        "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+      },
+      "PORTRT0.bmp": {
+        "bytes": 13830,
+        "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+      },
+      "PORTRT1.bmp": {
+        "bytes": 13830,
+        "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+      },
+      "save_000000033-GemRB.cloud.meta": {
+        "bytes": 10,
+        "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+      }
+    },
+    "spec": {
+      "id": "03-normal-magprot",
+      "weapon": "sw1h01",
+      "defense": [
+        120,
+        0,
+        1
+      ]
+    }
+  },
+  "directory": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T181555Z-original-equipped-03-normal-magprot-13284f0e",
+  "verdict": "original-case-observed",
+  "values": {
+    "RDXVE": 1,
+    "RDXVD": 1,
+    "RDXDONE": 1,
+    "RDXSTAGE": 3
+  },
+  "actors": [
+    {
+      "items": [
+        "sw1h01"
+      ],
+      "physical_slots": {
+        "9": "sw1h01"
+      },
+      "selected": 0,
+      "ability": 0,
+      "defense_effects": []
+    },
+    {
+      "items": [
+        "imoenhp1"
+      ],
+      "physical_slots": {
+        "7": "imoenhp1"
+      },
+      "selected": 1000,
+      "ability": 0,
+      "defense_effects": [
+        {
+          "opcode": 120,
+          "p1": 0,
+          "p2": 1,
+          "timing": 9
+        }
+      ]
+    }
+  ],
+  "autosave_files": {
+    "BALDUR.bmp": {
+      "bytes": 65590,
+      "sha256": "8bad8341b25fbd1e4fd0db025f012e5e60ec1c6b6e2b40f5b77cff1d6cd0c1d0"
+    },
+    "BALDUR.gam": {
+      "bytes": 70244,
+      "sha256": "87590d7b11e3a3d783f6fdf3d8ee7882e78c9011398c80f257510b821dd0c0d6"
+    },
+    "BALDUR.SAV": {
+      "bytes": 19397,
+      "sha256": "4b56235793919246dbfe82cd63ce84c473ed6eb6dfe57b859e489691efe96caa"
+    },
+    "PORTRT0.bmp": {
+      "bytes": 13830,
+      "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+    },
+    "PORTRT1.bmp": {
+      "bytes": 13830,
+      "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+    }
+  },
+  "observation": {
+    "operator": "Codex Computer Use / @oai/sky",
+    "window_id": 3475962,
+    "window_title": "ChatGPT/BG Multiplayer Redux/phase0-local/original-equipped-profile - v2.7.3.0",
+    "action": "Observed private original GUI load of named prepared case, followed by script-generated autosave; no player attack/move commands issued",
+    "executable_sha256": "b51093a49140b2b8a7c046b4652bb8e535be24ebbc12b1d735e0b94217a14d57",
+    "script_sha256": "89632bda590c9325bc88ade44d3e8a35d75d2fdc1cecf5d2d9aaed823cdb3758",
+    "input_files": {
+      "BALDUR.bmp": {
+        "bytes": 65590,
+        "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+      },
+      "BALDUR.gam": {
+        "bytes": 77500,
+        "sha256": "cac8f49e8135c530a426df5bea9c459f65cef4997e8dbdab06b0b6da7b50d419"
+      },
+      "BALDUR.SAV": {
+        "bytes": 19443,
+        "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+      },
+      "PORTRT0.bmp": {
+        "bytes": 13830,
+        "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+      },
+      "PORTRT1.bmp": {
+        "bytes": 13830,
+        "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+      },
+      "save_000000033-GemRB.cloud.meta": {
+        "bytes": 10,
+        "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+      }
+    },
+    "original_execution_attestation": false
+  },
+  "preparation_sha256": "f40a4575f9f5ff71c4e4f2358116ae219336409959f7ca5bfc21f816672f9466",
+  "source_sha256": "a0f7f3f4be3f3cb798be6d7a99454c932688c423f14249f68a28ea17656d65de"
+}

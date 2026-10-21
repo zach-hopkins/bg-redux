@@ -1,0 +1,94 @@
+{
+  "schema": "bg-redux-original-query-observation/1",
+  "observed_utc": "2026-10-21T03:58:20.457048+00:00",
+  "operator": "Codex computer-use via @oai/sky",
+  "sequence_completed": true,
+  "window_id": 7278436,
+  "window_title": "ChatGPT/BG Multiplayer Redux/phase0-local/original-query-profile-local - v2.7.3.0",
+  "launch": "Explorer double click private Baldur.exe from game folder; campaign SoA / Single Player / Load Game / Redux Query / Load",
+  "execution": "Generated BCS executes queries and SaveGame(0); completion globals independently read from new Auto-Save. No attacks/movement issued. Later Quick Loot toggle before quit does not affect frozen autosave.",
+  "steam_integration": "Optional private steam_api64.dll retained under inert name; no imported cloud saves in Load Game list",
+  "attestation": false,
+  "executable": {
+    "path": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\original-query-game\\Baldur.exe",
+    "sha256": "b51093a49140b2b8a7c046b4652bb8e535be24ebbc12b1d735e0b94217a14d57"
+  },
+  "script": {
+    "path": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\original-query-game\\override\\RDXQPROB.bcs",
+    "sha256": "89632bda590c9325bc88ade44d3e8a35d75d2fdc1cecf5d2d9aaed823cdb3758"
+  },
+  "input": {
+    "path": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\original-query-profile-local\\save\\000000007-Redux Query",
+    "files": {
+      "BALDUR.bmp": {
+        "bytes": 65590,
+        "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+      },
+      "BALDUR.gam": {
+        "bytes": 69372,
+        "sha256": "ba5b6755beaffb799dca1596f3a15a7102ecc5ab45c39e4a6d652afef96137bf"
+      },
+      "BALDUR.SAV": {
+        "bytes": 19443,
+        "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+      },
+      "PORTRT0.bmp": {
+        "bytes": 13830,
+        "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+      },
+      "PORTRT1.bmp": {
+        "bytes": 13830,
+        "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+      },
+      "save_000000033-GemRB.cloud.meta": {
+        "bytes": 10,
+        "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+      }
+    }
+  },
+  "output": {
+    "path": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\original-query-profile-local\\save\\000000000-Auto-Save",
+    "files": {
+      "BALDUR.bmp": {
+        "bytes": 65590,
+        "sha256": "eba9aca56cda24d29a53d28048a94c07c7c9da4d97867db980f8ce623fd4b3f7"
+      },
+      "BALDUR.gam": {
+        "bytes": 69960,
+        "sha256": "a43ac689b084e65974ab3c0b4bb4a83ab3f2fe9569faf619f4fbcf770837f365"
+      },
+      "BALDUR.SAV": {
+        "bytes": 19397,
+        "sha256": "34e3a133dc490860e9b69f04e8bb13148bc8532ca7f25e44de3172aa75f6611d"
+      },
+      "PORTRT0.bmp": {
+        "bytes": 13830,
+        "sha256": "d1cf585ebe29dadb8261fe357860de023a13cd4cfdae993b7c3c6daf951c5f0c"
+      },
+      "PORTRT1.bmp": {
+        "bytes": 13830,
+        "sha256": "8a47361774bfd51de85f5a51a3e58610d43cde73d22f3ed63d24c76a51a9672a"
+      }
+    }
+  },
+  "save_folders_after_run": [
+    "000000000-Auto-Save",
+    "000000007-Chapter 1 Start",
+    "000000007-Redux Query"
+  ],
+  "baseline_unchanged": true,
+  "private_original_file_verification": {
+    "utc": "2026-10-21T03:59:30.148813+00:00",
+    "manifest_files": 2324,
+    "hashes_checked": 2323,
+    "mismatches": [],
+    "excluded": "engine.lua private profile name",
+    "steam_dll": "Original hash verified under inert retained filename",
+    "additional_override_files": {
+      "RDXQPROB.bcs": {
+        "bytes": 2056,
+        "sha256": "89632bda590c9325bc88ade44d3e8a35d75d2fdc1cecf5d2d9aaed823cdb3758"
+      }
+    }
+  }
+}

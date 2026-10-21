@@ -1,0 +1,178 @@
+{
+  "schema": "bg-redux-equipped-comparison/1",
+  "utc": "2026-10-21T18:22:04.110379+00:00",
+  "cases": [
+    {
+      "id": "01-normal",
+      "original": {
+        "RDXVE": 1,
+        "RDXVD": 1,
+        "RDXDONE": 1,
+        "RDXSTAGE": 3
+      },
+      "gemrb": {
+        "RDXVE": 0,
+        "RDXVD": 0,
+        "RDXDONE": 1,
+        "RDXSTAGE": 3
+      },
+      "mismatching_predicates": [
+        "RDXVE",
+        "RDXVD"
+      ],
+      "original_receipt": "original-equipped-01-normal.json",
+      "original_receipt_sha256": "7c67dcc51c4336b6e5f43ab12727d573cc007eeb7ea3dfafba3f01fecc80ac6f"
+    },
+    {
+      "id": "02-plus1",
+      "original": {
+        "RDXVE": 1,
+        "RDXVD": 1,
+        "RDXDONE": 1,
+        "RDXSTAGE": 3
+      },
+      "gemrb": {
+        "RDXVE": 0,
+        "RDXVD": 0,
+        "RDXDONE": 1,
+        "RDXSTAGE": 3
+      },
+      "mismatching_predicates": [
+        "RDXVE",
+        "RDXVD"
+      ],
+      "original_receipt": "original-equipped-02-plus1.json",
+      "original_receipt_sha256": "f24c1eefdb748a60721c76cb2b37643b1c5f5d90cfa410afebb53477a6de6052"
+    },
+    {
+      "id": "03-normal-magprot",
+      "original": {
+        "RDXVE": 1,
+        "RDXVD": 1,
+        "RDXDONE": 1,
+        "RDXSTAGE": 3
+      },
+      "gemrb": {
+        "RDXVE": 0,
+        "RDXVD": 0,
+        "RDXDONE": 1,
+        "RDXSTAGE": 3
+      },
+      "mismatching_predicates": [
+        "RDXVE",
+        "RDXVD"
+      ],
+      "original_receipt": "original-equipped-03-normal-magprot.json",
+      "original_receipt_sha256": "ed10b4260a2c1ee0a29a39e5a25f107a1dd51f78fd6530449176d1707faecc23"
+    },
+    {
+      "id": "04-plus1-magprot",
+      "original": {
+        "RDXVE": 0,
+        "RDXVD": 1,
+        "RDXDONE": 1,
+        "RDXSTAGE": 3
+      },
+      "gemrb": {
+        "RDXVE": 0,
+        "RDXVD": 0,
+        "RDXDONE": 1,
+        "RDXSTAGE": 3
+      },
+      "mismatching_predicates": [
+        "RDXVD"
+      ],
+      "original_receipt": "original-equipped-04-plus1-magprot.json",
+      "original_receipt_sha256": "90a06ea2dfdbc4897a63c9d3dd126a815068adc8ba97486f8c59b52a9f21881f"
+    },
+    {
+      "id": "05-slash100",
+      "original": {
+        "RDXVE": 1,
+        "RDXVD": 0,
+        "RDXDONE": 1,
+        "RDXSTAGE": 3
+      },
+      "gemrb": {
+        "RDXVE": 0,
+        "RDXVD": 0,
+        "RDXDONE": 1,
+        "RDXSTAGE": 3
+      },
+      "mismatching_predicates": [
+        "RDXVE"
+      ],
+      "original_receipt": "original-equipped-05-slash100.json",
+      "original_receipt_sha256": "b653bb59b1cc1316d7bb9e8c82e788caaa98ff5a26eaabd86d5811f67fbcc107"
+    },
+    {
+      "id": "06-stoneskin",
+      "original": {
+        "RDXVE": 1,
+        "RDXVD": 1,
+        "RDXDONE": 1,
+        "RDXSTAGE": 3
+      },
+      "gemrb": {
+        "RDXVE": 0,
+        "RDXVD": 0,
+        "RDXDONE": 1,
+        "RDXSTAGE": 3
+      },
+      "mismatching_predicates": [
+        "RDXVE",
+        "RDXVD"
+      ],
+      "original_receipt": "original-equipped-06-stoneskin.json",
+      "original_receipt_sha256": "d52ca8539189180000fb1f79b840b708d8d8c33cc32c2692bbf3938b50d84972"
+    },
+    {
+      "id": "07-mirror",
+      "original": {
+        "RDXVE": 1,
+        "RDXVD": 1,
+        "RDXDONE": 1,
+        "RDXSTAGE": 3
+      },
+      "gemrb": {
+        "RDXVE": 0,
+        "RDXVD": 0,
+        "RDXDONE": 1,
+        "RDXSTAGE": 3
+      },
+      "mismatching_predicates": [
+        "RDXVE",
+        "RDXVD"
+      ],
+      "original_receipt": "original-equipped-07-mirror.json",
+      "original_receipt_sha256": "15fbab0be2dd7810dd795a14d60a0abe315eaaa0cc91aacaff20edaadf956196"
+    },
+    {
+      "id": "08-bow",
+      "original": {
+        "RDXVE": 1,
+        "RDXVD": 1,
+        "RDXDONE": 1,
+        "RDXSTAGE": 3
+      },
+      "gemrb": {
+        "RDXVE": 0,
+        "RDXVD": 0,
+        "RDXDONE": 1,
+        "RDXSTAGE": 3
+      },
+      "mismatching_predicates": [
+        "RDXVE",
+        "RDXVD"
+      ],
+      "original_receipt": "original-equipped-08-bow.json",
+      "original_receipt_sha256": "d4e9bf2669e3789205add7486c89cf3469e0de05b8852f40ea02dbb3c1bb277b"
+    }
+  ],
+  "cases_with_mismatches": 8,
+  "mismatching_predicates": 14,
+  "native_receipt_sha256": "cfb2e7750f6fe8866a8ee5fc2999c016bd396bd3f24c3d96f17a237eb9b658e2",
+  "source_sha256": "c551816f9c80216444436634e2edb1fca28dc2211ef5a6348a1420273fc1922f",
+  "scope": "Synthetic equipped MAINHAND queries against party member 2; not damage or full predicate parity",
+  "verdict": "comparison-executed-with-differences"
+}

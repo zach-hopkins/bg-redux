@@ -1,0 +1,25 @@
+{
+  "schema": "bg-redux-original-ai-observation/1",
+  "utc": "2026-10-21T18:23:34.300063+00:00",
+  "verdict": "partial-observation-no-branch-capture",
+  "window_id": 3475962,
+  "window_title": "ChatGPT/BG Multiplayer Redux/phase0-local/original-equipped-profile - v2.7.3.0",
+  "preparation_sha256": "f40a4575f9f5ff71c4e4f2358116ae219336409959f7ca5bfc21f816672f9466",
+  "script_sha256": "0153268672986756eb96fe631ca64baeb51692e23d5e3e44db840836cef58aa9",
+  "executable_sha256": "b51093a49140b2b8a7c046b4652bb8e535be24ebbc12b1d735e0b94217a14d57",
+  "operator": "Codex Computer Use / @oai/sky",
+  "observations": [
+    "Observed GUI selection/load of AI-Imoen",
+    "Feedback: wfsdf: Attacks wfsdf",
+    "Feedback: Smoke Mephit: Takes 9 slashing damage from wfsdf; later 10 slashing damage",
+    "No completed AI-marker autosave captured; independent parser rejected stale equipment output",
+    "Ordinary GUI Save Game reports: You cannot save during combat."
+  ],
+  "selected_branch": null,
+  "exact_action_id": null,
+  "exact_target_runtime_id": null,
+  "original_execution_attestation": false,
+  "failed_capture": "20261021T182110Z-original-equipped-ai-imoen-stock-1553baa3",
+  "user_input_commands": "Menu navigation only; no movement or attack commands",
+  "screenshot_artifact_saved": false
+}

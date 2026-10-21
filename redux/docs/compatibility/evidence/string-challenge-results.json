@@ -1,0 +1,766 @@
+{
+  "schema": "bg-redux-string-challenge-results/1",
+  "directory": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T033027Z-string-challenge-472c0ed2",
+  "stages": [
+    {
+      "name": "baseline",
+      "process": {
+        "pid": 32896,
+        "exit_code": 0,
+        "timeout_seconds": 45,
+        "timed_out": false,
+        "cleanup": "not required",
+        "elapsed_seconds": 3.859
+      },
+      "command": [
+        "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\gui-probe\\Redux_gui_probe.exe",
+        "--config",
+        "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T033027Z-string-challenge-472c0ed2\\baseline\\probe.cfg",
+        "--output",
+        "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T033027Z-string-challenge-472c0ed2\\baseline",
+        "--scripts",
+        "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\tools\\phase0\\gui",
+        "--mode",
+        "string-challenge"
+      ],
+      "input_unchanged": true,
+      "input_wire": {
+        "total": 7,
+        "permanent": 7,
+        "equipped": 0,
+        "signatures": [
+          {
+            "opcode": 101,
+            "param1": 0,
+            "param2": 134,
+            "timing": 1,
+            "count": 1
+          },
+          {
+            "opcode": 101,
+            "param1": 0,
+            "param2": 216,
+            "timing": 1,
+            "count": 1
+          },
+          {
+            "opcode": 267,
+            "param1": 14665,
+            "param2": 134,
+            "timing": 1,
+            "count": 1
+          },
+          {
+            "opcode": 267,
+            "param1": 40969,
+            "param2": 216,
+            "timing": 1,
+            "count": 1
+          },
+          {
+            "opcode": 267,
+            "param1": 40979,
+            "param2": 216,
+            "timing": 1,
+            "count": 1
+          },
+          {
+            "opcode": 267,
+            "param1": 41495,
+            "param2": 216,
+            "timing": 1,
+            "count": 1
+          },
+          {
+            "opcode": 267,
+            "param1": 41616,
+            "param2": 216,
+            "timing": 1,
+            "count": 1
+          }
+        ]
+      },
+      "artifacts": {
+        "challenge-before.state.json": "234b2691d5b53c09ba5da9a3580b9c74ec1be69e49e797be965e394716297e82",
+        "challenge-removed.state.json": "99145ecb2a6bff55b494d95d902c819c5459c9e6bb135ffe19cb563db9cd003c",
+        "challenge-restored.state.json": "6ca252d564ad9f9a2ace48da27714795d0aad16aaf7f065c520ea4a50b84587c",
+        "events.json": "9567240f892910be27f89f8bf47b3d03c2b01399aefd5037ca0ca6e46eeb4451",
+        "gui-result.json": "f224eff787592f1b64871e072b598909efbd1aaa30a59cb8d88699f909b0604a",
+        "probe.cfg": "07b3369bf31587e9b2a73e1361c69fab85038cc5ac6210f075a27c4628d5247c",
+        "process-result.json": "fedf23e9528f421e0fccd2963a7760ad4ad4706ac79dd45eeb28fa500eeaa09d",
+        "process.log": "648416348fd2d03ffc5c6fe304bd725fed9fd93547e7c0d3beb6b2d4b5e7a998",
+        "string-challenge.json": "6de92e6c20b9f9ab1d7789f4bc17604e2cdc49f2f82659aae7ce71bf3b882ec1"
+      },
+      "label": "baseline",
+      "checks": [
+        {
+          "phase": "loaded-protection",
+          "strref": 14665,
+          "passed": true,
+          "expected_suppressed": true,
+          "message_unchanged": true,
+          "appended_expected_text": false,
+          "apply_return_code": 0,
+          "before_sha256": "ac3b23a76c172115a7508485f0470b5d17ec4d5b320468cb4e4dabbec46aa49d",
+          "after_sha256": "ac3b23a76c172115a7508485f0470b5d17ec4d5b320468cb4e4dabbec46aa49d"
+        },
+        {
+          "phase": "loaded-protection",
+          "strref": 41616,
+          "passed": true,
+          "expected_suppressed": true,
+          "message_unchanged": true,
+          "appended_expected_text": false,
+          "apply_return_code": 0,
+          "before_sha256": "ac3b23a76c172115a7508485f0470b5d17ec4d5b320468cb4e4dabbec46aa49d",
+          "after_sha256": "ac3b23a76c172115a7508485f0470b5d17ec4d5b320468cb4e4dabbec46aa49d"
+        },
+        {
+          "phase": "loaded-protection",
+          "strref": 40979,
+          "passed": true,
+          "expected_suppressed": true,
+          "message_unchanged": true,
+          "appended_expected_text": false,
+          "apply_return_code": 0,
+          "before_sha256": "ac3b23a76c172115a7508485f0470b5d17ec4d5b320468cb4e4dabbec46aa49d",
+          "after_sha256": "ac3b23a76c172115a7508485f0470b5d17ec4d5b320468cb4e4dabbec46aa49d"
+        },
+        {
+          "phase": "loaded-protection",
+          "strref": 40969,
+          "passed": true,
+          "expected_suppressed": true,
+          "message_unchanged": true,
+          "appended_expected_text": false,
+          "apply_return_code": 0,
+          "before_sha256": "ac3b23a76c172115a7508485f0470b5d17ec4d5b320468cb4e4dabbec46aa49d",
+          "after_sha256": "ac3b23a76c172115a7508485f0470b5d17ec4d5b320468cb4e4dabbec46aa49d"
+        },
+        {
+          "phase": "loaded-protection",
+          "strref": 41495,
+          "passed": true,
+          "expected_suppressed": true,
+          "message_unchanged": true,
+          "appended_expected_text": false,
+          "apply_return_code": 0,
+          "before_sha256": "ac3b23a76c172115a7508485f0470b5d17ec4d5b320468cb4e4dabbec46aa49d",
+          "after_sha256": "ac3b23a76c172115a7508485f0470b5d17ec4d5b320468cb4e4dabbec46aa49d"
+        },
+        {
+          "phase": "removed-protection",
+          "strref": 14665,
+          "passed": true,
+          "expected_suppressed": false,
+          "message_unchanged": false,
+          "appended_expected_text": true,
+          "apply_return_code": 0,
+          "before_sha256": "ac3b23a76c172115a7508485f0470b5d17ec4d5b320468cb4e4dabbec46aa49d",
+          "after_sha256": "3c1cb039ff28040682dca9dd33fc91290855d582fe8805efcf588174ec2d0b86"
+        },
+        {
+          "phase": "removed-protection",
+          "strref": 41616,
+          "passed": true,
+          "expected_suppressed": false,
+          "message_unchanged": false,
+          "appended_expected_text": true,
+          "apply_return_code": 0,
+          "before_sha256": "3c1cb039ff28040682dca9dd33fc91290855d582fe8805efcf588174ec2d0b86",
+          "after_sha256": "3bed252bfdbe26289e33b108f12aaf9571b099529ddc620d83d37b0d7df2c8b3"
+        },
+        {
+          "phase": "removed-protection",
+          "strref": 40979,
+          "passed": true,
+          "expected_suppressed": false,
+          "message_unchanged": false,
+          "appended_expected_text": true,
+          "apply_return_code": 0,
+          "before_sha256": "3bed252bfdbe26289e33b108f12aaf9571b099529ddc620d83d37b0d7df2c8b3",
+          "after_sha256": "3995455b5e50158dafc49f9f4bb9694a998e8acc9be4c494977d69ef5a09ebf5"
+        },
+        {
+          "phase": "removed-protection",
+          "strref": 40969,
+          "passed": true,
+          "expected_suppressed": false,
+          "message_unchanged": false,
+          "appended_expected_text": true,
+          "apply_return_code": 0,
+          "before_sha256": "3995455b5e50158dafc49f9f4bb9694a998e8acc9be4c494977d69ef5a09ebf5",
+          "after_sha256": "9da49910f8d32189219759adc33b5f6aa4235b5b88df1fa101a84c8b69829e7d"
+        },
+        {
+          "phase": "removed-protection",
+          "strref": 41495,
+          "passed": true,
+          "expected_suppressed": false,
+          "message_unchanged": false,
+          "appended_expected_text": true,
+          "apply_return_code": 0,
+          "before_sha256": "9da49910f8d32189219759adc33b5f6aa4235b5b88df1fa101a84c8b69829e7d",
+          "after_sha256": "5e9627ac13d46ee6e161acb2a711a2f1648282dab71e46c525bb388dd02fc67a"
+        },
+        {
+          "phase": "reapplied-protection",
+          "strref": 14665,
+          "passed": true,
+          "expected_suppressed": true,
+          "message_unchanged": true,
+          "appended_expected_text": false,
+          "apply_return_code": 0,
+          "before_sha256": "5e9627ac13d46ee6e161acb2a711a2f1648282dab71e46c525bb388dd02fc67a",
+          "after_sha256": "5e9627ac13d46ee6e161acb2a711a2f1648282dab71e46c525bb388dd02fc67a"
+        },
+        {
+          "phase": "reapply-parameter-normalization",
+          "passed": true
+        },
+        {
+          "phase": "removed-clock-unchanged",
+          "passed": true
+        },
+        {
+          "phase": "removed-base-stats-unchanged",
+          "passed": true
+        },
+        {
+          "phase": "restored-clock-unchanged",
+          "passed": true
+        },
+        {
+          "phase": "restored-base-stats-unchanged",
+          "passed": true
+        }
+      ],
+      "source_fixture_unchanged": true
+    },
+    {
+      "name": "reload1",
+      "process": {
+        "pid": 16616,
+        "exit_code": 0,
+        "timeout_seconds": 45,
+        "timed_out": false,
+        "cleanup": "not required",
+        "elapsed_seconds": 3.973
+      },
+      "command": [
+        "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\gui-probe\\Redux_gui_probe.exe",
+        "--config",
+        "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T033027Z-string-challenge-472c0ed2\\reload1\\probe.cfg",
+        "--output",
+        "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T033027Z-string-challenge-472c0ed2\\reload1",
+        "--scripts",
+        "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\tools\\phase0\\gui",
+        "--mode",
+        "string-challenge"
+      ],
+      "input_unchanged": true,
+      "input_wire": {
+        "total": 14,
+        "permanent": 14,
+        "equipped": 0,
+        "signatures": [
+          {
+            "opcode": 101,
+            "param1": 0,
+            "param2": 134,
+            "timing": 1,
+            "count": 2
+          },
+          {
+            "opcode": 101,
+            "param1": 0,
+            "param2": 216,
+            "timing": 1,
+            "count": 2
+          },
+          {
+            "opcode": 267,
+            "param1": 14665,
+            "param2": 134,
+            "timing": 1,
+            "count": 2
+          },
+          {
+            "opcode": 267,
+            "param1": 40969,
+            "param2": 216,
+            "timing": 1,
+            "count": 2
+          },
+          {
+            "opcode": 267,
+            "param1": 40979,
+            "param2": 216,
+            "timing": 1,
+            "count": 2
+          },
+          {
+            "opcode": 267,
+            "param1": 41495,
+            "param2": 216,
+            "timing": 1,
+            "count": 2
+          },
+          {
+            "opcode": 267,
+            "param1": 41616,
+            "param2": 216,
+            "timing": 1,
+            "count": 2
+          }
+        ]
+      },
+      "artifacts": {
+        "challenge-before.state.json": "7c612973ca6a6fc25e165b366068cef5ca3a434963d2ee9820a3c1372ef7cfdc",
+        "challenge-removed.state.json": "2f3eb81f8c6b93abf05d39b0fc9c18e1969d502bade6c6f9805c0aa36ed367dc",
+        "challenge-restored.state.json": "cdccd479f6382cac490e272cff7a81bd0a6c1a09c9c4df41c3dd1acf6c23e006",
+        "events.json": "9567240f892910be27f89f8bf47b3d03c2b01399aefd5037ca0ca6e46eeb4451",
+        "gui-result.json": "f224eff787592f1b64871e072b598909efbd1aaa30a59cb8d88699f909b0604a",
+        "probe.cfg": "bc554642813a2fd2c280362de45438c462ea712141236c3995b1e2fba9a4bd95",
+        "process-result.json": "04e13f40a16ed4d46e1f1bc3c113a6d2931e817f0472dc487411587fcf261139",
+        "process.log": "8c1343923b9c8cf2f3b4071a6ba1c94687547753e640f32d63abdf782d80a4b2",
+        "string-challenge.json": "682248a75b2dd1a9c219a150322c2a476c540eccd744948c73cca460d295bc32"
+      },
+      "label": "reload1",
+      "checks": [
+        {
+          "phase": "loaded-protection",
+          "strref": 14665,
+          "passed": true,
+          "expected_suppressed": true,
+          "message_unchanged": true,
+          "appended_expected_text": false,
+          "apply_return_code": 0,
+          "before_sha256": "efe6cc15f547d6aebed0a51bdbc83a081d794b79e22087c139f1bdcbc4df4ddf",
+          "after_sha256": "efe6cc15f547d6aebed0a51bdbc83a081d794b79e22087c139f1bdcbc4df4ddf"
+        },
+        {
+          "phase": "loaded-protection",
+          "strref": 41616,
+          "passed": true,
+          "expected_suppressed": true,
+          "message_unchanged": true,
+          "appended_expected_text": false,
+          "apply_return_code": 0,
+          "before_sha256": "efe6cc15f547d6aebed0a51bdbc83a081d794b79e22087c139f1bdcbc4df4ddf",
+          "after_sha256": "efe6cc15f547d6aebed0a51bdbc83a081d794b79e22087c139f1bdcbc4df4ddf"
+        },
+        {
+          "phase": "loaded-protection",
+          "strref": 40979,
+          "passed": true,
+          "expected_suppressed": true,
+          "message_unchanged": true,
+          "appended_expected_text": false,
+          "apply_return_code": 0,
+          "before_sha256": "efe6cc15f547d6aebed0a51bdbc83a081d794b79e22087c139f1bdcbc4df4ddf",
+          "after_sha256": "efe6cc15f547d6aebed0a51bdbc83a081d794b79e22087c139f1bdcbc4df4ddf"
+        },
+        {
+          "phase": "loaded-protection",
+          "strref": 40969,
+          "passed": true,
+          "expected_suppressed": true,
+          "message_unchanged": true,
+          "appended_expected_text": false,
+          "apply_return_code": 0,
+          "before_sha256": "efe6cc15f547d6aebed0a51bdbc83a081d794b79e22087c139f1bdcbc4df4ddf",
+          "after_sha256": "efe6cc15f547d6aebed0a51bdbc83a081d794b79e22087c139f1bdcbc4df4ddf"
+        },
+        {
+          "phase": "loaded-protection",
+          "strref": 41495,
+          "passed": true,
+          "expected_suppressed": true,
+          "message_unchanged": true,
+          "appended_expected_text": false,
+          "apply_return_code": 0,
+          "before_sha256": "efe6cc15f547d6aebed0a51bdbc83a081d794b79e22087c139f1bdcbc4df4ddf",
+          "after_sha256": "efe6cc15f547d6aebed0a51bdbc83a081d794b79e22087c139f1bdcbc4df4ddf"
+        },
+        {
+          "phase": "removed-protection",
+          "strref": 14665,
+          "passed": true,
+          "expected_suppressed": false,
+          "message_unchanged": false,
+          "appended_expected_text": true,
+          "apply_return_code": 0,
+          "before_sha256": "efe6cc15f547d6aebed0a51bdbc83a081d794b79e22087c139f1bdcbc4df4ddf",
+          "after_sha256": "2f951aa433f74fe607caf8ddcd7a3f5a7b42a5ac1e10d09d1dcdebf28634b4b6"
+        },
+        {
+          "phase": "removed-protection",
+          "strref": 41616,
+          "passed": true,
+          "expected_suppressed": false,
+          "message_unchanged": false,
+          "appended_expected_text": true,
+          "apply_return_code": 0,
+          "before_sha256": "2f951aa433f74fe607caf8ddcd7a3f5a7b42a5ac1e10d09d1dcdebf28634b4b6",
+          "after_sha256": "8e90fb7d435ea809929917b85164c23f8e28b29265e9e4fc09c0b01e1eecf512"
+        },
+        {
+          "phase": "removed-protection",
+          "strref": 40979,
+          "passed": true,
+          "expected_suppressed": false,
+          "message_unchanged": false,
+          "appended_expected_text": true,
+          "apply_return_code": 0,
+          "before_sha256": "8e90fb7d435ea809929917b85164c23f8e28b29265e9e4fc09c0b01e1eecf512",
+          "after_sha256": "a982426f16394465861a81fda3378ff4eb390c4f5debfdd862b79da5726ec88d"
+        },
+        {
+          "phase": "removed-protection",
+          "strref": 40969,
+          "passed": true,
+          "expected_suppressed": false,
+          "message_unchanged": false,
+          "appended_expected_text": true,
+          "apply_return_code": 0,
+          "before_sha256": "a982426f16394465861a81fda3378ff4eb390c4f5debfdd862b79da5726ec88d",
+          "after_sha256": "96d3002e087caeafefbe3f517481d2c9d723afa746bf3eee7a8e78be55fbda58"
+        },
+        {
+          "phase": "removed-protection",
+          "strref": 41495,
+          "passed": true,
+          "expected_suppressed": false,
+          "message_unchanged": false,
+          "appended_expected_text": true,
+          "apply_return_code": 0,
+          "before_sha256": "96d3002e087caeafefbe3f517481d2c9d723afa746bf3eee7a8e78be55fbda58",
+          "after_sha256": "85c8885193226d786e4c7d49e4a5ba76ff7c8e874565b388b2f65fc5004474ac"
+        },
+        {
+          "phase": "reapplied-protection",
+          "strref": 14665,
+          "passed": true,
+          "expected_suppressed": true,
+          "message_unchanged": true,
+          "appended_expected_text": false,
+          "apply_return_code": 0,
+          "before_sha256": "85c8885193226d786e4c7d49e4a5ba76ff7c8e874565b388b2f65fc5004474ac",
+          "after_sha256": "85c8885193226d786e4c7d49e4a5ba76ff7c8e874565b388b2f65fc5004474ac"
+        },
+        {
+          "phase": "reapply-parameter-normalization",
+          "passed": true
+        },
+        {
+          "phase": "removed-clock-unchanged",
+          "passed": true
+        },
+        {
+          "phase": "removed-base-stats-unchanged",
+          "passed": true
+        },
+        {
+          "phase": "restored-clock-unchanged",
+          "passed": true
+        },
+        {
+          "phase": "restored-base-stats-unchanged",
+          "passed": true
+        }
+      ],
+      "source_fixture_unchanged": true
+    },
+    {
+      "name": "reload2",
+      "process": {
+        "pid": 32308,
+        "exit_code": 0,
+        "timeout_seconds": 45,
+        "timed_out": false,
+        "cleanup": "not required",
+        "elapsed_seconds": 3.894
+      },
+      "command": [
+        "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\gui-probe\\Redux_gui_probe.exe",
+        "--config",
+        "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T033027Z-string-challenge-472c0ed2\\reload2\\probe.cfg",
+        "--output",
+        "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T033027Z-string-challenge-472c0ed2\\reload2",
+        "--scripts",
+        "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\tools\\phase0\\gui",
+        "--mode",
+        "string-challenge"
+      ],
+      "input_unchanged": true,
+      "input_wire": {
+        "total": 21,
+        "permanent": 21,
+        "equipped": 0,
+        "signatures": [
+          {
+            "opcode": 101,
+            "param1": 0,
+            "param2": 134,
+            "timing": 1,
+            "count": 3
+          },
+          {
+            "opcode": 101,
+            "param1": 0,
+            "param2": 216,
+            "timing": 1,
+            "count": 3
+          },
+          {
+            "opcode": 267,
+            "param1": 14665,
+            "param2": 134,
+            "timing": 1,
+            "count": 3
+          },
+          {
+            "opcode": 267,
+            "param1": 40969,
+            "param2": 216,
+            "timing": 1,
+            "count": 3
+          },
+          {
+            "opcode": 267,
+            "param1": 40979,
+            "param2": 216,
+            "timing": 1,
+            "count": 3
+          },
+          {
+            "opcode": 267,
+            "param1": 41495,
+            "param2": 216,
+            "timing": 1,
+            "count": 3
+          },
+          {
+            "opcode": 267,
+            "param1": 41616,
+            "param2": 216,
+            "timing": 1,
+            "count": 3
+          }
+        ]
+      },
+      "artifacts": {
+        "challenge-before.state.json": "d2ee460d7b00f6c6bbf8059598330f497f83e3a663a991d8bd91f08a7fb50891",
+        "challenge-removed.state.json": "14202dcc8ac734b1dccb17563b846227f6d3e6e0634f171283d2551f2bbc222d",
+        "challenge-restored.state.json": "b6408a4a4dddb12d7546f99b12adfae694131fa7145b631bef248ea10462ca0f",
+        "events.json": "9567240f892910be27f89f8bf47b3d03c2b01399aefd5037ca0ca6e46eeb4451",
+        "gui-result.json": "f224eff787592f1b64871e072b598909efbd1aaa30a59cb8d88699f909b0604a",
+        "probe.cfg": "6143763c4aa35bfa9f6f9e6d5fccd8f1f08d38abc169151f3efff5b230f1c15c",
+        "process-result.json": "eed2a6b1613d8bdce762bf914069fe667cf8633b78f0976806ccc3b774b84a5a",
+        "process.log": "2ce28a1dc919b9e784a1d6dabe22419677c842a1e0558bf2465b06f066abe679",
+        "string-challenge.json": "139ad119cc310676543c97eddceab133a30d80c3eff36b198d25b52b0a27cc50"
+      },
+      "label": "reload2",
+      "checks": [
+        {
+          "phase": "loaded-protection",
+          "strref": 14665,
+          "passed": true,
+          "expected_suppressed": true,
+          "message_unchanged": true,
+          "appended_expected_text": false,
+          "apply_return_code": 0,
+          "before_sha256": "a86b487a6fa072c7ca7f8386a268b2ed13a52702316c91587155d589deec6d44",
+          "after_sha256": "a86b487a6fa072c7ca7f8386a268b2ed13a52702316c91587155d589deec6d44"
+        },
+        {
+          "phase": "loaded-protection",
+          "strref": 41616,
+          "passed": true,
+          "expected_suppressed": true,
+          "message_unchanged": true,
+          "appended_expected_text": false,
+          "apply_return_code": 0,
+          "before_sha256": "a86b487a6fa072c7ca7f8386a268b2ed13a52702316c91587155d589deec6d44",
+          "after_sha256": "a86b487a6fa072c7ca7f8386a268b2ed13a52702316c91587155d589deec6d44"
+        },
+        {
+          "phase": "loaded-protection",
+          "strref": 40979,
+          "passed": true,
+          "expected_suppressed": true,
+          "message_unchanged": true,
+          "appended_expected_text": false,
+          "apply_return_code": 0,
+          "before_sha256": "a86b487a6fa072c7ca7f8386a268b2ed13a52702316c91587155d589deec6d44",
+          "after_sha256": "a86b487a6fa072c7ca7f8386a268b2ed13a52702316c91587155d589deec6d44"
+        },
+        {
+          "phase": "loaded-protection",
+          "strref": 40969,
+          "passed": true,
+          "expected_suppressed": true,
+          "message_unchanged": true,
+          "appended_expected_text": false,
+          "apply_return_code": 0,
+          "before_sha256": "a86b487a6fa072c7ca7f8386a268b2ed13a52702316c91587155d589deec6d44",
+          "after_sha256": "a86b487a6fa072c7ca7f8386a268b2ed13a52702316c91587155d589deec6d44"
+        },
+        {
+          "phase": "loaded-protection",
+          "strref": 41495,
+          "passed": true,
+          "expected_suppressed": true,
+          "message_unchanged": true,
+          "appended_expected_text": false,
+          "apply_return_code": 0,
+          "before_sha256": "a86b487a6fa072c7ca7f8386a268b2ed13a52702316c91587155d589deec6d44",
+          "after_sha256": "a86b487a6fa072c7ca7f8386a268b2ed13a52702316c91587155d589deec6d44"
+        },
+        {
+          "phase": "removed-protection",
+          "strref": 14665,
+          "passed": true,
+          "expected_suppressed": false,
+          "message_unchanged": false,
+          "appended_expected_text": true,
+          "apply_return_code": 0,
+          "before_sha256": "a86b487a6fa072c7ca7f8386a268b2ed13a52702316c91587155d589deec6d44",
+          "after_sha256": "b6ecbc46f8caef374bc3b845a9ba7b3eb4079dbd7d0e4486cca57b098ca90ada"
+        },
+        {
+          "phase": "removed-protection",
+          "strref": 41616,
+          "passed": true,
+          "expected_suppressed": false,
+          "message_unchanged": false,
+          "appended_expected_text": true,
+          "apply_return_code": 0,
+          "before_sha256": "b6ecbc46f8caef374bc3b845a9ba7b3eb4079dbd7d0e4486cca57b098ca90ada",
+          "after_sha256": "53e0d6f9cbe4b7e49ee06b8f85a281fe5b6482b2201cb1e735d18f2a0d06947f"
+        },
+        {
+          "phase": "removed-protection",
+          "strref": 40979,
+          "passed": true,
+          "expected_suppressed": false,
+          "message_unchanged": false,
+          "appended_expected_text": true,
+          "apply_return_code": 0,
+          "before_sha256": "53e0d6f9cbe4b7e49ee06b8f85a281fe5b6482b2201cb1e735d18f2a0d06947f",
+          "after_sha256": "7744eb1b50e2e09f5310b2dac8c4b94a7f7f7048afcb17c0f28804350ff01255"
+        },
+        {
+          "phase": "removed-protection",
+          "strref": 40969,
+          "passed": true,
+          "expected_suppressed": false,
+          "message_unchanged": false,
+          "appended_expected_text": true,
+          "apply_return_code": 0,
+          "before_sha256": "7744eb1b50e2e09f5310b2dac8c4b94a7f7f7048afcb17c0f28804350ff01255",
+          "after_sha256": "5736c98e3cd9fd3023340d41fd5c50befef8c590dc87ad5e05a9c410fd7ba8e1"
+        },
+        {
+          "phase": "removed-protection",
+          "strref": 41495,
+          "passed": true,
+          "expected_suppressed": false,
+          "message_unchanged": false,
+          "appended_expected_text": true,
+          "apply_return_code": 0,
+          "before_sha256": "5736c98e3cd9fd3023340d41fd5c50befef8c590dc87ad5e05a9c410fd7ba8e1",
+          "after_sha256": "27fe0ff8fc05343004b4a10f96ea4437cca7d46b67377294d6b0bf93896a3928"
+        },
+        {
+          "phase": "reapplied-protection",
+          "strref": 14665,
+          "passed": true,
+          "expected_suppressed": true,
+          "message_unchanged": true,
+          "appended_expected_text": false,
+          "apply_return_code": 0,
+          "before_sha256": "27fe0ff8fc05343004b4a10f96ea4437cca7d46b67377294d6b0bf93896a3928",
+          "after_sha256": "27fe0ff8fc05343004b4a10f96ea4437cca7d46b67377294d6b0bf93896a3928"
+        },
+        {
+          "phase": "reapply-parameter-normalization",
+          "passed": true
+        },
+        {
+          "phase": "removed-clock-unchanged",
+          "passed": true
+        },
+        {
+          "phase": "removed-base-stats-unchanged",
+          "passed": true
+        },
+        {
+          "phase": "restored-clock-unchanged",
+          "passed": true
+        },
+        {
+          "phase": "restored-base-stats-unchanged",
+          "passed": true
+        }
+      ],
+      "source_fixture_unchanged": true
+    }
+  ],
+  "verdict": "passed-bounded-gemrb-behavior",
+  "scope": "Observe DisplayString protection with bounded private-fixture interventions.\n\nNo player commands, original-runtime effect challenge, deterministic ticks or\nengine changes are claimed. Return codes are evidence, never outcome oracles.\n",
+  "engine_source_modified": false,
+  "build": {
+    "command": [
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\toolchain\\msys64\\ucrt64\\bin\\g++.exe",
+      "-std=gnu++17",
+      "-g",
+      "-O0",
+      "-DHAVE_CONFIG_H",
+      "-DUSE_OPENGL_API",
+      "-D_USE_MATH_DEFINES",
+      "-DFMT_HEADER_ONLY",
+      "-DFMT_USE_CONSTEVAL=0",
+      "-DFMT_EXCEPTIONS=0",
+      "-DFMT_UNICODE=1",
+      "-fno-strict-aliasing",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\build",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\gemrb\\gemrb\\includes",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\gemrb\\gemrb\\core",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\gemrb\\platforms\\Windows",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\build\\gemrb\\includes",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\toolchain\\msys64\\ucrt64\\include\\SDL2",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\toolchain\\msys64\\ucrt64\\include\\python3.14",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\gemrb\\includes\\fmt",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\tools\\phase0\\native\\gui_probe.cpp",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\build\\gemrb\\core\\libgemrb_core.dll.a",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\toolchain\\msys64\\ucrt64\\lib\\libiconv.dll.a",
+      "-lshlwapi",
+      "-o",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\gui-probe\\Redux_gui_probe.exe"
+    ],
+    "exit_code": 0,
+    "sources": {
+      "tools\\phase0\\native\\gui_probe.cpp": "0e721371acc7c09f087e73f0ae7aec27ca81451e980790c0419714aa15fa8d67",
+      "tools\\phase0\\native\\save_probe.cpp": "d4f332b73c5a0bf579538de5624add4172d460ed880ae73d1c1cdfd13a11ad1e"
+    },
+    "engine_dll_sha256": "5b8719d3f3257404f4611927826af1ae9cdeb2c735fc0ed6d1afc981eb14c99f",
+    "compiler_sha256": "5f30e02408ab97050fcbfa39bb391b0923cf9402063920b849ab8491e63334b3",
+    "binary_sha256": "bdd10c156a1aeff423dd97cfa4efcaa048acf1fc2b6ad9401547fd47d34b1b90"
+  },
+  "assertions_total": 48,
+  "assertions_passed": 48,
+  "tool_sources": {
+    "tools\\phase0\\string_challenge.py": "c4c712c0681d2004de370db10fa8ef92bf1674bde2c7157977f2c1ae605e5b97",
+    "tools\\phase0\\effect_cycle.py": "9394bc4ae36b74643e7abf9b8d4a005d6e4c6b742d59a3159a129e2920831721"
+  }
+}

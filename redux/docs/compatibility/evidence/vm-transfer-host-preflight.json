@@ -1,0 +1,14 @@
+{
+  "schema": "bg-redux-transfer-host-preflight/1",
+  "utc": "2026-10-21T18:41:42.162096+00:00",
+  "exit_code": 0,
+  "tests_run": 71,
+  "executed_on": "Copied UCRT64 runtime on existing physical host; not a VM",
+  "guest_tests_executed": false,
+  "log_sha256": "86caa8ec205ceb46a799c4152e267560d83a9e52751240e27a7d9b734e9b137c",
+  "previous_attempt": "copied-runtime-host-preflight.json",
+  "historical_oracle_runs": [
+    "20261021T011818Z-gui-stock-verified-fe7b575f",
+    "20261020T230658Z-vanilla-oracle-f6a33b02"
+  ]
+}

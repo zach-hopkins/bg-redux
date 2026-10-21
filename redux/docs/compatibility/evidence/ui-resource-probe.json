@@ -1,0 +1,2397 @@
+{
+  "scope": "Read-only metadata probe for this BG2EE fixture, not a general IE importer.\n\nInspects uncompressed BIFF resources and packaged CHU label references. It does\nnot reproduce GemRB's full provider precedence or execute EE Lua/menu assembly.\nOnly metadata/counts and short table headers are saved, never extracted assets.\n",
+  "resource_count": 62575,
+  "tlk_entries": 103599,
+  "fonts": [
+    {
+      "name": "normal",
+      "type": "ttf",
+      "origin": "data\\Patch2.bif",
+      "bytes": 42196,
+      "signature_hex": "0001000000130100",
+      "sha256": "36535228a4ea3288216b1fbfd8f8056ebe23ef59a546a7660670b439997bf553"
+    },
+    {
+      "name": "normal",
+      "type": "bam",
+      "origin": "data\\GUIFont.bif",
+      "bytes": 9921,
+      "signature_hex": "42414d4356312020",
+      "sha256": "3f31e9cfeee4a19feff36053acb20fd4796fef5bf79aa6d2861a8757590fea3d"
+    },
+    {
+      "name": "floattxt",
+      "type": "ttf",
+      "origin": "data\\Patch2.bif",
+      "bytes": 647184,
+      "signature_hex": "0001000000150100",
+      "sha256": "1acbc38a9d5bf05ae519f6405f0d3634938b992250b605d15976f15f774d5eb3"
+    },
+    {
+      "name": "floattxt",
+      "type": "bam",
+      "origin": "data\\GUIBam.bif",
+      "bytes": 6051,
+      "signature_hex": "42414d4356312020",
+      "sha256": "51dfd959f8ea0b21dd71295396c78e320f59af36b3beb7b88dfbf99e2d6d2ce8"
+    },
+    {
+      "name": "number",
+      "type": "bam",
+      "origin": "data\\GUIFont.bif",
+      "bytes": 2886,
+      "signature_hex": "42414d2056312020",
+      "sha256": "486e071cff4160b25d2d2325574fe154af204da5a6508f84fc1a7eeb695d08d6"
+    },
+    {
+      "name": "initials",
+      "type": "bam",
+      "origin": "data\\GUIFont.bif",
+      "bytes": 20368,
+      "signature_hex": "42414d4356312020",
+      "sha256": "f888e1f0d109644c3122cc3e3916268a1a9c0b131907835700a0a272735a66af"
+    },
+    {
+      "name": "stonebig",
+      "type": "ttf",
+      "origin": "data\\Patch2.bif",
+      "bytes": 46548,
+      "signature_hex": "00010000000e0080",
+      "sha256": "01de2cbd742dbcaaca1ce16f25af93cbabc7eebf075215fa6d454a2f590fb3f5"
+    },
+    {
+      "name": "stonebig",
+      "type": "bam",
+      "origin": "data\\GUIFont.bif",
+      "bytes": 14094,
+      "signature_hex": "42414d4356312020",
+      "sha256": "bf34c1bdfa11deda528e654b5b32af91143a87cadf086b39819ae3992afba204"
+    },
+    {
+      "name": "stonesml",
+      "type": "ttf",
+      "origin": "data\\Patch2.bif",
+      "bytes": 60256,
+      "signature_hex": "0001000000120100",
+      "sha256": "d5f8469b2c5054579f9b1996c0a41021d3661bf17b21d1f454cf4ecf537c6603"
+    },
+    {
+      "name": "stonesml",
+      "type": "bam",
+      "origin": "data\\GUIFont.bif",
+      "bytes": 14094,
+      "signature_hex": "42414d4356312020",
+      "sha256": "bf34c1bdfa11deda528e654b5b32af91143a87cadf086b39819ae3992afba204"
+    },
+    {
+      "name": "toolfont",
+      "type": "ttf",
+      "origin": "data\\Patch2.bif",
+      "bytes": 51040,
+      "signature_hex": "00010000000f0080",
+      "sha256": "e897003cb09c5f9128891aa676f538e6a38579caf1831e307716d4f16be469b9"
+    },
+    {
+      "name": "toolfont",
+      "type": "bam",
+      "origin": "data\\GUIFont.bif",
+      "bytes": 9945,
+      "signature_hex": "42414d4356312020",
+      "sha256": "819b0d5a4727c53df89a0cac17e3fff3535d1249b5ad95a98712ed8d404c7071"
+    },
+    {
+      "name": "tooltip",
+      "type": "ttf",
+      "origin": "data\\Patch2.bif",
+      "bytes": 51040,
+      "signature_hex": "00010000000f0080",
+      "sha256": "e897003cb09c5f9128891aa676f538e6a38579caf1831e307716d4f16be469b9"
+    },
+    {
+      "name": "tooltip",
+      "type": "bam",
+      "origin": "data\\GUIBam.bif",
+      "bytes": 9921,
+      "signature_hex": "42414d4356312020",
+      "sha256": "3f31e9cfeee4a19feff36053acb20fd4796fef5bf79aa6d2861a8757590fea3d"
+    },
+    {
+      "name": "stonsml",
+      "type": "bam",
+      "origin": "data\\GUIFont.bif",
+      "bytes": 15747,
+      "signature_hex": "42414d4356312020",
+      "sha256": "ada2a8f6d59131798460c7d8d0a46308ff00b3ae28e60f888790e63a74cdedb7"
+    }
+  ],
+  "windows": [
+    {
+      "resource": "guiinv",
+      "origin": "data\\GUICHUI.bif",
+      "window": 0,
+      "controls": 10,
+      "control_types": {
+        "0": 10
+      },
+      "labels": []
+    },
+    {
+      "resource": "guiinv",
+      "origin": "data\\GUICHUI.bif",
+      "window": 1,
+      "controls": 6,
+      "control_types": {
+        "0": 6
+      },
+      "labels": []
+    },
+    {
+      "resource": "guiinv",
+      "origin": "data\\GUICHUI.bif",
+      "window": 2,
+      "controls": 72,
+      "control_types": {
+        "0": 48,
+        "6": 13,
+        "7": 6,
+        "5": 5
+      },
+      "labels": [
+        {
+          "id": "0x10000032",
+          "rect": [
+            109,
+            55,
+            192,
+            24
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x10000033",
+          "rect": [
+            244,
+            9,
+            430,
+            33
+          ],
+          "strref": 6671,
+          "font": "realms",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x10000034",
+          "rect": [
+            44,
+            205,
+            165,
+            23
+          ],
+          "strref": 7218,
+          "font": "stonesml",
+          "tlk_bytes": 13
+        },
+        {
+          "id": "0x10000035",
+          "rect": [
+            35,
+            308,
+            130,
+            25
+          ],
+          "strref": 7219,
+          "font": "stonesml",
+          "tlk_bytes": 11
+        },
+        {
+          "id": "0x10000036",
+          "rect": [
+            88,
+            99,
+            127,
+            25
+          ],
+          "strref": 7220,
+          "font": "stonesml",
+          "tlk_bytes": 6
+        },
+        {
+          "id": "0x10000037",
+          "rect": [
+            726,
+            435,
+            86,
+            20
+          ],
+          "strref": 7221,
+          "font": "stonesml",
+          "tlk_bytes": 6
+        },
+        {
+          "id": "0x10000038",
+          "rect": [
+            545,
+            74,
+            34,
+            32
+          ],
+          "strref": 0,
+          "font": "normal",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x10000039",
+          "rect": [
+            533,
+            163,
+            54,
+            16
+          ],
+          "strref": 0,
+          "font": "normal",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x1000003a",
+          "rect": [
+            533,
+            186,
+            54,
+            16
+          ],
+          "strref": 0,
+          "font": "normal",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x10000040",
+          "rect": [
+            395,
+            492,
+            112,
+            23
+          ],
+          "strref": 2367,
+          "font": "normal",
+          "tlk_bytes": 4
+        },
+        {
+          "id": "0x10000042",
+          "rect": [
+            329,
+            54,
+            182,
+            24
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x10000055",
+          "rect": [
+            533,
+            255,
+            54,
+            44
+          ],
+          "strref": 0,
+          "font": "normal",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x10000056",
+          "rect": [
+            540,
+            345,
+            45,
+            44
+          ],
+          "strref": 0,
+          "font": "normal",
+          "tlk_bytes": 9
+        }
+      ]
+    },
+    {
+      "resource": "guiinv",
+      "origin": "data\\GUICHUI.bif",
+      "window": 3,
+      "controls": 35,
+      "control_types": {
+        "0": 34,
+        "6": 1
+      },
+      "labels": [
+        {
+          "id": "0x10000021",
+          "rect": [
+            37,
+            30,
+            443,
+            49
+          ],
+          "strref": 8791,
+          "font": "stonesml",
+          "tlk_bytes": 5
+        }
+      ]
+    },
+    {
+      "resource": "guiinv",
+      "origin": "data\\GUICHUI.bif",
+      "window": 5,
+      "controls": 10,
+      "control_types": {
+        "6": 3,
+        "5": 1,
+        "7": 1,
+        "0": 5
+      },
+      "labels": [
+        {
+          "id": "0xfffffff",
+          "rect": [
+            79,
+            13,
+            705,
+            41
+          ],
+          "strref": 15120,
+          "font": "realms",
+          "tlk_bytes": 4
+        },
+        {
+          "id": "0x10000000",
+          "rect": [
+            100,
+            175,
+            654,
+            27
+          ],
+          "strref": 0,
+          "font": "normal",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x1000000b",
+          "rect": [
+            351,
+            207,
+            429,
+            28
+          ],
+          "strref": 0,
+          "font": "normal",
+          "tlk_bytes": 9
+        }
+      ]
+    },
+    {
+      "resource": "guiinv",
+      "origin": "data\\GUICHUI.bif",
+      "window": 4,
+      "controls": 7,
+      "control_types": {
+        "0": 5,
+        "6": 1,
+        "3": 1
+      },
+      "labels": [
+        {
+          "id": "0x10000004",
+          "rect": [
+            46,
+            128,
+            316,
+            29
+          ],
+          "strref": 13724,
+          "font": "stonesml",
+          "tlk_bytes": 13
+        }
+      ]
+    },
+    {
+      "resource": "guiinv",
+      "origin": "data\\GUICHUI.bif",
+      "window": 6,
+      "controls": 11,
+      "control_types": {
+        "6": 4,
+        "0": 5,
+        "5": 1,
+        "7": 1
+      },
+      "labels": [
+        {
+          "id": "0xfffffff",
+          "rect": [
+            79,
+            13,
+            705,
+            41
+          ],
+          "strref": 15121,
+          "font": "stonesml",
+          "tlk_bytes": 14
+        },
+        {
+          "id": "0x10000003",
+          "rect": [
+            338,
+            161,
+            356,
+            71
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x10000004",
+          "rect": [
+            338,
+            251,
+            356,
+            71
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x10000005",
+          "rect": [
+            338,
+            340,
+            356,
+            71
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        }
+      ]
+    },
+    {
+      "resource": "guiinv",
+      "origin": "data\\GUICHUI.bif",
+      "window": 7,
+      "controls": 3,
+      "control_types": {
+        "5": 1,
+        "0": 1,
+        "7": 1
+      },
+      "labels": []
+    },
+    {
+      "resource": "guiinv",
+      "origin": "data\\GUICHUI.bif",
+      "window": 8,
+      "controls": 3,
+      "control_types": {
+        "5": 1,
+        "0": 2
+      },
+      "labels": []
+    },
+    {
+      "resource": "guiinv",
+      "origin": "data\\GUICHUI.bif",
+      "window": 9,
+      "controls": 5,
+      "control_types": {
+        "5": 1,
+        "0": 3,
+        "7": 1
+      },
+      "labels": []
+    },
+    {
+      "resource": "guirec",
+      "origin": "data\\GUICHUI.bif",
+      "window": 0,
+      "controls": 10,
+      "control_types": {
+        "0": 10
+      },
+      "labels": []
+    },
+    {
+      "resource": "guirec",
+      "origin": "data\\GUICHUI.bif",
+      "window": 1,
+      "controls": 6,
+      "control_types": {
+        "0": 6
+      },
+      "labels": []
+    },
+    {
+      "resource": "guirec",
+      "origin": "data\\GUICHUI.bif",
+      "window": 2,
+      "controls": 44,
+      "control_types": {
+        "0": 8,
+        "6": 26,
+        "5": 5,
+        "7": 5
+      },
+      "labels": [
+        {
+          "id": "0x10000002",
+          "rect": [
+            23,
+            99,
+            215,
+            38
+          ],
+          "strref": 7176,
+          "font": "normal",
+          "tlk_bytes": 8
+        },
+        {
+          "id": "0x10000003",
+          "rect": [
+            23,
+            142,
+            215,
+            38
+          ],
+          "strref": 7177,
+          "font": "normal",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x10000004",
+          "rect": [
+            23,
+            185,
+            215,
+            38
+          ],
+          "strref": 7178,
+          "font": "normal",
+          "tlk_bytes": 12
+        },
+        {
+          "id": "0x10000005",
+          "rect": [
+            23,
+            228,
+            215,
+            38
+          ],
+          "strref": 7179,
+          "font": "normal",
+          "tlk_bytes": 12
+        },
+        {
+          "id": "0x10000006",
+          "rect": [
+            23,
+            271,
+            215,
+            38
+          ],
+          "strref": 7180,
+          "font": "normal",
+          "tlk_bytes": 6
+        },
+        {
+          "id": "0x10000007",
+          "rect": [
+            23,
+            314,
+            215,
+            38
+          ],
+          "strref": 7181,
+          "font": "normal",
+          "tlk_bytes": 8
+        },
+        {
+          "id": "0x10000009",
+          "rect": [
+            263,
+            143,
+            70,
+            36
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x1000000a",
+          "rect": [
+            263,
+            186,
+            70,
+            36
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x1000000b",
+          "rect": [
+            263,
+            229,
+            70,
+            36
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x1000000c",
+          "rect": [
+            263,
+            272,
+            70,
+            36
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x1000000d",
+          "rect": [
+            263,
+            315,
+            70,
+            36
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x1000000e",
+          "rect": [
+            112,
+            39,
+            300,
+            35
+          ],
+          "strref": 7214,
+          "font": "stonesml",
+          "tlk_bytes": 33
+        },
+        {
+          "id": "0x1000000f",
+          "rect": [
+            356,
+            395,
+            155,
+            35
+          ],
+          "strref": 7205,
+          "font": "stonesml",
+          "tlk_bytes": 19
+        },
+        {
+          "id": "0x10000010",
+          "rect": [
+            356,
+            430,
+            155,
+            35
+          ],
+          "strref": 7193,
+          "font": "stonesml",
+          "tlk_bytes": 5
+        },
+        {
+          "id": "0x10000011",
+          "rect": [
+            356,
+            465,
+            155,
+            35
+          ],
+          "strref": 7192,
+          "font": "stonesml",
+          "tlk_bytes": 5
+        },
+        {
+          "id": "0x10000027",
+          "rect": [
+            58,
+            9,
+            748,
+            24
+          ],
+          "strref": 7171,
+          "font": "realms",
+          "tlk_bytes": 6
+        },
+        {
+          "id": "0x10000028",
+          "rect": [
+            29,
+            415,
+            32,
+            30
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x10000029",
+          "rect": [
+            24,
+            499,
+            43,
+            15
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x1000002a",
+          "rect": [
+            24,
+            521,
+            43,
+            16
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x1000002f",
+          "rect": [
+            263,
+            100,
+            70,
+            36
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x10000030",
+          "rect": [
+            462,
+            37,
+            300,
+            35
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x1000003d",
+          "rect": [
+            27,
+            409,
+            35,
+            41
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x1000003e",
+          "rect": [
+            19,
+            506,
+            49,
+            16
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x1000003f",
+          "rect": [
+            19,
+            522,
+            49,
+            16
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x10000040",
+          "rect": [
+            533,
+            414,
+            50,
+            44
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x10000041",
+          "rect": [
+            533,
+            505,
+            50,
+            44
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        }
+      ]
+    },
+    {
+      "resource": "guirec",
+      "origin": "data\\GUICHUI.bif",
+      "window": 3,
+      "controls": 98,
+      "control_types": {
+        "0": 71,
+        "6": 23,
+        "7": 3,
+        "5": 1
+      },
+      "labels": [
+        {
+          "id": "0x10000018",
+          "rect": [
+            37,
+            261,
+            260,
+            54
+          ],
+          "strref": 11965,
+          "font": "stonesml",
+          "tlk_bytes": 3
+        },
+        {
+          "id": "0x10000019",
+          "rect": [
+            37,
+            318,
+            260,
+            54
+          ],
+          "strref": 11966,
+          "font": "stonesml",
+          "tlk_bytes": 14
+        },
+        {
+          "id": "0x1000001a",
+          "rect": [
+            37,
+            376,
+            260,
+            54
+          ],
+          "strref": 11967,
+          "font": "stonesml",
+          "tlk_bytes": 11
+        },
+        {
+          "id": "0x1000001b",
+          "rect": [
+            37,
+            442,
+            260,
+            54
+          ],
+          "strref": 11968,
+          "font": "stonesml",
+          "tlk_bytes": 11
+        },
+        {
+          "id": "0x1000001c",
+          "rect": [
+            37,
+            502,
+            260,
+            54
+          ],
+          "strref": 11969,
+          "font": "stonesml",
+          "tlk_bytes": 3
+        },
+        {
+          "id": "0x1000001d",
+          "rect": [
+            37,
+            561,
+            260,
+            54
+          ],
+          "strref": 11970,
+          "font": "stonesml",
+          "tlk_bytes": 13
+        },
+        {
+          "id": "0x1000001e",
+          "rect": [
+            37,
+            623,
+            260,
+            54
+          ],
+          "strref": 11971,
+          "font": "stonesml",
+          "tlk_bytes": 15
+        },
+        {
+          "id": "0x10000020",
+          "rect": [
+            570,
+            264,
+            205,
+            48
+          ],
+          "strref": 11984,
+          "font": "stonesml",
+          "tlk_bytes": 7
+        },
+        {
+          "id": "0x10000021",
+          "rect": [
+            570,
+            315,
+            205,
+            48
+          ],
+          "strref": 11985,
+          "font": "stonesml",
+          "tlk_bytes": 10
+        },
+        {
+          "id": "0x10000022",
+          "rect": [
+            570,
+            365,
+            205,
+            48
+          ],
+          "strref": 11986,
+          "font": "stonesml",
+          "tlk_bytes": 12
+        },
+        {
+          "id": "0x10000023",
+          "rect": [
+            570,
+            419,
+            205,
+            48
+          ],
+          "strref": 11987,
+          "font": "stonesml",
+          "tlk_bytes": 10
+        },
+        {
+          "id": "0x10000024",
+          "rect": [
+            454,
+            182,
+            48,
+            46
+          ],
+          "strref": 8260,
+          "font": "stonesml",
+          "tlk_bytes": 5
+        },
+        {
+          "id": "0x10000025",
+          "rect": [
+            900,
+            182,
+            48,
+            46
+          ],
+          "strref": 8260,
+          "font": "stonesml",
+          "tlk_bytes": 5
+        },
+        {
+          "id": "0x10000026",
+          "rect": [
+            50,
+            182,
+            387,
+            46
+          ],
+          "strref": 11964,
+          "font": "stonesml",
+          "tlk_bytes": 17
+        },
+        {
+          "id": "0x10000027",
+          "rect": [
+            578,
+            182,
+            307,
+            46
+          ],
+          "strref": 11983,
+          "font": "stonesml",
+          "tlk_bytes": 6
+        },
+        {
+          "id": "0x10000028",
+          "rect": [
+            244,
+            16,
+            517,
+            45
+          ],
+          "strref": 7175,
+          "font": "realms",
+          "tlk_bytes": 8
+        },
+        {
+          "id": "0x1000002b",
+          "rect": [
+            788,
+            272,
+            44,
+            30
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x1000002c",
+          "rect": [
+            788,
+            325,
+            44,
+            30
+          ],
+          "strref": 8260,
+          "font": "stonesml",
+          "tlk_bytes": 5
+        },
+        {
+          "id": "0x1000002d",
+          "rect": [
+            790,
+            377,
+            44,
+            30
+          ],
+          "strref": 8260,
+          "font": "stonesml",
+          "tlk_bytes": 5
+        },
+        {
+          "id": "0x1000002e",
+          "rect": [
+            790,
+            430,
+            44,
+            30
+          ],
+          "strref": 8260,
+          "font": "stonesml",
+          "tlk_bytes": 5
+        },
+        {
+          "id": "0x1000005a",
+          "rect": [
+            352,
+            80,
+            315,
+            32
+          ],
+          "strref": 11998,
+          "font": "stonebig",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x1000006a",
+          "rect": [
+            354,
+            125,
+            315,
+            23
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x1000007e",
+          "rect": [
+            61,
+            15,
+            904,
+            42
+          ],
+          "strref": 11955,
+          "font": "realms",
+          "tlk_bytes": 20
+        }
+      ]
+    },
+    {
+      "resource": "guirec",
+      "origin": "data\\GUICHUI.bif",
+      "window": 4,
+      "controls": 27,
+      "control_types": {
+        "6": 25,
+        "0": 2
+      },
+      "labels": [
+        {
+          "id": "0xfffffff",
+          "rect": [
+            73,
+            13,
+            719,
+            41
+          ],
+          "strref": 11946,
+          "font": "realms",
+          "tlk_bytes": 11
+        },
+        {
+          "id": "0x10000000",
+          "rect": [
+            256,
+            61,
+            356,
+            24
+          ],
+          "strref": 0,
+          "font": "stonebig",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x10000001",
+          "rect": [
+            39,
+            124,
+            402,
+            62
+          ],
+          "strref": 11947,
+          "font": "stonesml",
+          "tlk_bytes": 24
+        },
+        {
+          "id": "0x10000002",
+          "rect": [
+            39,
+            185,
+            402,
+            62
+          ],
+          "strref": 11948,
+          "font": "stonesml",
+          "tlk_bytes": 21
+        },
+        {
+          "id": "0x10000003",
+          "rect": [
+            39,
+            246,
+            402,
+            62
+          ],
+          "strref": 11949,
+          "font": "stonesml",
+          "tlk_bytes": 30
+        },
+        {
+          "id": "0x10000004",
+          "rect": [
+            39,
+            306,
+            402,
+            62
+          ],
+          "strref": 11950,
+          "font": "stonesml",
+          "tlk_bytes": 15
+        },
+        {
+          "id": "0x10000005",
+          "rect": [
+            500,
+            143,
+            316,
+            28
+          ],
+          "strref": 11946,
+          "font": "stonesml",
+          "tlk_bytes": 11
+        },
+        {
+          "id": "0x10000006",
+          "rect": [
+            500,
+            204,
+            316,
+            28
+          ],
+          "strref": 11946,
+          "font": "stonesml",
+          "tlk_bytes": 11
+        },
+        {
+          "id": "0x10000007",
+          "rect": [
+            500,
+            265,
+            316,
+            28
+          ],
+          "strref": 11946,
+          "font": "stonesml",
+          "tlk_bytes": 11
+        },
+        {
+          "id": "0x10000008",
+          "rect": [
+            500,
+            325,
+            316,
+            28
+          ],
+          "strref": 11946,
+          "font": "stonesml",
+          "tlk_bytes": 11
+        },
+        {
+          "id": "0x10000009",
+          "rect": [
+            182,
+            453,
+            500,
+            41
+          ],
+          "strref": 11951,
+          "font": "stonesml",
+          "tlk_bytes": 31
+        },
+        {
+          "id": "0x1000000a",
+          "rect": [
+            182,
+            493,
+            500,
+            41
+          ],
+          "strref": 11952,
+          "font": "stonesml",
+          "tlk_bytes": 34
+        },
+        {
+          "id": "0x1000000b",
+          "rect": [
+            182,
+            532,
+            500,
+            41
+          ],
+          "strref": 11953,
+          "font": "stonesml",
+          "tlk_bytes": 25
+        },
+        {
+          "id": "0x1000000c",
+          "rect": [
+            182,
+            572,
+            500,
+            41
+          ],
+          "strref": 11954,
+          "font": "stonesml",
+          "tlk_bytes": 15
+        },
+        {
+          "id": "0x1000000d",
+          "rect": [
+            49,
+            392,
+            351,
+            24
+          ],
+          "strref": 13698,
+          "font": "stonesml",
+          "tlk_bytes": 7
+        },
+        {
+          "id": "0x1000000e",
+          "rect": [
+            400,
+            392,
+            415,
+            24
+          ],
+          "strref": 13699,
+          "font": "stonesml",
+          "tlk_bytes": 4
+        },
+        {
+          "id": "0x1000000f",
+          "rect": [
+            39,
+            449,
+            89,
+            28
+          ],
+          "strref": 13691,
+          "font": "stonesml",
+          "tlk_bytes": 5
+        },
+        {
+          "id": "0x10000010",
+          "rect": [
+            39,
+            491,
+            89,
+            28
+          ],
+          "strref": 13691,
+          "font": "stonesml",
+          "tlk_bytes": 5
+        },
+        {
+          "id": "0x10000011",
+          "rect": [
+            39,
+            527,
+            89,
+            28
+          ],
+          "strref": 13691,
+          "font": "stonesml",
+          "tlk_bytes": 5
+        },
+        {
+          "id": "0x10000012",
+          "rect": [
+            39,
+            566,
+            89,
+            28
+          ],
+          "strref": 13691,
+          "font": "stonesml",
+          "tlk_bytes": 5
+        },
+        {
+          "id": "0x10000013",
+          "rect": [
+            731,
+            448,
+            89,
+            28
+          ],
+          "strref": 13691,
+          "font": "stonesml",
+          "tlk_bytes": 5
+        },
+        {
+          "id": "0x10000014",
+          "rect": [
+            731,
+            488,
+            89,
+            28
+          ],
+          "strref": 13691,
+          "font": "stonesml",
+          "tlk_bytes": 5
+        },
+        {
+          "id": "0x10000015",
+          "rect": [
+            731,
+            527,
+            89,
+            28
+          ],
+          "strref": 13691,
+          "font": "stonesml",
+          "tlk_bytes": 5
+        },
+        {
+          "id": "0x10000016",
+          "rect": [
+            731,
+            565,
+            89,
+            28
+          ],
+          "strref": 13691,
+          "font": "stonesml",
+          "tlk_bytes": 5
+        },
+        {
+          "id": "0x10000018",
+          "rect": [
+            255,
+            78,
+            356,
+            24
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        }
+      ]
+    },
+    {
+      "resource": "guirec",
+      "origin": "data\\GUICHUI.bif",
+      "window": 5,
+      "controls": 11,
+      "control_types": {
+        "6": 3,
+        "0": 6,
+        "5": 1,
+        "7": 1
+      },
+      "labels": [
+        {
+          "id": "0xfffffff",
+          "rect": [
+            73,
+            13,
+            719,
+            41
+          ],
+          "strref": 7174,
+          "font": "realms",
+          "tlk_bytes": 10
+        },
+        {
+          "id": "0x10000008",
+          "rect": [
+            62,
+            124,
+            363,
+            37
+          ],
+          "strref": 0,
+          "font": "stonebig",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x10000009",
+          "rect": [
+            459,
+            127,
+            363,
+            37
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        }
+      ]
+    },
+    {
+      "resource": "guirec",
+      "origin": "data\\GUICHUI.bif",
+      "window": 6,
+      "controls": 11,
+      "control_types": {
+        "6": 1,
+        "0": 8,
+        "5": 1,
+        "7": 1
+      },
+      "labels": [
+        {
+          "id": "0xfffffff",
+          "rect": [
+            73,
+            13,
+            719,
+            41
+          ],
+          "strref": 11992,
+          "font": "realms",
+          "tlk_bytes": 5
+        }
+      ]
+    },
+    {
+      "resource": "guirec",
+      "origin": "data\\GUICHUI.bif",
+      "window": 7,
+      "controls": 27,
+      "control_types": {
+        "6": 10,
+        "0": 14,
+        "5": 1,
+        "7": 2
+      },
+      "labels": [
+        {
+          "id": "0xfffffff",
+          "rect": [
+            73,
+            13,
+            719,
+            41
+          ],
+          "strref": 11983,
+          "font": "realms",
+          "tlk_bytes": 6
+        },
+        {
+          "id": "0x10000000",
+          "rect": [
+            47,
+            223,
+            284,
+            46
+          ],
+          "strref": 11984,
+          "font": "stonesml",
+          "tlk_bytes": 7
+        },
+        {
+          "id": "0x10000001",
+          "rect": [
+            47,
+            325,
+            284,
+            46
+          ],
+          "strref": 11985,
+          "font": "stonesml",
+          "tlk_bytes": 10
+        },
+        {
+          "id": "0x10000002",
+          "rect": [
+            47,
+            423,
+            284,
+            46
+          ],
+          "strref": 11986,
+          "font": "stonesml",
+          "tlk_bytes": 12
+        },
+        {
+          "id": "0x10000003",
+          "rect": [
+            47,
+            518,
+            284,
+            46
+          ],
+          "strref": 11987,
+          "font": "stonesml",
+          "tlk_bytes": 10
+        },
+        {
+          "id": "0x10000008",
+          "rect": [
+            41,
+            124,
+            431,
+            33
+          ],
+          "strref": 0,
+          "font": "normal",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x10000009",
+          "rect": [
+            341,
+            232,
+            54,
+            28
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x1000000a",
+          "rect": [
+            341,
+            334,
+            54,
+            28
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x1000000b",
+          "rect": [
+            341,
+            432,
+            54,
+            28
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x1000000c",
+          "rect": [
+            341,
+            528,
+            54,
+            28
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        }
+      ]
+    },
+    {
+      "resource": "guirec",
+      "origin": "data\\GUICHUI.bif",
+      "window": 8,
+      "controls": 31,
+      "control_types": {
+        "0": 27,
+        "6": 2,
+        "5": 1,
+        "7": 1
+      },
+      "labels": [
+        {
+          "id": "0x10000017",
+          "rect": [
+            73,
+            13,
+            719,
+            41
+          ],
+          "strref": 11989,
+          "font": "realms",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x10000018",
+          "rect": [
+            42,
+            123,
+            431,
+            34
+          ],
+          "strref": 0,
+          "font": "normal",
+          "tlk_bytes": 9
+        }
+      ]
+    },
+    {
+      "resource": "guirec",
+      "origin": "data\\GUICHUI.bif",
+      "window": 12,
+      "controls": 4,
+      "control_types": {
+        "5": 1,
+        "7": 1,
+        "0": 1,
+        "6": 1
+      },
+      "labels": [
+        {
+          "id": "0x10000003",
+          "rect": [
+            73,
+            13,
+            719,
+            41
+          ],
+          "strref": 18088,
+          "font": "realms",
+          "tlk_bytes": 19
+        }
+      ]
+    },
+    {
+      "resource": "guirec",
+      "origin": "data\\GUICHUI.bif",
+      "window": 13,
+      "controls": 9,
+      "control_types": {
+        "5": 2,
+        "7": 2,
+        "0": 2,
+        "3": 1,
+        "6": 2
+      },
+      "labels": [
+        {
+          "id": "0x10000006",
+          "rect": [
+            73,
+            13,
+            719,
+            41
+          ],
+          "strref": 18668,
+          "font": "realms",
+          "tlk_bytes": 16
+        },
+        {
+          "id": "0x10000007",
+          "rect": [
+            47,
+            132,
+            357,
+            30
+          ],
+          "strref": 54405,
+          "font": "normal",
+          "tlk_bytes": 16
+        }
+      ]
+    },
+    {
+      "resource": "guirec",
+      "origin": "data\\GUICHUI.bif",
+      "window": 14,
+      "controls": 13,
+      "control_types": {
+        "6": 1,
+        "0": 10,
+        "5": 1,
+        "7": 1
+      },
+      "labels": [
+        {
+          "id": "0xfffffff",
+          "rect": [
+            73,
+            13,
+            719,
+            41
+          ],
+          "strref": 595,
+          "font": "realms",
+          "tlk_bytes": 15
+        }
+      ]
+    },
+    {
+      "resource": "guirec",
+      "origin": "data\\GUICHUI.bif",
+      "window": 15,
+      "controls": 79,
+      "control_types": {
+        "0": 66,
+        "6": 10,
+        "5": 1,
+        "7": 2
+      },
+      "labels": [
+        {
+          "id": "0x10000027",
+          "rect": [
+            35,
+            124,
+            353,
+            37
+          ],
+          "strref": 11964,
+          "font": "stonesml",
+          "tlk_bytes": 17
+        },
+        {
+          "id": "0x10000028",
+          "rect": [
+            402,
+            130,
+            64,
+            27
+          ],
+          "strref": 0,
+          "font": "stonesml",
+          "tlk_bytes": 9
+        },
+        {
+          "id": "0x10000029",
+          "rect": [
+            40,
+            189,
+            213,
+            53
+          ],
+          "strref": 11965,
+          "font": "stonesml",
+          "tlk_bytes": 3
+        },
+        {
+          "id": "0x1000002a",
+          "rect": [
+            40,
+            241,
+            213,
+            53
+          ],
+          "strref": 11966,
+          "font": "stonesml",
+          "tlk_bytes": 14
+        },
+        {
+          "id": "0x1000002b",
+          "rect": [
+            40,
+            293,
+            213,
+            53
+          ],
+          "strref": 11967,
+          "font": "stonesml",
+          "tlk_bytes": 11
+        },
+        {
+          "id": "0x1000002c",
+          "rect": [
+            40,
+            345,
+            213,
+            53
+          ],
+          "strref": 11968,
+          "font": "stonesml",
+          "tlk_bytes": 11
+        },
+        {
+          "id": "0x1000002d",
+          "rect": [
+            40,
+            396,
+            213,
+            53
+          ],
+          "strref": 11969,
+          "font": "stonesml",
+          "tlk_bytes": 3
+        },
+        {
+          "id": "0x1000002e",
+          "rect": [
+            40,
+            448,
+            213,
+            53
+          ],
+          "strref": 11970,
+          "font": "stonesml",
+          "tlk_bytes": 13
+        },
+        {
+          "id": "0x1000002f",
+          "rect": [
+            40,
+            500,
+            213,
+            53
+          ],
+          "strref": 11971,
+          "font": "stonesml",
+          "tlk_bytes": 15
+        },
+        {
+          "id": "0x10000030",
+          "rect": [
+            40,
+            552,
+            213,
+            53
+          ],
+          "strref": 11972,
+          "font": "stonesml",
+          "tlk_bytes": 5
+        }
+      ]
+    },
+    {
+      "resource": "guirec",
+      "origin": "data\\GUICHUI.bif",
+      "window": 16,
+      "controls": 12,
+      "control_types": {
+        "6": 1,
+        "7": 2,
+        "0": 8,
+        "5": 1
+      },
+      "labels": [
+        {
+          "id": "0xfffffff",
+          "rect": [
+            73,
+            13,
+            719,
+            41
+          ],
+          "strref": 15897,
+          "font": "realms",
+          "tlk_bytes": 12
+        }
+      ]
+    },
+    {
+      "resource": "guirec",
+      "origin": "data\\GUICHUI.bif",
+      "window": 17,
+      "controls": 10,
+      "control_types": {
+        "0": 7,
+        "6": 1,
+        "5": 1,
+        "7": 1
+      },
+      "labels": [
+        {
+          "id": "0x10000003",
+          "rect": [
+            73,
+            13,
+            719,
+            41
+          ],
+          "strref": 10644,
+          "font": "realms",
+          "tlk_bytes": 19
+        }
+      ]
+    },
+    {
+      "resource": "guirec",
+      "origin": "data\\GUICHUI.bif",
+      "window": 11,
+      "controls": 8,
+      "control_types": {
+        "6": 2,
+        "5": 2,
+        "7": 2,
+        "0": 2
+      },
+      "labels": [
+        {
+          "id": "0xfffffff",
+          "rect": [
+            73,
+            13,
+            719,
+            41
+          ],
+          "strref": 17109,
+          "font": "realms",
+          "tlk_bytes": 11
+        },
+        {
+          "id": "0x10000000",
+          "rect": [
+            56,
+            130,
+            753,
+            35
+          ],
+          "strref": 17110,
+          "font": "stonesml",
+          "tlk_bytes": 14
+        }
+      ]
+    },
+    {
+      "resource": "guirec",
+      "origin": "data\\GUICHUI.bif",
+      "window": 18,
+      "controls": 7,
+      "control_types": {
+        "0": 6,
+        "6": 1
+      },
+      "labels": [
+        {
+          "id": "0x10000005",
+          "rect": [
+            73,
+            13,
+            719,
+            41
+          ],
+          "strref": 596,
+          "font": "realms",
+          "tlk_bytes": 10
+        }
+      ]
+    },
+    {
+      "resource": "guirec",
+      "origin": "data\\GUICHUI.bif",
+      "window": 19,
+      "controls": 12,
+      "control_types": {
+        "0": 4,
+        "5": 2,
+        "7": 2,
+        "6": 4
+      },
+      "labels": [
+        {
+          "id": "0x10000008",
+          "rect": [
+            44,
+            480,
+            520,
+            130
+          ],
+          "strref": 17190,
+          "font": "normal",
+          "tlk_bytes": 176
+        },
+        {
+          "id": "0x10000009",
+          "rect": [
+            79,
+            17,
+            705,
+            32
+          ],
+          "strref": 102478,
+          "font": "realms",
+          "tlk_bytes": 29
+        },
+        {
+          "id": "0x1000000a",
+          "rect": [
+            248,
+            66,
+            370,
+            32
+          ],
+          "strref": 102479,
+          "font": "stonesml",
+          "tlk_bytes": 27
+        },
+        {
+          "id": "0x1000000b",
+          "rect": [
+            450,
+            144,
+            370,
+            310
+          ],
+          "strref": 17188,
+          "font": "normal",
+          "tlk_bytes": 577
+        }
+      ]
+    },
+    {
+      "resource": "guirec",
+      "origin": "data\\GUICHUI.bif",
+      "window": 20,
+      "controls": 8,
+      "control_types": {
+        "6": 1,
+        "5": 2,
+        "7": 2,
+        "0": 3
+      },
+      "labels": [
+        {
+          "id": "0x10000006",
+          "rect": [
+            73,
+            13,
+            719,
+            41
+          ],
+          "strref": 17127,
+          "font": "realms",
+          "tlk_bytes": 5
+        }
+      ]
+    },
+    {
+      "resource": "guirec",
+      "origin": "data\\GUICHUI.bif",
+      "window": 21,
+      "controls": 14,
+      "control_types": {
+        "0": 7,
+        "6": 7
+      },
+      "labels": [
+        {
+          "id": "0x10000000",
+          "rect": [
+            73,
+            13,
+            719,
+            41
+          ],
+          "strref": 12815,
+          "font": "realms",
+          "tlk_bytes": 13
+        },
+        {
+          "id": "0x10000001",
+          "rect": [
+            513,
+            201,
+            241,
+            31
+          ],
+          "strref": 11961,
+          "font": "stonesml",
+          "tlk_bytes": 10
+        },
+        {
+          "id": "0x10000006",
+          "rect": [
+            594,
+            234,
+            160,
+            62
+          ],
+          "strref": 12812,
+          "font": "stonesml",
+          "tlk_bytes": 4
+        },
+        {
+          "id": "0x10000007",
+          "rect": [
+            594,
+            296,
+            160,
+            62
+          ],
+          "strref": 2367,
+          "font": "stonesml",
+          "tlk_bytes": 4
+        },
+        {
+          "id": "0x10000008",
+          "rect": [
+            513,
+            373,
+            241,
+            31
+          ],
+          "strref": 12814,
+          "font": "stonesml",
+          "tlk_bytes": 8
+        },
+        {
+          "id": "0x10000009",
+          "rect": [
+            594,
+            405,
+            160,
+            62
+          ],
+          "strref": 12811,
+          "font": "stonesml",
+          "tlk_bytes": 5
+        },
+        {
+          "id": "0x1000000a",
+          "rect": [
+            594,
+            467,
+            160,
+            62
+          ],
+          "strref": 12813,
+          "font": "stonesml",
+          "tlk_bytes": 5
+        }
+      ]
+    },
+    {
+      "resource": "guirec",
+      "origin": "data\\GUICHUI.bif",
+      "window": 22,
+      "controls": 35,
+      "control_types": {
+        "6": 1,
+        "0": 34
+      },
+      "labels": [
+        {
+          "id": "0xfffffff",
+          "rect": [
+            73,
+            13,
+            719,
+            41
+          ],
+          "strref": 8791,
+          "font": "realms",
+          "tlk_bytes": 5
+        }
+      ]
+    },
+    {
+      "resource": "guirec",
+      "origin": "data\\GUICHUI.bif",
+      "window": 9,
+      "controls": 2,
+      "control_types": {
+        "5": 1,
+        "0": 1
+      },
+      "labels": []
+    },
+    {
+      "resource": "guirec",
+      "origin": "data\\GUICHUI.bif",
+      "window": 10,
+      "controls": 3,
+      "control_types": {
+        "5": 1,
+        "0": 2
+      },
+      "labels": []
+    },
+    {
+      "resource": "guirec",
+      "origin": "data\\GUICHUI.bif",
+      "window": 23,
+      "controls": 7,
+      "control_types": {
+        "6": 1,
+        "0": 4,
+        "3": 1,
+        "7": 1
+      },
+      "labels": [
+        {
+          "id": "0xfffffff",
+          "rect": [
+            73,
+            13,
+            719,
+            41
+          ],
+          "strref": 18088,
+          "font": "realms",
+          "tlk_bytes": 19
+        }
+      ]
+    },
+    {
+      "resource": "guirec",
+      "origin": "data\\GUICHUI.bif",
+      "window": 24,
+      "controls": 4,
+      "control_types": {
+        "5": 1,
+        "7": 1,
+        "0": 1,
+        "6": 1
+      },
+      "labels": [
+        {
+          "id": "0x10000002",
+          "rect": [
+            73,
+            13,
+            746,
+            41
+          ],
+          "strref": 61264,
+          "font": "stonesml",
+          "tlk_bytes": 15
+        }
+      ]
+    }
+  ],
+  "table_headers": [
+    {
+      "resource": "stylbonu",
+      "origin": "data\\Default.bif",
+      "first_16_bytes_hex": "32444120202020202020202020202020",
+      "signature_normalized": [
+        "2DA",
+        "V1.0"
+      ]
+    },
+    {
+      "resource": "racethac",
+      "origin": "data\\Default.bif",
+      "first_16_bytes_hex": "32444120202020202020202020202020",
+      "signature_normalized": [
+        "2DA",
+        "V1.0"
+      ]
+    },
+    {
+      "resource": "clasthac",
+      "origin": "data\\Default.bif",
+      "first_16_bytes_hex": "32444120202020202020202020202020",
+      "signature_normalized": [
+        "2DA",
+        "V1.0"
+      ]
+    },
+    {
+      "resource": "statdesc",
+      "origin": "data\\Default.bif",
+      "first_16_bytes_hex": "32444120202020202020202056312e30",
+      "signature_normalized": [
+        "2DA",
+        "V1.0"
+      ]
+    },
+    {
+      "resource": "dualclas",
+      "origin": "data\\Default.bif",
+      "first_16_bytes_hex": "32444120202020202020202020202020",
+      "signature_normalized": [
+        "2DA",
+        "V1.0"
+      ]
+    },
+    {
+      "resource": "abdcscrq",
+      "origin": "data\\Default.bif",
+      "first_16_bytes_hex": "32444120202020202020202020202020",
+      "signature_normalized": [
+        "2DA",
+        "V1.0"
+      ]
+    },
+    {
+      "resource": "abdcdsrq",
+      "origin": "data\\Default.bif",
+      "first_16_bytes_hex": "32444120202020202020202020202020",
+      "signature_normalized": [
+        "2DA",
+        "V1.0"
+      ]
+    }
+  ]
+}

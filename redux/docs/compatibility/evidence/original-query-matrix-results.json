@@ -1,0 +1,185 @@
+{
+  "schema": "bg-redux-original-query-matrix/1",
+  "directory": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T040510Z-original-query-matrix-8c822bba",
+  "verdict": "matrix-observed",
+  "comparisons": [
+    {
+      "case": "RDXMVE1",
+      "hand": 1,
+      "target": "Player2",
+      "opcode": 16620,
+      "original": 1,
+      "gemrb": 0,
+      "equal": false
+    },
+    {
+      "case": "RDXMVD1",
+      "hand": 1,
+      "target": "Player2",
+      "opcode": 16626,
+      "original": 1,
+      "gemrb": 0,
+      "equal": false
+    },
+    {
+      "case": "RDXMVE2",
+      "hand": 2,
+      "target": "Player2",
+      "opcode": 16620,
+      "original": 0,
+      "gemrb": 0,
+      "equal": true
+    },
+    {
+      "case": "RDXMVD2",
+      "hand": 2,
+      "target": "Player2",
+      "opcode": 16626,
+      "original": 0,
+      "gemrb": 0,
+      "equal": true
+    },
+    {
+      "case": "RDXMVE3",
+      "hand": 3,
+      "target": "Player2",
+      "opcode": 16620,
+      "original": 1,
+      "gemrb": 0,
+      "equal": false
+    },
+    {
+      "case": "RDXMVD3",
+      "hand": 3,
+      "target": "Player2",
+      "opcode": 16626,
+      "original": 1,
+      "gemrb": 0,
+      "equal": false
+    },
+    {
+      "case": "RDXMVE6",
+      "hand": 1,
+      "target": "Player6-absent",
+      "opcode": 16620,
+      "original": 0,
+      "gemrb": 0,
+      "equal": true
+    },
+    {
+      "case": "RDXMVD6",
+      "hand": 1,
+      "target": "Player6-absent",
+      "opcode": 16626,
+      "original": 0,
+      "gemrb": 0,
+      "equal": true
+    }
+  ],
+  "mismatches": 4,
+  "cases": 8,
+  "receipt": {
+    "schema": "bg-redux-original-query-observation/1",
+    "observed_utc": "2026-10-21T04:05:10.502628+00:00",
+    "sequence_completed": true,
+    "operator": "Codex computer-use / @oai/sky",
+    "window_id": 6557184,
+    "window_title": "ChatGPT/BG Multiplayer Redux/phase0-local/original-query-profile-matrix - v2.7.3.0",
+    "sequence": "Explorer launch from private folder; SoA / Single Player / Load Game / only Redux Matrix present / select / Load; generated BCS performs eight queries and automatic save; no attacks/movement issued; quit private game after independent read of completion markers",
+    "isolation": "Optional Steam DLL retained under inert filename, no imported cloud saves observed at load list or completed save scan",
+    "attestation": false,
+    "executable": {
+      "path": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\original-query-game\\Baldur.exe",
+      "sha256": "b51093a49140b2b8a7c046b4652bb8e535be24ebbc12b1d735e0b94217a14d57"
+    },
+    "script": {
+      "path": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\original-query-game\\override\\RDXMPROB.bcs",
+      "sha256": "98638f2e3d5245e2a004b9a34f25838d48f6a734c1dcce1e97cc8097813bee8b"
+    },
+    "input": {
+      "path": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\original-query-profile-matrix\\save\\000000007-Redux Matrix",
+      "files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+        },
+        "BALDUR.gam": {
+          "bytes": 69372,
+          "sha256": "47c5942890d93b9f5615d90880ea3cd63d4431bb8f5b1e2c49bb8d3cd9576597"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19443,
+          "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+        },
+        "save_000000033-GemRB.cloud.meta": {
+          "bytes": 10,
+          "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+        }
+      }
+    },
+    "output": {
+      "path": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\original-query-profile-matrix\\save\\000000000-Auto-Save",
+      "files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "ac9817b3f7c1705b66da3bf17895338efe027fd2eebfcb5469ee601123170f65"
+        },
+        "BALDUR.gam": {
+          "bytes": 70464,
+          "sha256": "0fddf829e5e48926a29225401224f107c4a4d6a6efad5d76d173942233305872"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19397,
+          "sha256": "a85045e193b55f11b8cfa217f859ea9b5d000495698fd978e0d9ac43f3caef9d"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "855160633fd4289b19fe5dfb3c0f069d3c5a1a615faaa07f4ea5f2d687b90a0f"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "6592e92082cf50d8c6281b63d0d0a59761292bb645ed988c49e6844ff31abdc9"
+        }
+      }
+    },
+    "save_folders_after_run": [
+      "000000000-Auto-Save",
+      "000000007-Chapter 1 Start",
+      "000000007-Redux Matrix"
+    ]
+  },
+  "receipt_sha256": "7405731b3ef5ccf11b78318e7d734c63cd9fc432b53cc841bcba2d27571a7df5",
+  "gemrb_evidence_sha256": "24085c5bcfb638b4d89b4b2ff6e9d62d5b33cf3d8c4a404be2aae8884c1f7601",
+  "autosave_files": {
+    "BALDUR.bmp": {
+      "bytes": 65590,
+      "sha256": "ac9817b3f7c1705b66da3bf17895338efe027fd2eebfcb5469ee601123170f65"
+    },
+    "BALDUR.gam": {
+      "bytes": 70464,
+      "sha256": "0fddf829e5e48926a29225401224f107c4a4d6a6efad5d76d173942233305872"
+    },
+    "BALDUR.SAV": {
+      "bytes": 19397,
+      "sha256": "a85045e193b55f11b8cfa217f859ea9b5d000495698fd978e0d9ac43f3caef9d"
+    },
+    "PORTRT0.bmp": {
+      "bytes": 13830,
+      "sha256": "855160633fd4289b19fe5dfb3c0f069d3c5a1a615faaa07f4ea5f2d687b90a0f"
+    },
+    "PORTRT1.bmp": {
+      "bytes": 13830,
+      "sha256": "6592e92082cf50d8c6281b63d0d0a59761292bb645ed988c49e6844ff31abdc9"
+    }
+  },
+  "scope": "Same baseline fists/no offhand item, three hand selectors and absent party member; sequential queries with uncontrolled area scripts/time",
+  "source_sha256": "d3c0ba2da05d4f92c69dd826274b2d8177a9678a4ee70179dc627ff920b75a38"
+}

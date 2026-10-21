@@ -1,0 +1,246 @@
+{
+  "schema": "bg-redux-original-effect-comparison/1",
+  "reference_run": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T031819Z-original-reference-42d15b31",
+  "comparison": {
+    "evidence_sha256": "8aa2d3b63c59405382e552022b8b3bf25c0990d53a6b6c32668c3eda7b4f1983",
+    "directory": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T024237Z-immcloud-de4d6a2a",
+    "cycles": [
+      {
+        "cycle": 1,
+        "original": {
+          "total": 14,
+          "permanent": 14,
+          "equipped": 0,
+          "signatures": [
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 134,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 216,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 14665,
+              "param2": 134,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 40969,
+              "param2": 216,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 40979,
+              "param2": 216,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 41495,
+              "param2": 216,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 41616,
+              "param2": 216,
+              "timing": 1,
+              "count": 2
+            }
+          ]
+        },
+        "gemrb": {
+          "total": 14,
+          "permanent": 14,
+          "equipped": 0,
+          "signatures": [
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 134,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 216,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 14665,
+              "param2": 0,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 40969,
+              "param2": 0,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 40979,
+              "param2": 0,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 41495,
+              "param2": 0,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 41616,
+              "param2": 0,
+              "timing": 1,
+              "count": 2
+            }
+          ]
+        },
+        "counts_equal": true,
+        "signatures_equal": false
+      },
+      {
+        "cycle": 2,
+        "original": {
+          "total": 21,
+          "permanent": 21,
+          "equipped": 0,
+          "signatures": [
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 134,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 216,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 14665,
+              "param2": 134,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 40969,
+              "param2": 216,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 40979,
+              "param2": 216,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 41495,
+              "param2": 216,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 41616,
+              "param2": 216,
+              "timing": 1,
+              "count": 3
+            }
+          ]
+        },
+        "gemrb": {
+          "total": 21,
+          "permanent": 21,
+          "equipped": 0,
+          "signatures": [
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 134,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 216,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 14665,
+              "param2": 0,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 40969,
+              "param2": 0,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 40979,
+              "param2": 0,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 41495,
+              "param2": 0,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 41616,
+              "param2": 0,
+              "timing": 1,
+              "count": 3
+            }
+          ]
+        },
+        "counts_equal": true,
+        "signatures_equal": false
+      }
+    ]
+  },
+  "reference_status_sha256": "bdb436c753d11dc26398cfaa962cac343d86ededc3e97e37bd11e4026e45e921",
+  "interpretation_limit": "Selected saved effect records only; no combat or complete runtime equivalence certification."
+}

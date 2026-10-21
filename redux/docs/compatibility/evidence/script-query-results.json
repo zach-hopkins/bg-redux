@@ -1,0 +1,160 @@
+{
+  "schema": "bg-redux-script-query-prototype/1",
+  "directory": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T034359Z-script-query-3549b2a7",
+  "verdict": "gemrb-script-prototype-executed",
+  "original_runtime_executed": false,
+  "construction": {
+    "input_files": {
+      "BALDUR.bmp": {
+        "bytes": 65590,
+        "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+      },
+      "BALDUR.gam": {
+        "bytes": 69372,
+        "sha256": "ba5b6755beaffb799dca1596f3a15a7102ecc5ab45c39e4a6d652afef96137bf"
+      },
+      "BALDUR.SAV": {
+        "bytes": 19443,
+        "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+      },
+      "PORTRT0.bmp": {
+        "bytes": 13830,
+        "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+      },
+      "PORTRT1.bmp": {
+        "bytes": 13830,
+        "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+      },
+      "save_000000033-GemRB.cloud.meta": {
+        "bytes": 10,
+        "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+      }
+    },
+    "declared_script_assignments": [
+      {
+        "actor": 0,
+        "file_script_slot": 0,
+        "offset": 1468,
+        "value": "RDXQPROB"
+      },
+      {
+        "actor": 0,
+        "file_script_slot": 1,
+        "offset": 1476,
+        "value": "NONE"
+      },
+      {
+        "actor": 0,
+        "file_script_slot": 2,
+        "offset": 1484,
+        "value": "NONE"
+      },
+      {
+        "actor": 0,
+        "file_script_slot": 3,
+        "offset": 1492,
+        "value": "NONE"
+      },
+      {
+        "actor": 0,
+        "file_script_slot": 4,
+        "offset": 1500,
+        "value": "NONE"
+      },
+      {
+        "actor": 1,
+        "file_script_slot": 0,
+        "offset": 3456,
+        "value": "NONE"
+      },
+      {
+        "actor": 1,
+        "file_script_slot": 1,
+        "offset": 3464,
+        "value": "NONE"
+      },
+      {
+        "actor": 1,
+        "file_script_slot": 2,
+        "offset": 3472,
+        "value": "NONE"
+      },
+      {
+        "actor": 1,
+        "file_script_slot": 3,
+        "offset": 3480,
+        "value": "NONE"
+      },
+      {
+        "actor": 1,
+        "file_script_slot": 4,
+        "offset": 3488,
+        "value": "NONE"
+      }
+    ],
+    "generated_script_sha256": "89632bda590c9325bc88ade44d3e8a35d75d2fdc1cecf5d2d9aaed823cdb3758",
+    "generated_trigger_records": 7,
+    "semantics": "Protagonist override queries MAINHAND against Player2, records results then requests slot0 autosave; both party actors other five file scripts NONE. Actor stats/items/effects unchanged."
+  },
+  "process": {
+    "pid": 29184,
+    "exit_code": 0,
+    "timeout_seconds": 45,
+    "timed_out": false,
+    "cleanup": "not required",
+    "elapsed_seconds": 19.394
+  },
+  "created_save_folders": [
+    "000000000-Auto-Save",
+    "000000015-Auto-Save"
+  ],
+  "saved_observations": [
+    {
+      "folder": "000000000-Auto-Save",
+      "query_globals": {
+        "RDXVE": 0,
+        "RDXVD": 0,
+        "RDXDONE": 1,
+        "RDXSTAGE": 3
+      }
+    },
+    {
+      "folder": "000000015-Auto-Save",
+      "query_globals": {
+        "RDXVE": null,
+        "RDXVD": null,
+        "RDXDONE": null,
+        "RDXSTAGE": null
+      }
+    }
+  ],
+  "query_globals": {
+    "RDXVE": 0,
+    "RDXVD": 0,
+    "RDXDONE": 1,
+    "RDXSTAGE": 3
+  },
+  "autosave_files": {
+    "baldur.bmp": {
+      "bytes": 93690,
+      "sha256": "b64c76a23842ee363da349e4a172b6fc726c66ba07c8cbe759204afc2adec56b"
+    },
+    "baldur.gam": {
+      "bytes": 69960,
+      "sha256": "8527e262ca13b1b292271aeb8f7a9a61b48099705b233e672060693c0616db73"
+    },
+    "baldur.sav": {
+      "bytes": 19388,
+      "sha256": "0431f24637704fbce19569468f229d59e42cc785c285f033e0e88769c96eb127"
+    },
+    "PORTRT0.bmp": {
+      "bytes": 13830,
+      "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+    },
+    "PORTRT1.bmp": {
+      "bytes": 13830,
+      "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+    }
+  },
+  "source_sha256": "b6d23795d3ab8c1ca11772397ea486224a293501a66b0340c04b8fea3be88130"
+}

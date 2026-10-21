@@ -1,0 +1,18 @@
+{
+  "schema": "bg-redux-fixtures/1",
+  "fixtures": {
+    "original-vanilla": {
+      "path": "phase0-local/fixtures/original-bg2ee-20261020/GemRB",
+      "provenance": "User created the named GemRB save in response to the clean Steam BG2EE request on 2026-10-20; copied from Documents/000000033-GemRB, GAMEV2.0, no EEex markers. Absence of markers alone is not a general vanilla certificate.",
+      "manifest": "docs/compatibility/evidence/vanilla-save-fixture.json"
+    },
+    "gemrb-autosave": {
+      "path": "phase0-local/profiles/bg2ee/save/000000015-Auto-Save",
+      "provenance": "Created by the pinned GemRB running the manifested BG2EE copy; not an original-executable save."
+    },
+    "original-chapter1-eeex": {
+      "path": "phase0-local/gemrb/tests/resources/saves/0 - bg2ee",
+      "provenance": "Original GAMEV2.0 user Chapter 1 save; verified EEex effect payload records. Negative compatibility fixture, not vanilla."
+    }
+  }
+}

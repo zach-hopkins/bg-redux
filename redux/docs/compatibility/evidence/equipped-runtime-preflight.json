@@ -1,0 +1,154 @@
+{
+  "schema": "bg-redux-equipped-runtime-preflight/1",
+  "observations": [
+    {
+      "case": "01-normal",
+      "runtime_equipped": 0,
+      "runtime_weapon_items": [
+        [
+          10,
+          "FIST"
+        ],
+        [
+          35,
+          "SW1H01"
+        ]
+      ],
+      "target_slashing_resistance": 0,
+      "target_stoneskins": 0,
+      "target_mirror_images": 0,
+      "snapshot_sha256": "92c5574561456e246da1f43799ccc7818b11f2f210b5c69388e517d86a7e770b"
+    },
+    {
+      "case": "02-plus1",
+      "runtime_equipped": 0,
+      "runtime_weapon_items": [
+        [
+          10,
+          "FIST"
+        ],
+        [
+          35,
+          "SW1H02"
+        ]
+      ],
+      "target_slashing_resistance": 0,
+      "target_stoneskins": 0,
+      "target_mirror_images": 0,
+      "snapshot_sha256": "cd1bf46f4889a1dd85295ba7b681e83b247cb673bb49b4e4a40e995d2e38510a"
+    },
+    {
+      "case": "03-normal-magprot",
+      "runtime_equipped": 0,
+      "runtime_weapon_items": [
+        [
+          10,
+          "FIST"
+        ],
+        [
+          35,
+          "SW1H01"
+        ]
+      ],
+      "target_slashing_resistance": 0,
+      "target_stoneskins": 0,
+      "target_mirror_images": 0,
+      "snapshot_sha256": "f58a5b68950c438dcee7c0d12aa6959faefb5365e385879d45dee83f098078c2"
+    },
+    {
+      "case": "04-plus1-magprot",
+      "runtime_equipped": 0,
+      "runtime_weapon_items": [
+        [
+          10,
+          "FIST"
+        ],
+        [
+          35,
+          "SW1H02"
+        ]
+      ],
+      "target_slashing_resistance": 0,
+      "target_stoneskins": 0,
+      "target_mirror_images": 0,
+      "snapshot_sha256": "774f4f336a96657cc776fc2508a78d54cb0061b43d7080cfe707319f54f95a99"
+    },
+    {
+      "case": "05-slash100",
+      "runtime_equipped": 0,
+      "runtime_weapon_items": [
+        [
+          10,
+          "FIST"
+        ],
+        [
+          35,
+          "SW1H01"
+        ]
+      ],
+      "target_slashing_resistance": 100,
+      "target_stoneskins": 0,
+      "target_mirror_images": 0,
+      "snapshot_sha256": "e0f5cb1ca9e681889440f34a0ec2b318646d29d8c2c61951615b864be0761899"
+    },
+    {
+      "case": "06-stoneskin",
+      "runtime_equipped": 0,
+      "runtime_weapon_items": [
+        [
+          10,
+          "FIST"
+        ],
+        [
+          35,
+          "SW1H02"
+        ]
+      ],
+      "target_slashing_resistance": 0,
+      "target_stoneskins": 3,
+      "target_mirror_images": 0,
+      "snapshot_sha256": "db751b1ff52fb17401c98e424287bd00332964766a45c2d00449d91a7cd3a565"
+    },
+    {
+      "case": "07-mirror",
+      "runtime_equipped": 0,
+      "runtime_weapon_items": [
+        [
+          10,
+          "FIST"
+        ],
+        [
+          35,
+          "SW1H02"
+        ]
+      ],
+      "target_slashing_resistance": 0,
+      "target_stoneskins": 0,
+      "target_mirror_images": 3,
+      "snapshot_sha256": "e8b9dbba652b1e424671364f2b17ad67ab9285d9172c17214c9a52b30aecb467"
+    },
+    {
+      "case": "08-bow",
+      "runtime_equipped": -24,
+      "runtime_weapon_items": [
+        [
+          10,
+          "FIST"
+        ],
+        [
+          11,
+          "AROW01"
+        ],
+        [
+          35,
+          "BOW01"
+        ]
+      ],
+      "target_slashing_resistance": 0,
+      "target_stoneskins": 0,
+      "target_mirror_images": 0,
+      "snapshot_sha256": "073fe5cc9464b9a7cc441f2e07849a8f604f9d85469a299c99385aae852c6331"
+    }
+  ],
+  "scope": "Actual post-load paused native stats/equipment, before query script running interval; later autosave guards checked separately"
+}

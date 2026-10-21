@@ -1,0 +1,14 @@
+{
+  "schema": "bg-redux-scenario/1",
+  "fixture": "original-vanilla",
+  "select": 2,
+  "assertions": [
+    {"path": "/current_area", "op": "eq", "value": "AR0602"},
+    {"path": "/party", "op": "length_eq", "value": 2},
+    {"path": "/selection", "op": "eq", "value": 2},
+    {"path": "/party/1/script_name", "op": "eq", "value": "Imoen"},
+    {"path": "/party/0/base_stats/0", "op": "ge", "value": 1},
+    {"path": "/current_area_actors", "op": "length_ge", "value": 2}
+  ],
+  "queries": ["/current_area", "/selection", "/game_time", "/party/0/inventory", "/party/1/spellbook"]
+}

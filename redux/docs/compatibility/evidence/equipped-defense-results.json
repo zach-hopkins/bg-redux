@@ -1,0 +1,1714 @@
+{
+  "schema": "bg-redux-equipped-defenses/1",
+  "directory": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T174444Z-equipped-defenses-41fae879",
+  "cases": [
+    {
+      "spec": {
+        "id": "01-normal",
+        "weapon": "sw1h01",
+        "defense": null
+      },
+      "verdict": "gemrb-executed",
+      "construction": {
+        "input_files": {
+          "BALDUR.bmp": {
+            "bytes": 65590,
+            "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+          },
+          "BALDUR.gam": {
+            "bytes": 75124,
+            "sha256": "9241662619e54ace6c077187345ec564bab4c73a2873dfc58559d36faec86259"
+          },
+          "BALDUR.SAV": {
+            "bytes": 19443,
+            "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+          },
+          "PORTRT0.bmp": {
+            "bytes": 13830,
+            "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+          },
+          "PORTRT1.bmp": {
+            "bytes": 13830,
+            "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+          },
+          "save_000000033-GemRB.cloud.meta": {
+            "bytes": 10,
+            "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+          }
+        },
+        "declared_script_assignments": [
+          {
+            "actor": 0,
+            "file_script_slot": 0,
+            "offset": 1468,
+            "value": "RDXQPROB"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 1,
+            "offset": 1476,
+            "value": "NONE"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 2,
+            "offset": 1484,
+            "value": "NONE"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 3,
+            "offset": 1492,
+            "value": "NONE"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 4,
+            "offset": 1500,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 0,
+            "offset": 3456,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 1,
+            "offset": 3464,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 2,
+            "offset": 3472,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 3,
+            "offset": 3480,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 4,
+            "offset": 3488,
+            "value": "NONE"
+          }
+        ],
+        "generated_script_sha256": "89632bda590c9325bc88ade44d3e8a35d75d2fdc1cecf5d2d9aaed823cdb3758",
+        "generated_trigger_records": 7,
+        "semantics": "Protagonist override queries MAINHAND against Player2, records results then requests slot0 autosave; both party actors other five file scripts NONE. Actor stats/items/effects unchanged.",
+        "equipment_defense": {
+          "id": "01-normal",
+          "weapon": "sw1h01",
+          "defense": null
+        },
+        "input_observation": [
+          {
+            "items": [
+              "sw1h01"
+            ],
+            "physical_slots": {
+              "9": "sw1h01"
+            },
+            "selected": 0,
+            "ability": 0,
+            "defense_effects": []
+          },
+          {
+            "items": [
+              "imoenhp1"
+            ],
+            "physical_slots": {
+              "7": "imoenhp1"
+            },
+            "selected": 1000,
+            "ability": 0,
+            "defense_effects": []
+          }
+        ],
+        "relocation": "Append new embedded CRE copies, update only GAM party CRE offset/size; preserve original GAM sections and old unreferenced bytes"
+      },
+      "weapon_metadata": {
+        "origin": "data\\Items.bif",
+        "sha256": "c78bbec33abcd8d37225801edf59cbfae88699e217a8c567dbeef534f094ce8c",
+        "enchantment": 0
+      },
+      "process": {
+        "pid": 8644,
+        "exit_code": 0,
+        "timeout_seconds": 45,
+        "timed_out": false,
+        "cleanup": "not required",
+        "elapsed_seconds": 17.262
+      },
+      "output": {
+        "folder": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T174444Z-equipped-defenses-41fae879\\01-normal\\gemrb\\engine-profile\\save\\000000000-Auto-Save",
+        "values": {
+          "RDXVE": 0,
+          "RDXVD": 0,
+          "RDXDONE": 1,
+          "RDXSTAGE": 3
+        },
+        "actors": [
+          {
+            "items": [
+              "sw1h01"
+            ],
+            "physical_slots": {
+              "9": "sw1h01"
+            },
+            "selected": 0,
+            "ability": 0,
+            "defense_effects": []
+          },
+          {
+            "items": [
+              "imoenhp1"
+            ],
+            "physical_slots": {
+              "7": "imoenhp1"
+            },
+            "selected": 1000,
+            "ability": 0,
+            "defense_effects": []
+          }
+        ],
+        "files": {
+          "baldur.bmp": {
+            "bytes": 93690,
+            "sha256": "b64c76a23842ee363da349e4a172b6fc726c66ba07c8cbe759204afc2adec56b"
+          },
+          "baldur.gam": {
+            "bytes": 69980,
+            "sha256": "6902584bda0b1be4959b9a20fba911e9a33756306cb035040bbb510ea458236c"
+          },
+          "baldur.sav": {
+            "bytes": 19389,
+            "sha256": "5a854c1a39c29cda1fb4c39cbb419f883ed24549e511d99805fc363327cc31ab"
+          },
+          "PORTRT0.bmp": {
+            "bytes": 13830,
+            "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+          },
+          "PORTRT1.bmp": {
+            "bytes": 13830,
+            "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "id": "02-plus1",
+        "weapon": "sw1h02",
+        "defense": null
+      },
+      "verdict": "gemrb-executed",
+      "construction": {
+        "input_files": {
+          "BALDUR.bmp": {
+            "bytes": 65590,
+            "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+          },
+          "BALDUR.gam": {
+            "bytes": 75124,
+            "sha256": "931a4db73768b63af5beb0bba829e1712af507f6a2a2b82d17eb86622dfc241b"
+          },
+          "BALDUR.SAV": {
+            "bytes": 19443,
+            "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+          },
+          "PORTRT0.bmp": {
+            "bytes": 13830,
+            "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+          },
+          "PORTRT1.bmp": {
+            "bytes": 13830,
+            "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+          },
+          "save_000000033-GemRB.cloud.meta": {
+            "bytes": 10,
+            "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+          }
+        },
+        "declared_script_assignments": [
+          {
+            "actor": 0,
+            "file_script_slot": 0,
+            "offset": 1468,
+            "value": "RDXQPROB"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 1,
+            "offset": 1476,
+            "value": "NONE"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 2,
+            "offset": 1484,
+            "value": "NONE"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 3,
+            "offset": 1492,
+            "value": "NONE"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 4,
+            "offset": 1500,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 0,
+            "offset": 3456,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 1,
+            "offset": 3464,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 2,
+            "offset": 3472,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 3,
+            "offset": 3480,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 4,
+            "offset": 3488,
+            "value": "NONE"
+          }
+        ],
+        "generated_script_sha256": "89632bda590c9325bc88ade44d3e8a35d75d2fdc1cecf5d2d9aaed823cdb3758",
+        "generated_trigger_records": 7,
+        "semantics": "Protagonist override queries MAINHAND against Player2, records results then requests slot0 autosave; both party actors other five file scripts NONE. Actor stats/items/effects unchanged.",
+        "equipment_defense": {
+          "id": "02-plus1",
+          "weapon": "sw1h02",
+          "defense": null
+        },
+        "input_observation": [
+          {
+            "items": [
+              "sw1h02"
+            ],
+            "physical_slots": {
+              "9": "sw1h02"
+            },
+            "selected": 0,
+            "ability": 0,
+            "defense_effects": []
+          },
+          {
+            "items": [
+              "imoenhp1"
+            ],
+            "physical_slots": {
+              "7": "imoenhp1"
+            },
+            "selected": 1000,
+            "ability": 0,
+            "defense_effects": []
+          }
+        ],
+        "relocation": "Append new embedded CRE copies, update only GAM party CRE offset/size; preserve original GAM sections and old unreferenced bytes"
+      },
+      "weapon_metadata": {
+        "origin": "data\\Items.bif",
+        "sha256": "6b7a2f8288b9921f9a0ce3913ee211d3329fc9cc89ae7f19b1bef8f6391a4d66",
+        "enchantment": 1
+      },
+      "process": {
+        "pid": 32988,
+        "exit_code": 0,
+        "timeout_seconds": 45,
+        "timed_out": false,
+        "cleanup": "not required",
+        "elapsed_seconds": 17.247
+      },
+      "output": {
+        "folder": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T174444Z-equipped-defenses-41fae879\\02-plus1\\gemrb\\engine-profile\\save\\000000000-Auto-Save",
+        "values": {
+          "RDXVE": 0,
+          "RDXVD": 0,
+          "RDXDONE": 1,
+          "RDXSTAGE": 3
+        },
+        "actors": [
+          {
+            "items": [
+              "sw1h02"
+            ],
+            "physical_slots": {
+              "9": "sw1h02"
+            },
+            "selected": 0,
+            "ability": 0,
+            "defense_effects": []
+          },
+          {
+            "items": [
+              "imoenhp1"
+            ],
+            "physical_slots": {
+              "7": "imoenhp1"
+            },
+            "selected": 1000,
+            "ability": 0,
+            "defense_effects": []
+          }
+        ],
+        "files": {
+          "baldur.bmp": {
+            "bytes": 93690,
+            "sha256": "b64c76a23842ee363da349e4a172b6fc726c66ba07c8cbe759204afc2adec56b"
+          },
+          "baldur.gam": {
+            "bytes": 69980,
+            "sha256": "22544b3bebf87c745c6f9ba7f70777e799d1bbce13e2e388421b90ef9dbb4d40"
+          },
+          "baldur.sav": {
+            "bytes": 19389,
+            "sha256": "70ee3ef33e332e7c85fd4cd97693377f90988eef6a9b248496dfbd1dea912341"
+          },
+          "PORTRT0.bmp": {
+            "bytes": 13830,
+            "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+          },
+          "PORTRT1.bmp": {
+            "bytes": 13830,
+            "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "id": "03-normal-magprot",
+        "weapon": "sw1h01",
+        "defense": [
+          120,
+          0,
+          1
+        ]
+      },
+      "verdict": "gemrb-executed",
+      "construction": {
+        "input_files": {
+          "BALDUR.bmp": {
+            "bytes": 65590,
+            "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+          },
+          "BALDUR.gam": {
+            "bytes": 77500,
+            "sha256": "cac8f49e8135c530a426df5bea9c459f65cef4997e8dbdab06b0b6da7b50d419"
+          },
+          "BALDUR.SAV": {
+            "bytes": 19443,
+            "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+          },
+          "PORTRT0.bmp": {
+            "bytes": 13830,
+            "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+          },
+          "PORTRT1.bmp": {
+            "bytes": 13830,
+            "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+          },
+          "save_000000033-GemRB.cloud.meta": {
+            "bytes": 10,
+            "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+          }
+        },
+        "declared_script_assignments": [
+          {
+            "actor": 0,
+            "file_script_slot": 0,
+            "offset": 1468,
+            "value": "RDXQPROB"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 1,
+            "offset": 1476,
+            "value": "NONE"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 2,
+            "offset": 1484,
+            "value": "NONE"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 3,
+            "offset": 1492,
+            "value": "NONE"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 4,
+            "offset": 1500,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 0,
+            "offset": 3456,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 1,
+            "offset": 3464,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 2,
+            "offset": 3472,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 3,
+            "offset": 3480,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 4,
+            "offset": 3488,
+            "value": "NONE"
+          }
+        ],
+        "generated_script_sha256": "89632bda590c9325bc88ade44d3e8a35d75d2fdc1cecf5d2d9aaed823cdb3758",
+        "generated_trigger_records": 7,
+        "semantics": "Protagonist override queries MAINHAND against Player2, records results then requests slot0 autosave; both party actors other five file scripts NONE. Actor stats/items/effects unchanged.",
+        "equipment_defense": {
+          "id": "03-normal-magprot",
+          "weapon": "sw1h01",
+          "defense": [
+            120,
+            0,
+            1
+          ]
+        },
+        "input_observation": [
+          {
+            "items": [
+              "sw1h01"
+            ],
+            "physical_slots": {
+              "9": "sw1h01"
+            },
+            "selected": 0,
+            "ability": 0,
+            "defense_effects": []
+          },
+          {
+            "items": [
+              "imoenhp1"
+            ],
+            "physical_slots": {
+              "7": "imoenhp1"
+            },
+            "selected": 1000,
+            "ability": 0,
+            "defense_effects": [
+              {
+                "opcode": 120,
+                "p1": 0,
+                "p2": 1,
+                "timing": 9
+              }
+            ]
+          }
+        ],
+        "relocation": "Append new embedded CRE copies, update only GAM party CRE offset/size; preserve original GAM sections and old unreferenced bytes"
+      },
+      "weapon_metadata": {
+        "origin": "data\\Items.bif",
+        "sha256": "c78bbec33abcd8d37225801edf59cbfae88699e217a8c567dbeef534f094ce8c",
+        "enchantment": 0
+      },
+      "process": {
+        "pid": 25280,
+        "exit_code": 0,
+        "timeout_seconds": 45,
+        "timed_out": false,
+        "cleanup": "not required",
+        "elapsed_seconds": 17.225
+      },
+      "output": {
+        "folder": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T174444Z-equipped-defenses-41fae879\\03-normal-magprot\\gemrb\\engine-profile\\save\\000000000-Auto-Save",
+        "values": {
+          "RDXVE": 0,
+          "RDXVD": 0,
+          "RDXDONE": 1,
+          "RDXSTAGE": 3
+        },
+        "actors": [
+          {
+            "items": [
+              "sw1h01"
+            ],
+            "physical_slots": {
+              "9": "sw1h01"
+            },
+            "selected": 0,
+            "ability": 0,
+            "defense_effects": []
+          },
+          {
+            "items": [
+              "imoenhp1"
+            ],
+            "physical_slots": {
+              "7": "imoenhp1"
+            },
+            "selected": 1000,
+            "ability": 0,
+            "defense_effects": [
+              {
+                "opcode": 120,
+                "p1": 4294967295,
+                "p2": 1,
+                "timing": 9
+              }
+            ]
+          }
+        ],
+        "files": {
+          "baldur.bmp": {
+            "bytes": 93690,
+            "sha256": "b64c76a23842ee363da349e4a172b6fc726c66ba07c8cbe759204afc2adec56b"
+          },
+          "baldur.gam": {
+            "bytes": 70244,
+            "sha256": "5814f855e8f720151b2821c3330f724980bfbd580b8b15864d7fcacdbf28162f"
+          },
+          "baldur.sav": {
+            "bytes": 19389,
+            "sha256": "63fde2e75ec0ca7094e3ee68db41ae7c5273f1a5c175109c8c7684f256023689"
+          },
+          "PORTRT0.bmp": {
+            "bytes": 13830,
+            "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+          },
+          "PORTRT1.bmp": {
+            "bytes": 13830,
+            "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "id": "04-plus1-magprot",
+        "weapon": "sw1h02",
+        "defense": [
+          120,
+          0,
+          1
+        ]
+      },
+      "verdict": "gemrb-executed",
+      "construction": {
+        "input_files": {
+          "BALDUR.bmp": {
+            "bytes": 65590,
+            "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+          },
+          "BALDUR.gam": {
+            "bytes": 77500,
+            "sha256": "f54ed157ec93b5bfdf465e5ffca4358b90cde36aa774c560871a860d9b52efe3"
+          },
+          "BALDUR.SAV": {
+            "bytes": 19443,
+            "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+          },
+          "PORTRT0.bmp": {
+            "bytes": 13830,
+            "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+          },
+          "PORTRT1.bmp": {
+            "bytes": 13830,
+            "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+          },
+          "save_000000033-GemRB.cloud.meta": {
+            "bytes": 10,
+            "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+          }
+        },
+        "declared_script_assignments": [
+          {
+            "actor": 0,
+            "file_script_slot": 0,
+            "offset": 1468,
+            "value": "RDXQPROB"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 1,
+            "offset": 1476,
+            "value": "NONE"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 2,
+            "offset": 1484,
+            "value": "NONE"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 3,
+            "offset": 1492,
+            "value": "NONE"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 4,
+            "offset": 1500,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 0,
+            "offset": 3456,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 1,
+            "offset": 3464,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 2,
+            "offset": 3472,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 3,
+            "offset": 3480,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 4,
+            "offset": 3488,
+            "value": "NONE"
+          }
+        ],
+        "generated_script_sha256": "89632bda590c9325bc88ade44d3e8a35d75d2fdc1cecf5d2d9aaed823cdb3758",
+        "generated_trigger_records": 7,
+        "semantics": "Protagonist override queries MAINHAND against Player2, records results then requests slot0 autosave; both party actors other five file scripts NONE. Actor stats/items/effects unchanged.",
+        "equipment_defense": {
+          "id": "04-plus1-magprot",
+          "weapon": "sw1h02",
+          "defense": [
+            120,
+            0,
+            1
+          ]
+        },
+        "input_observation": [
+          {
+            "items": [
+              "sw1h02"
+            ],
+            "physical_slots": {
+              "9": "sw1h02"
+            },
+            "selected": 0,
+            "ability": 0,
+            "defense_effects": []
+          },
+          {
+            "items": [
+              "imoenhp1"
+            ],
+            "physical_slots": {
+              "7": "imoenhp1"
+            },
+            "selected": 1000,
+            "ability": 0,
+            "defense_effects": [
+              {
+                "opcode": 120,
+                "p1": 0,
+                "p2": 1,
+                "timing": 9
+              }
+            ]
+          }
+        ],
+        "relocation": "Append new embedded CRE copies, update only GAM party CRE offset/size; preserve original GAM sections and old unreferenced bytes"
+      },
+      "weapon_metadata": {
+        "origin": "data\\Items.bif",
+        "sha256": "6b7a2f8288b9921f9a0ce3913ee211d3329fc9cc89ae7f19b1bef8f6391a4d66",
+        "enchantment": 1
+      },
+      "process": {
+        "pid": 17912,
+        "exit_code": 0,
+        "timeout_seconds": 45,
+        "timed_out": false,
+        "cleanup": "not required",
+        "elapsed_seconds": 18.534
+      },
+      "output": {
+        "folder": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T174444Z-equipped-defenses-41fae879\\04-plus1-magprot\\gemrb\\engine-profile\\save\\000000000-Auto-Save",
+        "values": {
+          "RDXVE": 0,
+          "RDXVD": 0,
+          "RDXDONE": 1,
+          "RDXSTAGE": 3
+        },
+        "actors": [
+          {
+            "items": [
+              "sw1h02"
+            ],
+            "physical_slots": {
+              "9": "sw1h02"
+            },
+            "selected": 0,
+            "ability": 0,
+            "defense_effects": []
+          },
+          {
+            "items": [
+              "imoenhp1"
+            ],
+            "physical_slots": {
+              "7": "imoenhp1"
+            },
+            "selected": 1000,
+            "ability": 0,
+            "defense_effects": [
+              {
+                "opcode": 120,
+                "p1": 4294967295,
+                "p2": 1,
+                "timing": 9
+              }
+            ]
+          }
+        ],
+        "files": {
+          "baldur.bmp": {
+            "bytes": 93690,
+            "sha256": "b64c76a23842ee363da349e4a172b6fc726c66ba07c8cbe759204afc2adec56b"
+          },
+          "baldur.gam": {
+            "bytes": 70244,
+            "sha256": "abacf5b9b85875e0e8a958b59fa17f8911e6eb7f869f3734a2b9148d73ad2b75"
+          },
+          "baldur.sav": {
+            "bytes": 19388,
+            "sha256": "3183dd58761897538088edf7d9d5b61fd9fbb078354aa91dc77a6fa81b2922e9"
+          },
+          "PORTRT0.bmp": {
+            "bytes": 13830,
+            "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+          },
+          "PORTRT1.bmp": {
+            "bytes": 13830,
+            "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "id": "05-slash100",
+        "weapon": "sw1h01",
+        "defense": [
+          86,
+          100,
+          1
+        ]
+      },
+      "verdict": "gemrb-executed",
+      "construction": {
+        "input_files": {
+          "BALDUR.bmp": {
+            "bytes": 65590,
+            "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+          },
+          "BALDUR.gam": {
+            "bytes": 77500,
+            "sha256": "36066410e850c6609b06f7e6e7e5a7fa95bb1c0096f9cf98337baff8e50112d6"
+          },
+          "BALDUR.SAV": {
+            "bytes": 19443,
+            "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+          },
+          "PORTRT0.bmp": {
+            "bytes": 13830,
+            "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+          },
+          "PORTRT1.bmp": {
+            "bytes": 13830,
+            "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+          },
+          "save_000000033-GemRB.cloud.meta": {
+            "bytes": 10,
+            "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+          }
+        },
+        "declared_script_assignments": [
+          {
+            "actor": 0,
+            "file_script_slot": 0,
+            "offset": 1468,
+            "value": "RDXQPROB"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 1,
+            "offset": 1476,
+            "value": "NONE"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 2,
+            "offset": 1484,
+            "value": "NONE"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 3,
+            "offset": 1492,
+            "value": "NONE"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 4,
+            "offset": 1500,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 0,
+            "offset": 3456,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 1,
+            "offset": 3464,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 2,
+            "offset": 3472,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 3,
+            "offset": 3480,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 4,
+            "offset": 3488,
+            "value": "NONE"
+          }
+        ],
+        "generated_script_sha256": "89632bda590c9325bc88ade44d3e8a35d75d2fdc1cecf5d2d9aaed823cdb3758",
+        "generated_trigger_records": 7,
+        "semantics": "Protagonist override queries MAINHAND against Player2, records results then requests slot0 autosave; both party actors other five file scripts NONE. Actor stats/items/effects unchanged.",
+        "equipment_defense": {
+          "id": "05-slash100",
+          "weapon": "sw1h01",
+          "defense": [
+            86,
+            100,
+            1
+          ]
+        },
+        "input_observation": [
+          {
+            "items": [
+              "sw1h01"
+            ],
+            "physical_slots": {
+              "9": "sw1h01"
+            },
+            "selected": 0,
+            "ability": 0,
+            "defense_effects": []
+          },
+          {
+            "items": [
+              "imoenhp1"
+            ],
+            "physical_slots": {
+              "7": "imoenhp1"
+            },
+            "selected": 1000,
+            "ability": 0,
+            "defense_effects": [
+              {
+                "opcode": 86,
+                "p1": 100,
+                "p2": 1,
+                "timing": 9
+              }
+            ]
+          }
+        ],
+        "relocation": "Append new embedded CRE copies, update only GAM party CRE offset/size; preserve original GAM sections and old unreferenced bytes"
+      },
+      "weapon_metadata": {
+        "origin": "data\\Items.bif",
+        "sha256": "c78bbec33abcd8d37225801edf59cbfae88699e217a8c567dbeef534f094ce8c",
+        "enchantment": 0
+      },
+      "process": {
+        "pid": 33832,
+        "exit_code": 0,
+        "timeout_seconds": 45,
+        "timed_out": false,
+        "cleanup": "not required",
+        "elapsed_seconds": 18.519
+      },
+      "output": {
+        "folder": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T174444Z-equipped-defenses-41fae879\\05-slash100\\gemrb\\engine-profile\\save\\000000000-Auto-Save",
+        "values": {
+          "RDXVE": 0,
+          "RDXVD": 0,
+          "RDXDONE": 1,
+          "RDXSTAGE": 3
+        },
+        "actors": [
+          {
+            "items": [
+              "sw1h01"
+            ],
+            "physical_slots": {
+              "9": "sw1h01"
+            },
+            "selected": 0,
+            "ability": 0,
+            "defense_effects": []
+          },
+          {
+            "items": [
+              "imoenhp1"
+            ],
+            "physical_slots": {
+              "7": "imoenhp1"
+            },
+            "selected": 1000,
+            "ability": 0,
+            "defense_effects": [
+              {
+                "opcode": 86,
+                "p1": 100,
+                "p2": 1,
+                "timing": 9
+              }
+            ]
+          }
+        ],
+        "files": {
+          "baldur.bmp": {
+            "bytes": 93690,
+            "sha256": "b64c76a23842ee363da349e4a172b6fc726c66ba07c8cbe759204afc2adec56b"
+          },
+          "baldur.gam": {
+            "bytes": 70244,
+            "sha256": "4858ce508d624543d2525d61c469cda8276f1e45ea821bec0676b3e981844589"
+          },
+          "baldur.sav": {
+            "bytes": 19389,
+            "sha256": "99fe57f589b88a37e018403b4b56034d50bd9bc637c1687edad34f4f9d0b5c5e"
+          },
+          "PORTRT0.bmp": {
+            "bytes": 13830,
+            "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+          },
+          "PORTRT1.bmp": {
+            "bytes": 13830,
+            "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "id": "06-stoneskin",
+        "weapon": "sw1h02",
+        "defense": [
+          218,
+          3,
+          0
+        ]
+      },
+      "verdict": "gemrb-executed",
+      "construction": {
+        "input_files": {
+          "BALDUR.bmp": {
+            "bytes": 65590,
+            "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+          },
+          "BALDUR.gam": {
+            "bytes": 77500,
+            "sha256": "892e30bdc98847669c6f26fae448902491d3c3258a16691efde7cb31ac8881a5"
+          },
+          "BALDUR.SAV": {
+            "bytes": 19443,
+            "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+          },
+          "PORTRT0.bmp": {
+            "bytes": 13830,
+            "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+          },
+          "PORTRT1.bmp": {
+            "bytes": 13830,
+            "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+          },
+          "save_000000033-GemRB.cloud.meta": {
+            "bytes": 10,
+            "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+          }
+        },
+        "declared_script_assignments": [
+          {
+            "actor": 0,
+            "file_script_slot": 0,
+            "offset": 1468,
+            "value": "RDXQPROB"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 1,
+            "offset": 1476,
+            "value": "NONE"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 2,
+            "offset": 1484,
+            "value": "NONE"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 3,
+            "offset": 1492,
+            "value": "NONE"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 4,
+            "offset": 1500,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 0,
+            "offset": 3456,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 1,
+            "offset": 3464,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 2,
+            "offset": 3472,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 3,
+            "offset": 3480,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 4,
+            "offset": 3488,
+            "value": "NONE"
+          }
+        ],
+        "generated_script_sha256": "89632bda590c9325bc88ade44d3e8a35d75d2fdc1cecf5d2d9aaed823cdb3758",
+        "generated_trigger_records": 7,
+        "semantics": "Protagonist override queries MAINHAND against Player2, records results then requests slot0 autosave; both party actors other five file scripts NONE. Actor stats/items/effects unchanged.",
+        "equipment_defense": {
+          "id": "06-stoneskin",
+          "weapon": "sw1h02",
+          "defense": [
+            218,
+            3,
+            0
+          ]
+        },
+        "input_observation": [
+          {
+            "items": [
+              "sw1h02"
+            ],
+            "physical_slots": {
+              "9": "sw1h02"
+            },
+            "selected": 0,
+            "ability": 0,
+            "defense_effects": []
+          },
+          {
+            "items": [
+              "imoenhp1"
+            ],
+            "physical_slots": {
+              "7": "imoenhp1"
+            },
+            "selected": 1000,
+            "ability": 0,
+            "defense_effects": [
+              {
+                "opcode": 218,
+                "p1": 3,
+                "p2": 0,
+                "timing": 9
+              }
+            ]
+          }
+        ],
+        "relocation": "Append new embedded CRE copies, update only GAM party CRE offset/size; preserve original GAM sections and old unreferenced bytes"
+      },
+      "weapon_metadata": {
+        "origin": "data\\Items.bif",
+        "sha256": "6b7a2f8288b9921f9a0ce3913ee211d3329fc9cc89ae7f19b1bef8f6391a4d66",
+        "enchantment": 1
+      },
+      "process": {
+        "pid": 10716,
+        "exit_code": 0,
+        "timeout_seconds": 45,
+        "timed_out": false,
+        "cleanup": "not required",
+        "elapsed_seconds": 18.546
+      },
+      "output": {
+        "folder": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T174444Z-equipped-defenses-41fae879\\06-stoneskin\\gemrb\\engine-profile\\save\\000000000-Auto-Save",
+        "values": {
+          "RDXVE": 0,
+          "RDXVD": 0,
+          "RDXDONE": 1,
+          "RDXSTAGE": 3
+        },
+        "actors": [
+          {
+            "items": [
+              "sw1h02"
+            ],
+            "physical_slots": {
+              "9": "sw1h02"
+            },
+            "selected": 0,
+            "ability": 0,
+            "defense_effects": []
+          },
+          {
+            "items": [
+              "imoenhp1"
+            ],
+            "physical_slots": {
+              "7": "imoenhp1"
+            },
+            "selected": 1000,
+            "ability": 0,
+            "defense_effects": [
+              {
+                "opcode": 218,
+                "p1": 3,
+                "p2": 0,
+                "timing": 9
+              }
+            ]
+          }
+        ],
+        "files": {
+          "baldur.bmp": {
+            "bytes": 93690,
+            "sha256": "b64c76a23842ee363da349e4a172b6fc726c66ba07c8cbe759204afc2adec56b"
+          },
+          "baldur.gam": {
+            "bytes": 70244,
+            "sha256": "cdb701de6047ea9562b1fb4356dd235c2cde468ded489715d86cbd13635e19d6"
+          },
+          "baldur.sav": {
+            "bytes": 19388,
+            "sha256": "0287e5157c91bb63d5063b644f9fff056f6d6ee33e2573d8d67cad92139485d5"
+          },
+          "PORTRT0.bmp": {
+            "bytes": 13830,
+            "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+          },
+          "PORTRT1.bmp": {
+            "bytes": 13830,
+            "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "id": "07-mirror",
+        "weapon": "sw1h02",
+        "defense": [
+          159,
+          3,
+          0
+        ]
+      },
+      "verdict": "gemrb-executed",
+      "construction": {
+        "input_files": {
+          "BALDUR.bmp": {
+            "bytes": 65590,
+            "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+          },
+          "BALDUR.gam": {
+            "bytes": 77500,
+            "sha256": "7ad444668cb9819f5d693a225f686053688364b1101669a561936c076e82c314"
+          },
+          "BALDUR.SAV": {
+            "bytes": 19443,
+            "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+          },
+          "PORTRT0.bmp": {
+            "bytes": 13830,
+            "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+          },
+          "PORTRT1.bmp": {
+            "bytes": 13830,
+            "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+          },
+          "save_000000033-GemRB.cloud.meta": {
+            "bytes": 10,
+            "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+          }
+        },
+        "declared_script_assignments": [
+          {
+            "actor": 0,
+            "file_script_slot": 0,
+            "offset": 1468,
+            "value": "RDXQPROB"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 1,
+            "offset": 1476,
+            "value": "NONE"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 2,
+            "offset": 1484,
+            "value": "NONE"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 3,
+            "offset": 1492,
+            "value": "NONE"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 4,
+            "offset": 1500,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 0,
+            "offset": 3456,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 1,
+            "offset": 3464,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 2,
+            "offset": 3472,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 3,
+            "offset": 3480,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 4,
+            "offset": 3488,
+            "value": "NONE"
+          }
+        ],
+        "generated_script_sha256": "89632bda590c9325bc88ade44d3e8a35d75d2fdc1cecf5d2d9aaed823cdb3758",
+        "generated_trigger_records": 7,
+        "semantics": "Protagonist override queries MAINHAND against Player2, records results then requests slot0 autosave; both party actors other five file scripts NONE. Actor stats/items/effects unchanged.",
+        "equipment_defense": {
+          "id": "07-mirror",
+          "weapon": "sw1h02",
+          "defense": [
+            159,
+            3,
+            0
+          ]
+        },
+        "input_observation": [
+          {
+            "items": [
+              "sw1h02"
+            ],
+            "physical_slots": {
+              "9": "sw1h02"
+            },
+            "selected": 0,
+            "ability": 0,
+            "defense_effects": []
+          },
+          {
+            "items": [
+              "imoenhp1"
+            ],
+            "physical_slots": {
+              "7": "imoenhp1"
+            },
+            "selected": 1000,
+            "ability": 0,
+            "defense_effects": [
+              {
+                "opcode": 159,
+                "p1": 3,
+                "p2": 0,
+                "timing": 9
+              }
+            ]
+          }
+        ],
+        "relocation": "Append new embedded CRE copies, update only GAM party CRE offset/size; preserve original GAM sections and old unreferenced bytes"
+      },
+      "weapon_metadata": {
+        "origin": "data\\Items.bif",
+        "sha256": "6b7a2f8288b9921f9a0ce3913ee211d3329fc9cc89ae7f19b1bef8f6391a4d66",
+        "enchantment": 1
+      },
+      "process": {
+        "pid": 15212,
+        "exit_code": 0,
+        "timeout_seconds": 45,
+        "timed_out": false,
+        "cleanup": "not required",
+        "elapsed_seconds": 18.553
+      },
+      "output": {
+        "folder": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T174444Z-equipped-defenses-41fae879\\07-mirror\\gemrb\\engine-profile\\save\\000000000-Auto-Save",
+        "values": {
+          "RDXVE": 0,
+          "RDXVD": 0,
+          "RDXDONE": 1,
+          "RDXSTAGE": 3
+        },
+        "actors": [
+          {
+            "items": [
+              "sw1h02"
+            ],
+            "physical_slots": {
+              "9": "sw1h02"
+            },
+            "selected": 0,
+            "ability": 0,
+            "defense_effects": []
+          },
+          {
+            "items": [
+              "imoenhp1"
+            ],
+            "physical_slots": {
+              "7": "imoenhp1"
+            },
+            "selected": 1000,
+            "ability": 0,
+            "defense_effects": [
+              {
+                "opcode": 159,
+                "p1": 3,
+                "p2": 0,
+                "timing": 9
+              }
+            ]
+          }
+        ],
+        "files": {
+          "baldur.bmp": {
+            "bytes": 93690,
+            "sha256": "b64c76a23842ee363da349e4a172b6fc726c66ba07c8cbe759204afc2adec56b"
+          },
+          "baldur.gam": {
+            "bytes": 70244,
+            "sha256": "9874556ca015907c4083025152d603e697df714d5912e216e1ccf1305822f632"
+          },
+          "baldur.sav": {
+            "bytes": 19388,
+            "sha256": "9c48f13f379b60b52c2cbf1084097ce1c29ead8f2bb76f8a330feba06f275583"
+          },
+          "PORTRT0.bmp": {
+            "bytes": 13830,
+            "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+          },
+          "PORTRT1.bmp": {
+            "bytes": 13830,
+            "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "id": "08-bow",
+        "weapon": "bow01",
+        "defense": null
+      },
+      "verdict": "gemrb-executed",
+      "construction": {
+        "input_files": {
+          "BALDUR.bmp": {
+            "bytes": 65590,
+            "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+          },
+          "BALDUR.gam": {
+            "bytes": 75144,
+            "sha256": "891be133b706a2be67fa80f795e0b9358af4479f525bc841a546733551eda021"
+          },
+          "BALDUR.SAV": {
+            "bytes": 19443,
+            "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+          },
+          "PORTRT0.bmp": {
+            "bytes": 13830,
+            "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+          },
+          "PORTRT1.bmp": {
+            "bytes": 13830,
+            "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+          },
+          "save_000000033-GemRB.cloud.meta": {
+            "bytes": 10,
+            "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+          }
+        },
+        "declared_script_assignments": [
+          {
+            "actor": 0,
+            "file_script_slot": 0,
+            "offset": 1468,
+            "value": "RDXQPROB"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 1,
+            "offset": 1476,
+            "value": "NONE"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 2,
+            "offset": 1484,
+            "value": "NONE"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 3,
+            "offset": 1492,
+            "value": "NONE"
+          },
+          {
+            "actor": 0,
+            "file_script_slot": 4,
+            "offset": 1500,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 0,
+            "offset": 3456,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 1,
+            "offset": 3464,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 2,
+            "offset": 3472,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 3,
+            "offset": 3480,
+            "value": "NONE"
+          },
+          {
+            "actor": 1,
+            "file_script_slot": 4,
+            "offset": 3488,
+            "value": "NONE"
+          }
+        ],
+        "generated_script_sha256": "89632bda590c9325bc88ade44d3e8a35d75d2fdc1cecf5d2d9aaed823cdb3758",
+        "generated_trigger_records": 7,
+        "semantics": "Protagonist override queries MAINHAND against Player2, records results then requests slot0 autosave; both party actors other five file scripts NONE. Actor stats/items/effects unchanged.",
+        "equipment_defense": {
+          "id": "08-bow",
+          "weapon": "bow01",
+          "defense": null
+        },
+        "input_observation": [
+          {
+            "items": [
+              "bow01",
+              "arow01"
+            ],
+            "physical_slots": {
+              "9": "bow01",
+              "13": "arow01"
+            },
+            "selected": -24,
+            "ability": 0,
+            "defense_effects": []
+          },
+          {
+            "items": [
+              "imoenhp1"
+            ],
+            "physical_slots": {
+              "7": "imoenhp1"
+            },
+            "selected": 1000,
+            "ability": 0,
+            "defense_effects": []
+          }
+        ],
+        "relocation": "Append new embedded CRE copies, update only GAM party CRE offset/size; preserve original GAM sections and old unreferenced bytes"
+      },
+      "weapon_metadata": {
+        "origin": "data\\Items.bif",
+        "sha256": "e1c6ea78523c39e961341400d94680bdb9e57c3279be32e9ef9f9831dac0ae2a",
+        "enchantment": 0
+      },
+      "process": {
+        "pid": 35984,
+        "exit_code": 0,
+        "timeout_seconds": 45,
+        "timed_out": false,
+        "cleanup": "not required",
+        "elapsed_seconds": 18.599
+      },
+      "output": {
+        "folder": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T174444Z-equipped-defenses-41fae879\\08-bow\\gemrb\\engine-profile\\save\\000000000-Auto-Save",
+        "values": {
+          "RDXVE": 0,
+          "RDXVD": 0,
+          "RDXDONE": 1,
+          "RDXSTAGE": 3
+        },
+        "actors": [
+          {
+            "items": [
+              "bow01",
+              "arow01"
+            ],
+            "physical_slots": {
+              "9": "bow01",
+              "13": "arow01"
+            },
+            "selected": -24,
+            "ability": 0,
+            "defense_effects": []
+          },
+          {
+            "items": [
+              "imoenhp1"
+            ],
+            "physical_slots": {
+              "7": "imoenhp1"
+            },
+            "selected": 1000,
+            "ability": 0,
+            "defense_effects": []
+          }
+        ],
+        "files": {
+          "baldur.bmp": {
+            "bytes": 93690,
+            "sha256": "b64c76a23842ee363da349e4a172b6fc726c66ba07c8cbe759204afc2adec56b"
+          },
+          "baldur.gam": {
+            "bytes": 70000,
+            "sha256": "aa7339c5291dc2d693d8b1be28631ca7086ef2cfa24e6097950c8d7d3461d4e8"
+          },
+          "baldur.sav": {
+            "bytes": 19388,
+            "sha256": "e8a6dacb15326cd5e5f11fc138e842f15e659bd2733e0ba037a011811ecbdb43"
+          },
+          "PORTRT0.bmp": {
+            "bytes": 13830,
+            "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+          },
+          "PORTRT1.bmp": {
+            "bytes": 13830,
+            "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+          }
+        }
+      }
+    }
+  ],
+  "verdict": "gemrb-cases-executed",
+  "source_sha256": "6b52d726b2c84a5906c02daba504625ba99aa909bac62772652262a5c1537972"
+}

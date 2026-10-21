@@ -1,0 +1,3038 @@
+{
+  "schema": "bg-redux-weapon-trigger-exposure/1",
+  "captured_utc": "2026-10-21T03:37:06.357865+00:00",
+  "scope": "Census two verified EE trigger stubs in packaged BG2EE BCS condition blocks.\n\nThis is a bounded compiled-text reader, not a script interpreter or branch hit trace.\n",
+  "scripts_scanned": 4358,
+  "trigger_records_scanned": 173315,
+  "hits": [
+    {
+      "script": "bdaeriec",
+      "origin": "data\\Patch2.bif",
+      "sha256": "c013ce0ab915d36ed06f6f79a279c40c8b9d7904e25673ccb92b5373518cd291",
+      "blocks": [
+        {
+          "block": 165,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 166,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 167,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "following_block": {
+            "index": 168,
+            "trigger_opcodes": [
+              16399,
+              16427,
+              16451,
+              16452,
+              16585,
+              16439,
+              16412,
+              16439,
+              16395,
+              16451
+            ],
+            "response_action_ids": [
+              105
+            ]
+          },
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        }
+      ]
+    },
+    {
+      "script": "bdanomec",
+      "origin": "data\\Patch2.bif",
+      "sha256": "850781168a5e7fbbc18aa3d577d5f79172b1545fffc6c7ec876413bde802bb8a",
+      "blocks": [
+        {
+          "block": 119,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 120,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 121,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "following_block": {
+            "index": 122,
+            "trigger_opcodes": [
+              16399,
+              16427,
+              16451,
+              16452,
+              16585,
+              16412,
+              16439,
+              16395,
+              16451
+            ],
+            "response_action_ids": [
+              105
+            ]
+          },
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        }
+      ]
+    },
+    {
+      "script": "bdcerndc",
+      "origin": "data\\Patch2.bif",
+      "sha256": "a9de5a4fb66918ad3df36a25badae8c093479f6efd14a0f497eb3b6ea2402019",
+      "blocks": [
+        {
+          "block": 47,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 48,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 49,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "following_block": {
+            "index": 50,
+            "trigger_opcodes": [
+              16399,
+              16427,
+              16451,
+              16452,
+              16412,
+              16439,
+              16395,
+              16451
+            ],
+            "response_action_ids": [
+              105
+            ]
+          },
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        }
+      ]
+    },
+    {
+      "script": "bddefai",
+      "origin": "data\\Patch2.bif",
+      "sha256": "0bb60bc3cef97b40cfee1924087562b4391194058f96f911a9870ac6d5cff9f6",
+      "blocks": [
+        {
+          "block": 307,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 308,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 309,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "following_block": {
+            "index": 310,
+            "trigger_opcodes": [
+              16399,
+              16427,
+              16451,
+              16452,
+              16585,
+              16412,
+              16439,
+              16395,
+              16451
+            ],
+            "response_action_ids": [
+              105
+            ]
+          },
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        }
+      ]
+    },
+    {
+      "script": "bddornc",
+      "origin": "data\\Patch2.bif",
+      "sha256": "fa43cac0eee48484fdfb9c442b637755de0ced6b6873ecc053beebe0136e2d06",
+      "blocks": [
+        {
+          "block": 19,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 20,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 21,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "following_block": {
+            "index": 22,
+            "trigger_opcodes": [
+              16399,
+              16427,
+              16451,
+              16452,
+              16412,
+              16439,
+              16395,
+              16451
+            ],
+            "response_action_ids": [
+              105
+            ]
+          },
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        }
+      ]
+    },
+    {
+      "script": "bdedwinc",
+      "origin": "data\\Patch2.bif",
+      "sha256": "868e057eca16a379b971ba7c239c42744bcfcdd4368618cb9e81279d5dd8d34f",
+      "blocks": [
+        {
+          "block": 84,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 85,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 86,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "following_block": {
+            "index": 87,
+            "trigger_opcodes": [
+              16399,
+              16427,
+              16451,
+              16452,
+              16412,
+              16439,
+              16395,
+              16451
+            ],
+            "response_action_ids": [
+              105
+            ]
+          },
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        }
+      ]
+    },
+    {
+      "script": "bdhaerc",
+      "origin": "data\\Patch2.bif",
+      "sha256": "d855284edd5fae5a3438ae1658b31ac02e07d1a337dc0c66d559870abdfae4db",
+      "blocks": [
+        {
+          "block": 99,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 100,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 101,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "following_block": {
+            "index": 102,
+            "trigger_opcodes": [
+              16399,
+              16427,
+              16451,
+              16452,
+              16521,
+              16610,
+              16399,
+              16412,
+              16439,
+              16395,
+              16451
+            ],
+            "response_action_ids": [
+              105
+            ]
+          },
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        }
+      ]
+    },
+    {
+      "script": "bdhexxac",
+      "origin": "data\\Patch2.bif",
+      "sha256": "0120f5ba696f988125d4f0f2ac9540c17b5a82bf39a4a8e5cf10a1ff64818628",
+      "blocks": [
+        {
+          "block": 13,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 14,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 15,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "following_block": {
+            "index": 16,
+            "trigger_opcodes": [
+              16399,
+              16427,
+              16451,
+              16452,
+              16412,
+              16439,
+              16395,
+              16451
+            ],
+            "response_action_ids": [
+              105
+            ]
+          },
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        }
+      ]
+    },
+    {
+      "script": "bdimoenc",
+      "origin": "data\\Patch2.bif",
+      "sha256": "bfa88300a5c1145c596a1f513c0de55428010039b2dc8de5287fda1d982f14d5",
+      "blocks": [
+        {
+          "block": 115,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 116,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 117,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "following_block": {
+            "index": 118,
+            "trigger_opcodes": [
+              16399,
+              16427,
+              16451,
+              16452,
+              16412,
+              16439,
+              16395,
+              16451
+            ],
+            "response_action_ids": [
+              105
+            ]
+          },
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        }
+      ]
+    },
+    {
+      "script": "bdjaheic",
+      "origin": "data\\Patch2.bif",
+      "sha256": "efe836063133cde33b44c351c2804483feb5f0d1ad935d50725f2848d80ada56",
+      "blocks": [
+        {
+          "block": 60,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 61,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 62,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "following_block": {
+            "index": 63,
+            "trigger_opcodes": [
+              16399,
+              16427,
+              16451,
+              16452,
+              16412,
+              16439,
+              16395,
+              16451
+            ],
+            "response_action_ids": [
+              105
+            ]
+          },
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        }
+      ]
+    },
+    {
+      "script": "bdjanc",
+      "origin": "data\\Patch2.bif",
+      "sha256": "5c96b36fde2450ab28f780a5c3fe2d073b4e795c424c5cf810e6de6b9148ddd5",
+      "blocks": [
+        {
+          "block": 85,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 86,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 87,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "following_block": {
+            "index": 88,
+            "trigger_opcodes": [
+              16399,
+              16427,
+              16451,
+              16452,
+              16412,
+              16439,
+              16395,
+              16451
+            ],
+            "response_action_ids": [
+              105
+            ]
+          },
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        }
+      ]
+    },
+    {
+      "script": "bdkeldoc",
+      "origin": "data\\Patch2.bif",
+      "sha256": "ddf036ce9096dd5c0c2699bf807a7d62b6a90ead8855fbff560af365b3ebe944",
+      "blocks": [
+        {
+          "block": 27,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 28,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 29,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "following_block": {
+            "index": 30,
+            "trigger_opcodes": [
+              16399,
+              16427,
+              16451,
+              16452,
+              16412,
+              16439,
+              16395,
+              16451
+            ],
+            "response_action_ids": [
+              105
+            ]
+          },
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        }
+      ]
+    },
+    {
+      "script": "bdkorgac",
+      "origin": "data\\Patch2.bif",
+      "sha256": "0eea9a92589f697a9ee9d34ada05e0e1c29ef211cf05f1281e5de9afec449c00",
+      "blocks": [
+        {
+          "block": 13,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 14,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 15,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "following_block": {
+            "index": 16,
+            "trigger_opcodes": [
+              16399,
+              16427,
+              16451,
+              16452,
+              16412,
+              16439,
+              16395,
+              16451
+            ],
+            "response_action_ids": [
+              105
+            ]
+          },
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        }
+      ]
+    },
+    {
+      "script": "bdmazzyc",
+      "origin": "data\\Patch2.bif",
+      "sha256": "b9620be7d96d7130080f17be5316663caa75971b1916f274d857dcca62d24170",
+      "blocks": [
+        {
+          "block": 21,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 22,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 23,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "following_block": {
+            "index": 24,
+            "trigger_opcodes": [
+              16399,
+              16427,
+              16451,
+              16452,
+              16412,
+              16439,
+              16395,
+              16451
+            ],
+            "response_action_ids": [
+              105
+            ]
+          },
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        }
+      ]
+    },
+    {
+      "script": "bdminscc",
+      "origin": "data\\Patch2.bif",
+      "sha256": "d587215e8f83eabf61a8ed0877ca5c04b722666750c645b57b2a6e95e10debf6",
+      "blocks": [
+        {
+          "block": 18,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 19,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 20,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "following_block": {
+            "index": 21,
+            "trigger_opcodes": [
+              16399,
+              16427,
+              16451,
+              16452,
+              16412,
+              16439,
+              16395,
+              16451
+            ],
+            "response_action_ids": [
+              105
+            ]
+          },
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        }
+      ]
+    },
+    {
+      "script": "bdnaliac",
+      "origin": "data\\Patch2.bif",
+      "sha256": "5c96b36fde2450ab28f780a5c3fe2d073b4e795c424c5cf810e6de6b9148ddd5",
+      "blocks": [
+        {
+          "block": 85,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 86,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 87,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "following_block": {
+            "index": 88,
+            "trigger_opcodes": [
+              16399,
+              16427,
+              16451,
+              16452,
+              16412,
+              16439,
+              16395,
+              16451
+            ],
+            "response_action_ids": [
+              105
+            ]
+          },
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        }
+      ]
+    },
+    {
+      "script": "bdneerac",
+      "origin": "data\\Patch2.bif",
+      "sha256": "bb94db460f531eb70adaaf5f79d7d9af5b1aed34b0958e4fcf57e2671158e355",
+      "blocks": [
+        {
+          "block": 89,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 90,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 91,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "following_block": {
+            "index": 92,
+            "trigger_opcodes": [
+              16399,
+              16427,
+              16451,
+              16452,
+              16412,
+              16439,
+              16395,
+              16451
+            ],
+            "response_action_ids": [
+              105
+            ]
+          },
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        }
+      ]
+    },
+    {
+      "script": "bdrasaac",
+      "origin": "data\\Patch2.bif",
+      "sha256": "a2ee26e28fabfb63f170a477f16a70c446fc869e52a559ca4039cf0ea29750e9",
+      "blocks": [
+        {
+          "block": 42,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 43,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 44,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "following_block": {
+            "index": 45,
+            "trigger_opcodes": [
+              16399,
+              16427,
+              16451,
+              16452,
+              16412,
+              16439,
+              16395,
+              16451
+            ],
+            "response_action_ids": [
+              105
+            ]
+          },
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        }
+      ]
+    },
+    {
+      "script": "bdsarevc",
+      "origin": "data\\Patch2.bif",
+      "sha256": "e2edf36bfe701cc0efa88de2b59782b741a7a02e4ec2956f6b3421968c6d6052",
+      "blocks": [
+        {
+          "block": 12,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 13,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 14,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "following_block": {
+            "index": 15,
+            "trigger_opcodes": [
+              16399,
+              16427,
+              16451,
+              16452,
+              16412,
+              16439,
+              16395,
+              16451
+            ],
+            "response_action_ids": [
+              105
+            ]
+          },
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        }
+      ]
+    },
+    {
+      "script": "bdsum00",
+      "origin": "data\\Patch2.bif",
+      "sha256": "66cd757e2e160f43a6dabd60aec5c09f25f238007d1b8492ced9ebbbd201f2db",
+      "blocks": [
+        {
+          "block": 8,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            0
+          ],
+          "response_actions": [
+            "NoAction"
+          ]
+        },
+        {
+          "block": 9,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 33 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 33 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            0
+          ],
+          "response_actions": [
+            "NoAction"
+          ]
+        },
+        {
+          "block": 10,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 32 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 32 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            0
+          ],
+          "response_actions": [
+            "NoAction"
+          ]
+        },
+        {
+          "block": 11,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 31 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 31 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            0
+          ],
+          "response_actions": [
+            "NoAction"
+          ]
+        },
+        {
+          "block": 12,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            0
+          ],
+          "response_actions": [
+            "NoAction"
+          ]
+        },
+        {
+          "block": 13,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            0
+          ],
+          "response_actions": [
+            "NoAction"
+          ]
+        },
+        {
+          "block": 14,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            0
+          ],
+          "response_actions": [
+            "NoAction"
+          ]
+        },
+        {
+          "block": 15,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 10 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 10 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            0
+          ],
+          "response_actions": [
+            "NoAction"
+          ]
+        },
+        {
+          "block": 16,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 10 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 10 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            0
+          ],
+          "response_actions": [
+            "NoAction"
+          ]
+        },
+        {
+          "block": 17,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 33 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 33 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            0
+          ],
+          "response_actions": [
+            "NoAction"
+          ]
+        },
+        {
+          "block": 18,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 32 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 32 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            0
+          ],
+          "response_actions": [
+            "NoAction"
+          ]
+        },
+        {
+          "block": 19,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 31 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 31 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            0
+          ],
+          "response_actions": [
+            "NoAction"
+          ]
+        },
+        {
+          "block": 20,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            0
+          ],
+          "response_actions": [
+            "NoAction"
+          ]
+        },
+        {
+          "block": 21,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            0
+          ],
+          "response_actions": [
+            "NoAction"
+          ]
+        },
+        {
+          "block": 22,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            0
+          ],
+          "following_block": {
+            "index": 23,
+            "trigger_opcodes": [
+              16395,
+              16521,
+              16427,
+              16413,
+              16439,
+              16395,
+              16451,
+              16412
+            ],
+            "response_action_ids": [
+              105
+            ]
+          },
+          "response_actions": [
+            "NoAction"
+          ]
+        }
+      ]
+    },
+    {
+      "script": "bdvalygc",
+      "origin": "data\\Patch2.bif",
+      "sha256": "d587215e8f83eabf61a8ed0877ca5c04b722666750c645b57b2a6e95e10debf6",
+      "blocks": [
+        {
+          "block": 18,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 19,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 20,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "following_block": {
+            "index": 21,
+            "trigger_opcodes": [
+              16399,
+              16427,
+              16451,
+              16452,
+              16412,
+              16439,
+              16395,
+              16451
+            ],
+            "response_action_ids": [
+              105
+            ]
+          },
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        }
+      ]
+    },
+    {
+      "script": "bdviconc",
+      "origin": "data\\Patch2.bif",
+      "sha256": "850781168a5e7fbbc18aa3d577d5f79172b1545fffc6c7ec876413bde802bb8a",
+      "blocks": [
+        {
+          "block": 119,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 120,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 121,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "following_block": {
+            "index": 122,
+            "trigger_opcodes": [
+              16399,
+              16427,
+              16451,
+              16452,
+              16585,
+              16412,
+              16439,
+              16395,
+              16451
+            ],
+            "response_action_ids": [
+              105
+            ]
+          },
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        }
+      ]
+    },
+    {
+      "script": "bdwilsoc",
+      "origin": "data\\Patch2.bif",
+      "sha256": "6dd67540750315fc93b92e635163a97c8d685f558a362424a438c1f70a71c594",
+      "blocks": [
+        {
+          "block": 13,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 14,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 15,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "following_block": {
+            "index": 16,
+            "trigger_opcodes": [
+              16399,
+              16427,
+              16451,
+              16452,
+              16412,
+              16439,
+              16395,
+              16451
+            ],
+            "response_action_ids": [
+              105
+            ]
+          },
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        }
+      ]
+    },
+    {
+      "script": "bdyoshic",
+      "origin": "data\\Patch2.bif",
+      "sha256": "a03080605d58e7233dc3b4addb58eb1ffec612b860de92f4fc0639800962f33c",
+      "blocks": [
+        {
+          "block": 13,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 12 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 14,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 29 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        },
+        {
+          "block": 15,
+          "triggers": [
+            {
+              "opcode": 16620,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            },
+            {
+              "opcode": 16626,
+              "hand": 1,
+              "flags": 0,
+              "int1": 0,
+              "int2": 0,
+              "object_encoding": "0 0 0 0 0 0 0 1 30 0 0 0 \"\""
+            }
+          ],
+          "contains_or": false,
+          "positive_stub_without_or": true,
+          "response_action_ids": [
+            105
+          ],
+          "following_block": {
+            "index": 16,
+            "trigger_opcodes": [
+              16399,
+              16427,
+              16451,
+              16452,
+              16412,
+              16439,
+              16395,
+              16451
+            ],
+            "response_action_ids": [
+              105
+            ]
+          },
+          "response_actions": [
+            "AttackOneRound"
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "known_stubs": {
+    "16620": "WeaponEffectiveVs",
+    "16626": "WeaponCanDamage"
+  },
+  "stub_occurrences": {
+    "WeaponEffectiveVs": 84,
+    "WeaponCanDamage": 84
+  },
+  "baseline_party_file_scripts": [
+    {
+      "party_index": 0,
+      "file_scripts": {
+        "override": "none",
+        "class": "none",
+        "race": "none",
+        "general": "none",
+        "default": "dplayer3"
+      }
+    },
+    {
+      "party_index": 1,
+      "file_scripts": {
+        "override": "imoen",
+        "class": "bdimoenc",
+        "race": "",
+        "general": "",
+        "default": "dplayer2"
+      }
+    }
+  ],
+  "verdict": "scanned",
+  "source_sha256": "9c20c1406dfb9e027a37a51e30e7d99b2a96e9befa488bbb69855e8a5a5d032f"
+}

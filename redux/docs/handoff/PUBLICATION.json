@@ -1,0 +1,11 @@
+{
+  "repository": "https://github.com/zach-hopkins/bg-redux",
+  "clone_url": "https://github.com/zach-hopkins/bg-redux.git",
+  "branch": "codex/phase0-audit",
+  "engine_baseline": "bcb5cfaa9f19ffbe8a51f25a3c014fa344173351",
+  "phase0_root_in_fork": "redux/",
+  "engine_source_changes_authorized": false,
+  "publication_authorized_by_user": true,
+  "private_runtime_package_published": false,
+  "note": "Resolve the branch on GitHub for its current commit; historical engine assertions refer to engine_baseline, not the additive documentation commit."
+}

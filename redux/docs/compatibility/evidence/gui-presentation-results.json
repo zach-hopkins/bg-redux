@@ -1,0 +1,3173 @@
+{
+  "schema": "bg-redux-presentation-evidence/1",
+  "runs": [
+    {
+      "run_id": "20261021T011818Z-gui-stock-verified-fe7b575f",
+      "font_mode": "stock",
+      "execution_verdict": "passed",
+      "assertion_verdict": "passed",
+      "persistence": {
+        "differences": 449,
+        "scopes": {
+          "party": {
+            "passed": false,
+            "differences": 180
+          },
+          "stored_npcs": {
+            "passed": true,
+            "differences": 0
+          },
+          "world_metadata": {
+            "passed": false,
+            "differences": 3
+          },
+          "current_area": {
+            "passed": false,
+            "differences": 266
+          }
+        },
+        "passed": false
+      },
+      "fonts": [
+        {
+          "name": "NORMAL",
+          "loaded": true,
+          "runtime_type": "N5GemRB7TTFFontE",
+          "line_height": 13,
+          "baseline": 11,
+          "sample_width": 147,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                13,
+                12
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                6,
+                7
+              ],
+              "position": [
+                0,
+                4
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                7,
+                10
+              ],
+              "position": [
+                0,
+                1
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                7,
+                10
+              ],
+              "position": [
+                0,
+                4
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                16,
+                12
+              ],
+              "position": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "name": "FLOATTXT",
+          "loaded": true,
+          "runtime_type": "N5GemRB7TTFFontE",
+          "line_height": 16,
+          "baseline": 14,
+          "sample_width": 159,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                11,
+                10
+              ],
+              "position": [
+                0,
+                4
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                7,
+                8
+              ],
+              "position": [
+                0,
+                6
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                8,
+                10
+              ],
+              "position": [
+                0,
+                4
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                8,
+                11
+              ],
+              "position": [
+                0,
+                6
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                15,
+                10
+              ],
+              "position": [
+                0,
+                4
+              ]
+            }
+          ]
+        },
+        {
+          "name": "NUMBER",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 14,
+          "baseline": 0,
+          "sample_width": 240,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "name": "INITIALS",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 13,
+          "baseline": 13,
+          "sample_width": 852,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                40,
+                38
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                40,
+                38
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                40,
+                38
+              ],
+              "position": [
+                0,
+                -1
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                40,
+                38
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                40,
+                38
+              ],
+              "position": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "name": "NUMBER2",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 14,
+          "baseline": 0,
+          "sample_width": 240,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "name": "NUMBER3",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 14,
+          "baseline": 0,
+          "sample_width": 240,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "name": "REALMS",
+          "loaded": true,
+          "runtime_type": "N5GemRB7TTFFontE",
+          "line_height": 16,
+          "baseline": 13,
+          "sample_width": 195,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                9,
+                10
+              ],
+              "position": [
+                0,
+                4
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                9,
+                7
+              ],
+              "position": [
+                0,
+                7
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                11,
+                9
+              ],
+              "position": [
+                0,
+                4
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                9,
+                10
+              ],
+              "position": [
+                0,
+                6
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                17,
+                9
+              ],
+              "position": [
+                0,
+                4
+              ]
+            }
+          ]
+        },
+        {
+          "name": "STONEBIG",
+          "loaded": true,
+          "runtime_type": "N5GemRB7TTFFontE",
+          "line_height": 18,
+          "baseline": 13,
+          "sample_width": 157,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                9,
+                10
+              ],
+              "position": [
+                0,
+                3
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                6,
+                7
+              ],
+              "position": [
+                0,
+                6
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                6,
+                10
+              ],
+              "position": [
+                0,
+                3
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                8,
+                13
+              ],
+              "position": [
+                0,
+                5
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                14,
+                11
+              ],
+              "position": [
+                0,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "name": "STONESML",
+          "loaded": true,
+          "runtime_type": "N5GemRB7TTFFontE",
+          "line_height": 14,
+          "baseline": 11,
+          "sample_width": 202,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                11,
+                13
+              ],
+              "position": [
+                0,
+                -1
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                8,
+                10
+              ],
+              "position": [
+                0,
+                2
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                14,
+                12
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                10,
+                9
+              ],
+              "position": [
+                0,
+                3
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                21,
+                12
+              ],
+              "position": [
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "name": "TOOLFONT",
+          "loaded": true,
+          "runtime_type": "N5GemRB7TTFFontE",
+          "line_height": 14,
+          "baseline": 11,
+          "sample_width": 155,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                10,
+                10
+              ],
+              "position": [
+                0,
+                1
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                7,
+                7
+              ],
+              "position": [
+                0,
+                4
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                7,
+                10
+              ],
+              "position": [
+                0,
+                1
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                8,
+                9
+              ],
+              "position": [
+                0,
+                5
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                14,
+                10
+              ],
+              "position": [
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "name": "TOOLTIP",
+          "loaded": true,
+          "runtime_type": "N5GemRB7TTFFontE",
+          "line_height": 14,
+          "baseline": 11,
+          "sample_width": 155,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                10,
+                10
+              ],
+              "position": [
+                0,
+                1
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                7,
+                7
+              ],
+              "position": [
+                0,
+                4
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                7,
+                10
+              ],
+              "position": [
+                0,
+                1
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                8,
+                9
+              ],
+              "position": [
+                0,
+                5
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                14,
+                10
+              ],
+              "position": [
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "name": "STONSML",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 14,
+          "baseline": 16,
+          "sample_width": 249,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                11,
+                12
+              ],
+              "position": [
+                0,
+                4
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                10,
+                11
+              ],
+              "position": [
+                0,
+                5
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                8,
+                11
+              ],
+              "position": [
+                0,
+                5
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                10,
+                10
+              ],
+              "position": [
+                0,
+                6
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                15,
+                12
+              ],
+              "position": [
+                0,
+                5
+              ]
+            }
+          ]
+        },
+        {
+          "name": "STATES",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 13,
+          "baseline": 13,
+          "sample_width": 312,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "name": "STATES2",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 13,
+          "baseline": 13,
+          "sample_width": 312,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ],
+      "windows": [
+        {
+          "resource": "guiinv",
+          "chu_label_count": 13,
+          "runtime_label_count": 15,
+          "nonempty_runtime_labels": 13,
+          "empty_label_ids": [
+            "0x10000055",
+            "0x10000056"
+          ],
+          "invisible_label_ids": [],
+          "textareas": [
+            {
+              "id": 64,
+              "text_characters": 0
+            },
+            {
+              "id": 77,
+              "text_characters": 0
+            },
+            {
+              "id": 78,
+              "text_characters": 0
+            },
+            {
+              "id": 79,
+              "text_characters": 0
+            },
+            {
+              "id": 80,
+              "text_characters": 0
+            }
+          ],
+          "screenshot_sha256": "d36c2e479f616ce16da93c335a512c7801043801a0c14dd36e744d0252f8cd00",
+          "ui_sha256": "2e1043d27726132d7785b79db217ba529e02a72887db3183a762714eb8714d28"
+        },
+        {
+          "resource": "guirec",
+          "chu_label_count": 26,
+          "runtime_label_count": 26,
+          "nonempty_runtime_labels": 21,
+          "empty_label_ids": [
+            "0x1000003d",
+            "0x1000003e",
+            "0x1000003f",
+            "0x10000040",
+            "0x10000041"
+          ],
+          "invisible_label_ids": [],
+          "textareas": [
+            {
+              "id": 45,
+              "text_characters": 483
+            },
+            {
+              "id": 53,
+              "text_characters": 0
+            },
+            {
+              "id": 54,
+              "text_characters": 0
+            },
+            {
+              "id": 55,
+              "text_characters": 0
+            },
+            {
+              "id": 56,
+              "text_characters": 0
+            }
+          ],
+          "screenshot_sha256": "03b830e8c22af860b3e6c47ed5b4426b0b86c7d9fb80d849d9763e741fedf1ab",
+          "ui_sha256": "bd935c1e9c2c5d3622c5f8c5c9ed1e134eee2d8a7d95625e3682ee524d6eb945"
+        }
+      ]
+    },
+    {
+      "run_id": "20261021T011949Z-gui-bam-comparison-e78fdd08",
+      "font_mode": "bam",
+      "execution_verdict": "passed",
+      "assertion_verdict": "passed",
+      "persistence": {
+        "differences": 453,
+        "scopes": {
+          "party": {
+            "passed": false,
+            "differences": 180
+          },
+          "stored_npcs": {
+            "passed": true,
+            "differences": 0
+          },
+          "world_metadata": {
+            "passed": false,
+            "differences": 3
+          },
+          "current_area": {
+            "passed": false,
+            "differences": 270
+          }
+        },
+        "passed": false
+      },
+      "fonts": [
+        {
+          "name": "NORMAL",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 13,
+          "baseline": 11,
+          "sample_width": 149,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                11,
+                9
+              ],
+              "position": [
+                0,
+                2
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                6,
+                8
+              ],
+              "position": [
+                0,
+                3
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                6,
+                9
+              ],
+              "position": [
+                0,
+                2
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                6,
+                11
+              ],
+              "position": [
+                0,
+                3
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                13,
+                9
+              ],
+              "position": [
+                0,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "name": "FLOATTXT",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 13,
+          "baseline": 11,
+          "sample_width": 140,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                8,
+                8
+              ],
+              "position": [
+                0,
+                3
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                6,
+                6
+              ],
+              "position": [
+                0,
+                5
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                7,
+                8
+              ],
+              "position": [
+                0,
+                3
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                6,
+                8
+              ],
+              "position": [
+                0,
+                5
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                10,
+                8
+              ],
+              "position": [
+                0,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "name": "NUMBER",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 14,
+          "baseline": 0,
+          "sample_width": 240,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "name": "INITIALS",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 13,
+          "baseline": 13,
+          "sample_width": 852,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                40,
+                38
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                40,
+                38
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                40,
+                38
+              ],
+              "position": [
+                0,
+                -1
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                40,
+                38
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                40,
+                38
+              ],
+              "position": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "name": "NUMBER2",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 14,
+          "baseline": 0,
+          "sample_width": 240,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "name": "NUMBER3",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 14,
+          "baseline": 0,
+          "sample_width": 240,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "name": "REALMS",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 37,
+          "baseline": 23,
+          "sample_width": 421,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                18,
+                13
+              ],
+              "position": [
+                0,
+                10
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                18,
+                13
+              ],
+              "position": [
+                0,
+                10
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                11,
+                12
+              ],
+              "position": [
+                0,
+                11
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                17,
+                13
+              ],
+              "position": [
+                0,
+                10
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                25,
+                14
+              ],
+              "position": [
+                0,
+                10
+              ]
+            }
+          ]
+        },
+        {
+          "name": "STONEBIG",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 16,
+          "baseline": 14,
+          "sample_width": 204,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                11,
+                12
+              ],
+              "position": [
+                0,
+                2
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                10,
+                10
+              ],
+              "position": [
+                0,
+                4
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                8,
+                12
+              ],
+              "position": [
+                0,
+                2
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                10,
+                10
+              ],
+              "position": [
+                0,
+                4
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                15,
+                12
+              ],
+              "position": [
+                0,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "name": "STONESML",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 16,
+          "baseline": 14,
+          "sample_width": 204,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                11,
+                12
+              ],
+              "position": [
+                0,
+                2
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                10,
+                10
+              ],
+              "position": [
+                0,
+                4
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                8,
+                12
+              ],
+              "position": [
+                0,
+                2
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                10,
+                10
+              ],
+              "position": [
+                0,
+                4
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                15,
+                12
+              ],
+              "position": [
+                0,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "name": "TOOLFONT",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 13,
+          "baseline": 11,
+          "sample_width": 149,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                11,
+                9
+              ],
+              "position": [
+                0,
+                2
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                6,
+                8
+              ],
+              "position": [
+                0,
+                3
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                6,
+                9
+              ],
+              "position": [
+                0,
+                2
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                6,
+                11
+              ],
+              "position": [
+                0,
+                3
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                13,
+                9
+              ],
+              "position": [
+                0,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "name": "TOOLTIP",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 13,
+          "baseline": 11,
+          "sample_width": 149,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                11,
+                9
+              ],
+              "position": [
+                0,
+                2
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                6,
+                8
+              ],
+              "position": [
+                0,
+                3
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                6,
+                9
+              ],
+              "position": [
+                0,
+                2
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                6,
+                11
+              ],
+              "position": [
+                0,
+                3
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                13,
+                9
+              ],
+              "position": [
+                0,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "name": "STONSML",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 14,
+          "baseline": 16,
+          "sample_width": 249,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                11,
+                12
+              ],
+              "position": [
+                0,
+                4
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                10,
+                11
+              ],
+              "position": [
+                0,
+                5
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                8,
+                11
+              ],
+              "position": [
+                0,
+                5
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                10,
+                10
+              ],
+              "position": [
+                0,
+                6
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                15,
+                12
+              ],
+              "position": [
+                0,
+                5
+              ]
+            }
+          ]
+        },
+        {
+          "name": "STATES",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 13,
+          "baseline": 13,
+          "sample_width": 312,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "name": "STATES2",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 13,
+          "baseline": 13,
+          "sample_width": 312,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ],
+      "windows": [
+        {
+          "resource": "guiinv",
+          "chu_label_count": 13,
+          "runtime_label_count": 15,
+          "nonempty_runtime_labels": 13,
+          "empty_label_ids": [
+            "0x10000055",
+            "0x10000056"
+          ],
+          "invisible_label_ids": [],
+          "textareas": [
+            {
+              "id": 64,
+              "text_characters": 0
+            },
+            {
+              "id": 77,
+              "text_characters": 0
+            },
+            {
+              "id": 78,
+              "text_characters": 0
+            },
+            {
+              "id": 79,
+              "text_characters": 0
+            },
+            {
+              "id": 80,
+              "text_characters": 0
+            }
+          ],
+          "screenshot_sha256": "357c74cb26f4603c990db0bd56c02d96b010ca0838af6b2703dea37179bee783",
+          "ui_sha256": "2e1043d27726132d7785b79db217ba529e02a72887db3183a762714eb8714d28"
+        },
+        {
+          "resource": "guirec",
+          "chu_label_count": 26,
+          "runtime_label_count": 26,
+          "nonempty_runtime_labels": 21,
+          "empty_label_ids": [
+            "0x1000003d",
+            "0x1000003e",
+            "0x1000003f",
+            "0x10000040",
+            "0x10000041"
+          ],
+          "invisible_label_ids": [],
+          "textareas": [
+            {
+              "id": 45,
+              "text_characters": 483
+            },
+            {
+              "id": 53,
+              "text_characters": 0
+            },
+            {
+              "id": 54,
+              "text_characters": 0
+            },
+            {
+              "id": 55,
+              "text_characters": 0
+            },
+            {
+              "id": 56,
+              "text_characters": 0
+            }
+          ],
+          "screenshot_sha256": "fdff600623ec8c633c990939c945c59104d108fe64dd964b23fb4ac9dc079f4b",
+          "ui_sha256": "bd935c1e9c2c5d3622c5f8c5c9ed1e134eee2d8a7d95625e3682ee524d6eb945"
+        }
+      ]
+    },
+    {
+      "run_id": "20261021T012253Z-gui-ttf18-screens-7882c2b9",
+      "font_mode": "ttf-18",
+      "execution_verdict": "passed",
+      "assertion_verdict": "passed",
+      "persistence": null,
+      "fonts": [
+        {
+          "name": "NORMAL",
+          "loaded": true,
+          "runtime_type": "N5GemRB7TTFFontE",
+          "line_height": 17,
+          "baseline": 14,
+          "sample_width": 188,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                17,
+                15
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                8,
+                9
+              ],
+              "position": [
+                0,
+                5
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                9,
+                12
+              ],
+              "position": [
+                0,
+                2
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                8,
+                13
+              ],
+              "position": [
+                0,
+                5
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                21,
+                14
+              ],
+              "position": [
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "name": "FLOATTXT",
+          "loaded": true,
+          "runtime_type": "N5GemRB7TTFFontE",
+          "line_height": 22,
+          "baseline": 19,
+          "sample_width": 201,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                12,
+                13
+              ],
+              "position": [
+                0,
+                6
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                9,
+                10
+              ],
+              "position": [
+                0,
+                9
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                10,
+                13
+              ],
+              "position": [
+                0,
+                6
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                9,
+                14
+              ],
+              "position": [
+                0,
+                9
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                18,
+                13
+              ],
+              "position": [
+                0,
+                6
+              ]
+            }
+          ]
+        },
+        {
+          "name": "NUMBER",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 14,
+          "baseline": 0,
+          "sample_width": 240,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "name": "INITIALS",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 13,
+          "baseline": 13,
+          "sample_width": 852,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                40,
+                38
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                40,
+                38
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                40,
+                38
+              ],
+              "position": [
+                0,
+                -1
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                40,
+                38
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                40,
+                38
+              ],
+              "position": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "name": "NUMBER2",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 14,
+          "baseline": 0,
+          "sample_width": 240,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "name": "NUMBER3",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 14,
+          "baseline": 0,
+          "sample_width": 240,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                10,
+                14
+              ],
+              "position": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "name": "REALMS",
+          "loaded": true,
+          "runtime_type": "N5GemRB7TTFFontE",
+          "line_height": 20,
+          "baseline": 16,
+          "sample_width": 249,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                12,
+                13
+              ],
+              "position": [
+                0,
+                4
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                10,
+                9
+              ],
+              "position": [
+                0,
+                8
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                14,
+                12
+              ],
+              "position": [
+                0,
+                4
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                11,
+                13
+              ],
+              "position": [
+                0,
+                7
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                22,
+                12
+              ],
+              "position": [
+                0,
+                4
+              ]
+            }
+          ]
+        },
+        {
+          "name": "STONEBIG",
+          "loaded": true,
+          "runtime_type": "N5GemRB7TTFFontE",
+          "line_height": 23,
+          "baseline": 17,
+          "sample_width": 197,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                12,
+                13
+              ],
+              "position": [
+                0,
+                4
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                7,
+                9
+              ],
+              "position": [
+                0,
+                8
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                8,
+                13
+              ],
+              "position": [
+                0,
+                4
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                11,
+                16
+              ],
+              "position": [
+                0,
+                7
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                18,
+                13
+              ],
+              "position": [
+                0,
+                4
+              ]
+            }
+          ]
+        },
+        {
+          "name": "STONESML",
+          "loaded": true,
+          "runtime_type": "N5GemRB7TTFFontE",
+          "line_height": 18,
+          "baseline": 14,
+          "sample_width": 257,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                14,
+                16
+              ],
+              "position": [
+                0,
+                -1
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                11,
+                12
+              ],
+              "position": [
+                0,
+                3
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                17,
+                15
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                13,
+                12
+              ],
+              "position": [
+                0,
+                3
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                27,
+                15
+              ],
+              "position": [
+                0,
+                -1
+              ]
+            }
+          ]
+        },
+        {
+          "name": "TOOLFONT",
+          "loaded": true,
+          "runtime_type": "N5GemRB7TTFFontE",
+          "line_height": 17,
+          "baseline": 14,
+          "sample_width": 190,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                1
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                9,
+                8
+              ],
+              "position": [
+                0,
+                6
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                8,
+                12
+              ],
+              "position": [
+                0,
+                2
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                11,
+                10
+              ],
+              "position": [
+                0,
+                7
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                18,
+                13
+              ],
+              "position": [
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "name": "TOOLTIP",
+          "loaded": true,
+          "runtime_type": "N5GemRB7TTFFontE",
+          "line_height": 17,
+          "baseline": 14,
+          "sample_width": 190,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                1
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                9,
+                8
+              ],
+              "position": [
+                0,
+                6
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                8,
+                12
+              ],
+              "position": [
+                0,
+                2
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                11,
+                10
+              ],
+              "position": [
+                0,
+                7
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                18,
+                13
+              ],
+              "position": [
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "name": "STONSML",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 14,
+          "baseline": 16,
+          "sample_width": 249,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                11,
+                12
+              ],
+              "position": [
+                0,
+                4
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                10,
+                11
+              ],
+              "position": [
+                0,
+                5
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                8,
+                11
+              ],
+              "position": [
+                0,
+                5
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                10,
+                10
+              ],
+              "position": [
+                0,
+                6
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                15,
+                12
+              ],
+              "position": [
+                0,
+                5
+              ]
+            }
+          ]
+        },
+        {
+          "name": "STATES",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 13,
+          "baseline": 13,
+          "sample_width": 312,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "name": "STATES2",
+          "loaded": true,
+          "runtime_type": "N5GemRB4FontE",
+          "line_height": 13,
+          "baseline": 13,
+          "sample_width": 312,
+          "glyphs": [
+            {
+              "char": "A",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "a",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "0",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "g",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            },
+            {
+              "char": "W",
+              "size": [
+                13,
+                13
+              ],
+              "position": [
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ],
+      "windows": [
+        {
+          "resource": "guiinv",
+          "chu_label_count": 13,
+          "runtime_label_count": 15,
+          "nonempty_runtime_labels": 13,
+          "empty_label_ids": [
+            "0x10000055",
+            "0x10000056"
+          ],
+          "invisible_label_ids": [],
+          "textareas": [
+            {
+              "id": 64,
+              "text_characters": 0
+            },
+            {
+              "id": 77,
+              "text_characters": 0
+            },
+            {
+              "id": 78,
+              "text_characters": 0
+            },
+            {
+              "id": 79,
+              "text_characters": 0
+            },
+            {
+              "id": 80,
+              "text_characters": 0
+            }
+          ],
+          "screenshot_sha256": "5c6445556526bdcf83d3b75fbb023826e56d36a5cd5497d18eeed7ba8fe22b55",
+          "ui_sha256": "2e1043d27726132d7785b79db217ba529e02a72887db3183a762714eb8714d28"
+        },
+        {
+          "resource": "guirec",
+          "chu_label_count": 26,
+          "runtime_label_count": 26,
+          "nonempty_runtime_labels": 21,
+          "empty_label_ids": [
+            "0x1000003d",
+            "0x1000003e",
+            "0x1000003f",
+            "0x10000040",
+            "0x10000041"
+          ],
+          "invisible_label_ids": [],
+          "textareas": [
+            {
+              "id": 45,
+              "text_characters": 483
+            },
+            {
+              "id": 53,
+              "text_characters": 0
+            },
+            {
+              "id": 54,
+              "text_characters": 0
+            },
+            {
+              "id": 55,
+              "text_characters": 0
+            },
+            {
+              "id": 56,
+              "text_characters": 0
+            }
+          ],
+          "screenshot_sha256": "efda9937047fd43a0c381a42910442b22e80c33eb9fdff557bad28f582466cd3",
+          "ui_sha256": "bd935c1e9c2c5d3622c5f8c5c9ed1e134eee2d8a7d95625e3682ee524d6eb945"
+        }
+      ]
+    }
+  ],
+  "ttf_assets": [
+    {
+      "name": "normal",
+      "origin": "data\\Patch2.bif",
+      "sha256": "36535228a4ea3288216b1fbfd8f8056ebe23ef59a546a7660670b439997bf553",
+      "names": [
+        {
+          "name_id": 1,
+          "value": "R PostAntiqua Roman"
+        },
+        {
+          "name_id": 2,
+          "value": "Roman 05554"
+        }
+      ]
+    },
+    {
+      "name": "floattxt",
+      "origin": "data\\Patch2.bif",
+      "sha256": "1acbc38a9d5bf05ae519f6405f0d3634938b992250b605d15976f15f774d5eb3",
+      "names": [
+        {
+          "name_id": 1,
+          "value": "Tahoma"
+        },
+        {
+          "name_id": 2,
+          "value": "Bold"
+        }
+      ]
+    },
+    {
+      "name": "realms",
+      "origin": "data\\Patch2.bif",
+      "sha256": "48716d322ae3463a78191f6f54d6621d32ed2bf99ca5cd3e3323ce6d82d8e5cb",
+      "names": [
+        {
+          "name_id": 1,
+          "value": "Sherwood"
+        },
+        {
+          "name_id": 2,
+          "value": "Regular"
+        }
+      ]
+    },
+    {
+      "name": "stonebig",
+      "origin": "data\\Patch2.bif",
+      "sha256": "01de2cbd742dbcaaca1ce16f25af93cbabc7eebf075215fa6d454a2f590fb3f5",
+      "names": [
+        {
+          "name_id": 1,
+          "value": "Benevento"
+        },
+        {
+          "name_id": 2,
+          "value": "Regular"
+        }
+      ]
+    },
+    {
+      "name": "stonesml",
+      "origin": "data\\Patch2.bif",
+      "sha256": "d5f8469b2c5054579f9b1996c0a41021d3661bf17b21d1f454cf4ecf537c6603",
+      "names": [
+        {
+          "name_id": 1,
+          "value": "AmericanUncial"
+        },
+        {
+          "name_id": 2,
+          "value": "Regular"
+        }
+      ]
+    },
+    {
+      "name": "toolfont",
+      "origin": "data\\Patch2.bif",
+      "sha256": "e897003cb09c5f9128891aa676f538e6a38579caf1831e307716d4f16be469b9",
+      "names": [
+        {
+          "name_id": 1,
+          "value": "Goudy"
+        },
+        {
+          "name_id": 2,
+          "value": "Bold Italic"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "origin": "data\\Patch2.bif",
+      "sha256": "e897003cb09c5f9128891aa676f538e6a38579caf1831e307716d4f16be469b9",
+      "names": [
+        {
+          "name_id": 1,
+          "value": "Goudy"
+        },
+        {
+          "name_id": 2,
+          "value": "Bold Italic"
+        }
+      ]
+    }
+  ],
+  "ee_menu": {
+    "origin": "data\\Patch2.bif",
+    "sha256": "7987e9d38c9a1d8f4df949d880f260ad5a76dd623d08c7e7be6f0f6c8f2931fe",
+    "lines": 22106,
+    "references": {
+      "mosaic \"INVSTATS\"": [
+        5852
+      ],
+      "mosaic\t\"GUIREC2\"": [
+        643
+      ],
+      "characters[id].AC.details": [
+        5753,
+        5866
+      ],
+      "characters[id].HP.details": [
+        5778,
+        5882
+      ],
+      "getInventoryTHAC0()": [
+        5616,
+        5891
+      ],
+      "characters[id].damage.details": [
+        5631,
+        5632,
+        5634,
+        5828
+      ]
+    }
+  },
+  "interpretation_limits": [
+    "QueryText and visibility establish control content, not rendered pixel correctness.",
+    "TTF asset hashes/names are KEY/BIFF metadata; native runtime_type establishes TTF versus BAM selection, not a complete provider trace.",
+    "Blank legacy CHU placeholders and Lua-assembled EE menu panels must be distinguished from missing TLK entries.",
+    "BAM and 18px TTF are private configuration experiments, not an engine fix or modern UI implementation."
+  ]
+}

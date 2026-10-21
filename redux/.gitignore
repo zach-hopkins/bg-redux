@@ -1,0 +1,4 @@
+# Licensed assets, binaries, local test output and account configuration stay private.
+phase0-local/
+**/__pycache__/
+*.pyc

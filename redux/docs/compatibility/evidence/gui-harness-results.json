@@ -1,0 +1,1441 @@
+{
+  "schema": "bg-redux-gui-evidence/1",
+  "captured_utc": "2026-10-21T01:25:48.139887+00:00",
+  "runs": [
+    {
+      "run_id": "20261021T011818Z-gui-stock-verified-fe7b575f",
+      "result_sha256": "fa953d96ab944b1b7cbc31fe87ac62b08e0e1d9608302d21f1b52980481e4d70",
+      "result": {
+        "verdict": "differences",
+        "execution_verdict": "passed",
+        "assertion_verdict": "passed",
+        "persistence": {
+          "differences": 449,
+          "scopes": {
+            "party": {
+              "passed": false,
+              "differences": 180
+            },
+            "stored_npcs": {
+              "passed": true,
+              "differences": 0
+            },
+            "world_metadata": {
+              "passed": false,
+              "differences": 3
+            },
+            "current_area": {
+              "passed": false,
+              "differences": 266
+            }
+          },
+          "passed": false
+        },
+        "legacy_semantic_diagnostic": {
+          "schema": "bg-redux-legacy-semantic-diagnostic/1",
+          "passed": false,
+          "differences": 53,
+          "applied_before": [
+            {
+              "contract": "GAME seconds precision",
+              "before": 32717,
+              "after": 32715
+            }
+          ],
+          "applied_after": [
+            {
+              "contract": "CRE variable marker",
+              "group": "party",
+              "actor": "Imoen",
+              "name": "HASBEENINPARTY",
+              "value": 1
+            },
+            {
+              "contract": "CRE variable marker",
+              "group": "party",
+              "actor": "Imoen",
+              "name": "BD_JOINXP",
+              "value": 1
+            },
+            {
+              "contract": "CRE variable marker",
+              "group": "current_area_actors",
+              "actor": "Imoen",
+              "name": "HASBEENINPARTY",
+              "value": 1
+            },
+            {
+              "contract": "CRE variable marker",
+              "group": "current_area_actors",
+              "actor": "Imoen",
+              "name": "BD_JOINXP",
+              "value": 1
+            },
+            {
+              "contract": "CRE variable marker",
+              "group": "current_area_actors",
+              "actor": "ishaddud",
+              "name": "KICKEDOUT",
+              "value": 1
+            }
+          ],
+          "contracts": [
+            "GAMEV2 writes GameTime/15 and reads seconds*15; only pre-save time is quantized.",
+            "Variable names use the engine case-insensitive map; values remain compared.",
+            "Opcode187/special1/timing11 marker records represented by equal collected actor locals; other effects/order remain compared."
+          ],
+          "scope": "Collected initialized state only; not complete SAV content, original-runtime equivalence or visual correctness."
+        },
+        "fixture_unchanged": true,
+        "created_save_unchanged_on_reload": true,
+        "postprocessing": {
+          "utc": "2026-10-21T01:23:21.104968+00:00",
+          "module": "tools/phase0/gui_comparison.py",
+          "source_sha256": "46932377613819b831835c4445afd2c4176a33e208631ffeeac0967dfc13350f",
+          "note": "Additional diagnostic over existing immutable native snapshots; no engine stage rerun."
+        }
+      },
+      "stages": [
+        {
+          "name": "gui-save",
+          "mode": "save",
+          "font_mode": "stock",
+          "process": {
+            "pid": 31900,
+            "exit_code": 0,
+            "timeout_seconds": 100.0,
+            "timed_out": false,
+            "cleanup": "not required",
+            "elapsed_seconds": 61.926
+          },
+          "passed": true,
+          "assertions": [
+            {
+              "name": "area",
+              "actual": "AR0602",
+              "expected": "AR0602",
+              "passed": true
+            },
+            {
+              "name": "party-size",
+              "actual": 2,
+              "expected": 2,
+              "passed": true
+            },
+            {
+              "name": "inventory-name",
+              "actual": "wfsdf",
+              "expected": "wfsdf",
+              "passed": true
+            },
+            {
+              "name": "record-name",
+              "actual": "wfsdf",
+              "expected": "wfsdf",
+              "passed": true
+            },
+            {
+              "name": "inventory-hp-populated",
+              "actual": true,
+              "expected": true,
+              "passed": true
+            },
+            {
+              "name": "record-overview-populated",
+              "actual": true,
+              "expected": true,
+              "passed": true
+            },
+            {
+              "name": "inventory-visible",
+              "actual": true,
+              "expected": true,
+              "passed": true
+            },
+            {
+              "name": "press:load.baseline-row",
+              "passed": true
+            },
+            {
+              "name": "guard:empty-name-refused",
+              "passed": true
+            },
+            {
+              "name": "press:save.create-confirm",
+              "passed": true
+            },
+            {
+              "name": "press:overwrite.cancel",
+              "passed": true
+            },
+            {
+              "name": "press:overwrite.confirm",
+              "passed": true
+            },
+            {
+              "name": "cancel-keeps-save-bytes",
+              "passed": true
+            }
+          ],
+          "artifacts": {
+            "gui-save\\00-game.bmp": {
+              "bytes": 2359350,
+              "sha256": "dd33240d226786005d7c92d77b6cfee398827e8c7e224840f01d75bf9c359e6f"
+            },
+            "gui-save\\00-game.state.json": {
+              "bytes": 712883,
+              "sha256": "2b6965350a2b148dbadd76c79215d5227b73caffa53488b4abec3146885107a2"
+            },
+            "gui-save\\00-game.ui.json": {
+              "bytes": 187,
+              "sha256": "afd34fe73034c729835f0c544514cfc79ab56c552543c48aac97eb58646f24bf"
+            },
+            "gui-save\\01-inventory.bmp": {
+              "bytes": 2359350,
+              "sha256": "d36c2e479f616ce16da93c335a512c7801043801a0c14dd36e744d0252f8cd00"
+            },
+            "gui-save\\01-inventory.state.json": {
+              "bytes": 710453,
+              "sha256": "cd66092447d5a01eab039f198977fd9f749b69120d4eb89fe37ab4c3ae89c9ff"
+            },
+            "gui-save\\01-inventory.ui.json": {
+              "bytes": 9855,
+              "sha256": "2e1043d27726132d7785b79db217ba529e02a72887db3183a762714eb8714d28"
+            },
+            "gui-save\\02-record.bmp": {
+              "bytes": 2359350,
+              "sha256": "03b830e8c22af860b3e6c47ed5b4426b0b86c7d9fb80d849d9763e741fedf1ab"
+            },
+            "gui-save\\02-record.state.json": {
+              "bytes": 710453,
+              "sha256": "cd66092447d5a01eab039f198977fd9f749b69120d4eb89fe37ab4c3ae89c9ff"
+            },
+            "gui-save\\02-record.ui.json": {
+              "bytes": 7007,
+              "sha256": "bd935c1e9c2c5d3622c5f8c5c9ed1e134eee2d8a7d95625e3682ee524d6eb945"
+            },
+            "gui-save\\03-options.bmp": {
+              "bytes": 2359350,
+              "sha256": "a5e4dcedbea62c02da1f7c29e49a51ebda0517fa89ffa5e3e29ba6b6a4372c9e"
+            },
+            "gui-save\\03-options.state.json": {
+              "bytes": 710453,
+              "sha256": "cd66092447d5a01eab039f198977fd9f749b69120d4eb89fe37ab4c3ae89c9ff"
+            },
+            "gui-save\\03-options.ui.json": {
+              "bytes": 1906,
+              "sha256": "f738999c25ab2127d99daf7bf94405c5d637bf16a8dd7bf3b51c5c692dc6b84b"
+            },
+            "gui-save\\04-save-list.bmp": {
+              "bytes": 2359350,
+              "sha256": "09efb36ad98b30f0cad25545247b42fd6421da5c29df9fe535302535003ff0d9"
+            },
+            "gui-save\\04-save-list.state.json": {
+              "bytes": 710453,
+              "sha256": "cd66092447d5a01eab039f198977fd9f749b69120d4eb89fe37ab4c3ae89c9ff"
+            },
+            "gui-save\\04-save-list.ui.json": {
+              "bytes": 8072,
+              "sha256": "f52b87aae71325ac0747bbaf617f1826be46a7a3aa03ccdc64ff9bfa046f28d2"
+            },
+            "gui-save\\05-empty-confirm.bmp": {
+              "bytes": 2359350,
+              "sha256": "34b886fa30390e36d5dd2c52a85b850112b5b5134f4bcce26a9e2d093f6f9f3a"
+            },
+            "gui-save\\05-empty-confirm.state.json": {
+              "bytes": 710453,
+              "sha256": "cd66092447d5a01eab039f198977fd9f749b69120d4eb89fe37ab4c3ae89c9ff"
+            },
+            "gui-save\\05-empty-confirm.ui.json": {
+              "bytes": 9698,
+              "sha256": "9e5cc8b7a0d7beddb6f1fafa4af60b2e56977a7a0c0ec62fc75e7a8b74102361"
+            },
+            "gui-save\\06-named-confirm.bmp": {
+              "bytes": 2359350,
+              "sha256": "e38d4b709aaa37de00ffc3e954b3c2fc6179f98c304557382f43180f221aea5e"
+            },
+            "gui-save\\06-named-confirm.state.json": {
+              "bytes": 710453,
+              "sha256": "cd66092447d5a01eab039f198977fd9f749b69120d4eb89fe37ab4c3ae89c9ff"
+            },
+            "gui-save\\06-named-confirm.ui.json": {
+              "bytes": 9710,
+              "sha256": "492dc2bf93402d4c440078dd8929941db087e30ddd189f6bb81b3136ce2497a3"
+            },
+            "gui-save\\07-after-create.bmp": {
+              "bytes": 2359350,
+              "sha256": "ab58c6ea00139dfcc6e0881e4887081a8d1803c91ba0ff30b754207ae1bbb93d"
+            },
+            "gui-save\\07-after-create.state.json": {
+              "bytes": 710453,
+              "sha256": "cd66092447d5a01eab039f198977fd9f749b69120d4eb89fe37ab4c3ae89c9ff"
+            },
+            "gui-save\\07-after-create.ui.json": {
+              "bytes": 187,
+              "sha256": "afd34fe73034c729835f0c544514cfc79ab56c552543c48aac97eb58646f24bf"
+            },
+            "gui-save\\08-overwrite-confirm.bmp": {
+              "bytes": 2359350,
+              "sha256": "8b2a3ab5bb537979df4340117af4897d246d10568127d57a5219516d6b2e4a97"
+            },
+            "gui-save\\08-overwrite-confirm.state.json": {
+              "bytes": 710453,
+              "sha256": "cd66092447d5a01eab039f198977fd9f749b69120d4eb89fe37ab4c3ae89c9ff"
+            },
+            "gui-save\\08-overwrite-confirm.ui.json": {
+              "bytes": 9755,
+              "sha256": "2a0e78b4b6e357db8f8802af7531ea5395178e2cc60dab4d94c52611d9dc217e"
+            },
+            "gui-save\\09-after-cancel.bmp": {
+              "bytes": 2359350,
+              "sha256": "da50fd27c4b228ef793d2610371cabb1da6768bfbb58bbb5d688cac2480b0b2f"
+            },
+            "gui-save\\09-after-cancel.state.json": {
+              "bytes": 710453,
+              "sha256": "cd66092447d5a01eab039f198977fd9f749b69120d4eb89fe37ab4c3ae89c9ff"
+            },
+            "gui-save\\09-after-cancel.ui.json": {
+              "bytes": 8050,
+              "sha256": "1235598a3e46ec287ff88096a23d2800f49b222a9966e7b56252d2dfd90b8a9f"
+            },
+            "gui-save\\10-before-overwrite.bmp": {
+              "bytes": 2359350,
+              "sha256": "8b2a3ab5bb537979df4340117af4897d246d10568127d57a5219516d6b2e4a97"
+            },
+            "gui-save\\10-before-overwrite.state.json": {
+              "bytes": 710453,
+              "sha256": "cd66092447d5a01eab039f198977fd9f749b69120d4eb89fe37ab4c3ae89c9ff"
+            },
+            "gui-save\\10-before-overwrite.ui.json": {
+              "bytes": 9755,
+              "sha256": "2a0e78b4b6e357db8f8802af7531ea5395178e2cc60dab4d94c52611d9dc217e"
+            },
+            "gui-save\\11-after-overwrite.bmp": {
+              "bytes": 2359350,
+              "sha256": "dd32c6d659f06d29d821efc75ee117a2880730c310b361e07e59f86ab1e5b4ff"
+            },
+            "gui-save\\11-after-overwrite.state.json": {
+              "bytes": 710453,
+              "sha256": "cd66092447d5a01eab039f198977fd9f749b69120d4eb89fe37ab4c3ae89c9ff"
+            },
+            "gui-save\\11-after-overwrite.ui.json": {
+              "bytes": 187,
+              "sha256": "afd34fe73034c729835f0c544514cfc79ab56c552543c48aac97eb58646f24bf"
+            },
+            "gui-save\\events.json": {
+              "bytes": 844,
+              "sha256": "80328b7d45fd15ca1462e2529cdefba6164a0154e36731622c82273dfaf14b83"
+            },
+            "gui-save\\fonts.json": {
+              "bytes": 4930,
+              "sha256": "b6936f3999adf8ab8f77f0524e9a9a0fa03b09362172b7e9028fbbd031f244b0"
+            },
+            "gui-save\\gui-result.json": {
+              "bytes": 883,
+              "sha256": "a8526f515d50c4124ef040f456874d38fee0f973b697aac75b77a148ba672ce5"
+            },
+            "gui-save\\gui.cfg": {
+              "bytes": 1082,
+              "sha256": "23aa15944cf3d5e41ca6556eba2f21a39e50c4ab61b3bd9a0694c00a52d8228d"
+            },
+            "gui-save\\load-list.bmp": {
+              "bytes": 2359350,
+              "sha256": "809278710f2d19d21da7d11f35317ec0fe5c870542a88ded73fc48d3ddd1fb06"
+            },
+            "gui-save\\load-list.ui.json": {
+              "bytes": 6329,
+              "sha256": "d1f5b026305c593b5e3754b738d8adf696d18d6d80ae9784cbf82a7ba4820b8c"
+            },
+            "gui-save\\overwrite-persisted.state.json": {
+              "bytes": 710453,
+              "sha256": "cd66092447d5a01eab039f198977fd9f749b69120d4eb89fe37ab4c3ae89c9ff"
+            },
+            "gui-save\\process-result.json": {
+              "bytes": 4588,
+              "sha256": "8bb9d8739a4175faf61acaeeccc1f25cc07b7257e4844a18edb9ba3a4f1ea4de"
+            },
+            "gui-save\\process.log": {
+              "bytes": 36038,
+              "sha256": "44a5518822e8041d8ec4d55675c3e47398d7f6cbdfbc0123363fd315e03013fa"
+            }
+          },
+          "created_save": {
+            "path": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T011818Z-gui-stock-verified-fe7b575f\\gui-save\\engine-profile\\save\\000000016-Redux GUI Baseline",
+            "manifest": {
+              "baldur.bmp": {
+                "bytes": 93690,
+                "sha256": "b64c76a23842ee363da349e4a172b6fc726c66ba07c8cbe759204afc2adec56b"
+              },
+              "baldur.gam": {
+                "bytes": 69456,
+                "sha256": "7c42f0656c9b942c14806bf9d90b517225ef5c90aafad4f1ae4bde86a96c77a3"
+              },
+              "baldur.sav": {
+                "bytes": 19388,
+                "sha256": "32be7556fd08465f67b09680505b9826d2ae9038dff835e6e8ca3de67e80456e"
+              },
+              "PORTRT0.bmp": {
+                "bytes": 13830,
+                "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+              },
+              "PORTRT1.bmp": {
+                "bytes": 13830,
+                "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+              }
+            },
+            "preview_size": [
+              204,
+              153
+            ]
+          }
+        },
+        {
+          "name": "gui-reload",
+          "mode": "inspect",
+          "font_mode": "stock",
+          "process": {
+            "pid": 1992,
+            "exit_code": 0,
+            "timeout_seconds": 100.0,
+            "timed_out": false,
+            "cleanup": "not required",
+            "elapsed_seconds": 20.396
+          },
+          "passed": true,
+          "assertions": [
+            {
+              "name": "area",
+              "actual": "AR0602",
+              "expected": "AR0602",
+              "passed": true
+            },
+            {
+              "name": "party-size",
+              "actual": 2,
+              "expected": 2,
+              "passed": true
+            },
+            {
+              "name": "inventory-name",
+              "actual": "wfsdf",
+              "expected": "wfsdf",
+              "passed": true
+            },
+            {
+              "name": "record-name",
+              "actual": "wfsdf",
+              "expected": "wfsdf",
+              "passed": true
+            },
+            {
+              "name": "inventory-hp-populated",
+              "actual": true,
+              "expected": true,
+              "passed": true
+            },
+            {
+              "name": "record-overview-populated",
+              "actual": true,
+              "expected": true,
+              "passed": true
+            },
+            {
+              "name": "inventory-visible",
+              "actual": true,
+              "expected": true,
+              "passed": true
+            }
+          ],
+          "artifacts": {
+            "gui-reload\\00-game.bmp": {
+              "bytes": 2359350,
+              "sha256": "026f1487c6085831f024929d85190fcf410dad50c598ee5fda9c7009833a6beb"
+            },
+            "gui-reload\\00-game.state.json": {
+              "bytes": 716272,
+              "sha256": "b06165d5840f48e2bc929dcd362c8fb2aeb69b85cb8f41f8d6a2cb261ec93274"
+            },
+            "gui-reload\\00-game.ui.json": {
+              "bytes": 187,
+              "sha256": "afd34fe73034c729835f0c544514cfc79ab56c552543c48aac97eb58646f24bf"
+            },
+            "gui-reload\\01-inventory.bmp": {
+              "bytes": 2359350,
+              "sha256": "4fd5ab439199f192aeb8243c08455eebe7c843c7c4f07c9dec62a77f83219671"
+            },
+            "gui-reload\\01-inventory.state.json": {
+              "bytes": 713917,
+              "sha256": "7450ba13d2031de07dfae382b46fe17eb705018e6c39fa205acb2c99ab8c7b26"
+            },
+            "gui-reload\\01-inventory.ui.json": {
+              "bytes": 9855,
+              "sha256": "2e1043d27726132d7785b79db217ba529e02a72887db3183a762714eb8714d28"
+            },
+            "gui-reload\\02-record.bmp": {
+              "bytes": 2359350,
+              "sha256": "ec8a04c9bdad3cdf2ddba76c3c1b6999468ea3b91945164fa75de27ccff06715"
+            },
+            "gui-reload\\02-record.state.json": {
+              "bytes": 713917,
+              "sha256": "7450ba13d2031de07dfae382b46fe17eb705018e6c39fa205acb2c99ab8c7b26"
+            },
+            "gui-reload\\02-record.ui.json": {
+              "bytes": 7010,
+              "sha256": "44988327659779a93e91765081176f459e073b09b79fcfc91a163cb0337bdd88"
+            },
+            "gui-reload\\events.json": {
+              "bytes": 282,
+              "sha256": "05bd4d57a787449de1ca1c3630d3b38de0ee0ffdc6931a0417a9671f333472af"
+            },
+            "gui-reload\\fonts.json": {
+              "bytes": 4930,
+              "sha256": "b6936f3999adf8ab8f77f0524e9a9a0fa03b09362172b7e9028fbbd031f244b0"
+            },
+            "gui-reload\\gui-result.json": {
+              "bytes": 320,
+              "sha256": "97eefa9c495721205acfc0b621e697cf52ce0d87287aa73c414f6537db270662"
+            },
+            "gui-reload\\gui.cfg": {
+              "bytes": 1086,
+              "sha256": "35272d29a3a1f49bb1be865a54f5f43636047a464b884c603518b174a572c7e0"
+            },
+            "gui-reload\\load-list.bmp": {
+              "bytes": 2359350,
+              "sha256": "f02975389bde484ba1596193506902a63c249e198ef1b2dd7b0acf76d7614ae7"
+            },
+            "gui-reload\\load-list.ui.json": {
+              "bytes": 6329,
+              "sha256": "d1f5b026305c593b5e3754b738d8adf696d18d6d80ae9784cbf82a7ba4820b8c"
+            },
+            "gui-reload\\process-result.json": {
+              "bytes": 2359,
+              "sha256": "d3cfae4976c0937d294dd06c24b11a9147937789e419ddc14a4f6f1d35160738"
+            },
+            "gui-reload\\process.log": {
+              "bytes": 33985,
+              "sha256": "e2b47162c59b845833972a28b9a1b399f1225d6c4aed42b64f7183e51ae039da"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "run_id": "20261021T011949Z-gui-bam-comparison-e78fdd08",
+      "result_sha256": "30f7cc7e4bc03b15fa482c984dd0711ccf3e5d89fd279bde41fbc95a8e8966d7",
+      "result": {
+        "verdict": "differences",
+        "execution_verdict": "passed",
+        "assertion_verdict": "passed",
+        "persistence": {
+          "differences": 453,
+          "scopes": {
+            "party": {
+              "passed": false,
+              "differences": 180
+            },
+            "stored_npcs": {
+              "passed": true,
+              "differences": 0
+            },
+            "world_metadata": {
+              "passed": false,
+              "differences": 3
+            },
+            "current_area": {
+              "passed": false,
+              "differences": 270
+            }
+          },
+          "passed": false
+        },
+        "legacy_semantic_diagnostic": {
+          "schema": "bg-redux-legacy-semantic-diagnostic/1",
+          "passed": false,
+          "differences": 57,
+          "applied_before": [
+            {
+              "contract": "GAME seconds precision",
+              "before": 32717,
+              "after": 32715
+            }
+          ],
+          "applied_after": [
+            {
+              "contract": "CRE variable marker",
+              "group": "party",
+              "actor": "Imoen",
+              "name": "HASBEENINPARTY",
+              "value": 1
+            },
+            {
+              "contract": "CRE variable marker",
+              "group": "party",
+              "actor": "Imoen",
+              "name": "BD_JOINXP",
+              "value": 1
+            },
+            {
+              "contract": "CRE variable marker",
+              "group": "current_area_actors",
+              "actor": "Imoen",
+              "name": "HASBEENINPARTY",
+              "value": 1
+            },
+            {
+              "contract": "CRE variable marker",
+              "group": "current_area_actors",
+              "actor": "Imoen",
+              "name": "BD_JOINXP",
+              "value": 1
+            },
+            {
+              "contract": "CRE variable marker",
+              "group": "current_area_actors",
+              "actor": "ishaddud",
+              "name": "KICKEDOUT",
+              "value": 1
+            }
+          ],
+          "contracts": [
+            "GAMEV2 writes GameTime/15 and reads seconds*15; only pre-save time is quantized.",
+            "Variable names use the engine case-insensitive map; values remain compared.",
+            "Opcode187/special1/timing11 marker records represented by equal collected actor locals; other effects/order remain compared."
+          ],
+          "scope": "Collected initialized state only; not complete SAV content, original-runtime equivalence or visual correctness."
+        },
+        "fixture_unchanged": true,
+        "created_save_unchanged_on_reload": true,
+        "postprocessing": {
+          "utc": "2026-10-21T01:23:21.179672+00:00",
+          "module": "tools/phase0/gui_comparison.py",
+          "source_sha256": "46932377613819b831835c4445afd2c4176a33e208631ffeeac0967dfc13350f",
+          "note": "Additional diagnostic over existing immutable native snapshots; no engine stage rerun."
+        }
+      },
+      "stages": [
+        {
+          "name": "gui-save",
+          "mode": "save",
+          "font_mode": "bam",
+          "process": {
+            "pid": 28540,
+            "exit_code": 0,
+            "timeout_seconds": 100.0,
+            "timed_out": false,
+            "cleanup": "not required",
+            "elapsed_seconds": 57.085
+          },
+          "passed": true,
+          "assertions": [
+            {
+              "name": "area",
+              "actual": "AR0602",
+              "expected": "AR0602",
+              "passed": true
+            },
+            {
+              "name": "party-size",
+              "actual": 2,
+              "expected": 2,
+              "passed": true
+            },
+            {
+              "name": "inventory-name",
+              "actual": "wfsdf",
+              "expected": "wfsdf",
+              "passed": true
+            },
+            {
+              "name": "record-name",
+              "actual": "wfsdf",
+              "expected": "wfsdf",
+              "passed": true
+            },
+            {
+              "name": "inventory-hp-populated",
+              "actual": true,
+              "expected": true,
+              "passed": true
+            },
+            {
+              "name": "record-overview-populated",
+              "actual": true,
+              "expected": true,
+              "passed": true
+            },
+            {
+              "name": "inventory-visible",
+              "actual": true,
+              "expected": true,
+              "passed": true
+            },
+            {
+              "name": "press:load.baseline-row",
+              "passed": true
+            },
+            {
+              "name": "guard:empty-name-refused",
+              "passed": true
+            },
+            {
+              "name": "press:save.create-confirm",
+              "passed": true
+            },
+            {
+              "name": "press:overwrite.cancel",
+              "passed": true
+            },
+            {
+              "name": "press:overwrite.confirm",
+              "passed": true
+            },
+            {
+              "name": "cancel-keeps-save-bytes",
+              "passed": true
+            }
+          ],
+          "artifacts": {
+            "gui-save\\00-game.bmp": {
+              "bytes": 2359350,
+              "sha256": "e1270d9da2a6742e62e3e013f390f66191f79a35881a1e3c87f7d3fc486785db"
+            },
+            "gui-save\\00-game.state.json": {
+              "bytes": 712856,
+              "sha256": "66b003b1c593c5cd8d58f8d7b139285c770dac3ddb2d4d35b9fb33c9e07204ab"
+            },
+            "gui-save\\00-game.ui.json": {
+              "bytes": 187,
+              "sha256": "afd34fe73034c729835f0c544514cfc79ab56c552543c48aac97eb58646f24bf"
+            },
+            "gui-save\\01-inventory.bmp": {
+              "bytes": 2359350,
+              "sha256": "357c74cb26f4603c990db0bd56c02d96b010ca0838af6b2703dea37179bee783"
+            },
+            "gui-save\\01-inventory.state.json": {
+              "bytes": 710426,
+              "sha256": "90ba04f3f967ac442c3599eff0f8884b30b83fe09486e7eb4e8c185b8e084eee"
+            },
+            "gui-save\\01-inventory.ui.json": {
+              "bytes": 9855,
+              "sha256": "2e1043d27726132d7785b79db217ba529e02a72887db3183a762714eb8714d28"
+            },
+            "gui-save\\02-record.bmp": {
+              "bytes": 2359350,
+              "sha256": "fdff600623ec8c633c990939c945c59104d108fe64dd964b23fb4ac9dc079f4b"
+            },
+            "gui-save\\02-record.state.json": {
+              "bytes": 710426,
+              "sha256": "90ba04f3f967ac442c3599eff0f8884b30b83fe09486e7eb4e8c185b8e084eee"
+            },
+            "gui-save\\02-record.ui.json": {
+              "bytes": 7007,
+              "sha256": "bd935c1e9c2c5d3622c5f8c5c9ed1e134eee2d8a7d95625e3682ee524d6eb945"
+            },
+            "gui-save\\03-options.bmp": {
+              "bytes": 2359350,
+              "sha256": "8847581405ca1dd3a2f05073ac5d9ffc06a6bf879a0852f648de2e85d3c861ff"
+            },
+            "gui-save\\03-options.state.json": {
+              "bytes": 710426,
+              "sha256": "90ba04f3f967ac442c3599eff0f8884b30b83fe09486e7eb4e8c185b8e084eee"
+            },
+            "gui-save\\03-options.ui.json": {
+              "bytes": 1906,
+              "sha256": "f738999c25ab2127d99daf7bf94405c5d637bf16a8dd7bf3b51c5c692dc6b84b"
+            },
+            "gui-save\\04-save-list.bmp": {
+              "bytes": 2359350,
+              "sha256": "3861beddfb1985d4edc1bdcb97452c8558259786e3e773f7651bf790db5add88"
+            },
+            "gui-save\\04-save-list.state.json": {
+              "bytes": 710426,
+              "sha256": "90ba04f3f967ac442c3599eff0f8884b30b83fe09486e7eb4e8c185b8e084eee"
+            },
+            "gui-save\\04-save-list.ui.json": {
+              "bytes": 8072,
+              "sha256": "f52b87aae71325ac0747bbaf617f1826be46a7a3aa03ccdc64ff9bfa046f28d2"
+            },
+            "gui-save\\05-empty-confirm.bmp": {
+              "bytes": 2359350,
+              "sha256": "4badf6d73ded64f3ea9d0143296d754c976762f26c042a7b7782a695ab664a79"
+            },
+            "gui-save\\05-empty-confirm.state.json": {
+              "bytes": 710426,
+              "sha256": "90ba04f3f967ac442c3599eff0f8884b30b83fe09486e7eb4e8c185b8e084eee"
+            },
+            "gui-save\\05-empty-confirm.ui.json": {
+              "bytes": 9698,
+              "sha256": "9e5cc8b7a0d7beddb6f1fafa4af60b2e56977a7a0c0ec62fc75e7a8b74102361"
+            },
+            "gui-save\\06-named-confirm.bmp": {
+              "bytes": 2359350,
+              "sha256": "5dc216c27af6c86cefe6873a8a4704830f2ba6cfd30dd01da4911b9322206239"
+            },
+            "gui-save\\06-named-confirm.state.json": {
+              "bytes": 710426,
+              "sha256": "90ba04f3f967ac442c3599eff0f8884b30b83fe09486e7eb4e8c185b8e084eee"
+            },
+            "gui-save\\06-named-confirm.ui.json": {
+              "bytes": 9710,
+              "sha256": "492dc2bf93402d4c440078dd8929941db087e30ddd189f6bb81b3136ce2497a3"
+            },
+            "gui-save\\07-after-create.bmp": {
+              "bytes": 2359350,
+              "sha256": "6aa5032a9e90cb15b30df2422786ef45bd7ecc19f247c91f777b4ec5dd3bcbe5"
+            },
+            "gui-save\\07-after-create.state.json": {
+              "bytes": 710426,
+              "sha256": "90ba04f3f967ac442c3599eff0f8884b30b83fe09486e7eb4e8c185b8e084eee"
+            },
+            "gui-save\\07-after-create.ui.json": {
+              "bytes": 187,
+              "sha256": "afd34fe73034c729835f0c544514cfc79ab56c552543c48aac97eb58646f24bf"
+            },
+            "gui-save\\08-overwrite-confirm.bmp": {
+              "bytes": 2359350,
+              "sha256": "e828bdf91379ebcb5fd385810967f1a0989c046efc108dfbbe562ec974a4ffd0"
+            },
+            "gui-save\\08-overwrite-confirm.state.json": {
+              "bytes": 710426,
+              "sha256": "90ba04f3f967ac442c3599eff0f8884b30b83fe09486e7eb4e8c185b8e084eee"
+            },
+            "gui-save\\08-overwrite-confirm.ui.json": {
+              "bytes": 9755,
+              "sha256": "2a0e78b4b6e357db8f8802af7531ea5395178e2cc60dab4d94c52611d9dc217e"
+            },
+            "gui-save\\09-after-cancel.bmp": {
+              "bytes": 2359350,
+              "sha256": "6a76ce1b284775c110926915099efa3aaa8b9a3442935dfea72c1b54e1b00fbc"
+            },
+            "gui-save\\09-after-cancel.state.json": {
+              "bytes": 710426,
+              "sha256": "90ba04f3f967ac442c3599eff0f8884b30b83fe09486e7eb4e8c185b8e084eee"
+            },
+            "gui-save\\09-after-cancel.ui.json": {
+              "bytes": 8050,
+              "sha256": "1235598a3e46ec287ff88096a23d2800f49b222a9966e7b56252d2dfd90b8a9f"
+            },
+            "gui-save\\10-before-overwrite.bmp": {
+              "bytes": 2359350,
+              "sha256": "e828bdf91379ebcb5fd385810967f1a0989c046efc108dfbbe562ec974a4ffd0"
+            },
+            "gui-save\\10-before-overwrite.state.json": {
+              "bytes": 710426,
+              "sha256": "90ba04f3f967ac442c3599eff0f8884b30b83fe09486e7eb4e8c185b8e084eee"
+            },
+            "gui-save\\10-before-overwrite.ui.json": {
+              "bytes": 9755,
+              "sha256": "2a0e78b4b6e357db8f8802af7531ea5395178e2cc60dab4d94c52611d9dc217e"
+            },
+            "gui-save\\11-after-overwrite.bmp": {
+              "bytes": 2359350,
+              "sha256": "88f684dfd9bfd74a33d8d2337624e3f07e0b37693ad2179f9a7add0bf262ec4d"
+            },
+            "gui-save\\11-after-overwrite.state.json": {
+              "bytes": 710426,
+              "sha256": "90ba04f3f967ac442c3599eff0f8884b30b83fe09486e7eb4e8c185b8e084eee"
+            },
+            "gui-save\\11-after-overwrite.ui.json": {
+              "bytes": 187,
+              "sha256": "afd34fe73034c729835f0c544514cfc79ab56c552543c48aac97eb58646f24bf"
+            },
+            "gui-save\\events.json": {
+              "bytes": 844,
+              "sha256": "80328b7d45fd15ca1462e2529cdefba6164a0154e36731622c82273dfaf14b83"
+            },
+            "gui-save\\fonts.json": {
+              "bytes": 4911,
+              "sha256": "cf2c1e61ea1aa4c628ab5085ca6aea756c5e2f041e585baf95e07f4b22e918cf"
+            },
+            "gui-save\\gui-result.json": {
+              "bytes": 883,
+              "sha256": "a8526f515d50c4124ef040f456874d38fee0f973b697aac75b77a148ba672ce5"
+            },
+            "gui-save\\gui.cfg": {
+              "bytes": 1223,
+              "sha256": "a52954d803d82616a654ba6d724c9d2816f0fd6622f04b5cc9a26a68eedb38b6"
+            },
+            "gui-save\\load-list.bmp": {
+              "bytes": 2359350,
+              "sha256": "ce2e3c3176a433c1db2a660c2f447f4491e8fd80106ab610f2850e0f44546437"
+            },
+            "gui-save\\load-list.ui.json": {
+              "bytes": 6329,
+              "sha256": "d1f5b026305c593b5e3754b738d8adf696d18d6d80ae9784cbf82a7ba4820b8c"
+            },
+            "gui-save\\overwrite-persisted.state.json": {
+              "bytes": 710426,
+              "sha256": "90ba04f3f967ac442c3599eff0f8884b30b83fe09486e7eb4e8c185b8e084eee"
+            },
+            "gui-save\\process-result.json": {
+              "bytes": 4648,
+              "sha256": "3e0bbd6c9b9d080a9b6d9d51dbe7fb3537f462f939af5b4026ad536e99ba7144"
+            },
+            "gui-save\\process.log": {
+              "bytes": 36025,
+              "sha256": "938679e3f71b78b346199026795a1ac45c06b90b0f00de1a969cf42b91623151"
+            }
+          },
+          "created_save": {
+            "path": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T011949Z-gui-bam-comparison-e78fdd08\\gui-save\\engine-profile\\save\\000000016-Redux GUI Baseline",
+            "manifest": {
+              "baldur.bmp": {
+                "bytes": 93690,
+                "sha256": "b64c76a23842ee363da349e4a172b6fc726c66ba07c8cbe759204afc2adec56b"
+              },
+              "baldur.gam": {
+                "bytes": 69456,
+                "sha256": "cf509a137bd081497f49d156a481443b4acbafb122237b477c03df713ba35dde"
+              },
+              "baldur.sav": {
+                "bytes": 19388,
+                "sha256": "16d8858314126e4bbf4d7efceedbdec03552d9175467a8e169d12c053c608838"
+              },
+              "PORTRT0.bmp": {
+                "bytes": 13830,
+                "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+              },
+              "PORTRT1.bmp": {
+                "bytes": 13830,
+                "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+              }
+            },
+            "preview_size": [
+              204,
+              153
+            ]
+          }
+        },
+        {
+          "name": "gui-reload",
+          "mode": "inspect",
+          "font_mode": "bam",
+          "process": {
+            "pid": 29644,
+            "exit_code": 0,
+            "timeout_seconds": 100.0,
+            "timed_out": false,
+            "cleanup": "not required",
+            "elapsed_seconds": 20.516
+          },
+          "passed": true,
+          "assertions": [
+            {
+              "name": "area",
+              "actual": "AR0602",
+              "expected": "AR0602",
+              "passed": true
+            },
+            {
+              "name": "party-size",
+              "actual": 2,
+              "expected": 2,
+              "passed": true
+            },
+            {
+              "name": "inventory-name",
+              "actual": "wfsdf",
+              "expected": "wfsdf",
+              "passed": true
+            },
+            {
+              "name": "record-name",
+              "actual": "wfsdf",
+              "expected": "wfsdf",
+              "passed": true
+            },
+            {
+              "name": "inventory-hp-populated",
+              "actual": true,
+              "expected": true,
+              "passed": true
+            },
+            {
+              "name": "record-overview-populated",
+              "actual": true,
+              "expected": true,
+              "passed": true
+            },
+            {
+              "name": "inventory-visible",
+              "actual": true,
+              "expected": true,
+              "passed": true
+            }
+          ],
+          "artifacts": {
+            "gui-reload\\00-game.bmp": {
+              "bytes": 2359350,
+              "sha256": "1f050e1dc599855d8e904452c371caf201c8d73c2a8bd026d087248d36c95c23"
+            },
+            "gui-reload\\00-game.state.json": {
+              "bytes": 716190,
+              "sha256": "92f267ace2074a482b2fea03da854698f02124773b3f40dcb56130aa6d8ee4c0"
+            },
+            "gui-reload\\00-game.ui.json": {
+              "bytes": 187,
+              "sha256": "afd34fe73034c729835f0c544514cfc79ab56c552543c48aac97eb58646f24bf"
+            },
+            "gui-reload\\01-inventory.bmp": {
+              "bytes": 2359350,
+              "sha256": "211f2a67c473479b49e4b57e16c12db15d1b00e607cef4a6ae760fd0c7f19dc4"
+            },
+            "gui-reload\\01-inventory.state.json": {
+              "bytes": 713835,
+              "sha256": "2a98d798bc90f9cc0210a486d856fc7b793e63de2e40a710bc9609b91fde285e"
+            },
+            "gui-reload\\01-inventory.ui.json": {
+              "bytes": 9855,
+              "sha256": "2e1043d27726132d7785b79db217ba529e02a72887db3183a762714eb8714d28"
+            },
+            "gui-reload\\02-record.bmp": {
+              "bytes": 2359350,
+              "sha256": "a12a251f7e161e724e2c79659a75e9df651d5bae19b8720325fa7e820804e4fd"
+            },
+            "gui-reload\\02-record.state.json": {
+              "bytes": 713835,
+              "sha256": "2a98d798bc90f9cc0210a486d856fc7b793e63de2e40a710bc9609b91fde285e"
+            },
+            "gui-reload\\02-record.ui.json": {
+              "bytes": 7010,
+              "sha256": "44988327659779a93e91765081176f459e073b09b79fcfc91a163cb0337bdd88"
+            },
+            "gui-reload\\events.json": {
+              "bytes": 282,
+              "sha256": "05bd4d57a787449de1ca1c3630d3b38de0ee0ffdc6931a0417a9671f333472af"
+            },
+            "gui-reload\\fonts.json": {
+              "bytes": 4911,
+              "sha256": "cf2c1e61ea1aa4c628ab5085ca6aea756c5e2f041e585baf95e07f4b22e918cf"
+            },
+            "gui-reload\\gui-result.json": {
+              "bytes": 320,
+              "sha256": "97eefa9c495721205acfc0b621e697cf52ce0d87287aa73c414f6537db270662"
+            },
+            "gui-reload\\gui.cfg": {
+              "bytes": 1229,
+              "sha256": "c740e27529045443d2b9c84e3572a35ddc8a82964a38179e6c8afba63fcfcc58"
+            },
+            "gui-reload\\load-list.bmp": {
+              "bytes": 2359350,
+              "sha256": "72f7ccd6270e15e2e8c55c5174219ebfb908a379904403ecf8c4ded7f5ee9272"
+            },
+            "gui-reload\\load-list.ui.json": {
+              "bytes": 6329,
+              "sha256": "d1f5b026305c593b5e3754b738d8adf696d18d6d80ae9784cbf82a7ba4820b8c"
+            },
+            "gui-reload\\process-result.json": {
+              "bytes": 2420,
+              "sha256": "6d8b86f41bcbe9aaa7681e7b0287642710287ade1b4c9f04bca542db5924c322"
+            },
+            "gui-reload\\process.log": {
+              "bytes": 33972,
+              "sha256": "2b55766cb97f8916f14ff1c9e2b98d3ef9b6157fadb6183ff3633086ea26ce35"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "run_id": "20261021T012253Z-gui-ttf18-screens-7882c2b9",
+      "result_sha256": "c5aa1aec9d7dfa27155bd297f57b351d794d63ab9196fe4e080bd0ebf28580e6",
+      "result": {
+        "verdict": "passed",
+        "execution_verdict": "passed",
+        "assertion_verdict": "passed",
+        "screens_only": true,
+        "fixture_unchanged": true
+      },
+      "stages": [
+        {
+          "name": "gui-save",
+          "mode": "inspect",
+          "font_mode": "ttf-18",
+          "process": {
+            "pid": 34684,
+            "exit_code": 0,
+            "timeout_seconds": 45.0,
+            "timed_out": false,
+            "cleanup": "not required",
+            "elapsed_seconds": 22.38
+          },
+          "passed": true,
+          "assertions": [
+            {
+              "name": "area",
+              "actual": "AR0602",
+              "expected": "AR0602",
+              "passed": true
+            },
+            {
+              "name": "party-size",
+              "actual": 2,
+              "expected": 2,
+              "passed": true
+            },
+            {
+              "name": "inventory-name",
+              "actual": "wfsdf",
+              "expected": "wfsdf",
+              "passed": true
+            },
+            {
+              "name": "record-name",
+              "actual": "wfsdf",
+              "expected": "wfsdf",
+              "passed": true
+            },
+            {
+              "name": "inventory-hp-populated",
+              "actual": true,
+              "expected": true,
+              "passed": true
+            },
+            {
+              "name": "record-overview-populated",
+              "actual": true,
+              "expected": true,
+              "passed": true
+            },
+            {
+              "name": "inventory-visible",
+              "actual": true,
+              "expected": true,
+              "passed": true
+            }
+          ],
+          "artifacts": {
+            "gui-save\\00-game.bmp": {
+              "bytes": 2359350,
+              "sha256": "a43b6074928fe904e3f1f51439329a30bce32da62c59e27df10b10feff4f6c61"
+            },
+            "gui-save\\00-game.state.json": {
+              "bytes": 712683,
+              "sha256": "850669dae8a4586cf5c681e30ad67de46de89e9118b9eae860701658c3460aa2"
+            },
+            "gui-save\\00-game.ui.json": {
+              "bytes": 187,
+              "sha256": "afd34fe73034c729835f0c544514cfc79ab56c552543c48aac97eb58646f24bf"
+            },
+            "gui-save\\01-inventory.bmp": {
+              "bytes": 2359350,
+              "sha256": "5c6445556526bdcf83d3b75fbb023826e56d36a5cd5497d18eeed7ba8fe22b55"
+            },
+            "gui-save\\01-inventory.state.json": {
+              "bytes": 710253,
+              "sha256": "8d972a7dcddaa7c3650541c9974f955840a72042af0d0bcfddc1b233ed27f586"
+            },
+            "gui-save\\01-inventory.ui.json": {
+              "bytes": 9855,
+              "sha256": "2e1043d27726132d7785b79db217ba529e02a72887db3183a762714eb8714d28"
+            },
+            "gui-save\\02-record.bmp": {
+              "bytes": 2359350,
+              "sha256": "efda9937047fd43a0c381a42910442b22e80c33eb9fdff557bad28f582466cd3"
+            },
+            "gui-save\\02-record.state.json": {
+              "bytes": 710253,
+              "sha256": "8d972a7dcddaa7c3650541c9974f955840a72042af0d0bcfddc1b233ed27f586"
+            },
+            "gui-save\\02-record.ui.json": {
+              "bytes": 7007,
+              "sha256": "bd935c1e9c2c5d3622c5f8c5c9ed1e134eee2d8a7d95625e3682ee524d6eb945"
+            },
+            "gui-save\\events.json": {
+              "bytes": 282,
+              "sha256": "05bd4d57a787449de1ca1c3630d3b38de0ee0ffdc6931a0417a9671f333472af"
+            },
+            "gui-save\\fonts.json": {
+              "bytes": 4945,
+              "sha256": "13e4e9f46b25225d840bdbe7784179cae0fec89d44b50baa6d8dc559c341c95d"
+            },
+            "gui-save\\gui-result.json": {
+              "bytes": 320,
+              "sha256": "97eefa9c495721205acfc0b621e697cf52ce0d87287aa73c414f6537db270662"
+            },
+            "gui-save\\gui.cfg": {
+              "bytes": 1220,
+              "sha256": "99a34bbc9f457473ca0afa4836bf99524d7696bfa30682acf289068c6a530a81"
+            },
+            "gui-save\\load-list.bmp": {
+              "bytes": 2359350,
+              "sha256": "211e4df5f06a8ae5928862fff5d96d53a2fe11a3f662a5d5b024d57c2b0c2cdc"
+            },
+            "gui-save\\load-list.ui.json": {
+              "bytes": 6329,
+              "sha256": "d1f5b026305c593b5e3754b738d8adf696d18d6d80ae9784cbf82a7ba4820b8c"
+            },
+            "gui-save\\process-result.json": {
+              "bytes": 2413,
+              "sha256": "c8f6a5774e5a27a97efb1b31e000dc510df18e687833a8dd51a6f7be5337278b"
+            },
+            "gui-save\\process.log": {
+              "bytes": 34029,
+              "sha256": "3a593ecc952d9a5689b2e668dc5a68a1d62bbcbce5c0bba4a66efae046b89d7d"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "run_id": "20261021T012345Z-gui-missing-negative-0c0fe09a",
+      "result_sha256": "7f0c85e6166be17583080301d5c12ac79682b3e815798967df575af06bcc8edb",
+      "result": {
+        "verdict": "failed",
+        "screens_only": false,
+        "error": "[WinError 3] The system cannot find the path specified: 'C:\\\\Users\\\\zach\\\\Documents\\\\ChatGPT\\\\BG Multiplayer Redux\\\\phase0-local\\\\results\\\\20261021T012345Z-gui-missing-negative-0c0fe09a\\\\missing-fixture'"
+      },
+      "stages": []
+    },
+    {
+      "run_id": "20261021T012425Z-gui-timeout-verified-19d8246d",
+      "result_sha256": "671a49d0b33e4be5a3a992b4089185d6734948e9cc903481d28d03b793c8cf29",
+      "result": {
+        "verdict": "timeout",
+        "execution_verdict": "failed",
+        "assertion_verdict": "failed",
+        "screens_only": true,
+        "fixture_unchanged": true
+      },
+      "stages": [
+        {
+          "name": "gui-save",
+          "mode": "inspect",
+          "font_mode": "stock",
+          "process": {
+            "pid": 27420,
+            "exit_code": 1,
+            "timeout_seconds": 0.01,
+            "timed_out": true,
+            "cleanup": "child tree termination completed",
+            "elapsed_seconds": 0.124
+          },
+          "passed": false,
+          "assertions": [],
+          "error": "GUI process did not exit successfully",
+          "artifacts": {
+            "gui-save\\gui.cfg": {
+              "bytes": 1086,
+              "sha256": "1a9659ce3d52e4e97b499f730dbb36da6c62ccf34890c1582d8363e0f3651fc2"
+            },
+            "gui-save\\process-result.json": {
+              "bytes": 1128,
+              "sha256": "3d99226965e347bcd4afc71d620c62db1dfdb5688233d1093dd4969112efebc3"
+            },
+            "gui-save\\process.log": {
+              "bytes": 7515,
+              "sha256": "c3d3ea7cf6341d47d9fbb63c7d5616771cdade9c2430c7abc58f8b3ac426091f"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "run_id": "20261021T012333Z-post-gui-library-check-4dc22a66",
+      "result_sha256": "c601429475f00286083f8e828d7b15d55936551abc96109559756b7a7c5ed482",
+      "result": {
+        "verdict": "differences",
+        "execution_verdict": "passed",
+        "assertion_verdict": "passed",
+        "source_unchanged": true
+      },
+      "stages": [
+        {
+          "name": "import",
+          "process": {
+            "pid": 33736,
+            "exit_code": 0,
+            "timeout_seconds": 45,
+            "timed_out": false,
+            "cleanup": "not required",
+            "elapsed_seconds": 3.689
+          },
+          "passed": true,
+          "artifacts": {
+            "import\\probe.cfg": {
+              "bytes": 729,
+              "sha256": "79487e24d7b59a8961d61b79c8e919562d3454f559648247510d3dcddcabadfb"
+            },
+            "import\\process-result.json": {
+              "bytes": 1199,
+              "sha256": "789302f4332d1ed8328d1a4df2cce548f90a159871642f6791e5fb9908c9b088"
+            },
+            "import\\process.log": {
+              "bytes": 25311,
+              "sha256": "54d2fa3db9ce35dabad6a3b66a16802dcd5e8dd3d6fbf60a19a6393b99d4d9a8"
+            },
+            "import\\state.json": {
+              "bytes": 361862,
+              "sha256": "e059a2e078939682b374d4c840a5e4b84d8309560df6c25b11af3e94273d8bcd"
+            },
+            "import\\state.json.imported.json": {
+              "bytes": 145734,
+              "sha256": "8dc0d74e391cc2bf1fbfb6e32a02427a3efb5a30591dacbad7c40d86a3475ceb"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "build": {
+    "command": [
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\toolchain\\msys64\\ucrt64\\bin\\g++.exe",
+      "-std=gnu++17",
+      "-g",
+      "-O0",
+      "-DHAVE_CONFIG_H",
+      "-DUSE_OPENGL_API",
+      "-D_USE_MATH_DEFINES",
+      "-DFMT_HEADER_ONLY",
+      "-DFMT_USE_CONSTEVAL=0",
+      "-DFMT_EXCEPTIONS=0",
+      "-DFMT_UNICODE=1",
+      "-fno-strict-aliasing",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\build",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\gemrb\\gemrb\\includes",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\gemrb\\gemrb\\core",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\gemrb\\platforms\\Windows",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\build\\gemrb\\includes",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\toolchain\\msys64\\ucrt64\\include\\SDL2",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\toolchain\\msys64\\ucrt64\\include\\python3.14",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\gemrb\\includes\\fmt",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\tools\\phase0\\native\\gui_probe.cpp",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\build\\gemrb\\core\\libgemrb_core.dll.a",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\toolchain\\msys64\\ucrt64\\lib\\libiconv.dll.a",
+      "-lshlwapi",
+      "-o",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\gui-probe\\Redux_gui_probe.exe"
+    ],
+    "exit_code": 0,
+    "sources": {
+      "tools\\phase0\\native\\gui_probe.cpp": "8541fe52874b3bbe2b8a5fa80fa1e874b5da20a7e27c5b4b3254d702e88b45ec",
+      "tools\\phase0\\native\\save_probe.cpp": "d4f332b73c5a0bf579538de5624add4172d460ed880ae73d1c1cdfd13a11ad1e"
+    },
+    "engine_dll_sha256": "5b8719d3f3257404f4611927826af1ae9cdeb2c735fc0ed6d1afc981eb14c99f",
+    "compiler_sha256": "5f30e02408ab97050fcbfa39bb391b0923cf9402063920b849ab8491e63334b3",
+    "binary_sha256": "92f4fecee04ac86d4c439480191db32ac9de2f1e25180c92cefe4b9a1d7fa056"
+  },
+  "tool_sources": {
+    "tools\\phase0\\build-gui-probe.py": "3b414775f6e84ba661fcca3a9e0470d41286644f104994d0d3fc647688e0506a",
+    "tools\\phase0\\build-save-probe.py": "7f8373a6a64d0e733612ad801e743b6edfd2f1c1d0ac01af3d8d53effd4682b5",
+    "tools\\phase0\\collect-gui-evidence.py": "18ff5278022e2dbf2f1e2db5fc9ce0a2722cd9de54a25e7eb02655a8684dfdab",
+    "tools\\phase0\\gui\\ReduxStart.py": "32eaa9af6ae8630d42a17b1e8a3de44ec540d05625b3be3fe35eb5d637ae310c",
+    "tools\\phase0\\gui_comparison.py": "46932377613819b831835c4445afd2c4176a33e208631ffeeac0967dfc13350f",
+    "tools\\phase0\\gui_harness.py": "dd1bde4029d5696e70cf05bf9d364c674d5274c95b79c3bf5518b5b3bb9f4166",
+    "tools\\phase0\\harness.py": "c0fa962a93b565f69a7757d91465ae04dc939bab52b409d91ce9a25b86e09992",
+    "tools\\phase0\\inspect_presentation.py": "bf48b547452a45cdaddb93b4120ed7ce60a340320e47a2a5c2555a1f98d2364c",
+    "tools\\phase0\\launch.py": "ce86d9463de9850817c75980f172f34920ea1265ea5616f4867a5464d4e98fc6",
+    "tools\\phase0\\legacy_oracle.py": "a1ea22ba4a5aec4d93e96fc6767e72c12a1ec41acd66c3109c95ff1ec60bc8f0",
+    "tools\\phase0\\link-managed-tests.py": "7f175c32a6df006fa2aa43c4b4b717418e070d1ab0da6834a7090108082a57ad",
+    "tools\\phase0\\managed-test-main.cpp": "9a3f5b3f727d51ed66c4b7c9479c9fd02bea9e91a68ab081dbd63a3895cbbec0",
+    "tools\\phase0\\native\\gui_probe.cpp": "8541fe52874b3bbe2b8a5fa80fa1e874b5da20a7e27c5b4b3254d702e88b45ec",
+    "tools\\phase0\\native\\save_probe.cpp": "d4f332b73c5a0bf579538de5624add4172d460ed880ae73d1c1cdfd13a11ad1e",
+    "tools\\phase0\\prepare_bg2ee.py": "1babe436ff57573c822b4fbd61a163d7fa64652e212fd199330fb6a083d4ee7d",
+    "tools\\phase0\\prepare_runtime.py": "2271755f9cc1dd49894be635f7fd47f39f60f3a004ec6177f0d47888126eebb9",
+    "tools\\phase0\\probe_ui_resources.py": "5717f4bdbc6d3daa27ec2a60c39adc9f153d94b73d183e2b5f025d5b73efcc91",
+    "tools\\phase0\\save_harness.py": "8d1a4a0c9204858750c6a4339f4d29d0653c88557b68234e17b0943030f24eb8",
+    "tools\\phase0\\tests\\test_gui_oracle.py": "6be10c90aac6eaca36996b1e55b93cad8cc487fd4cb4c334bdf4d8c97f5b4a3f",
+    "tools\\phase0\\tests\\test_save_oracle.py": "74628c07d6794841df57818b8d9da0cc5fc304513d7dbe13a300998d5456747d",
+    "tools\\phase0\\validate-audit.py": "c2dfe4c2c05c145d8f2ec315c0d8bbf1211c7c203cfa948bbb38976837ecbb5d",
+    "tools\\phase0\\verify-baseline.py": "846dae5239736942835c5b6b6c059f14ce8bd4602f33759efb7035937f9e88f0"
+  },
+  "plugins": {
+    "2DAImporter.dll": "3c1cbcc3c23f772eba30cfee2fedbd69dd730dad51cc35ddf6e715b5e1d97966",
+    "ACMReader.dll": "710e58b2ec552b70f1a6186c1154bed94429168015d5fcfdd52cf13a4c1c2842",
+    "AREImporter.dll": "ab267ead3382f12f793c9c1784f5d8a078d5f3ef93d8cc3425fff0171ad042d7",
+    "BAMImporter.dll": "69b072e1e5eaf7bcef5bc3a5970c3458d5c1aad420cc2ea0be874114adb3b7a1",
+    "BIFImporter.dll": "748877c31eeba077c038590541b2902e01f92576ee546821fef0a2b9b8ff7a56",
+    "BIKPlayer.dll": "468870ad24faba5aa6d0a44b03055e3732f3d668ed73329fedea1e641e2ef339",
+    "BMPImporter.dll": "e67bcb610dbbfdeca415bc57e8c43b6a28763e3faa777f0ca0a6fb7f2dd74369",
+    "BMPWriter.dll": "8fde79a22c1658b1846290ee53a9acda8c94735f33af6e23894bfd9f64f0205e",
+    "CHUImporter.dll": "9595d22980ea57bf51934c1a4028a4e1126a5750296a6cc42ef9655958f44f55",
+    "CREImporter.dll": "81fabad1c72e3f22dba49d51e68fb2d33215629298a8693a8662ea32a5f94399",
+    "DirectoryImporter.dll": "b9f5d7f76c58f44c716b53681c1a8ea2622fb48f5980a9e3f333ae83d81316bc",
+    "DLGImporter.dll": "3b9326cb19387131783bcce6fdeac2baf0d850372c02f1f753498693dabe4980",
+    "EFFImporter.dll": "87aeb0c0cfe3b38a7887f132fa5bcea66ae9998ec245c0f3125787e2e27ee4ed",
+    "FXOpcodes.dll": "9cba5cbdfd6113d67df555b963a0e17fee99a7ef9cd0956119ebf5529e8a6417",
+    "GAMImporter.dll": "0776d6653c52b85a54e0f4fdb8d0c50dad7294c3bce5bf58dcf5836351ee0982",
+    "GUIScript.dll": "0f80e02ed3ae880c6867202b345efabdb75f5e44762711b2d463c00ed1c39735",
+    "IDSImporter.dll": "ea0295ccaca12cbcff49de3ca2b702ca9f1f00a6234ab83ab885b754cf384d69",
+    "INIImporter.dll": "adf2e0efc8c06690186ac9bf8ef191918f34e6e8e5e6fce4adf547ab95941c41",
+    "ITMImporter.dll": "4cb5725f059de805f924e0153b7394339a0cc0249a8ca9b26bdac48fac3220e1",
+    "IWDOpcodes.dll": "d9ee3d2c5392dc250d3c4cf43612e1c7669a14751f2a2e9fe6e7710925321fe6",
+    "KEYImporter.dll": "45e1686f6b81b1388910f4c96f564b7f7696a305f83fd67843da38457a40bcff",
+    "MOSImporter.dll": "db4d73c975c8d86ee1869118d910c20d58cd403ca91ae1251421edd33b17fc5b",
+    "MUSImporter.dll": "5c806f76c3afce2f5105578e948ece765f3277529afe0962a273dee5b8f6000e",
+    "MVEPlayer.dll": "7a60291ae40a69bbb5f37c3ffe250e6578d35bb680357319fd3cfac1015841f0",
+    "NullSound.dll": "a6a34c851bee8d572f3e56fa1e1d29898e23de72e3e847df4f900a6124b9f730",
+    "NullSource.dll": "23352c5d99408ea3808a4cc14e8700976423a375f085ddbb78b6b0be06f77990",
+    "OGGReader.dll": "d81dc02e6d5ed567c24e25e1cafc9e85b196b17e32818044c0cecbe0bf19321f",
+    "OpenALAudio.dll": "165c4cd2caec896b79e206747ab66a5dd037632850a42da2252a3a31cb60c81e",
+    "PLTImporter.dll": "4c2d38d5296ec335cf4856cc5ff582eb3f7c6e61609bd179de4e7046c5e740c1",
+    "PNGImporter.dll": "ae42f2ad8e1943adfdd3e46a6c5b16f6e54ccccfc125357f23c40c29fc7d253d",
+    "PROImporter.dll": "6d0c95bc9b9816f74735769213bbdc70cd8bc95348aa9dd1cfaece2d1037cfad",
+    "PSTOpcodes.dll": "29f753b77851ed8ba8a92b98daa915daa33e390387176c7b2ac7cadb8be6a6eb",
+    "PVRZImporter.dll": "158b8457e16f4a52829c7dbdd8895e939c16325cb3d4372fa25aaee9deae9a6c",
+    "SAVImporter.dll": "a822626cc8c9fea6ca043d91b162010a6bba62dbe659b73b9fb6b5f19ef3df2a",
+    "SDLAudio.dll": "6acfa3a21ba24a79f415e0c2704bb1573b39ec286736bc469b70ff0cc7ebf65f",
+    "SDLVideo.dll": "fa17dc02d6c1f96454ddae91eeebd9a698737bef54653f1999e9d1c7b0ad28d4",
+    "SPLImporter.dll": "6665235c3b97475655f673459a8955491bb63b243831af96ca5626d051761366",
+    "STOImporter.dll": "91bee611c592486c03bdbfa15d7570639be53af22b5bc54e59f7921e5a10a1d5",
+    "TISImporter.dll": "f4206882344c56ef2ac4d96f98d205bb9d0cfa272353c396762126f6b97a9930",
+    "TLKImporter.dll": "9d8c4a6658938f559d3ebba0d4576b2ea178912ec6e03924ae9ed24a1829d46a",
+    "TTFImporter.dll": "c79d199ce5ea68351110d2eccc3519e10241bc96d1d200650c275ff191486221",
+    "WAVReader.dll": "b1cab2ffe9bbfc7518fab15842c2480c58b6ad6ad057d38b0c928bdd99abec0a",
+    "WEDImporter.dll": "b2bbaeb6a7f96419d56423d8e01ac363f008fb51162400994107523c6d8de457",
+    "WMPImporter.dll": "7fa9a26e146b3c7830d693a6507f7678851f12ffa320b998ad1c3da9f28e499c",
+    "ZLibManager.dll": "e0a084742461f7eef8ee2876cd1568ac2e3020e16db7b084b7ad69afe0354f20"
+  },
+  "revision": "bcb5cfaa9f19ffbe8a51f25a3c014fa344173351",
+  "engine_status": "",
+  "fixture_matches_pinned_manifest": true,
+  "unit_tests": {
+    "command": [
+      "C:\\Users\\zach\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tools/phase0/tests",
+      "-v"
+    ],
+    "exit_code": 0,
+    "log_sha256": "63e7d56b3282eb01121a93795c14e6f5d648e7cae557e9cffcde17d17afa7d3a",
+    "output": "test_blank_record_overview_fails_content_check (test_gui_oracle.GUIOracle.test_blank_record_overview_fails_content_check) ... ok\ntest_changed_variable_remains_visible (test_gui_oracle.GUIOracle.test_changed_variable_remains_visible) ... ok\ntest_damage_remains_visible (test_gui_oracle.GUIOracle.test_damage_remains_visible) ... ok\ntest_extra_reload_time_is_not_discarded (test_gui_oracle.GUIOracle.test_extra_reload_time_is_not_discarded) ... ok\ntest_missing_name_control_cannot_pass (test_gui_oracle.GUIOracle.test_missing_name_control_cannot_pass) ... ok\ntest_unexplained_effect_difference_stays_red (test_gui_oracle.GUIOracle.test_unexplained_effect_difference_stays_red) ... ok\ntest_unmatched_variable_marker_is_not_discarded (test_gui_oracle.GUIOracle.test_unmatched_variable_marker_is_not_discarded) ... ok\ntest_charge_loss_is_detected (test_save_oracle.NativeSnapshotOracle.test_charge_loss_is_detected) ... ok\ntest_color_changes_remain_visible (test_save_oracle.NativeSnapshotOracle.test_color_changes_remain_visible) ... ok\ntest_damage_is_detected (test_save_oracle.NativeSnapshotOracle.test_damage_is_detected) ... ok\ntest_effect_duration_change_is_detected (test_save_oracle.NativeSnapshotOracle.test_effect_duration_change_is_detected) ... ok\ntest_missing_actor_is_detected (test_save_oracle.NativeSnapshotOracle.test_missing_actor_is_detected) ... ok\ntest_missing_query_is_failure (test_save_oracle.NativeSnapshotOracle.test_missing_query_is_failure) ... ok\ntest_wrong_expected_area_is_failure (test_save_oracle.NativeSnapshotOracle.test_wrong_expected_area_is_failure) ... ok\ntest_wrong_global_is_detected (test_save_oracle.NativeSnapshotOracle.test_wrong_global_is_detected) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 0.617s\n\nOK\n"
+  },
+  "development_failures": [
+    {
+      "run": "20261021T011144Z-gui-stock-first-96cc3e1c",
+      "classification": "harness setup",
+      "detail": "Wrong shader working directory; corrected to build root."
+    },
+    {
+      "run": "20261021T011158Z-gui-stock-cwd-7e11cd2f",
+      "classification": "harness bootstrap",
+      "detail": "GUILOAD called outside normal LoadScript globals merge; corrected to SetNextScript. Timeout tree killed."
+    },
+    {
+      "run": "20261021T011305Z-gui-stock-load-0960eac0",
+      "classification": "insufficient test deadline",
+      "detail": "30s deadline interrupted screen/save-confirmation traversal; no success claimed."
+    },
+    {
+      "run": "20261021T011512Z-gui-save-debug-270a5cc8",
+      "classification": "harness crash confirmed with GDB",
+      "detail": "UIJSON dereferenced absent window primary scripting ref after closure. Null-checked in external host; not an engine crash finding."
+    },
+    {
+      "run": "20261021T011640Z-gui-stock-paused-bf9d2173",
+      "classification": "external host cleanup order",
+      "detail": "All GUI steps completed; host destroyed VideoDriver before Interface. Matched GemRB.cpp order; subsequent stock/BAM/screen runs exit0."
+    }
+  ]
+}

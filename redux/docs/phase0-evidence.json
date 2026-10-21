@@ -1,0 +1,933 @@
+{
+  "audit_date": "2026-10-20",
+  "timezone": "America/Los_Angeles",
+  "upstream": "https://github.com/gemrb/gemrb.git",
+  "revision": "bcb5cfaa9f19ffbe8a51f25a3c014fa344173351",
+  "clone_is_shallow": true,
+  "charter_sha256": "76ea58e96bc4297e2ac8ec309d6475fb6f11f11300f972bb3ce6bed2ae30067d",
+  "actor_cpp_lines": 11898,
+  "game_path": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Baldur's Gate II Enhanced Edition",
+  "game_version_observed": "2.7.3.0",
+  "steam_build_id_observed": "23534562",
+  "game_hashes_partial_not_cleanliness_proof": {
+    "Baldur.exe": {
+      "bytes": 7202696,
+      "sha256": "b51093a49140b2b8a7c046b4652bb8e535be24ebbc12b1d735e0b94217a14d57"
+    },
+    "chitin.key": {
+      "bytes": 881765,
+      "sha256": "1818ffebb2424992fb39fb13509e7f629ac819b08a553c2dd4ac25f2e40a979f"
+    },
+    "engine.lua": {
+      "bytes": 104,
+      "sha256": "581913a21114fc981c72456f131f33b1092a9505a5cd0637911b70f9544e4d8c"
+    },
+    "lang/en_US/dialog.tlk": {
+      "bytes": 11655005,
+      "sha256": "9e685225ff3c3436a8a35fa7022550620d24a92efe35436a062c02955d9f0952"
+    }
+  },
+  "weidu_log_at_steam_root": false,
+  "build_executed": true,
+  "runtime_tests_executed": true,
+  "save_decision": "Import BG2EE saves; allow versioned Redux saves afterward",
+  "source_anchors": {
+    "interface_state": {
+      "path": "gemrb/core/Interface.h",
+      "line": 285,
+      "text": "PluginHolder<AudioBackend> AudioDriver;",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Interface.h#L285"
+    },
+    "globals": {
+      "path": "gemrb/core/Interface.cpp",
+      "line": 66,
+      "text": "GEM_EXPORT Interface* core = nullptr;",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Interface.cpp#L66"
+    },
+    "loop": {
+      "path": "gemrb/core/Interface.cpp",
+      "line": 995,
+      "text": "void Interface::Main()",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Interface.cpp#L995"
+    },
+    "gameloop": {
+      "path": "gemrb/core/Interface.cpp",
+      "line": 1894,
+      "text": "void Interface::GameLoop(void)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Interface.cpp#L1894"
+    },
+    "gsupdate": {
+      "path": "gemrb/core/Interface.cpp",
+      "line": 2468,
+      "text": "bool Interface::GSUpdate(bool update)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Interface.cpp#L2468"
+    },
+    "timer": {
+      "path": "gemrb/core/GlobalTimer.cpp",
+      "line": 122,
+      "text": "bool GlobalTimer::Update()",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/GlobalTimer.cpp#L122"
+    },
+    "clock": {
+      "path": "gemrb/core/Interface.h",
+      "line": 101,
+      "text": "const unsigned int defaultTicksPerSec = 15;",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Interface.h#L101"
+    },
+    "rng": {
+      "path": "gemrb/core/RNG.cpp",
+      "line": 18,
+      "text": "RNG::RNG()",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/RNG.cpp#L18"
+    },
+    "rng_api": {
+      "path": "gemrb/core/RNG.h",
+      "line": 24,
+      "text": "class GEM_EXPORT RNG {",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/RNG.h#L24"
+    },
+    "game_state": {
+      "path": "gemrb/core/Game.h",
+      "line": 215,
+      "text": "std::vector<Actor*> PCs;",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Game.h#L215"
+    },
+    "gameupdate": {
+      "path": "gemrb/core/Game.cpp",
+      "line": 1599,
+      "text": "void Game::UpdateScripts()",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Game.cpp#L1599"
+    },
+    "mapupdate": {
+      "path": "gemrb/core/Map.cpp",
+      "line": 424,
+      "text": "void Map::UpdateScripts()",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Map.cpp#L424"
+    },
+    "mapqueues": {
+      "path": "gemrb/core/Map.cpp",
+      "line": 2435,
+      "text": "void Map::GenerateQueues()",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Map.cpp#L2435"
+    },
+    "mapsort": {
+      "path": "gemrb/core/Map.cpp",
+      "line": 2463,
+      "text": "void Map::SortQueues()",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Map.cpp#L2463"
+    },
+    "mapdraw": {
+      "path": "gemrb/core/Map.cpp",
+      "line": 918,
+      "text": "void Map::DrawMap(const Region& viewport, FogRenderer& fogRenderer, uint32_t dFlags)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Map.cpp#L918"
+    },
+    "gamecontrol_draw": {
+      "path": "gemrb/core/GUI/GameControl.cpp",
+      "line": 594,
+      "text": "area->DrawMap(viewport, core->GetFogRenderer(), tmpflags);",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/GUI/GameControl.cpp#L594"
+    },
+    "drawupdate": {
+      "path": "gemrb/core/Map.cpp",
+      "line": 1049,
+      "text": "if (actor->UpdateDrawingState() && IsExplored(actor->Pos)) {",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Map.cpp#L1049"
+    },
+    "actor_state": {
+      "path": "gemrb/core/Scriptable/Actor.h",
+      "line": 451,
+      "text": "stats_t BaseStats {};",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Scriptable/Actor.h#L451"
+    },
+    "actor_id": {
+      "path": "gemrb/core/Scriptable/Actor.h",
+      "line": 493,
+      "text": "ieVariable UsedExit; // name of the exit, since global id is not stable after loading a new area",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Scriptable/Actor.h#L493"
+    },
+    "stat": {
+      "path": "gemrb/core/Scriptable/Actor.cpp",
+      "line": 2524,
+      "text": "bool Actor::SetStat(unsigned int StatIndex, stat_t Value, int pcf)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Scriptable/Actor.cpp#L2524"
+    },
+    "base": {
+      "path": "gemrb/core/Scriptable/Actor.cpp",
+      "line": 2555,
+      "text": "bool Actor::SetBase(unsigned int StatIndex, stat_t Value)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Scriptable/Actor.cpp#L2555"
+    },
+    "safe_stat": {
+      "path": "gemrb/core/Scriptable/Actor.cpp",
+      "line": 451,
+      "text": "Actor::stat_t Actor::GetSafeStat(unsigned int StatIndex) const",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Scriptable/Actor.cpp#L451"
+    },
+    "refresh": {
+      "path": "gemrb/core/Scriptable/Actor.cpp",
+      "line": 2740,
+      "text": "void Actor::RefreshEffects(bool first, const stats_t& previous)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Scriptable/Actor.cpp#L2740"
+    },
+    "damage": {
+      "path": "gemrb/core/Scriptable/Actor.cpp",
+      "line": 4296,
+      "text": "int Actor::Damage(int damage, int damagetype, Scriptable* hitter, int modtype, int critical, int saveflags, int specialFlags)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Scriptable/Actor.cpp#L4296"
+    },
+    "round": {
+      "path": "gemrb/core/Scriptable/Actor.cpp",
+      "line": 6814,
+      "text": "void Actor::InitRound(ieDword gameTime)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Scriptable/Actor.cpp#L6814"
+    },
+    "attack": {
+      "path": "gemrb/core/Scriptable/Actor.cpp",
+      "line": 7353,
+      "text": "void Actor::PerformAttack(ieDword gameTime)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Scriptable/Actor.cpp#L7353"
+    },
+    "actor_update": {
+      "path": "gemrb/core/Scriptable/Actor.cpp",
+      "line": 7877,
+      "text": "void Actor::UpdateActorState()",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Scriptable/Actor.cpp#L7877"
+    },
+    "projectile_frame": {
+      "path": "gemrb/core/Scriptable/Actor.cpp",
+      "line": 7915,
+      "text": "if (attackProjectile) {",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Scriptable/Actor.cpp#L7915"
+    },
+    "animation": {
+      "path": "gemrb/core/Scriptable/Actor.cpp",
+      "line": 8396,
+      "text": "bool Actor::AdvanceAnimations()",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Scriptable/Actor.cpp#L8396"
+    },
+    "actor_draw": {
+      "path": "gemrb/core/Scriptable/Actor.cpp",
+      "line": 8562,
+      "text": "bool Actor::UpdateDrawingState()",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Scriptable/Actor.cpp#L8562"
+    },
+    "scriptable_state": {
+      "path": "gemrb/core/Scriptable/Scriptable.h",
+      "line": 249,
+      "text": "ScriptID globalID = 0;",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Scriptable/Scriptable.h#L249"
+    },
+    "actions": {
+      "path": "gemrb/core/Scriptable/Scriptable.cpp",
+      "line": 506,
+      "text": "void Scriptable::ProcessActions()",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Scriptable/Scriptable.cpp#L506"
+    },
+    "bcsupdate": {
+      "path": "gemrb/core/GameScript/GameScript.cpp",
+      "line": 1859,
+      "text": "bool GameScript::Update(bool* continuing, bool* done)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/GameScript/GameScript.cpp#L1859"
+    },
+    "bcsexecute": {
+      "path": "gemrb/core/GameScript/GameScript.cpp",
+      "line": 2234,
+      "text": "void GameScript::ExecuteAction(Scriptable* Sender, Holder<Action> aC)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/GameScript/GameScript.cpp#L2234"
+    },
+    "script_item": {
+      "path": "gemrb/core/GameScript/Triggers.cpp",
+      "line": 1045,
+      "text": "int GameScript::HasItem(Scriptable* Sender, const Trigger* parameters)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/GameScript/Triggers.cpp#L1045"
+    },
+    "party_item": {
+      "path": "gemrb/core/GameScript/Triggers.cpp",
+      "line": 1217,
+      "text": "int GameScript::PartyHasItem(Scriptable* /*Sender*/, const Trigger* parameters)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/GameScript/Triggers.cpp#L1217"
+    },
+    "move_item": {
+      "path": "gemrb/core/GameScript/GSUtils.cpp",
+      "line": 646,
+      "text": "MIC MoveItemCore(Scriptable* Sender, Scriptable* target, const ResRef& resref, int flags, int setflag, int count)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/GameScript/GSUtils.cpp#L646"
+    },
+    "gui_init": {
+      "path": "gemrb/plugins/GUIScript/GUIScript.cpp",
+      "line": 13169,
+      "text": "bool GUIScript::Init(void)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/plugins/GUIScript/GUIScript.cpp#L13169"
+    },
+    "gui_mod": {
+      "path": "gemrb/plugins/GUIScript/GUIScript.cpp",
+      "line": 13237,
+      "text": "// the final python search path order is: mod, game, shared, system",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/plugins/GUIScript/GUIScript.cpp#L13237"
+    },
+    "gui_stat": {
+      "path": "gemrb/plugins/GUIScript/GUIScript.cpp",
+      "line": 6171,
+      "text": "static PyObject* GemRB_SetPlayerStat(PyObject* /*self*/, PyObject* args)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/plugins/GUIScript/GUIScript.cpp#L6171"
+    },
+    "gui_inventory": {
+      "path": "gemrb/GUIScripts/bg2/GUIINV.py",
+      "line": 24,
+      "text": "def InitInventoryWindow (Window):",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/GUIScripts/bg2/GUIINV.py#L24"
+    },
+    "gui_drop": {
+      "path": "gemrb/plugins/GUIScript/GUIScript.cpp",
+      "line": 9443,
+      "text": "static PyObject* GemRB_DropDraggedItem(PyObject* /*self*/, PyObject* args)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/plugins/GUIScript/GUIScript.cpp#L9443"
+    },
+    "effect_register": {
+      "path": "gemrb/core/EffectQueue.cpp",
+      "line": 34,
+      "text": "void EffectQueue_RegisterOpcodes(int count, const EffectDesc* opcodes)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/EffectQueue.cpp#L34"
+    },
+    "effect_init": {
+      "path": "gemrb/core/EffectQueue.cpp",
+      "line": 65,
+      "text": "void Globals::Init(bool clear)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/EffectQueue.cpp#L65"
+    },
+    "effects_apply": {
+      "path": "gemrb/core/EffectQueue.cpp",
+      "line": 657,
+      "text": "int EffectQueue::AddAllEffects(Actor* target, const Point& destination)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/EffectQueue.cpp#L657"
+    },
+    "effect_resist": {
+      "path": "gemrb/core/EffectQueue.cpp",
+      "line": 1078,
+      "text": "static int CheckResistances(Effect* fx, Actor* target)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/EffectQueue.cpp#L1078"
+    },
+    "effect_mr": {
+      "path": "gemrb/core/EffectQueue.cpp",
+      "line": 987,
+      "text": "Log(MESSAGE, \"EffectQueue\", \"{} resisted effect: {}\", fmt::WideToChar { actor->GetName() }, globals.Opcodes[fx->Opcode].Name);",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/EffectQueue.cpp#L987"
+    },
+    "effect_saves": {
+      "path": "gemrb/core/EffectQueue.cpp",
+      "line": 994,
+      "text": "static int CheckSaves(Actor* actor, Effect* fx)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/EffectQueue.cpp#L994"
+    },
+    "effect_apply": {
+      "path": "gemrb/core/EffectQueue.cpp",
+      "line": 1127,
+      "text": "int EffectQueue::ApplyEffect(Actor* target, Effect* fx, ieDword first_apply, ieDword resistance) const",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/EffectQueue.cpp#L1127"
+    },
+    "effect_immunity": {
+      "path": "gemrb/core/EffectQueue.cpp",
+      "line": 2277,
+      "text": "int EffectQueue::CheckImmunity(Actor* target) const",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/EffectQueue.cpp#L2277"
+    },
+    "opcode_gap": {
+      "path": "gemrb/plugins/FXOpcodes/FXOpcodes.cpp",
+      "line": 8613,
+      "text": "// NOTE: not implemented Parameter2 == 4 \u27f6 Override personal space, since it supposedly doesn't affect circle size",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/plugins/FXOpcodes/FXOpcodes.cpp#L8613"
+    },
+    "opcode_todo": {
+      "path": "gemrb/plugins/FXOpcodes/FXOpcodes.cpp",
+      "line": 8661,
+      "text": "// 0x16d (365) TODO: ee, Make unselectable; reuse the action?",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/plugins/FXOpcodes/FXOpcodes.cpp#L8661"
+    },
+    "resource": {
+      "path": "gemrb/core/ResourceManager.cpp",
+      "line": 185,
+      "text": "ResourceHolder<Resource> ResourceManager::GetResource(StringView ResRef, const TypeID* type, bool silent, ieWord preferredType) const",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/ResourceManager.cpp#L185"
+    },
+    "resource_stream": {
+      "path": "gemrb/core/ResourceManager.cpp",
+      "line": 166,
+      "text": "DataStream* ResourceManager::GetResourceStream(StringView ResRef, SClass_ID type, bool silent) const",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/ResourceManager.cpp#L166"
+    },
+    "sources": {
+      "path": "gemrb/core/Interface.cpp",
+      "line": 338,
+      "text": "for (const auto& modPath : config.ModPath) {",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Interface.cpp#L338"
+    },
+    "data": {
+      "path": "gemrb/core/GameData.h",
+      "line": 123,
+      "text": "class GEM_EXPORT GameData : public ResourceManager {",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/GameData.h#L123"
+    },
+    "video": {
+      "path": "gemrb/core/Video/Video.h",
+      "line": 57,
+      "text": "class GEM_EXPORT Video : public Plugin {",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Video/Video.h#L57"
+    },
+    "sdl": {
+      "path": "gemrb/plugins/SDLVideo/SDL20Video.cpp",
+      "line": 380,
+      "text": "void SDL20VideoDriver::BlitSpriteNativeClipped(const SDLTextureSprite2D* spr, const Region& src, const Region& dst, BlitFlags flags, const SDL_Color* tint)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/plugins/SDLVideo/SDL20Video.cpp#L380"
+    },
+    "bam": {
+      "path": "gemrb/plugins/BAMImporter/BAMImporter.cpp",
+      "line": 33,
+      "text": "if (strncmp(Signature, \"BAM V2  \", 8) == 0) {",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/plugins/BAMImporter/BAMImporter.cpp#L33"
+    },
+    "mos": {
+      "path": "gemrb/plugins/MOSImporter/MOSImporter.cpp",
+      "line": 25,
+      "text": "if (strncmp(Signature, \"MOS V2  \", 8) == 0) {",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/plugins/MOSImporter/MOSImporter.cpp#L25"
+    },
+    "tis": {
+      "path": "gemrb/plugins/TISImporter/TISImporter.cpp",
+      "line": 41,
+      "text": "if (TilesSectionLen == 0xc) { // 0xc for PVR, 0x1400 for palette",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/plugins/TISImporter/TISImporter.cpp#L41"
+    },
+    "png": {
+      "path": "gemrb/plugins/PNGImporter/PNGImporter.cpp",
+      "line": 56,
+      "text": "bool PNGImporter::Import(DataStream* stream)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/plugins/PNGImporter/PNGImporter.cpp#L56"
+    },
+    "inventory": {
+      "path": "gemrb/core/Inventory.cpp",
+      "line": 173,
+      "text": "void Inventory::AddSlotEffects(ieDword index)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Inventory.cpp#L173"
+    },
+    "inventory_remove": {
+      "path": "gemrb/core/Inventory.cpp",
+      "line": 206,
+      "text": "void Inventory::RemoveSlotEffects(size_t index)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Inventory.cpp#L206"
+    },
+    "path": {
+      "path": "gemrb/core/PathFinder.h",
+      "line": 230,
+      "text": "class GEM_EXPORT PathFinder {",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/PathFinder.h#L230"
+    },
+    "scheduler": {
+      "path": "gemrb/core/PathFinderScheduler.h",
+      "line": 95,
+      "text": "class GEM_EXPORT PathFinderScheduler {",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/PathFinderScheduler.h#L95"
+    },
+    "schedule": {
+      "path": "gemrb/core/Scriptable/Movable.cpp",
+      "line": 459,
+      "text": "void Movable::ScheduleFindPath(",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Scriptable/Movable.cpp#L459"
+    },
+    "save": {
+      "path": "gemrb/core/SaveGameIterator.cpp",
+      "line": 453,
+      "text": "static int CanSave()",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/SaveGameIterator.cpp#L453"
+    },
+    "load": {
+      "path": "gemrb/core/Interface.cpp",
+      "line": 2509,
+      "text": "void Interface::LoadGame(Holder<SaveGame> sg, GAMVersion verOverride)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/Interface.cpp#L2509"
+    },
+    "save_gam": {
+      "path": "gemrb/plugins/GAMImporter/GAMImporter.cpp",
+      "line": 1186,
+      "text": "int GAMImporter::PutGame(DataStream* stream, Game* game) const",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/plugins/GAMImporter/GAMImporter.cpp#L1186"
+    },
+    "save_cre": {
+      "path": "gemrb/plugins/CREImporter/CREImporter.cpp",
+      "line": 2625,
+      "text": "int CREImporter::PutActor(DataStream* stream, const Actor* actor, bool chr)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/plugins/CREImporter/CREImporter.cpp#L2625"
+    },
+    "save_area": {
+      "path": "gemrb/plugins/AREImporter/AREImporter.cpp",
+      "line": 2558,
+      "text": "int AREImporter::PutArea(DataStream* stream, const Map* map) const",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/plugins/AREImporter/AREImporter.cpp#L2558"
+    },
+    "save_inventory": {
+      "path": "gemrb/plugins/CREImporter/CREImporter.cpp",
+      "line": 1941,
+      "text": "int CREImporter::PutInventory(DataStream* stream, const Actor* actor, unsigned int size) const",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/plugins/CREImporter/CREImporter.cpp#L1941"
+    },
+    "plugin": {
+      "path": "gemrb/core/PluginMgr.h",
+      "line": 39,
+      "text": "class GEM_EXPORT PluginMgr {",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/PluginMgr.h#L39"
+    },
+    "plugin_register": {
+      "path": "gemrb/core/PluginMgr.cpp",
+      "line": 33,
+      "text": "bool PluginMgr::RegisterPlugin(SClass_ID id, PluginFunc create)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/PluginMgr.cpp#L33"
+    },
+    "plugin_version": {
+      "path": "gemrb/core/PluginLoader.cpp",
+      "line": 110,
+      "text": "if (strcmp(LibVersion(), VERSION_GEMRB)) {",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/PluginLoader.cpp#L110"
+    },
+    "plugin_driver": {
+      "path": "gemrb/core/PluginMgr.cpp",
+      "line": 80,
+      "text": "PluginHolder<Plugin> PluginMgr::GetDriver(const TypeID* type, const std::string& name)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/core/PluginMgr.cpp#L80"
+    },
+    "plugin_macros": {
+      "path": "gemrb/includes/plugindef.h",
+      "line": 122,
+      "text": "GEM_EXPORT_DLL const char* GemRBPlugin_Version();",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/includes/plugindef.h#L122"
+    },
+    "build": {
+      "path": "CMakeLists.txt",
+      "line": 5,
+      "text": "CMAKE_MINIMUM_REQUIRED(VERSION 3.25)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/CMakeLists.txt#L5"
+    },
+    "tests": {
+      "path": "gemrb/CMakeLists.txt",
+      "line": 205,
+      "text": "tests/core/Test_Movement.cpp",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/CMakeLists.txt#L205"
+    },
+    "headless": {
+      "path": "gemrb/tests/core/LiveGameFixture.h",
+      "line": 24,
+      "text": "class LiveGameTest : public testing::Test {",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/tests/core/LiveGameFixture.h#L24"
+    },
+    "frame_fixture": {
+      "path": "gemrb/tests/core/TestGameMap.h",
+      "line": 210,
+      "text": "inline void RunFrame()",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/tests/core/TestGameMap.h#L210"
+    },
+    "terrain_test": {
+      "path": "gemrb/tests/core/Test_PathFinder.cpp",
+      "line": 5,
+      "text": "// Terrain-level pathfinder tests. Everything here runs on a TileProps built from an ASCII",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/tests/core/Test_PathFinder.cpp#L5"
+    },
+    "movement_test": {
+      "path": "gemrb/tests/core/Test_Movement.cpp",
+      "line": 8,
+      "text": "#if defined(USE_OPENGL_BACKEND) || (!defined(__APPLE__) && !defined(WIN32))",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/tests/core/Test_Movement.cpp#L8"
+    },
+    "save_test": {
+      "path": "gemrb/tests/core/Test_SaveGame.cpp",
+      "line": 82,
+      "text": "TEST_P(SaveGameTest, LoadAndResaveGameTest)",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/tests/core/Test_SaveGame.cpp#L82"
+    },
+    "save_diff": {
+      "path": "gemrb/tests/resources/saves/saveDiffer.sh",
+      "line": 10,
+      "text": "if [[ -z $IEDIFF ]]; then",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/tests/resources/saves/saveDiffer.sh#L10"
+    },
+    "save_config": {
+      "path": "gemrb/tests/resources/saves/saveTesting.ini",
+      "line": 17,
+      "text": "bg2ee",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/tests/resources/saves/saveTesting.ini#L17"
+    },
+    "experimental": {
+      "path": "gemrb/GemRB.cfg.sample.in",
+      "line": 23,
+      "text": "#  bg2ee     Baldur's Gate 2 : EE (experimental!)                             #",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/gemrb/GemRB.cfg.sample.in#L23"
+    },
+    "news": {
+      "path": "NEWS",
+      "line": 35,
+      "text": "- traditional bg2ee GUI is usable and the shaman class works",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/NEWS#L35"
+    },
+    "license": {
+      "path": "REUSE.toml",
+      "line": 22,
+      "text": "SPDX-License-Identifier = \"GPL-2.0-or-later\"",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/REUSE.toml#L22"
+    },
+    "vcpkg": {
+      "path": "platforms/windows/vcpkg.json",
+      "line": 19,
+      "text": "\"builtin-baseline\": \"f93ba152d55e1d243160e690bc302ffe8638358e\",",
+      "url": "https://github.com/gemrb/gemrb/blob/bcb5cfaa9f19ffbe8a51f25a3c014fa344173351/platforms/windows/vcpkg.json#L19"
+    },
+    "gui_save_confirmation": {
+      "path": "gemrb/GUIScripts/GUISAVE.py",
+      "line": 175,
+      "text": "def ConfirmedSaveGame (Pos):"
+    },
+    "gui_load_callback": {
+      "path": "gemrb/GUIScripts/GUILOAD.py",
+      "line": 135,
+      "text": "def LoadGamePress (btn):"
+    },
+    "gui_callback_dispatch": {
+      "path": "gemrb/core/GUI/Control.cpp",
+      "line": 70,
+      "text": "bool Control::PerformAction()"
+    },
+    "gui_full_loop": {
+      "path": "gemrb/core/Interface.cpp",
+      "line": 995,
+      "text": "void Interface::Main()"
+    },
+    "gui_ee_inventory_gap": {
+      "path": "gemrb/GUIScripts/bg2/GUIINV.py",
+      "line": 83,
+      "text": "# TODO: ee, by default ees load the dragging window, where stats are"
+    },
+    "font_ttf_options": {
+      "path": "gemrb/plugins/TTFImporter/TTFFontManager.cpp",
+      "line": 87,
+      "text": "Holder<Font> TTFFontManager::GetFont(unsigned short pxSize, FontStyle /*style*/, bool /*background*/)"
+    },
+    "font_bitmap_advance": {
+      "path": "gemrb/core/GUI/TextSystem/Font.cpp",
+      "line": 482,
+      "text": "dp.x += curGlyph.size.w;"
+    },
+    "save_local_variable_records": {
+      "path": "gemrb/plugins/CREImporter/CREImporter.cpp",
+      "line": 2541,
+      "text": "int CREImporter::PutVariables(DataStream* stream, const Actor* actor) const"
+    },
+    "save_clock_seconds": {
+      "path": "gemrb/plugins/GAMImporter/GAMImporter.cpp",
+      "line": 776,
+      "text": "ieDword gameSeconds = game->GameTime / core->Time.defaultTicksPerSec;"
+    },
+    "effect_first_area_equip": {
+      "path": "gemrb/core/Scriptable/Actor.cpp",
+      "line": 5080,
+      "text": "void Actor::SetMap(Map* map)"
+    },
+    "effect_item_equip_ingress": {
+      "path": "gemrb/core/Inventory.cpp",
+      "line": 173,
+      "text": "void Inventory::AddSlotEffects(ieDword index)"
+    },
+    "effect_saved_filter": {
+      "path": "gemrb/core/Effect.cpp",
+      "line": 150,
+      "text": "bool Effect::Persistent(ieDword gameTime) const"
+    },
+    "effect_cre_read": {
+      "path": "gemrb/plugins/CREImporter/CREImporter.cpp",
+      "line": 1209,
+      "text": "void CREImporter::ReadEffects(Actor* act)"
+    },
+    "effect_cre_write": {
+      "path": "gemrb/plugins/CREImporter/CREImporter.cpp",
+      "line": 2503,
+      "text": "int CREImporter::PutEffects(DataStream* stream, const Actor* actor) const"
+    },
+    "effect_opcode_query": {
+      "path": "gemrb/core/EffectQueue.cpp",
+      "line": 1771,
+      "text": "const Effect* EffectQueue::HasOpcodeWithParam(ieDword opcode, ieDword param2) const"
+    },
+    "equip_cure_hold": {
+      "path": "gemrb/plugins/FXOpcodes/FXOpcodes.cpp",
+      "line": 5124,
+      "text": "int fx_cure_hold_state(Scriptable* /*Owner*/, Actor* target, Effect* /*fx*/)"
+    },
+    "equip_cure_stun": {
+      "path": "gemrb/plugins/FXOpcodes/FXOpcodes.cpp",
+      "line": 2437,
+      "text": "int fx_cure_stun_state(Scriptable* /*Owner*/, Actor* target, Effect* /*fx*/)"
+    },
+    "equip_free_action_cure": {
+      "path": "gemrb/plugins/FXOpcodes/FXOpcodes.cpp",
+      "line": 5140,
+      "text": "int fx_cure_slow_state(Scriptable* /*Owner*/, Actor* target, Effect* /*fx*/)"
+    }
+  },
+  "execution_update": {
+    "date": "2026-10-20",
+    "engine_source_modified": false,
+    "windows_build_succeeded": true,
+    "bg2ee_opening_human_verified_playable": true,
+    "native_like": false,
+    "ui_direction": "Modern UI preserving BG2EE information/functions; Infinity UI++ and existing Redux context",
+    "runtime_report": "testing/phase0-executed-baseline.md",
+    "result_inventory": "compatibility/evidence/baseline-results.json",
+    "full_data_manifest": "compatibility/evidence/bg2ee-copy-manifest.json",
+    "ui_resource_probe": "compatibility/evidence/ui-resource-probe.json",
+    "upstream_roadmap": "compatibility/upstream-issue-roadmap.md",
+    "ai_harness": "testing/ai-first-harness.md",
+    "expanded_core": {
+      "passed": 219,
+      "skipped": 9,
+      "failed": 1,
+      "disabled": 6,
+      "process_exit": 1,
+      "explicit_external_logger_cleanup": true
+    },
+    "movement": {
+      "passed": 9,
+      "process_exit": 0,
+      "fixture": "upstream demo-backed synthetic maps"
+    },
+    "original_save_import": "Human-created fresh vanilla GAMEV2.0 fixture imported/resaved/reloaded twice in fresh processes; 24/24 scenario assertions; full fidelity open.",
+    "bg2ee_session_exit_code": 0,
+    "runtime_trigger_stub_observed": "WeaponEffectiveVs; caller/behavior impact still to trace"
+  },
+  "save_harness_update": {
+    "report": "testing/save-import-and-harness-results.md",
+    "evidence": "compatibility/evidence/save-harness-results.json",
+    "fixture": "compatibility/evidence/vanilla-save-fixture.json",
+    "engine_source_modified": false,
+    "original_fixture_import_succeeded": true,
+    "fresh_reload_cycles": 2,
+    "scenario_assertions_passed": 24,
+    "scenario_assertions_total": 24,
+    "raw_wire_checks_matching": 315,
+    "raw_wire_checks_total": 351,
+    "raw_wire_note": "17 HP and 19 item-flag representation observations; not 36 proven bugs",
+    "repeat_original_import_color_differences": 26,
+    "mutation_tests_passed": 8,
+    "full_save_fidelity_passed": false
+  },
+  "gui_harness_update": {
+    "report": "testing/gui-save-and-presentation-results.md",
+    "evidence": "compatibility/evidence/gui-harness-results.json",
+    "presentation_evidence": "compatibility/evidence/gui-presentation-results.json",
+    "engine_source_modified": false,
+    "normal_gui_create_cancel_overwrite_and_fresh_reload_executed": true,
+    "stock_gui_process_exits": [
+      0,
+      0
+    ],
+    "stock_gui_assertions_passed": 20,
+    "stock_gui_assertions_total": 20,
+    "bam_gui_assertions_passed": 20,
+    "ttf18_screen_assertions_passed": 7,
+    "mutation_tests_passed": 15,
+    "strict_stock_snapshot_differences": 449,
+    "legacy_diagnostic_remaining_differences": 53,
+    "remaining_delta": "Seven additional IMMCLOUD effects on Smoke Mephit; cause/gameplay impact unverified",
+    "full_save_fidelity_passed": false,
+    "universal_semantic_ui": false,
+    "deterministic_tick_step": false
+  },
+  "effect_lifecycle_update": {
+    "report": "testing/immcloud-lifecycle-investigation.md",
+    "evidence": "compatibility/evidence/immcloud-lifecycle-results.json",
+    "engine_source_modified": false,
+    "normal_mode_processes": 7,
+    "process_exits": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "characterization_assertions_passed": 9,
+    "characterization_assertions_total": 9,
+    "harness_tests_passed": 20,
+    "stock_saved_effect_progression": [
+      7,
+      14,
+      21,
+      28,
+      35
+    ],
+    "control_saved_effect_progression": [
+      7,
+      7,
+      7,
+      7
+    ],
+    "saved_cre_growth_bytes_per_cycle": 1848,
+    "target_base_and_modified_stats_stable": true,
+    "protection_existence_queries_stable": true,
+    "original_runtime_parity_verified": false,
+    "production_fix_implemented": false
+  },
+  "equip_exposure_update": {
+    "report": "testing/equip-exposure-and-original-reference.md",
+    "evidence": "compatibility/evidence/equip-exposure-results.json",
+    "reference_status": "compatibility/evidence/original-reference-status.json",
+    "engine_source_modified": false,
+    "items_scanned": 2867,
+    "equip_records_scanned": 11795,
+    "permanent_equip_records": 84,
+    "candidate_items": 32,
+    "candidates_are_not_verified_bug_count": true,
+    "controlled_processes": 4,
+    "characterization_assertions_passed": 5,
+    "harness_tests_passed": 26,
+    "ring09_carrier_saved_progression": [
+      7,
+      7,
+      7
+    ],
+    "magiweb_carrier_saved_progression": [
+      7,
+      13,
+      19
+    ],
+    "original_reference_status": "reference-observed",
+    "original_runtime_parity_verified": false
+  },
+  "original_gui_reference_update": {
+    "report": "testing/equip-exposure-and-original-reference.md",
+    "evidence": "compatibility/evidence/original-reference-status.json",
+    "observation": "compatibility/evidence/original-ui-observation.json",
+    "source_verification": "compatibility/evidence/original-source-verification.json",
+    "original_progression": [
+      7,
+      14,
+      21
+    ],
+    "original_cre_bytes": [
+      3008,
+      4856,
+      6704
+    ],
+    "selected_counts_match_gemrb": true,
+    "full_signatures_match_gemrb": false,
+    "remaining_difference": "Opcode267 Parameter2: original134/216; GemRB0",
+    "whole_runtime_parity_verified": false,
+    "pre_pause_ai_activity": true,
+    "engine_source_modified": false,
+    "harness_tests_passed": 28,
+    "test_log_sha256": "f9fd61e11805851667136d89b269268ccac452d322ba6abe4ac3ac1d39a89e38"
+  },
+  "behavior_and_live_clock_update": {
+    "report": "testing/behavior-and-live-clock.md",
+    "string_challenge": "compatibility/evidence/string-challenge-results.json",
+    "clock": "compatibility/evidence/live-clock-results.json",
+    "loadouts": "compatibility/evidence/cre-loadout-results.json",
+    "string_processes": 3,
+    "string_assertions_passed": 48,
+    "string_assertions_total": 48,
+    "clock_processes": 2,
+    "clock_assertions_passed": 10,
+    "clock_assertions_total": 10,
+    "initial_readiness_failure_preserved": "20261021T032744Z-live-clock-49ee9f31",
+    "cre_resources": 4735,
+    "immcloud_cre_references": 53,
+    "magiweb_cre_references": 0,
+    "harness_tests_passed": 39,
+    "unit_log_sha256": "af1d6c1b9afbd02690f7aba7ed5af51914e4c80202b26f1c0eaef351924e93aa",
+    "engine_source_modified": false,
+    "deterministic_stepping": false,
+    "original_runtime_challenge": false
+  },
+  "weapon_query_exposure_update": {
+    "report": "testing/weapon-query-exposure.md",
+    "evidence": "compatibility/evidence/weapon-trigger-results.json",
+    "scripts_scanned": 4358,
+    "trigger_records_scanned": 173315,
+    "scripts_with_stubs": 24,
+    "weapon_effective_vs_occurrences": 84,
+    "weapon_can_damage_occurrences": 84,
+    "original_truth_table_executed": false,
+    "runtime_branch_trace_executed": false,
+    "harness_tests_passed": 43,
+    "unit_log_sha256": "bf46a9a65dac11fe2a47553394f7fb7f1cd8ed721ce48862a52e8bb08744535f"
+  },
+  "original_script_query_update": {
+    "report": "testing/original-script-query-results.md",
+    "evidence": "compatibility/evidence/original-script-query-results.json",
+    "gemrb_evidence": "compatibility/evidence/script-query-results.json",
+    "original_weapon_effective_vs": 1,
+    "original_weapon_can_damage": 1,
+    "gemrb_weapon_effective_vs": 0,
+    "gemrb_weapon_can_damage": 0,
+    "both_completion_markers": true,
+    "scope": "Single fists MAINHAND / baseline Imoen synthetic script fixture",
+    "original_source_files_rechecked": 2323,
+    "original_source_hash_mismatches": 0,
+    "cloud_setting_alone_failed": true,
+    "private_optional_steam_library_omitted": true,
+    "harness_tests_passed": 52,
+    "unit_log_sha256": "74132618eedf87431f1e283b3b2c11dc10d0da91efc93c0b40eb87951c02c156",
+    "engine_source_modified": false,
+    "full_predicate_contract_verified": false
+  },
+  "original_weapon_matrix_update": {
+    "report": "testing/original-script-query-results.md",
+    "evidence": "compatibility/evidence/original-query-matrix-results.json",
+    "gemrb_evidence": "compatibility/evidence/query-matrix-results.json",
+    "cases": 8,
+    "mismatches": 4,
+    "matching_negative_controls": 4,
+    "both_completed": true,
+    "equipped_weapon_cases": false,
+    "side_effect_checks": false,
+    "harness_tests_passed": 56,
+    "unit_log_sha256": "b8f9053dfb6f978944d0f24fcb95b56567c4bd02e2582961b31a009a73f57b8c",
+    "engine_source_modified": false,
+    "unit_run": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T041356Z-harness-unit-14b921ac"
+  },
+  "reporting_hardening_update": {
+    "validator_preserves_historical_evidence": true,
+    "validation_executes_runtime_tests": false,
+    "preservation": "compatibility/evidence/phase0-preservation-check.json",
+    "unit_run": "compatibility/evidence/harness-unit-tests.json"
+  },
+  "equipped_defense_ai_update": {
+    "report": "testing/equipped-defenses-and-ai-fallback.md",
+    "original_comparison": "compatibility/evidence/original-equipped-comparison.json",
+    "native_equipment": "compatibility/evidence/equipped-defense-results.json",
+    "native_ai": "compatibility/evidence/ai-fallback-results.json",
+    "original_ai": "compatibility/evidence/original-ai-observation.json",
+    "equipped_cases_both_engines": 8,
+    "mismatching_predicate_values": 14,
+    "total_predicate_values": 16,
+    "native_ai_cases": 4,
+    "native_ai_action_target_sampled": true,
+    "original_ai_branch_captured": false,
+    "harness_tests_passed": 71,
+    "unit_run": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T182334Z-harness-unit-13640894",
+    "unit_log_sha256": "7cb851e94c6daeb9ac50111c07ad942f16db3862b59d49add088659a1a85ecf2",
+    "engine_source_modified": false
+  },
+  "vm_host_preparation": {
+    "report": "testing/vm-host-migration.md",
+    "transfer": "compatibility/evidence/vm-transfer-preparation.json",
+    "copied_runtime_preflight": "compatibility/evidence/vm-transfer-host-preflight.json",
+    "vm_created": true,
+    "guest_booted": false,
+    "guest_tests_executed": false,
+    "host_copied_runtime_unit_tests": 71,
+    "installer_signature": "Valid / Broadcom Inc",
+    "installer_launch_helper_error": "accessibility window-opened handler did not become ready",
+    "iso_status": "downloading",
+    "engine_source_modified": false,
+    "vm_powered_on": true,
+    "windows_setup_observed": false,
+    "creation_status": "compatibility/evidence/vm-creation-status.json"
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "schema": "bg-redux-original-query-isolation/1",
+  "created_utc": "2026-10-21T03:52:41.406302+00:00",
+  "game": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\original-query-game",
+  "profile": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\original-query-profile-offline",
+  "executable_sha256": "b51093a49140b2b8a7c046b4652bb8e535be24ebbc12b1d735e0b94217a14d57",
+  "retained_steam_dll_sha256": "e3fe06e2d802c2f753aeb46869e2af898f34715ce85f08001456fd8a80ecd21e",
+  "previous_engine_lua": "engine_name = \"ChatGPT/BG Multiplayer Redux/phase0-local/original-query-profile\"\nengine_mode = 1\n",
+  "current_engine_lua_sha256": "7e596197ad00c2b276a251c72393b35c28e9a946872f8134d59d59e4d357c0b0",
+  "fixture_files": {
+    "BALDUR.bmp": {
+      "bytes": 65590,
+      "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+    },
+    "BALDUR.gam": {
+      "bytes": 69372,
+      "sha256": "ba5b6755beaffb799dca1596f3a15a7102ecc5ab45c39e4a6d652afef96137bf"
+    },
+    "BALDUR.SAV": {
+      "bytes": 19443,
+      "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+    },
+    "PORTRT0.bmp": {
+      "bytes": 13830,
+      "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+    },
+    "PORTRT1.bmp": {
+      "bytes": 13830,
+      "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+    },
+    "save_000000033-GemRB.cloud.meta": {
+      "bytes": 10,
+      "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+    }
+  },
+  "initial_profile_files": {
+    "Baldur.lua": {
+      "bytes": 332,
+      "sha256": "39a2d6d5ec94bdf56ecebc78fe6977d2d325e127ab25068d90c09b9caddc2b68"
+    },
+    "save/000000007-Redux Query/BALDUR.bmp": {
+      "bytes": 65590,
+      "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+    },
+    "save/000000007-Redux Query/BALDUR.gam": {
+      "bytes": 69372,
+      "sha256": "ba5b6755beaffb799dca1596f3a15a7102ecc5ab45c39e4a6d652afef96137bf"
+    },
+    "save/000000007-Redux Query/BALDUR.SAV": {
+      "bytes": 19443,
+      "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+    },
+    "save/000000007-Redux Query/PORTRT0.bmp": {
+      "bytes": 13830,
+      "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+    },
+    "save/000000007-Redux Query/PORTRT1.bmp": {
+      "bytes": 13830,
+      "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+    },
+    "save/000000007-Redux Query/save_000000033-GemRB.cloud.meta": {
+      "bytes": 10,
+      "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+    }
+  },
+  "launch_verified": true,
+  "cloud_isolation_verified": true,
+  "note": "DLL is retained unmodified under inert filename in private copy. Original installed files and Steam settings unchanged.",
+  "optional_library_experiment": {
+    "verdict": "startup-crash",
+    "observed_error": "Original executable displayed crash report dialog dump.2.7.3.0.0005.dmp before reaching campaign menu",
+    "dll_restored": true,
+    "causal_interpretation": "Inconclusive: direct sky.launch_app also crashed with DLL restored. Explorer launch with restored DLL reached normal startup; working-directory dependence suspected, not proved."
+  },
+  "startup_observation": {
+    "utc": "2026-10-21T03:54:02.695485+00:00",
+    "launch_method": "Explorer double click Baldur.exe in private game folder",
+    "window_id": 3606964,
+    "title": "ChatGPT/BG Multiplayer Redux/phase0-local/original-query-profile-offline - v2.7.3.0",
+    "profile_save_folders": [
+      "000000007-Redux Query"
+    ],
+    "steam_dll_restored": true
+  },
+  "cloud_setting_experiment": {
+    "setting": "Program Options / Cloud Saves Enabled=0",
+    "verdict": "did-not-prevent-import",
+    "stage": "Opening Load Game imported Auto-Save, GemRB, r1 and r2 despite initial startup listing only Redux Query",
+    "query_fixture_loaded": false
+  },
+  "retry": {
+    "profile": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\original-query-profile-local",
+    "library_retained": true,
+    "launch_method": "Explorer from game folder",
+    "created_utc": "2026-10-21T03:55:24.878631+00:00",
+    "verdict": "launched-and-load-list-isolated",
+    "window_id": 7278436,
+    "startup_save_folders": [
+      "000000007-Redux Query"
+    ],
+    "load_list_save_folders": [
+      "000000007-Redux Query"
+    ],
+    "load_list_observed_utc": "2026-10-21T03:56:41.404472+00:00"
+  },
+  "cloud_isolation_scope": "No cloud folders imported at startup or opening Load Game with optional Steam library absent; not network/module attestation"
+}

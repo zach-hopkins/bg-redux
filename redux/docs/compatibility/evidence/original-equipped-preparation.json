@@ -1,0 +1,360 @@
+{
+  "schema": "bg-redux-original-equipped-preparation/1",
+  "utc": "2026-10-21T17:53:18.892724+00:00",
+  "game": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\original-query-game",
+  "profile": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\original-equipped-profile",
+  "executable_sha256": "b51093a49140b2b8a7c046b4652bb8e535be24ebbc12b1d735e0b94217a14d57",
+  "scripts": {
+    "RDXAIPRB.bcs": "0153268672986756eb96fe631ca64baeb51692e23d5e3e44db840836cef58aa9",
+    "RDXMPROB.bcs": "98638f2e3d5245e2a004b9a34f25838d48f6a734c1dcce1e97cc8097813bee8b",
+    "RDXQPROB.bcs": "89632bda590c9325bc88ade44d3e8a35d75d2fdc1cecf5d2d9aaed823cdb3758"
+  },
+  "cases": [
+    {
+      "id": "01-normal",
+      "kind": "weapon-defense",
+      "folder": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\original-equipped-profile\\save\\000000007-01-normal",
+      "files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+        },
+        "BALDUR.gam": {
+          "bytes": 75124,
+          "sha256": "9241662619e54ace6c077187345ec564bab4c73a2873dfc58559d36faec86259"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19443,
+          "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+        },
+        "save_000000033-GemRB.cloud.meta": {
+          "bytes": 10,
+          "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+        }
+      },
+      "spec": {
+        "id": "01-normal",
+        "weapon": "sw1h01",
+        "defense": null
+      }
+    },
+    {
+      "id": "02-plus1",
+      "kind": "weapon-defense",
+      "folder": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\original-equipped-profile\\save\\000000008-02-plus1",
+      "files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+        },
+        "BALDUR.gam": {
+          "bytes": 75124,
+          "sha256": "931a4db73768b63af5beb0bba829e1712af507f6a2a2b82d17eb86622dfc241b"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19443,
+          "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+        },
+        "save_000000033-GemRB.cloud.meta": {
+          "bytes": 10,
+          "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+        }
+      },
+      "spec": {
+        "id": "02-plus1",
+        "weapon": "sw1h02",
+        "defense": null
+      }
+    },
+    {
+      "id": "03-normal-magprot",
+      "kind": "weapon-defense",
+      "folder": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\original-equipped-profile\\save\\000000009-03-normal-magprot",
+      "files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+        },
+        "BALDUR.gam": {
+          "bytes": 77500,
+          "sha256": "cac8f49e8135c530a426df5bea9c459f65cef4997e8dbdab06b0b6da7b50d419"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19443,
+          "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+        },
+        "save_000000033-GemRB.cloud.meta": {
+          "bytes": 10,
+          "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+        }
+      },
+      "spec": {
+        "id": "03-normal-magprot",
+        "weapon": "sw1h01",
+        "defense": [
+          120,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "id": "04-plus1-magprot",
+      "kind": "weapon-defense",
+      "folder": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\original-equipped-profile\\save\\000000010-04-plus1-magprot",
+      "files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+        },
+        "BALDUR.gam": {
+          "bytes": 77500,
+          "sha256": "f54ed157ec93b5bfdf465e5ffca4358b90cde36aa774c560871a860d9b52efe3"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19443,
+          "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+        },
+        "save_000000033-GemRB.cloud.meta": {
+          "bytes": 10,
+          "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+        }
+      },
+      "spec": {
+        "id": "04-plus1-magprot",
+        "weapon": "sw1h02",
+        "defense": [
+          120,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "id": "05-slash100",
+      "kind": "weapon-defense",
+      "folder": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\original-equipped-profile\\save\\000000011-05-slash100",
+      "files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+        },
+        "BALDUR.gam": {
+          "bytes": 77500,
+          "sha256": "36066410e850c6609b06f7e6e7e5a7fa95bb1c0096f9cf98337baff8e50112d6"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19443,
+          "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+        },
+        "save_000000033-GemRB.cloud.meta": {
+          "bytes": 10,
+          "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+        }
+      },
+      "spec": {
+        "id": "05-slash100",
+        "weapon": "sw1h01",
+        "defense": [
+          86,
+          100,
+          1
+        ]
+      }
+    },
+    {
+      "id": "06-stoneskin",
+      "kind": "weapon-defense",
+      "folder": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\original-equipped-profile\\save\\000000012-06-stoneskin",
+      "files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+        },
+        "BALDUR.gam": {
+          "bytes": 77500,
+          "sha256": "892e30bdc98847669c6f26fae448902491d3c3258a16691efde7cb31ac8881a5"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19443,
+          "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+        },
+        "save_000000033-GemRB.cloud.meta": {
+          "bytes": 10,
+          "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+        }
+      },
+      "spec": {
+        "id": "06-stoneskin",
+        "weapon": "sw1h02",
+        "defense": [
+          218,
+          3,
+          0
+        ]
+      }
+    },
+    {
+      "id": "07-mirror",
+      "kind": "weapon-defense",
+      "folder": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\original-equipped-profile\\save\\000000013-07-mirror",
+      "files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+        },
+        "BALDUR.gam": {
+          "bytes": 77500,
+          "sha256": "7ad444668cb9819f5d693a225f686053688364b1101669a561936c076e82c314"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19443,
+          "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+        },
+        "save_000000033-GemRB.cloud.meta": {
+          "bytes": 10,
+          "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+        }
+      },
+      "spec": {
+        "id": "07-mirror",
+        "weapon": "sw1h02",
+        "defense": [
+          159,
+          3,
+          0
+        ]
+      }
+    },
+    {
+      "id": "08-bow",
+      "kind": "weapon-defense",
+      "folder": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\original-equipped-profile\\save\\000000014-08-bow",
+      "files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+        },
+        "BALDUR.gam": {
+          "bytes": 75144,
+          "sha256": "891be133b706a2be67fa80f795e0b9358af4479f525bc841a546733551eda021"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19443,
+          "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+        },
+        "save_000000033-GemRB.cloud.meta": {
+          "bytes": 10,
+          "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+        }
+      },
+      "spec": {
+        "id": "08-bow",
+        "weapon": "bow01",
+        "defense": null
+      }
+    },
+    {
+      "id": "ai-imoen-stock",
+      "kind": "ai",
+      "folder": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\original-equipped-profile\\save\\000000015-AI-Imoen",
+      "files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+        },
+        "BALDUR.gam": {
+          "bytes": 75124,
+          "sha256": "8139e5068c2f7b0dbe3fcbc313224bfb0711a4ad8acdefcf7550e26aad37a36a"
+        },
+        "BALDUR.SAV": {
+          "bytes": 20482,
+          "sha256": "cf06603be494bb150c49be5023d9fe70c4dae9be63287ca8ecf37a7e11c378dc"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+        },
+        "save_000000033-GemRB.cloud.meta": {
+          "bytes": 10,
+          "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+        }
+      },
+      "spec": {
+        "id": "ai-imoen-stock",
+        "source": "bdimoenc",
+        "first": 115,
+        "remove_queries": false
+      }
+    }
+  ],
+  "optional_steam_dll_omitted": true
+}

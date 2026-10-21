@@ -1,0 +1,1754 @@
+{
+  "schema": "bg-redux-cre-loadout-scan/1",
+  "captured_utc": "2026-10-21T03:24:52.578572+00:00",
+  "scope": "Locate packaged CRE V1.0 item references; presence is not runtime equipping.",
+  "versions": {
+    "CRE V1.0": 4735
+  },
+  "cre_resources_scanned": 4735,
+  "cre_v1_parsed": 4735,
+  "matches": [
+    {
+      "cre": "ar18fam",
+      "origin": "data\\Creature.bif",
+      "sha256": "64297cda9953eed35dd2d0a83f4969ffb93b133548d7bb1321e96b91e0c31d68",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "aran02",
+      "origin": "data\\Creature.bif",
+      "sha256": "3f83e34752d7fd83d1f5c55808394063210cff7de3053c8521d9c167eb4e4158",
+      "items": [
+        {
+          "item": "amul21",
+          "entry": 11,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "behdir01",
+      "origin": "data\\Creature.bif",
+      "sha256": "c49a4eb84428f8ead67837eefbfeaa7966914967fe3ba42dd92149f41c472862",
+      "items": [
+        {
+          "item": "beholder",
+          "entry": 0,
+          "file_slots": [
+            4
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "behhiv01",
+      "origin": "data\\25Creatures.bif",
+      "sha256": "1d4a4be2d4430b178754511b8de5150075ac98a0d2b01e3e99318817c7001aea",
+      "items": [
+        {
+          "item": "beholder",
+          "entry": 0,
+          "file_slots": [
+            4
+          ],
+          "flags": 10
+        }
+      ]
+    },
+    {
+      "cre": "behold01",
+      "origin": "data\\Creature.bif",
+      "sha256": "eb4f4594ea0e5137444ca15392c9eea2aeb3f7a177115f54acb5cd75154ce763",
+      "items": [
+        {
+          "item": "beholder",
+          "entry": 0,
+          "file_slots": [
+            4
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "c6drizz2",
+      "origin": "data\\Creature.bif",
+      "sha256": "e5dc3ca970680b9562c8387897a2304228edea62ae407486c6c52135fbb962e0",
+      "items": [
+        {
+          "item": "amul21",
+          "entry": 5,
+          "file_slots": [
+            6
+          ],
+          "flags": 8
+        }
+      ]
+    },
+    {
+      "cre": "c6drizz3",
+      "origin": "data\\Creature.bif",
+      "sha256": "71ee35788f4b59776295feafa1f74e27ff459b608f128407d1501f26ebc83b99",
+      "items": [
+        {
+          "item": "amul21",
+          "entry": 5,
+          "file_slots": [
+            6
+          ],
+          "flags": 8
+        }
+      ]
+    },
+    {
+      "cre": "c6elhan",
+      "origin": "data\\Creature.bif",
+      "sha256": "6b4a02158b03321e1a69295162c1564ec4a59db99535c67d699def832c8b878c",
+      "items": [
+        {
+          "item": "sw1h50",
+          "entry": 0,
+          "file_slots": [
+            2
+          ],
+          "flags": 0
+        },
+        {
+          "item": "sw1h50",
+          "entry": 1,
+          "file_slots": [
+            9
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "centeo01",
+      "origin": "data\\Creature.bif",
+      "sha256": "64ed257734af280a045ae4672ee3e43f8f4bc86193eae40ae80adbe8b0a342b7",
+      "items": [
+        {
+          "item": "sw2h06",
+          "entry": 4,
+          "file_slots": [],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "chalcy02",
+      "origin": "data\\25Creatures.bif",
+      "sha256": "403378b666b135fd1407d00facc8989950ff0c4de7069b119fe0dc206d74f41e",
+      "items": [
+        {
+          "item": "ring09",
+          "entry": 6,
+          "file_slots": [
+            5
+          ],
+          "flags": 10
+        }
+      ]
+    },
+    {
+      "cre": "chevil09",
+      "origin": "data\\25Creatures.bif",
+      "sha256": "59d731571fd75bfaaf72cf86431cf10f70c62de0a3547281fab334a4c75b9b07",
+      "items": [
+        {
+          "item": "amul21",
+          "entry": 6,
+          "file_slots": [
+            6
+          ],
+          "flags": 10
+        },
+        {
+          "item": "staf11",
+          "entry": 8,
+          "file_slots": [
+            9
+          ],
+          "flags": 10
+        }
+      ]
+    },
+    {
+      "cre": "chevil10",
+      "origin": "data\\25Creatures.bif",
+      "sha256": "3464cc7bdd054708853d933f213581fe1f895d50961bce58f32d2bd670eda1d4",
+      "items": [
+        {
+          "item": "ring09",
+          "entry": 1,
+          "file_slots": [
+            5
+          ],
+          "flags": 10
+        }
+      ]
+    },
+    {
+      "cre": "chgood06",
+      "origin": "data\\25Creatures.bif",
+      "sha256": "c5ff324e694e07de0e1b2e020c71bfb827fe4f10901c345020e11ad38309c20f",
+      "items": [
+        {
+          "item": "ring09",
+          "entry": 4,
+          "file_slots": [
+            5
+          ],
+          "flags": 10
+        }
+      ]
+    },
+    {
+      "cre": "chgood08",
+      "origin": "data\\25Creatures.bif",
+      "sha256": "6b84b4ebcf187a3c072e942c7fa976fdaf2512ea0d0bd7992ef395d9e4f522ed",
+      "items": [
+        {
+          "item": "amul21",
+          "entry": 6,
+          "file_slots": [
+            6
+          ],
+          "flags": 10
+        }
+      ]
+    },
+    {
+      "cre": "chtaz02",
+      "origin": "data\\25Creatures.bif",
+      "sha256": "20571c44a09bffcb2f7a26094e04f2b727cae85043ce7b47235de16eedd144ae",
+      "items": [
+        {
+          "item": "ring09",
+          "entry": 5,
+          "file_slots": [
+            4
+          ],
+          "flags": 10
+        }
+      ]
+    },
+    {
+      "cre": "deadbeh1",
+      "origin": "data\\25Creatures.bif",
+      "sha256": "682059fa026f8b842c5d385b0a45c0dfaf24f3db52cf16f094a0b24db2fc27e3",
+      "items": [
+        {
+          "item": "beholder",
+          "entry": 0,
+          "file_slots": [
+            4
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "elemep01",
+      "origin": "data\\Creature.bif",
+      "sha256": "b099bb9a87879905c27c2a9efa33662dcc0793160741a626d627faceda1bf4e8",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "elemep02",
+      "origin": "data\\Creature.bif",
+      "sha256": "186016a9a70e4334ebb476ad9473da536de734d342a422cc45c4731f0a3fddc0",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "elemep03",
+      "origin": "data\\Creature.bif",
+      "sha256": "4c05201bc1ff52b693f1fdd22ddad9da93a2cff13008c93aab7030c5037e186a",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 2,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "elemep04",
+      "origin": "data\\Creature.bif",
+      "sha256": "b5fb8f63b62686e0bced9bd30a0416c449798e020a5ddb926b31e23fc194e716",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "elemep05",
+      "origin": "data\\Creature.bif",
+      "sha256": "5fe272724ac2c52edbf6c66d71b51e1b43be6c2eaa4bb27822779aae699b4dc4",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "elemep06",
+      "origin": "data\\Creature.bif",
+      "sha256": "c65db8d7d138d56000c049fedae1a81cd1f3a63a439a3c8584a4e31c609ea4a4",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "elemep07",
+      "origin": "data\\Creature.bif",
+      "sha256": "f22260d2a9cc605c4017b009e3f685d4be183e29b725c0d05594258d94a59c55",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 2,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "elemep08",
+      "origin": "data\\Creature.bif",
+      "sha256": "980cf899bf604f562e4a823808b555a79d82da813ea1c73877d6f40ab6d7fb3c",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 3,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "eyebhl01",
+      "origin": "data\\25Creatures.bif",
+      "sha256": "9918b5c456d449bd4de7a71c286ab24c7a55552ebfbdecbf262c6fe1e86f63e4",
+      "items": [
+        {
+          "item": "beholder",
+          "entry": 0,
+          "file_slots": [
+            4
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "famcat",
+      "origin": "data\\Creature.bif",
+      "sha256": "f314bbc5aae7f055c873ede2e56781f904a1c0b5ccf9152d1509024ad6297aae",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "famcat25",
+      "origin": "data\\25Creatures.bif",
+      "sha256": "16715a166cf50472e34a4c60ab584e511d3d02e44fa73e786ad1a5bee918dc36",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "famdus25",
+      "origin": "data\\25Creatures.bif",
+      "sha256": "b5415bb7917f6013cf83b257905a2209b2c29af933c88bf5386d7b61ac34ad10",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "famdust",
+      "origin": "data\\Creature.bif",
+      "sha256": "6983cdca91c55cd3e707fbf6459775f49f11097ed41d1d55b844209184d04055",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 3,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "famfai25",
+      "origin": "data\\25Creatures.bif",
+      "sha256": "d167d7725fd25d94573ebeeee7d30cb31ce3862d34590b107740921b2a1a3417",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 0,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "famfair",
+      "origin": "data\\Creature.bif",
+      "sha256": "f0b0c104af7f1f5b07a9a29788e788ff9aa690527d24f2aa7ad16515c37a593b",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "famfer",
+      "origin": "data\\Creature.bif",
+      "sha256": "93453087579b2f8e6d09324e59aa8326a3df11c5c338888abae49505e4a81bf6",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "famfer25",
+      "origin": "data\\25Creatures.bif",
+      "sha256": "08e8fdc1267199ddc68b50a1321311da5d558e625ef9ee2e0929771fe760c7d6",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 0,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "famfire",
+      "origin": "data\\Creature.bif",
+      "sha256": "d8498a5b3e7cdc62e7290d336d0c4f476bebaf60b15b805fa9588778d9e8e490",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "famimp25",
+      "origin": "data\\25Creatures.bif",
+      "sha256": "52a41d9cc24660ce3897fd618c635d6666b44a6b7a03ed26a223c16a37916aab",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 2,
+          "file_slots": [
+            6
+          ],
+          "flags": 10
+        }
+      ]
+    },
+    {
+      "cre": "famlight",
+      "origin": "data\\Creature.bif",
+      "sha256": "784697ae7345aa72ae785e71c9832102a55a8738a4c9f40d1e206ac963b99ab4",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "fammist",
+      "origin": "data\\Creature.bif",
+      "sha256": "bb3c009c8c39ba8ad1d048b0a7057898c63ed75cd5c820819729d6372e12703a",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "fampsd",
+      "origin": "data\\Creature.bif",
+      "sha256": "55708677b338f00cd26dd08046dd8f9f9737596f125d2ff4cf502429682e6b3c",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "fampsd25",
+      "origin": "data\\25Creatures.bif",
+      "sha256": "c20a2b6894ac038ddef7e3f99e93315656397fa2609e6abbb4af28aa1f740c74",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 2,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "famqua25",
+      "origin": "data\\25Creatures.bif",
+      "sha256": "b85fe9494d3b26eaeacbc45267540417481451372b7db8dbf15ca643cb16e18c",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 2,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "famrab",
+      "origin": "data\\Creature.bif",
+      "sha256": "062ef80af583c386b1b2e9902e9986508ab493fe9f57af2b33d97317d0163ca7",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "famrab25",
+      "origin": "data\\25Creatures.bif",
+      "sha256": "152fce56826cc0fb378e024f580ee700f7ecadeda9499620217d50aa2ecd1c28",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 0,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "famrad",
+      "origin": "data\\Creature.bif",
+      "sha256": "95e9b91f0ec7a21c4374aaa7c8fee3913275b89d92cf42a5bc88db6bacf60026",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 2,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "firmon03",
+      "origin": "data\\Creature.bif",
+      "sha256": "946546a1e45091c8ad084109b1b7b6825c4fdc08db9dc9bf2a3f31754507746f",
+      "items": [
+        {
+          "item": "beholder",
+          "entry": 0,
+          "file_slots": [
+            4
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "gorwom05",
+      "origin": "data\\25Creatures.bif",
+      "sha256": "b8b720e51b77808e94ff7b449b986c17fd9cd4c7071a919c03534eedb0386dbc",
+      "items": [
+        {
+          "item": "beholder",
+          "entry": 0,
+          "file_slots": [
+            4
+          ],
+          "flags": 10
+        }
+      ]
+    },
+    {
+      "cre": "gpfam1",
+      "origin": "data\\Creature.bif",
+      "sha256": "adf9ee276e7ec624835db90b3b46516ef810bf15150ff917aba4ce3eeb547a9f",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "hellbeh1",
+      "origin": "data\\Creature.bif",
+      "sha256": "7f203d55c1ff37c7a1d5ff720f9848eee0a9410253f467caa0ffa700d9f4ce0e",
+      "items": [
+        {
+          "item": "beholder",
+          "entry": 0,
+          "file_slots": [
+            4
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "hellbeh2",
+      "origin": "data\\Creature.bif",
+      "sha256": "bac9bb205298aae5f01119949a6058a07e749d053b13b0926190315771492ed9",
+      "items": [
+        {
+          "item": "beholder",
+          "entry": 0,
+          "file_slots": [
+            4
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "hlhive",
+      "origin": "data\\Creature.bif",
+      "sha256": "31cbfc6690b7b61a931ab008a13d66b6737a0fd234e5781a2b3a86bdb98c8231",
+      "items": [
+        {
+          "item": "beholder",
+          "entry": 0,
+          "file_slots": [
+            4
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "hllayen",
+      "origin": "data\\Creature.bif",
+      "sha256": "b6c57df4a77e741ffa001ef6efc4ea50299a228ae5f03e175191df187136ba1e",
+      "items": [
+        {
+          "item": "staf11",
+          "entry": 0,
+          "file_slots": [
+            9
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "hlvaxal",
+      "origin": "data\\Creature.bif",
+      "sha256": "f457f2f2259890efa15b0392c73ab5f37da3e66ea914bc2dd29827f376bde1cb",
+      "items": [
+        {
+          "item": "beholder",
+          "entry": 0,
+          "file_slots": [
+            4
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "hprelate",
+      "origin": "data\\Creature.bif",
+      "sha256": "e43c8867578f9344bfeb1644c2a97f4ac4c526bcd77fc8c4728aa24cca6c2a81",
+      "items": [
+        {
+          "item": "npplat",
+          "entry": 2,
+          "file_slots": [
+            1
+          ],
+          "flags": 10
+        }
+      ]
+    },
+    {
+      "cre": "keldor10",
+      "origin": "data\\Creature.bif",
+      "sha256": "992e26de4e979b1a7007f332e65d636fc71d2c6e6bc90a983e1e6f5e958fdec0",
+      "items": [
+        {
+          "item": "npplat",
+          "entry": 5,
+          "file_slots": [
+            1
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "keldor12",
+      "origin": "data\\Creature.bif",
+      "sha256": "48ce8b85319b4c7bc08a7bcdfe56ae06fccb16b5d65d47cb55a947b5297df756",
+      "items": [
+        {
+          "item": "npplat",
+          "entry": 4,
+          "file_slots": [
+            1
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "keldor14",
+      "origin": "data\\25Creatures.bif",
+      "sha256": "b9222ca165718854830a0533bd4738b21841b420fcfa116b6cab4da478d34225",
+      "items": [
+        {
+          "item": "npplat",
+          "entry": 3,
+          "file_slots": [
+            1
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "keldor8",
+      "origin": "data\\Creature.bif",
+      "sha256": "13ebf14bec738a1486c4617d164b84cc994e04b344e37a765243cb4c7745059b",
+      "items": [
+        {
+          "item": "npplat",
+          "entry": 4,
+          "file_slots": [
+            1
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "keldor9",
+      "origin": "data\\Creature.bif",
+      "sha256": "c4ab4c891ceed63122ac9f9723da71b5456123209303e4fa6d649a027628056c",
+      "items": [
+        {
+          "item": "npplat",
+          "entry": 5,
+          "file_slots": [
+            1
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "mddust",
+      "origin": "data\\25Creatures.bif",
+      "sha256": "96bda4a6091ad14bacd598404c14386da9604e81babe6836e6be7602e95d0953",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 3,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "mepair01",
+      "origin": "data\\Creature.bif",
+      "sha256": "97a6b29cc2df1200080bd38516a36be8e29667f9c76c2e63bb400eef95ee665f",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 3,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "mepdus01",
+      "origin": "data\\Creature.bif",
+      "sha256": "922a733c21ad6224cc3642b3c1601303f96eaa18543635c9663adb2f10cd5ff3",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 3,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "mepear01",
+      "origin": "data\\Creature.bif",
+      "sha256": "dcfe8067bf4cd29f6be7d2c01610eea55f5c9bfbad2cf04e823b069ef69c2064",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "mepfir01",
+      "origin": "data\\Creature.bif",
+      "sha256": "714a413d93eba731489a238b4ce520d9369ff9fa8599029051a0dbf135a1de9e",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "mepice01",
+      "origin": "data\\Creature.bif",
+      "sha256": "100f8b02dcffd870299968604fd9af75141d2403241cbc7aa4e325ff15d2a7ba",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 0,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "mepice02",
+      "origin": "data\\Creature.bif",
+      "sha256": "43b9369cd483ab186e8e1bb2cc2d15bd504d05b1f48037ac00aa6930bb89bcad",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "meplig01",
+      "origin": "data\\Creature.bif",
+      "sha256": "8ea8ea310f66d7c4faeca16151ad6011a67ca175961b00baf9a836be0db7b41a",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "mepmag01",
+      "origin": "data\\Creature.bif",
+      "sha256": "c71794bf619aeca45effb4c98e7744ed55ba5de464ba2223a734a290c558e22c",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "mepmag02",
+      "origin": "data\\Creature.bif",
+      "sha256": "8bc010746aa08f969911f583fdf8db3d6c0db382ea672fe2087d75bae7f29877",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "mepmin01",
+      "origin": "data\\Creature.bif",
+      "sha256": "277f0b0d34ef78103d750697855e4086e77dcd7a91a84293c67c26e44a1b88c9",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 2,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "mepmis01",
+      "origin": "data\\Creature.bif",
+      "sha256": "cbcbc326860c53deb677342f9ba7bac90530d7b150cf2e18577a6cb27dfc5177",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "mepooz01",
+      "origin": "data\\Creature.bif",
+      "sha256": "e04cf551b769b803bc30f60cf60d57ecca8c883b30de72809c0fa5711520eb12",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "meprad01",
+      "origin": "data\\Creature.bif",
+      "sha256": "8c48be270e835e252f7ab78089dff1d507d4a35983422d0e117ee65d182b9036",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 2,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "meprad02",
+      "origin": "data\\Creature.bif",
+      "sha256": "1eb68f6d4e30b3b50dba3246d95382ee2061715d28b719e8e1bd9006a2f22c7d",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "mepsal01",
+      "origin": "data\\Creature.bif",
+      "sha256": "54b5543917dcf3bdb1a332bd2a079e8e6d7dddf2fa0e53f0544230c87f0b9304",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 2,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "mepsmo01",
+      "origin": "data\\Creature.bif",
+      "sha256": "b021abd3ccc270dfca3667c86328de058f5bacad22f6cd0f05a3389625a0fc29",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 2,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "mepsmo02",
+      "origin": "data\\Creature.bif",
+      "sha256": "08e4a340f7388e2447c867a0a46ce7ce89e685b0f1cdc3f28248f5cc2796c2f2",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 2,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "mepste01",
+      "origin": "data\\Creature.bif",
+      "sha256": "8730599382ec301a85f8c3a3af992b0c0c292c0a1388401bed610f1a52dce7af",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "obsfir02",
+      "origin": "data\\Creature.bif",
+      "sha256": "6017215fe1f118ac96410abb0b10184f0aa921ce0d7ed05eeff2af161f36f9a1",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "obsfir03",
+      "origin": "data\\Creature.bif",
+      "sha256": "7c12deec7a964d0695c3103a49bab14f84c78990eff0c45eab8f681374f5bd77",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "obsfir04",
+      "origin": "data\\Creature.bif",
+      "sha256": "fb015c66c00a4c5aa98af6e85a01a424d7c5b4fa468ba4d1ea8272a21df72dcb",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 2,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "obsice02",
+      "origin": "data\\Creature.bif",
+      "sha256": "871c4e45e2ce92836a189f6217e51fb351998676637d04d375b35b7d052fba5a",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 1,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "obsice03",
+      "origin": "data\\Creature.bif",
+      "sha256": "5929d0ec22aa98fc2eb2af5de03d82cea1a91a3c76e663acad000f2284fcaf52",
+      "items": [
+        {
+          "item": "wolfwi2",
+          "entry": 1,
+          "file_slots": [
+            10
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "ohb1keld",
+      "origin": "data\\BlackPits.bif",
+      "sha256": "7e196b7071e7b4d1da59a3c833f818977ab90d952a2c8433d7286eb24580d414",
+      "items": [
+        {
+          "item": "npplat",
+          "entry": 3,
+          "file_slots": [
+            1
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "ohb2blth",
+      "origin": "data\\BlackPits.bif",
+      "sha256": "adb0c78d97d1def7896ae1f6454dfece49455a2f3dc3a30034d065f44f078697",
+      "items": [
+        {
+          "item": "amul21",
+          "entry": 0,
+          "file_slots": [
+            6
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "ohbbclt3",
+      "origin": "data\\BlackPits.bif",
+      "sha256": "8da98cc518b2c35d5be4e22ca8f12179cf46820e2b9af0f125ea763744a0e5bf",
+      "items": [
+        {
+          "item": "ring09",
+          "entry": 4,
+          "file_slots": [
+            5
+          ],
+          "flags": 10
+        }
+      ]
+    },
+    {
+      "cre": "ohbbrvgr",
+      "origin": "data\\BlackPits.bif",
+      "sha256": "567fb0a1a38380394f65d882eab64a12252481cadf1140e782347eb5168c7ffd",
+      "items": [
+        {
+          "item": "ring09",
+          "entry": 4,
+          "file_slots": [
+            5
+          ],
+          "flags": 10
+        }
+      ]
+    },
+    {
+      "cre": "ohbger04",
+      "origin": "data\\BlackPits.bif",
+      "sha256": "0ad8d5f1abb031545af5901ae8f1ee66caec83432b43f89f90e3670e444cde74",
+      "items": [
+        {
+          "item": "ring09",
+          "entry": 4,
+          "file_slots": [
+            5
+          ],
+          "flags": 11
+        }
+      ]
+    },
+    {
+      "cre": "ohbger05",
+      "origin": "data\\BlackPits.bif",
+      "sha256": "f3b42b1fec4eec38c3cd061afb72a35b6a1bce8ebb78f6061dfe471f8bcde5de",
+      "items": [
+        {
+          "item": "ring09",
+          "entry": 4,
+          "file_slots": [
+            5
+          ],
+          "flags": 11
+        }
+      ]
+    },
+    {
+      "cre": "ohbgerro",
+      "origin": "data\\BlackPits.bif",
+      "sha256": "69e65f2208ac9c70396f161b00bd7af1e9a5b560885bf14850f6194e171111d2",
+      "items": [
+        {
+          "item": "ring09",
+          "entry": 4,
+          "file_slots": [
+            5
+          ],
+          "flags": 11
+        }
+      ]
+    },
+    {
+      "cre": "ohbtim04",
+      "origin": "data\\BlackPits.bif",
+      "sha256": "51b151a460f24c5a95e6c7ec46501b9a6f6f8a8f63b8510ee55821d23a55e74a",
+      "items": [
+        {
+          "item": "amul21",
+          "entry": 6,
+          "file_slots": [
+            6
+          ],
+          "flags": 11
+        }
+      ]
+    },
+    {
+      "cre": "ohbtim05",
+      "origin": "data\\BlackPits.bif",
+      "sha256": "bafbc6326a63286a3562e1eb53fe38865d04190aae9131a3dd289edc4a20bfc5",
+      "items": [
+        {
+          "item": "amul21",
+          "entry": 6,
+          "file_slots": [
+            6
+          ],
+          "flags": 11
+        }
+      ]
+    },
+    {
+      "cre": "ohbtimmo",
+      "origin": "data\\BlackPits.bif",
+      "sha256": "3897277ff2b40559820f3a5551364b665de7ab978ef84a34d10280a3709ce977",
+      "items": [
+        {
+          "item": "amul21",
+          "entry": 6,
+          "file_slots": [
+            6
+          ],
+          "flags": 11
+        }
+      ]
+    },
+    {
+      "cre": "ohdfaer",
+      "origin": "data\\Dorn.bif",
+      "sha256": "62d8f68ac85579c5ae0b8fb4ea7c4786d8a2a60015e4a4b4a0d827378c222795",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 2,
+          "file_slots": [
+            9
+          ],
+          "flags": 3223602
+        },
+        {
+          "item": "immcloud",
+          "entry": 3,
+          "file_slots": [
+            10
+          ],
+          "flags": 3223602
+        }
+      ]
+    },
+    {
+      "cre": "ohdtmfil",
+      "origin": "data\\Dorn.bif",
+      "sha256": "b8e3ba2b75b9ab74abc153139fd86beaeeb63fec8849af0a76ec1fa12eaf954c",
+      "items": [
+        {
+          "item": "immcloud",
+          "entry": 2,
+          "file_slots": [
+            9
+          ],
+          "flags": 3223602
+        },
+        {
+          "item": "immcloud",
+          "entry": 3,
+          "file_slots": [
+            10
+          ],
+          "flags": 3223602
+        }
+      ]
+    },
+    {
+      "cre": "ohhculak",
+      "origin": "data\\Hexxat.bif",
+      "sha256": "a122cb8b340e1cb84719b8c0dca1b60177a87f827baa72085a83c3b7530a6e15",
+      "items": [
+        {
+          "item": "ring09",
+          "entry": 4,
+          "file_slots": [
+            4
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "spbear4",
+      "origin": "data\\patch13.bif",
+      "sha256": "07ce91673b828fe58e6c94aa99f442aea64da287d9e0e5e1b6e9acfd53e5f523",
+      "items": [
+        {
+          "item": "sprngb04",
+          "entry": 0,
+          "file_slots": [
+            4
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "spbear5",
+      "origin": "data\\patch13.bif",
+      "sha256": "8beaeb9d37e7ea309628d772b22589bc3e39f2af0fd7c174dabb90331c8a18d7",
+      "items": [
+        {
+          "item": "sprngz05",
+          "entry": 0,
+          "file_slots": [
+            4
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "splion3",
+      "origin": "data\\patch13.bif",
+      "sha256": "0eca6064a904c431f9b1dea81321c67b93adfa2b848526eb94f3468504903642",
+      "items": [
+        {
+          "item": "sprngl03",
+          "entry": 0,
+          "file_slots": [
+            4
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "splion4",
+      "origin": "data\\patch13.bif",
+      "sha256": "cfa850b0cd589c3e0c974bc3b6fca8934e2b2d7af2187002331fb510bcd80f07",
+      "items": [
+        {
+          "item": "sprngl04",
+          "entry": 0,
+          "file_slots": [
+            4
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "splion5",
+      "origin": "data\\patch13.bif",
+      "sha256": "43f891a0317dc0615903d0ba54f3b39988ac6f86f501788d82f31f512a69168f",
+      "items": [
+        {
+          "item": "sprngz05",
+          "entry": 0,
+          "file_slots": [
+            4
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "spsnak1",
+      "origin": "data\\patch13.bif",
+      "sha256": "52d05aef2693c09d96d50bae278a540ba92558cd76185abebba1256e64afe71a",
+      "items": [
+        {
+          "item": "sprngs01",
+          "entry": 0,
+          "file_slots": [
+            4
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "spsnak2",
+      "origin": "data\\patch13.bif",
+      "sha256": "116c589327e013439db10ef98703019c3f3a76addf91fd14fc99e954a2a5c338",
+      "items": [
+        {
+          "item": "sprngs02",
+          "entry": 0,
+          "file_slots": [
+            4
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "spsnak3",
+      "origin": "data\\patch13.bif",
+      "sha256": "fbb1b248712b157460d258f2f959732e63a76de80e0fc06321827a0e284e6010",
+      "items": [
+        {
+          "item": "sprngs03",
+          "entry": 0,
+          "file_slots": [
+            4
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "spsnak4",
+      "origin": "data\\patch13.bif",
+      "sha256": "17fbb849a349a803f0fd9b427000f85a30b5fc35908ac2ef56199e7c15472e5d",
+      "items": [
+        {
+          "item": "sprngs04",
+          "entry": 0,
+          "file_slots": [
+            4
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "spsnak5",
+      "origin": "data\\patch13.bif",
+      "sha256": "51a66fb7810af67f0c11486483ebf4c0cbe70e2b4f60094652fd2fa66211079c",
+      "items": [
+        {
+          "item": "sprngz05",
+          "entry": 0,
+          "file_slots": [
+            4
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "spwolf5",
+      "origin": "data\\patch13.bif",
+      "sha256": "47d0426ded5dd2da721a6076f7ac34a963b8f5530a634f5456cc80012dccfaa4",
+      "items": [
+        {
+          "item": "sprngz05",
+          "entry": 0,
+          "file_slots": [
+            4
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "suelhan",
+      "origin": "data\\Creature.bif",
+      "sha256": "e01e95f79eaebabd3e46b3d07e7fca854f01b4ababdee3badb5634da8d590782",
+      "items": [
+        {
+          "item": "sw1h50",
+          "entry": 0,
+          "file_slots": [
+            2
+          ],
+          "flags": 0
+        },
+        {
+          "item": "sw1h50",
+          "entry": 1,
+          "file_slots": [
+            9
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "udbeho01",
+      "origin": "data\\Creature.bif",
+      "sha256": "df373c2841ace447c3bc90a2c8bef82a3652e376c99205ae5b3ae3d31f407e3c",
+      "items": [
+        {
+          "item": "beholder",
+          "entry": 0,
+          "file_slots": [
+            4
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "udbeho02",
+      "origin": "data\\Creature.bif",
+      "sha256": "452e052f18f7f06be313f3be50b89a7e42e112e2a260374407055904e93c98f9",
+      "items": [
+        {
+          "item": "beholder",
+          "entry": 0,
+          "file_slots": [
+            4
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "wolfwi01",
+      "origin": "data\\Creature.bif",
+      "sha256": "5929d0ec22aa98fc2eb2af5de03d82cea1a91a3c76e663acad000f2284fcaf52",
+      "items": [
+        {
+          "item": "wolfwi2",
+          "entry": 1,
+          "file_slots": [
+            10
+          ],
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "cre": "wolfwisu",
+      "origin": "data\\Creature.bif",
+      "sha256": "c73bb206775befaaf62aa5783933f11542437ac9ab07ff98c0760ccb420cb9e9",
+      "items": [
+        {
+          "item": "wolfwi2",
+          "entry": 1,
+          "file_slots": [
+            10
+          ],
+          "flags": 8
+        }
+      ]
+    },
+    {
+      "cre": "wolfwwsu",
+      "origin": "data\\Creature.bif",
+      "sha256": "17cdf61791685fe8b246005cbebd8d7640839260c11618cd94c171128a30fe5a",
+      "items": [
+        {
+          "item": "wolfwi2",
+          "entry": 1,
+          "file_slots": [
+            10
+          ],
+          "flags": 10
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "candidate_item_count": 32,
+  "candidate_evidence_sha256": "4c7dbe9e3210b73f4041428150eafa5e711a078f3356e458a959666363812d76",
+  "candidate_cre_counts": {
+    "amul21": 9,
+    "bdhelm11": 0,
+    "beholder": 13,
+    "blun30": 0,
+    "freering": 0,
+    "goboom3": 0,
+    "immcloud": 53,
+    "jwsuper": 0,
+    "mageamul": 0,
+    "magicold": 0,
+    "magiweb": 0,
+    "misc9s": 0,
+    "npplat": 7,
+    "ohhexam4": 0,
+    "ring09": 10,
+    "rossring": 0,
+    "slimed2": 0,
+    "sper12": 0,
+    "sprngb04": 1,
+    "sprngl03": 1,
+    "sprngl04": 1,
+    "sprngs01": 1,
+    "sprngs02": 1,
+    "sprngs03": 1,
+    "sprngs04": 1,
+    "sprngz05": 4,
+    "staf11": 2,
+    "sw1h50": 2,
+    "sw2h06": 1,
+    "sw2h13": 0,
+    "swordi": 0,
+    "wolfwi2": 4
+  },
+  "verdict": "scanned",
+  "source_sha256": "3c06553a4703ace193a26942e7f238367eb7c52e37ab2782fc7f95e03a2d963d"
+}

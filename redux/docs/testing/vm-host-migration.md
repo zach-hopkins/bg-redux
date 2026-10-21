@@ -1,0 +1,43 @@
+# Dedicated Windows VM host preparation
+
+October21,2026. User requested a new local VM host for BG Redux. This supersedes desktop sharing as the intended test environment, while retaining Phase0's engine-code freeze. The VM has now been created and powered on; Windows installation and guest validation remain incomplete. See the latest status below.
+
+## Host inspection and selected configuration
+
+Actual host: Windows11 Home25H2/build26200, Ryzen7 9800X3D (8cores/16logical processors), approximately31.2GiB usable physical RAM, Radeon RX9070XT, virtualization enabled, hypervisor present. C: has approximately267GiB free. No VMware/VirtualBox installation was found in the inspected uninstall registries/default folders or command paths. Winget returned no matching VMware.WorkstationPro package. At initial inspection Downloads contained a Fedora43 ISO but no Windows ISO or VMware installer. The user subsequently downloaded VMware-Workstation-Full-26H1-25388281.exe; its Broadcom signature validates, SHA256 a0ef9087607d9cad20b08139e73e41242e044ad5bd8cee141d3bad314586737f. The Windows ISO is still downloading. Launching the approved installer failed twice in the Computer Use helper with “accessibility window-opened handler did not become ready”; no installer process was observed afterward. Manual launch/administrator handling is requested.
+
+Proceed with VMware Workstation Pro and a Windows11 x64 guest, following the user's proposed Windows graphical testing environment. Initial allocation:4vCPU,8GiB RAM,100GB expandable virtual disk, UEFI/Secure Boot/virtual TPM configured through VMware's Windows11 workflow,3D acceleration enabled,NAT networking. Keep host Windows security/virtualization settings as found. Disk capacity is not reserved physical usage; guest updates and snapshots will consume additional host space.
+
+The official [Broadcom download instructions](https://knowledge.broadcom.com/external/article/368667/download-and-license-free-vmware-desktop.html) confirm Workstation is free for personal/commercial use and require portal login/profile/compliance steps. The [26H1 release announcement](https://blogs.vmware.com/cloud-foundation/2026/05/14/announcing-vmware-workstation-and-fusion-26h1/) identifies the current release family. The user handles account authentication and supplies the installer. Obtain guest installation media from [Microsoft's Windows11 ISO page](https://www.microsoft.com/en-us/software-download/windows11). Guest account/license choices remain the user's. Do not automate host reboot or change host security configuration.
+
+## Private transfer package
+
+`python tools/phase0/stage-vm-transfer.py` creates a unique package under phase0-local/vm-transfer and hashes its copied contents. [Preparation receipt](../compatibility/evidence/vm-transfer-preparation.json) records the actual path, size, hash and scope. It includes the clean pinned engine repository, Phase0 tools/docs, the verified vanilla fixture, existing Windows build, UCRT64 dependency/compiler prefix and only the2,324 manifested BG2EE files. No registry import is planned. Steam setup follows the first GemRB smoke test. A later original-engine reference will still need its own clean disposable profile and observed isolation; file copying alone is not proof of original-engine launch/account behavior.
+
+Historical raw runs remain on the host except two required executed oracle runs copied for the unit suite. Historical JSON receipts retain their original absolute paths and provenance, so they are not guest results. Other Redux projects/chats, personal game profiles, host account credentials, MSYS2 home/configuration and previous native host receipts are excluded. The copied CMake cache contains host paths and is not a portable rebuild configuration. Rebuild the external native hosts in the guest; any future engine rebuild needs a fresh build directory and a separate decision under the Phase0 freeze.
+
+## Bring-up sequence and acceptance gates
+
+1. Install the official signed VMware package, then create the Windows11 VM with the selected configuration. Any administrator authentication or required host restart is handed to the user.
+2. Install Windows and VMware Tools. Confirm the guest reports its virtual display driver and supported OpenGL context. Keep virtual graphics results separate from physical Radeon results.
+A copied-runtime host preflight initially ran56 tests with two setup errors because historical snapshots were absent. After including the required original host oracle runs, the copied runtime passes71 tests, exit0. [Host relocation preflight](../compatibility/evidence/vm-transfer-host-preflight.json) explicitly records that this was on the physical host, not in a VM. Initial failures remain in the transfer folder.
+
+3. Use a temporary read-only shared folder containing just the transfer package. Copy its BGRedux directory to C:\BGRedux inside the guest. Run vm-guest-check.ps1 against the package manifest before changing the copied project.
+4. Install Git for Windows in the guest. Run71 harness unit tests using the copied UCRT64 Python. Rebuild only external save/GUI hosts to obtain guest-local build receipts; record core/plugin hashes before and after.
+5. Run capabilities, vanilla import/query/reload, normal GUI/save and screenshot checks against the copied data. Preserve known persistence/presentation differences; a passing process is not a compatibility pass. Record new guest provenance, renderer, timing and outcomes.
+6. Snapshot the clean installed guest and the validated BG2 test baseline separately. Install/configure the AI client in the guest under the user's own sign-in, then validate that guest automation does not operate the host desktop. Do not assume this host's Computer Use connection automatically targets the guest.
+7. Only after guest acceptance, nominate it as the active project host. Keep the existing host workspace and evidence available until migration is verified. Steam and separate EEex/SCS/modded profiles follow; they do not replace the vanilla reference.
+
+Snapshots and a shared folder alone do not establish an AI testing service. The intended next harness boundary is a guest-local process adapter with run IDs, bounded commands, state/action observations and screenshot artifacts. Transport/authentication and restart recovery must be verified before unattended operation. Do not expose an unauthenticated remote input or arbitrary-command service.
+
+## VMware installation and ISO follow-up
+
+The user installed Workstation26H1; registry version26.0.0 and its welcome window are observed. The Windows ISO download is complete (9,047,330,816bytes); VMware detects Windows11x64. Its local SHA256 is recorded in the [creation status](../compatibility/evidence/vm-creation-status.json); this is a local integrity fingerprint, not an independently matched Microsoft publication. The wizard names the VM BG Redux Lab under the standard Virtual Machines folder. Creation is currently pending the user-completed virtual-TPM encryption/password page. No VM boot, Windows install or guest execution is claimed.
+
+## VM created with revised allocation
+
+The user approved12GiB RAM, one virtual socket with6cores, and4GiB maximum graphics memory. The wizard confirms100GB split expandable disk,NAT and3D acceleration. BG Redux Lab was created under C:\Users\zach\Documents\Virtual Machines\BG Redux Lab and powered on. First-run informational pop-ups interrupted the ISO boot prompt; EFI network fallback is observed, not Windows Setup. The desktop helper failed to dismiss the Removable Devices dialog despite refreshed clicks/keys, so a manual dismissal is requested. [Current VM receipt](../compatibility/evidence/vm-creation-status.json) records an allowlisted subset of VM settings, excluding encryption/password data. No Windows installation, guest tests, game smoke or active-host migration acceptance is claimed.
+
+## Connected Lab host and project-binding gate
+
+The user reports Windows installed/booted, Codex paired and Steam BG2EE installed. Lab is exposed as a connected host in the handoff tool, but no Lab project is returned by list_projects. This chat remains on the physical host. VMware confirms the VM is running, while guest CLI queries require its separate encryption password. [Guest setup handoff](VM_HOST_HANDOFF.md) records the exact transfer path and remaining checks. User opening/moving this chat onto a Lab project is required before guest command/screenshot verification; broad administrator authorization does not redirect the current executor. No guest setup-complete claim is made.

@@ -1,0 +1,42 @@
+{
+  "schema": "bg-redux-private-vm-transfer/1",
+  "utc": "2026-10-21T18:40:48.727483+00:00",
+  "destination": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\vm-transfer\\20261021T183745Z",
+  "guest_destination": "C:/BGRedux",
+  "copied_roots": [
+    "gemrb",
+    "docs",
+    "tools/phase0",
+    "phase0-local/build",
+    "phase0-local/toolchain/msys64/ucrt64",
+    "phase0-local/fixtures"
+  ],
+  "file_count": 43358,
+  "bytes": 6488245518,
+  "game_files_verified": 2324,
+  "engine_revision": "bcb5cfaa9f19ffbe8a51f25a3c014fa344173351",
+  "excluded": [
+    "host account credentials",
+    "personal Documents game profiles",
+    "other Redux chats/projects",
+    "historical phase0-local/results except two required oracle runs",
+    "MSYS2 host accounts/configuration",
+    "old native host executables/receipts"
+  ],
+  "relocation": [
+    "Copied CMake cache contains host paths: do not rebuild engine in this build directory.",
+    "Rebuild external native hosts in guest to generate new local-path receipts.",
+    "Historical audit JSON paths/provenance remain host records; do not relabel as guest execution.",
+    "Only original-vanilla fixture is included; optional fixture entries may be absent."
+  ],
+  "engine_git_status": "",
+  "vm_created": false,
+  "guest_booted": false,
+  "guest_tests_executed": false,
+  "historical_oracle_runs": [
+    "20261021T011818Z-gui-stock-verified-fe7b575f",
+    "20261020T230658Z-vanilla-oracle-f6a33b02"
+  ],
+  "updated_utc": "2026-10-21T18:41:40.964532+00:00",
+  "manifest_sha256": "cfb1687def5a2aa0c77c6755c787561bb4cfaef67b38827342b0ec3bb12091ee"
+}

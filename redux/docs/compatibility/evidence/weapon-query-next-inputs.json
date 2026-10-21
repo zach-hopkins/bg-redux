@@ -1,0 +1,29 @@
+{
+  "schema": "bg-redux-weapon-query-preflight/1",
+  "utc": "2026-10-21T04:12:20.426596+00:00",
+  "items": [
+    {
+      "resref": "sw1h01",
+      "origin": "data\\Items.bif",
+      "sha256": "c78bbec33abcd8d37225801edf59cbfae88699e217a8c567dbeef534f094ce8c",
+      "bytes": 314,
+      "enchantment": 0
+    },
+    {
+      "resref": "sw1h02",
+      "origin": "data\\Items.bif",
+      "sha256": "6b7a2f8288b9921f9a0ce3913ee211d3329fc9cc89ae7f19b1bef8f6391a4d66",
+      "bytes": 314,
+      "enchantment": 1
+    }
+  ],
+  "action_ids": [
+    "11 EquipItem(S:Object*)",
+    "82 CreateItem(S:ResRef*,I:Usage1*,I:Usage2*,I:Usage3*)",
+    "92 SelectWeaponAbility(I:WeaponNum*Slots,I:AbilityNum*)",
+    "385 XEquipItem(S:Item*,O:Object*,I:Slot*Slots,I:EquipUnEquip*XEQUIP)"
+  ],
+  "action_ids_sha256": "fb4b2c021fc4131d10863420a7bfda0e947bc86766e30edf6c4cabb38ccc2129",
+  "equipped_runtime_case_executed": false,
+  "note": "Read-only candidate metadata; successful CreateItem/EquipItem or actual selected weapon is not established. Future runtime preflight must verify ownership, physical slot, selection, ability and weapon/ammo before interpreting predicates."
+}

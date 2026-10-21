@@ -1,0 +1,622 @@
+{
+  "schema": "bg-redux-original-reference/1",
+  "directory": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T031819Z-original-reference-42d15b31",
+  "observations": [
+    {
+      "label": "baseline",
+      "source": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\fixtures\\original-bg2ee-20261020\\GemRB",
+      "files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+        },
+        "BALDUR.gam": {
+          "bytes": 69372,
+          "sha256": "d8da451c8765f209cadbbab8a274be0e218c17d2b4718b8b43b76fb10b030414"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19443,
+          "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+        },
+        "save_000000033-GemRB.cloud.meta": {
+          "bytes": 10,
+          "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+        }
+      },
+      "cre_bytes": 3008,
+      "cre_sha256": "2abe74e712a04f9e590ee3a94ac3434960efca6f34b3b8fdc0dbd60266b1def6",
+      "immcloud": {
+        "total": 7,
+        "permanent": 7,
+        "equipped": 0,
+        "signatures": [
+          {
+            "opcode": 101,
+            "param1": 0,
+            "param2": 134,
+            "timing": 1,
+            "count": 1
+          },
+          {
+            "opcode": 101,
+            "param1": 0,
+            "param2": 216,
+            "timing": 1,
+            "count": 1
+          },
+          {
+            "opcode": 267,
+            "param1": 14665,
+            "param2": 134,
+            "timing": 1,
+            "count": 1
+          },
+          {
+            "opcode": 267,
+            "param1": 40969,
+            "param2": 216,
+            "timing": 1,
+            "count": 1
+          },
+          {
+            "opcode": 267,
+            "param1": 40979,
+            "param2": 216,
+            "timing": 1,
+            "count": 1
+          },
+          {
+            "opcode": 267,
+            "param1": 41495,
+            "param2": 216,
+            "timing": 1,
+            "count": 1
+          },
+          {
+            "opcode": 267,
+            "param1": 41616,
+            "param2": 216,
+            "timing": 1,
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "label": "reload1",
+      "source": "C:\\Users\\zach\\Documents\\Baldur's Gate II - Enhanced Edition\\save\\000000034-r1",
+      "files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "019f3f6bc588cae87756353a45040be3fd5ab6d9ed93b436906198d33cb629e4"
+        },
+        "BALDUR.gam": {
+          "bytes": 77544,
+          "sha256": "d924a892a3dd506a859f4ce20d06115b85157ee0a97557f2925cb5591bd68bc3"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19402,
+          "sha256": "68c79d76121b5015d5e0bb2f4bbb2de3d5ddb9511784e47e7b5fcc00ce500abd"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "a24f13d5478c8a9b15b1285b0e157af3b03826e87cc28e1456aef5b2e3e0e168"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "bc885b7b15d11b9eaeaf4c06d3206ce945276dbfdea8eabce51e79a2f26c763d"
+        },
+        "save_000000034-r1.cloud.meta": {
+          "bytes": 10,
+          "sha256": "ac311b4f4ab15959b95222670995effc58397c9f522d9ea29d09b51db8e177c8"
+        }
+      },
+      "cre_bytes": 4856,
+      "cre_sha256": "dac597446d117440b0ff366e851e83b18bf1fae012d9d14ffe47960f21bd1936",
+      "immcloud": {
+        "total": 14,
+        "permanent": 14,
+        "equipped": 0,
+        "signatures": [
+          {
+            "opcode": 101,
+            "param1": 0,
+            "param2": 134,
+            "timing": 1,
+            "count": 2
+          },
+          {
+            "opcode": 101,
+            "param1": 0,
+            "param2": 216,
+            "timing": 1,
+            "count": 2
+          },
+          {
+            "opcode": 267,
+            "param1": 14665,
+            "param2": 134,
+            "timing": 1,
+            "count": 2
+          },
+          {
+            "opcode": 267,
+            "param1": 40969,
+            "param2": 216,
+            "timing": 1,
+            "count": 2
+          },
+          {
+            "opcode": 267,
+            "param1": 40979,
+            "param2": 216,
+            "timing": 1,
+            "count": 2
+          },
+          {
+            "opcode": 267,
+            "param1": 41495,
+            "param2": 216,
+            "timing": 1,
+            "count": 2
+          },
+          {
+            "opcode": 267,
+            "param1": 41616,
+            "param2": 216,
+            "timing": 1,
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "label": "reload2",
+      "source": "C:\\Users\\zach\\Documents\\Baldur's Gate II - Enhanced Edition\\save\\000000035-r2",
+      "files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "14f5a5216f2d71b4aeb3771a6666b60799ebf113bc4526898c6ce3783c52a7ba"
+        },
+        "BALDUR.gam": {
+          "bytes": 77280,
+          "sha256": "e5be880fcfa3515bd8cdf820f8a6bddcf82e4ea648936ea2ec7ef41dea499a56"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19454,
+          "sha256": "c53c7028dd61c3c35563d57e2419352eff361c578722b3d47cf5b61a31492356"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "a24f13d5478c8a9b15b1285b0e157af3b03826e87cc28e1456aef5b2e3e0e168"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "bc885b7b15d11b9eaeaf4c06d3206ce945276dbfdea8eabce51e79a2f26c763d"
+        },
+        "save_000000035-r2.cloud.meta": {
+          "bytes": 10,
+          "sha256": "910cd4c7e794b2bf3ef46b45307dcf5ba0df81beb78bc77f6905df6525805a41"
+        }
+      },
+      "cre_bytes": 6704,
+      "cre_sha256": "1b1a27e55f5352ddd4d7e458dcff73c88cf73ac9a5585105e2bab5743b9a027f",
+      "immcloud": {
+        "total": 21,
+        "permanent": 21,
+        "equipped": 0,
+        "signatures": [
+          {
+            "opcode": 101,
+            "param1": 0,
+            "param2": 134,
+            "timing": 1,
+            "count": 3
+          },
+          {
+            "opcode": 101,
+            "param1": 0,
+            "param2": 216,
+            "timing": 1,
+            "count": 3
+          },
+          {
+            "opcode": 267,
+            "param1": 14665,
+            "param2": 134,
+            "timing": 1,
+            "count": 3
+          },
+          {
+            "opcode": 267,
+            "param1": 40969,
+            "param2": 216,
+            "timing": 1,
+            "count": 3
+          },
+          {
+            "opcode": 267,
+            "param1": 40979,
+            "param2": 216,
+            "timing": 1,
+            "count": 3
+          },
+          {
+            "opcode": 267,
+            "param1": 41495,
+            "param2": 216,
+            "timing": 1,
+            "count": 3
+          },
+          {
+            "opcode": 267,
+            "param1": 41616,
+            "param2": 216,
+            "timing": 1,
+            "count": 3
+          }
+        ]
+      }
+    }
+  ],
+  "provenance": {
+    "execution": "Computer-use operator observed clean Steam path launch and ordinary load/save sequence",
+    "human_confirmation_recorded": false,
+    "marker_absence_is_not_clean_certificate": true,
+    "operator_observation": {
+      "schema": "bg-redux-original-ui-observation/1",
+      "recorded_utc": "2026-10-21T03:16:13.949388+00:00",
+      "operator": "Codex using computer-use skill / @oai/sky",
+      "executable": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Baldur's Gate II Enhanced Edition\\Baldur.exe",
+      "executable_sha256": "b51093a49140b2b8a7c046b4652bb8e535be24ebbc12b1d735e0b94217a14d57",
+      "window": {
+        "id": 5377292,
+        "app": "process:C:\\Program Files (x86)\\Steam\\steamapps\\common\\Baldur's Gate II Enhanced Edition\\Baldur.exe",
+        "title": "Baldur's Gate II - Enhanced Edition - v2.7.3.0"
+      },
+      "sequence_completed": true,
+      "steps": [
+        "Direct sky.launch_app attempt failed with crash report dump.2.7.3.0.0004.dmp; dismissed ordinary error dialog",
+        "Observed Explorer installation folder and double-clicked Baldur application; clean path/window title returned",
+        "Selected Shadows of Amn, Single Player, Load Game, GemRB",
+        "Space key did not visibly pause; clicked game clock and observed PAUSED",
+        "Created new slot r1; observed Save successful",
+        "Options / Load Game / r1; clicked game clock; observed PAUSED",
+        "Created new slot r2; observed PAUSED and Save successful"
+      ],
+      "limitations": [
+        "Initial load ran before pause confirmation: Imoen AI cast Stoneskin/Armor; no manual movement command issued",
+        "Second load briefly ran until clock click; not zero-tick replay",
+        "type_text ignored; physical r/1/r/2 key presses worked; short slot names used",
+        "No independent Steam depot verification, process module inventory or original-runtime effect query"
+      ],
+      "saves": {
+        "reload1": {
+          "path": "C:\\Users\\zach\\Documents\\Baldur's Gate II - Enhanced Edition\\save\\000000034-r1",
+          "files": {
+            "BALDUR.bmp": {
+              "bytes": 65590,
+              "sha256": "019f3f6bc588cae87756353a45040be3fd5ab6d9ed93b436906198d33cb629e4"
+            },
+            "BALDUR.gam": {
+              "bytes": 77544,
+              "sha256": "d924a892a3dd506a859f4ce20d06115b85157ee0a97557f2925cb5591bd68bc3"
+            },
+            "BALDUR.SAV": {
+              "bytes": 19402,
+              "sha256": "68c79d76121b5015d5e0bb2f4bbb2de3d5ddb9511784e47e7b5fcc00ce500abd"
+            },
+            "PORTRT0.bmp": {
+              "bytes": 13830,
+              "sha256": "a24f13d5478c8a9b15b1285b0e157af3b03826e87cc28e1456aef5b2e3e0e168"
+            },
+            "PORTRT1.bmp": {
+              "bytes": 13830,
+              "sha256": "bc885b7b15d11b9eaeaf4c06d3206ce945276dbfdea8eabce51e79a2f26c763d"
+            },
+            "save_000000034-r1.cloud.meta": {
+              "bytes": 10,
+              "sha256": "ac311b4f4ab15959b95222670995effc58397c9f522d9ea29d09b51db8e177c8"
+            }
+          }
+        },
+        "reload2": {
+          "path": "C:\\Users\\zach\\Documents\\Baldur's Gate II - Enhanced Edition\\save\\000000035-r2",
+          "files": {
+            "BALDUR.bmp": {
+              "bytes": 65590,
+              "sha256": "14f5a5216f2d71b4aeb3771a6666b60799ebf113bc4526898c6ce3783c52a7ba"
+            },
+            "BALDUR.gam": {
+              "bytes": 77280,
+              "sha256": "e5be880fcfa3515bd8cdf820f8a6bddcf82e4ea648936ea2ec7ef41dea499a56"
+            },
+            "BALDUR.SAV": {
+              "bytes": 19454,
+              "sha256": "c53c7028dd61c3c35563d57e2419352eff361c578722b3d47cf5b61a31492356"
+            },
+            "PORTRT0.bmp": {
+              "bytes": 13830,
+              "sha256": "a24f13d5478c8a9b15b1285b0e157af3b03826e87cc28e1456aef5b2e3e0e168"
+            },
+            "PORTRT1.bmp": {
+              "bytes": 13830,
+              "sha256": "bc885b7b15d11b9eaeaf4c06d3206ce945276dbfdea8eabce51e79a2f26c763d"
+            },
+            "save_000000035-r2.cloud.meta": {
+              "bytes": 10,
+              "sha256": "910cd4c7e794b2bf3ef46b45307dcf5ba0df81beb78bc77f6905df6525805a41"
+            }
+          }
+        }
+      }
+    },
+    "receipt_sha256": "18e009c6e2e12365d8bb3ba875875fd8fe2f0b9c2c8a1ca7487bec84094faf94",
+    "limitation": "Operator-authored observation and file binding; no process/module attestation or continuous clock control"
+  },
+  "progression": [
+    7,
+    14,
+    21
+  ],
+  "classification": "reference-also-grows-seven",
+  "nominated_executable": {
+    "path": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Baldur's Gate II Enhanced Edition\\Baldur.exe",
+    "sha256": "b51093a49140b2b8a7c046b4652bb8e535be24ebbc12b1d735e0b94217a14d57",
+    "actual_launch_observed": true
+  },
+  "verdict": "reference-observed",
+  "interpretation_limit": "Selected saved effect records only; no combat or complete runtime equivalence certification.",
+  "gemrb_comparison": {
+    "evidence_sha256": "8aa2d3b63c59405382e552022b8b3bf25c0990d53a6b6c32668c3eda7b4f1983",
+    "directory": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T024237Z-immcloud-de4d6a2a",
+    "cycles": [
+      {
+        "cycle": 1,
+        "original": {
+          "total": 14,
+          "permanent": 14,
+          "equipped": 0,
+          "signatures": [
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 134,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 216,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 14665,
+              "param2": 134,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 40969,
+              "param2": 216,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 40979,
+              "param2": 216,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 41495,
+              "param2": 216,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 41616,
+              "param2": 216,
+              "timing": 1,
+              "count": 2
+            }
+          ]
+        },
+        "gemrb": {
+          "total": 14,
+          "permanent": 14,
+          "equipped": 0,
+          "signatures": [
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 134,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 216,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 14665,
+              "param2": 0,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 40969,
+              "param2": 0,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 40979,
+              "param2": 0,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 41495,
+              "param2": 0,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 41616,
+              "param2": 0,
+              "timing": 1,
+              "count": 2
+            }
+          ]
+        },
+        "counts_equal": true,
+        "signatures_equal": false
+      },
+      {
+        "cycle": 2,
+        "original": {
+          "total": 21,
+          "permanent": 21,
+          "equipped": 0,
+          "signatures": [
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 134,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 216,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 14665,
+              "param2": 134,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 40969,
+              "param2": 216,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 40979,
+              "param2": 216,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 41495,
+              "param2": 216,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 41616,
+              "param2": 216,
+              "timing": 1,
+              "count": 3
+            }
+          ]
+        },
+        "gemrb": {
+          "total": 21,
+          "permanent": 21,
+          "equipped": 0,
+          "signatures": [
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 134,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 216,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 14665,
+              "param2": 0,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 40969,
+              "param2": 0,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 40979,
+              "param2": 0,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 41495,
+              "param2": 0,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 41616,
+              "param2": 0,
+              "timing": 1,
+              "count": 3
+            }
+          ]
+        },
+        "counts_equal": true,
+        "signatures_equal": false
+      }
+    ]
+  },
+  "tool_sources": {
+    "tools\\phase0\\original_reference.py": "43a0d13d025071aaf55170e711aea0a3e30e44bf7158a253f2fb4bfb7baf089b",
+    "tools\\phase0\\effect_cycle.py": "ed1e252e274e0d419eda25e1b94f0eb7c44e7128c433debe45b1d751562a0fe8"
+  }
+}

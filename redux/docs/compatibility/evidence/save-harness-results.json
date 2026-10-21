@@ -1,0 +1,948 @@
+{
+  "schema": "bg-redux-save-evidence/1",
+  "captured_utc": "2026-10-20T23:11:47.381758+00:00",
+  "engine_revision": "bcb5cfaa9f19ffbe8a51f25a3c014fa344173351",
+  "engine_git_status": "",
+  "engine_dll_sha256": "5b8719d3f3257404f4611927826af1ae9cdeb2c735fc0ed6d1afc981eb14c99f",
+  "probe_build": {
+    "command": [
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\toolchain\\msys64\\ucrt64\\bin\\g++.exe",
+      "-std=gnu++17",
+      "-g",
+      "-O0",
+      "-DHAVE_CONFIG_H",
+      "-DUSE_OPENGL_API",
+      "-D_USE_MATH_DEFINES",
+      "-DFMT_HEADER_ONLY",
+      "-DFMT_USE_CONSTEVAL=0",
+      "-DFMT_EXCEPTIONS=0",
+      "-DFMT_UNICODE=1",
+      "-fno-strict-aliasing",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\build",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\gemrb\\gemrb\\includes",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\gemrb\\gemrb\\core",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\gemrb\\platforms\\Windows",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\build\\gemrb\\includes",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\toolchain\\msys64\\ucrt64\\include\\SDL2",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\toolchain\\msys64\\ucrt64\\include\\python3.14",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\gemrb\\includes\\fmt",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\tools\\phase0\\native\\save_probe.cpp",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\build\\gemrb\\core\\libgemrb_core.dll.a",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\toolchain\\msys64\\ucrt64\\lib\\libiconv.dll.a",
+      "-lshlwapi",
+      "-o",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\native-probe\\Redux_save_probe.exe"
+    ],
+    "exit_code": 0,
+    "source_sha256": "2c5e12603d190068911125ac104d72d92d2c3c7c5222450fd3181311e834a1c4",
+    "engine_dll_sha256": "5b8719d3f3257404f4611927826af1ae9cdeb2c735fc0ed6d1afc981eb14c99f",
+    "compiler_sha256": "5f30e02408ab97050fcbfa39bb391b0923cf9402063920b849ab8491e63334b3",
+    "binary_sha256": "1a229476a1b50833545f29959b82e1e01ca2c3b83e7accfd6edfbc5490e4c623"
+  },
+  "plugins": {
+    "2DAImporter.dll": "3c1cbcc3c23f772eba30cfee2fedbd69dd730dad51cc35ddf6e715b5e1d97966",
+    "ACMReader.dll": "710e58b2ec552b70f1a6186c1154bed94429168015d5fcfdd52cf13a4c1c2842",
+    "AREImporter.dll": "ab267ead3382f12f793c9c1784f5d8a078d5f3ef93d8cc3425fff0171ad042d7",
+    "BAMImporter.dll": "69b072e1e5eaf7bcef5bc3a5970c3458d5c1aad420cc2ea0be874114adb3b7a1",
+    "BIFImporter.dll": "748877c31eeba077c038590541b2902e01f92576ee546821fef0a2b9b8ff7a56",
+    "BIKPlayer.dll": "468870ad24faba5aa6d0a44b03055e3732f3d668ed73329fedea1e641e2ef339",
+    "BMPImporter.dll": "e67bcb610dbbfdeca415bc57e8c43b6a28763e3faa777f0ca0a6fb7f2dd74369",
+    "BMPWriter.dll": "8fde79a22c1658b1846290ee53a9acda8c94735f33af6e23894bfd9f64f0205e",
+    "CHUImporter.dll": "9595d22980ea57bf51934c1a4028a4e1126a5750296a6cc42ef9655958f44f55",
+    "CREImporter.dll": "81fabad1c72e3f22dba49d51e68fb2d33215629298a8693a8662ea32a5f94399",
+    "DirectoryImporter.dll": "b9f5d7f76c58f44c716b53681c1a8ea2622fb48f5980a9e3f333ae83d81316bc",
+    "DLGImporter.dll": "3b9326cb19387131783bcce6fdeac2baf0d850372c02f1f753498693dabe4980",
+    "EFFImporter.dll": "87aeb0c0cfe3b38a7887f132fa5bcea66ae9998ec245c0f3125787e2e27ee4ed",
+    "FXOpcodes.dll": "9cba5cbdfd6113d67df555b963a0e17fee99a7ef9cd0956119ebf5529e8a6417",
+    "GAMImporter.dll": "0776d6653c52b85a54e0f4fdb8d0c50dad7294c3bce5bf58dcf5836351ee0982",
+    "GUIScript.dll": "0f80e02ed3ae880c6867202b345efabdb75f5e44762711b2d463c00ed1c39735",
+    "IDSImporter.dll": "ea0295ccaca12cbcff49de3ca2b702ca9f1f00a6234ab83ab885b754cf384d69",
+    "INIImporter.dll": "adf2e0efc8c06690186ac9bf8ef191918f34e6e8e5e6fce4adf547ab95941c41",
+    "ITMImporter.dll": "4cb5725f059de805f924e0153b7394339a0cc0249a8ca9b26bdac48fac3220e1",
+    "IWDOpcodes.dll": "d9ee3d2c5392dc250d3c4cf43612e1c7669a14751f2a2e9fe6e7710925321fe6",
+    "KEYImporter.dll": "45e1686f6b81b1388910f4c96f564b7f7696a305f83fd67843da38457a40bcff",
+    "MOSImporter.dll": "db4d73c975c8d86ee1869118d910c20d58cd403ca91ae1251421edd33b17fc5b",
+    "MUSImporter.dll": "5c806f76c3afce2f5105578e948ece765f3277529afe0962a273dee5b8f6000e",
+    "MVEPlayer.dll": "7a60291ae40a69bbb5f37c3ffe250e6578d35bb680357319fd3cfac1015841f0",
+    "NullSound.dll": "a6a34c851bee8d572f3e56fa1e1d29898e23de72e3e847df4f900a6124b9f730",
+    "NullSource.dll": "23352c5d99408ea3808a4cc14e8700976423a375f085ddbb78b6b0be06f77990",
+    "OGGReader.dll": "d81dc02e6d5ed567c24e25e1cafc9e85b196b17e32818044c0cecbe0bf19321f",
+    "OpenALAudio.dll": "165c4cd2caec896b79e206747ab66a5dd037632850a42da2252a3a31cb60c81e",
+    "PLTImporter.dll": "4c2d38d5296ec335cf4856cc5ff582eb3f7c6e61609bd179de4e7046c5e740c1",
+    "PNGImporter.dll": "ae42f2ad8e1943adfdd3e46a6c5b16f6e54ccccfc125357f23c40c29fc7d253d",
+    "PROImporter.dll": "6d0c95bc9b9816f74735769213bbdc70cd8bc95348aa9dd1cfaece2d1037cfad",
+    "PSTOpcodes.dll": "29f753b77851ed8ba8a92b98daa915daa33e390387176c7b2ac7cadb8be6a6eb",
+    "PVRZImporter.dll": "158b8457e16f4a52829c7dbdd8895e939c16325cb3d4372fa25aaee9deae9a6c",
+    "SAVImporter.dll": "a822626cc8c9fea6ca043d91b162010a6bba62dbe659b73b9fb6b5f19ef3df2a",
+    "SDLAudio.dll": "6acfa3a21ba24a79f415e0c2704bb1573b39ec286736bc469b70ff0cc7ebf65f",
+    "SDLVideo.dll": "fa17dc02d6c1f96454ddae91eeebd9a698737bef54653f1999e9d1c7b0ad28d4",
+    "SPLImporter.dll": "6665235c3b97475655f673459a8955491bb63b243831af96ca5626d051761366",
+    "STOImporter.dll": "91bee611c592486c03bdbfa15d7570639be53af22b5bc54e59f7921e5a10a1d5",
+    "TISImporter.dll": "f4206882344c56ef2ac4d96f98d205bb9d0cfa272353c396762126f6b97a9930",
+    "TLKImporter.dll": "9d8c4a6658938f559d3ebba0d4576b2ea178912ec6e03924ae9ed24a1829d46a",
+    "TTFImporter.dll": "c79d199ce5ea68351110d2eccc3519e10241bc96d1d200650c275ff191486221",
+    "WAVReader.dll": "b1cab2ffe9bbfc7518fab15842c2480c58b6ad6ad057d38b0c928bdd99abec0a",
+    "WEDImporter.dll": "b2bbaeb6a7f96419d56423d8e01ac363f008fb51162400994107523c6d8de457",
+    "WMPImporter.dll": "7fa9a26e146b3c7830d693a6507f7678851f12ffa320b998ad1c3da9f28e499c",
+    "ZLibManager.dll": "e0a084742461f7eef8ee2876cd1568ac2e3020e16db7b084b7ad69afe0354f20"
+  },
+  "fixture_manifest_sha256": "33f4d9defe7df2cdc3ebdedd4ff516004e34647d67758484b958b86707e44170",
+  "mutation_oracle_tests": {
+    "command": "python -m unittest discover -s tools/phase0/tests -v",
+    "passed": 8,
+    "failed": 0,
+    "scope": "Executed against actual vanilla snapshot; damage, charge, global, actor, color, duration and failed-query/assertion detection."
+  },
+  "runs": [
+    {
+      "run_id": "20261020T230658Z-vanilla-oracle-f6a33b02",
+      "verdict": "differences",
+      "source_unchanged": true,
+      "input_copy_unchanged": true,
+      "queries": {
+        "/current_area": "AR0602",
+        "/selection": 2,
+        "/game_time": 32715,
+        "/party/0/inventory": {
+          "slot_count": 39,
+          "fist_slot": 10,
+          "equipped": 1000,
+          "equipped_header": 0,
+          "items": [
+            {
+              "slot": 10,
+              "resref": "FIST",
+              "flags": 8233,
+              "expired": 0,
+              "usages": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        "/party/1/spellbook": [
+          {
+            "type": 0,
+            "level": 0,
+            "slots": 0,
+            "slots_with_bonus": 0,
+            "known": [],
+            "memorized": []
+          },
+          {
+            "type": 0,
+            "level": 1,
+            "slots": 0,
+            "slots_with_bonus": 0,
+            "known": [],
+            "memorized": []
+          },
+          {
+            "type": 0,
+            "level": 2,
+            "slots": 0,
+            "slots_with_bonus": 0,
+            "known": [],
+            "memorized": []
+          },
+          {
+            "type": 0,
+            "level": 3,
+            "slots": 0,
+            "slots_with_bonus": 0,
+            "known": [],
+            "memorized": []
+          },
+          {
+            "type": 0,
+            "level": 4,
+            "slots": 0,
+            "slots_with_bonus": 0,
+            "known": [],
+            "memorized": []
+          },
+          {
+            "type": 0,
+            "level": 5,
+            "slots": 0,
+            "slots_with_bonus": 0,
+            "known": [],
+            "memorized": []
+          },
+          {
+            "type": 0,
+            "level": 6,
+            "slots": 0,
+            "slots_with_bonus": 0,
+            "known": [],
+            "memorized": []
+          },
+          {
+            "type": 1,
+            "level": 0,
+            "slots": 4,
+            "slots_with_bonus": 4,
+            "known": [
+              {
+                "resref": "SPWI102",
+                "level": 0,
+                "type": 1
+              },
+              {
+                "resref": "SPWI118",
+                "level": 0,
+                "type": 1
+              },
+              {
+                "resref": "SPWI110",
+                "level": 0,
+                "type": 1
+              },
+              {
+                "resref": "SPWI112",
+                "level": 0,
+                "type": 1
+              }
+            ],
+            "memorized": [
+              {
+                "resref": "spwi102",
+                "flags": 1
+              },
+              {
+                "resref": "spwi118",
+                "flags": 1
+              },
+              {
+                "resref": "spwi110",
+                "flags": 1
+              },
+              {
+                "resref": "spwi112",
+                "flags": 1
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "level": 1,
+            "slots": 3,
+            "slots_with_bonus": 3,
+            "known": [
+              {
+                "resref": "SPWI211",
+                "level": 1,
+                "type": 1
+              },
+              {
+                "resref": "SPWI212",
+                "level": 1,
+                "type": 1
+              },
+              {
+                "resref": "SPWI213",
+                "level": 1,
+                "type": 1
+              },
+              {
+                "resref": "SPWI214",
+                "level": 1,
+                "type": 1
+              },
+              {
+                "resref": "SPWI215",
+                "level": 1,
+                "type": 1
+              }
+            ],
+            "memorized": [
+              {
+                "resref": "spwi213",
+                "flags": 1
+              },
+              {
+                "resref": "spwi214",
+                "flags": 1
+              },
+              {
+                "resref": "spwi215",
+                "flags": 1
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "level": 2,
+            "slots": 3,
+            "slots_with_bonus": 3,
+            "known": [
+              {
+                "resref": "SPWI304",
+                "level": 2,
+                "type": 1
+              },
+              {
+                "resref": "SPWI305",
+                "level": 2,
+                "type": 1
+              },
+              {
+                "resref": "SPWI308",
+                "level": 2,
+                "type": 1
+              },
+              {
+                "resref": "SPWI309",
+                "level": 2,
+                "type": 1
+              },
+              {
+                "resref": "SPWI302",
+                "level": 2,
+                "type": 1
+              }
+            ],
+            "memorized": [
+              {
+                "resref": "spwi305",
+                "flags": 1
+              },
+              {
+                "resref": "spwi308",
+                "flags": 1
+              },
+              {
+                "resref": "spwi309",
+                "flags": 1
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "level": 3,
+            "slots": 2,
+            "slots_with_bonus": 2,
+            "known": [
+              {
+                "resref": "SPWI403",
+                "level": 3,
+                "type": 1
+              },
+              {
+                "resref": "SPWI418",
+                "level": 3,
+                "type": 1
+              },
+              {
+                "resref": "SPWI405",
+                "level": 3,
+                "type": 1
+              },
+              {
+                "resref": "SPWI406",
+                "level": 3,
+                "type": 1
+              },
+              {
+                "resref": "SPWI408",
+                "level": 3,
+                "type": 1
+              }
+            ],
+            "memorized": [
+              {
+                "resref": "spwi406",
+                "flags": 1
+              },
+              {
+                "resref": "spwi408",
+                "flags": 1
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "level": 4,
+            "slots": 0,
+            "slots_with_bonus": 0,
+            "known": [
+              {
+                "resref": "SPWI513",
+                "level": 4,
+                "type": 1
+              },
+              {
+                "resref": "SPWI508",
+                "level": 4,
+                "type": 1
+              },
+              {
+                "resref": "SPWI506",
+                "level": 4,
+                "type": 1
+              },
+              {
+                "resref": "SPWI504",
+                "level": 4,
+                "type": 1
+              }
+            ],
+            "memorized": []
+          },
+          {
+            "type": 1,
+            "level": 5,
+            "slots": 0,
+            "slots_with_bonus": 0,
+            "known": [],
+            "memorized": []
+          },
+          {
+            "type": 1,
+            "level": 6,
+            "slots": 0,
+            "slots_with_bonus": 0,
+            "known": [],
+            "memorized": []
+          },
+          {
+            "type": 1,
+            "level": 7,
+            "slots": 0,
+            "slots_with_bonus": 0,
+            "known": [],
+            "memorized": []
+          },
+          {
+            "type": 1,
+            "level": 8,
+            "slots": 0,
+            "slots_with_bonus": 0,
+            "known": [],
+            "memorized": []
+          },
+          {
+            "type": 2,
+            "level": 0,
+            "slots": 2,
+            "slots_with_bonus": 2,
+            "known": [
+              {
+                "resref": "SPCL412",
+                "level": 0,
+                "type": 2
+              }
+            ],
+            "memorized": [
+              {
+                "resref": "SPCL412",
+                "flags": 1
+              },
+              {
+                "resref": "SPCL412",
+                "flags": 1
+              }
+            ]
+          }
+        ]
+      },
+      "result_path": "phase0-local/results/20261020T230658Z-vanilla-oracle-f6a33b02/result.json",
+      "result_sha256": "79c60d40c8c907fd0d32ab79cdafafbca39cce79cc5e7be419c6d35c651f57d7",
+      "stages": [
+        {
+          "name": "import",
+          "passed": true,
+          "process": {
+            "pid": 5912,
+            "exit_code": 0,
+            "timeout_seconds": 45,
+            "timed_out": false,
+            "cleanup": "not required",
+            "elapsed_seconds": 6.869
+          }
+        },
+        {
+          "name": "reload-1",
+          "passed": true,
+          "process": {
+            "pid": 17096,
+            "exit_code": 0,
+            "timeout_seconds": 45,
+            "timed_out": false,
+            "cleanup": "not required",
+            "elapsed_seconds": 2.919
+          }
+        },
+        {
+          "name": "reload-2",
+          "passed": true,
+          "process": {
+            "pid": 10368,
+            "exit_code": 0,
+            "timeout_seconds": 45,
+            "timed_out": false,
+            "cleanup": "not required",
+            "elapsed_seconds": 2.693
+          }
+        },
+        {
+          "name": "repeat-import",
+          "passed": true,
+          "process": {
+            "pid": 28816,
+            "exit_code": 0,
+            "timeout_seconds": 45,
+            "timed_out": false,
+            "cleanup": "not required",
+            "elapsed_seconds": 2.868
+          }
+        }
+      ],
+      "assertions": {
+        "total": 24,
+        "passed": 24
+      },
+      "comparisons": [
+        {
+          "cycle": 1,
+          "raw_differences": 140,
+          "semantic_differences": 0,
+          "passed": true,
+          "scopes": {
+            "party": {
+              "passed": true,
+              "differences": 0
+            },
+            "stored_npcs": {
+              "passed": true,
+              "differences": 0
+            },
+            "world_metadata": {
+              "passed": true,
+              "differences": 0
+            },
+            "current_area": {
+              "passed": true,
+              "differences": 0
+            }
+          },
+          "examples": []
+        },
+        {
+          "cycle": 2,
+          "raw_differences": 140,
+          "semantic_differences": 0,
+          "passed": true,
+          "scopes": {
+            "party": {
+              "passed": true,
+              "differences": 0
+            },
+            "stored_npcs": {
+              "passed": true,
+              "differences": 0
+            },
+            "world_metadata": {
+              "passed": true,
+              "differences": 0
+            },
+            "current_area": {
+              "passed": true,
+              "differences": 0
+            }
+          },
+          "examples": []
+        }
+      ],
+      "repeat_import": {
+        "semantic_differences": 26,
+        "passed": false,
+        "scopes": {
+          "party": {
+            "passed": true,
+            "differences": 0
+          },
+          "stored_npcs": {
+            "passed": true,
+            "differences": 0
+          },
+          "world_metadata": {
+            "passed": true,
+            "differences": 0
+          },
+          "current_area": {
+            "passed": false,
+            "differences": 26
+          }
+        }
+      },
+      "wire_oracle": {
+        "checks": 351,
+        "passed": 315,
+        "scope": "Selected wire fields only; HP values may be recalculated by actor/equipment initialization. Differences require interpretation, not automatic normalization."
+      }
+    },
+    {
+      "run_id": "20261020T230342Z-vanilla-import-reload-ebc1b334",
+      "verdict": "differences",
+      "source_unchanged": true,
+      "queries": {},
+      "result_path": "phase0-local/results/20261020T230342Z-vanilla-import-reload-ebc1b334/result.json",
+      "result_sha256": "c058c08c5ffaa7b6e577946b87e3953ebc4bd42ef4f34d470497acc7041e5334",
+      "stages": [
+        {
+          "name": "import",
+          "passed": true,
+          "process": {
+            "pid": 20708,
+            "exit_code": 0,
+            "timeout_seconds": 45,
+            "timed_out": false,
+            "cleanup": "not required",
+            "elapsed_seconds": 5.317
+          }
+        },
+        {
+          "name": "reload-1",
+          "passed": true,
+          "process": {
+            "pid": 31084,
+            "exit_code": 0,
+            "timeout_seconds": 45,
+            "timed_out": false,
+            "cleanup": "not required",
+            "elapsed_seconds": 2.864
+          }
+        },
+        {
+          "name": "reload-2",
+          "passed": true,
+          "process": {
+            "pid": 26184,
+            "exit_code": 0,
+            "timeout_seconds": 45,
+            "timed_out": false,
+            "cleanup": "not required",
+            "elapsed_seconds": 2.599
+          }
+        },
+        {
+          "name": "repeat-import",
+          "passed": true,
+          "process": {
+            "pid": 31400,
+            "exit_code": 0,
+            "timeout_seconds": 45,
+            "timed_out": false,
+            "cleanup": "not required",
+            "elapsed_seconds": 2.618
+          }
+        }
+      ],
+      "assertions": {
+        "total": 6,
+        "passed": 6
+      },
+      "comparisons": [
+        {
+          "cycle": 1,
+          "raw_differences": 142,
+          "semantic_differences": 2,
+          "passed": false,
+          "examples": [
+            {
+              "path": "/current_area_actors/3/base_stats/209",
+              "before": 3688618971,
+              "after": 2779096485
+            },
+            {
+              "path": "/current_area_actors/3/modified_stats/209",
+              "before": 3688618971,
+              "after": 2779096485
+            }
+          ]
+        },
+        {
+          "cycle": 2,
+          "raw_differences": 140,
+          "semantic_differences": 0,
+          "passed": true,
+          "examples": []
+        }
+      ],
+      "repeat_import": {
+        "semantic_differences": 24,
+        "passed": false
+      }
+    },
+    {
+      "run_id": "20261020T230131Z-gemrb-roundtrip-3a58b3cf",
+      "verdict": "differences",
+      "source_unchanged": true,
+      "queries": {},
+      "result_path": "phase0-local/results/20261020T230131Z-gemrb-roundtrip-3a58b3cf/result.json",
+      "result_sha256": "0a9f85fdd6fdee2ecae14bf662b1483ed6df2cf0ce4a65ec49ba512dfb1c3cea",
+      "stages": [
+        {
+          "name": "import",
+          "passed": true,
+          "process": {
+            "pid": 33000,
+            "exit_code": 0,
+            "timeout_seconds": 45,
+            "timed_out": false,
+            "cleanup": "not required",
+            "elapsed_seconds": 2.961
+          }
+        },
+        {
+          "name": "reload-1",
+          "passed": true,
+          "process": {
+            "pid": 3188,
+            "exit_code": 0,
+            "timeout_seconds": 45,
+            "timed_out": false,
+            "cleanup": "not required",
+            "elapsed_seconds": 2.844
+          }
+        },
+        {
+          "name": "reload-2",
+          "passed": true,
+          "process": {
+            "pid": 31948,
+            "exit_code": 0,
+            "timeout_seconds": 45,
+            "timed_out": false,
+            "cleanup": "not required",
+            "elapsed_seconds": 2.704
+          }
+        },
+        {
+          "name": "repeat-import",
+          "passed": true,
+          "process": {
+            "pid": 2856,
+            "exit_code": 0,
+            "timeout_seconds": 45,
+            "timed_out": false,
+            "cleanup": "not required",
+            "elapsed_seconds": 2.717
+          }
+        }
+      ],
+      "assertions": {
+        "total": 6,
+        "passed": 6
+      },
+      "comparisons": [
+        {
+          "cycle": 1,
+          "raw_differences": 142,
+          "semantic_differences": 2,
+          "passed": false,
+          "examples": [
+            {
+              "path": "/current_area_actors/2/base_stats/213",
+              "before": 3823363043,
+              "after": 3402287818
+            },
+            {
+              "path": "/current_area_actors/2/modified_stats/213",
+              "before": 3823363043,
+              "after": 3402287818
+            }
+          ]
+        },
+        {
+          "cycle": 2,
+          "raw_differences": 142,
+          "semantic_differences": 2,
+          "passed": false,
+          "examples": [
+            {
+              "path": "/current_area_actors/2/base_stats/213",
+              "before": 3402287818,
+              "after": 2324335242
+            },
+            {
+              "path": "/current_area_actors/2/modified_stats/213",
+              "before": 3402287818,
+              "after": 2324335242
+            }
+          ]
+        }
+      ],
+      "repeat_import": {
+        "semantic_differences": 48,
+        "passed": false
+      }
+    },
+    {
+      "run_id": "20261020T230447Z-eeex-rejection-d5e7f499",
+      "verdict": "unsupported",
+      "source_unchanged": true,
+      "input_copy_unchanged": true,
+      "error": "Native import/initialization failed; see stage result/log",
+      "result_path": "phase0-local/results/20261020T230447Z-eeex-rejection-d5e7f499/result.json",
+      "result_sha256": "9c1bbe77ece06fa015dcc4e96a03b201dc7c384b16524549317deb4ccbad84d9",
+      "stages": [
+        {
+          "name": "import",
+          "passed": false,
+          "process": {
+            "pid": 33560,
+            "exit_code": 1,
+            "timeout_seconds": 45,
+            "timed_out": false,
+            "cleanup": "not required",
+            "elapsed_seconds": 1.335
+          },
+          "native_error": {
+            "error": "Unsupported effect payload opcode=2019902789; refusing area/effect initialization (no effects stripped)"
+          }
+        }
+      ],
+      "assertions": {
+        "total": 0,
+        "passed": 0
+      },
+      "comparisons": [],
+      "repeat_import": null
+    },
+    {
+      "run_id": "20261020T230851Z-missing-fixture-negative-8d3faf0c",
+      "verdict": "failed",
+      "error": "Unknown fixture: does-not-exist",
+      "result_path": "phase0-local/results/20261020T230851Z-missing-fixture-negative-8d3faf0c/result.json",
+      "result_sha256": "d9dcb008daa6e4f0ca8c6fb80d8e29cc1687d3c8ad872131fd64116d2dd2dda4",
+      "stages": [],
+      "assertions": {
+        "total": 0,
+        "passed": 0
+      },
+      "comparisons": [],
+      "repeat_import": null
+    },
+    {
+      "run_id": "20261020T230930Z-wrong-area-negative-89ebcea7",
+      "verdict": "differences",
+      "source_unchanged": true,
+      "input_copy_unchanged": true,
+      "execution_verdict": "passed",
+      "assertion_verdict": "not-passed",
+      "persistence_verdict": "not-run",
+      "queries": {},
+      "result_path": "phase0-local/results/20261020T230930Z-wrong-area-negative-89ebcea7/result.json",
+      "result_sha256": "5b3a197bf2a31a61924fd8f7c29807fc46717222546bda3d260c18b289a3e864",
+      "stages": [
+        {
+          "name": "import",
+          "passed": true,
+          "process": {
+            "pid": 26460,
+            "exit_code": 0,
+            "timeout_seconds": 45,
+            "timed_out": false,
+            "cleanup": "not required",
+            "elapsed_seconds": 2.775
+          }
+        }
+      ],
+      "assertions": {
+        "total": 3,
+        "passed": 2
+      },
+      "comparisons": [],
+      "repeat_import": null,
+      "wire_oracle": {
+        "checks": 351,
+        "passed": 315,
+        "scope": "Selected wire fields only; HP values may be recalculated by actor/equipment initialization. Differences require interpretation, not automatic normalization."
+      }
+    },
+    {
+      "run_id": "20261020T230933Z-native-timeout-negative-4a228ea0",
+      "verdict": "timeout",
+      "source_unchanged": true,
+      "input_copy_unchanged": true,
+      "execution_verdict": "failed",
+      "assertion_verdict": "not-passed",
+      "persistence_verdict": "not-run",
+      "error": "Native import/initialization failed; see stage result/log",
+      "result_path": "phase0-local/results/20261020T230933Z-native-timeout-negative-4a228ea0/result.json",
+      "result_sha256": "394848571ff911b4b62ee6da1675302cc7764fbbbd773718996ac5630d8c5448",
+      "stages": [
+        {
+          "name": "import",
+          "passed": false,
+          "process": {
+            "pid": 10276,
+            "exit_code": 1,
+            "timeout_seconds": 0.01,
+            "timed_out": true,
+            "cleanup": "child tree termination completed",
+            "elapsed_seconds": 0.158
+          }
+        }
+      ],
+      "assertions": {
+        "total": 0,
+        "passed": 0
+      },
+      "comparisons": [],
+      "repeat_import": null
+    },
+    {
+      "run_id": "20261020T231037Z-final-native-query-4317acc5",
+      "verdict": "differences",
+      "source_unchanged": true,
+      "input_copy_unchanged": true,
+      "execution_verdict": "passed",
+      "assertion_verdict": "passed",
+      "persistence_verdict": "not-run",
+      "queries": {
+        "/selection": 2,
+        "/party/1/script_name": "Imoen"
+      },
+      "result_path": "phase0-local/results/20261020T231037Z-final-native-query-4317acc5/result.json",
+      "result_sha256": "3e1246e11011b6de69d8a4e96714b7a481a134295fa2ee5668d245fd202f8ec1",
+      "stages": [
+        {
+          "name": "import",
+          "passed": true,
+          "process": {
+            "pid": 32996,
+            "exit_code": 0,
+            "timeout_seconds": 45,
+            "timed_out": false,
+            "cleanup": "not required",
+            "elapsed_seconds": 4.901
+          }
+        }
+      ],
+      "assertions": {
+        "total": 2,
+        "passed": 2
+      },
+      "comparisons": [],
+      "repeat_import": null,
+      "wire_oracle": {
+        "checks": 351,
+        "passed": 315,
+        "scope": "Selected wire fields only; HP values may be recalculated by actor/equipment initialization. Differences require interpretation, not automatic normalization."
+      }
+    }
+  ]
+}

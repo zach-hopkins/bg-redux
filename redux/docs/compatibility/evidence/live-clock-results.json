@@ -1,0 +1,535 @@
+{
+  "schema": "bg-redux-live-clock-results/1",
+  "scope": "Sample actual main-loop pause/resume; no deterministic stepping or FPS measurement.",
+  "directory": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T032938Z-live-clock-bc8fe860",
+  "stages": [
+    {
+      "name": "cap30",
+      "process": {
+        "pid": 32688,
+        "exit_code": 0,
+        "timeout_seconds": 45,
+        "timed_out": false,
+        "cleanup": "not required",
+        "elapsed_seconds": 11.232
+      },
+      "command": [
+        "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\gui-probe\\Redux_gui_probe.exe",
+        "--config",
+        "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T032938Z-live-clock-bc8fe860\\cap30\\probe.cfg",
+        "--output",
+        "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T032938Z-live-clock-bc8fe860\\cap30",
+        "--scripts",
+        "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\tools\\phase0\\gui",
+        "--mode",
+        "live-clock"
+      ],
+      "input_unchanged": true,
+      "input_wire": {
+        "total": 7,
+        "permanent": 7,
+        "equipped": 0,
+        "signatures": [
+          {
+            "opcode": 101,
+            "param1": 0,
+            "param2": 134,
+            "timing": 1,
+            "count": 1
+          },
+          {
+            "opcode": 101,
+            "param1": 0,
+            "param2": 216,
+            "timing": 1,
+            "count": 1
+          },
+          {
+            "opcode": 267,
+            "param1": 14665,
+            "param2": 134,
+            "timing": 1,
+            "count": 1
+          },
+          {
+            "opcode": 267,
+            "param1": 40969,
+            "param2": 216,
+            "timing": 1,
+            "count": 1
+          },
+          {
+            "opcode": 267,
+            "param1": 40979,
+            "param2": 216,
+            "timing": 1,
+            "count": 1
+          },
+          {
+            "opcode": 267,
+            "param1": 41495,
+            "param2": 216,
+            "timing": 1,
+            "count": 1
+          },
+          {
+            "opcode": 267,
+            "param1": 41616,
+            "param2": 216,
+            "timing": 1,
+            "count": 1
+          }
+        ]
+      },
+      "native": {
+        "schema": "bg-redux-live-clock/1",
+        "ticks_per_second": 15,
+        "load_window_waits": 2,
+        "samples": [
+          {
+            "sample": 0,
+            "phase": "paused-initial",
+            "elapsed_ms": 0,
+            "game_time": 32717,
+            "real_time": 1667,
+            "dialogue_flags": 8
+          },
+          {
+            "sample": 1,
+            "phase": "paused-initial",
+            "elapsed_ms": 378,
+            "game_time": 32717,
+            "real_time": 1671,
+            "dialogue_flags": 8
+          },
+          {
+            "sample": 2,
+            "phase": "paused-initial",
+            "elapsed_ms": 711,
+            "game_time": 32717,
+            "real_time": 1674,
+            "dialogue_flags": 8
+          },
+          {
+            "sample": 3,
+            "phase": "paused-initial",
+            "elapsed_ms": 1043,
+            "game_time": 32717,
+            "real_time": 1678,
+            "dialogue_flags": 8
+          },
+          {
+            "sample": 4,
+            "phase": "paused-initial",
+            "elapsed_ms": 1376,
+            "game_time": 32717,
+            "real_time": 1681,
+            "dialogue_flags": 8
+          },
+          {
+            "sample": 5,
+            "phase": "running",
+            "elapsed_ms": 1708,
+            "game_time": 32721,
+            "real_time": 1685,
+            "dialogue_flags": 0
+          },
+          {
+            "sample": 6,
+            "phase": "running",
+            "elapsed_ms": 2040,
+            "game_time": 32724,
+            "real_time": 1688,
+            "dialogue_flags": 0
+          },
+          {
+            "sample": 7,
+            "phase": "running",
+            "elapsed_ms": 2373,
+            "game_time": 32728,
+            "real_time": 1692,
+            "dialogue_flags": 0
+          },
+          {
+            "sample": 8,
+            "phase": "running",
+            "elapsed_ms": 2706,
+            "game_time": 32731,
+            "real_time": 1695,
+            "dialogue_flags": 0
+          },
+          {
+            "sample": 9,
+            "phase": "running",
+            "elapsed_ms": 3041,
+            "game_time": 32735,
+            "real_time": 1699,
+            "dialogue_flags": 0
+          },
+          {
+            "sample": 10,
+            "phase": "running",
+            "elapsed_ms": 3376,
+            "game_time": 32738,
+            "real_time": 1702,
+            "dialogue_flags": 0
+          },
+          {
+            "sample": 11,
+            "phase": "running",
+            "elapsed_ms": 3708,
+            "game_time": 32742,
+            "real_time": 1706,
+            "dialogue_flags": 0
+          },
+          {
+            "sample": 12,
+            "phase": "running",
+            "elapsed_ms": 4036,
+            "game_time": 32745,
+            "real_time": 1709,
+            "dialogue_flags": 0
+          },
+          {
+            "sample": 13,
+            "phase": "paused-final",
+            "elapsed_ms": 4369,
+            "game_time": 32745,
+            "real_time": 1713,
+            "dialogue_flags": 8
+          },
+          {
+            "sample": 14,
+            "phase": "paused-final",
+            "elapsed_ms": 4701,
+            "game_time": 32745,
+            "real_time": 1716,
+            "dialogue_flags": 8
+          },
+          {
+            "sample": 15,
+            "phase": "paused-final",
+            "elapsed_ms": 5016,
+            "game_time": 32745,
+            "real_time": 1720,
+            "dialogue_flags": 8
+          },
+          {
+            "sample": 16,
+            "phase": "paused-final",
+            "elapsed_ms": 5345,
+            "game_time": 32745,
+            "real_time": 1723,
+            "dialogue_flags": 8
+          }
+        ]
+      },
+      "artifacts": {
+        "clock-before.state.json": "6ab5ca1ff524a33f18dccbda0d2675b9fd1b0a9f937697cb5b0536230e0f4c13",
+        "clock-samples.json": "8d8534aec6eafa4441046d683f82d4815ee8d90522b7e5c4034a6dd71408b94e",
+        "events.json": "0c643d5bd22e3daf81cc654bfd84e43899afed9306758e9744e24891f6eb7214",
+        "gui-result.json": "1f3715e3b0785e22a79e295e7f8b3a4cbd0f5425b8a3b5761ef32ba1512be8b8",
+        "probe.cfg": "edd334ee6fb675339e1f881cf3c15e52bef1b7ea82721362523d559717dc99ce",
+        "process-result.json": "5670ed6c804f5438906788124228280fa346b21390354986aa8e4cc391cb2258",
+        "process.log": "fa4ca1a2ebd10998e8fd0f51aa7f21a7a7dd759368672151ae5a978018a0cb11"
+      },
+      "cap_fps": 30,
+      "checks": [
+        {
+          "name": "monotonic-wall-observations",
+          "passed": true
+        },
+        {
+          "name": "initial-pause-stable",
+          "passed": true
+        },
+        {
+          "name": "resume-advances",
+          "passed": true
+        },
+        {
+          "name": "running-clock-monotonic",
+          "passed": true
+        },
+        {
+          "name": "final-pause-stable",
+          "passed": true
+        }
+      ],
+      "observation": {
+        "running_elapsed_ms": 2660,
+        "running_game_ticks": 28,
+        "observed_game_ticks_per_wall_second": 10.526,
+        "configured_ticks_per_second": 15
+      }
+    },
+    {
+      "name": "cap60",
+      "process": {
+        "pid": 31416,
+        "exit_code": 0,
+        "timeout_seconds": 45,
+        "timed_out": false,
+        "cleanup": "not required",
+        "elapsed_seconds": 9.372
+      },
+      "command": [
+        "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\gui-probe\\Redux_gui_probe.exe",
+        "--config",
+        "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T032938Z-live-clock-bc8fe860\\cap60\\probe.cfg",
+        "--output",
+        "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T032938Z-live-clock-bc8fe860\\cap60",
+        "--scripts",
+        "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\tools\\phase0\\gui",
+        "--mode",
+        "live-clock"
+      ],
+      "input_unchanged": true,
+      "input_wire": {
+        "total": 7,
+        "permanent": 7,
+        "equipped": 0,
+        "signatures": [
+          {
+            "opcode": 101,
+            "param1": 0,
+            "param2": 134,
+            "timing": 1,
+            "count": 1
+          },
+          {
+            "opcode": 101,
+            "param1": 0,
+            "param2": 216,
+            "timing": 1,
+            "count": 1
+          },
+          {
+            "opcode": 267,
+            "param1": 14665,
+            "param2": 134,
+            "timing": 1,
+            "count": 1
+          },
+          {
+            "opcode": 267,
+            "param1": 40969,
+            "param2": 216,
+            "timing": 1,
+            "count": 1
+          },
+          {
+            "opcode": 267,
+            "param1": 40979,
+            "param2": 216,
+            "timing": 1,
+            "count": 1
+          },
+          {
+            "opcode": 267,
+            "param1": 41495,
+            "param2": 216,
+            "timing": 1,
+            "count": 1
+          },
+          {
+            "opcode": 267,
+            "param1": 41616,
+            "param2": 216,
+            "timing": 1,
+            "count": 1
+          }
+        ]
+      },
+      "native": {
+        "schema": "bg-redux-live-clock/1",
+        "ticks_per_second": 15,
+        "load_window_waits": 2,
+        "samples": [
+          {
+            "sample": 0,
+            "phase": "paused-initial",
+            "elapsed_ms": 0,
+            "game_time": 32715,
+            "real_time": 1666,
+            "dialogue_flags": 8
+          },
+          {
+            "sample": 1,
+            "phase": "paused-initial",
+            "elapsed_ms": 327,
+            "game_time": 32715,
+            "real_time": 1669,
+            "dialogue_flags": 8
+          },
+          {
+            "sample": 2,
+            "phase": "paused-initial",
+            "elapsed_ms": 623,
+            "game_time": 32715,
+            "real_time": 1673,
+            "dialogue_flags": 8
+          },
+          {
+            "sample": 3,
+            "phase": "paused-initial",
+            "elapsed_ms": 905,
+            "game_time": 32715,
+            "real_time": 1676,
+            "dialogue_flags": 8
+          },
+          {
+            "sample": 4,
+            "phase": "paused-initial",
+            "elapsed_ms": 1205,
+            "game_time": 32715,
+            "real_time": 1679,
+            "dialogue_flags": 8
+          },
+          {
+            "sample": 5,
+            "phase": "running",
+            "elapsed_ms": 2042,
+            "game_time": 32717,
+            "real_time": 1681,
+            "dialogue_flags": 0
+          },
+          {
+            "sample": 6,
+            "phase": "running",
+            "elapsed_ms": 2309,
+            "game_time": 32720,
+            "real_time": 1684,
+            "dialogue_flags": 0
+          },
+          {
+            "sample": 7,
+            "phase": "running",
+            "elapsed_ms": 2592,
+            "game_time": 32723,
+            "real_time": 1687,
+            "dialogue_flags": 0
+          },
+          {
+            "sample": 8,
+            "phase": "running",
+            "elapsed_ms": 2874,
+            "game_time": 32727,
+            "real_time": 1691,
+            "dialogue_flags": 0
+          },
+          {
+            "sample": 9,
+            "phase": "running",
+            "elapsed_ms": 3157,
+            "game_time": 32730,
+            "real_time": 1694,
+            "dialogue_flags": 0
+          },
+          {
+            "sample": 10,
+            "phase": "running",
+            "elapsed_ms": 3454,
+            "game_time": 32734,
+            "real_time": 1698,
+            "dialogue_flags": 0
+          },
+          {
+            "sample": 11,
+            "phase": "running",
+            "elapsed_ms": 3753,
+            "game_time": 32737,
+            "real_time": 1701,
+            "dialogue_flags": 0
+          },
+          {
+            "sample": 12,
+            "phase": "running",
+            "elapsed_ms": 4035,
+            "game_time": 32741,
+            "real_time": 1705,
+            "dialogue_flags": 0
+          },
+          {
+            "sample": 13,
+            "phase": "paused-final",
+            "elapsed_ms": 4346,
+            "game_time": 32741,
+            "real_time": 1708,
+            "dialogue_flags": 8
+          },
+          {
+            "sample": 14,
+            "phase": "paused-final",
+            "elapsed_ms": 4642,
+            "game_time": 32741,
+            "real_time": 1712,
+            "dialogue_flags": 8
+          },
+          {
+            "sample": 15,
+            "phase": "paused-final",
+            "elapsed_ms": 4924,
+            "game_time": 32741,
+            "real_time": 1715,
+            "dialogue_flags": 8
+          },
+          {
+            "sample": 16,
+            "phase": "paused-final",
+            "elapsed_ms": 5207,
+            "game_time": 32741,
+            "real_time": 1718,
+            "dialogue_flags": 8
+          }
+        ]
+      },
+      "artifacts": {
+        "clock-before.state.json": "579347c8002161c01a5da7742c6e7e0c8eda3a94dbb147440668a993f5386083",
+        "clock-samples.json": "ce3342ad481b3e1d7a6c3b0ca82181b83486d922ac6d777af04ed3614a8af514",
+        "events.json": "0c643d5bd22e3daf81cc654bfd84e43899afed9306758e9744e24891f6eb7214",
+        "gui-result.json": "1f3715e3b0785e22a79e295e7f8b3a4cbd0f5425b8a3b5761ef32ba1512be8b8",
+        "probe.cfg": "cbfbc4a1fd1c71f634402651fab21541ac055f0e372deeb9f208c95839f07d1c",
+        "process-result.json": "3f6cb95485524cc04508ff33d4eb524355d785bcb3e033393220fbd66f426823",
+        "process.log": "14effa94942c5196c816973c28a7b146c97c0b2c546b1821e15708155edb4685"
+      },
+      "cap_fps": 60,
+      "checks": [
+        {
+          "name": "monotonic-wall-observations",
+          "passed": true
+        },
+        {
+          "name": "initial-pause-stable",
+          "passed": true
+        },
+        {
+          "name": "resume-advances",
+          "passed": true
+        },
+        {
+          "name": "running-clock-monotonic",
+          "passed": true
+        },
+        {
+          "name": "final-pause-stable",
+          "passed": true
+        }
+      ],
+      "observation": {
+        "running_elapsed_ms": 2830,
+        "running_game_ticks": 26,
+        "observed_game_ticks_per_wall_second": 9.187,
+        "configured_ticks_per_second": 15
+      }
+    }
+  ],
+  "verdict": "passed-bounded-live-clock",
+  "assertions_total": 10,
+  "assertions_passed": 10,
+  "source_fixture_unchanged": true,
+  "tool_sources": {
+    "tools\\phase0\\live_clock.py": "9093ddca0eaf9628fbae608e7fd497dc04b79f0f0863d7cd5e2e391e864e64dd",
+    "tools\\phase0\\effect_cycle.py": "9394bc4ae36b74643e7abf9b8d4a005d6e4c6b742d59a3159a129e2920831721"
+  }
+}

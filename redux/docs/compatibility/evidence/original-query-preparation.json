@@ -1,0 +1,44 @@
+{
+  "schema": "bg-redux-original-query-preparation/1",
+  "created_utc": "2026-10-21T03:45:16.424746+00:00",
+  "game": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\original-query-game",
+  "profile": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\original-query-profile",
+  "source_files_copied": 2324,
+  "copied_original_hashes_match": true,
+  "executable_sha256": "b51093a49140b2b8a7c046b4652bb8e535be24ebbc12b1d735e0b94217a14d57",
+  "generated_script_sha256": "89632bda590c9325bc88ade44d3e8a35d75d2fdc1cecf5d2d9aaed823cdb3758",
+  "intentional_differences": [
+    "Private engine.lua profile name",
+    "New generated override/RDXQPROB.bcs",
+    "Private declared CRE script assignment fixture and initial config"
+  ],
+  "fixture_files": {
+    "BALDUR.bmp": {
+      "bytes": 65590,
+      "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+    },
+    "BALDUR.gam": {
+      "bytes": 69372,
+      "sha256": "ba5b6755beaffb799dca1596f3a15a7102ecc5ab45c39e4a6d652afef96137bf"
+    },
+    "BALDUR.SAV": {
+      "bytes": 19443,
+      "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+    },
+    "PORTRT0.bmp": {
+      "bytes": 13830,
+      "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+    },
+    "PORTRT1.bmp": {
+      "bytes": 13830,
+      "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+    },
+    "save_000000033-GemRB.cloud.meta": {
+      "bytes": 10,
+      "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+    }
+  },
+  "source_query_run": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T034359Z-script-query-3549b2a7",
+  "original_executed": false,
+  "source_sha256": "7665b9153aff116e5752a87e93826f998f7ac480341ec31bd9d25fa5817f572f"
+}

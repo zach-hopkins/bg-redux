@@ -1,0 +1,19 @@
+{
+  "revision": "bcb5cfaa9f19ffbe8a51f25a3c014fa344173351",
+  "audit_date": "2026-10-20",
+  "documentation_files_checked": 25,
+  "source_anchor_definitions_checked": 109,
+  "source_citation_occurrences_checked": 295,
+  "internal_links_checked": 156,
+  "charter_copy_byte_identical": true,
+  "charter_comparison_source": "Original attachment",
+  "engine_git_status_porcelain": "",
+  "engine_git_diff_stat": "",
+  "engine_build_run": true,
+  "engine_runtime_tests_run": true,
+  "execution_flags_source": "Historical phase0-evidence.json declarations; this validation does not execute builds or runtime tests",
+  "result_inventory": "compatibility/evidence/baseline-results.json",
+  "vanilla_save_import_run": true,
+  "normal_gui_save_load_run": true,
+  "note": "Documentation/link/source checks plus explicit run status. Library import/reload and normal GUI create/cancel/overwrite/fresh reload executed; expanded core locale failure/skips remain. GUI content coverage passes while incomplete EE presentation, IMMCLOUD effect differences, controlled timing and native-like gates remain open."
+}

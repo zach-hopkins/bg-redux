@@ -1,0 +1,5146 @@
+{
+  "schema": "bg-redux-effect-lifecycle/1",
+  "directory": "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T024237Z-immcloud-de4d6a2a",
+  "conditions": {
+    "stock": [
+      {
+        "name": "stock-0",
+        "process": {
+          "pid": 31580,
+          "exit_code": 0,
+          "timeout_seconds": 45,
+          "timed_out": false,
+          "cleanup": "not required",
+          "elapsed_seconds": 4.903
+        },
+        "command": [
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\gui-probe\\Redux_gui_probe.exe",
+          "--config",
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T024237Z-immcloud-de4d6a2a\\stock-0\\probe.cfg",
+          "--output",
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T024237Z-immcloud-de4d6a2a\\stock-0",
+          "--scripts",
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\tools\\phase0\\gui",
+          "--mode",
+          "effect-cycle"
+        ],
+        "input_unchanged": true,
+        "input_wire": {
+          "total": 7,
+          "permanent": 7,
+          "equipped": 0,
+          "signatures": [
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 134,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 216,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 14665,
+              "param2": 134,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 40969,
+              "param2": 216,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 40979,
+              "param2": 216,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 41495,
+              "param2": 216,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 41616,
+              "param2": 216,
+              "timing": 1,
+              "count": 1
+            }
+          ]
+        },
+        "native": {
+          "save_return_code": 0,
+          "forced": false,
+          "protection_queries_before": {
+            "opcode_134": true,
+            "opcode_216": true,
+            "string_14665": true,
+            "string_41616": true,
+            "string_40979": true,
+            "string_40969": true,
+            "string_41495": true
+          },
+          "protection_queries_after": {
+            "opcode_134": true,
+            "opcode_216": true,
+            "string_14665": true,
+            "string_41616": true,
+            "string_40979": true,
+            "string_40969": true,
+            "string_41495": true
+          }
+        },
+        "entry": {
+          "game_time": 32715,
+          "effects": {
+            "total": 20,
+            "permanent": 14,
+            "equipped": 6,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 2
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 2
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 2
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 2
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 2
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 2
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 2
+              }
+            ]
+          },
+          "total_actor_effects": 22,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "refresh1": {
+          "game_time": 32715,
+          "effects": {
+            "total": 20,
+            "permanent": 14,
+            "equipped": 6,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 2
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 2
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 2
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 2
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 2
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 2
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 2
+              }
+            ]
+          },
+          "total_actor_effects": 22,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "refresh2": {
+          "game_time": 32715,
+          "effects": {
+            "total": 20,
+            "permanent": 14,
+            "equipped": 6,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 2
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 2
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 2
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 2
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 2
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 2
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 2
+              }
+            ]
+          },
+          "total_actor_effects": 22,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "persisted": {
+          "game_time": 32715,
+          "effects": {
+            "total": 20,
+            "permanent": 14,
+            "equipped": 6,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 2
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 2
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 2
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 2
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 2
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 2
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 2
+              }
+            ]
+          },
+          "total_actor_effects": 22,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "output_wire": {
+          "total": 14,
+          "permanent": 14,
+          "equipped": 0,
+          "signatures": [
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 134,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 216,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 14665,
+              "param2": 0,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 40969,
+              "param2": 0,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 40979,
+              "param2": 0,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 41495,
+              "param2": 0,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 41616,
+              "param2": 0,
+              "timing": 1,
+              "count": 2
+            }
+          ]
+        },
+        "artifacts": {
+          "effect-result.json": "396c92bce34e64d8aa583fa5aa263af770fee1d4f8eff8d93e26c785a46bc423",
+          "entry.state.json": "7256727d723206dbf3e8cdce2473d3d439dd965bdd400ca0f7eb8c146f7b74df",
+          "events.json": "9567240f892910be27f89f8bf47b3d03c2b01399aefd5037ca0ca6e46eeb4451",
+          "gui-result.json": "f224eff787592f1b64871e072b598909efbd1aaa30a59cb8d88699f909b0604a",
+          "persisted.state.json": "7256727d723206dbf3e8cdce2473d3d439dd965bdd400ca0f7eb8c146f7b74df",
+          "probe.cfg": "74de082a65462793d08c073fd3fb543b855f6e97a3d9972579962da67980c12a",
+          "process-result.json": "7cda76f63777537721ad81c718fa96a0bee00d2ccd9838a8ece260f6ff022c2a",
+          "process.log": "c8e3fcfd8b8911acae3e640d3841cea107ce08dbf4850bce89e7a69783d68e30",
+          "refresh1.state.json": "7256727d723206dbf3e8cdce2473d3d439dd965bdd400ca0f7eb8c146f7b74df",
+          "refresh2.state.json": "7256727d723206dbf3e8cdce2473d3d439dd965bdd400ca0f7eb8c146f7b74df"
+        },
+        "saved_cre_bytes": 4856,
+        "saved_cre_sha256": "af3fc24d85320cccf3ad464778c371734e4a30eaf9b29cb4251f876c8e5c1a3f",
+        "saved_files": {
+          "baldur.bmp": {
+            "bytes": 93690,
+            "sha256": "bcd43dcc93d716af0df129ae6d7a2b869278690c80eb812b64829d5f811c7fe4"
+          },
+          "baldur.gam": {
+            "bytes": 69372,
+            "sha256": "6586c511ba3765e60087283e619ed9bebffd7d9d3fc85c06ad9df6c20fdca9c6"
+          },
+          "baldur.sav": {
+            "bytes": 19388,
+            "sha256": "f54696a793dcb1161f62925c2c5520058daad01d3d2e3c246b87509be9bab6ee"
+          },
+          "PORTRT0.bmp": {
+            "bytes": 13830,
+            "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+          },
+          "PORTRT1.bmp": {
+            "bytes": 13830,
+            "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+          }
+        }
+      },
+      {
+        "name": "stock-1",
+        "process": {
+          "pid": 24904,
+          "exit_code": 0,
+          "timeout_seconds": 45,
+          "timed_out": false,
+          "cleanup": "not required",
+          "elapsed_seconds": 6.148
+        },
+        "command": [
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\gui-probe\\Redux_gui_probe.exe",
+          "--config",
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T024237Z-immcloud-de4d6a2a\\stock-1\\probe.cfg",
+          "--output",
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T024237Z-immcloud-de4d6a2a\\stock-1",
+          "--scripts",
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\tools\\phase0\\gui",
+          "--mode",
+          "effect-cycle"
+        ],
+        "input_unchanged": true,
+        "input_wire": {
+          "total": 14,
+          "permanent": 14,
+          "equipped": 0,
+          "signatures": [
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 134,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 216,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 14665,
+              "param2": 0,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 40969,
+              "param2": 0,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 40979,
+              "param2": 0,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 41495,
+              "param2": 0,
+              "timing": 1,
+              "count": 2
+            },
+            {
+              "opcode": 267,
+              "param1": 41616,
+              "param2": 0,
+              "timing": 1,
+              "count": 2
+            }
+          ]
+        },
+        "native": {
+          "save_return_code": 0,
+          "forced": false,
+          "protection_queries_before": {
+            "opcode_134": true,
+            "opcode_216": true,
+            "string_14665": true,
+            "string_41616": true,
+            "string_40979": true,
+            "string_40969": true,
+            "string_41495": true
+          },
+          "protection_queries_after": {
+            "opcode_134": true,
+            "opcode_216": true,
+            "string_14665": true,
+            "string_41616": true,
+            "string_40979": true,
+            "string_40969": true,
+            "string_41495": true
+          }
+        },
+        "entry": {
+          "game_time": 32715,
+          "effects": {
+            "total": 27,
+            "permanent": 21,
+            "equipped": 6,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 3
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 3
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 3
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 3
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 3
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 3
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 3
+              }
+            ]
+          },
+          "total_actor_effects": 29,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "refresh1": {
+          "game_time": 32715,
+          "effects": {
+            "total": 27,
+            "permanent": 21,
+            "equipped": 6,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 3
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 3
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 3
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 3
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 3
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 3
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 3
+              }
+            ]
+          },
+          "total_actor_effects": 29,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "refresh2": {
+          "game_time": 32715,
+          "effects": {
+            "total": 27,
+            "permanent": 21,
+            "equipped": 6,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 3
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 3
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 3
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 3
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 3
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 3
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 3
+              }
+            ]
+          },
+          "total_actor_effects": 29,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "persisted": {
+          "game_time": 32715,
+          "effects": {
+            "total": 27,
+            "permanent": 21,
+            "equipped": 6,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 3
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 3
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 3
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 3
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 3
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 3
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 3
+              }
+            ]
+          },
+          "total_actor_effects": 29,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "output_wire": {
+          "total": 21,
+          "permanent": 21,
+          "equipped": 0,
+          "signatures": [
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 134,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 216,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 14665,
+              "param2": 0,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 40969,
+              "param2": 0,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 40979,
+              "param2": 0,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 41495,
+              "param2": 0,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 41616,
+              "param2": 0,
+              "timing": 1,
+              "count": 3
+            }
+          ]
+        },
+        "artifacts": {
+          "effect-result.json": "396c92bce34e64d8aa583fa5aa263af770fee1d4f8eff8d93e26c785a46bc423",
+          "entry.state.json": "85b21bb1589e144644a3219aac2ec3485fe5ed13c39e065516e9514e23af86e7",
+          "events.json": "9567240f892910be27f89f8bf47b3d03c2b01399aefd5037ca0ca6e46eeb4451",
+          "gui-result.json": "f224eff787592f1b64871e072b598909efbd1aaa30a59cb8d88699f909b0604a",
+          "persisted.state.json": "85b21bb1589e144644a3219aac2ec3485fe5ed13c39e065516e9514e23af86e7",
+          "probe.cfg": "b4ca82a9fdba1af5fda0b799a867dc0a8b8cff2c6b1317d0f5f4a806cd521018",
+          "process-result.json": "8dba9ce95b8aa0776da08668b97983c02f4dd3204297733ded317d9ad96e68bd",
+          "process.log": "a9a9da6bdd555bc55022fd5c4ecaff8df3f677c9da6344869dee4259280983bc",
+          "refresh1.state.json": "85b21bb1589e144644a3219aac2ec3485fe5ed13c39e065516e9514e23af86e7",
+          "refresh2.state.json": "85b21bb1589e144644a3219aac2ec3485fe5ed13c39e065516e9514e23af86e7"
+        },
+        "saved_cre_bytes": 6704,
+        "saved_cre_sha256": "decd056804514940ab7dd41acacf56aeff32baf5566b3b2d49c9cae679c5bf4e",
+        "saved_files": {
+          "baldur.bmp": {
+            "bytes": 93690,
+            "sha256": "bcd43dcc93d716af0df129ae6d7a2b869278690c80eb812b64829d5f811c7fe4"
+          },
+          "baldur.gam": {
+            "bytes": 69372,
+            "sha256": "44d50996be05921f17c2b1798cbc9acddf27c8152e4abc7949722c480b46d2b1"
+          },
+          "baldur.sav": {
+            "bytes": 19412,
+            "sha256": "2f58e9053183053ccd5bd4798ba698fe79b83a9e62a30edf372988c96c33208d"
+          },
+          "PORTRT0.bmp": {
+            "bytes": 13830,
+            "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+          },
+          "PORTRT1.bmp": {
+            "bytes": 13830,
+            "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+          }
+        }
+      },
+      {
+        "name": "stock-2",
+        "process": {
+          "pid": 34396,
+          "exit_code": 0,
+          "timeout_seconds": 45,
+          "timed_out": false,
+          "cleanup": "not required",
+          "elapsed_seconds": 4.942
+        },
+        "command": [
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\gui-probe\\Redux_gui_probe.exe",
+          "--config",
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T024237Z-immcloud-de4d6a2a\\stock-2\\probe.cfg",
+          "--output",
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T024237Z-immcloud-de4d6a2a\\stock-2",
+          "--scripts",
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\tools\\phase0\\gui",
+          "--mode",
+          "effect-cycle"
+        ],
+        "input_unchanged": true,
+        "input_wire": {
+          "total": 21,
+          "permanent": 21,
+          "equipped": 0,
+          "signatures": [
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 134,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 216,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 14665,
+              "param2": 0,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 40969,
+              "param2": 0,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 40979,
+              "param2": 0,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 41495,
+              "param2": 0,
+              "timing": 1,
+              "count": 3
+            },
+            {
+              "opcode": 267,
+              "param1": 41616,
+              "param2": 0,
+              "timing": 1,
+              "count": 3
+            }
+          ]
+        },
+        "native": {
+          "save_return_code": 0,
+          "forced": false,
+          "protection_queries_before": {
+            "opcode_134": true,
+            "opcode_216": true,
+            "string_14665": true,
+            "string_41616": true,
+            "string_40979": true,
+            "string_40969": true,
+            "string_41495": true
+          },
+          "protection_queries_after": {
+            "opcode_134": true,
+            "opcode_216": true,
+            "string_14665": true,
+            "string_41616": true,
+            "string_40979": true,
+            "string_40969": true,
+            "string_41495": true
+          }
+        },
+        "entry": {
+          "game_time": 32715,
+          "effects": {
+            "total": 34,
+            "permanent": 28,
+            "equipped": 6,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 4
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 4
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 4
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 4
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 4
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 4
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 4
+              }
+            ]
+          },
+          "total_actor_effects": 36,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "refresh1": {
+          "game_time": 32715,
+          "effects": {
+            "total": 34,
+            "permanent": 28,
+            "equipped": 6,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 4
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 4
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 4
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 4
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 4
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 4
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 4
+              }
+            ]
+          },
+          "total_actor_effects": 36,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "refresh2": {
+          "game_time": 32715,
+          "effects": {
+            "total": 34,
+            "permanent": 28,
+            "equipped": 6,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 4
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 4
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 4
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 4
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 4
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 4
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 4
+              }
+            ]
+          },
+          "total_actor_effects": 36,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "persisted": {
+          "game_time": 32715,
+          "effects": {
+            "total": 34,
+            "permanent": 28,
+            "equipped": 6,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 4
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 4
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 4
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 4
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 4
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 4
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 4
+              }
+            ]
+          },
+          "total_actor_effects": 36,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "output_wire": {
+          "total": 28,
+          "permanent": 28,
+          "equipped": 0,
+          "signatures": [
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 134,
+              "timing": 1,
+              "count": 4
+            },
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 216,
+              "timing": 1,
+              "count": 4
+            },
+            {
+              "opcode": 267,
+              "param1": 14665,
+              "param2": 0,
+              "timing": 1,
+              "count": 4
+            },
+            {
+              "opcode": 267,
+              "param1": 40969,
+              "param2": 0,
+              "timing": 1,
+              "count": 4
+            },
+            {
+              "opcode": 267,
+              "param1": 40979,
+              "param2": 0,
+              "timing": 1,
+              "count": 4
+            },
+            {
+              "opcode": 267,
+              "param1": 41495,
+              "param2": 0,
+              "timing": 1,
+              "count": 4
+            },
+            {
+              "opcode": 267,
+              "param1": 41616,
+              "param2": 0,
+              "timing": 1,
+              "count": 4
+            }
+          ]
+        },
+        "artifacts": {
+          "effect-result.json": "396c92bce34e64d8aa583fa5aa263af770fee1d4f8eff8d93e26c785a46bc423",
+          "entry.state.json": "ce420d209e11ee70030feb540296fed09455ea956656f5ccd1618c93c2bb06ba",
+          "events.json": "9567240f892910be27f89f8bf47b3d03c2b01399aefd5037ca0ca6e46eeb4451",
+          "gui-result.json": "f224eff787592f1b64871e072b598909efbd1aaa30a59cb8d88699f909b0604a",
+          "persisted.state.json": "ce420d209e11ee70030feb540296fed09455ea956656f5ccd1618c93c2bb06ba",
+          "probe.cfg": "ddcdf13afb6a2c47c2fb5d48adc572babb61cd0d305aa942e8db3816a2a12335",
+          "process-result.json": "866f101ff8d0883e8ab5aa908c7aa3cd7381dac48febe2ae3fd5f26db3741be7",
+          "process.log": "200b72d8888067c2030202f6196825d5442d2f417306324f02db91fe49fa941d",
+          "refresh1.state.json": "ce420d209e11ee70030feb540296fed09455ea956656f5ccd1618c93c2bb06ba",
+          "refresh2.state.json": "ce420d209e11ee70030feb540296fed09455ea956656f5ccd1618c93c2bb06ba"
+        },
+        "saved_cre_bytes": 8552,
+        "saved_cre_sha256": "295c33bf0b0a860b4a4fa1169fd01c50960715b8fde2954699a651b6b4b7caa8",
+        "saved_files": {
+          "baldur.bmp": {
+            "bytes": 93690,
+            "sha256": "bcd43dcc93d716af0df129ae6d7a2b869278690c80eb812b64829d5f811c7fe4"
+          },
+          "baldur.gam": {
+            "bytes": 69372,
+            "sha256": "d9015b3e143c0994a06c122945e6715beabd6c0b76b395f489a63359a9e97b27"
+          },
+          "baldur.sav": {
+            "bytes": 19446,
+            "sha256": "603d5887c7d4a92be37c63c52f21cc3c71670906e30b984a3400f4440cba8945"
+          },
+          "PORTRT0.bmp": {
+            "bytes": 13830,
+            "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+          },
+          "PORTRT1.bmp": {
+            "bytes": 13830,
+            "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+          }
+        }
+      },
+      {
+        "name": "stock-3",
+        "process": {
+          "pid": 33552,
+          "exit_code": 0,
+          "timeout_seconds": 45,
+          "timed_out": false,
+          "cleanup": "not required",
+          "elapsed_seconds": 4.988
+        },
+        "command": [
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\gui-probe\\Redux_gui_probe.exe",
+          "--config",
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T024237Z-immcloud-de4d6a2a\\stock-3\\probe.cfg",
+          "--output",
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T024237Z-immcloud-de4d6a2a\\stock-3",
+          "--scripts",
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\tools\\phase0\\gui",
+          "--mode",
+          "effect-cycle"
+        ],
+        "input_unchanged": true,
+        "input_wire": {
+          "total": 28,
+          "permanent": 28,
+          "equipped": 0,
+          "signatures": [
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 134,
+              "timing": 1,
+              "count": 4
+            },
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 216,
+              "timing": 1,
+              "count": 4
+            },
+            {
+              "opcode": 267,
+              "param1": 14665,
+              "param2": 0,
+              "timing": 1,
+              "count": 4
+            },
+            {
+              "opcode": 267,
+              "param1": 40969,
+              "param2": 0,
+              "timing": 1,
+              "count": 4
+            },
+            {
+              "opcode": 267,
+              "param1": 40979,
+              "param2": 0,
+              "timing": 1,
+              "count": 4
+            },
+            {
+              "opcode": 267,
+              "param1": 41495,
+              "param2": 0,
+              "timing": 1,
+              "count": 4
+            },
+            {
+              "opcode": 267,
+              "param1": 41616,
+              "param2": 0,
+              "timing": 1,
+              "count": 4
+            }
+          ]
+        },
+        "native": {
+          "save_return_code": 0,
+          "forced": false,
+          "protection_queries_before": {
+            "opcode_134": true,
+            "opcode_216": true,
+            "string_14665": true,
+            "string_41616": true,
+            "string_40979": true,
+            "string_40969": true,
+            "string_41495": true
+          },
+          "protection_queries_after": {
+            "opcode_134": true,
+            "opcode_216": true,
+            "string_14665": true,
+            "string_41616": true,
+            "string_40979": true,
+            "string_40969": true,
+            "string_41495": true
+          }
+        },
+        "entry": {
+          "game_time": 32715,
+          "effects": {
+            "total": 41,
+            "permanent": 35,
+            "equipped": 6,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 5
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 5
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 5
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 5
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 5
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 5
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 5
+              }
+            ]
+          },
+          "total_actor_effects": 43,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "refresh1": {
+          "game_time": 32715,
+          "effects": {
+            "total": 41,
+            "permanent": 35,
+            "equipped": 6,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 5
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 5
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 5
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 5
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 5
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 5
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 5
+              }
+            ]
+          },
+          "total_actor_effects": 43,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "refresh2": {
+          "game_time": 32715,
+          "effects": {
+            "total": 41,
+            "permanent": 35,
+            "equipped": 6,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 5
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 5
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 5
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 5
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 5
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 5
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 5
+              }
+            ]
+          },
+          "total_actor_effects": 43,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "persisted": {
+          "game_time": 32715,
+          "effects": {
+            "total": 41,
+            "permanent": 35,
+            "equipped": 6,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 5
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 5
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 5
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 5
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 5
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 5
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 5
+              }
+            ]
+          },
+          "total_actor_effects": 43,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "output_wire": {
+          "total": 35,
+          "permanent": 35,
+          "equipped": 0,
+          "signatures": [
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 134,
+              "timing": 1,
+              "count": 5
+            },
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 216,
+              "timing": 1,
+              "count": 5
+            },
+            {
+              "opcode": 267,
+              "param1": 14665,
+              "param2": 0,
+              "timing": 1,
+              "count": 5
+            },
+            {
+              "opcode": 267,
+              "param1": 40969,
+              "param2": 0,
+              "timing": 1,
+              "count": 5
+            },
+            {
+              "opcode": 267,
+              "param1": 40979,
+              "param2": 0,
+              "timing": 1,
+              "count": 5
+            },
+            {
+              "opcode": 267,
+              "param1": 41495,
+              "param2": 0,
+              "timing": 1,
+              "count": 5
+            },
+            {
+              "opcode": 267,
+              "param1": 41616,
+              "param2": 0,
+              "timing": 1,
+              "count": 5
+            }
+          ]
+        },
+        "artifacts": {
+          "effect-result.json": "396c92bce34e64d8aa583fa5aa263af770fee1d4f8eff8d93e26c785a46bc423",
+          "entry.state.json": "d0907414748ac497f409bc3114610ac056270737a9912f5b1bb24a34cbd30c36",
+          "events.json": "9567240f892910be27f89f8bf47b3d03c2b01399aefd5037ca0ca6e46eeb4451",
+          "gui-result.json": "f224eff787592f1b64871e072b598909efbd1aaa30a59cb8d88699f909b0604a",
+          "persisted.state.json": "d0907414748ac497f409bc3114610ac056270737a9912f5b1bb24a34cbd30c36",
+          "probe.cfg": "c95e06af7bafee4d13d50c2bb88c473ba90c1c99c39f2021a2f9e4ea52290fcd",
+          "process-result.json": "abe2dafa8295d8f42cd3b8185ad82d78f4d83e811cfad178f1b0e3509fcb1ee4",
+          "process.log": "33c0a9ff8cd354b5ad92865e6cf3a3cc29a237143f74e45cc5621a0914f5285d",
+          "refresh1.state.json": "d0907414748ac497f409bc3114610ac056270737a9912f5b1bb24a34cbd30c36",
+          "refresh2.state.json": "d0907414748ac497f409bc3114610ac056270737a9912f5b1bb24a34cbd30c36"
+        },
+        "saved_cre_bytes": 10400,
+        "saved_cre_sha256": "d388e71dad689e0c79bb09e96f280f0ca026b5af55f3ced2d122150e2c6f86f7",
+        "saved_files": {
+          "baldur.bmp": {
+            "bytes": 93690,
+            "sha256": "bcd43dcc93d716af0df129ae6d7a2b869278690c80eb812b64829d5f811c7fe4"
+          },
+          "baldur.gam": {
+            "bytes": 69372,
+            "sha256": "6c30dac8f5130a5e92c2223ed57f68f784041734fb13027e9287714bcfe35cf5"
+          },
+          "baldur.sav": {
+            "bytes": 19465,
+            "sha256": "0a4bac9258eb36f2594eac3ed2b6e5e7294dc4037f2c1456fd388c3aeeb71a2c"
+          },
+          "PORTRT0.bmp": {
+            "bytes": 13830,
+            "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+          },
+          "PORTRT1.bmp": {
+            "bytes": 13830,
+            "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+          }
+        }
+      }
+    ],
+    "timing2-control": [
+      {
+        "name": "timing2-control-0",
+        "process": {
+          "pid": 32744,
+          "exit_code": 0,
+          "timeout_seconds": 45,
+          "timed_out": false,
+          "cleanup": "not required",
+          "elapsed_seconds": 5.125
+        },
+        "command": [
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\gui-probe\\Redux_gui_probe.exe",
+          "--config",
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T024237Z-immcloud-de4d6a2a\\timing2-control-0\\probe.cfg",
+          "--output",
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T024237Z-immcloud-de4d6a2a\\timing2-control-0",
+          "--scripts",
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\tools\\phase0\\gui",
+          "--mode",
+          "effect-cycle"
+        ],
+        "input_unchanged": true,
+        "input_wire": {
+          "total": 7,
+          "permanent": 7,
+          "equipped": 0,
+          "signatures": [
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 134,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 216,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 14665,
+              "param2": 134,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 40969,
+              "param2": 216,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 40979,
+              "param2": 216,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 41495,
+              "param2": 216,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 41616,
+              "param2": 216,
+              "timing": 1,
+              "count": 1
+            }
+          ]
+        },
+        "native": {
+          "save_return_code": 0,
+          "forced": false,
+          "protection_queries_before": {
+            "opcode_134": true,
+            "opcode_216": true,
+            "string_14665": true,
+            "string_41616": true,
+            "string_40979": true,
+            "string_40969": true,
+            "string_41495": true
+          },
+          "protection_queries_after": {
+            "opcode_134": true,
+            "opcode_216": true,
+            "string_14665": true,
+            "string_41616": true,
+            "string_40979": true,
+            "string_40969": true,
+            "string_41495": true
+          }
+        },
+        "entry": {
+          "game_time": 32715,
+          "effects": {
+            "total": 20,
+            "permanent": 7,
+            "equipped": 13,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              }
+            ]
+          },
+          "total_actor_effects": 22,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "refresh1": {
+          "game_time": 32715,
+          "effects": {
+            "total": 20,
+            "permanent": 7,
+            "equipped": 13,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              }
+            ]
+          },
+          "total_actor_effects": 22,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "refresh2": {
+          "game_time": 32715,
+          "effects": {
+            "total": 20,
+            "permanent": 7,
+            "equipped": 13,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              }
+            ]
+          },
+          "total_actor_effects": 22,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "persisted": {
+          "game_time": 32715,
+          "effects": {
+            "total": 20,
+            "permanent": 7,
+            "equipped": 13,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              }
+            ]
+          },
+          "total_actor_effects": 22,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "output_wire": {
+          "total": 7,
+          "permanent": 7,
+          "equipped": 0,
+          "signatures": [
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 134,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 216,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 14665,
+              "param2": 0,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 40969,
+              "param2": 0,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 40979,
+              "param2": 0,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 41495,
+              "param2": 0,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 41616,
+              "param2": 0,
+              "timing": 1,
+              "count": 1
+            }
+          ]
+        },
+        "artifacts": {
+          "effect-result.json": "396c92bce34e64d8aa583fa5aa263af770fee1d4f8eff8d93e26c785a46bc423",
+          "entry.state.json": "5fa9d95da4ba339d2dbf31e60a1a990b97e74195df06e8f3141f6f5108b3c6fc",
+          "events.json": "9567240f892910be27f89f8bf47b3d03c2b01399aefd5037ca0ca6e46eeb4451",
+          "gui-result.json": "f224eff787592f1b64871e072b598909efbd1aaa30a59cb8d88699f909b0604a",
+          "persisted.state.json": "5fa9d95da4ba339d2dbf31e60a1a990b97e74195df06e8f3141f6f5108b3c6fc",
+          "probe.cfg": "79854248a6a16fd3d5584e2a405e3f9e59fb26399440a3f5b87b63d5a9f5f98c",
+          "process-result.json": "2773d3ac2af0c3fd16761eef4dddd60960d0cd70e152aae51e93aec4a7e7360a",
+          "process.log": "43de1fb50307fc9b407c963f8aebb52b328cd9d95be8400ea5576b9202a15db3",
+          "refresh1.state.json": "5fa9d95da4ba339d2dbf31e60a1a990b97e74195df06e8f3141f6f5108b3c6fc",
+          "refresh2.state.json": "5fa9d95da4ba339d2dbf31e60a1a990b97e74195df06e8f3141f6f5108b3c6fc"
+        },
+        "saved_cre_bytes": 3008,
+        "saved_cre_sha256": "c0dcc672f8b1eecd8a4a8ab20f83ac97938dd12cf2d40c09f94f668369b5b5e4",
+        "saved_files": {
+          "baldur.bmp": {
+            "bytes": 93690,
+            "sha256": "bcd43dcc93d716af0df129ae6d7a2b869278690c80eb812b64829d5f811c7fe4"
+          },
+          "baldur.gam": {
+            "bytes": 69372,
+            "sha256": "6586c511ba3765e60087283e619ed9bebffd7d9d3fc85c06ad9df6c20fdca9c6"
+          },
+          "baldur.sav": {
+            "bytes": 19340,
+            "sha256": "c31aada2e41375edf6923adb44c929ab33a14bbbcf463ee8324b9e6452da91d6"
+          },
+          "PORTRT0.bmp": {
+            "bytes": 13830,
+            "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+          },
+          "PORTRT1.bmp": {
+            "bytes": 13830,
+            "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+          }
+        }
+      },
+      {
+        "name": "timing2-control-1",
+        "process": {
+          "pid": 15352,
+          "exit_code": 0,
+          "timeout_seconds": 45,
+          "timed_out": false,
+          "cleanup": "not required",
+          "elapsed_seconds": 4.898
+        },
+        "command": [
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\gui-probe\\Redux_gui_probe.exe",
+          "--config",
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T024237Z-immcloud-de4d6a2a\\timing2-control-1\\probe.cfg",
+          "--output",
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T024237Z-immcloud-de4d6a2a\\timing2-control-1",
+          "--scripts",
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\tools\\phase0\\gui",
+          "--mode",
+          "effect-cycle"
+        ],
+        "input_unchanged": true,
+        "input_wire": {
+          "total": 7,
+          "permanent": 7,
+          "equipped": 0,
+          "signatures": [
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 134,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 216,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 14665,
+              "param2": 0,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 40969,
+              "param2": 0,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 40979,
+              "param2": 0,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 41495,
+              "param2": 0,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 41616,
+              "param2": 0,
+              "timing": 1,
+              "count": 1
+            }
+          ]
+        },
+        "native": {
+          "save_return_code": 0,
+          "forced": false,
+          "protection_queries_before": {
+            "opcode_134": true,
+            "opcode_216": true,
+            "string_14665": true,
+            "string_41616": true,
+            "string_40979": true,
+            "string_40969": true,
+            "string_41495": true
+          },
+          "protection_queries_after": {
+            "opcode_134": true,
+            "opcode_216": true,
+            "string_14665": true,
+            "string_41616": true,
+            "string_40979": true,
+            "string_40969": true,
+            "string_41495": true
+          }
+        },
+        "entry": {
+          "game_time": 32715,
+          "effects": {
+            "total": 20,
+            "permanent": 7,
+            "equipped": 13,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              }
+            ]
+          },
+          "total_actor_effects": 22,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "refresh1": {
+          "game_time": 32715,
+          "effects": {
+            "total": 20,
+            "permanent": 7,
+            "equipped": 13,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              }
+            ]
+          },
+          "total_actor_effects": 22,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "refresh2": {
+          "game_time": 32715,
+          "effects": {
+            "total": 20,
+            "permanent": 7,
+            "equipped": 13,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              }
+            ]
+          },
+          "total_actor_effects": 22,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "persisted": {
+          "game_time": 32715,
+          "effects": {
+            "total": 20,
+            "permanent": 7,
+            "equipped": 13,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              }
+            ]
+          },
+          "total_actor_effects": 22,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "output_wire": {
+          "total": 7,
+          "permanent": 7,
+          "equipped": 0,
+          "signatures": [
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 134,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 216,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 14665,
+              "param2": 0,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 40969,
+              "param2": 0,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 40979,
+              "param2": 0,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 41495,
+              "param2": 0,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 41616,
+              "param2": 0,
+              "timing": 1,
+              "count": 1
+            }
+          ]
+        },
+        "artifacts": {
+          "effect-result.json": "396c92bce34e64d8aa583fa5aa263af770fee1d4f8eff8d93e26c785a46bc423",
+          "entry.state.json": "12c3bdcb65ff438082c6d9d17ac09476f3bbb9e2bfc78141f4ff4032e47ac82d",
+          "events.json": "9567240f892910be27f89f8bf47b3d03c2b01399aefd5037ca0ca6e46eeb4451",
+          "gui-result.json": "f224eff787592f1b64871e072b598909efbd1aaa30a59cb8d88699f909b0604a",
+          "persisted.state.json": "12c3bdcb65ff438082c6d9d17ac09476f3bbb9e2bfc78141f4ff4032e47ac82d",
+          "probe.cfg": "c8791a9d516a7b546bb5a0cc67a95424de302dbea6d09503a934a64ca5d9c843",
+          "process-result.json": "7aa2e0bd03126aa48d757c01adbde6e9eba7788c5ac3cd4d4b3b9f646486105d",
+          "process.log": "bca63d2ee79c6fe7cd03ab6dd9b3575a296f137ada7db610ac2356fe2b718364",
+          "refresh1.state.json": "12c3bdcb65ff438082c6d9d17ac09476f3bbb9e2bfc78141f4ff4032e47ac82d",
+          "refresh2.state.json": "12c3bdcb65ff438082c6d9d17ac09476f3bbb9e2bfc78141f4ff4032e47ac82d"
+        },
+        "saved_cre_bytes": 3008,
+        "saved_cre_sha256": "c0dcc672f8b1eecd8a4a8ab20f83ac97938dd12cf2d40c09f94f668369b5b5e4",
+        "saved_files": {
+          "baldur.bmp": {
+            "bytes": 93690,
+            "sha256": "bcd43dcc93d716af0df129ae6d7a2b869278690c80eb812b64829d5f811c7fe4"
+          },
+          "baldur.gam": {
+            "bytes": 69372,
+            "sha256": "44d50996be05921f17c2b1798cbc9acddf27c8152e4abc7949722c480b46d2b1"
+          },
+          "baldur.sav": {
+            "bytes": 19337,
+            "sha256": "ee2f10857784cfde27a9b5c2eb99ca140d08f07a0d90100afebc3d9e128f0cc8"
+          },
+          "PORTRT0.bmp": {
+            "bytes": 13830,
+            "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+          },
+          "PORTRT1.bmp": {
+            "bytes": 13830,
+            "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+          }
+        }
+      },
+      {
+        "name": "timing2-control-2",
+        "process": {
+          "pid": 6868,
+          "exit_code": 0,
+          "timeout_seconds": 45,
+          "timed_out": false,
+          "cleanup": "not required",
+          "elapsed_seconds": 5.025
+        },
+        "command": [
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\gui-probe\\Redux_gui_probe.exe",
+          "--config",
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T024237Z-immcloud-de4d6a2a\\timing2-control-2\\probe.cfg",
+          "--output",
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\results\\20261021T024237Z-immcloud-de4d6a2a\\timing2-control-2",
+          "--scripts",
+          "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\tools\\phase0\\gui",
+          "--mode",
+          "effect-cycle"
+        ],
+        "input_unchanged": true,
+        "input_wire": {
+          "total": 7,
+          "permanent": 7,
+          "equipped": 0,
+          "signatures": [
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 134,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 216,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 14665,
+              "param2": 0,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 40969,
+              "param2": 0,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 40979,
+              "param2": 0,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 41495,
+              "param2": 0,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 41616,
+              "param2": 0,
+              "timing": 1,
+              "count": 1
+            }
+          ]
+        },
+        "native": {
+          "save_return_code": 0,
+          "forced": false,
+          "protection_queries_before": {
+            "opcode_134": true,
+            "opcode_216": true,
+            "string_14665": true,
+            "string_41616": true,
+            "string_40979": true,
+            "string_40969": true,
+            "string_41495": true
+          },
+          "protection_queries_after": {
+            "opcode_134": true,
+            "opcode_216": true,
+            "string_14665": true,
+            "string_41616": true,
+            "string_40979": true,
+            "string_40969": true,
+            "string_41495": true
+          }
+        },
+        "entry": {
+          "game_time": 32715,
+          "effects": {
+            "total": 20,
+            "permanent": 7,
+            "equipped": 13,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              }
+            ]
+          },
+          "total_actor_effects": 22,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "refresh1": {
+          "game_time": 32715,
+          "effects": {
+            "total": 20,
+            "permanent": 7,
+            "equipped": 13,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              }
+            ]
+          },
+          "total_actor_effects": 22,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "refresh2": {
+          "game_time": 32715,
+          "effects": {
+            "total": 20,
+            "permanent": 7,
+            "equipped": 13,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              }
+            ]
+          },
+          "total_actor_effects": 22,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "persisted": {
+          "game_time": 32715,
+          "effects": {
+            "total": 20,
+            "permanent": 7,
+            "equipped": 13,
+            "signatures": [
+              {
+                "opcode": 83,
+                "param1": 0,
+                "param2": 94,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 39,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 134,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 216,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 101,
+                "param1": 0,
+                "param2": 217,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 169,
+                "param1": 0,
+                "param2": 14,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14001,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 14665,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40968,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40969,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 40979,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41495,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 1,
+                "count": 1
+              },
+              {
+                "opcode": 267,
+                "param1": 41616,
+                "param2": 0,
+                "timing": 2,
+                "count": 1
+              }
+            ]
+          },
+          "total_actor_effects": 22,
+          "base_stats_sha256": "e3bd514752a07aece3fd531d1f8780f8639acd8b785b5d7cc3d7e34bd8a14ef5",
+          "modified_stats_sha256": "27889728e497216431cac30364654e23f56ddbe035399a53a7d6d0f5f05f4ab4"
+        },
+        "output_wire": {
+          "total": 7,
+          "permanent": 7,
+          "equipped": 0,
+          "signatures": [
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 134,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 101,
+              "param1": 0,
+              "param2": 216,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 14665,
+              "param2": 0,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 40969,
+              "param2": 0,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 40979,
+              "param2": 0,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 41495,
+              "param2": 0,
+              "timing": 1,
+              "count": 1
+            },
+            {
+              "opcode": 267,
+              "param1": 41616,
+              "param2": 0,
+              "timing": 1,
+              "count": 1
+            }
+          ]
+        },
+        "artifacts": {
+          "effect-result.json": "396c92bce34e64d8aa583fa5aa263af770fee1d4f8eff8d93e26c785a46bc423",
+          "entry.state.json": "6aa2450171fdf90f946b91915160ce68a0b13f50b0539a02fee97aef9c605966",
+          "events.json": "9567240f892910be27f89f8bf47b3d03c2b01399aefd5037ca0ca6e46eeb4451",
+          "gui-result.json": "f224eff787592f1b64871e072b598909efbd1aaa30a59cb8d88699f909b0604a",
+          "persisted.state.json": "6aa2450171fdf90f946b91915160ce68a0b13f50b0539a02fee97aef9c605966",
+          "probe.cfg": "1d39eafc98aca4f756fc5052b68dd5fe8f24c164fadae005cd06142ab53fb267",
+          "process-result.json": "419de4ebf7d18e56f226e63aba60da7f3bb4f6e284877cd67355356e0acc5607",
+          "process.log": "fb47b27c49484151a16c86fe9b0009434d94625b69c0495ba61f7168dc3f420d",
+          "refresh1.state.json": "6aa2450171fdf90f946b91915160ce68a0b13f50b0539a02fee97aef9c605966",
+          "refresh2.state.json": "6aa2450171fdf90f946b91915160ce68a0b13f50b0539a02fee97aef9c605966"
+        },
+        "saved_cre_bytes": 3008,
+        "saved_cre_sha256": "c0dcc672f8b1eecd8a4a8ab20f83ac97938dd12cf2d40c09f94f668369b5b5e4",
+        "saved_files": {
+          "baldur.bmp": {
+            "bytes": 93690,
+            "sha256": "bcd43dcc93d716af0df129ae6d7a2b869278690c80eb812b64829d5f811c7fe4"
+          },
+          "baldur.gam": {
+            "bytes": 69372,
+            "sha256": "d9015b3e143c0994a06c122945e6715beabd6c0b76b395f489a63359a9e97b27"
+          },
+          "baldur.sav": {
+            "bytes": 19340,
+            "sha256": "c31aada2e41375edf6923adb44c929ab33a14bbbcf463ee8324b9e6452da91d6"
+          },
+          "PORTRT0.bmp": {
+            "bytes": 13830,
+            "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+          },
+          "PORTRT1.bmp": {
+            "bytes": 13830,
+            "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+          }
+        }
+      }
+    ]
+  },
+  "assertions": [
+    {
+      "name": "exactly-seven-private-item-timing-bytes",
+      "passed": true
+    },
+    {
+      "name": "stock-wire-growth-seven-per-cycle",
+      "passed": true
+    },
+    {
+      "name": "stock-entry-equips-thirteen-effects",
+      "passed": true
+    },
+    {
+      "name": "control-stops-wire-growth",
+      "passed": true
+    },
+    {
+      "name": "refresh-does-not-grow-queue",
+      "passed": true
+    },
+    {
+      "name": "protection-queries-true-and-stable",
+      "passed": true
+    },
+    {
+      "name": "inputs-unchanged",
+      "passed": true
+    },
+    {
+      "name": "stable-base_stats_sha256",
+      "passed": true
+    },
+    {
+      "name": "stable-modified_stats_sha256",
+      "passed": true
+    }
+  ],
+  "runner_sha256": "ed1e252e274e0d419eda25e1b94f0eb7c44e7128c433debe45b1d751562a0fe8",
+  "startup_sha256": "32eaa9af6ae8630d42a17b1e8a3de44ec540d05625b3be3fe35eb5d637ae310c",
+  "build": {
+    "command": [
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\toolchain\\msys64\\ucrt64\\bin\\g++.exe",
+      "-std=gnu++17",
+      "-g",
+      "-O0",
+      "-DHAVE_CONFIG_H",
+      "-DUSE_OPENGL_API",
+      "-D_USE_MATH_DEFINES",
+      "-DFMT_HEADER_ONLY",
+      "-DFMT_USE_CONSTEVAL=0",
+      "-DFMT_EXCEPTIONS=0",
+      "-DFMT_UNICODE=1",
+      "-fno-strict-aliasing",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\build",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\gemrb\\gemrb\\includes",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\gemrb\\gemrb\\core",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\gemrb\\platforms\\Windows",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\build\\gemrb\\includes",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\toolchain\\msys64\\ucrt64\\include\\SDL2",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\toolchain\\msys64\\ucrt64\\include\\python3.14",
+      "-I",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\gemrb\\includes\\fmt",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\tools\\phase0\\native\\gui_probe.cpp",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\build\\gemrb\\core\\libgemrb_core.dll.a",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\toolchain\\msys64\\ucrt64\\lib\\libiconv.dll.a",
+      "-lshlwapi",
+      "-o",
+      "C:\\Users\\zach\\Documents\\ChatGPT\\BG Multiplayer Redux\\phase0-local\\gui-probe\\Redux_gui_probe.exe"
+    ],
+    "exit_code": 0,
+    "sources": {
+      "tools\\phase0\\native\\gui_probe.cpp": "45d954a015c5d7c352c9ce9a59488e6bedda0b8504f6f0ccb9be9c239a155a28",
+      "tools\\phase0\\native\\save_probe.cpp": "d4f332b73c5a0bf579538de5624add4172d460ed880ae73d1c1cdfd13a11ad1e"
+    },
+    "engine_dll_sha256": "5b8719d3f3257404f4611927826af1ae9cdeb2c735fc0ed6d1afc981eb14c99f",
+    "compiler_sha256": "5f30e02408ab97050fcbfa39bb391b0923cf9402063920b849ab8491e63334b3",
+    "binary_sha256": "b9196ae9f5ccd3032981f6db27fcde7dc091055204e8bd4ea6505e977762bb64"
+  },
+  "item": {
+    "origin": "data\\Items.bif",
+    "sha256": "f85989bc7a8105b480f76c15f56aba7aa6f97c056f52afcacd6da1c54ed18f43",
+    "equipping_effects": [
+      {
+        "index": 0,
+        "opcode": 101,
+        "parameters": [
+          0,
+          217
+        ],
+        "timing": 2
+      },
+      {
+        "index": 1,
+        "opcode": 267,
+        "parameters": [
+          14665,
+          134
+        ],
+        "timing": 1
+      },
+      {
+        "index": 2,
+        "opcode": 267,
+        "parameters": [
+          41616,
+          216
+        ],
+        "timing": 1
+      },
+      {
+        "index": 3,
+        "opcode": 267,
+        "parameters": [
+          40979,
+          216
+        ],
+        "timing": 1
+      },
+      {
+        "index": 4,
+        "opcode": 267,
+        "parameters": [
+          40969,
+          216
+        ],
+        "timing": 1
+      },
+      {
+        "index": 5,
+        "opcode": 267,
+        "parameters": [
+          41495,
+          216
+        ],
+        "timing": 1
+      },
+      {
+        "index": 6,
+        "opcode": 83,
+        "parameters": [
+          0,
+          94
+        ],
+        "timing": 2
+      },
+      {
+        "index": 7,
+        "opcode": 101,
+        "parameters": [
+          0,
+          39
+        ],
+        "timing": 2
+      },
+      {
+        "index": 8,
+        "opcode": 169,
+        "parameters": [
+          0,
+          14
+        ],
+        "timing": 2
+      },
+      {
+        "index": 9,
+        "opcode": 267,
+        "parameters": [
+          14001,
+          0
+        ],
+        "timing": 2
+      },
+      {
+        "index": 10,
+        "opcode": 101,
+        "parameters": [
+          0,
+          134
+        ],
+        "timing": 1
+      },
+      {
+        "index": 11,
+        "opcode": 101,
+        "parameters": [
+          0,
+          216
+        ],
+        "timing": 1
+      },
+      {
+        "index": 12,
+        "opcode": 267,
+        "parameters": [
+          40968,
+          0
+        ],
+        "timing": 2
+      }
+    ],
+    "counterfactual_sha256": "870961e6fce3b365990eb1b6320a0e00e3870304c849e65450a44fd58af8893a",
+    "changed_byte_offsets": [
+      174,
+      222,
+      270,
+      318,
+      366,
+      606,
+      654
+    ]
+  },
+  "original_fixture_unchanged": true,
+  "verdict": "characterized",
+  "engine_status": "",
+  "collected_utc": "2026-10-21T02:44:51.370629+00:00",
+  "run_id": "20261021T024237Z-immcloud-de4d6a2a",
+  "run_result_sha256": "4f02a4510941b023a05b5e04634326b667813670394ce4a51ce544f6d8b0ab0c",
+  "initial_wire_cre_bytes": 3008,
+  "source_revision": "bcb5cfaa9f19ffbe8a51f25a3c014fa344173351",
+  "plugins": {
+    "2DAImporter.dll": "3c1cbcc3c23f772eba30cfee2fedbd69dd730dad51cc35ddf6e715b5e1d97966",
+    "ACMReader.dll": "710e58b2ec552b70f1a6186c1154bed94429168015d5fcfdd52cf13a4c1c2842",
+    "AREImporter.dll": "ab267ead3382f12f793c9c1784f5d8a078d5f3ef93d8cc3425fff0171ad042d7",
+    "BAMImporter.dll": "69b072e1e5eaf7bcef5bc3a5970c3458d5c1aad420cc2ea0be874114adb3b7a1",
+    "BIFImporter.dll": "748877c31eeba077c038590541b2902e01f92576ee546821fef0a2b9b8ff7a56",
+    "BIKPlayer.dll": "468870ad24faba5aa6d0a44b03055e3732f3d668ed73329fedea1e641e2ef339",
+    "BMPImporter.dll": "e67bcb610dbbfdeca415bc57e8c43b6a28763e3faa777f0ca0a6fb7f2dd74369",
+    "BMPWriter.dll": "8fde79a22c1658b1846290ee53a9acda8c94735f33af6e23894bfd9f64f0205e",
+    "CHUImporter.dll": "9595d22980ea57bf51934c1a4028a4e1126a5750296a6cc42ef9655958f44f55",
+    "CREImporter.dll": "81fabad1c72e3f22dba49d51e68fb2d33215629298a8693a8662ea32a5f94399",
+    "DirectoryImporter.dll": "b9f5d7f76c58f44c716b53681c1a8ea2622fb48f5980a9e3f333ae83d81316bc",
+    "DLGImporter.dll": "3b9326cb19387131783bcce6fdeac2baf0d850372c02f1f753498693dabe4980",
+    "EFFImporter.dll": "87aeb0c0cfe3b38a7887f132fa5bcea66ae9998ec245c0f3125787e2e27ee4ed",
+    "FXOpcodes.dll": "9cba5cbdfd6113d67df555b963a0e17fee99a7ef9cd0956119ebf5529e8a6417",
+    "GAMImporter.dll": "0776d6653c52b85a54e0f4fdb8d0c50dad7294c3bce5bf58dcf5836351ee0982",
+    "GUIScript.dll": "0f80e02ed3ae880c6867202b345efabdb75f5e44762711b2d463c00ed1c39735",
+    "IDSImporter.dll": "ea0295ccaca12cbcff49de3ca2b702ca9f1f00a6234ab83ab885b754cf384d69",
+    "INIImporter.dll": "adf2e0efc8c06690186ac9bf8ef191918f34e6e8e5e6fce4adf547ab95941c41",
+    "ITMImporter.dll": "4cb5725f059de805f924e0153b7394339a0cc0249a8ca9b26bdac48fac3220e1",
+    "IWDOpcodes.dll": "d9ee3d2c5392dc250d3c4cf43612e1c7669a14751f2a2e9fe6e7710925321fe6",
+    "KEYImporter.dll": "45e1686f6b81b1388910f4c96f564b7f7696a305f83fd67843da38457a40bcff",
+    "MOSImporter.dll": "db4d73c975c8d86ee1869118d910c20d58cd403ca91ae1251421edd33b17fc5b",
+    "MUSImporter.dll": "5c806f76c3afce2f5105578e948ece765f3277529afe0962a273dee5b8f6000e",
+    "MVEPlayer.dll": "7a60291ae40a69bbb5f37c3ffe250e6578d35bb680357319fd3cfac1015841f0",
+    "NullSound.dll": "a6a34c851bee8d572f3e56fa1e1d29898e23de72e3e847df4f900a6124b9f730",
+    "NullSource.dll": "23352c5d99408ea3808a4cc14e8700976423a375f085ddbb78b6b0be06f77990",
+    "OGGReader.dll": "d81dc02e6d5ed567c24e25e1cafc9e85b196b17e32818044c0cecbe0bf19321f",
+    "OpenALAudio.dll": "165c4cd2caec896b79e206747ab66a5dd037632850a42da2252a3a31cb60c81e",
+    "PLTImporter.dll": "4c2d38d5296ec335cf4856cc5ff582eb3f7c6e61609bd179de4e7046c5e740c1",
+    "PNGImporter.dll": "ae42f2ad8e1943adfdd3e46a6c5b16f6e54ccccfc125357f23c40c29fc7d253d",
+    "PROImporter.dll": "6d0c95bc9b9816f74735769213bbdc70cd8bc95348aa9dd1cfaece2d1037cfad",
+    "PSTOpcodes.dll": "29f753b77851ed8ba8a92b98daa915daa33e390387176c7b2ac7cadb8be6a6eb",
+    "PVRZImporter.dll": "158b8457e16f4a52829c7dbdd8895e939c16325cb3d4372fa25aaee9deae9a6c",
+    "SAVImporter.dll": "a822626cc8c9fea6ca043d91b162010a6bba62dbe659b73b9fb6b5f19ef3df2a",
+    "SDLAudio.dll": "6acfa3a21ba24a79f415e0c2704bb1573b39ec286736bc469b70ff0cc7ebf65f",
+    "SDLVideo.dll": "fa17dc02d6c1f96454ddae91eeebd9a698737bef54653f1999e9d1c7b0ad28d4",
+    "SPLImporter.dll": "6665235c3b97475655f673459a8955491bb63b243831af96ca5626d051761366",
+    "STOImporter.dll": "91bee611c592486c03bdbfa15d7570639be53af22b5bc54e59f7921e5a10a1d5",
+    "TISImporter.dll": "f4206882344c56ef2ac4d96f98d205bb9d0cfa272353c396762126f6b97a9930",
+    "TLKImporter.dll": "9d8c4a6658938f559d3ebba0d4576b2ea178912ec6e03924ae9ed24a1829d46a",
+    "TTFImporter.dll": "c79d199ce5ea68351110d2eccc3519e10241bc96d1d200650c275ff191486221",
+    "WAVReader.dll": "b1cab2ffe9bbfc7518fab15842c2480c58b6ad6ad057d38b0c928bdd99abec0a",
+    "WEDImporter.dll": "b2bbaeb6a7f96419d56423d8e01ac363f008fb51162400994107523c6d8de457",
+    "WMPImporter.dll": "7fa9a26e146b3c7830d693a6507f7678851f12ffa320b998ad1c3da9f28e499c",
+    "ZLibManager.dll": "e0a084742461f7eef8ee2876cd1568ac2e3020e16db7b084b7ad69afe0354f20"
+  },
+  "tool_files": {
+    "tools\\phase0\\effect_cycle.py": "ed1e252e274e0d419eda25e1b94f0eb7c44e7128c433debe45b1d751562a0fe8",
+    "tools\\phase0\\native\\gui_probe.cpp": "45d954a015c5d7c352c9ce9a59488e6bedda0b8504f6f0ccb9be9c239a155a28",
+    "tools\\phase0\\tests\\test_effect_wire.py": "3737ccb824ee9c656107a72ef4dc936c305eb39b36b4c600b04c435129405781"
+  },
+  "unit_tests": {
+    "command": "python -m unittest discover -s tools/phase0/tests -v",
+    "executed": 20,
+    "passed": 20,
+    "note": "Executed after the lifecycle-reader/runner changes; five saved-area parser/content checks plus fifteen existing GUI/state mutation checks. See tool output for this task; the engine baseline suite was not rerun."
+  }
+}

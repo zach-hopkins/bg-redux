@@ -1,0 +1,11 @@
+{
+  "schema": "bg-redux-phase0-preservation-check/1",
+  "utc": "2026-10-21T18:23:36.017663+00:00",
+  "engine_git_status": "",
+  "baseline_binaries_checked": 4,
+  "binary_mismatches": [],
+  "plugins_checked": 45,
+  "plugin_mismatches": [],
+  "frozen_baseline_unchanged": true,
+  "normal_baseline_unchanged": true
+}
