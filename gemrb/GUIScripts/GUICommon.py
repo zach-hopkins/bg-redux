@@ -775,12 +775,13 @@ def DisplayAC (pc, window, labelID):
 	Label.SetText (str (AC))
 	Label.SetTooltip (17183)
 
-def GetACStyleBonus (pc):
+def GetACStyleBonus (pc, cdet=None):
 	WStyleTable = GemRB.LoadTable ("stylbonu", True, True)
 	if not WStyleTable:
 		return 0
 	wStyles = { IE_PROFICIENCY2WEAPON:"TWOWEAPON", IE_PROFICIENCY2HANDED:"TWOHANDED", IE_PROFICIENCYSINGLEWEAPON:"SINGLEWEAPON", IE_PROFICIENCYSWORDANDSHIELD:"SWORDANDSHIELD" }
-	cdet = GemRB.GetCombatDetails (pc, 0)
+	if cdet is None:
+		cdet = GemRB.GetCombatDetails (pc, 0)
 	if not cdet:
 		return 0
 	stat = cdet["Style"] % 1000

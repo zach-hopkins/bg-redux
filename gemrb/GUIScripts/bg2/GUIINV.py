@@ -14,6 +14,7 @@ import GUICommonWindows
 import CommonTables
 import InventoryCommon
 import PaperDoll
+import EECharacterSheet
 from GUIDefines import *
 from ie_stats import *
 from ie_slots import *
@@ -80,10 +81,9 @@ def InitInventoryWindow (Window):
 	Label = Window.GetControl (0x1000003a)
 	Label.SetTooltip (17378)
 
-	# TODO: ee, by default ees load the dragging window, where stats are
-	# displayed before and after equipping an item
-	# loading the normal INVSTATS bam as an overlay is done by ui.menu,
-	# which also takes care of the missing bg of the AC/HP/THAC0/damage buttons
+	# EE's ui.menu normally assembles the missing art and actual-state panels.
+	if GameCheck.IsBG2EE ():
+		EECharacterSheet.InitInventory(Window)
 
 	SlotCount = GemRB.GetSlotType (-1)["Count"]
 	for slot in range (SlotCount):
@@ -161,7 +161,8 @@ def RefreshInventoryWindow (Window):
 	InventoryCommon.SetEncumbranceLabels (Window, 0x10000043, 0x10000044, pc)
 
 	# armor class
-	GUICommon.DisplayAC (pc, Window, 0x10000038)
+	if not GameCheck.IsBG2EE ():
+		GUICommon.DisplayAC (pc, Window, 0x10000038)
 
 	# hp current
 	hp = GemRB.GetPlayerStat (pc, IE_HITPOINTS)
@@ -174,6 +175,8 @@ def RefreshInventoryWindow (Window):
 	Label = Window.GetControl (0x1000003a)
 	Label.SetText (str (hpmax))
 	Label.SetTooltip (17378)
+	if GameCheck.IsBG2EE ():
+		EECharacterSheet.Update(Window, pc)
 
 	# party gold
 	Label = Window.GetControl (0x10000040)

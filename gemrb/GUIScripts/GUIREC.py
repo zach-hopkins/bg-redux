@@ -15,6 +15,7 @@ import LevelUp
 import DualClass
 import GUIRECCommon
 import PartyReform
+import EECharacterSheet
 from GUIDefines import *
 from GUICommonWindows import CreateTopWinLoader, ToggleWindow, OpenWindowOnce
 from ie_stats import *
@@ -68,8 +69,14 @@ def InitRecordsWindow (Window):
 	# help, info textarea
 	Text = Window.GetControl (45)
 	Text.SetColor (ColorWhitish, TA_COLOR_INITIALS)
-	UpdateActorDescription (Window)
 	LastPC = GemRB.GameGetSelectedPCSingle ()
+	if GameCheck.IsBG2EE ():
+		# The EE CHU includes alternate labels at the same AC/HP positions.
+		# Keep the populated legacy labels, instead of painting values twice.
+		for cid in (0x1000003d, 0x1000003e, 0x1000003f):
+			Window.GetControl(cid).SetVisible(False)
+		InitEEStats(Window)
+	UpdateActorDescription (Window)
 
 	# kit info
 	if GameCheck.IsBG2OrEE ():
@@ -79,11 +86,16 @@ def InitRecordsWindow (Window):
 
 	return
 
-def UpdateActorDescription (Window):
+def UpdateActorDescription (Window, combat=None):
 	pc = GemRB.GameGetSelectedPCSingle ()
 	GUICommon.UpdateMageSchool (pc)
 	Text = Window.GetControl (45)
-	Text.SetText (GetStatOverview (pc))
+	if GameCheck.IsBG2EE ():
+		# Headline abilities/combat values are already in the main sheet/panels.
+		# Keep the secondary Stats panel for additional information.
+		UpdateEEStats(Window, pc, combat)
+	else:
+		Text.SetText (GetStatOverview (pc))
 
 def UpdateRecordsWindow (Window):
 	global alignment_help, LastPC
@@ -127,7 +139,8 @@ def UpdateRecordsWindow (Window):
 		Button.SetPicture (pic, "NOPORTLG")
 
 	# armorclass
-	GUICommon.DisplayAC (pc, Window, 0x10000028)
+	if not GameCheck.IsBG2EE ():
+		GUICommon.DisplayAC (pc, Window, 0x10000028)
 
 	# hp now
 	Label = Window.GetControl (0x10000029)
@@ -209,7 +222,14 @@ def UpdateRecordsWindow (Window):
 
 	if LastPC != pc:
 		LastPC = pc
-		UpdateActorDescription (Window)
+		if GameCheck.IsBG2EE ():
+			GemRB.SetVar("ReduxStatsPage", 0)
+		else:
+			UpdateActorDescription (Window)
+	if GameCheck.IsBG2EE ():
+		model = EECharacterSheet.Update(Window, pc, record=True)
+		# Refresh effects/levels on the same PC, not only after selection changes.
+		UpdateActorDescription(Window, model["hands"][0]["details"] if model["hands"] else {})
 
 	#TODO: making window visible/shaded depending on the pc's state
 
@@ -275,6 +295,77 @@ def GetStatOverview (pc, LevelDiff=[0,0,0]):
 		outputtext += GetWeaponStyleBonuses (pc, cdet)
 
 	return outputtext
+
+
+def GetSupplementalStats(pc, combat=None):
+	"""EE secondary Stats: no repeated headline abilities/AC/HP/THAC0/damage.
+
+	The classic/level-up overview stays unchanged. Every supplemental section
+	remains reachable, including records too long to fit a single CHU region.
+	"""
+	# Preserve non-headline ability information (doors, capacity, reaction,
+	# HP/level, spell learning); combat adjustments belong to the combat tooltip.
+	bonuses = GUIRECCommon.GetAbilityBonuses(pc, False)
+	bonuses = [row for row in bonuses if not isinstance(row, tuple) or row[0] not in (10332, 10336, 10339, 10340)]
+	if combat is None:
+		combat = GemRB.GetCombatDetails(pc, 0)
+	weapons = GetWeaponProficiencies(pc)
+	if combat:
+		weapons += "\n" + GetWeaponStyleBonuses(pc, combat)
+	return [
+		"\n".join((GetClassTitles(pc, [0, 0, 0]), GetEffectIcons(pc, [0, 0, 0]),
+			GetLore(pc), GetPartyReputation(pc), GetActiveAIscript(pc))),
+		GetSkills(pc), GetSavingThrows(pc), GetResistances(pc),
+		weapons,
+		GUIRECCommon.TypeSetStats(bonuses, pc) + "\n" + GUIRECCommon.GetBonusSpells(pc),
+	]
+
+
+def InitEEStats(Window):
+	GemRB.SetVar("ReduxStatsSection", 0)
+	GemRB.SetVar("ReduxStatsPage", 0)
+	Window.CreateLabel(0x7fff0200, 546, 96, 300, 20, "STONESML", "Stats", IE_FONT_ALIGN_CENTER)
+	for index, name in enumerate(("Overview", "Skills", "Saves", "Resists", "Weapons", "Abilities")):
+		button = Window.CreateButton(0x7fff0210 + index, 546 + index % 3 * 100, 117 + index // 3 * 22, 100, 21)
+		button.SetFont("NORMAL")
+		button.SetFlags(IE_GUI_BUTTON_NO_IMAGE, OP_SET)
+		button.SetText(name)
+		button.OnPress(lambda section=index: SelectEEStats(Window, section))
+	text = Window.GetControl(45)
+	text.SetFrame({"x": 546, "y": 163, "w": 285, "h": 188})
+	text.SetFont("NORMAL")
+	Window.CreateLabel(0x7fff0201, 595, 351, 200, 23, "NORMAL", "", IE_FONT_ALIGN_CENTER)
+	for cid, x, delta, name in ((0x7fff0202, 546, -1, "<"), (0x7fff0203, 806, 1, ">")):
+		button = Window.CreateButton(cid, x, 351, 40, 23)
+		button.SetFlags(IE_GUI_BUTTON_NO_IMAGE, OP_SET)
+		button.SetFont("NORMAL")
+		button.SetText(name)
+		button.OnPress(lambda step=delta: SelectEEStats(Window, None, step))
+	# This CHU scrollbar was attached to the former unbounded overview.
+	Window.GetControl(46).SetVisible(False)
+
+
+def SelectEEStats(Window, section=None, step=0):
+	if section is not None:
+		GemRB.SetVar("ReduxStatsSection", section)
+		GemRB.SetVar("ReduxStatsPage", 0)
+	else:
+		GemRB.SetVar("ReduxStatsPage", GemRB.GetVar("ReduxStatsPage") + step)
+	UpdateEEStats(Window, GemRB.GameGetSelectedPCSingle())
+
+
+def UpdateEEStats(Window, pc, combat=None):
+	section = max(0, min(5, GemRB.GetVar("ReduxStatsSection")))
+	pages = EECharacterSheet.Pages(GetSupplementalStats(pc, combat)[section])
+	page = max(0, min(len(pages) - 1, GemRB.GetVar("ReduxStatsPage")))
+	GemRB.SetVar("ReduxStatsPage", page)
+	Window.GetControl(45).SetText(pages[page])
+	Window.GetControl(45).ScrollTo(0, 0)
+	Window.GetControl(0x7fff0201).SetText("%d / %d" % (page + 1, len(pages)))
+	Window.GetControl(0x7fff0202).SetState(IE_GUI_BUTTON_ENABLED if page else IE_GUI_BUTTON_DISABLED)
+	Window.GetControl(0x7fff0203).SetState(IE_GUI_BUTTON_ENABLED if page + 1 < len(pages) else IE_GUI_BUTTON_DISABLED)
+	for index in range(6):
+		Window.GetControl(0x7fff0210 + index).SetColor(ColorWhitish if index != section else {'r': 255, 'g': 215, 'b': 128})
 
 ########################################################################
 # The following functions have been split into categories,
