@@ -9625,8 +9625,9 @@ bool Actor::WeaponCanDamage(const Actor* target, bool offHand) const
 	const WeaponInfo& wi = weaponInfo[offHand];
 	if (!target || !wi.item || !wi.extHeader) return false;
 
-	// Use the same target-dependent base damage type as combat (including
-	// better-of compound types), without rolling or consuming any defense.
+	// Select the base damage type using target resistances, without rolling
+	// or consuming defenses. Compound-type query parity still needs an oracle;
+	// combat's existing attacker-side conversion is deliberately unchanged.
 	const int damageType = target->ConvertDamageType(wi.extHeader->DamageType);
 	const auto damageInfo = core->DamageInfoMap.find(damageType);
 	if (damageInfo == core->DamageInfoMap.end() || !damageInfo->second.resist_stat) return true;

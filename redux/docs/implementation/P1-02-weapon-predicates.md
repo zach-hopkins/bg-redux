@@ -38,11 +38,14 @@ the queried hand explicitly. The existing combat caller passes exactly its
 previous `usedLeftHand` value; no combat rule or attack path is changed.
 
 `Actor::WeaponCanDamage` independently selects the target-dependent base
-damage type using existing `ConvertDamageType`, then reads its resistance
+damage type using existing `ConvertDamageType` on the target, then reads its resistance
 through `DamageInfoMap`. Resistance below100 permits damage; 100 or higher
 does not. No resistance stat means no resistance barrier. It does not consult
 weapon immunity, skins or images. This matches the measured separation;
 it is not a simulation of whether a particular rolled attack deals damage.
+For compound types this chooses the target's better damage channel; the
+existing combat call uses the attacker for conversion. That existing combat
+behavior is unchanged, and compound-query policy needs its own original oracle.
 
 The existing weapon cache, rather than new inventory selection, supplies
 launcher/ammunition data. That cache currently takes maximum launcher/ammo
