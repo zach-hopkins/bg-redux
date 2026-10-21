@@ -208,6 +208,7 @@ IF (BUILD_TESTING)
     tests/core/Test_Palette.cpp
     tests/core/Test_PathFinder.cpp
     tests/core/Test_SaveGame.cpp
+    tests/core/Test_WeaponQuery.cpp
     tests/core/Streams/Test_DataStream.cpp
     tests/core/Strings/Test_CString.cpp
     tests/core/Strings/Test_String.cpp

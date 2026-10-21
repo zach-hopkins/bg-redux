@@ -816,6 +816,9 @@ public:
 	/* Returns current weapon range and extended header
 	if range is nonzero, then which is valid */
 	const ITMExtHeader* GetWeapon(bool leftOrRight) const;
+	/* Read-only EE weapon queries; off-hand never falls back to main-hand. */
+	bool WeaponEffectiveVs(const Actor* target, bool offHand) const;
+	bool WeaponCanDamage(const Actor* target, bool offHand) const;
 	/* Creates player statistics */
 	void CreateStats();
 	/* Heals actor */

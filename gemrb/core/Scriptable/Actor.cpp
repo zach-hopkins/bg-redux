@@ -39,6 +39,7 @@
 #include "GUI/GameControl.h"
 #include "GameScript/GSUtils.h" //needed for DisplayStringCore
 #include "GameScript/GameScript.h"
+#include "GameScript/WeaponQuery.h"
 #include "Scriptable/InfoPoint.h"
 #include "System/FileFilters.h"
 
@@ -9543,7 +9544,7 @@ static bool WeaponSlotMatchesHand(ieDword slot, const WeaponInfo& wi, const Effe
 }
 
 // check Enchantment vs. creature type and plain enchantment bonuses
-static ieDword AdjustEnchantment(const Actor* wielder, const Actor* target, const WeaponInfo& wi)
+static ieDword AdjustEnchantment(const Actor* wielder, const Actor* target, const WeaponInfo& wi, bool leftOrRight)
 {
 	static EffectRef fx_enchantment_vs_creature_type_ref = { "EnchantmentVsCreatureType", -1 };
 	static EffectRef fx_enchantment_bonus_ref = { "EnchantmentBonus", -1 };
@@ -9552,13 +9553,13 @@ static ieDword AdjustEnchantment(const Actor* wielder, const Actor* target, cons
 	const Effect* fx = wielder->fxqueue.HasEffect(fx_enchantment_vs_creature_type_ref);
 	if (fx && EffectQueue::match_ids(target, fx->Parameter2, fx->Parameter1) &&
 	    (!fx->Parameter4 || fx->Parameter4 == wi.item->ItemType) &&
-	    WeaponSlotMatchesHand(fx->Parameter3, wi, fx, wielder->usedLeftHand)) {
+	    WeaponSlotMatchesHand(fx->Parameter3, wi, fx, leftOrRight)) {
 		enchantment = fx->IsVariable;
 	}
 
 	fx = wielder->fxqueue.HasEffect(fx_enchantment_bonus_ref);
 	if (fx && (!fx->Parameter4 || fx->Parameter4 == wi.item->ItemType) &&
-	    WeaponSlotMatchesHand(fx->IsVariable, wi, fx, wielder->usedLeftHand)) {
+	    WeaponSlotMatchesHand(fx->IsVariable, wi, fx, leftOrRight)) {
 		// the same list as fx_immune_to_weapon, but just goes up to 11
 		bool match;
 		switch (fx->Parameter2) {
@@ -9608,10 +9609,35 @@ static ieDword AdjustEnchantment(const Actor* wielder, const Actor* target, cons
 	return enchantment;
 }
 
+bool Actor::WeaponEffectiveVs(const Actor* target, bool offHand) const
+{
+	const WeaponInfo& wi = weaponInfo[offHand];
+	if (!target || !wi.item || !wi.extHeader) return false;
+
+	// Read the already selected weapon/ammunition and ability. Do not call
+	// GetCombatDetails/ModifyWeaponDamage: they change combat state and can roll.
+	const ieDword enchantment = AdjustEnchantment(this, target, wi, offHand);
+	return !target->fxqueue.WeaponImmunity(enchantment, wi.itemflags);
+}
+
+bool Actor::WeaponCanDamage(const Actor* target, bool offHand) const
+{
+	const WeaponInfo& wi = weaponInfo[offHand];
+	if (!target || !wi.item || !wi.extHeader) return false;
+
+	// Use the same target-dependent base damage type as combat (including
+	// better-of compound types), without rolling or consuming any defense.
+	const int damageType = target->ConvertDamageType(wi.extHeader->DamageType);
+	const auto damageInfo = core->DamageInfoMap.find(damageType);
+	if (damageInfo == core->DamageInfoMap.end() || !damageInfo->second.resist_stat) return true;
+	const int resistance = static_cast<int>(target->GetSafeStat(damageInfo->second.resist_stat));
+	return WeaponQuery::ResistanceAllowsDamage(resistance);
+}
+
 void Actor::ModifyWeaponDamage(const WeaponInfo& wi, Actor* target, int& damage, bool& critical)
 {
 	//Calculate weapon based damage bonuses (strength bonus, dexterity bonus, backstab)
-	ieDword adjustedEnchantment = AdjustEnchantment(this, target, wi);
+	ieDword adjustedEnchantment = AdjustEnchantment(this, target, wi, usedLeftHand);
 	bool weaponImmunity = target->fxqueue.WeaponImmunity(adjustedEnchantment, wi.itemflags);
 	int multiplier = Modified[IE_BACKSTABDAMAGEMULTIPLIER];
 	int extraDamage = 0; // damage unaffected by the critical multiplier

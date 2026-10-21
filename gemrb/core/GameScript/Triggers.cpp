@@ -18,6 +18,7 @@
 #include "GameScript/GameScript.h"
 #include "GameScript/Matching.h"
 #include "GameScript/Targets.h"
+#include "GameScript/WeaponQuery.h"
 #include "Scriptable/Container.h"
 #include "Scriptable/Door.h"
 #include "Scriptable/InfoPoint.h"
@@ -4735,8 +4736,6 @@ int GameScript::CutSceneBroken(Scriptable* /*Sender*/, const Trigger* /*paramete
 
 // 0x40EC WeaponEffectiveVs(O:Object*,I:Hand*HAND)
 // Can the weapon equipped in the hand defined by the 2nd parameter (from hand.ids) hit the target object?
-// TODO: ee, test the details. Is it about just hitting, does stoneskin/pfmw/mirror image... matter?
-// look at where we return HCStrings::WeaponIneffective and refactor, so we can inspect it at will
 int GameScript::WeaponEffectiveVs(Scriptable* Sender, const Trigger* parameters)
 {
 	const Scriptable* tar = GetScriptableFromObject(Sender, parameters);
@@ -4744,13 +4743,13 @@ int GameScript::WeaponEffectiveVs(Scriptable* Sender, const Trigger* parameters)
 	const Actor* actor = Scriptable::As<Actor>(Sender);
 	if (!target || !actor) return 0;
 
-	Log(ERROR, "GameScript", "WeaponEffectiveVs has not been implemented yet!");
-	return 0;
+	return WeaponQuery::ForSelectedHand(parameters->int0Parameter, [actor, target](bool offHand) {
+		return actor->WeaponEffectiveVs(target, offHand);
+	});
 }
 
 // 0x40F2 WeaponCanDamage(O:Object*,I:Hand*HAND)
 // Can the weapon equipped in the hand defined by the 2nd parameter (hand.ids) cause non-zero damage to the target?
-// TODO: ee, see WeaponEffectiveVs and figure out what matches what
 int GameScript::WeaponCanDamage(Scriptable* Sender, const Trigger* parameters)
 {
 	const Scriptable* tar = GetScriptableFromObject(Sender, parameters);
@@ -4758,8 +4757,9 @@ int GameScript::WeaponCanDamage(Scriptable* Sender, const Trigger* parameters)
 	const Actor* actor = Scriptable::As<Actor>(Sender);
 	if (!target || !actor) return 0;
 
-	Log(ERROR, "GameScript", "WeaponCanDamage has not been implemented yet!");
-	return 0;
+	return WeaponQuery::ForSelectedHand(parameters->int0Parameter, [actor, target](bool offHand) {
+		return actor->WeaponCanDamage(target, offHand);
+	});
 }
 
 int GameScript::INI(Scriptable* /*Sender*/, const Trigger* parameters)
