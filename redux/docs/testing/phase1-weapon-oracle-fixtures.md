@@ -98,10 +98,13 @@ unit test proves side-effect freedom or original parity.
 
 ## Checks performed here
 
-The focused standard-library unit suite covers13 positive/negative cases:
+The focused standard-library unit suite covers14 positive/negative cases:
 six exact query branches and identity writes; stale/missing/incomplete/non-
 Boolean outputs; physical slot/selection/header/ammunition mutations; duplicate
-same-resref inventory instances; invalid declarations and bounded paths.
+same-resref inventory instances; invalid declarations and bounded paths;
+and integrated output-ingestion rejection of stale identity, changed defense,
+missing physical off-hand or wrong primary script. Output resref case alone
+does not alter identity; IE resource names are case-insensitive.
 
 ```powershell
 & C:/BGRedux/phase0-local/toolchain/msys64/ucrt64/bin/python.exe -B `

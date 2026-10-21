@@ -170,7 +170,7 @@ def inspect_output(api, gam, row):
     """Read an explicitly selected output; never search or accept a stale save."""
     data = Path(gam).read_bytes()
     _, pc = api.equipped_defenses.embedded(data, 0)
-    if pc[0x248:0x250] != row['script'].encode('ascii'):
+    if pc[0x248:0x250].upper() != row['script'].upper().encode('ascii'):
         raise ValueError('Output primary script identity differs')
     guard = equipment_guard(pc, row['spec'])
     observed = api.equipped_defenses.observe(gam)

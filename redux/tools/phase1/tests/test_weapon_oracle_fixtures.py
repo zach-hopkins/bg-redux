@@ -2,6 +2,8 @@ import copy
 import importlib.util
 from pathlib import Path
 import struct
+import tempfile
+from types import SimpleNamespace
 import unittest
 
 
@@ -140,6 +142,36 @@ class OracleFixtureTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 m.safe_relative(path)
         self.assertEqual(m.safe_relative('lang/en_US/dialog.tlk').parts, ('lang', 'en_US', 'dialog.tlk'))
+
+    def test_output_ingestion_checks_script_identity_equipment_defense_and_globals(self):
+        row = dict(spec=m.cases()[0], script='P1AB0001', number=1, nonce=123)
+        pc = cre(); m.replace_equipment(pc, row['spec'])
+        pc[0x248:0x250] = b'p1ab0001'  # resrefs are case-insensitive
+        globals_ = dict.fromkeys(m.QUERY_KEYS, 0) | dict(RDXCASE=1, RDXNONCE=123, RDXDONE=1, RDXSTAGE=7)
+        defenses = [dict(opcode=120, p1=0xffffffff, p2=1, timing=9)]
+        api = SimpleNamespace(equipped_defenses=SimpleNamespace(
+            embedded=lambda data, index: (0, pc),
+            observe=lambda path: [{}, dict(defense_effects=defenses)]),
+            legacy_oracle=SimpleNamespace(read_wire=lambda path: dict(globals=globals_)))
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory)/'output.gam'; path.write_bytes(b'isolated mock wire payload')
+            self.assertEqual(m.inspect_output(api, path, row)['values'], dict.fromkeys(m.QUERY_KEYS, 0))
+            globals_['RDXNONCE'] = 122
+            with self.assertRaisesRegex(ValueError, 'Stale'):
+                m.inspect_output(api, path, row)
+            globals_['RDXNONCE'] = 123
+            defenses[0]['p2'] = 2
+            with self.assertRaisesRegex(ValueError, 'defense'):
+                m.inspect_output(api, path, row)
+            defenses[0]['p2'] = 1
+            slot_at = struct.unpack_from('<I', pc, 0x2b8)[0]
+            struct.pack_into('<H', pc, slot_at+4, 0xffff)
+            with self.assertRaisesRegex(ValueError, 'Physical'):
+                m.inspect_output(api, path, row)
+            struct.pack_into('<H', pc, slot_at+4, 1)
+            pc[0x248:0x250] = b'P1AB0002'
+            with self.assertRaisesRegex(ValueError, 'script identity'):
+                m.inspect_output(api, path, row)
 
 
 if __name__ == '__main__':
