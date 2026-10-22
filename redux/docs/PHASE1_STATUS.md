@@ -60,6 +60,13 @@ inputs are preserved. Independent audit is pending. Original parity is not
 claimed by this journey; inn-rest use, duplicate labels and physical hit testing
 remain open. Fresh general baseline is running separately on this candidate.
 
+Fresh current-helper general baseline `20261022T121748Z-help-base-9fb35d02`
+is terminal: **24/24 vanilla and 20/20 GUI/save assertions, zero skips**,
+execution passed and compatibility differences retained. All Phase0, candidate
+and input guards pass. The wrapper exits one for its explicit differences
+verdict; it has no execution error. Independent comparison of residuals is
+pending. These 44 bounded checks do not establish complete save or campaign parity.
+
 Latest LAB checkpoint (October 22 UTC): see the [executed validation report](testing/phase1-lab-validation.md).
 Current source additionally contains an **unvalidated** ordinary EE named-row/
 description/paging layout and persistent Feedback setting. The original physical
