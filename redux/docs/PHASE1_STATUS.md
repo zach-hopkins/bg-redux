@@ -62,6 +62,9 @@ the [executed correction](testing/phase1-spellbook-display-selection.md) records
 the prior missing-nonce failure, fresh callback identity, content checks and scope.
 The [independent artifact audit](testing/phase1-caster-menu-native-audit.md)
 passes and retains the faint priest-heading observation and visual scope limits.
+The [heading layout investigation](testing/phase1-spellbook-heading-layout-gap.md)
+binds that readability issue to obsolete CHU placement/styling versus the shipped
+EE menu assembly; a correction and original/rendered comparison remain pending.
 The [independent renderer audit](testing/phase1-window-render-lab-audit.md)
 rechecks the synthetic captures, preservation pins and ordinary-run artifact chain.
 A direct public TextArea selection entry separately exposes
