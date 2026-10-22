@@ -4,10 +4,45 @@ import copy
 import re
 import spellbook_operation_validation as base
 import spellbook_information_validation as page_contract
-import spellbook_erase_validation as tokens
 import weapon_query_validation as evidence
 
-def expected_plan(ready,mode):
+GENDER_ROWS={'PRO_HESHE':(0,27484,27485),'PRO_HIMHER':(0,27488,27487),'PRO_HISHER':(0,27486,27487)}
+SCROLL_REFS={'mage':'SPWI302','priest':'SPPR303'}
+
+def gender_rows(raw):
+    lines=[line.split('//',1)[0].split()for line in raw.decode('ascii').splitlines()]
+    lines=[line for line in lines if line]
+    if lines[:3]!=[['2DA','V1.0'],['*'],['TYPE','MALE','FEMALE']]:raise ValueError('Unsupported frozen gender table header')
+    for name,expected in GENDER_ROWS.items():
+        found=[r for r in lines[3:]if r[0]==name]
+        if found!=[[name,*map(str,expected)]]:raise ValueError('Wrong/missing/duplicate gender row/slot/refs: '+name)
+    return {name:dict(slot=row[0],male=row[1],female=row[2])for name,row in GENDER_ROWS.items()}
+
+def resolve_description(raw,table,words,state):
+    rows=gender_rows(table);refs={str(ref)for row in GENDER_ROWS.values()for ref in row[1:]}
+    if set(words)!=refs or any(not isinstance(w,str)or not w or '<'in w or '>'in w for w in words.values()):raise ValueError('Incomplete/unsupported frozen gender words')
+    found=re.findall(r'<[^<>]*>',raw)
+    if any(t[1:-1]not in rows for t in found)or '<'in re.sub(r'<[^<>]*>','',raw)or '>'in re.sub(r'<[^<>]*>','',raw):raise ValueError('Unsupported description tokens')
+    if not found:return raw,[]
+    if len(state['party'])!=4:raise ValueError('Protagonist slot missing')
+    actor=state['party'][0];sex=actor['modified_stats'][35]
+    mirrors=[a for a in state['current_area_actors']if a['runtime_id']==actor['runtime_id']]
+    if actor['in_party']!=1 or actor['script_name'].casefold()!='none'or type(sex)is not int or not 0<=sex<=0xffffffff or len(mirrors)!=1 or mirrors[0]!=actor:raise ValueError('Wrong/incoherent protagonist sex/identity')
+    evidence_rows=[]
+    def replace(match):
+        name=match[0][1:-1];row=rows[name];ref=row['female']if sex==2 else row['male']
+        evidence_rows.append(dict(token=name,slot=0,actor_runtime_id=actor['runtime_id'],sex_stat=35,sex=sex,word_ref=ref,word=words[str(ref)]))
+        return words[str(ref)]
+    return re.sub(r'<[^<>]*>',replace,raw),evidence_rows
+
+def scroll_identity(ready,case,resources):
+    page=base.page(ready['party'][case['pc']-1],case['kind'],2)
+    known=[dict(original_index=i,resref=r['resref'].upper(),name=resources[r['resref'].upper()+'.spl']['spell_name'])for i,r in enumerate(page['known'])]
+    shown=sorted(known,key=lambda r:r['name']);matches=[(i,r)for i,r in enumerate(shown)if r['resref']==SCROLL_REFS[case['name']]]
+    if len(matches)!=1:raise ValueError('Natural long-description target missing/ambiguous')
+    return matches[0]
+
+def expected_plan(ready,mode,resources=None):
     if mode not in ('operate','reload'):raise ValueError('Unknown information mode')
     result=[]
     for case in base.CASES:
@@ -23,8 +58,12 @@ def expected_plan(ready,mode):
                 if top:result.append(p+'.next')
                 result.extend(p+'.'+suffix for suffix in ('default','select','selected','deselect','deselected'))
         if not 0<total_known<=256:raise ValueError('Natural known-spell inventory absent/unbounded')
+        position,_=scroll_identity(ready,case,resources)
+        p=name+'.scroll';result.extend([p+'.tab-away',p+'.tab'])
+        result.extend(p+'.next%d'%i for i in range(1,position//7+1))
+        result.extend(p+'.'+s for s in ('default','select','selected','scroll-down','scrolled','scroll-up','restored'))
         p=name+'.target'
-        result.extend(p+'.'+s for s in ('tab-away','tab','default','other-portrait','other-actor','return-portrait','returned','assert-page','select','selected','scroll-down','scrolled','scroll-up','restored'))
+        result.extend(p+'.'+s for s in ('tab-away','tab','default','other-portrait','other-actor','return-portrait','returned','assert-page','select','selected'))
         if mode=='operate':result.extend(p+'.'+s for s in ('remove','after-remove','separate','after-separate','full-icon','after-full-icon','remove-depleted','after-depleted','icon','final'))
         result.append(name+'.close')
     result.append('leader-portrait')
@@ -56,10 +95,13 @@ def display_guard(meta,state,ui,case,resources,source):
     if layout.get('resolved_action_label')!=resources['information_action_labels'][str(17189 if pack=='GUIMG'else 17224)]:raise ValueError('Action label differs from frozen configured TLK')
     page_contract.validate_page(layout,shown,ui['controls'],pack,pc,kind,level,
         expected_module=Path(source)/'gemrb/GUIScripts/EESpellbookInformation.py',expected_help=resources['spellbook_help']['value'],require_unselected=False)
+    token_trace=[]
     if selected:
         spell=resources[selected['resref']+'.spl'];raw=spell['spell_description']
         if '<'in raw or '>'in raw:
-            description,_=tokens.resolve_description(raw,(resources['_gender_path']).read_bytes(),resources['gender_tokens']['words'],state)
+            table=(resources['_gender_path']).read_bytes()
+            if gender_rows(table)!=resources['information_gender_tokens']['rows']:raise ValueError('Actual/frozen information gender rows differ')
+            description,token_trace=resolve_description(raw,table,resources['information_gender_tokens']['words'],state)
         else:description=raw
         if layout['selected_description_ref']!=spell['spell_description_ref']or layout['selected_description']!=description:raise ValueError('Selected full description differs from frozen SPL/TLK/token binding')
         can=len(actual['memorized'])<actual['slots_with_bonus']
@@ -71,9 +113,9 @@ def display_guard(meta,state,ui,case,resources,source):
     for i in range(len(actual['memorized']),12):
         item=base.field(ui,pack,2,3+i)
         if item.get('stored_tooltip')or item.get('flags',0)&2:raise ValueError('Empty prepared row retained visible stale spell')
-    return shown
+    return shown,token_trace
 
-def selection_guard(name,meta,case):
+def selection_guard(name,meta,case,ready=None,resources=None):
     layout=meta['information_page'];selected=layout['selected'];expected_pc=(1 if case['name']=='mage'else 2)if name.endswith('.other-actor')else case['pc']
     if meta['actor']!=expected_pc:raise ValueError('Actor-change observation did not show requested actor')
     match=re.fullmatch(r'(mage|priest)\.level(\d+)\.page(\d+)\.(default|selected|deselected)',name)
@@ -83,6 +125,12 @@ def selection_guard(name,meta,case):
         if phase=='selected':
             if selected!=layout['visible_rows'][0]:raise ValueError('Name callback selected wrong identity')
         elif selected is not None:raise ValueError('Default/deselected page retained selected identity')
+    elif '.scroll.'in name:
+        position,target=scroll_identity(ready,case,resources)
+        if meta['level']!=2 or layout['top']!=(position//7)*7:raise ValueError('Long-description level/page differs')
+        if name.endswith('.default'):
+            if selected is not None:raise ValueError('Long-description page retained stale selection')
+        elif selected!=target:raise ValueError('Wrong natural long-description target selected')
     else:
         if meta['level']!=case['level']or layout['top']!=0:raise ValueError('Target/context reset did not return initial page/level')
         if name.rsplit('.',1)[1]in('default','other-actor','returned'):
@@ -100,11 +148,14 @@ def callback_route(name,event,before,resources):
         elif suffix=='return-portrait':wanted=('PORTWIN',0,case['pc']-1)
         elif suffix in ('tab','tab-away'):
             m=re.fullmatch(r'(mage|priest)\.level(\d+)\.tab',name)
-            level=int(m[2])if m else (case['level']+1)%case['count']if suffix=='tab-away'else case['level']
+            level=(3 if suffix=='tab-away'else 2)if '.scroll.'in name else int(m[2])if m else (case['level']+1)%case['count']if suffix=='tab-away'else case['level']
             wanted=(case['pack'],2,case['tabs']+level)
-        elif suffix=='next':wanted=(case['pack'],2,page_contract.DOWN)
+        elif suffix=='next'or re.fullmatch('next[1-9][0-9]*',suffix):wanted=(case['pack'],2,page_contract.DOWN)
         elif suffix in ('scroll-down','scroll-up'):wanted=(case['pack'],2,page_contract.INFO_DOWN if suffix=='scroll-down'else page_contract.INFO_UP)
         elif suffix in ('select','deselect')and'.level'in name:wanted=(case['pack'],2,page_contract.NAME)
+        elif '.scroll.'in name and suffix=='select':
+            position,_=scroll_identity(before,case,resources)
+            wanted=(case['pack'],2,page_contract.NAME+position%7)
         else:
             rows=base.page(before['party'][case['pc']-1],case['kind'],case['level'])
             sorted_known=sorted(enumerate(rows['known']),key=lambda p:resources[p[1]['resref'].upper()+'.spl']['spell_name'])
@@ -136,7 +187,7 @@ def validate_capture(folder,nonce,mode,started_ns,receipt):
     if not re.fullmatch('[0-9a-f]{32}',nonce):raise ValueError('Caller nonce invalid')
     if host.get('schema')!='bg-redux-information-host/1'or host.get('nonce')!=nonce or host.get('mode')!=mode or host.get('confirmation_policy')!='ee-direct'or host.get('completed')is not True or host.get('error')or host.get('os_pointer_input')is not False or host.get('direct_spell_mutation')is not False:raise ValueError('Incomplete/stale/forced information host')
     ready=evidence.read(folder/'ready.state.json');loaded=evidence.read(folder/'loaded.state.json');scene=evidence.read(folder/'ready.scene.json');evidence.require_state(ready)
-    plan=expected_plan(ready,mode)
+    plan=expected_plan(ready,mode,receipt['resources'])
     if runtime.get('schema')!='bg-redux-information-runtime/1'or runtime.get('nonce')!=nonce or runtime.get('mode')!=mode or runtime.get('confirmation_policy')!='ee-direct'or runtime.get('planned')!=plan or runtime.get('steps')!=len(plan)or runtime.get('completed')is not True or runtime.get('physical_pointer_input')is not False:raise ValueError('Independent information plan coverage differs')
     if started_ns is not None and any(p.stat().st_mtime_ns<started_ns for p in folder.iterdir()if p.is_file()):raise ValueError('Stale evidence')
     events=host['events'];startup=host['startup'];rows=runtime['rows']
@@ -151,7 +202,7 @@ def validate_capture(folder,nonce,mode,started_ns,receipt):
     for r,e in zip(requests,dispatch):
         if e['step']!=r['step']or [e[k]for k in('pack','window','control')]!=[r[k]for k in('pack','window','control')]:raise ValueError('Callback route differs')
         base.request_value_guard(r,e)
-    captures={};nonidentity=False;resources=dict(receipt['resources'],_gender_path=folder/'gender.2da.runtime')
+    captures={};nonidentity=False;token_resolutions=[];resources=dict(receipt['resources'],_gender_path=folder/'gender.2da.runtime')
     expected_observations=[(i,n)for i,n in enumerate(plan)if n.endswith(('.default','.selected','.deselected','.other-actor','.returned','.scrolled','.restored','.after-remove','.after-separate','.after-full-icon','.after-depleted','.final'))]
     if [(r['step'],r['name'])for r in observations]!=expected_observations:raise ValueError('Natural page/selection/operation observation inventory incomplete')
     observed_steps={i for i,_ in expected_observations}
@@ -162,7 +213,8 @@ def validate_capture(folder,nonce,mode,started_ns,receipt):
         name=row['name'];case=next(c for c in base.CASES if name.startswith(c['name']+'.'));meta=evidence.read(folder/('capture-%d.book.json'%i));state=evidence.read(folder/('capture-%d.state.json'%i));ui=evidence.read(folder/('capture-%d.ui.json'%i));raw_scene=evidence.read(folder/('capture-%d.scene.json'%i))
         if (meta.get('nonce'),meta.get('name'),meta.get('capture'),meta.get('step'))!=(nonce,name,i,row['step'])or state['game_time']!=ready['game_time']or raw_scene['game_time']!=state['game_time']:raise ValueError('Capture nonce/clock/identity differs')
         if meta.get('confirmation_option')!=0 or meta.get('confirmation')is not False:raise ValueError('Actual default-off confirmation scope differs')
-        shown=display_guard(meta,state,ui,case,resources,receipt['source']);selection_guard(name,meta,case)
+        shown,trace=display_guard(meta,state,ui,case,resources,receipt['source']);selection_guard(name,meta,case,ready,resources)
+        if trace:token_resolutions.append(dict(capture=i,resref=meta['information_page']['selected']['resref'],description_ref=meta['information_page']['selected_description_ref'],resolutions=trace))
         observation_world_guard(ready,state)
         base.bmp_region_sha(folder/('capture-%d.bmp'%i),base.field(ui,case['pack'],2,page_contract.TEXT)['screen_rect'])
         nonidentity|=[r['original_index']for r in shown]!=list(range(len(shown)))
@@ -182,12 +234,13 @@ def validate_capture(folder,nonce,mode,started_ns,receipt):
         else:base.equal_except_selection(before,after)
     scrolls=[]
     for case in base.CASES:
-        p=case['name']+'.target';pre=captures[p+'.selected'];down=captures[p+'.scrolled'];up=captures[p+'.restored']
+        p=case['name']+'.scroll';pre=captures[p+'.selected'];down=captures[p+'.scrolled'];up=captures[p+'.restored']
         rect=base.field(pre[2],case['pack'],2,page_contract.TEXT)['screen_rect']
         hashes=[base.bmp_region_sha(folder/('capture-%d.bmp'%c[3]),rect)for c in(pre,down,up)]
         if hashes[0]==hashes[1]or hashes[0]!=hashes[2]:raise ValueError('Description viewport did not visibly scroll down and return')
-        scrolls.append(dict(book=case['name'],rect=rect,selected_sha256=hashes[0],scrolled_sha256=hashes[1],restored_sha256=hashes[2]))
+        scrolls.append(dict(book=case['name'],resref=SCROLL_REFS[case['name']],level=2,description_ref=pre[0]['information_page']['selected_description_ref'],description_characters=len(pre[0]['information_page']['selected_description']),rect=rect,selected_sha256=hashes[0],scrolled_sha256=hashes[1],restored_sha256=hashes[2]))
         if mode=='operate':
+            p=case['name']+'.target'
             baseline=captures[p+'.returned'][1]
             for phase,expected in (('after-remove','after-remove'),('after-separate','after-add'),('after-full-icon','after-add'),('after-depleted','after-depleted-remove'),('final','final')):base.stage_delta(baseline,captures[p+'.'+phase][1],case,expected)
     final=evidence.read(folder/'final.state.json');operations=evidence.read(folder/'operations-final.state.json');base.declared_world_delta(ready,operations,{c['name']for c in base.CASES}if mode=='operate'else set());base.equal_except_selection(operations,final)
@@ -198,4 +251,4 @@ def validate_capture(folder,nonce,mode,started_ns,receipt):
     elif host['saves']!=[]:raise ValueError('Reload unexpectedly saved')
     return dict(save=host['saves'][0]if mode=='operate'else None,callbacks=len(events),observations=len(observations),natural_pages=sum(n.endswith('.default')and'.level'in n for n in plan),
         natural_over24=any(len(p['known'])>24 for c in base.CASES for p in ready['party'][c['pc']-1]['spellbook']if p['type']==c['kind']),
-        all_natural_pages_visited=True,nonidentity_sort_runtime=nonidentity,description_scrolls=scrolls,physical_pointer_input=False,original_parity=None,per_label_style_observed=False)
+        all_natural_pages_visited=True,nonidentity_sort_runtime=nonidentity,description_scrolls=scrolls,token_resolutions=token_resolutions,physical_pointer_input=False,original_parity=None,per_label_style_observed=False)

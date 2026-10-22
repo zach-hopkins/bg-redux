@@ -8,6 +8,7 @@ PLAN=[]
 BUILT=False
 NAME=0x7fff0400
 UP,DOWN,COUNT,ACTION,TEXT,INFO_UP,INFO_DOWN=range(0x7fff0410,0x7fff0417)
+SCROLL_REFS={'mage':'SPWI302','priest':'SPPR303'}
 
 def add(name,fn):PLAN.append((name,fn))
 
@@ -75,6 +76,23 @@ def BuildPlan():
                 add(p+'.deselect',unpick);add(p+'.deselected',lambda c=c,p=p:observe(c,p+'.deselected'))
             # Same-level tab re-entry must reset the actual page/selection only
             # on a context change. Switch away and back through real tabs.
+        entries=[]
+        for index in range(GemRB.GetKnownSpellsCount(case['pc'],case['kind'],2)):
+            ref=GemRB.GetKnownSpell(case['pc'],case['kind'],2,index)['SpellResRef']
+            entries.append((GemRB.GetString(GemRB.GetSpell(ref)['SpellName']),ref.upper(),index))
+        ordered=sorted(entries,key=lambda row:row[0]);matches=[(i,row)for i,row in enumerate(ordered)if row[1]==SCROLL_REFS[name]]
+        if len(matches)!=1:raise RuntimeError('Natural long-description target absent/ambiguous')
+        position,entry=matches[0];s=dict(case,level=2,ref=entry[1],known=entry[2]);prefix=name+'.scroll'
+        add(prefix+'.tab-away',lambda s=s:b.tab(s,3))
+        add(prefix+'.tab',lambda s=s:b.tab(s,2))
+        for page_index in range(1,position//7+1):add(prefix+'.next%d'%page_index,lambda s=s:page(s,True))
+        add(prefix+'.default',lambda s=s,prefix=prefix:observe(s,prefix+'.default'))
+        add(prefix+'.select',lambda s=s:named(s,s['known'],'long-description-name-select'))
+        add(prefix+'.selected',lambda s=s,prefix=prefix:observe(s,prefix+'.selected'))
+        add(prefix+'.scroll-down',lambda s=s:scroll(s,True))
+        add(prefix+'.scrolled',lambda s=s,prefix=prefix:observe(s,prefix+'.scrolled'))
+        add(prefix+'.scroll-up',lambda s=s:scroll(s,False))
+        add(prefix+'.restored',lambda s=s,prefix=prefix:observe(s,prefix+'.restored'))
         c=dict(case,level=case['level']);prefix=name+'.target'
         add(prefix+'.tab-away',lambda c=c:b.tab(c,(c['level']+1)%c['count']))
         add(prefix+'.tab',lambda c=c:b.tab(c,c['level']))
@@ -88,10 +106,6 @@ def BuildPlan():
         add(prefix+'.assert-page',lambda c=c:target_page(c))
         add(prefix+'.select',lambda c=c:named(c,c['known'],'target-name-select'))
         add(prefix+'.selected',lambda c=c,prefix=prefix:observe(c,prefix+'.selected'))
-        add(prefix+'.scroll-down',lambda c=c:scroll(c,True))
-        add(prefix+'.scrolled',lambda c=c,prefix=prefix:observe(c,prefix+'.scrolled'))
-        add(prefix+'.scroll-up',lambda c=c:scroll(c,False))
-        add(prefix+'.restored',lambda c=c,prefix=prefix:observe(c,prefix+'.restored'))
         if b.MODE=='operate':
             add(prefix+'.remove',lambda c=c:b.memo(c))
             add(prefix+'.after-remove',lambda c=c,prefix=prefix:observe(c,prefix+'.after-remove'))

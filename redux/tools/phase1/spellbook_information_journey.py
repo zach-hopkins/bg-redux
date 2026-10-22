@@ -252,6 +252,7 @@ def tlk(project,refs):
 def resource_guard(api,project,source):
     result=erase.resource_guard(api,project,source)
     result['information_action_labels']={str(k):value for k,value in tlk(project,[17189,17224]).items()}
+    result['information_gender_tokens']=dict(rows=info.gender_rows(result['gender.2da']['raw']),words={str(k):value for k,value in tlk(project,[27484,27485,27486,27487,27488]).items()})
     return result
 
 def check_resources(receipt,api,project,source):

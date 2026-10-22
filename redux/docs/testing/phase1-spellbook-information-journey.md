@@ -32,14 +32,19 @@ or a disabled action. The existing production help guard may fail this check;
 that failure is retained, not treated as an accepted ineligible-book policy.
 
 The selected target description binds the actual SPL description strref, frozen
-TLK bytes and actual queried full text. The established strict PRO_HISHER token
-resolver binds the exact gender table/provider and protagonist sex/mirror. Other
+TLK bytes and actual queried full text. The bounded PRO_HESHE, PRO_HIMHER and
+PRO_HISHER resolver binds exact gender-table rows/provider, five frozen TLK word
+refs, protagonist identity/sex/mirror, and records every replacement. Other
 unrecognized description tokens fail explicitly rather than being stripped or
 generically substituted. Actual information-scroll arrow callbacks must change
 the captured text viewport and return it exactly, while full text and gameplay
 state remain unchanged. A description that does not visibly overflow cannot
 silently establish scroll coverage: it fails that bounded expectation and needs
-a documented natural target adjustment, not an invented pixel oracle.
+a documented natural target adjustment, not an invented pixel oracle. Scrolling
+has separate naturally known level-2 targets SPWI302 (Remove Magic, description
+strref 12145) and SPPR303 (Dispel Magic, strref 12199), discovered by real original
+index and localized sorted position with actual page navigation. The fixed
+SPWI213/SPPR113 mutation identities remain unchanged.
 
 The mutation slice requires the observed confirmation option to be zero. It
 removes the pinned charged prepared target through its existing callback, uses
@@ -61,7 +66,7 @@ reload without further mutations. The optional existing four-name presentation
 control remains explicit and separately provider/hash bound; it supplies no
 original-game parity claim.
 
-Ten focused test methods are supplied, including execution of the actual runtime
+Seventeen focused test methods are supplied, including execution of the actual runtime
 plan against an independently declared 31-entry inventory, missing/duplicate/
 unbounded pages, selection/reset identity, wrong callback routes, hidden world
 mutations and stale/incomplete/forced terminal claims. They were not executed by
@@ -73,8 +78,8 @@ external build directory; use the reviewed candidate build receipt):
 
 ```powershell
 $source = 'C:/BGRedux/phase1-local/engine'
-$build = 'C:/BGRedux/phase1-local/builds/20261022T112236Z-candidate-e52511e1'
-$hostBuild = 'C:/BGRedux/phase1-local/weapon-query-probes/e525-information-1'
+$build = 'C:/BGRedux/phase1-local/builds/20261022T115526Z-candidate-ced237a2'
+$hostBuild = 'C:/BGRedux/phase1-local/weapon-query-probes/ced-information-tokens-scroll-1'
 python -B "$source/redux/tools/phase1/spellbook_information_journey.py" build --project-root C:/BGRedux --engine-source-root $source --engine-build-root $build --output-dir $hostBuild
 python -B "$source/redux/tools/phase1/spellbook_information_journey.py" run --project-root C:/BGRedux --engine-source-root $source --engine-build-root $build --host-build "$hostBuild/build.json" --results-root C:/BGRedux/phase1-local/results --confirmation-policy ee-direct --presentation-control stock
 python -B "$source/redux/tools/phase1/spellbook_information_journey.py" run --project-root C:/BGRedux --engine-source-root $source --engine-build-root $build --host-build "$hostBuild/build.json" --results-root C:/BGRedux/phase1-local/results --confirmation-policy ee-direct --presentation-control spellname-permutation
@@ -89,3 +94,32 @@ journey runs at 1024×768; the separate broad menu journey retains both required
 resolutions. Per-label face/color/metrics, complete spontaneous book fidelity,
 full-campaign behavior, RNG noninterference, original operation parity and OS
 pointer input remain outside this diagnostic's claims.
+
+## Preserved first run and diagnostic correction
+
+`20261022T115836Z-spellbook-information-ee-direct-90991fb5` remains failed with
+`Unsupported description tokens`. Its owned PID 13796 exited zero after
+378.663 seconds and created a GUI save, but that does not override validation.
+Candidate and input preservation are true. The expanded token vocabulary is a
+diagnostic correction, not a game implementation change or retrospective pass.
+
+The failed run's frozen resources identify Remove Magic's raw localized
+description as 1462 characters (SPL SHA256
+`2b15629f46c0ebb858809b783ca8737c3929d1f4cea7f4023b3b1c29df34b636`)
+and Dispel Magic's as 1470 (SPL SHA256
+`9a655e612d16abd75e3c3c692c7d474300b2807f7d07ad947a2474200c884abc`),
+both provided by the protected clean `data/Spells.bif`. Their text contains
+PRO_HISHER and PRO_HESHE. Raw character length motivates the natural targets;
+only fresh actual viewport changes and exact return can prove overflow/scroll.
+
+Source authority is `TLKImporter.cpp`: `GetActorFromSlot(0)` uses the protagonist,
+`GenderStrRef` chooses female only for IE_SEX == SEX_FEMALE (2), and every other
+integer stat chooses male. `BuiltinToken` obtains slot/male/female refs from
+`gender.2da`. This diagnostic accepts only the three measured PRO_* rows, all
+with slot zero and exact shipped word refs, and rejects other token families,
+malformed tags, changed slots/refs, duplicate/missing rows, incoherent actors,
+or words containing another token. It does not generalize the engine token
+interpreter or silently strip unresolved tags. Seven additional test methods
+cover this boundary and separate paged scroll identity. This correction is
+source-only and unexecuted by the worker; a new frozen host closure and both
+native modes remain required.
