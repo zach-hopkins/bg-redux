@@ -18,7 +18,7 @@ retained. Fresh private-folder query/cache/control and import/GUI reruns pass
 their preservation guards; the earlier diagnostic-write failure is retained.
 Both selected menu resolutions complete 107 checks and 51 captures. The opaque
 plain-key editor journey and measured calling-thread RNG snapshot cost pass
-their bounded checks. External tooling now passes 301 Python tests. Original
+their bounded checks. External tooling now passes 317 Python tests. Original
 controlled-color ordinary saves and candidate fresh-process saves both show
 237 to 46 to 46; the independently audited comparison establishes shared
 behavior for this controlled input, not a candidate-only persistence defect.
@@ -56,7 +56,11 @@ its [independent audit](testing/phase1-renderer-menu-rerun-audit.md) records sco
 A follow-up [spellbook caster gap](testing/phase1-spellbook-caster-validation-gap.md)
 rejects eligible-caster content coverage: the observer selected only the GUI
 single actor, then top-window initialization restored the walking leader. An
-external portrait-callback/content correction and rerun remain pending.
+external portrait-callback/content correction now passes both resolutions with
+187 checks and51 captures each in `20261022T061926Z-guarded-recruited-menu-run-0a25d610`;
+the [executed correction](testing/phase1-spellbook-display-selection.md) records
+the prior missing-nonce failure, fresh callback identity, content checks and scope.
+Independent artifact audit remains pending.
 The [independent renderer audit](testing/phase1-window-render-lab-audit.md)
 rechecks the synthetic captures, preservation pins and ordinary-run artifact chain.
 A direct public TextArea selection entry separately exposes
