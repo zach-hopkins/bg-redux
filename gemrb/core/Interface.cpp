@@ -1491,6 +1491,7 @@ static const EnumArray<GFFlags, StringView> game_flags {
 	"GreyDisabledControls", // GFFlags::GREY_DISABLED_CONTROLS
 	"NameEveryoneOnTab", // GFFlags::NAME_EVERYONE_ON_TAB
 	"OrderedKnownSpells", // GFFlags::ORDERED_KNOWN_SPELLS
+	"WeaponStyleTHAC0Penalties", // GFFlags::WEAPON_STYLE_THAC0_PENALTIES
 };
 
 /** Loads gemrb.ini */

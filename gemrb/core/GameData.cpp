@@ -871,6 +871,12 @@ int GameData::GetWeaponStyleBonus(WS style, int stars, WSB bonusType)
 	EnumArray<WS, std::string> styleNames { "", "TWOHANDED", "SINGLEWEAPON", "SWORDANDSHIELD", "TWOWEAPON" };
 	EnumArray<WSB, std::string> bonusNames { "DAMAGE_RIGHT", "DAMAGE_LEFT", "THAC0_RIGHT", "THAC0_LEFT", "AC_BASE", "AC_MISSILE", "SPEED", "CRITICALROLL" };
 	std::string rowName = fmt::format("{}-{}", styleNames[style], stars);
+	// Preserve the historical enum/column mapping for other game profiles.
+	// EE's measured style contract uses the named hand, not the enum's position.
+	if (core->HasFeature(GFFlags::WEAPON_STYLE_THAC0_PENALTIES) && !core->HasFeature(GFFlags::RULES_3ED)) {
+		if (bonusType == WSB::THAC0Right) return styleTable->QueryFieldSigned<int>(rowName, "THAC0_RIGHT");
+		if (bonusType == WSB::THAC0Left) return styleTable->QueryFieldSigned<int>(rowName, "THAC0_LEFT");
+	}
 	return styleTable->QueryFieldSigned<int>(rowName, bonusNames[bonusType]);
 }
 

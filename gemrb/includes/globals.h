@@ -127,6 +127,7 @@ enum class GFFlags : uint32_t {
 	GREY_DISABLED_CONTROLS, // bg1
 	NAME_EVERYONE_ON_TAB, // ees
 	ORDERED_KNOWN_SPELLS, // bg2, ees
+	WEAPON_STYLE_THAC0_PENALTIES, // opt-in named hand columns and 2E style penalties (bg2ee)
 
 	count // must be last
 };

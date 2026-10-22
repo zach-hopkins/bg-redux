@@ -6947,7 +6947,10 @@ int Actor::GetProficiencyBonus(int& style, bool leftOrRight, int& damageBonus, i
 		stars = GetStars(IE_PROFICIENCY2WEAPON);
 		style = 1000 * stars + IE_PROFICIENCY2WEAPON;
 		styleIdx = WS::TwoWeapons;
-		prof += gamedata->GetWeaponStyleBonus(styleIdx, stars, leftOrRight ? WSB::THAC0Left : WSB::THAC0Right);
+		const int styleTHAC0 = gamedata->GetWeaponStyleBonus(styleIdx, stars, leftOrRight ? WSB::THAC0Left : WSB::THAC0Right);
+		// prof is a bonus until ComputeCombatDetails applies ReverseToHit.
+		// The opt-in EE table values are penalties: +4/+8 must worsen THAC0.
+		prof += core->HasFeature(GFFlags::WEAPON_STYLE_THAC0_PENALTIES) ? -styleTHAC0 : styleTHAC0;
 		damageBonus += gamedata->GetWeaponStyleBonus(styleIdx, stars, leftOrRight ? WSB::DamageLeft : WSB::DamageRight);
 	} else if (wi.itemflags & IE_INV_ITEM_TWOHANDED && wi.wflags & WEAPON_MELEE) {
 		// add two handed profs bonus
