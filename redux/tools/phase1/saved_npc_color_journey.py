@@ -6,6 +6,7 @@ three fresh processes and ordinary saves, not an in-process reload surrogate.
 from __future__ import annotations
 
 import argparse
+import ast
 import math
 import os
 from pathlib import Path
@@ -230,12 +231,74 @@ def validate_stage(folder,row,running,reload,started_ns=None):
                 output_save=saved['directories'][0],save_return_code=0,forced=False)
 
 
-def preparation(path,selected,api=None):
+def construction_ast_proof(historical,current):
+    """Parse text only: never compile, import or execute historical code."""
+    modules=[];parser_hashes=[]
+    for raw in (historical,current):
+        if len(raw)>1024*1024:raise ValueError('Construction source exceeds diagnostic bound')
+        module=ast.parse(raw.decode('utf-8-sig'),type_comments=True)
+        matches=[node for node in module.body if isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef)) and node.name=='sav_records']
+        if len(matches)!=1 or not isinstance(matches[0],ast.FunctionDef):
+            raise ValueError('Exactly one ordinary top-level sav_records function required')
+        function=matches[0]
+        parser_hashes.append(fixtures.digest(ast.dump(function,include_attributes=False).encode()))
+        # Preserve the function signature/decorators and every other module AST
+        # node; only this reviewed parser function's body may differ.
+        function.body=[ast.Pass()]
+        modules.append(ast.dump(module,include_attributes=False))
+    if modules[0]!=modules[1]:raise ValueError('Construction AST changed outside allowlisted sav_records body')
+    return dict(schema='bg-redux-color-construction-ast-proof/1',outside_parser_ast_identical=True,
+        allowed_differences=['top-level sav_records function body only'],
+        common_outside_parser_ast_sha256=fixtures.digest(modules[0].encode()),
+        historical_parser_ast_sha256=parser_hashes[0],current_parser_ast_sha256=parser_hashes[1],
+        parser_ast_changed=parser_hashes[0]!=parser_hashes[1],historical_code_executed=False,
+        scope='Syntactic equality outside the parser body; not a general proof of parser semantics.')
+
+
+def bind_construction_source(prep,explicit=None,current=None):
+    current=Path(current or fixtures.__file__).resolve()
+    expected=prep['generator_sha256'];current_raw=current.read_bytes()
+    if explicit is None:
+        if fixtures.digest(current_raw)!=expected:
+            raise ValueError('Historical generator differs; explicit --construction-source is required')
+        source=current;mode='current-exact-generator'
+    else:source=Path(explicit).resolve();mode='explicit-historical-source'
+    raw=source.read_bytes()
+    if fixtures.digest(raw)!=expected:raise ValueError('Historical construction source hash differs from preparation')
+    proof=construction_ast_proof(raw,current_raw)
+    return dict(schema='bg-redux-color-construction-source-binding/1',mode=mode,source=str(source),
+        construction_source_sha256=expected,current_consumer_source=str(current),
+        current_consumer_sha256=fixtures.digest(current_raw),ast_proof=proof)
+
+
+def freeze_construction_source(binding,out):
+    out=Path(out)
+    frozen=out/'construction-source'/binding['construction_source_sha256']/'saved_npc_color_fixtures.py'
+    row=shared.frozen_copy(Path(binding['source']),frozen)
+    if row['sha256']!=binding['construction_source_sha256']:raise ValueError('Construction source changed while freezing')
+    receipt=dict(binding,frozen_source=str(frozen),proof_file=str(out/'construction-source-proof.json'))
+    shared.write(Path(receipt['proof_file']),receipt)
+    check_construction_source(receipt)
+    return receipt
+
+
+def check_construction_source(receipt):
+    expected=receipt['construction_source_sha256']
+    if evidence.sha(receipt['source'])!=expected or evidence.sha(receipt['frozen_source'])!=expected:
+        raise ValueError('Historical construction source/frozen copy drift')
+    if evidence.sha(receipt['current_consumer_source'])!=receipt['current_consumer_sha256']:
+        raise ValueError('Current construction consumer source drift')
+    proof=construction_ast_proof(Path(receipt['frozen_source']).read_bytes(),Path(receipt['current_consumer_source']).read_bytes())
+    if proof!=receipt['ast_proof'] or evidence.read(receipt['proof_file'])!=receipt:
+        raise ValueError('Frozen construction AST proof changed')
+
+
+def preparation(path,selected,api=None,construction_source=None):
     prep=evidence.read(path)
     if (prep.get('schema')!='bg-redux-phase1-color-preparation/1' or prep.get('phase')!='prepared-not-executed'
             or prep.get('executed')is not False or prep.get('source_unchanged')is not True
             or prep.get('original_behavior_observed')is not False): raise ValueError('Color preparation failed/executed/changed')
-    if prep['generator_sha256']!=evidence.sha(Path(fixtures.__file__)): raise ValueError('Color generator source drift')
+    bind_construction_source(prep,construction_source)
     ids=[r['id'] for r in prep['cases']]
     if ids!=[r[0] for r in fixtures.CASES] or selected and (len(selected)!=len(set(selected)) or set(selected)-set(ids)):
         raise ValueError('Color selected case identity differs')
@@ -272,13 +335,15 @@ def run(args):
     out=shared.new_output(args.results_root.resolve(),'native-color-journey')
     result=dict(schema='bg-redux-phase1-native-color-journey/1',directory=str(out),verdict='failed',execution='not-run',
                 original_behavior_observed=False,scope=SCOPE,cases=[])
-    before=candidate=receipt=None
+    before=candidate=receipt=construction=None
     try:
         api=shared.phase0(project);result['phase0_preflight']=api.baseline_runner.preflight(project)
         before=api.baseline_runner.protected(project);shared.write(out/'phase0-before.json',before)
         candidate=shared.candidate_inventory(source,build);shared.write(out/'candidate-before.json',candidate)
         receipt=check_build(args.build_receipt.resolve(),project,source,build)
-        prep,rows=preparation(args.preparation,args.cases,api)
+        prep,rows=preparation(args.preparation,args.cases,api,args.construction_source)
+        construction=freeze_construction_source(bind_construction_source(prep,args.construction_source),out)
+        result['construction_source_binding']=construction
         result.update(selected_cases=[r['id'] for r in rows],unselected_cases=[r['id'] for r in prep['cases'] if r not in rows],
                       declared_stages=list(STAGES),process_budget_seconds_per_case=3*args.timeout,running_samples=args.running_samples)
         result['preparation_sha256']=evidence.sha(args.preparation);shared.frozen_copy(args.preparation,out/'preparation.json')
@@ -315,9 +380,12 @@ def run(args):
                                  '--mode','live-clock','--clock-running-samples',str(args.running_samples),'--save-after-clock','1']
                         env=api.harness.environment(stage);prefix=project/'phase0-local/toolchain/msys64/ucrt64'
                         env['PATH']=os.pathsep.join([str(build/'gemrb'),str(prefix/'bin'),env.get('PATH','')]);env['PYTHONDONTWRITEBYTECODE']='1'
-                        check_sources(receipt,project);shared.validate_private_game(private,stage)
+                        check_sources(receipt,project);check_construction_source(construction);shared.validate_private_game(private,stage)
+                        entry['construction_source_before_verified']=True
                         started=time.time_ns();entry['process']=api.baseline_runner.execute(command,build,env,stage/'process.log',args.timeout)
                         entry['execution']='passed' if entry['process'].get('exit_code')==0 and entry['process'].get('timed_out')is False else 'failed'
+                        check_construction_source(construction)
+                        entry['construction_source_after_verified']=True
                         if (stage/'capture/color-save-result.json').is_file():
                             entry['native_save_receipt']=evidence.read(stage/'capture/color-save-result.json')
                         shared.require_process(entry['process'])
@@ -339,7 +407,11 @@ def run(args):
                             raise ValueError('Color immutable input/config changed')
                         frozen_saves.extend([(frozen,output_files),(saved,output_files)]);incoming=frozen
                     finally:
-                        if private is not None: entry['private_game_validation']=shared.validate_private_game(private,stage)
+                        try:
+                            if private is not None: entry['private_game_validation']=shared.validate_private_game(private,stage)
+                        finally:
+                            check_construction_source(construction)
+                            entry['construction_source_final_verified']=True
                 case['verdict']='native-color-journey-characterized'
             except Exception as error: case['error']=str(error)
             case['actual_sequence']=[dict(stage=s['id'],base=s['observation']['after_clock']['base_color212'],
@@ -361,12 +433,18 @@ def run(args):
             result['verdict']='native-color-journeys-characterized'
     except Exception as error: result['error']=str(error)
     finally:
+        if construction is not None:
+            try:
+                check_construction_source(construction)
+                result['construction_source_preserved']=True
+            except Exception as error:
+                result.update(verdict='failed',construction_source_preserved=False,construction_preservation_error=str(error))
         try:
             finish_guards(result,out,project,source,build,api,before,candidate)
             if receipt is not None: check_sources(receipt,project)
             if 'preparation_sha256'in result:
                 if evidence.sha(args.preparation)!=result['preparation_sha256']: raise ValueError('Source color preparation changed')
-                preparation(args.preparation,args.cases,api)
+                preparation(args.preparation,args.cases,api,args.construction_source)
                 result['preparation_and_inputs_preserved']=True
         except Exception as error: result.update(verdict='failed',preservation_error=str(error))
         shared.write(out/'result.json',result);shared.write(out/'artifact-manifest.json',dict(files=output_manifest(out),scope='Owned outputs/root copies; linked assets excluded'))
@@ -383,6 +461,8 @@ def main(argv=None):
         if mode=='build':item.add_argument('--output-dir',type=Path,required=True)
         else:
             for name in ('build-receipt','preparation','results-root'):item.add_argument('--'+name,type=Path,required=True)
+            item.add_argument('--construction-source',type=Path,
+                              help='Explicit frozen historical generator source; parsed/hash-bound, never executed')
             item.add_argument('--cases',nargs='+',choices=[c[0] for c in fixtures.CASES]);item.add_argument('--running-samples',type=int,default=40)
     args=parser.parse_args(argv)
     if not math.isfinite(args.timeout) or args.timeout<=0 or args.mode=='run' and (args.timeout>90 or not 8<=args.running_samples<=80):

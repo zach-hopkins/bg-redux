@@ -101,3 +101,45 @@ clock disorder/type/coverage/pause failures, stale/missing/discontinuous evidenc
 and nested private-wrapper manifest pruning. They are **unexecuted by the worker**.
 Native compilation, focused/full unit execution and the first actual journey
 remain coordinator gates before any result claim or engine fix.
+
+## Historical construction source after the empty-SAV parser correction
+
+The first native create/save prefix is preserved at
+`C:/BGRedux/phase1-local/results/20261022T023707Z-native-color-journey-21c334c5`.
+It saved successfully, then evidence ingestion rejected a legitimate empty
+default.tot member. The parser now accepts declared size0 only after validating
+a complete, actually empty zlib stream with no trailing/unconsumed data. This
+does not regenerate or rewrite the original-matched021632 preparation, nonce,
+case scripts, table, CRE or fixtures.
+
+Because the preparer's module also supplies the corrected SAV reader, its
+current file hash differs from the historical construction hash in that
+preparation. A new run therefore requires explicit run-only
+`--construction-source <frozen original saved_npc_color_fixtures.py>` from the
+first color-host build's retained sources. The exact historical SHA256 must
+equal preparation.generator_sha256. There is no automatic path search, hash
+whitelist or silent fallback. Without this argument, only an exact current
+helper hash matching the construction hash is accepted.
+
+The historical file is **read and Python-AST parsed only**, never imported,
+compiled or executed. The old/current modules must have identical ASTs except
+the body of exactly one ordinary top-level sav_records function. Every other
+function (including construction), constant, import, module statement and the
+parser signature/decorators must remain identical. This proves syntactic
+identity outside the allowlisted body; it does not claim a general semantic
+proof of arbitrary parser changes.
+
+Each new run freezes the historical source under construction-source/, writes
+construction-source-proof.json and records both old/current paths/hashes and
+the common outside-parser AST digest. Historical source, frozen copy, current
+consumer and proof are checked before/after every launch and at finalization.
+Tampering fails preservation. All current fixture/override/table/CRE/script
+validations still run with the corrected current reader. The source preparation
+and its input bytes remain immutable. A fresh external host build is required
+because the bound runner/helper source closure changed.
+
+Added focused test sources cover wrong historical hash, missing explicit
+binding, constructor/constant/import/signature changes, duplicate/missing
+parser definitions, historical/frozen/current/proof tampering and a historical
+module whose top-level raise would fail if it were executed. These additions
+were not executed by the worker; coordinator verification remains required.

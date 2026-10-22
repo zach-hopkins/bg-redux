@@ -119,4 +119,65 @@ class ColorHostSourceTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'preparation failed'):journey.preparation(path,None)
 
 
+class HistoricalConstructionBindingTests(unittest.TestCase):
+    OLD=b'import json\nMAX=64\ndef sav_records(data):\n    return [data]\ndef prepare():\n    return MAX\n'
+    CURRENT=OLD.replace(b'return [data]',b'return list(data)')
+
+    def setUp(self):
+        self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup);self.root=Path(self.temp.name)
+        self.old=self.root/'historical.py';self.current=self.root/'current.py'
+        self.old.write_bytes(self.OLD);self.current.write_bytes(self.CURRENT)
+        self.prep=dict(generator_sha256=journey.fixtures.digest(self.OLD))
+
+    def test_explicit_historical_source_requires_exact_hash_and_parser_only_ast_difference(self):
+        binding=journey.bind_construction_source(self.prep,self.old,self.current)
+        self.assertEqual(binding['mode'],'explicit-historical-source')
+        self.assertTrue(binding['ast_proof']['outside_parser_ast_identical'])
+        self.assertTrue(binding['ast_proof']['parser_ast_changed'])
+        self.assertFalse(binding['ast_proof']['historical_code_executed'])
+        self.assertEqual(binding['construction_source_sha256'],self.prep['generator_sha256'])
+        self.old.write_bytes(self.OLD+b'\n')
+        with self.assertRaisesRegex(ValueError,'hash differs'):
+            journey.bind_construction_source(self.prep,self.old,self.current)
+
+    def test_no_implicit_historical_fallback_when_current_hash_differs(self):
+        with self.assertRaisesRegex(ValueError,'explicit --construction-source'):
+            journey.bind_construction_source(self.prep,current=self.current)
+        self.current.write_bytes(self.OLD)
+        binding=journey.bind_construction_source(self.prep,current=self.current)
+        self.assertEqual(binding['mode'],'current-exact-generator')
+
+    def test_constructor_constant_import_and_parser_signature_changes_rejected(self):
+        for changed in [self.CURRENT.replace(b'return MAX',b'return 0'),self.CURRENT.replace(b'MAX=64',b'MAX=65'),
+                        self.CURRENT.replace(b'import json',b'import os'),self.CURRENT.replace(b'sav_records(data)',b'sav_records(data, extra=None)')]:
+            self.current.write_bytes(changed)
+            with self.assertRaisesRegex(ValueError,'outside allowlisted'):
+                journey.bind_construction_source(self.prep,self.old,self.current)
+        for changed in [self.OLD.replace(b'def sav_records',b'def other'),self.OLD+b'def sav_records(data):\n    return []\n']:
+            with self.assertRaisesRegex(ValueError,'Exactly one'):
+                journey.construction_ast_proof(changed,self.CURRENT)
+
+    def test_source_frozen_consumer_and_proof_tamper_fail_rechecks(self):
+        for index,target in enumerate(['historical','frozen','consumer','proof']):
+            self.old.write_bytes(self.OLD);self.current.write_bytes(self.CURRENT)
+            out=self.root/str(index);out.mkdir()
+            receipt=journey.freeze_construction_source(journey.bind_construction_source(self.prep,self.old,self.current),out)
+            journey.check_construction_source(receipt) # before a hypothetical launch
+            if target=='historical':self.old.write_bytes(self.OLD+b'\n')
+            elif target=='frozen':Path(receipt['frozen_source']).write_bytes(self.OLD+b'\n')
+            elif target=='consumer':self.current.write_bytes(self.CURRENT+b'\n')
+            else:
+                proof=shared.read(receipt['proof_file']);proof['ast_proof']['outside_parser_ast_identical']=False
+                shared.write(Path(receipt['proof_file']),proof)
+            with self.assertRaises(ValueError):journey.check_construction_source(receipt)
+            with self.assertRaises(ValueError):journey.check_construction_source(receipt) # final guard also fails
+
+    def test_historical_module_is_parsed_without_execution(self):
+        old=b'raise AssertionError("must never execute old code")\n'+self.OLD
+        current=b'raise AssertionError("must never execute old code")\n'+self.CURRENT
+        self.old.write_bytes(old);self.current.write_bytes(current)
+        binding=journey.bind_construction_source(dict(generator_sha256=journey.fixtures.digest(old)),self.old,self.current)
+        self.assertTrue(binding['ast_proof']['outside_parser_ast_identical'])
+
+
 if __name__=='__main__':unittest.main()
