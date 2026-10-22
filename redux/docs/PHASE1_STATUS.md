@@ -19,8 +19,10 @@ their preservation guards; the earlier diagnostic-write failure is retained.
 Both selected menu resolutions complete 107 checks and 51 captures. The opaque
 plain-key editor journey and measured calling-thread RNG snapshot cost pass
 their bounded checks. External tooling now passes 212 Python tests. Original
-controlled-color ordinary saves show 237 to 46 across a fresh-process reload;
-that transition is shared behavior, not an established candidate-only defect.
+controlled-color ordinary saves and candidate fresh-process saves both show
+237 to 46 to 46; the independently audited comparison establishes shared
+behavior for this controlled input, not a candidate-only persistence defect.
+See the [paired color audit](testing/phase1-paired-color-audit.md).
 The batch descriptions below are
 historical checkpoints, superseded by the linked executed report where stated.
 
