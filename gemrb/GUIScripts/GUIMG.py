@@ -14,6 +14,7 @@ import CommonTables
 import GUICommonWindows
 import Spellbook
 import EESpellbookHeading
+import EESpellbookInformation
 from GUICommon import BindControlCallbackParams
 from GUIDefines import *
 from ie_stats import *
@@ -50,6 +51,8 @@ def ToggleSpellWindow (btn):
 def InitMageWindow (window):
 	global MageWindow, spellLevelOffset
 	MageWindow = window
+	if GameCheck.IsBG2EE ():
+		EESpellbookInformation.Reset (window, 'GUIMG')
 
 	Button = MageWindow.GetControl (1)
 	Button.OnPress (MagePrevLevelPress)
@@ -209,6 +212,9 @@ def UpdateMageWindow (MageWindow):
 		knownSpells.sort (key = lambda tpl: GemRB.GetString (GemRB.GetSpell (tpl[0]["SpellResRef"])["SpellName"]))
 
 	btncount = GUICommon.GetGUISpellButtonCount()
+	if EESpellbookInformation.Update (MageWindow, 'GUIMG', pc, spelltype, level, knownSpells, Sorcerer,
+		OnMageMemorizeSpell, OpenMageSpellInfoWindow, lambda: MageSpellLevel):
+		return
 	i = 0
 	for i in range (known_cnt):
 		Button = MageWindow.GetControl (27 + i)

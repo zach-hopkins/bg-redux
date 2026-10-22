@@ -14,6 +14,7 @@ import GUICommonWindows
 import CommonTables
 import Spellbook
 import EESpellbookHeading
+import EESpellbookInformation
 from GUICommon import BindControlCallbackParams
 from GUIDefines import *
 from ie_stats import *
@@ -27,6 +28,8 @@ FlashResRef = "FLASHBR" if GameCheck.IsBG2OrEE () else "FLASH"
 def InitPriestWindow (Window):
 	global PriestSpellWindow
 	PriestSpellWindow = Window
+	if GameCheck.IsBG2EE ():
+		EESpellbookInformation.Reset (Window, 'GUIPR')
 	
 	Button = Window.GetControl (1)
 	Button.OnPress (PriestPrevLevelPress)
@@ -143,6 +146,10 @@ def UpdatePriestWindow (Window):
 		knownSpells.sort (key = lambda tpl: GemRB.GetString (GemRB.GetSpell (tpl[0]["SpellResRef"])["SpellName"]))
 
 	btncount = GUICommon.GetGUISpellButtonCount()
+	if EESpellbookInformation.Update (Window, 'GUIPR', pc, spelltype, level, knownSpells, Sorcerer,
+		OnPriestMemorizeSpell, OpenPriestSpellInfoWindow, lambda: PriestSpellLevel):
+		Window.Focus ()
+		return
 	i = 0
 	for i in range (known_cnt):
 		Button = Window.GetControl (27 + i)
