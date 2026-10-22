@@ -2,9 +2,10 @@
 
 On October 22 UTC the coordinator used the computer-use skill to run original
 BG2EE 2.7.3.0 in a new private game/profile, load a copy of the protected
-two-party save and inspect Imoen's wizard book. No gameplay cheat, rest, cast,
-party edit or content override was issued. Original startup AI independently
-cast Stoneskin, so this is not whole-world parity with the paused native case.
+two-party save and inspect Imoen's wizard book. The operator issued no gameplay
+cheat, rest, cast, party edit or content override. Original startup Stoneskin
+activity was observed; saved bytes also contain an untraced SPWI102 charge
+change. This is not whole-world parity with the paused native case.
 
 Private evidence root:
 `phase1-local/results/20261022T082351Z-original-spellbook-installation-4de00a9c`.
@@ -59,6 +60,23 @@ The reproducible reader is
 `phase1-local/decode-original-spellbook-reference-v2-20261022.py`. Its first
 version's wrong Strength resref expectation (219 instead of observed 214) is
 retained as a failed assertion; frozen save bytes were unchanged.
+
+The [independent evidence audit](phase1-original-spellbook-independent-audit.md)
+and its [public evidence JSON](../evidence/phase1-original-spellbook-independent-audit.json)
+were authored in `e847631e1` and integrated as `61838d310`. They independently
+confirm the target page's saved result while recording additional ready-flag
+changes outside that page: Imoen's **SPWI102 at zero-based wizard level 0** and
+**SPWI408 at level 3** both change **ready 1→0**. Stoneskin activity was observed
+for the latter spell; **the SPWI102 change remains untraced**. Do not claim that
+all other ready flags were conserved, assign the SPWI102 cause to Stoneskin, or
+infer whole-world, AI or RNG purity from this session. These limits do not erase
+the bounded Stinking Cloud remove/reprepare result above.
+
+The private independent audit SHA-256 is
+`5aebde4969d60d838c98c63c732f3c79dd0c2c08a6cf76b535334ab38b9ad4ba`.
+A subsequent read-only review rehashed its 25 listed artifacts and separately
+decoded both additional GAME/CRE ready-flag changes; its receipt is retained at
+`phase1-local/results/20261022T092003Z-spellbook-reference-note-review-1fde9229/review.json`.
 
 The shipped `ui.menu` functions at lines 7808 and 8589 directly unmemorize the
 chosen wizard/priest entry. Their source hashes and short function excerpts are
