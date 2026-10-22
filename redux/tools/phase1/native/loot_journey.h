@@ -67,7 +67,7 @@ static void LootPress(Window* window, ScriptingId id)
 static std::string LootGlobal(const char* name)
 {
     for (const auto& pair : core->GetGame()->locals)
-        if (pair.first==name) return NumberJSON(pair.second);
+        if (pair.first==StringView(name)) return NumberJSON(pair.second);
     return "null";
 }
 

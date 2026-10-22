@@ -18,7 +18,7 @@ retained. Fresh private-folder query/cache/control and import/GUI reruns pass
 their preservation guards; the earlier diagnostic-write failure is retained.
 Both selected menu resolutions complete 107 checks and 51 captures. The opaque
 plain-key editor journey and measured calling-thread RNG snapshot cost pass
-their bounded checks. External tooling now passes 237 Python tests. Original
+their bounded checks. External tooling now passes 243 Python tests. Original
 controlled-color ordinary saves and candidate fresh-process saves both show
 237 to 46 to 46; the independently audited comparison establishes shared
 behavior for this controlled input, not a candidate-only persistence defect.
@@ -29,10 +29,15 @@ main/ammo/launcher mutation coverage passes 14 native stages and 196 queries;
 the [independent raw audit](testing/phase1-active-slot-journey.md) confirms the
 bounded pass, including 588 equal query state/cache/RNG pairs. Deliberate
 inventory mutations consumed RNG at three boundaries; this is not a whole-journey
-RNG preservation claim. The stock-container gameplay journey remains
-failed: after correcting an external name guard, approach movement completes
-but the queued use action disappears before any observed container UI/transfer.
-No successful loot/save/reload result or engine correction is inferred.
+RNG preservation claim. The stock-container gameplay journey now passes its
+bounded native route: after observed stock startup, one UseContainer command
+opens the table, shipped GUI callbacks transfer SW1H04 and close it, and ordinary
+save/fresh-process reload/save preserves ownership. Both processes and all
+preservation checks pass in `20261022T040338Z-container-loot-journey-25ffdf30`.
+See the [loot journey](testing/phase1-container-loot-journey.md). Earlier three
+native failures and the readiness adapter's failed compilation remain retained.
+This is external callback coverage; original parity and OS pointer input are
+unobserved, and no engine correction was needed for this route.
 The batch descriptions below are
 historical checkpoints, superseded by the linked executed report where stated.
 

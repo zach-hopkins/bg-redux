@@ -5,6 +5,22 @@ Evidence checkpoint: October 22, 2026 UTC, after the completed candidate `9aa69c
 Latest checkpoint: the later sections and linked summaries supersede pending
 descriptions below. Earlier failures and incomplete runs retain their verdicts.
 
+October 22 UTC readiness follow-up: external tooling passes **243 tests** in
+`results/phase1-integrated-tests-20261022T0358.log`. The corrected readiness
+adapter passes 21 focused tests and fresh external compilation in
+`weapon-query-probes/candidate-9aa-ui1-loot-ready5/build.json`. Native run
+`20261022T040338Z-container-loot-journey-25ffdf30` passes both fresh processes:
+one UseContainer command at sample 9, actual stock take/close callbacks at
+sample 31, table 11 to 10 items and leader 0 to 1 SW1H04. Ordinary save returns
+zero, frozen output reload preserves ownership, and its second ordinary save
+also returns zero. Each process completes 89 samples, including 80 running;
+Phase 0, candidate, private-input and output preservation checks pass. This
+observes external callback dispatch, without OS pointer input or original parity.
+The [journey report](phase1-container-loot-journey.md) retains the three earlier
+failed native runs. Readiness adapter build `candidate-9aa-ui1-loot-ready4`
+also remains failed: explicit `StringView(name)` fixes an external C++ string
+comparison; no engine source or binary changed for this rerun.
+
 October 22, 03:38 UTC follow-up: external tooling passes **237 tests** in
 `results/phase1-integrated-tests-20261022T0335.log`. The new active-slot run
 `20261022T033723Z-active-slot-run-81396091` passes main/ranged scenarios with
@@ -25,8 +41,10 @@ versus normalized-script-name assumption; no transfer occurs. Corrected external
 host run `20261022T033328Z-container-loot-journey-42d3a11e` observes normal
 approach movement to the table, but no container UI or transfer before its bound.
 The queued UseContainer action is seen briefly, then absent while movement
-continues. Investigation remains open. All three retain passing input, candidate
-and protected Phase 0 checks. No production fix or P1-06 success is claimed.
+continues. These three failures remain historical evidence, superseded for the
+corrected bounded route by the later pass above. All three retain passing input,
+candidate and protected Phase 0 checks. No production fix or general P1-06
+completion is claimed.
 
 ## Fresh isolated regression checkpoint
 
