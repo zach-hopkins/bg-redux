@@ -1,0 +1,678 @@
+{
+  "schema": "bg-redux-independent-spellbook-presentation-control-audit/1",
+  "passed": true,
+  "raw_result": "C:\\BGRedux\\phase1-local\\results\\compressed-spellbook-20261022\\20261022T092348Z-spellbook-operation-name-control-eda150fa\\result.json",
+  "result_sha256": "3e845d639093b8cbd4dcc7e04dd4a7e8422e44b671714652b0e6014b9bcb0459",
+  "artifact_manifest_sha256": "b6618ca2186c8db7d7ab856ee266360c3a7525b435a518117d0f59d8a86158b8",
+  "artifacts_rehashed": 1248,
+  "auditor_sha256": "c3622d993036e8316b722018b98bf553e503bd217bc8659ce4b600ef31bd7412",
+  "frozen_source_count": 61,
+  "parent_result_sha256": "93401ec89b0896ae8c69a846f81314afec75a69af9e62b173fdcd7c4ea8c8e6c",
+  "parent_manifest_sha256": "cad14881c5aef6ef19d2396aa6ba68cc98be8855c94ddb92143ee7b78fb98252",
+  "provider_sha256": {
+    "SPJA01.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 250
+    },
+    "SPPR101.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 442
+    },
+    "SPPR103.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 394
+    },
+    "SPPR104.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 298
+    },
+    "SPPR105.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 442
+    },
+    "SPPR110.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 2834
+    },
+    "SPPR111.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/override\\SPPR111.spl",
+      "bytes": 16274
+    },
+    "SPPR113.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/override\\SPPR113.spl",
+      "bytes": 874
+    },
+    "SPPR202.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 13794
+    },
+    "SPPR204.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 538
+    },
+    "SPPR205.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 1834
+    },
+    "SPPR206.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 1610
+    },
+    "SPPR207.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 346
+    },
+    "SPPR209.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 394
+    },
+    "SPPR210.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 12434
+    },
+    "SPPR212.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 394
+    },
+    "SPPR302.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 1346
+    },
+    "SPPR303.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 586
+    },
+    "SPPR305.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 4594
+    },
+    "SPPR306.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 9554
+    },
+    "SPPR309.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 490
+    },
+    "SPPR310.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 586
+    },
+    "SPPR311.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 490
+    },
+    "SPPR312.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 586
+    },
+    "SPPR315.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 394
+    },
+    "SPPR317.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 2026
+    },
+    "SPPR318.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 250
+    },
+    "SPPR319.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 586
+    },
+    "SPPR401.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 394
+    },
+    "SPPR402.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 202
+    },
+    "SPPR404.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 1930
+    },
+    "SPPR406.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 538
+    },
+    "SPPR407.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 4050
+    },
+    "SPPR409.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 8738
+    },
+    "SPPR410.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 202
+    },
+    "SPPR411.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 2474
+    },
+    "SPPR413.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 778
+    },
+    "SPPR414.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 346
+    },
+    "SPPR415.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 3794
+    },
+    "SPPR416.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 442
+    },
+    "SPWI102.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 442
+    },
+    "SPWI110.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 202
+    },
+    "SPWI112.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 1034
+    },
+    "SPWI118.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 3690
+    },
+    "SPWI211.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/override\\SPWI211.spl",
+      "bytes": 2746
+    },
+    "SPWI212.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 3426
+    },
+    "SPWI213.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/override\\SPWI213.spl",
+      "bytes": 250
+    },
+    "SPWI214.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 9474
+    },
+    "SPWI215.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 394
+    },
+    "SPWI302.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 538
+    },
+    "SPWI304.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 978
+    },
+    "SPWI305.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 6898
+    },
+    "SPWI308.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 930
+    },
+    "SPWI309.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 3058
+    },
+    "SPWI403.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 8738
+    },
+    "SPWI405.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 5378
+    },
+    "SPWI406.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 13442
+    },
+    "SPWI408.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 1970
+    },
+    "SPWI418.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 8738
+    },
+    "SPWI504.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 2322
+    },
+    "SPWI506.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 586
+    },
+    "SPWI508.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 2578
+    },
+    "SPWI513.spl": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/Spells.bif",
+      "bytes": 394
+    },
+    "guimg.chu": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/GUICHUI.bif",
+      "bytes": 9068
+    },
+    "guipr.chu": {
+      "originalfile": "C:/BGRedux/phase1-local/results/compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa/reload/private-game\\data/GUICHUI.bif",
+      "bytes": 3656
+    },
+    "spldisp.2da": {
+      "originalfile": "C:/BGRedux/phase1-local/engine/gemrb\\unhardcoded\\shared\\spldisp.2da",
+      "bytes": 852
+    },
+    "guibtact.2da": {
+      "originalfile": "C:/BGRedux/phase1-local/engine/gemrb\\unhardcoded\\bg2ee\\guibtact.2da",
+      "bytes": 3054
+    }
+  },
+  "engine_build_binding": {
+    "receipt_sha256": "9710922bf3ae751515a2e6638088b2856c31ece6b1cadfc0e64de1d3cce6f78a",
+    "source_files": 3508,
+    "binaries": 61,
+    "support_files": 5
+  },
+  "stages": [
+    {
+      "mode": "operate",
+      "pid": 11696,
+      "exit": 0,
+      "elapsed_seconds": 189.671,
+      "callbacks": 41,
+      "captures": 32,
+      "plan_steps": 69,
+      "nonce": "983fb4dadd8a41f982163d4a43ccac4e",
+      "override_proof": [
+        {
+          "resref": "SPWI213",
+          "original_provider": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\Spells.bif",
+          "original_provider_sha256": "3296b8ad42432ab509b90b5ab7efd43618e411bff9a6deeda315aead4e6f8d22",
+          "original_frozen": "C:\\BGRedux\\phase1-local\\spellbook-probes\\ordinary-control-5\\resources\\SPWI213.spl",
+          "original_sha256": "cd1af476a141570d00f2ba84efd0167209632ab87053e92f9bafed2c6347e887",
+          "override_provider": "C:\\BGRedux\\phase1-local\\results\\compressed-spellbook-20261022\\20261022T092348Z-spellbook-operation-name-control-eda150fa\\operate\\override\\SPWI213.spl",
+          "override_sha256": "8c91f8bd5f778221aa8bf3aa7e1677ba7a0c34877a6fd7212063101c58cea4c2",
+          "bytes": 250,
+          "allowed_field": [
+            8,
+            12
+          ],
+          "changed_offsets": [
+            8
+          ],
+          "original_name_ref": 12056,
+          "override_name_ref": 12033,
+          "original_name": "Stinking Cloud",
+          "override_name": "Melf's Acid Arrow"
+        },
+        {
+          "resref": "SPWI211",
+          "original_provider": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\Spells.bif",
+          "original_provider_sha256": "3296b8ad42432ab509b90b5ab7efd43618e411bff9a6deeda315aead4e6f8d22",
+          "original_frozen": "C:\\BGRedux\\phase1-local\\spellbook-probes\\ordinary-control-5\\resources\\SPWI211.spl",
+          "original_sha256": "837fd3be783d9ec9e91437cd849dc18c4ed6266117c0bebc63972f67dcaca89b",
+          "override_provider": "C:\\BGRedux\\phase1-local\\results\\compressed-spellbook-20261022\\20261022T092348Z-spellbook-operation-name-control-eda150fa\\operate\\override\\SPWI211.spl",
+          "override_sha256": "6f67fdd2fff1f36889f6f309dbbd5942882e12f3876dc237103cdac4751d4cff",
+          "bytes": 2746,
+          "allowed_field": [
+            8,
+            12
+          ],
+          "changed_offsets": [
+            8
+          ],
+          "original_name_ref": 12033,
+          "override_name_ref": 12056,
+          "original_name": "Melf's Acid Arrow",
+          "override_name": "Stinking Cloud"
+        },
+        {
+          "resref": "SPPR113",
+          "original_provider": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\Spells.bif",
+          "original_provider_sha256": "3296b8ad42432ab509b90b5ab7efd43618e411bff9a6deeda315aead4e6f8d22",
+          "original_frozen": "C:\\BGRedux\\phase1-local\\spellbook-probes\\ordinary-control-5\\resources\\SPPR113.spl",
+          "original_sha256": "81b3955ea7c3d1243d85c3391b5120a4d56a9d0e4fe47e4207e562c668b0fa99",
+          "override_provider": "C:\\BGRedux\\phase1-local\\results\\compressed-spellbook-20261022\\20261022T092348Z-spellbook-operation-name-control-eda150fa\\operate\\override\\SPPR113.spl",
+          "override_sha256": "925f67705bea60a48f7e6b3b025fa7541ef5d391d8031acb80484bacf3e070a8",
+          "bytes": 874,
+          "allowed_field": [
+            8,
+            12
+          ],
+          "changed_offsets": [
+            8,
+            9
+          ],
+          "original_name_ref": 3351,
+          "override_name_ref": 25601,
+          "original_name": "Doom",
+          "override_name": "Armor of Faith"
+        },
+        {
+          "resref": "SPPR111",
+          "original_provider": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\Spells.bif",
+          "original_provider_sha256": "3296b8ad42432ab509b90b5ab7efd43618e411bff9a6deeda315aead4e6f8d22",
+          "original_frozen": "C:\\BGRedux\\phase1-local\\spellbook-probes\\ordinary-control-5\\resources\\SPPR111.spl",
+          "original_sha256": "f21765bd5db520c8c50411d96052d03e3ab9d50b786c29b7899048bdc406099b",
+          "override_provider": "C:\\BGRedux\\phase1-local\\results\\compressed-spellbook-20261022\\20261022T092348Z-spellbook-operation-name-control-eda150fa\\operate\\override\\SPPR111.spl",
+          "override_sha256": "36b39e87a82d53d13c240b99a9fb242c5a03b404c24767ba560ed97307f4a5b1",
+          "bytes": 16274,
+          "allowed_field": [
+            8,
+            12
+          ],
+          "changed_offsets": [
+            8,
+            9
+          ],
+          "original_name_ref": 25601,
+          "override_name_ref": 3351,
+          "original_name": "Armor of Faith",
+          "override_name": "Doom"
+        }
+      ],
+      "tlk": {
+        "path": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\lang\\en_US\\dialog.tlk",
+        "bytes": 11655005,
+        "sha256": "9e685225ff3c3436a8a35fa7022550620d24a92efe35436a062c02955d9f0952"
+      },
+      "targets_visible0_original_indices": [
+        2,
+        4
+      ],
+      "tabs": {
+        "selected_references_distinct": true,
+        "arrow_back_repeat_agree": true,
+        "raw_pixel_table_sha256": "6a96168234ef92b1b201f4d9878c7b87d051063b401aadd3436d054d7e4eb554"
+      }
+    },
+    {
+      "mode": "reload",
+      "pid": 5204,
+      "exit": 0,
+      "elapsed_seconds": 110.993,
+      "callbacks": 24,
+      "captures": 18,
+      "plan_steps": 41,
+      "nonce": "cfdbb48410914a62a3bbe1f224761dd8",
+      "override_proof": [
+        {
+          "resref": "SPWI213",
+          "original_provider": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\Spells.bif",
+          "original_provider_sha256": "3296b8ad42432ab509b90b5ab7efd43618e411bff9a6deeda315aead4e6f8d22",
+          "original_frozen": "C:\\BGRedux\\phase1-local\\spellbook-probes\\ordinary-control-5\\resources\\SPWI213.spl",
+          "original_sha256": "cd1af476a141570d00f2ba84efd0167209632ab87053e92f9bafed2c6347e887",
+          "override_provider": "C:\\BGRedux\\phase1-local\\results\\compressed-spellbook-20261022\\20261022T092348Z-spellbook-operation-name-control-eda150fa\\reload\\override\\SPWI213.spl",
+          "override_sha256": "8c91f8bd5f778221aa8bf3aa7e1677ba7a0c34877a6fd7212063101c58cea4c2",
+          "bytes": 250,
+          "allowed_field": [
+            8,
+            12
+          ],
+          "changed_offsets": [
+            8
+          ],
+          "original_name_ref": 12056,
+          "override_name_ref": 12033,
+          "original_name": "Stinking Cloud",
+          "override_name": "Melf's Acid Arrow"
+        },
+        {
+          "resref": "SPWI211",
+          "original_provider": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\Spells.bif",
+          "original_provider_sha256": "3296b8ad42432ab509b90b5ab7efd43618e411bff9a6deeda315aead4e6f8d22",
+          "original_frozen": "C:\\BGRedux\\phase1-local\\spellbook-probes\\ordinary-control-5\\resources\\SPWI211.spl",
+          "original_sha256": "837fd3be783d9ec9e91437cd849dc18c4ed6266117c0bebc63972f67dcaca89b",
+          "override_provider": "C:\\BGRedux\\phase1-local\\results\\compressed-spellbook-20261022\\20261022T092348Z-spellbook-operation-name-control-eda150fa\\reload\\override\\SPWI211.spl",
+          "override_sha256": "6f67fdd2fff1f36889f6f309dbbd5942882e12f3876dc237103cdac4751d4cff",
+          "bytes": 2746,
+          "allowed_field": [
+            8,
+            12
+          ],
+          "changed_offsets": [
+            8
+          ],
+          "original_name_ref": 12033,
+          "override_name_ref": 12056,
+          "original_name": "Melf's Acid Arrow",
+          "override_name": "Stinking Cloud"
+        },
+        {
+          "resref": "SPPR113",
+          "original_provider": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\Spells.bif",
+          "original_provider_sha256": "3296b8ad42432ab509b90b5ab7efd43618e411bff9a6deeda315aead4e6f8d22",
+          "original_frozen": "C:\\BGRedux\\phase1-local\\spellbook-probes\\ordinary-control-5\\resources\\SPPR113.spl",
+          "original_sha256": "81b3955ea7c3d1243d85c3391b5120a4d56a9d0e4fe47e4207e562c668b0fa99",
+          "override_provider": "C:\\BGRedux\\phase1-local\\results\\compressed-spellbook-20261022\\20261022T092348Z-spellbook-operation-name-control-eda150fa\\reload\\override\\SPPR113.spl",
+          "override_sha256": "925f67705bea60a48f7e6b3b025fa7541ef5d391d8031acb80484bacf3e070a8",
+          "bytes": 874,
+          "allowed_field": [
+            8,
+            12
+          ],
+          "changed_offsets": [
+            8,
+            9
+          ],
+          "original_name_ref": 3351,
+          "override_name_ref": 25601,
+          "original_name": "Doom",
+          "override_name": "Armor of Faith"
+        },
+        {
+          "resref": "SPPR111",
+          "original_provider": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\Spells.bif",
+          "original_provider_sha256": "3296b8ad42432ab509b90b5ab7efd43618e411bff9a6deeda315aead4e6f8d22",
+          "original_frozen": "C:\\BGRedux\\phase1-local\\spellbook-probes\\ordinary-control-5\\resources\\SPPR111.spl",
+          "original_sha256": "f21765bd5db520c8c50411d96052d03e3ab9d50b786c29b7899048bdc406099b",
+          "override_provider": "C:\\BGRedux\\phase1-local\\results\\compressed-spellbook-20261022\\20261022T092348Z-spellbook-operation-name-control-eda150fa\\reload\\override\\SPPR111.spl",
+          "override_sha256": "36b39e87a82d53d13c240b99a9fb242c5a03b404c24767ba560ed97307f4a5b1",
+          "bytes": 16274,
+          "allowed_field": [
+            8,
+            12
+          ],
+          "changed_offsets": [
+            8,
+            9
+          ],
+          "original_name_ref": 25601,
+          "override_name_ref": 3351,
+          "original_name": "Armor of Faith",
+          "override_name": "Doom"
+        }
+      ],
+      "tlk": {
+        "path": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\lang\\en_US\\dialog.tlk",
+        "bytes": 11655005,
+        "sha256": "9e685225ff3c3436a8a35fa7022550620d24a92efe35436a062c02955d9f0952"
+      },
+      "targets_visible0_original_indices": [
+        2,
+        4
+      ],
+      "tabs": {
+        "selected_references_distinct": true,
+        "arrow_back_repeat_agree": true,
+        "raw_pixel_table_sha256": "6a96168234ef92b1b201f4d9878c7b87d051063b401aadd3436d054d7e4eb554"
+      }
+    }
+  ],
+  "targets": [
+    {
+      "caster": "mage",
+      "before": [
+        {
+          "resref": "SPWI213",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI214",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI215",
+          "flags": 1
+        }
+      ],
+      "after": [
+        {
+          "resref": "SPWI214",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI215",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI213",
+          "flags": 0
+        }
+      ],
+      "known": [
+        {
+          "resref": "SPWI215",
+          "level": 1,
+          "type": 1
+        },
+        {
+          "resref": "SPWI214",
+          "level": 1,
+          "type": 1
+        },
+        {
+          "resref": "SPWI213",
+          "level": 1,
+          "type": 1
+        },
+        {
+          "resref": "SPWI212",
+          "level": 1,
+          "type": 1
+        },
+        {
+          "resref": "SPWI211",
+          "level": 1,
+          "type": 1
+        }
+      ]
+    },
+    {
+      "caster": "priest",
+      "before": [
+        {
+          "resref": "SPPR113",
+          "flags": 1
+        },
+        {
+          "resref": "SPPR105",
+          "flags": 1
+        },
+        {
+          "resref": "SPPR105",
+          "flags": 1
+        },
+        {
+          "resref": "SPPR103",
+          "flags": 1
+        },
+        {
+          "resref": "SPPR103",
+          "flags": 1
+        }
+      ],
+      "after": [
+        {
+          "resref": "SPPR105",
+          "flags": 1
+        },
+        {
+          "resref": "SPPR105",
+          "flags": 1
+        },
+        {
+          "resref": "SPPR103",
+          "flags": 1
+        },
+        {
+          "resref": "SPPR103",
+          "flags": 1
+        },
+        {
+          "resref": "SPPR113",
+          "flags": 0
+        }
+      ],
+      "known": [
+        {
+          "resref": "SPPR110",
+          "level": 0,
+          "type": 0
+        },
+        {
+          "resref": "SPPR105",
+          "level": 0,
+          "type": 0
+        },
+        {
+          "resref": "SPPR113",
+          "level": 0,
+          "type": 0
+        },
+        {
+          "resref": "SPPR104",
+          "level": 0,
+          "type": 0
+        },
+        {
+          "resref": "SPPR103",
+          "level": 0,
+          "type": 0
+        },
+        {
+          "resref": "SPPR101",
+          "level": 0,
+          "type": 0
+        },
+        {
+          "resref": "SPPR111",
+          "level": 0,
+          "type": 0
+        }
+      ]
+    }
+  ],
+  "wire_known_representation": "Exact reverse of runtime per page; memo order/flags exact; all saved other pages/slots/known conserved",
+  "preservation": {
+    "source": true,
+    "binaries": true,
+    "fixture": true
+  },
+  "candidate_preserved": true,
+  "inputs_preserved": true,
+  "nonidentity_sort_runtime": true,
+  "legacy_prompt_differs_from_original": true,
+  "original_parity": null,
+  "limits": [
+    "Actual registered callbacks not OS pointer input",
+    "Private presentation-only permutation; no stock or original parity",
+    "Legacy prompt is BEFORE characterization, differs measured original wizard",
+    "No wholeworld or RNG purity",
+    "Audit trusts owned process terminal receipt, not a new process launch"
+  ],
+  "private_audit": "C:\\BGRedux\\phase1-local\\results\\20261022T093124Z-spellbook-control-independent-fc6d7c08\\audit.json",
+  "private_audit_sha256": "3a985b84452e7c583f6a7de4c8fd38466c5f0ba5a8f76a49456ecb351a218c67"
+}
