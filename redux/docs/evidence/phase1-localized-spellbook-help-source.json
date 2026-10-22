@@ -1,0 +1,730 @@
+{
+  "schema": "bg-redux-spellbook-help-source-survey/1",
+  "key_sha256": "1818ffebb2424992fb39fb13509e7f629ac819b08a553c2dd4ac25f2e40a979f",
+  "locales": [
+    {
+      "resource": "L_cs_CZ",
+      "locale": "cs_CZ",
+      "provider": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\Patch2.bif",
+      "resource_sha256": "965529914501d82f49d66bc7cc0eff48852ce6b3aa1a30a8ed2706fd81db0e5e",
+      "resource_bytes": 53372,
+      "help_found": true,
+      "line": 692,
+      "help_utf8_sha256": "f9bb433c859c9257da77fab36a4202d1b0288617c64beb6feccc8fe749601e60",
+      "characters": 141,
+      "escapes": [],
+      "candidate_tlk_refs": [
+        {
+          "strref": 39254,
+          "characters": 290,
+          "sha256": "e7a723cde8d9ea94f0d3d8383627151ad0793e436835d27348630eb53b99ce20",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39295,
+          "characters": 265,
+          "sha256": "75fe848e5bff9ca44a13746d0372d5e07df915faac308c89d0a63a20a99e9d87",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39255,
+          "characters": 135,
+          "sha256": "c638373ccb56e9b65a1e0413d841269a6847353ba8dc9d86bfb4637d1aec820b",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39296,
+          "characters": 135,
+          "sha256": "c638373ccb56e9b65a1e0413d841269a6847353ba8dc9d86bfb4637d1aec820b",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        }
+      ],
+      "tlk_sha256": "09b5b3e682f387efc8cb321a7a01b0f37563bd6afcc12b70780dc254915734f9",
+      "tlk_count": 103599,
+      "tlk_exact_refs": [],
+      "tlk_whitespace_equivalent_refs": [],
+      "english_related_candidates": []
+    },
+    {
+      "resource": "L_de_DE",
+      "locale": "de_DE",
+      "provider": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\Patch2.bif",
+      "resource_sha256": "84d51caddbdbf0e060543f71776fcac610fa199fd8ad499834fd2c776dedf703",
+      "resource_bytes": 56775,
+      "help_found": true,
+      "line": 692,
+      "help_utf8_sha256": "2692b8af6201e6160b4f96e0b2334f7a9384592ef3021ce347545843a1731876",
+      "characters": 231,
+      "escapes": [],
+      "candidate_tlk_refs": [
+        {
+          "strref": 39254,
+          "characters": 291,
+          "sha256": "ffef0f726dfaca1e28e78da9ea5995fdcb47c10e28c46f3adf03d6021cc1c96b",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39295,
+          "characters": 291,
+          "sha256": "ffef0f726dfaca1e28e78da9ea5995fdcb47c10e28c46f3adf03d6021cc1c96b",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39255,
+          "characters": 160,
+          "sha256": "2e7e47febc039e577456f5106b13fc1124d2a026a13211e7dbff4a4ad6ce2cc4",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39296,
+          "characters": 162,
+          "sha256": "14610787904bbe562c4774510879b6bd1b876cf0588d40b8e5e2188af2f06015",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        }
+      ],
+      "tlk_sha256": "b456e4b7839d71ad4b7301c2ddd9a91d365aaca66a752b34a4815fead34b6829",
+      "tlk_count": 103599,
+      "tlk_exact_refs": [],
+      "tlk_whitespace_equivalent_refs": [],
+      "english_related_candidates": []
+    },
+    {
+      "resource": "L_en_US",
+      "locale": "en_US",
+      "provider": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\Patch2.bif",
+      "resource_sha256": "9e8467d26c1e1a889eb916b678cf293475a06933020bdbae55ab18feec44ca62",
+      "resource_bytes": 49686,
+      "help_found": true,
+      "line": 692,
+      "help_utf8_sha256": "1bea2b0fb3468e834e3dd0dd3a7fb6274fff9209ab8c1e3ac16fb7bf2703c797",
+      "characters": 177,
+      "escapes": [],
+      "candidate_tlk_refs": [
+        {
+          "strref": 39254,
+          "characters": 265,
+          "sha256": "71644888e33e0d57749a7c0f46c110859333bd37fe2758781e66d45ddd622390",
+          "exact_help_prefix": true,
+          "contains_exact_help": true,
+          "nonempty": true
+        },
+        {
+          "strref": 39295,
+          "characters": 265,
+          "sha256": "71644888e33e0d57749a7c0f46c110859333bd37fe2758781e66d45ddd622390",
+          "exact_help_prefix": true,
+          "contains_exact_help": true,
+          "nonempty": true
+        },
+        {
+          "strref": 39255,
+          "characters": 146,
+          "sha256": "3cc9fc7317934831008d2f9d0280a5d793b6a48c3755a95c1013165813823f61",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39296,
+          "characters": 151,
+          "sha256": "61863c617dfea990056533e02201c04cbc9c2bddc002f6cd696a413559c8f1f9",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        }
+      ],
+      "tlk_sha256": "9e685225ff3c3436a8a35fa7022550620d24a92efe35436a062c02955d9f0952",
+      "tlk_count": 103599,
+      "tlk_exact_refs": [],
+      "tlk_whitespace_equivalent_refs": [],
+      "english_related_candidates": [
+        {
+          "strref": 16215,
+          "characters": 282,
+          "sha256": "671c62f5cada81347ed4dd0a6328cd06f6a6cab4cf0421569639ad7361621c9a"
+        },
+        {
+          "strref": 39254,
+          "characters": 265,
+          "sha256": "71644888e33e0d57749a7c0f46c110859333bd37fe2758781e66d45ddd622390"
+        },
+        {
+          "strref": 39255,
+          "characters": 146,
+          "sha256": "3cc9fc7317934831008d2f9d0280a5d793b6a48c3755a95c1013165813823f61"
+        },
+        {
+          "strref": 39295,
+          "characters": 265,
+          "sha256": "71644888e33e0d57749a7c0f46c110859333bd37fe2758781e66d45ddd622390"
+        },
+        {
+          "strref": 39296,
+          "characters": 151,
+          "sha256": "61863c617dfea990056533e02201c04cbc9c2bddc002f6cd696a413559c8f1f9"
+        },
+        {
+          "strref": 99845,
+          "characters": 325,
+          "sha256": "be200f434146ed2b570f4cf5d59cd0f3b4ecee2553725657523f6b750bb600dd"
+        },
+        {
+          "strref": 99846,
+          "characters": 144,
+          "sha256": "ec3649a8356b4ae276589d800d15b5d04a8572064811521ecceae462f463d5a5"
+        },
+        {
+          "strref": 99863,
+          "characters": 144,
+          "sha256": "ec3649a8356b4ae276589d800d15b5d04a8572064811521ecceae462f463d5a5"
+        },
+        {
+          "strref": 99911,
+          "characters": 325,
+          "sha256": "be200f434146ed2b570f4cf5d59cd0f3b4ecee2553725657523f6b750bb600dd"
+        }
+      ]
+    },
+    {
+      "resource": "L_es_ES",
+      "locale": "es_ES",
+      "provider": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\Patch2.bif",
+      "resource_sha256": "eae790230c7802b9321d55eedaff3a890d9b817ba1228f764b98703acf900f02",
+      "resource_bytes": 54720,
+      "help_found": true,
+      "line": 692,
+      "help_utf8_sha256": "0bacd39d6706201ba60d599c18705bfd3af7cc794cd393d381ad0750ff7f6879",
+      "characters": 232,
+      "escapes": [],
+      "candidate_tlk_refs": [
+        {
+          "strref": 39254,
+          "characters": 379,
+          "sha256": "1ec8d5fd7b1cb4e0bbb61ea40054d859da2aa660ef6fcc56696741082f10be26",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39295,
+          "characters": 383,
+          "sha256": "7eb63a57cb110f8e348943f3fc2903bbec919654f2386ae347e3959aa5cf237d",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39255,
+          "characters": 157,
+          "sha256": "388fbd71bcb4966493c2bbe154ef57314e03f527c7cbf1e93363e1b986e8d7d7",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39296,
+          "characters": 172,
+          "sha256": "502467a60426778738d3871bfa567817080fbe8520d458bb35988e8f5ca2f4e6",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        }
+      ],
+      "tlk_sha256": "1afee96b04e5107cfc9c04bf287b536ef0c860bd5f83271a7f662ee2e67e0794",
+      "tlk_count": 103599,
+      "tlk_exact_refs": [],
+      "tlk_whitespace_equivalent_refs": [],
+      "english_related_candidates": []
+    },
+    {
+      "resource": "L_fr_FR",
+      "locale": "fr_FR",
+      "provider": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\PATCH26.BIF",
+      "resource_sha256": "2e2b95a4a95ee8015c36a9289945e368bdda3b482d6152861619492ba34316e0",
+      "resource_bytes": 57166,
+      "help_found": true,
+      "line": 692,
+      "help_utf8_sha256": "1ed69ffb71f86e9f78d87df85f1209b725891658b8ed2a6959172dd89ed4f913",
+      "characters": 218,
+      "escapes": [],
+      "candidate_tlk_refs": [
+        {
+          "strref": 39254,
+          "characters": 304,
+          "sha256": "62e618485266f92d37fc60199f0dfc6de005be79a34dcd32525663b2088a9cf6",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39295,
+          "characters": 304,
+          "sha256": "62e618485266f92d37fc60199f0dfc6de005be79a34dcd32525663b2088a9cf6",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39255,
+          "characters": 160,
+          "sha256": "84627fa5e7f44e27fbcfdfac35b17c57a1397d49548eb969d60419cf574e8fe0",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39296,
+          "characters": 177,
+          "sha256": "129c6d1680face7ca9fd12dfd872536059ac9d277370e66d4b2bd546254c8b59",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        }
+      ],
+      "tlk_sha256": "f65eb16e7e03e0ffae41deb41ee8fcd776a4d9c2b028e5f3331610dcd755647a",
+      "tlk_count": 103599,
+      "tlk_exact_refs": [],
+      "tlk_whitespace_equivalent_refs": [],
+      "english_related_candidates": []
+    },
+    {
+      "resource": "L_hu_HU",
+      "locale": "hu_HU",
+      "provider": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\PATCH27.bif",
+      "resource_sha256": "f24771c3e80507b35fbe2629addf3a4250805ba77a06fec5418b018476fad670",
+      "resource_bytes": 56919,
+      "help_found": true,
+      "line": 692,
+      "help_utf8_sha256": "2552daed67ae7a6c3660ca3778c2d11997f5ac608104aaafa339eaa4da1da3b2",
+      "characters": 232,
+      "escapes": [],
+      "matching_locale_tlk_present": false
+    },
+    {
+      "resource": "L_it_IT",
+      "locale": "it_IT",
+      "provider": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\Patch2.bif",
+      "resource_sha256": "6a791787c651557f38ad442ad4bb64d34693928a8af084836dc9c877fe85863d",
+      "resource_bytes": 56305,
+      "help_found": true,
+      "line": 692,
+      "help_utf8_sha256": "3d9aff8f1c7bb8e55d0c37890202ac2b804edbdf1fdd57ef4869746978e09411",
+      "characters": 269,
+      "escapes": [],
+      "candidate_tlk_refs": [
+        {
+          "strref": 39254,
+          "characters": 380,
+          "sha256": "58a317e9ffc1b6b0a21d744d4559eda2d66450f6a22c34c6253ccc8c33706421",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39295,
+          "characters": 371,
+          "sha256": "e5c6bc5aebecb24eadeeecf6bb8b7df3089d2f1070b2418f87b73274b7e59099",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39255,
+          "characters": 149,
+          "sha256": "2fdee5fa45dd69e0b87ccb2090dd6e5e339a19cf1d566bc1a8b7c3168b5363d3",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39296,
+          "characters": 148,
+          "sha256": "15eb76116306cae865cdc906d69c85ff93b34980d3824d79eea50efac12e695f",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        }
+      ],
+      "tlk_sha256": "75d01d983ade6cb77541c6585922a68173d6909be10274fde7f5f84205174b5e",
+      "tlk_count": 103599,
+      "tlk_exact_refs": [],
+      "tlk_whitespace_equivalent_refs": [],
+      "english_related_candidates": []
+    },
+    {
+      "resource": "L_ja_JP",
+      "locale": "ja_JP",
+      "provider": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\PATCH27.bif",
+      "resource_sha256": "83e6ac0f8d809bcbecae12c63d83c0503c62ebc1f5693319c0e1733768a99306",
+      "resource_bytes": 62345,
+      "help_found": true,
+      "line": 692,
+      "help_utf8_sha256": "71e1160b4d0946a5e8b3e510bfe1938d63bf67f2bed32e66b1dfd4e40791c242",
+      "characters": 76,
+      "escapes": [],
+      "matching_locale_tlk_present": false
+    },
+    {
+      "resource": "L_ko_KR",
+      "locale": "ko_KR",
+      "provider": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\Patch25.bif",
+      "resource_sha256": "d44940f486d8203717da81840bf2e2df761160b46ee8934d0a890a138ca4726e",
+      "resource_bytes": 57162,
+      "help_found": true,
+      "line": 692,
+      "help_utf8_sha256": "eb8d1fdee3ad4ec2d740b5a6585db8ae6f66fa1f2b8a9bc83cbea88217e8962c",
+      "characters": 88,
+      "escapes": [],
+      "candidate_tlk_refs": [
+        {
+          "strref": 39254,
+          "characters": 124,
+          "sha256": "6e525b050ee658ae245b1da97fd506986924f8d2927372197e6e54053778bc87",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39295,
+          "characters": 124,
+          "sha256": "6e525b050ee658ae245b1da97fd506986924f8d2927372197e6e54053778bc87",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39255,
+          "characters": 58,
+          "sha256": "0c33fbb0c0a933ecb2dc80089444ee0c302d5f2ee9d4ab7efb8a50a7c65cfb23",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39296,
+          "characters": 64,
+          "sha256": "0d65dbcd97dd9c7de47d5c39b98501996a4bc7eed26bd0e9d2f14e77be0a17a5",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        }
+      ],
+      "tlk_sha256": "9d0581c14802a56174282128f34c4c931a886dbbf0243bf66f65bdac66c66868",
+      "tlk_count": 103599,
+      "tlk_exact_refs": [],
+      "tlk_whitespace_equivalent_refs": [],
+      "english_related_candidates": []
+    },
+    {
+      "resource": "L_pl_PL",
+      "locale": "pl_PL",
+      "provider": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\Patch25.bif",
+      "resource_sha256": "5054189dc5b78e1ed1d32d03f82955561b530ee91f264e956bca7acab0a5b050",
+      "resource_bytes": 57319,
+      "help_found": true,
+      "line": 692,
+      "help_utf8_sha256": "bc69e1ae4ee3b5693ba935760f6cdad5d01d2775e1a8df996fb1450ea23a3cbf",
+      "characters": 211,
+      "escapes": [],
+      "candidate_tlk_refs": [
+        {
+          "strref": 39254,
+          "characters": 384,
+          "sha256": "3cddf5ff6c79cb18ad7623fbd8cf7b84de2e9f38de29b5b0349a8fffedea7f8a",
+          "exact_help_prefix": true,
+          "contains_exact_help": true,
+          "nonempty": true
+        },
+        {
+          "strref": 39295,
+          "characters": 384,
+          "sha256": "3cddf5ff6c79cb18ad7623fbd8cf7b84de2e9f38de29b5b0349a8fffedea7f8a",
+          "exact_help_prefix": true,
+          "contains_exact_help": true,
+          "nonempty": true
+        },
+        {
+          "strref": 39255,
+          "characters": 163,
+          "sha256": "650d467fd90e27e7cd522d19fc971f4cbde2d8214eac5291e7e3918ad0dcd78a",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39296,
+          "characters": 131,
+          "sha256": "83e7acb7bc2e30b0ec9382fe2a0d27f546d458fbdb2f023602717391e0a2a174",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        }
+      ],
+      "tlk_sha256": "ff316e609afd64a94fd15688cf5689bc2f67adcb3ea73b3ab4570b87daa0895b",
+      "tlk_count": 103599,
+      "tlk_exact_refs": [],
+      "tlk_whitespace_equivalent_refs": [],
+      "english_related_candidates": []
+    },
+    {
+      "resource": "L_pt_BR",
+      "locale": "pt_BR",
+      "provider": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\Patch2.bif",
+      "resource_sha256": "b985a3b40aa2448443056a4337d1e7d68091beebf98d0ee87e55ba8cb48394d4",
+      "resource_bytes": 55138,
+      "help_found": true,
+      "line": 692,
+      "help_utf8_sha256": "8cf563857d47451e52cb9e983ef2e356a2f799002e400c8f69fd659cf1c43974",
+      "characters": 212,
+      "escapes": [],
+      "candidate_tlk_refs": [
+        {
+          "strref": 39254,
+          "characters": 296,
+          "sha256": "17619f4c53bd89b7871e4b33a2f2e40bc84ae744c6e4f4f08e5f27b354e1c075",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39295,
+          "characters": 287,
+          "sha256": "99acdf670abb00cd10f07f38768ec083e0270a97299a1ca9dcff1b08aef29d90",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39255,
+          "characters": 154,
+          "sha256": "7a5a4cff23982991353ff99871841f6a4813ca196a0e9079fade31af3a2aa041",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39296,
+          "characters": 157,
+          "sha256": "3343210d8651070144ed0d912a73564c4d31a41acd91bf58f8b1e0545b769519",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        }
+      ],
+      "tlk_sha256": "40f9d82cc3048f4eb6aa1647128ff0da32b889a80b45913ca9714121f619e7ab",
+      "tlk_count": 103599,
+      "tlk_exact_refs": [],
+      "tlk_whitespace_equivalent_refs": [],
+      "english_related_candidates": []
+    },
+    {
+      "resource": "L_ru_RU",
+      "locale": "ru_RU",
+      "provider": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\Patch25.bif",
+      "resource_sha256": "2fd46968c4d688679157c526f2c46baa4ca39de358027f079024e18b96ad0229",
+      "resource_bytes": 76849,
+      "help_found": true,
+      "line": 692,
+      "help_utf8_sha256": "2e1a42cea80e193d9a89cf596183772fb327870f743217442d06bd43c525c16a",
+      "characters": 177,
+      "escapes": [],
+      "candidate_tlk_refs": [
+        {
+          "strref": 39254,
+          "characters": 288,
+          "sha256": "3281169f734b3a21ff4482bfae5ed44eadb3c47b533e20488cdcbb8e2079c745",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39295,
+          "characters": 343,
+          "sha256": "886dbd27d3a29b0d327eef258514c2fe25a5405f41579a5665328a9e563e22c6",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39255,
+          "characters": 144,
+          "sha256": "ddfe3cb30446cac047f0a657558ded69f1473eba64be782203f2e5a9b539b75c",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39296,
+          "characters": 144,
+          "sha256": "ddfe3cb30446cac047f0a657558ded69f1473eba64be782203f2e5a9b539b75c",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        }
+      ],
+      "tlk_sha256": "064d756d20839745255b463909ab28bebcffb1ab4f29aad739874488f33a1eb8",
+      "tlk_count": 103599,
+      "tlk_exact_refs": [],
+      "tlk_whitespace_equivalent_refs": [],
+      "english_related_candidates": []
+    },
+    {
+      "resource": "L_tr_TR",
+      "locale": "tr_TR",
+      "provider": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\PATCH27.bif",
+      "resource_sha256": "4f3b19e5d89a6a2b0296413d1b6a62d4abc33e239f0bdf891d8b42dcae3a7b57",
+      "resource_bytes": 53080,
+      "help_found": true,
+      "line": 692,
+      "help_utf8_sha256": "2e5d5a951aa8a4d9b8a155eded30d16692ef9763d0a84338307690716fa29331",
+      "characters": 172,
+      "escapes": [],
+      "matching_locale_tlk_present": false
+    },
+    {
+      "resource": "L_uk_UA",
+      "locale": "uk_UA",
+      "provider": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\PATCH27.bif",
+      "resource_sha256": "42a5a1bb014c9885c7177f48f61c7a057c9409973e6c13abc0ceccfb7536bb82",
+      "resource_bytes": 73000,
+      "help_found": true,
+      "line": 692,
+      "help_utf8_sha256": "f15973357c21e8cdfe8725526bf3e75b671e43963336bf13c3ebe4f6dc9f6624",
+      "characters": 189,
+      "escapes": [],
+      "candidate_tlk_refs": [
+        {
+          "strref": 39254,
+          "characters": 263,
+          "sha256": "3cdb0dd319f1326c195540d8769121177fd68bfcde18ac72ca7150dd88d4867d",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39295,
+          "characters": 263,
+          "sha256": "3cdb0dd319f1326c195540d8769121177fd68bfcde18ac72ca7150dd88d4867d",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39255,
+          "characters": 161,
+          "sha256": "8f0619f4f59e7d8fd5ffe595396185e05863f5228707d00318ff531bbb664904",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39296,
+          "characters": 161,
+          "sha256": "8f0619f4f59e7d8fd5ffe595396185e05863f5228707d00318ff531bbb664904",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        }
+      ],
+      "tlk_sha256": "69a3bcdce4b3c1dbb5f8399f56526c6f9f934bdb22b70d343c0f4ad2275f1772",
+      "tlk_count": 103599,
+      "tlk_exact_refs": [],
+      "tlk_whitespace_equivalent_refs": [],
+      "english_related_candidates": []
+    },
+    {
+      "resource": "L_zh_CN",
+      "locale": "zh_CN",
+      "provider": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\Patch25.bif",
+      "resource_sha256": "279d6c6d66b881ec59eb7c3073a7ef2c29b4dd084e9d1424d31dfa13ebc247df",
+      "resource_bytes": 46642,
+      "help_found": true,
+      "line": 692,
+      "help_utf8_sha256": "b5839eb2a435cfbe8a98d41b54a2923cf4351514a71de0865cfdafe85a908512",
+      "characters": 56,
+      "escapes": [],
+      "candidate_tlk_refs": [
+        {
+          "strref": 39254,
+          "characters": 96,
+          "sha256": "4a10f57c6f28e557950da0f92a7d1c204c1c71facaedf5788910f42b4c3c2822",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39295,
+          "characters": 100,
+          "sha256": "6a73741b4c8413476cb72fc878d58b3a4d75356e25e5585e3b117c23207bc582",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39255,
+          "characters": 43,
+          "sha256": "598dd256987dda4f9d3c8593ec63f4aabaf128d62fe5ac02deb50f3ec8d2bf65",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        },
+        {
+          "strref": 39296,
+          "characters": 46,
+          "sha256": "fc8c153405659e054565f3c70cea3bbe237865f038a8850511ef014c20aefe02",
+          "exact_help_prefix": false,
+          "contains_exact_help": false,
+          "nonempty": true
+        }
+      ],
+      "tlk_sha256": "8e4d98c2b187cc84408da558f3beb46da28af4c10697f8b905b402a1896e8c06",
+      "tlk_count": 103599,
+      "tlk_exact_refs": [],
+      "tlk_whitespace_equivalent_refs": [],
+      "english_related_candidates": []
+    }
+  ],
+  "source_only": true,
+  "archives": {
+    "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\Patch2.bif": "9972c8f3cb8f9cbcc00eaa7cc64dcb2fbc2f562b15b1b643806b768490704062",
+    "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\PATCH26.BIF": "31820a8278d693107a8d869330f3716f48b52ea8d5d8beab1ed4ba84a60fcf0f",
+    "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\PATCH27.bif": "a4bdce4b0fca5467663f3bec489c8474c763b00a44eb53682998abe85396f777",
+    "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\Patch25.bif": "b810b50cb028abf9c3470339980f788cdf4bd6e9117c9d5d4c4e657654a5b081"
+  },
+  "auditor_sha256": "15c91afb582bc74b1206d44dfd0fb644a69c843f2c5d8b0b9bffdac380afc953",
+  "source_sha256": {
+    "C:\\BGRedux\\phase1-local\\engine\\gemrb\\plugins\\GUIScript\\GUIScript.cpp": "484602f77ed51235f2e63bc90558ab0a77cad58cf360a5830173f3919351a48d",
+    "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\Interface.cpp": "1f89535b05baf76de8370d2b94bf9b3a12c0cf7c1248c63bbe440ad49731c47d",
+    "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\InterfaceConfig.h": "14b5a52f28d6a5c27438b5e3c65d5faaa50586bd3043fe279c153a7a7dcc4d48",
+    "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\GameData.h": "97749e1a4ed949f9755a48b3d6156b89a6ffc0edbe805705494a4a3f6ad41052",
+    "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\GameScript\\Triggers.cpp": "70103f4bbb99f4f73efa54611c785fef0a1eb8ec5d067a0cfe6325afa8489d2d",
+    "C:\\BGRedux\\phase1-local\\engine\\gemrb\\includes\\SClassID.h": "0234cd00da6346f2f5fcb2ab1e47e864217d335e7af17139449e410009481b63",
+    "C:\\BGRedux\\phase1-local\\engine\\gemrb\\GUIScripts\\GUIClasses.py": "723b7aeb1788d7a32e0a7c8d8fa72ff1c1b8b8c4906da928af5353087cba1dcb"
+  },
+  "private_survey": "C:\\BGRedux\\phase1-local\\results\\20261022T102241Z-localized-spellbook-help-source-02b4284c\\survey.json",
+  "private_survey_sha256": "18b4d478315e8ac7f756da0637703ff176cfafe944db17ba617d7502eee19dbe",
+  "conclusions": {
+    "exact_tlk_match_found": false,
+    "existing_localized_alternative": 39254,
+    "alternative_is_exact_original_literal": false,
+    "named_ui_string_python_api_found": false,
+    "interpreter_required": false,
+    "implementation_performed": false
+  }
+}
