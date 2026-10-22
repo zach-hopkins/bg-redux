@@ -20,6 +20,9 @@ The [journey report](phase1-container-loot-journey.md) retains the three earlier
 failed native runs. Readiness adapter build `candidate-9aa-ui1-loot-ready4`
 also remains failed: explicit `StringView(name)` fixes an external C++ string
 comparison; no engine source or binary changed for this rerun.
+The [independent loot audit](phase1-container-loot-audit.md) rechecks 500
+artifacts, 34 source bindings and the complete saved-file chain, with a separate
+wire decoder confirming the item in the leader and absent from the table.
 
 October 22, 03:38 UTC follow-up: external tooling passes **237 tests** in
 `results/phase1-integrated-tests-20261022T0335.log`. The new active-slot run

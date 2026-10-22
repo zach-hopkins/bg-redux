@@ -1,6 +1,15 @@
 # Stock container loot journey
 
-Source-only external adapter, awaiting coordinator unit tests, compilation, and serial native execution. No engine change or original-parity claim is made. Existing GUI/color/inventory hosts are unchanged.
+Executed follow-up: [independent LAB audit](phase1-container-loot-audit.md) confirms
+the corrected bounded route in `20261022T040338Z-container-loot-journey-25ffdf30`.
+One command at sample 9 reaches the real stock callbacks at sample 31; ownership
+persists through ordinary save, fresh-process reload, and another ordinary save.
+Both processes and preservation checks pass. External tooling passes 243 tests,
+including 21 focused loot tests. Readiness build `candidate-9aa-ui1-loot-ready4`
+remains failed; fresh `ready5` fixes the external comparison with explicit
+`StringView(name)` and compiles successfully. Earlier failed runs below retain
+their verdicts. No engine change or original-parity claim is made; existing
+GUI/color/inventory hosts are unchanged.
 
 Coordinator follow-up: 15 focused tests and the then-current 227-test integrated
 suite pass. The first native run `20261022T032531Z-container-loot-journey-c3703e13`

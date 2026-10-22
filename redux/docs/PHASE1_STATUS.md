@@ -34,7 +34,8 @@ bounded native route: after observed stock startup, one UseContainer command
 opens the table, shipped GUI callbacks transfer SW1H04 and close it, and ordinary
 save/fresh-process reload/save preserves ownership. Both processes and all
 preservation checks pass in `20261022T040338Z-container-loot-journey-25ffdf30`.
-See the [loot journey](testing/phase1-container-loot-journey.md). Earlier three
+The [independent loot audit](testing/phase1-container-loot-audit.md) confirms
+both serialized output saves and 500 retained artifacts. Earlier three
 native failures and the readiness adapter's failed compilation remain retained.
 This is external callback coverage; original parity and OS pointer input are
 unobserved, and no engine correction was needed for this route.
