@@ -1,5 +1,9 @@
 # Inn confirmation: source boundary and minimal ordinary journey
 
+This historical source survey precedes policy implementation19de56ed5.
+See [the implementation/native follow-up](phase1-inn-option-implementation.md)
+for current results and remaining rest/store/dream/movie fidelity work.
+
 The BG2EE More Confirmation Prompts option still has an unimplemented inn-rest
 consumer. The current native `GUISTORE.RentRoom` always opens the confirmation
 modal after its price check, regardless of `Over Confirm Everything`. Existing

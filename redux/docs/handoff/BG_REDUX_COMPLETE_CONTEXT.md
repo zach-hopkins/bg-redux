@@ -1,31 +1,32 @@
 # BG Redux — complete continuation context
 
-Latest October 22 continuation: Phase1 remains active and incomplete. Current
-coherent candidate is `20261022T123435Z-candidate-e00bb8b5`; source tooling passes
-545 tests. The right-row Feedback setting, actual INI persistence/fresh-process
-loading, both books' mixed-copy removal, two-resolution menus and fresh 44-assertion
-general baseline pass their bounded execution checks with protected baseline and
-all results retained. Compatibility remains differences (vanilla0/0/26,GUI451/55),
-including changing actor/color rows; no save-purity waiver applies. Earlier
-ced237a2 information journey97f61bc1 has an independent 120-capture audit covering
-13 natural ordinary-book pages per process, scrolling and save/fresh reload.
-See [current Phase1 status](../PHASE1_STATUS.md) for exact receipts and scope.
+Latest October22 continuation: Phase1 remains active and incomplete. Current
+coherent candidate650b61c7 builds production source19de56ed5; source tooling
+passes556 tests at80484c518. Fresh general baseline inn-base-d3fa6872 passes
+24/24 import/reload and20/20 GUI/save assertions, no skips, all guards.
+Compatibility remains differences: vanilla2/0/24, GUI449/53, changing rows
+unreviewed. Earlier e00 menu/settings and ced information audits remain
+historical with their original source/binary bindings.
 
-Inn continuation: native checkpoint87848de6 passes ordinary no-money handling,
-declared setup, GUI save/fresh reload, exact input-SAV member binding for saved
-AR0704/inn-store resources, current option-OFF forced prompt and Cancel. Both
-processes exit0 and all preservation guards pass. Retain earlier failures.
-[Original stock-UI OFF/ON reference](../testing/phase1-original-inn-confirmation-reference.md)
-now proves OFF direct rest, ON Cancel/Confirm, one-gold charge, eight-hour advance
-and exact Stoneskin saved readiness. Original OFF Imoen conversation/journal
-versus ON store/world timing is preserved without attributing cause.
-Next: implement the narrow BG2EE inn-option consumer, then validate native
-OFF/ON/Cancel/Confirm/rest/save/reload and separately address rest-script fidelity.
-Current coherent candidate e00bb8b5 remains unchanged. Two original profiles and
-all native sessions are closed normally; no game process remains. Workers hit
-usage limits, so new coordinator work has no new independent worker audit.
-Phase1 remains incomplete. VM snapshots remain optional. Historical pending
-statements below refer to their earlier frozen checkpoints.
+Inn policy19de56ed5 honors the shared BG2EE option after the price check and
+preserves Classic prompts. Native OFF direct-rest/save (5183c1a8) and fresh
+reload16574684 pass. Native ON ordinary checkbox/Done, prompt/Cancel/Confirm/
+rest/save (cfaa51db) and fresh save/byte-exact INI reload b7a2cc76 pass.
+One gold is charged and eight hours advance; saved wire and live reload options
+are verified. All preservation guards pass. Full inn fidelity remains open:
+core reports Cutscene=true merely on PLAYER1D presence, closing the store;
+actual matched dream/store/rest-script behavior and absent WBM rest playback
+need their own correction/validation. All rejected attempts remain preserved.
+See [current status](../PHASE1_STATUS.md) and
+[inn implementation evidence](../testing/phase1-inn-option-implementation.md).
+
+Next: integrate private first-execution/rest-reload runners and negative
+validators into repository tooling, then resolve the matched rest/store/dream/
+movie fidelity cases and continue full P1-01..P1-07. Existing workers remain
+limited; new work has coordinator validation without a new independent audit.
+All native/original/build sessions are terminal; no game remains. Preserve
+Phase0 checkout/binaries/fixtures and every result. VM snapshots remain optional.
+Historical pending statements below refer to their earlier frozen checkpoints.
 
 October 22 UTC implementation update: the user has explicitly authorized Phase 1 engine work with two workers and a coordinator. Follow [Phase 1 status](../PHASE1_STATUS.md) and the full [backlog](../roadmap/phase1-backlog.md). Work is isolated in `C:\BGRedux\phase1-local\engine`; the original Phase 0 checkout, binaries, fixtures and evidence remain preserved. The freeze and immediate assignment below describe the accepted historical Phase 0 baseline, not a prohibition on the separately authorized Phase 1 work. Phase 1 has not been accepted; original behavior, native non-interference, menu/typeface fidelity, ordinary journeys and campaign checkpoints remain required.
 

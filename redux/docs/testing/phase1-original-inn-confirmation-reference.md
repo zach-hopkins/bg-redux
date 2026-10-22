@@ -1,5 +1,9 @@
 # Original inn confirmation reference
 
+Subsequent production policy and bounded native OFF/ON/rest/save/fresh reload
+evidence are recorded in [the implementation follow-up](phase1-inn-option-implementation.md).
+The original reference below keeps its earlier scope and exclusions.
+
 October22,2026. Two fresh private original BG2EE2.7.3.0 profiles load exact copies
 of the same preserved, normally saved two-party AR0704 setup. No UI override is
 installed in either reference. Prior debug area transfer/100-gold setup remains

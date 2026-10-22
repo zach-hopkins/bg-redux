@@ -9,30 +9,32 @@ game typefaces are fidelity requirements. Modern UI direction remains approved.
 ## Requirements and order
 
 Current October 22 checkpoint: **Phase1 remains incomplete**. Coherent candidate
-`20261022T123435Z-candidate-e00bb8b5` builds from source `9b30077b7`, with protected
+`20261022T192339Z-candidate-650b61c7` builds from source `19de56ed5`, with protected
 Phase0 source/binaries/fixtures unchanged. New Phase1 work remains isolated in
 `C:/BGRedux/phase1-local/engine`. All completed results, including failures, remain
 preserved. See the full [backlog](roadmap/phase1-backlog.md).
 
 | Bounded evidence | Current result and scope |
 |---|---|
-| Source tooling | **545 tests pass**, 34.718 seconds, `phase1-inn-checkpoint-tooling-1792695001497315400/result.json`. This is distinct from engine CTest and native game validation. |
-| Fresh general baseline | `20261022T125410Z-row-base-2d8ec7ed`: **24/24 import/reload + 20/20 GUI/save assertions**, zero skips, all preservation guards. Execution passes; compatibility remains **differences**, so the outer wrapper exits one intentionally. [Independent raw audit](testing/phase1-right-row-baseline-independent.md). |
+| Source tooling | **556 tests pass**, 35.677 seconds, `phase1-inn-checkpoint-tooling-1792699134123508300/result.json`. This is distinct from engine CTest and native game validation. |
+| Fresh general baseline | `20261022T192958Z-inn-base-d3fa6872`: **24/24 import/reload + 20/20 GUI/save assertions**, zero skips, all preservation guards. Execution passes; compatibility remains **differences**. Vanilla2/0/24 and GUI449/53 residuals remain unreviewed. [Coordinator evidence](testing/phase1-inn-option-implementation.md). |
 | Menus at both required sizes | `20261022T124438Z-row-menu-run-c59be7e9`: **148 checks, 51 captures, 39 callbacks and 107 steps per resolution**, 1024x768 and 1280x768. [Independent audit](testing/phase1-right-row-menu-independent.md) verifies both processes and all seven guards. |
 | Correct Feedback setting | `20261022T123904Z-confirmation-setting-mixed-e9957e50`: right checkbox 41/buddy 40/label 29; left Colored Markers label retained. Actual Cancel/Done, owned INI write, byte-exact configuration transfer, fresh-process option-one loading, both books' charged prompts and depleted-first mixed-copy removal, normal GUI save/wire/fresh reload pass. [Independent audit](testing/phase1-confirmation-right-row-independent.md). |
 | Spellbook information | Earlier candidate ced237a2, `20261022T122217Z-spellbook-information-ee-direct-97f61bc1`: both owned processes pass, visiting 13 natural ordinary-book pages each with 65/55 captures and 80/67 callbacks. [Independent 120-capture audit](testing/phase1-information-journey-independent.md) verifies names, selection/deselection, paging, actor/level resets, help/descriptions, scroll movement/exact return, spell actions/capacity guards, GUI save and fresh reload. This historical receipt does not certify later changed helper files. |
 
-Inn checkpoint87848de6 now passes preparation, ordinary no-money handling, GUI
-save/fresh reload, exact saved-resource binding, current option-OFF forced prompt
-and Cancel. Both owned native processes and all preservation guards pass. See
-the [execution record](testing/phase1-inn-checkpoint-execution.md). Separate
-[stock original OFF/ON cases](testing/phase1-original-inn-confirmation-reference.md)
-prove direct rest when OFF, prompt/Cancel/Confirm when ON, one-gold charges,
-eight-hour advances and exact saved Stoneskin readiness. Original rest-script
-conversation differences remain bounded and open. Production inn policy and
-native rest completion are still pending; no source/binary change in this
-continuation. Existing workers hit usage limits; new work has coordinator
-validation without a new independent audit. All game sessions are closed.
+BG2EE inn option production change19de56ed5 is built in650b61c7. Native OFF
+direct rest/save and fresh reload pass; native ON ordinary checkbox/Done,
+prompt/Cancel/Confirm/rest/save and fresh save/INI reload also pass. Actual
+Rent/Cancel/Rent world boundaries are unchanged apart from selection; Confirm
+charges one gold and advances eight hours. All preservation guards pass. See
+[exact receipts and retained failures](testing/phase1-inn-option-implementation.md).
+Current core Cutscene=true closes the inn; matching original rest/store/dream
+behavior and missing WBM rest movie remain open fidelity work. The private first-
+execution runners still need repository integration and independent negative
+validation. No complete inn/Phase1 or whole-world acceptance is claimed.
+Earlier menu/spellbook/Feedback receipts below retain their original candidate
+bindings. All game sessions are closed. Workers remain limited; new coordinator
+work has no new independent worker audit. Protected Phase0 remains unchanged.
 The [project lead estimate](roadmap/project-lead-remaining-effort-estimate.md)
 plans about30 times additional effort for the full roadmap, with broad15-60
 uncertainty and a separate3-6-times faithful BG2EE finish line.
@@ -58,21 +60,21 @@ reanalysis does not replace a fresh native pass. The physical original
 [option-ON/depleted-first reference](testing/phase1-original-confirmation-option-independent.md)
 remains separately pinned and bounded.
 
-Current baseline residuals are vanilla **0/0/26** and GUI **451/55**. Their counts
-match the preceding help baseline, but some actor/color paths and values change;
-they are not identical results and are not waived. The targeted setting audit
-also preserves 885 broader fresh-import world/effect/time/selection residuals.
-Passing targeted spell/config checks does not establish whole-world save purity,
-RNG non-interference, original operation parity or complete campaign fidelity.
+Current baseline residuals are vanilla **2/0/24** and GUI **449/53**, compared
+with preceding e00 counts0/0/26 and451/55. These changing rows remain unreviewed;
+lower counts do not establish an improvement or waive persistence differences.
+The historical targeted setting audit retains885 broader fresh-import world/
+effect/time/selection residuals. Bounded spell/config/rest checks do not establish
+whole-world save purity, RNG non-interference or full campaign fidelity.
 
-Remaining work includes the source-grounded [inn confirmation gap](testing/phase1-inn-confirmation-source-and-journey.md),
+Remaining work includes [inn store/dream/movie fidelity](testing/phase1-inn-option-implementation.md),
 the existing unbound Colored Markers control, save/color differences, exact
 typeface metrics, physical pointer/focus/clipping paths, alternate native locales,
 native female-protagonist token coverage, spontaneous books and broader menus and
 campaign journeys. The natural spell lists reach twelve entries, not above
 twenty-four; synthetic thirty-one-entry coverage does not prove that native case.
-The coordinator retains native-session ownership; the same two workers continue
-source preparation and independent audits. [Storage preservation](testing/phase1-lab-storage-preservation.md)
+The coordinator retains native-session ownership; the existing workers remain
+unavailable under their usage limits. [Storage preservation](testing/phase1-lab-storage-preservation.md)
 records lossless compression and completed-cache sharing; no result is deleted.
 
 The paragraphs below retain **historical checkpoints**. Their pending/unvalidated

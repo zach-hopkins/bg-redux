@@ -1,5 +1,19 @@
 # LAB evidence storage preservation
 
+Latest closed-cache pass
+`storage-identical-completed-caches-readonly-1792697319705867100/result.json`
+pins29,849 PVRZ files and shares1,386 additional exact duplicate paths, with all
+contents rehashed and new shared aliases read-only. All native sessions were
+terminal before traversal; new tests use fresh caches. Free space afterward was
+1,140,805,632 bytes. No logical result path was removed.
+
+Receipts `storage-closed-e00-objects-1792696984605996700` and
+`storage-closed-650-objects-1792697233610785600` verify234 object files each after
+COMPACT requests. These objects already had inherited NTFS compression: logs show
+zero newly compressed files, with no measured allocation gain. The passing flag
+establishes byte preservation, not reclaimed space. Neither receipt modifies
+engine binary contents or the protected Phase0 build.
+
 During the corrected candidate's two-resolution menu run on October 22 UTC, C: fell below 70 MB free. The coordinator used reversible NTFS `compact /C` compression on completed evidence and an older rejected build's generated object files. No files were deleted, moved or logically edited. The running menu scenario subsequently passed both resolutions and every preservation guard.
 
 Verification retains exact content identity for:
