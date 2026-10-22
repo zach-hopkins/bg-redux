@@ -1,0 +1,62 @@
+{
+  "schema": "bg-redux-confirmation-journey-source-preparation/1",
+  "source_only": true,
+  "tests_executed": false,
+  "build_executed": false,
+  "native_executed": false,
+  "prepared_sources": {
+    "confirmation_setting_journey.py": {
+      "bytes": 31595,
+      "sha256": "b87c48ef44f55c812388df01a177088aeeaa4ce207dfffa60cea4d71ebe0ab3f"
+    },
+    "confirmation_setting_validation.py": {
+      "bytes": 21159,
+      "sha256": "e6fdf7b746836c6d8f7cbfd315a11187062e35e044e79c95f84d97b7171b6fa5"
+    },
+    "ConfirmationSettingRuntime.py": {
+      "bytes": 9794,
+      "sha256": "582df25ad1635a08c945f9c030cea48c0be584d484137410b6659df691e334c9"
+    },
+    "ConfirmationSettingStart.py": {
+      "bytes": 835,
+      "sha256": "b693a4a96ec1d18b831f8b9c72fa7857e7f14b8daeba6d68e3df082860a5bffb"
+    },
+    "native/confirmation_setting_journey.cpp": {
+      "bytes": 13890,
+      "sha256": "883641a264e5586da49e17befba4ccc5571e95af903c551acd87935e224c3c07"
+    },
+    "tests/test_confirmation_setting_journey.py": {
+      "bytes": 9488,
+      "sha256": "94d9e8c9b5626082e80a2b2e1ba0f558d7fa62ac3115505a7d0ba9f8621b8af3"
+    }
+  },
+  "focused_test_methods": 18,
+  "static_plan_counts": {
+    "operate": {
+      "steps": 54,
+      "observations": 22,
+      "callbacks_including_load_save": 36
+    },
+    "reload": {
+      "steps": 12,
+      "observations": 3,
+      "callbacks_including_load": 10
+    }
+  },
+  "prerequisites": [
+    "Fresh coherent candidate receipt after BG2EEConfirmation resolver/consumer and EESpellbookInformation integration",
+    "Existing protected Minsc four-party checkpoint and unchanged external helper modules",
+    "Root-owned serial tests/build/native validation; no measured success in this preparation"
+  ],
+  "parent": {
+    "result": "20261022T075243Z-minsc-recruitment-072650e1",
+    "sha256": "93401ec89b0896ae8c69a846f81314afec75a69af9e62b173fdcd7c4ea8c8e6c",
+    "manifest_sha256": "cad14881c5aef6ef19d2396aa6ba68cc98be8855c94ddb92143ee7b78fb98252"
+  },
+  "limits": [
+    "Synthetic view mouse events for checkbox; registered callbacks for other buttons; no OS pointer claim",
+    "Original wizard conditional confirmation/depleted-preference reference only; priest parity and inn-rest unmeasured",
+    "First and only measured depleted target in each mixed case; no multiple-depleted tie-break coverage",
+    "Private linked game content is not all hashed and wrapper is not a security boundary"
+  ]
+}
