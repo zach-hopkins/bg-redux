@@ -199,7 +199,7 @@ def root_guard(project,source,build):
     check_engine_receipt(source,build)
 
 def sources(project,source):
-    local=['spellbook_operation_validation.py','spellbook_operation_journey.py','SpellbookOperationRuntime.py','SpellbookOperationStart.py','native/spellbook_operation_journey.cpp','spellbook_presentation_control.py','spellbook_erase_journey.py','spellbook_erase_validation.py','SpellbookEraseRuntime.py','SpellbookEraseStart.py','native/spellbook_erase_journey.cpp','native/spellbook_operation_ui_snapshot.cpp']
+    local=['spellbook_information_validation.py','spellbook_operation_validation.py','spellbook_operation_journey.py','SpellbookOperationRuntime.py','SpellbookOperationStart.py','native/spellbook_operation_journey.cpp','spellbook_presentation_control.py','spellbook_erase_journey.py','spellbook_erase_validation.py','SpellbookEraseRuntime.py','SpellbookEraseStart.py','native/spellbook_erase_journey.cpp','native/spellbook_operation_ui_snapshot.cpp']
     result={HERE/name for name in local}|set(common.sources(project))
     for module in tuple(sys.modules.values()):
         filename=getattr(module,'__file__',None)
@@ -278,6 +278,7 @@ def resource_guard(api,project,source):
         result[ref+'.'+ext]=row
     for name,file in [('chitin',game/'chitin.key'),('tlk',game/'lang/en_US/dialog.tlk')]:result[name]=dict(path=str(file),bytes=file.stat().st_size,sha256=evidence.sha(file))
     result['level_template']=dict(value=tlk(project,[10345])[10345])
+    result['spellbook_help']=dict(strref=39254,value=tlk(project,[39254])[39254])
     result['gender_tokens']=dict(row=v.gender_row(result['gender.2da']['raw']),words={str(k):word for k,word in tlk(project,[27486,27487]).items()})
     return result
 
@@ -336,6 +337,7 @@ def validate_capture(folder,nonce,mode,started_ns,receipt):
         if (meta.get('nonce'),meta.get('name'),meta.get('capture'),meta.get('step'),meta.get('level'))!=(nonce,row['name'],i,row['step'],1) or state['game_time']!=ready['game_time'] or native_scene['game_time']!=state['game_time']:raise ValueError('Observation nonce/level/time differs')
         if Path(meta['module']).resolve()!=(Path(receipt['source'])/'gemrb/GUIScripts/GUIMG.py').resolve():raise ValueError('Wrong actual GUI provider')
         v.book_guard(meta,state,ui,v.CASE,spell_names,template)
+        if meta['information_page']['resolved_help']!=receipt['resources']['spellbook_help']['value']:raise ValueError('Full help differs from frozen configured TLK')
         info=row['name']in('mage.information','mage.confirmation','mage.after-cancel','mage.confirmation-again')
         modal=row['name']in('mage.confirmation','mage.confirmation-again')
         if meta['information_visible']!=info or meta['confirmation']!=modal:raise ValueError('Info/confirmation visibility differs')

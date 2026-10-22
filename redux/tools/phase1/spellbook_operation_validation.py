@@ -4,6 +4,7 @@ from collections import Counter
 import hashlib
 from pathlib import Path
 import struct
+from spellbook_information_validation import validate_page
 import saved_npc_color_fixtures as binary
 import weapon_query_validation as evidence
 CASES=(dict(name='mage',pc=2,pack='GUIMG',kind=1,level=1,ref='SPWI213',known=2,memo=0,modal=101,tabs=61,count=9),dict(name='priest',pc=3,pack='GUIPR',kind=0,level=0,ref='SPPR113',known=4,memo=0,modal=5,tabs=55,count=7))
@@ -67,6 +68,7 @@ def field(ui,pack,window,cid):
     return rows[0]
 
 def book_guard(meta,state,ui,case,spell_names,level_template):
+    if meta.get('schema')!='bg-redux-book-observation/2':raise ValueError('Unknown/current-incompatible book observation version')
     pc=case['pc'];level=meta.get('level');actor=state['party'][pc-1]
     if meta.get('actor')!=pc or meta.get('kind')!=case['kind']or meta.get('pack')!=case['pack']or state['selection']!=pc or actor['script_name'].casefold()!=('imoen'if pc==2 else'jaheira'):raise ValueError('Shown/selected caster binding differs')
     data=page(actor,case['kind'],level);known=[]
@@ -76,9 +78,9 @@ def book_guard(meta,state,ui,case,spell_names,level_template):
     if field(ui,case['pack'],2,0x10000035)['text']!=actor['name']or meta.get('actor_name')!=actor['name']:raise ValueError('Actual displayed caster name differs')
     expected=level_template.replace('<SPELLLEVEL>',str(level+1))
     if '<'in expected or meta.get('label')!=expected or field(ui,case['pack'],2,0x10000032)['text']!=expected:raise ValueError('Shown level label disagrees with captured content level')
-    for index,row in enumerate(shown):
-        item=field(ui,case['pack'],2,27+index)
-        if item['value']!=row['original_index']or item['tooltip']!=row['name']or item['stored_tooltip']!=row['name']or item['disabled']or not item['picture_present']:raise ValueError('Sorted actual known slot/original index/tooltip binding differs')
+    if not isinstance(meta.get('information_page'),dict)or meta['information_page'].get('top')!=0:raise ValueError('Existing operation journey did not navigate information pages')
+    validate_page(meta.get('information_page'),shown,ui['controls'],case['pack'],pc,case['kind'],level,
+        expected_module=Path(meta['module']).with_name('EESpellbookInformation.py')if meta.get('module')else None)
     for index,row in enumerate(memo):
         item=field(ui,case['pack'],2,3+index)
         if item['value']!=index or item['tooltip']!=spell_names[row['resref']]['name']or not item['picture_present']:raise ValueError('Actual memorized slot binding differs')

@@ -11,6 +11,7 @@ sys.path.insert(0,str(Path(__file__).parents[1]))
 import spellbook_operation_validation as v
 import spellbook_operation_journey as runner
 import spellbook_presentation_control as presentation
+from test_spellbook_information_validation import page_fixture
 
 def state():
     people=[]
@@ -38,6 +39,9 @@ def book_capture():
     for i,row in enumerate(shown):controls.append(dict(pack='GUIMG',window=2,id=27+i,visible=True,value=row['original_index'],tooltip=row['name'],stored_tooltip=row['name'],disabled=False,picture_present=True))
     for i,row in enumerate(memo):controls.append(dict(pack='GUIMG',window=2,id=3+i,visible=True,value=i,tooltip=names[row['resref']]['name'],picture_present=True))
     for cid,text in((0x10000035,'Imoen'),(0x10000032,'Level 2')):controls.append(dict(pack='GUIMG',window=2,id=cid,visible=True,text=text))
+    layout,page_controls=page_fixture(shown,pack='GUIMG',actor=2,kind=1,level=1)
+    meta.update(schema='bg-redux-book-observation/2',information_page=layout)
+    controls=page_controls+[c for c in controls if not 27<=c['id']<51]
     return meta,s,dict(controls=controls),case,names
 
 def bmp(path,width=4,height=3):

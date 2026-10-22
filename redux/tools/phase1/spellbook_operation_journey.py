@@ -191,7 +191,7 @@ def root_guard(project,source,build):
     check_engine_receipt(source,build)
 
 def sources(project,source):
-    local=['spellbook_presentation_control.py','spellbook_operation_journey.py','spellbook_operation_validation.py','SpellbookOperationRuntime.py','SpellbookOperationStart.py','native/spellbook_operation_journey.cpp','native/spellbook_operation_ui_snapshot.cpp']
+    local=['spellbook_information_validation.py','spellbook_presentation_control.py','spellbook_operation_journey.py','spellbook_operation_validation.py','SpellbookOperationRuntime.py','SpellbookOperationStart.py','native/spellbook_operation_journey.cpp','native/spellbook_operation_ui_snapshot.cpp']
     result={HERE/name for name in local}|set(common.sources(project))
     for module in tuple(sys.modules.values()):
         filename=getattr(module,'__file__',None)
@@ -267,6 +267,7 @@ def resource_guard(api,project,source):
         result[ref+'.'+ext]=row
     for name,file in [('chitin',game/'chitin.key'),('tlk',game/'lang/en_US/dialog.tlk')]:result[name]=dict(path=str(file),bytes=file.stat().st_size,sha256=evidence.sha(file))
     result['level_template']=dict(value=tlk(project,[10345])[10345])
+    result['spellbook_help']=dict(strref=39254,value=tlk(project,[39254])[39254])
     return result
 
 def check_resources(receipt,api,project,source):
@@ -315,6 +316,7 @@ def validate_capture(folder,nonce,mode,started_ns,receipt):
         expectedlevel={'initial':0,'arrow1':1,'tab1':1,'previous0':0,'arrow0':0,'tab0':0,'tab2':2,'back1':1,'tab1-repeat':1}.get(suffix,case['level'])
         if meta['level']!=expectedlevel:raise ValueError('Arrow/tab requested level disagrees with actual shown content')
         nonidentity=v.book_guard(meta,state,ui,case,spell_names,template)or nonidentity
+        if meta['information_page']['resolved_help']!=receipt['resources']['spellbook_help']['value']:raise ValueError('Full help differs from frozen configured TLK')
         modal=any(c['pack']==case['pack']and c['window']==case['modal']and c['visible']for c in ui['controls'])
         if modal!=meta['confirmation']or modal!=(policy=='legacy-confirmation'and suffix in('cancel-modal','remove-modal')):raise ValueError('Actual charged/depleted confirmation boundary differs')
         captures[row['name']]=(meta,state,ui)

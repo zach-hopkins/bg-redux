@@ -144,6 +144,28 @@ def open_spellbook(name, cid):
         press('OPTWIN',0,cid)
 
 
+def observe_known_page(pack, pc, kind, level, shown):
+    helper=importlib.import_module('EESpellbookInformation')
+    panel=helper.Panels.get(pack)
+    if not panel or not panel.active or panel.context[:3]!=(pc,kind,level):
+        raise RuntimeError('Actual ordinary information panel context absent')
+    canonical=lambda r:dict(original_index=r[4],resref=r[3].upper(),name=r[5])
+    if [canonical(r)for r in panel.rows]!=shown:
+        raise RuntimeError('Helper rows disagree with independent full known-spell API list')
+    selected=canonical(panel.selected)if panel.selected else None
+    description_ref=GemRB.GetSpell(selected['resref'])['SpellDesc']if selected else None
+    action=control(pack,2,0x7fff0413)
+    return dict(schema='bg-redux-known-information-page/1',module=helper.__file__,pack=pack,actor=pc,kind=kind,level=level,
+        page_size=7,top=panel.top,visible_rows=shown[panel.top:panel.top+7],selected=selected,
+        default_help_strref=39254,resolved_help=GemRB.GetString(39254),
+        selected_description_ref=description_ref,selected_description=GemRB.GetString(description_ref)if selected else None,
+        information_text=control(pack,2,0x7fff0414).QueryText(),
+        page_text=control(pack,2,0x7fff0412).QueryText(),
+        action_strref=17189 if pack=='GUIMG'else 17224,
+        resolved_action_label=GemRB.GetString(17189 if pack=='GUIMG'else 17224),
+        action_text=action.QueryText(),action_value=action.Value,action_disabled=bool(action.Flags&(1<<29)),
+        all_pages_visited=False,per_label_style_observed=False)
+
 def inspect_spellbook(name, pack):
     if SPELL_ACTORS.get(name):
         expect_window(name,pack,2)
@@ -186,9 +208,12 @@ def inspect_spellbook(name, pack):
                 per_label_style_observed=False)
         ROWS.append(dict(name=name+'.content-contract', pack=pack, actor=pc,
             actor_name=actor_name, level=level, sorcerer=sorcerer,
-            known=known, memorized=memorized, known_capacity=24,
+            known=known, memorized=memorized, known_capacity=24 if sorcerer else 7,
             memorized_capacity=0 if sorcerer else 12,
             heading=heading,
+            layout_mode='legacy-spontaneous/1' if sorcerer else 'ordinary-information/1',
+            information_page=None if sorcerer else observe_known_page(pack,pc,kind,level,
+                [dict(original_index=r['value'],resref=r['resref'].upper(),name=r['tooltip'])for r in known]),
             sprite_resource_identity_observed=False))
     else:
         ROWS.append(dict(name=name, passed=None, status='context-gated',

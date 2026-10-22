@@ -8,6 +8,7 @@ import tempfile
 import types
 import unittest
 from unittest.mock import patch
+from test_spellbook_information_validation import page_fixture
 
 HERE = Path(__file__).resolve().parents[1]
 
@@ -46,6 +47,13 @@ def spell_fixture(pack='GUIMG'):
     controls.append(dict(pack=pack,window=None,type=None,id=2,visible=True,disabled=False,rect=[80,29,864,710]))
     controls.extend([dict(pack=pack,window=2,id=0x10000033,visible=True,text='Memorized: 1/3',rect=[295,598,275,40]),
                      dict(pack=pack,window=2,id=0x10000032,visible=True,text='Level 1')])
+    shown=[dict(original_index=r['value'],resref=r['resref'].upper(),name=r['tooltip'])for r in contract['known']]
+    layout,page_controls=page_fixture(shown,pack=pack,actor=2,kind=kind,level=0)
+    page_by_id={r['id']:r for r in page_controls}
+    for i,item in enumerate(controls):
+        if item['window']==2 and 27<=item['id']<51:controls[i]=page_by_id[item['id']]
+    controls[-2:-2] = [r for r in page_controls if not 27<=r['id']<51]
+    contract.update(layout_mode='ordinary-information/1',information_page=layout,known_capacity=7)
     return contract,state,dict(controls=controls)
 
 
@@ -355,6 +363,9 @@ class MenuRuntimeTests(unittest.TestCase):
         self.assertEqual(self.runtime.ROWS[-1]['status'],'context-gated')
 
     def test_runtime_heading_contract_reads_live_allocated_count_capacity_and_level(self):
+        # This fixture isolates the heading API contract. Information assembly is
+        # exercised separately against its actual native-control receipt.
+        self.runtime.observe_known_page=lambda *args:dict(test_scope='heading-only')
         for pack,name,kind in (('GUIMG','mage-book',1),('GUIPR','priest-book',0)):
             with self.subTest(pack=pack):
                 self.runtime.SPELL_ACTORS[name]=2
@@ -392,6 +403,12 @@ class MenuRuntimeTests(unittest.TestCase):
 
 
 class SpellbookContentTests(unittest.TestCase):
+    def test_unknown_layout_or_unrequested_page_cannot_promote_capture(self):
+        for change in ('version','page'):
+            c,s,u=spell_fixture()
+            if change=='version':c['layout_mode']='legacy-grid/1'
+            else:c['information_page']['top']=7
+            with self.subTest(change=change),self.assertRaises(ValueError):harness.validate_spellbook_capture(c,s,u)
     def test_real_populated_and_empty_controls_match(self):
         c,s,u=spell_fixture()
         self.assertTrue(all(r['passed'] for r in harness.validate_spellbook_capture(c,s,u)))
@@ -406,11 +423,11 @@ class SpellbookContentTests(unittest.TestCase):
                             ('picture_size',[0,32]),('rect',[0,0,0,32])):
             with self.subTest(field=field):
                 c,s,u=spell_fixture(); u['controls'][1][field]=value
-                self.assertFalse(all(r['passed'] for r in harness.validate_spellbook_capture(c,s,u)))
+                with self.assertRaises(ValueError):harness.validate_spellbook_capture(c,s,u)
 
     def test_empty_slot_retaining_old_visible_spell_fails(self):
-        c,s,u=spell_fixture(); u['controls'][2]['flags']=2
-        self.assertFalse(all(r['passed'] for r in harness.validate_spellbook_capture(c,s,u)))
+        c,s,u=spell_fixture(); u['controls'][2]['visible']=True
+        with self.assertRaises(ValueError):harness.validate_spellbook_capture(c,s,u)
 
     def test_missing_duplicate_hidden_control_fails_closed(self):
         for mode in ('missing','duplicate','hidden'):

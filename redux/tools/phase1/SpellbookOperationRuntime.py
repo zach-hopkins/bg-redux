@@ -43,6 +43,28 @@ def open_book(case):
 
 def close_book(case):press('OPTWIN',0,case['entry'],actor=case['pc'],route='ordinary spellbook toolbar toggle')
 
+def observe_known_page(pack, pc, kind, level, shown):
+    helper=importlib.import_module('EESpellbookInformation')
+    panel=helper.Panels.get(pack)
+    if not panel or not panel.active or panel.context[:3]!=(pc,kind,level):
+        raise RuntimeError('Actual ordinary information panel context absent')
+    canonical=lambda r:dict(original_index=r[4],resref=r[3].upper(),name=r[5])
+    if [canonical(r)for r in panel.rows]!=shown:
+        raise RuntimeError('Helper rows disagree with independent full known-spell API list')
+    selected=canonical(panel.selected)if panel.selected else None
+    description_ref=GemRB.GetSpell(selected['resref'])['SpellDesc']if selected else None
+    action=control(pack,2,0x7fff0413)
+    return dict(schema='bg-redux-known-information-page/1',module=helper.__file__,pack=pack,actor=pc,kind=kind,level=level,
+        page_size=7,top=panel.top,visible_rows=shown[panel.top:panel.top+7],selected=selected,
+        default_help_strref=39254,resolved_help=GemRB.GetString(39254),
+        selected_description_ref=description_ref,selected_description=GemRB.GetString(description_ref)if selected else None,
+        information_text=control(pack,2,0x7fff0414).QueryText(),
+        page_text=control(pack,2,0x7fff0412).QueryText(),
+        action_strref=17189 if pack=='GUIMG'else 17224,
+        resolved_action_label=GemRB.GetString(17189 if pack=='GUIMG'else 17224),
+        action_text=action.QueryText(),action_value=action.Value,action_disabled=bool(action.Flags&(1<<29)),
+        all_pages_visited=False,per_label_style_observed=False)
+
 def book(case):
     module=importlib.import_module(case['pack']);level=module.MageSpellLevel if case['pack']=='GUIMG'else module.PriestSpellLevel
     if GemRB.GameGetSelectedPCSingle()!=case['pc']or GemRB.GetPlayerName(case['pc'],0).casefold()!=case['actor'].casefold():raise RuntimeError('Actual selected caster identity differs')
@@ -53,20 +75,20 @@ def book(case):
     shown=sorted(rows,key=lambda r:r['name']);memorized=[]
     for i in range(GemRB.GetMemorizedSpellsCount(case['pc'],case['kind'],level,False)):
         row=GemRB.GetMemorizedSpell(case['pc'],case['kind'],level,i);memorized.append(dict(resref=row['SpellResRef'].upper(),flags=row['Flags']))
-    return dict(actor=case['pc'],actor_name=GemRB.GetPlayerName(case['pc'],0),pack=case['pack'],kind=case['kind'],level=level,module=module.__file__,known=rows,shown=shown,memorized=memorized,slots=GemRB.GetMemorizableSpellsCount(case['pc'],case['kind'],level,1),label=control(case['pack'],2,0x10000032).QueryText())
+    return dict(actor=case['pc'],actor_name=GemRB.GetPlayerName(case['pc'],0),pack=case['pack'],kind=case['kind'],level=level,module=module.__file__,known=rows,shown=shown,memorized=memorized,slots=GemRB.GetMemorizableSpellsCount(case['pc'],case['kind'],level,1),label=control(case['pack'],2,0x10000032).QueryText(),information_page=observe_known_page(case['pack'],case['pc'],case['kind'],level,shown))
 
 def observe(case,name,level=None,modal=False):
     global CAPTURE
     row=book(case)
     if level is not None and row['level']!=level:raise RuntimeError('Shown spell level differs from declared navigation')
     if control(case['pack'],2,0x10000035).QueryText()!=row['actor_name']:raise RuntimeError('Shown caster name differs')
-    for visible,spell in enumerate(row['shown']):
+    for visible,spell in enumerate(row['information_page']['visible_rows']):
         item=control(case['pack'],2,27+visible)
         if item.Value!=spell['original_index']:raise RuntimeError('Sorted shown spell/original index/tooltip mismatch')
     if modal and not view(case['pack'],case['modal']):raise RuntimeError('Charged spell confirmation absent')
     if not modal and view(case['pack'],case['modal']):raise RuntimeError('Unexpected retained confirmation window')
     CAPTURE+=1;GemRB.SetVar('RDXBookCapture',CAPTURE)
-    row.update(schema='bg-redux-book-observation/1',nonce=NONCE,name=name,capture=CAPTURE,step=INDEX,confirmation=bool(view(case['pack'],case['modal'])),tab_start=case['tabs'],tab_count=case['count'])
+    row.update(schema='bg-redux-book-observation/2',nonce=NONCE,name=name,capture=CAPTURE,step=INDEX,confirmation=bool(view(case['pack'],case['modal'])),tab_start=case['tabs'],tab_count=case['count'])
     (OUTPUT/('capture-%d.book.json'%CAPTURE)).write_text(json.dumps(row,indent=2)+'\n',encoding='utf8');ROWS.append(dict(event='observe',step=INDEX,name=name,capture=CAPTURE))
 
 def tab(case,level):
@@ -89,6 +111,9 @@ def known(case):
     row=book(case);matches=[(i,r)for i,r in enumerate(row['shown'])if r['resref']==case['ref']]
     if row['level']!=case['level']or len(matches)!=1:raise RuntimeError('Target known spell missing/ambiguous')
     visible,spell=matches[0]
+    top=row['information_page']['top']
+    if not top<=visible<top+7:raise RuntimeError('Operation target is not on the actually observed page; paging journey required')
+    visible-=top
     if spell['original_index']!=case['known']:raise RuntimeError('Original known index differs from frozen parent')
     press(case['pack'],2,27+visible,resref=case['ref'],original_index=spell['original_index'],visible_index=visible,route='known-memorize')
 

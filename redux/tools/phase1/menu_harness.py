@@ -15,6 +15,10 @@ import subprocess
 import uuid
 import importlib.util
 
+_page_spec = importlib.util.spec_from_file_location('redux_information_validation', Path(__file__).with_name('spellbook_information_validation.py'))
+page_validation = importlib.util.module_from_spec(_page_spec)
+_page_spec.loader.exec_module(page_validation)
+
 _private_spec = importlib.util.spec_from_file_location('redux_private_game', Path(__file__).with_name('private_game.py'))
 private_game = importlib.util.module_from_spec(_private_spec)
 _private_spec.loader.exec_module(private_game)
@@ -56,7 +60,7 @@ def write(path, value):
 
 def menu_source_inputs(source):
     return [Path(__file__), HERE/'menu_probe.cpp', HERE/'gui/MenuRuntime.py', HERE/'gui/MenuStart.py',
-            HERE/'private_game.py', HERE/'../phase0/native/gui_probe.cpp', HERE/'../phase0/native/save_probe.cpp'] + [
+            HERE/'private_game.py', HERE/'spellbook_information_validation.py', HERE/'../phase0/native/gui_probe.cpp', HERE/'../phase0/native/save_probe.cpp'] + [
             Path(source)/'gemrb/GUIScripts'/name for name in
             ('GUIMG.py','GUIPR.py','EESpellbookHeading.py','EESpellbookInformation.py','BG2EEConfirmation.py','GUIOPT.py','GUIOPTControls.py','GUICommon.py','GUICommonWindows.py','Spellbook.py','GameCheck.py','GUIDefines.py','GUIClasses.py')] + [Path(source)/'gemrb/unhardcoded/shared/defaults.ini']
 
@@ -120,7 +124,14 @@ def validate_spellbook_capture(contract, state, ui):
              state['party'][pc-1]['name'] == contract['actor_name'])]
     if not contract['sorcerer']:
         checks.extend(validate_spellbook_heading(contract, state, ui, field))
-    for family, base, capacity in (('known', 27, 24), ('memorized', 3, 0 if contract['sorcerer'] else 12)):
+    families = [('known',27,24),('memorized',3,0)] if contract['sorcerer'] else [('memorized',3,12)]
+    if not contract['sorcerer']:
+        if contract.get('layout_mode')!='ordinary-information/1' or contract.get('known_capacity')!=7:raise ValueError('Unknown ordinary information layout mode')
+        shown=[dict(original_index=r['value'],resref=r['resref'].upper(),name=r['tooltip'])for r in contract['known']]
+        if not isinstance(contract.get('information_page'),dict)or contract['information_page'].get('top')!=0:raise ValueError('Menu open did not navigate information pages')
+        page_validation.validate_page(contract.get('information_page'),shown,ui['controls'],pack,pc,1 if pack=='GUIMG'else 0,contract['level'])
+    elif contract.get('layout_mode')!='legacy-spontaneous/1':raise ValueError('Unknown spontaneous layout mode')
+    for family, base, capacity in families:
         spells = contract[family]
         if contract[family+'_capacity'] != capacity or len(spells) > capacity:
             raise ValueError('Unsupported spellbook slot capacity')
