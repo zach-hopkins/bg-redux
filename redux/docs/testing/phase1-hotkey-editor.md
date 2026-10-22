@@ -46,4 +46,16 @@ The retained static image `C:/BGRedux/phase1-local/results/20261022T014513Z-hotk
 
 The hotkey editor now replaces only its own full-viewport fill with black alpha 255 before ShowModal. It preserves the game fonts, control geometry, existing button resources, staged bindings, callbacks and underlying window lifecycle. It does not change the reusable options helper for other dialogs. Read-only KEY/CHU inspection identifies GUIOPT window 10's stock mosaic as GOPSNDSB, 864×710; stretching or restoring that smaller artwork alone would not cover the 1024×768 / 1280×960 editor viewport. No asset is replaced or published.
 
-A focused regression test is added for opacity before modal presentation at both nominated resolutions, unchanged font/footer geometry and no binding/profile writes during opening. **This new test has not been executed**, per the active coordinator hash guard. The worker inspected only the static image and source/private resource metadata; no native host, game, build or test was launched. Fresh captures under the new source identity must prove the Gameplay bleed-through is gone and that text/control visibility remains usable. This narrow correction does not certify original EE visual fidelity or the still-running functional hotkey journey.
+A focused regression test is added for opacity before modal presentation at both nominated resolutions, unchanged font/footer geometry and no binding/profile writes during opening. At this implementation checkpoint it had not been executed, per the then-active coordinator hash guard. The worker inspected only the static image and source/private resource metadata; no native host, game, build or test was launched by that worker.
+
+Later coordinator execution supersedes that pending status: the opacity check
+executes in the full 237-test passing suite. The separately
+[audited opaque journey](../compatibility/evidence/phase1-hotkeys-opaque-lab.json),
+`20261022T021322Z-hotkeys-633bfae0`, passes in two fresh profiles with the exact
+saved INI reloaded, 46 edit and six reload callbacks, and 15 EventMgr key
+down/up pairs. The reviewed 1024×768 capture has an opaque black backdrop and
+no visible underlying Gameplay controls. Its one dynamically loaded Python
+source change and unchanged compiled DLL are bound separately. This proves
+the bounded callback/profile and selected visual checks; physical typing,
+modifiers, international combinations and full original EE visual fidelity
+remain open. The earlier translucent capture retains its original source identity.

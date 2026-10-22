@@ -1,5 +1,14 @@
 # Phase 1: EE inventory and record assembly
 
+Current execution checkpoint: [native menu evidence](../compatibility/evidence/phase1-menu-lab.json)
+now records 107 passed checks and 51 captures at each of 1024×768 and 1280×960
+in `20261022T015239Z-menu-run-b9d5ebb2`. Selected inventory and record images
+were inspected for readable light text; actual font provider/face/size metadata
+is recorded. This supersedes the historical pending-render statements below for
+those tested controls. It does not accept every context, physical pointer path,
+long/localized record or original glyph/pixel metrics. Earlier callback failures
+and the high-resolution timeout remain preserved.
+
 October 21, 2026. This bounded P1-03 change implements missing BG2EE character-sheet assembly. **Native rendered validation is pending coordinator execution.** The fifteen focused tests below establish semantic/binding behavior, not visual fidelity or all-menu completion. No worker game/native process was launched, shared runtime changed, engine binary rebuilt or private fixture altered.
 
 ## Root cause and actual change
