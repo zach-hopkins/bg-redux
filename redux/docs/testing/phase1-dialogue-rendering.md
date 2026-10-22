@@ -27,6 +27,17 @@ backing target. Source investigation also found partial alpha in the shipped
 MOS/PVRZ panel interior. Merely invalidating the TextArea does not supply a
 clean composition surface.
 
+Independent source/art evidence is retained in
+`20261022T050133Z-dialogue-panel-alpha-audit-8fae679c`, including extracted MOS,
+packed/decompressed PVR, exact provider hashes and reproducible alpha decoding.
+
+Production commit `72846e74b` clears dirty window backing surfaces before the
+complete repaint, including the separate scale surface. New isolated candidate
+`20261022T050338Z-candidate-2f06ed29` is being built; this is not yet a validated
+fix. Full, clipped and scaled render evidence is still required. The latest
+external tooling suite passes297 tests (19.432s), recorded separately in
+`phase1-integrated-tests-20261022T0508.log`.
+
 The native diagnostic completes eleven samples, exits0, and makes one ordinary
 talk request and one response selection. It performs no save. Its wrapper
 deliberately reports `passed:false` with `Render diagnostic only; not a

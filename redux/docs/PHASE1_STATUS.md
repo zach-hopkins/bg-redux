@@ -18,7 +18,7 @@ retained. Fresh private-folder query/cache/control and import/GUI reruns pass
 their preservation guards; the earlier diagnostic-write failure is retained.
 Both selected menu resolutions complete 107 checks and 51 captures. The opaque
 plain-key editor journey and measured calling-thread RNG snapshot cost pass
-their bounded checks. External tooling now passes 276 Python tests. Original
+their bounded checks. External tooling now passes 297 Python tests. Original
 controlled-color ordinary saves and candidate fresh-process saves both show
 237 to 46 to 46; the independently audited comparison establishes shared
 behavior for this controlled input, not a candidate-only persistence defect.
@@ -56,6 +56,10 @@ the normal selection route passes without an engine change. The bounded
 cast, actual effects and depletion, GUI save/fresh reload/second save, with no
 reload cast. Recruitment, transitions, broader spell/combat behavior and campaign
 checkpoints remain open.
+The source-only [key/door/recruitment adapter](testing/phase1-cell-recruitment-journey.md)
+is integrated and passes17 focused validator tests; it has not yet been built or
+executed. The dialogue renderer correction is awaiting the new isolated build
+and native full/clipped/scaled verification.
 The batch descriptions below are
 historical checkpoints, superseded by the linked executed report where stated.
 
