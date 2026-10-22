@@ -45,3 +45,29 @@ The new contract supports only the exact `<PRO_HISHER>` token and exact `gender.
 Build/resource guards now freeze the selected bg2ee fallback gender table, TLK words at both refs, and the importer/stat/table source. Higher-priority engine/game shadows are rejected; every fresh native process independently freezes `GetResourceStream("gender", IE_2DA_CLASS_ID)` path and complete bytes, which must match the selected provider. The runtime table row is parsed independently again for description validation. Frozen TLK words are recomputed against the pinned full TLK file on source/resource checks. No internal importer token-map sampling is claimed: the source-bound importer, unchanged provider configuration, actual resource stream and exact observed control description jointly bind this narrow resolution. Successful observations record protagonist runtime ID/name/sex, selected word ref/text and occurrence count.
 
 Five additional test sources cover both supported sexes, unsupported tokens, wrong/duplicate table rows, wrong TLK keys/nested words and wrong/incoherent protagonist sex. No tests, builds or native processes were executed for this follow-up. A fresh external host build is required; use a new output path such as `heading-erase-2` with the same explicit source/coherent engine receipt arguments above.
+
+
+## First coordinator execution and text-contract correction
+
+The initial external build and 14 focused methods passed. Stock native run
+`20261022T102210Z-spellbook-erase-ee-direct-1bd64447` completed the callback/save
+route (PID 3544, exit 0, 60.845 seconds), retaining its diagnostic frozen output,
+but its strict outer validator failed on a description representation mismatch.
+The frozen raw TLK text contains `<PRO_HISHER>`; normal engine resolution displays
+`his`. The name and other description bytes match. This failed result remains
+failed, without a fresh reload claim, and all preservation guards pass.
+
+The separate adapter correction binds exactly that token to the captured
+protagonist sex, exact gender table row/provider, frozen TLK pronoun refs and
+runtime resource stream. It rejects unsupported substitutions rather than
+stripping tokens. All 19 focused tests pass after integration; a fresh external
+build/run is required. No production source or binaries were changed for this
+adapter correction. The broader suite previously passed 438 tests before the
+five additional token tests; a new total must be measured separately.
+
+
+External `erase-before-2` stopped before compilation because its source manifest
+named nonexistent `core/TableMgr.cpp`; the failure and preservation receipt are
+retained. The manifest now pins the actual `core/TableMgr.h` and
+`plugins/2DAImporter/2DAImporter.cpp`. External `erase-before-3` builds successfully
+with all candidate/Phase0 guards; fresh stock execution is separate evidence.

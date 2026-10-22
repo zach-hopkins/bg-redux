@@ -15,3 +15,15 @@ independently confirm actual immediate charged removal without modal, depleted
 re-add, exact saved spell identities and fresh-process reload. Original eligible
 priest interaction and Classic runtime remain unmeasured; the source/branch tests
 preserve Classic callback selection without claiming a new Classic native pass.
+
+
+## Newly identified option-dependent parity gap
+
+The complete original prepared-list **callers**, beyond the extracted direct
+unmemorize functions, check More Confirmation Prompts (option 41, feedback panel
+9) and whether an uncastable same-resref entry exists. The current unconditional
+BG2EE direct binding matches the measured option-off run, but does not implement
+the original option-on/depleted-entry preference. The successful bounded AFTER
+receipts remain valid; they do not close this configurable behavior. See the
+[source survey](../testing/phase1-localized-spellbook-help-source.md). Native
+option-toggle/config persistence and both callback branches remain required work.

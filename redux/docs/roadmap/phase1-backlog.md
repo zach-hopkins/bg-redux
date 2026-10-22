@@ -63,3 +63,11 @@ name selection and a separately gated Memorize action, while retaining the
 original's icon shortcut. A source-inferred info-to-Erase displayed/original
 index risk requires its own controlled native reproduction before correction.
 Do not infer erase coverage from successful known-icon Memorize tests.
+
+
+A subsequent [localized-help/caller survey](../testing/phase1-localized-spellbook-help-source.md)
+identifies full TLK 39254 as an existing localized help-paragraph option, plus a
+separate prepared-removal gap: original More Confirmation Prompts and same-resref
+depleted-entry preference are not covered by unconditional direct binding.
+Preserve the measured option-off pass, then implement/validate option-on behavior
+and persistence before claiming configurable EE parity.
