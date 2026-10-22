@@ -24,11 +24,13 @@ def Selected(pc):
     rec = importlib.import_module('GUIREC')
     sheet = importlib.import_module('EECharacterSheet')
     pages = sheet.Pages(rec.GetSupplementalStats(pc)[section])
+    model = sheet.ReadActor(pc)
     menu.record('stats.actor-selected', GemRB.GameGetSelectedPCSingle() == pc
         and section == (0 if pc == 1 else 5) and GemRB.GetVar('ReduxStatsPage') == 0
         and menu.control('GUIREC', 2, 45).QueryText() == pages[0],
         actor=pc, actor_name=GemRB.GetPlayerName(pc, 0), section=section,
         actor_class=GemRB.GetPlayerStat(pc, IE_CLASS),
+        display_thac0=[hand['thac0'] for hand in model['hands']],
         levels=[GemRB.GetPlayerStat(pc, stat) for stat in (IE_LEVEL, IE_LEVEL2, IE_LEVEL3)],
         states=list(GemRB.GetPlayerStates(pc)))
     menu.inspect_sheet('GUIREC')

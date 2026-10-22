@@ -114,7 +114,8 @@ def validate_stage(directory, resolution, *, expected_nonce, tlk_path):
                 and record['actor_class'] == actor['modified_stats'][232]
                 and record['levels'] == [actor['modified_stats'][s] for s in (34, 68, 69)]
                 and field(ui, 0x10000029) == str(actor['modified_stats'][0])
-                and field(ui, 0x10000040).split('/')[0] == str(native[0]['cached_thac0']),
+                and field(ui, 0x10000040) == '/'.join(str(value) for value in record['display_thac0'])
+                and native[0]['cached_thac0'] == actor['modified_stats'][7],
                 'Stats actor identity/class/level/headline mismatch')
         section = 0 if pc == 1 else 5
         expected = next(c['pages'] for c in contracts if c['actor'] == pc and c['section'] == section)
@@ -122,7 +123,8 @@ def validate_stage(directory, resolution, *, expected_nonce, tlk_path):
                 and field(ui, 0x7fff0201) == '1 / %d' % len(expected),
                 'Stats actor change did not retain section/reset page/refresh body')
         actor_details.append(dict(actor=pc, name=actor['name'], actor_class=record['actor_class'],
-                                  levels=record['levels'], states=record['states']))
+                                  levels=record['levels'], states=record['states'],
+                                  display_thac0=record['display_thac0'], script_thac0=actor['modified_stats'][7]))
     page_count = 0
     for contract in contracts:
         pc, section, pages = contract['actor'], contract['section'], contract['pages']
@@ -160,6 +162,9 @@ def validate_stage(directory, resolution, *, expected_nonce, tlk_path):
         require(without_selection(read('callback-%d-before.state.json' % sequence))
                 == without_selection(read('callback-%d-after.state.json' % sequence)),
                 'Stats callback changed collected world')
+        require(read('callback-%d-before.observer.json' % sequence)
+                == read('callback-%d-after.observer.json' % sequence),
+                'Stats callback changed collected combat caches')
     require(action('stats.record.closed').get('capture'), 'Stats record close observation missing')
     for index in captures:
         capture(index)
@@ -168,6 +173,8 @@ def validate_stage(directory, resolution, *, expected_nonce, tlk_path):
             'Stats record remained visible after close')
     require(without_selection(read('before.state.json')) == without_selection(read('after.state.json')),
             'Stats journey changed collected world')
+    require(read('before.observer.json') == read('after.observer.json'),
+            'Stats journey changed collected combat caches')
     return dict(assertion_passed=True, collected_world_unchanged=True, captures=len(captures),
                 actor_sections=len(contracts), page_visits=page_count, actors=actor_details,
                 numeric_saves_and_resistances_validated=True, visual_acceptance=False,

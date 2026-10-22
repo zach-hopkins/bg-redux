@@ -578,6 +578,11 @@ private:
 	bool IsDualSwap() const;
 	int GetNonProficiencyPenalty(int stars) const;
 	int GetProficiencyBonus(int& style, bool leftOrRight, int& damageBonus, int& speedBonus, int& criticalBonus) const;
+	bool ComputeCombatDetails(int& toHit, bool leftOrRight, int& damageBonus, int& speed,
+				 int& criticalBonus, int& style, const Actor* target, WeaponInfo& weapon, ToHitStats& stats) const;
+	int ComputeToHit(ieDword flags, const Actor* target, ToHitStats& stats) const;
+	void ComputeTHAbilityBonus(ieDword flags, ToHitStats& stats) const;
+	ieDword GetNumberOfAttacks2E() const;
 	/** Re/Inits the Modified vector for PCs/NPCs */
 	void RefreshPCStats();
 	void RefreshHP();
@@ -853,6 +858,19 @@ public:
 	/* get the current hit bonus */
 	bool GetCombatDetails(int& tohit, bool leftorright,
 			      int& DamageBonus, int& speed, int& CriticalBonus, int& style, const Actor* target);
+	struct CombatDetails {
+		WeaponInfo weapon {};
+		ToHitStats toHit;
+		int totalToHit = 20;
+		int damageBonus = 0;
+		int speed = 0;
+		int criticalBonus = 0;
+		int style = 0;
+		ieDword apr = 0;
+	};
+	// Target-independent 2E presentation. No actor or weapon cache is updated.
+	// 3E has a separate BAB/APR initialization contract and is unsupported here.
+	bool GetCombatDetailsForDisplay(bool leftOrRight, CombatDetails& details) const;
 	/* performs attack against target */
 	void PerformAttack(ieDword gameTime);
 	/* returns the adjusted weapon range, since items have odd values stored */

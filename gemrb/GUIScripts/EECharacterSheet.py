@@ -75,10 +75,10 @@ def DamageText(details, identified=True):
 
 def ReadActor(pc):
 	"""Re-query on refresh; never retain actor pointers, hands or selected PC."""
-	main = GemRB.GetCombatDetails(pc, 0)
+	main = GemRB.GetCombatDetails(pc, 0, True)
 	dual = bool(main) and GemRB.IsDualWielding(pc)
 	hands = []
-	for index, details in enumerate([main, GemRB.GetCombatDetails(pc, 1)] if dual else [main]):
+	for index, details in enumerate([main, GemRB.GetCombatDetails(pc, 1, True)] if dual else [main]):
 		if not details:
 			continue
 		slot = GemRB.GetSlotItem(pc, details["Slot"], 1)
@@ -92,10 +92,6 @@ def ReadActor(pc):
 		hands.append({"hand": index, "details": details, "identified": identified,
 			"damage": DamageText(details, identified),
 			"thac0": details["ToHitStats"]["Total"]})
-	if dual:
-		# This legacy query refreshes shared ToHit/proficiency caches. Leave them
-		# describing the main hand, as inventory's existing DisplayAC query does.
-		GemRB.GetCombatDetails(pc, 0)
 	return {
 		"pc": pc, "hands": hands,
 		"ac": GemRB.GetPlayerStat(pc, IE_ARMORCLASS) + GUICommon.GetACStyleBonus(pc, main),

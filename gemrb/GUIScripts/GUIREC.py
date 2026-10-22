@@ -274,7 +274,7 @@ def GA (pc, stat, col):
 # LevelDiff is used only from the level up code and holds the level
 # difference for each class
 def GetStatOverview (pc, LevelDiff=[0,0,0]):
-	cdet = GemRB.GetCombatDetails (pc, 0)
+	cdet = GemRB.GetCombatDetails (pc, 0, GameCheck.IsBG2EE())
 
 	outputtext = GetClassTitles (pc,LevelDiff)
 	outputtext+= GetEffectIcons (pc,LevelDiff)
@@ -308,7 +308,7 @@ def GetSupplementalStats(pc, combat=None):
 	bonuses = GUIRECCommon.GetAbilityBonuses(pc, False)
 	bonuses = [row for row in bonuses if not isinstance(row, tuple) or row[0] not in (10332, 10336, 10339, 10340)]
 	if combat is None:
-		combat = GemRB.GetCombatDetails(pc, 0)
+		combat = GemRB.GetCombatDetails(pc, 0, True)
 	weapons = GetWeaponProficiencies(pc)
 	if combat:
 		weapons += "\n" + GetWeaponStyleBonuses(pc, combat)
@@ -518,7 +518,7 @@ def GetProficiencies(pc, cdet):
 		stats.append ( (61932, tohit["Base"], '0') )
 		if (GemRB.IsDualWielding(pc)):
 			stats.append ( (56911, tohit["Total"], '0') ) # main
-			stats.append ( (56910, GemRB.GetCombatDetails(pc, 1)["ToHitStats"]["Total"], '0') ) # offhand
+			stats.append ( (56910, GemRB.GetCombatDetails(pc, 1, GameCheck.IsBG2EE())["ToHitStats"]["Total"], '0') ) # offhand
 		else:
 			stats.append ( (9457, tohit["Total"], '0') )
 	else:

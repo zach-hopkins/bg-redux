@@ -18,7 +18,8 @@ class StatsRuntimeTests(unittest.TestCase):
             GetVar=lambda key: 5 if key == 'ReduxStatsSection' else 0, GetPlayerName=lambda pc, kind: 'Imoen',
             GetPlayerStat=lambda pc, stat: 7, GetPlayerStates=lambda pc: bytearray())
         modules = dict(GUIREC=types.SimpleNamespace(GetSupplementalStats=lambda pc: ['raw']*6),
-                       EECharacterSheet=types.SimpleNamespace(Pages=lambda raw: ['page']))
+                       EECharacterSheet=types.SimpleNamespace(Pages=lambda raw: ['page'],
+                           ReadActor=lambda pc: dict(hands=[dict(thac0=12)])))
         self.env = dict(menu=self.menu, GemRB=self.gem, IE_CLASS=232, IE_LEVEL=34, IE_LEVEL2=68, IE_LEVEL3=69,
                         importlib=types.SimpleNamespace(import_module=lambda name: modules[name]))
         path = Path(__file__).resolve().parents[1] / 'gui/StatsRuntime.py'

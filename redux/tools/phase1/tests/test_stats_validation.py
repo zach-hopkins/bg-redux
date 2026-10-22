@@ -39,7 +39,7 @@ class StatsValidationTests(unittest.TestCase):
         self.party = []
         for pc in range(1, 5):
             stats = [0]*256
-            stats[0], stats[232], stats[34] = 20, pc, 7
+            stats[0], stats[7], stats[232], stats[34] = 20, 14, pc, 7
             self.party.append(dict(name='Actor%d' % pc, base_stats=list(stats), modified_stats=list(stats)))
         self.world = dict(selection=1, gold=100, party=self.party)
         self.checks, self.callbacks, self.captures = [], [], 0
@@ -50,7 +50,7 @@ class StatsValidationTests(unittest.TestCase):
         for pc in range(1, 5):
             self.add('stats.actor-%d.portrait' % pc, callback=('PORTWIN', 0, pc-1))
             self.checks.append(dict(name='stats.actor-selected', passed=True, actor=pc,
-                actor_class=pc, levels=[7,0,0], states=[], section=0 if pc == 1 else 5))
+                actor_class=pc, levels=[7,0,0], states=[], section=0 if pc == 1 else 5, display_thac0=[14]))
             self.checks[-1]['actor_name'] = 'Actor%d' % pc
             self.add('stats.actor-%d.selected' % pc, capture=(pc, 'Actor%d section%d' % (pc,0 if pc==1 else 5), 0, 1))
             for section in range(6):
@@ -79,6 +79,11 @@ class StatsValidationTests(unittest.TestCase):
         self.save()
         self.write('before.state.json', self.world)
         self.write('after.state.json', dict(self.world, selection=4))
+        self.write('before.observer.json', self.observer())
+        self.write('after.observer.json', self.observer())
+
+    def observer(self):
+        return dict(actors=[dict(party_index=a,cached_thac0=14) for a in range(1,5)])
 
     def add(self, name, callback=None, capture=None, closed=False):
         row = dict(action=name, step=len(self.actions), capture=None)
@@ -91,6 +96,7 @@ class StatsValidationTests(unittest.TestCase):
             self.write('callback-%d.json' % sequence, call)
             for side in ('before','after'):
                 self.write('callback-%d-%s.state.json' % (sequence,side), self.world)
+                self.write('callback-%d-%s.observer.json' % (sequence,side), self.observer())
         if capture:
             self.captures += 1
             row['capture'] = self.captures
@@ -100,8 +106,7 @@ class StatsValidationTests(unittest.TestCase):
                                   (0x1000000e,'Actor%d'%pc),(0x10000029,'20'),(0x10000040,'14'))]
             self.write('capture-%d.ui.json' % self.captures, dict(controls=controls))
             self.write('capture-%d.state.json' % self.captures, dict(self.world,selection=pc))
-            self.write('capture-%d.observer.json' % self.captures,
-                       dict(actors=[dict(party_index=a,cached_thac0=14) for a in range(1,5)]))
+            self.write('capture-%d.observer.json' % self.captures, self.observer())
             bmp = bytearray(58)
             bmp[:2] = b'BM'
             struct.pack_into('<I',bmp,2,len(bmp))
@@ -200,6 +205,20 @@ class StatsValidationTests(unittest.TestCase):
     def test_native_callback_traceback_fails(self):
         (self.path/'process.log').write_text('[Python/ERROR]: Traceback (most recent call last):\n')
         with self.assertRaisesRegex(ValueError,'callback error'):
+            self.validate()
+
+    def test_changed_combat_cache_fails_even_with_equal_world(self):
+        obs = self.observer()
+        obs['actors'][3]['cached_thac0'] = 12
+        self.write('after.observer.json',obs)
+        with self.assertRaisesRegex(ValueError,'combat caches'):
+            self.validate()
+
+    def test_changed_callback_cache_fails(self):
+        obs = self.observer()
+        obs['actors'][3]['cached_thac0'] = 12
+        self.write('callback-1-after.observer.json',obs)
+        with self.assertRaisesRegex(ValueError,'callback changed collected combat caches'):
             self.validate()
 
 

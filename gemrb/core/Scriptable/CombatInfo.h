@@ -64,6 +64,13 @@ private:
 class GEM_EXPORT ToHitStats {
 public:
 	ToHitStats();
+	// Calculations for presentation must not write through Owner into actor stats.
+	ToHitStats DetachedCopy() const
+	{
+		auto result = *this;
+		result.Owner = nullptr;
+		return result;
+	}
 
 	int GetTotal() const;
 	int GetBase() const { return base; };

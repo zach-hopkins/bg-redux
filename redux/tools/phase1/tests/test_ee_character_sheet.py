@@ -72,7 +72,7 @@ class CharacterSheetTests(unittest.TestCase):
         self.gem.GetString = lambda ref: {17183: "Armor Class", 17184: "Hit Points", 9457: "THAC0",
             10336: "Damage", 9458: "Attacks per round", 56910: "Off Hand THAC0", 56911: "Main Hand THAC0"}.get(ref, str(ref))
         self.hands = [combat(), combat(Slot=10, DamageBonus=1, WeaponStrBonus=2, ToHitStats={"Total": 19})]
-        self.gem.GetCombatDetails = lambda pc, hand: copy.deepcopy(self.hands[hand])
+        self.gem.GetCombatDetails = lambda pc, hand, displayOnly=False: copy.deepcopy(self.hands[hand])
         self.gem.IsDualWielding = lambda pc: False
         self.gem.GetSlotItem = lambda pc, slot, translated: {"Flags": 1}
         stats = {ie_stats.IE_ARMORCLASS: 2, ie_stats.IE_HITPOINTS: 20, ie_stats.IE_MAXHITPOINTS: 35}
@@ -112,18 +112,30 @@ class CharacterSheetTests(unittest.TestCase):
         self.assertEqual(model["apr"], "2½")
         self.assertEqual(self.sheet.AttacksText(2), "1")
 
-    def test_combat_query_count_and_main_hand_cache_restoration(self):
+    def test_display_queries_do_not_need_main_hand_cache_restoration(self):
         calls = []
-        def query(pc, hand):
-            calls.append(hand)
+        def query(pc, hand, displayOnly=False):
+            calls.append((hand, displayOnly))
             return copy.deepcopy(self.hands[hand])
         self.gem.GetCombatDetails = query
         self.sheet.Update(Window(), 1)
-        self.assertEqual(calls, [0])
+        self.assertEqual(calls, [(0, True)])
         calls.clear()
         self.gem.IsDualWielding = lambda pc: True
         self.sheet.Update(Window(), 1)
-        self.assertEqual(calls, [0, 1, 0])
+        self.assertEqual(calls, [(0, True), (1, True)])
+
+    def test_record_display_preserves_script_stat_while_using_adjusted_total(self):
+        state = {'script_thac0': 14}
+        def query(pc, hand, displayOnly=False):
+            if not displayOnly:
+                state['script_thac0'] = 12
+            return combat(ToHitStats={'Total': 12})
+        self.gem.GetCombatDetails = query
+        window = Window()
+        self.sheet.Update(window, 1, record=True)
+        self.assertEqual(window.GetControl(0x10000040).text, '12')
+        self.assertEqual(state['script_thac0'], 14)
 
     def test_dead_or_missing_weapon_has_explicit_unavailable_value(self):
         self.hands[0] = {}

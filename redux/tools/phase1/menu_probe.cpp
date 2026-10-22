@@ -73,6 +73,11 @@ static std::string ObserverJSON()
         }
         actors.push_back(O({{"party_index", NumberJSON(i+1)}, {"runtime_id", NumberJSON(actor->GetGlobalID())},
             {"cached_thac0", NumberJSON(actor->ToHit.GetTotal())}, {"cached_base_thac0", NumberJSON(actor->ToHit.GetBase())},
+            {"cached_tohit_components", O({
+                {"weapon", NumberJSON(actor->ToHit.GetWeaponBonus())}, {"armor", NumberJSON(actor->ToHit.GetArmorBonus())},
+                {"shield", NumberJSON(actor->ToHit.GetShieldBonus())}, {"ability", NumberJSON(actor->ToHit.GetAbilityBonus())},
+                {"proficiency", NumberJSON(actor->ToHit.GetProficiencyBonus())}, {"generic", NumberJSON(actor->ToHit.GetGenericBonus())},
+                {"effects", NumberJSON(actor->ToHit.GetFxBonus())}})},
             {"used_left_hand", actor->usedLeftHand ? "true" : "false"},
             {"attack_count", NumberJSON(actor->attackcount)},
             {"attacks_per_round_stat", NumberJSON(actor->GetSafeStat(IE_NUMBEROFATTACKS))},

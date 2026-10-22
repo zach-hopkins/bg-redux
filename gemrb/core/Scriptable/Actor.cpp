@@ -6707,12 +6707,15 @@ ieDword Actor::GetNumberOfAttacks()
 		// iwd2 uses only regular haste
 		if (GetStat(IE_STATE_ID) & STATE_HASTED) bonus += 2;
 	} else {
-		base = GetStat(IE_NUMBEROFATTACKS);
-		if (inventory.FistsEquipped()) {
-			bonus = gamedata->GetMonkBonus(0, GetMonkLevel(), this);
-		}
+		return GetNumberOfAttacks2E();
 	}
 	return base + bonus;
+}
+
+ieDword Actor::GetNumberOfAttacks2E() const
+{
+	int bonus = inventory.FistsEquipped() ? gamedata->GetMonkBonus(0, GetMonkLevel(), this) : 0;
+	return GetStat(IE_NUMBEROFATTACKS) + bonus;
 }
 static const int BaseAttackBonusDecrement = 5; // iwd2; number of tohit points for another attack per round
 static int SetLevelBAB(int level, ieDword index)
@@ -6987,14 +6990,31 @@ bool Actor::GetCombatDetails(int& toHit, bool leftOrRight, int& damageBonus,
 			     int& speed, int& criticalBonus, int& style, const Actor* target)
 {
 	SetBaseAPRandAB(true);
+	WeaponInfo& wi = weaponInfo[leftOrRight && IsDualWielding()];
+	return ComputeCombatDetails(toHit, leftOrRight, damageBonus, speed, criticalBonus, style, target, wi, ToHit);
+}
+
+bool Actor::GetCombatDetailsForDisplay(bool leftOrRight, CombatDetails& details) const
+{
+	if (third) return false;
+	details.weapon = weaponInfo[leftOrRight && IsDualWielding()];
+	details.toHit = ToHit.DetachedCopy();
+	details.toHit.SetBase(BaseStats[IE_TOHIT]);
+	details.apr = GetNumberOfAttacks2E();
+	return ComputeCombatDetails(details.totalToHit, leftOrRight, details.damageBonus, details.speed,
+				    details.criticalBonus, details.style, nullptr, details.weapon, details.toHit);
+}
+
+bool Actor::ComputeCombatDetails(int& toHit, bool leftOrRight, int& damageBonus, int& speed,
+				 int& criticalBonus, int& style, const Actor* target, WeaponInfo& wi, ToHitStats& stats) const
+{
 	ieDword dualwielding = IsDualWielding();
-	WeaponInfo& wi = weaponInfo[leftOrRight && dualwielding];
 	const ITMExtHeader* hittingheader = wi.extHeader;
 	if (!hittingheader) return false; // item is unsuitable for a fight
 
 	int THAC0Bonus = hittingheader->THAC0Bonus + wi.launcherTHAC0Bonus;
 	if (ReverseToHit) THAC0Bonus = -THAC0Bonus;
-	ToHit.SetWeaponBonus(THAC0Bonus);
+	stats.SetWeaponBonus(THAC0Bonus);
 
 	damageBonus = hittingheader->DamageBonus + wi.launcherDmgBonus;
 	// get our dual wielding modifier
@@ -7043,7 +7063,7 @@ bool Actor::GetCombatDetails(int& toHit, bool leftOrRight, int& damageBonus,
 		prof += classBonus->QueryFieldSigned<int>("BONUS", GetKitName(kit));
 		prof += classBonus->QueryFieldSigned<int>("BONUS", className);
 	}
-	ToHit.SetProficiencyBonus(prof);
+	stats.SetProficiencyBonus(prof);
 
 	if (third) {
 		damageBonus += PCStats ? PCStats->ExtraSettings[ModalFeat::POWERATTACK] : 0;
@@ -7051,7 +7071,7 @@ bool Actor::GetCombatDetails(int& toHit, bool leftOrRight, int& damageBonus,
 
 	// get the remaining boni
 	// FIXME: merge
-	toHit = GetToHit(wi.wflags, target);
+	toHit = ComputeToHit(wi.wflags, target, stats);
 
 	//pst increased critical hits
 	if (pstflags && (Modified[IE_STATE_ID] & STATE_CRIT_ENH)) {
@@ -7070,6 +7090,11 @@ int Actor::MeleePenalty() const
 // FIXME: can get called on its own and ToHit could erroneously give weapon and some prof boni in that case
 int Actor::GetToHit(ieDword Flags, const Actor* target)
 {
+	return ComputeToHit(Flags, target, ToHit);
+}
+
+int Actor::ComputeToHit(ieDword Flags, const Actor* target, ToHitStats& stats) const
+{
 	int generic = 0;
 	int attacknum = attackcount;
 
@@ -7085,13 +7110,13 @@ int Actor::GetToHit(ieDword Flags, const Actor* target)
 	}
 
 	// set up strength/dexterity boni
-	GetTHAbilityBonus(Flags);
+	ComputeTHAbilityBonus(Flags, stats);
 
 	// check if there is any armor unproficiency penalty
 	int am = 0, sm = 0;
 	GetArmorSkillPenalty(1, am, sm);
-	ToHit.SetArmorBonus(-am);
-	ToHit.SetShieldBonus(-sm);
+	stats.SetArmorBonus(-am);
+	stats.SetShieldBonus(-sm);
 
 	//get attack style (melee or ranged)
 	switch (Flags & WEAPON_STYLEMASK) {
@@ -7137,10 +7162,10 @@ int Actor::GetToHit(ieDword Flags, const Actor* target)
 
 	// now this func is the only one to modify generic bonus, so no need to add
 	if (ReverseToHit) {
-		ToHit.SetGenericBonus(-generic);
-		return ToHit.GetTotal();
+		stats.SetGenericBonus(-generic);
+		return stats.GetTotal();
 	} else {
-		ToHit.SetGenericBonus(generic); // flat out cumulative
+		stats.SetGenericBonus(generic); // flat out cumulative
 		// rapid shot gives an extra attack at full BAB!
 		// but also doesn't count when cascading, so make sure that if
 		// there are more attacks afterwads, they don't have a double step
@@ -7156,11 +7181,16 @@ int Actor::GetToHit(ieDword Flags, const Actor* target)
 				attacknum = 0; // get max to hit
 			}
 		}
-		return ToHit.GetTotalForAttackNum(attacknum);
+		return stats.GetTotalForAttackNum(attacknum);
 	}
 }
 
 void Actor::GetTHAbilityBonus(ieDword Flags)
+{
+	ComputeTHAbilityBonus(Flags, ToHit);
+}
+
+void Actor::ComputeTHAbilityBonus(ieDword Flags, ToHitStats& stats) const
 {
 	int dexbonus = 0, strbonus = 0;
 	// add strength bonus (discarded for ranged weapons later)
@@ -7211,9 +7241,9 @@ void Actor::GetTHAbilityBonus(ieDword Flags)
 			modalFeatBonus -= PCStats->ExtraSettings[ModalFeat::EXPERTISE];
 			modalFeatBonus -= PCStats->ExtraSettings[ModalFeat::POWERATTACK];
 		}
-		ToHit.SetAbilityBonus(dexbonus + strbonus + modalFeatBonus);
+		stats.SetAbilityBonus(dexbonus + strbonus + modalFeatBonus);
 	} else {
-		ToHit.SetAbilityBonus(-(dexbonus + strbonus));
+		stats.SetAbilityBonus(-(dexbonus + strbonus));
 	}
 }
 

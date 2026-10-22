@@ -52,6 +52,7 @@
 
 #include <algorithm>
 #include <cstdio>
+#include <memory>
 
 using namespace GemRB;
 
@@ -12069,7 +12070,7 @@ static PyObject* GemRB_DisplayString(PyObject* /*self*/, PyObject* args)
 PyDoc_STRVAR(GemRB_GetCombatDetails__doc,
 	     "===== GetCombatDetails =====\n\
 \n\
-**Prototype:** GemRB.GetCombatDetails (pc, leftorright)\n\
+**Prototype:** GemRB.GetCombatDetails (pc, leftorright[, displayOnly=False])\n\
 \n\
 **Description:** Returns the current THAC0 and other data relating to the \n\
 equipped weapon.\n\
@@ -12077,6 +12078,7 @@ equipped weapon.\n\
 **Parameters:** \n\
   * pc - position in the party\n\
   * leftorright - left or right hand weapon (main or offhand)\n\
+  * displayOnly - compute detached target-independent 2E values without updating actor stats or weapon caches; rejects 3E rules. The default retains legacy behavior.\n\
 \n\
 **Return value:** dict: 'ToHit', 'Flags', 'DamageBonus', 'Speed', \n\
 'CriticalBonus', 'Style', 'Proficiency', 'Range', 'Enchantment', 'Slot', \n\
@@ -12090,14 +12092,17 @@ static PyObject* GemRB_GetCombatDetails(PyObject* /*self*/, PyObject* args)
 {
 	int globalID;
 	int leftorright;
-	PARSE_ARGS(args, "ii", &globalID, &leftorright);
+	int displayOnly = 0;
+	PARSE_ARGS(args, "ii|p", &globalID, &leftorright, &displayOnly);
 
 	GET_GAME();
 	GET_ACTOR_GLOBAL();
 
+	if (displayOnly && core->HasFeature(GFFlags::RULES_3ED)) {
+		return RuntimeError("Display-only combat details require 2E rules");
+	}
 	leftorright = leftorright & 1;
-	const WeaponInfo& wi = actor->weaponInfo[leftorright && actor->IsDualWielding()];
-	const ITMExtHeader* hittingheader = wi.extHeader; // same header, except for ranged weapons it is the ammo header
+	std::unique_ptr<Actor::CombatDetails> display;
 	int tohit = 20;
 	int DamageBonus = 0;
 	int CriticalBonus = 0;
@@ -12109,10 +12114,24 @@ static PyObject* GemRB_GetCombatDetails(PyObject* /*self*/, PyObject* args)
 		// equipment was dropped, just simplify and not report fists
 		return dict;
 	}
-	if (!actor->GetCombatDetails(tohit, leftorright, DamageBonus, speed, CriticalBonus, style, nullptr)) {
+	bool available;
+	if (displayOnly) {
+		display = std::make_unique<Actor::CombatDetails>();
+		available = actor->GetCombatDetailsForDisplay(leftorright, *display);
+		DamageBonus = display->damageBonus;
+		speed = display->speed;
+		CriticalBonus = display->criticalBonus;
+		style = display->style;
+	} else {
+		available = actor->GetCombatDetails(tohit, leftorright, DamageBonus, speed, CriticalBonus, style, nullptr);
+	}
+	if (!available) {
 		Log(ERROR, "GUIScript", "Serious problem in GetCombatDetails: could not find the hitting header!");
 		return dict;
 	}
+	const WeaponInfo& wi = displayOnly ? display->weapon : actor->weaponInfo[leftorright && actor->IsDualWielding()];
+	const ToHitStats& queryToHit = displayOnly ? display->toHit : actor->ToHit;
+	const ITMExtHeader* hittingheader = wi.extHeader;
 	PyDict_SetItemString(dict, "Slot", DecRef(PyLong_FromLong, wi.slot));
 	PyDict_SetItemString(dict, "Flags", DecRef(PyLong_FromLong, wi.wflags));
 	PyDict_SetItemString(dict, "Enchantment", DecRef(PyLong_FromLong, wi.enchantment));
@@ -12122,7 +12141,7 @@ static PyObject* GemRB_GetCombatDetails(PyObject* /*self*/, PyObject* args)
 	PyDict_SetItemString(dict, "Speed", DecRef(PyLong_FromLong, speed));
 	PyDict_SetItemString(dict, "CriticalBonus", DecRef(PyLong_FromLong, CriticalBonus));
 	PyDict_SetItemString(dict, "Style", DecRef(PyLong_FromLong, style));
-	PyDict_SetItemString(dict, "APR", DecRef(PyLong_FromLong, actor->GetNumberOfAttacks()));
+	PyDict_SetItemString(dict, "APR", DecRef(PyLong_FromLong, displayOnly ? display->apr : actor->GetNumberOfAttacks()));
 	PyDict_SetItemString(dict, "CriticalMultiplier", DecRef(PyLong_FromLong, wi.critmulti));
 	PyDict_SetItemString(dict, "CriticalRange", DecRef(PyLong_FromLong, wi.critrange));
 	PyDict_SetItemString(dict, "ProfDmgBon", DecRef(PyLong_FromLong, wi.profdmgbon));
@@ -12145,14 +12164,14 @@ static PyObject* GemRB_GetCombatDetails(PyObject* /*self*/, PyObject* args)
 	Py_DecRef(ac);
 
 	PyObject* tohits = PyDict_New();
-	PyDict_SetItemString(tohits, "Total", DecRef(PyLong_FromLong, actor->ToHit.GetTotal()));
-	PyDict_SetItemString(tohits, "Base", DecRef(PyLong_FromLong, actor->ToHit.GetBase()));
-	PyDict_SetItemString(tohits, "Armor", DecRef(PyLong_FromLong, actor->ToHit.GetArmorBonus()));
-	PyDict_SetItemString(tohits, "Shield", DecRef(PyLong_FromLong, actor->ToHit.GetShieldBonus()));
-	PyDict_SetItemString(tohits, "Proficiency", DecRef(PyLong_FromLong, actor->ToHit.GetProficiencyBonus()));
-	PyDict_SetItemString(tohits, "Generic", DecRef(PyLong_FromLong, actor->ToHit.GetGenericBonus() + actor->ToHit.GetFxBonus()));
-	PyDict_SetItemString(tohits, "Ability", DecRef(PyLong_FromLong, actor->ToHit.GetAbilityBonus()));
-	PyDict_SetItemString(tohits, "Weapon", DecRef(PyLong_FromLong, actor->ToHit.GetWeaponBonus()));
+	PyDict_SetItemString(tohits, "Total", DecRef(PyLong_FromLong, queryToHit.GetTotal()));
+	PyDict_SetItemString(tohits, "Base", DecRef(PyLong_FromLong, queryToHit.GetBase()));
+	PyDict_SetItemString(tohits, "Armor", DecRef(PyLong_FromLong, queryToHit.GetArmorBonus()));
+	PyDict_SetItemString(tohits, "Shield", DecRef(PyLong_FromLong, queryToHit.GetShieldBonus()));
+	PyDict_SetItemString(tohits, "Proficiency", DecRef(PyLong_FromLong, queryToHit.GetProficiencyBonus()));
+	PyDict_SetItemString(tohits, "Generic", DecRef(PyLong_FromLong, queryToHit.GetGenericBonus() + queryToHit.GetFxBonus()));
+	PyDict_SetItemString(tohits, "Ability", DecRef(PyLong_FromLong, queryToHit.GetAbilityBonus()));
+	PyDict_SetItemString(tohits, "Weapon", DecRef(PyLong_FromLong, queryToHit.GetWeaponBonus()));
 	PyDict_SetItemString(dict, "ToHitStats", tohits);
 	Py_DecRef(tohits);
 
