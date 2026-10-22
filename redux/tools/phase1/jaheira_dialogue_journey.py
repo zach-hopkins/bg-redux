@@ -35,6 +35,7 @@ def sources(project,source):
     paths += [source/p for p in ('gemrb/core/DialogHandler.cpp','gemrb/core/GUI/TextArea.cpp',
         'gemrb/core/GUI/GameControl.cpp','gemrb/core/Scriptable/Scriptable.cpp','gemrb/core/GameScript/Actions.cpp','gemrb/core/GameScript/GSUtils.cpp',
         'gemrb/core/GUI/TextArea.h','gemrb/core/GUI/View.h','gemrb/core/GUI/TextSystem/TextContainer.h',
+        'gemrb/core/GUI/Button.cpp','gemrb/core/GUI/Button.h',
         'gemrb/core/GUI/TextSystem/TextContainer.cpp','gemrb/core/Scriptable/Scriptable.h',
         'gemrb/GUIScripts/GUIWORLD.py','gemrb/GUIScripts/GUISAVE.py','gemrb/GUIScripts/GUILOAD.py')]
     return sorted(set(paths))
@@ -163,9 +164,12 @@ def validate_capture(folder,nonce,reload=False,started_ns=None,texts=None):
         previous_text=evidence.read(folder/'talk-request.message.json')['observed_text']
         for index,(event,expected) in enumerate(zip(response_events,BRANCHES)):
             state_id,strref,tr,local,response=expected;detail=event['details']
-            wanted=dict(state=state_id,npc_strref=strref,transition=tr,local_transition=local,response_strref=response,performed=True)
+            visible=(4 if index==0 else 1) if response is not None else None
+            wanted=dict(state=state_id,npc_strref=strref,transition=tr,local_transition=local,response_strref=response,performed=True,
+                        selection_entry='TextArea::SelectAvailableOption' if response is not None else 'Control::PerformAction',visible_index=visible)
             if (detail!=wanted or detail.get('performed')is not True
                 or any(type(detail.get(k))is not int for k in ('state','npc_strref','transition','local_transition'))
+                or (visible is not None and type(detail.get('visible_index'))is not int)
                 or event['kind']!=('registered-response' if response is not None else 'registered-continue-end')):
                 raise ValueError('Wrong actual branch/transition/response callback')
             text=evidence.read(folder/('branch-'+str(index)+'.text.json'))
@@ -175,7 +179,12 @@ def validate_capture(folder,nonce,reload=False,started_ns=None,texts=None):
             if (text.get('previous_text')!=previous_text or new_count<=old_count or text.get('npc_occurrences_before')!=old_count
                 or text.get('npc_occurrences_after')!=new_count):raise ValueError('Stale transcript is not fresh branch evidence')
             previous_text=text['message_text']
-            if response is not None and texts[response]not in text['message_text']:raise ValueError('Actual response text absent')
+            if response is not None and str(visible+1)+'. - '+texts[response]not in text['message_text']:raise ValueError('Actual numbered response text absent')
+            if response is None:
+                button=evidence.read(folder/('branch-'+str(index)+'.button.json'));ref=9371 if index==10 else 9372;flags=button.get('flags')
+                if type(flags)is not int or not 0<=flags<=0xffffffff or button.get('label_strref')!=ref or button.get('raw_label')!=texts[ref]:raise ValueError('Continue/End label source/flags differ')
+                label=texts[ref].lower() if flags&0x2000 else texts[ref].upper() if flags&8 else texts[ref]
+                if button.get('expected_label')!=label or button.get('actual_label')!=label:raise ValueError('Continue/End rendered label contradicts capitalization flags')
             focused=evidence.read(folder/('branch-'+str(index)+'.scene.json'))
             scene_guard(focused,evidence.read(folder/('branch-'+str(index)+'.state.json')),True,False)
             if (focused.get('in_dialog')is not True or (focused['leader_id'],focused['target_id'])!=last_ids
@@ -216,7 +225,7 @@ def tlk_texts(project):
     raw=(project/'phase0-local/bg2ee-clean/lang/en_US/dialog.tlk').read_bytes()
     if binary.digest(raw)!=TLK_SHA or raw[:8]!=b'TLK V1  ':raise ValueError('Pinned TLK required')
     count,offset=binary.u32(raw,10),binary.u32(raw,14);result={}
-    for ref in {b[1] for b in BRANCHES}|{b[4] for b in BRANCHES if b[4]is not None}:
+    for ref in {b[1] for b in BRANCHES}|{b[4] for b in BRANCHES if b[4]is not None}|{9371,9372}:
         if ref>=count:raise ValueError('TLK strref out of bounds')
         row=18+ref*26;start,length=binary.u32(raw,row+18),binary.u32(raw,row+22)
         text=binary.block(raw,offset+start,length).decode('utf-8')
@@ -301,7 +310,12 @@ def run(args):
             env=api.harness.environment(stage);prefix=project/'phase0-local/toolchain/msys64/ucrt64';env['PATH']=os.pathsep.join([str(build/'gemrb'),str(prefix/'bin'),env.get('PATH','')]);env['PYTHONDONTWRITEBYTECODE']='1'
             source_guard(receipt,project,source);shared.validate_private_game(private,stage)
             if evidence.manifest(driver)!=driver_files:raise ValueError('Frozen launch closure changed')
+            if args.debugger_trace:
+                debugger=prefix/'bin/gdb.exe'
+                result['debugger_trace']=dict(path=str(debugger),sha256=evidence.sha(debugger),acceptance_run=False)
+                command=[str(debugger),'--batch','--return-child-result','-ex','set pagination off','-ex','set confirm off','-ex','run','-ex','thread apply all bt 60','--args']+command
             started=time.time_ns();entry['process']=api.baseline_runner.execute(command,build,env,stage/'process.log',args.timeout)
+            if args.debugger_trace:raise ValueError('Diagnostic debugger trace only; not an acceptance run')
             shared.require_process(entry['process'])
             if 'Traceback (most recent call last)' in (stage/'process.log').read_text(encoding='utf-8',errors='replace'):raise ValueError('Stock callback traceback')
             entry['observation']=validate_capture(stage/'capture',entry['nonce'],mode=='reload',started,tlk_texts(project))
@@ -328,6 +342,7 @@ def run(args):
             for private,stage in privates:shared.validate_private_game(private,stage)
             if 'receipt'in locals():check_build(args.host_build.resolve(),project,source,build)
             if 'driver_files'in locals() and evidence.manifest(driver)!=driver_files:raise ValueError('Frozen driver closure drift')
+            if 'debugger_trace' in result and evidence.sha(result['debugger_trace']['path'])!=result['debugger_trace']['sha256']:raise ValueError('Debugger binary drift')
             if api is not None:resource_guard(api,project)
             common.finish_guards(result,out,project,source,build,api,before,candidate);result['inputs_preserved']=True
         except Exception as error:result.update(passed=False,preservation_error=str(error))
@@ -342,7 +357,9 @@ def main(argv=None):
         for name in ('project-root','engine-source-root','engine-build-root'):q.add_argument('--'+name,type=Path,required=True)
         q.add_argument('--timeout',type=int,default=240)
         if mode=='build':q.add_argument('--output-dir',type=Path,required=True)
-        else:q.add_argument('--host-build',type=Path,required=True);q.add_argument('--results-root',type=Path,required=True)
+        else:
+            q.add_argument('--host-build',type=Path,required=True);q.add_argument('--results-root',type=Path,required=True)
+            q.add_argument('--debugger-trace',action='store_true',help='Run only the first stage under pinned GDB, retain stacks, and always reject acceptance')
     args=p.parse_args(argv)
     if not 1<=args.timeout<=300:p.error('Timeout must be bounded to 1..300 seconds')
     return build_host(args) if args.command=='build' else run(args)

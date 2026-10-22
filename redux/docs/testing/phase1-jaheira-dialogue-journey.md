@@ -1,6 +1,23 @@
 # Stock Jaheira dialogue, journal and fresh-process reload journey
 
-Status: **external source and ten focused validator test methods prepared; not built, tested or executed by this worker**. This separate host/adapter changes no engine, existing helper, dialogue, resource, saved fixture or loot-journey source. The coordinator must build and run it serially before accepting any dialogue coverage result. Original-engine parity remains unobserved.
+Coordinator checkpoint: **12 focused tests and the 272-test integrated tooling
+suite pass**. Corrected ordinary run
+`20261022T042747Z-jaheira-dialogue-30a50511` passes both processes: one talk
+request, all eleven displayed branches and seventeen registered operations,
+GUI-created save, then fresh-process reload with no new talk request. Saved
+TalkCount is 1, journal34105 is uniquely present in section1/chapter1, the party
+remains two and Cell01 remains closed. Input/candidate/Phase0 preservation checks
+pass. The talk/reload processes exit zero in 78.352/18.320 seconds. The first direct
+selection run and separate debugger trace expose a
+[public UpdateState reentrancy defect](../compatibility/phase1-textarea-update-state-reentrancy.md).
+The ordinary selector rerun `20261022T042240Z-jaheira-dialogue-946305e3`
+successfully dispatches the first response, then fails the external raw-label
+guard at Continue. `Button::SetText` applies the shipped capitalization flags;
+the corrected adapter records raw TLK label, flags, expected transformed label
+and actual label and requires exact agreement. Fresh `jaheira-label6` build and
+the successful run above execute this correction. Failed builds/runs remain preserved. This
+separate adapter changes no engine, existing helper, resource or saved fixture.
+Original-engine parity remains unobserved.
 
 ## Exact starting contract
 
@@ -41,7 +58,17 @@ After ordinary load-control dispatch, let stock AI start naturally. Record curre
 
 State0 requires `NumTimesTalkedTo(0)` and leader party slot0. State9's chosen response additionally requires closed Cell01 and no MISC4B. All selected transition action lists are empty. Transition45 has flags88: final, journal and unsolved, adding journal34105 in Unsolved section1. The expected effects are therefore TalkCount0→1, journal count2→3 with exactly one34105 entry in chapter1, party still2, Jaheira still outside the party and Cell01 still closed. JaheiraJerk and JaheiraReleased must remain zero/absent. Existing journal entries must retain their complete captured fields.
 
-Response selection uses the actual registered TextArea Select callback through UpdateState, after verifying its handler and displayed response. Continue/End require the visible, enabled stock window9/control0 and its expected label9372/9371, then perform the registered button action. Actual dialogue speaker/target IDs are sampled through DialogHandler's public getters. Each accepted branch records full focused/world snapshots, screenshot, NPC/response strrefs, local/global transition mapping, text evidence and callback sequence.
+Response selection uses public `TextArea::SelectAvailableOption`, the same
+selector entry used by number keys and mouse selection, reaching the registered
+Select callback. The two guarded states expose visible indices 4 and 1; exact
+numbered response text is required before selection, and both the entry method
+and visible index are recorded. Visible index is not generally interchangeable
+with local transition index. Continue/End require visible, enabled stock
+window9/control0 and label9372/9371 transformed by actual Button capitalization
+flags, then perform the registered button action. Actual dialogue speaker/target
+IDs are sampled through DialogHandler's public getters. Each accepted branch
+records focused/world snapshots, screenshot, NPC/response strrefs, transition
+mapping, text evidence and callback sequence.
 
 After dialogue ends, use GUIOPT save control, GUISAVE new-row control, actual name ValueChange and GUISAVE confirmation callbacks. Require a unique `Redux Jaheira Dialogue` save inside the private profile, without overwriting the copied input. Freeze its exact file manifest, verify saved NPC TalkCount1 and journal34105, then launch a **different owned process** with that frozen save copied intact. The reload stage repeats natural startup/idle observations and verifies the persisted identity/counter/journal/door/party without another talk request or resave. The first process has a planned17-event sequence; these are expected counts, not executed evidence.
 

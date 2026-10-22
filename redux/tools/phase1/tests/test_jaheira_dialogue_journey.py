@@ -35,7 +35,7 @@ class DialogueValidationTests(unittest.TestCase):
 
     def fixture(self,root):
         nonce='a'*32;texts={b[1]:'NPC_'+str(b[1]) for b in journey.BRANCHES}
-        texts.update({904:'RESPONSE_904',923:'RESPONSE_923'})
+        texts.update({904:'RESPONSE_904',923:'RESPONSE_923',9371:'End Dialogue',9372:'Continue'})
         self.checkpoint(root,'loaded',time=0);self.checkpoint(root,'ready',time=4)
         for name in ('after-dialogue','before-save','final'):self.checkpoint(root,name,True)
         samples=[]
@@ -50,12 +50,18 @@ class DialogueValidationTests(unittest.TestCase):
         previous=''
         for index,(state,ref,tr,local,response) in enumerate(journey.BRANCHES):
             self.checkpoint(root,'branch-'+str(index),True,False,in_dialog=True)
-            message=texts[ref]+(' '+texts[response] if response else '')
+            visible=(4 if index==0 else 1) if response is not None else None
+            message=texts[ref]+(' '+str(visible+1)+'. - '+texts[response] if response else '')
+            if response is None:
+                labelref=9371 if index==10 else 9372
+                self.write(root,'branch-'+str(index)+'.button.json',dict(label_strref=labelref,raw_label=texts[labelref],flags=8,
+                    expected_label=texts[labelref].upper(),actual_label=texts[labelref].upper()))
             self.write(root,'branch-'+str(index)+'.text.json',dict(expected_npc_strref=ref,expected_npc_text=texts[ref],message_text=message,
                 previous_text=previous,npc_occurrences_before=previous.count(texts[ref]),npc_occurrences_after=message.count(texts[ref])))
             previous=message
             event('registered-response' if response else 'registered-continue-end',dict(state=state,npc_strref=ref,transition=tr,
-                local_transition=local,response_strref=response,performed=True))
+                local_transition=local,response_strref=response,performed=True,
+                selection_entry='TextArea::SelectAvailableOption' if response is not None else 'Control::PerformAction',visible_index=visible))
         button('GUIOPT',2,6);button('GUISAVE',0,26);event('registered-save-name',dict(performed=True,control=3));button('GUISAVE',1,7)
         native=dict(schema='bg-redux-jaheira-native/1',nonce=nonce,journey='talk',completed=True,error='',os_pointer_input=False,
             forced_dialogue_state=False,talk_requests=1,branches_completed=11,startup_samples=samples,events=events,saves=['private/save/output'],ticks_per_second=1)
@@ -66,6 +72,20 @@ class DialogueValidationTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temporary:
             root=Path(temporary);nonce,texts,_=self.fixture(root)
             self.assertEqual(journey.validate_capture(root,nonce,texts=texts)['callbacks'],17)
+
+    def test_wrong_selection_entry_or_visible_index_rejected(self):
+        for key,value in [('selection_entry','TextArea::UpdateState'),('visible_index',3)]:
+            with tempfile.TemporaryDirectory() as temporary:
+                root=Path(temporary);nonce,texts,native=self.fixture(root)
+                native['events'][2]['details'][key]=value;self.write(root,'dialogue-result.json',native)
+                with self.assertRaisesRegex(ValueError,'callback'):journey.validate_capture(root,nonce,texts=texts)
+
+    def test_wrong_continue_label_or_flags_rejected(self):
+        for key,value in [('actual_label','Continue'),('flags',0),('raw_label','Invented')]:
+            with tempfile.TemporaryDirectory() as temporary:
+                root=Path(temporary);nonce,texts,_=self.fixture(root)
+                path=root/'branch-1.button.json';button=json.loads(path.read_text());button[key]=value;self.write(root,path.name,button)
+                with self.assertRaisesRegex(ValueError,'label'):journey.validate_capture(root,nonce,texts=texts)
 
     def test_wrong_branch_and_missing_callback_are_rejected(self):
         for mutation in ('wrong-transition','missing-callback'):

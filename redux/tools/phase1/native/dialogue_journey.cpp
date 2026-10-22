@@ -3,6 +3,7 @@
 #include "gui_probe.cpp"
 #undef main
 #include "DialogHandler.h"
+#include "GUI/Button.h"
 #include "TileMap.h"
 #include "Scriptable/Door.h"
 
@@ -140,7 +141,7 @@ int main(int argc,char** argv)
         const char* engineArgs[]={"redux-dialogue-journey","-c",args["--config"].c_str()};
         auto config=LoadFromArgs(3,const_cast<char**>(engineArgs));
         ToggleLogging(true);AddLogWriter(createStdioLogWriter());SetMainLogLevel(FATAL);
-        engine=std::make_unique<Interface>(std::move(config));auto* script=core->GetGUIScriptEngine();
+        engine=std::make_unique<Interface>(std::move(config));auto script=core->GetGUIScriptEngine();
         if (!script->ExecString("import sys;sys.path.insert(0,"+Q(args["--scripts"])+");import DialogueStart"))throw std::runtime_error("Startup import failed");
         core->SetNextScript("DialogueStart");
         const auto run=[&](const char* function){if(!script->ExecString(std::string("DialogueStart.")+function+"()"))throw std::runtime_error("Stock startup/save selector failed");};
@@ -202,18 +203,32 @@ int main(int argc,char** argv)
                     {"identity_method",Q("Sequential expected NPC strref text present in actual transcript; private internal state index not sampled")}}));
                 if(expected.response>=0){
                     const auto response=core->GetString(ieStrRef(expected.response));
-                    if(response.empty() || text.find(response)==String::npos)throw std::runtime_error("Expected response is not displayed");
+                    // The two guarded states expose all their responses; these
+                    // are visible ordinal indices, not a general transition map.
+                    const unsigned visibleIndex=branch==0?4:1;
+                    String prefix=u"0. - ";prefix[0]=char16_t('1'+visibleIndex);
+                    if(response.empty() || text.find(prefix+response)==String::npos)throw std::runtime_error("Expected numbered response is not displayed");
                     if(!ta->SupportsAction(ControlActionResponder::ActionKey(TextArea::Action::Select)))throw std::runtime_error("Registered dialogue response callback missing");
-                    ta->UpdateState(expected.local);
+                    // Same selector entry as numeric-key and mouse selection.
+                    ta->SelectAvailableOption(visibleIndex);
                 }else{
                     auto* window=DialogueButtonWindow();auto* control=window?GetControl(0,window):nullptr;
-                    const auto label=core->GetString(ieStrRef(branch==10?9371:9372));
+                    const int labelRef=branch==10?9371:9372;
+                    const auto rawLabel=core->GetString(ieStrRef(labelRef));auto label=rawLabel;
                     if(!control || control->IsDisabled() || !control->IsVisible())return;
+                    // Button::SetText performs the shipped capitalization flags.
+                    if(control->Flags()&IE_GUI_BUTTON_LOWERCASE)StringToLower(label);
+                    else if(control->Flags()&IE_GUI_BUTTON_CAPS)StringToUpper(label);
+                    Write(out+"/"+prefix+".button.json",O({{"label_strref",NumberJSON(labelRef)},
+                        {"raw_label",Q(MBStringFromString(rawLabel))},{"flags",NumberJSON(control->Flags())},
+                        {"expected_label",Q(MBStringFromString(label))},{"actual_label",Q(MBStringFromString(control->QueryText()))}}));
                     if(control->QueryText()!=label || !control->PerformAction())throw std::runtime_error("Stock Continue/End callback absent/wrong label");
                 }
                 event(expected.response>=0?"registered-response":"registered-continue-end",O({{"state",NumberJSON(expected.state)},
                     {"npc_strref",NumberJSON(expected.strref)},{"transition",NumberJSON(expected.transition)},{"local_transition",NumberJSON(expected.local)},
-                    {"response_strref",expected.response>=0?NumberJSON(expected.response):"null"},{"performed","true"}}));previousMessage=text;++branch;return;
+                    {"response_strref",expected.response>=0?NumberJSON(expected.response):"null"},
+                    {"selection_entry",Q(expected.response>=0?"TextArea::SelectAvailableOption":"Control::PerformAction")},
+                    {"visible_index",expected.response>=0?NumberJSON(branch==0?4:1):"null"},{"performed","true"}}));previousMessage=text;++branch;return;
             }
             core->SetPause(PauseState::On,3);
             if(phase==2){button("GUIOPT",2,6);phase=3;return;}

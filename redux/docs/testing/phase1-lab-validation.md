@@ -5,6 +5,24 @@ Evidence checkpoint: October 22, 2026 UTC, after the completed candidate `9aa69c
 Latest checkpoint: the later sections and linked summaries supersede pending
 descriptions below. Earlier failures and incomplete runs retain their verdicts.
 
+October 22 UTC dialogue checkpoint: **272 external Python tests pass** in
+`results/phase1-integrated-tests-20261022T0426.log`, including twelve focused
+dialogue methods. Fresh external build `candidate-9aa-ui1-jaheira-label6` and
+run `20261022T042747Z-jaheira-dialogue-30a50511` pass: one TryToTalk, eleven
+displayed branches through registered response/Continue/End callbacks, seventeen
+operations including GUI save, then a separate process reload with no new talk.
+The actual saved NPC counter is 1 and journal34105 is unique in section1/chapter1;
+the prior entries, closed Cell01 and unrecruited two-member party persist.
+Both owned processes exit zero (78.352/18.320 seconds); all preservation checks
+pass. This is callback/state/wire coverage, not OS pointer or original parity.
+The [journey report](phase1-jaheira-dialogue-journey.md) retains the direct-entry
+assertion, its debugger trace, capitalization-guard failure and failed builds.
+The [direct public UpdateState defect](../compatibility/phase1-textarea-update-state-reentrancy.md)
+remains open; normal selection success does not repair it. No engine source or
+binary changed during this checkpoint. The separate spell adapter passes its
+synthetic validators but its first build rejects a game-only resource-provider
+assumption; no native casting success is claimed.
+
 October 22 UTC readiness follow-up: external tooling passes **243 tests** in
 `results/phase1-integrated-tests-20261022T0358.log`. The corrected readiness
 adapter passes 21 focused tests and fresh external compilation in
