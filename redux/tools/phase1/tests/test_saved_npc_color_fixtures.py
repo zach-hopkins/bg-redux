@@ -136,6 +136,25 @@ class ColorBinaryFixtureTests(unittest.TestCase):
         with self.assertRaises(ValueError): c.inflate(r)
         with self.assertRaises(ValueError): c.inflate(dict(size=4,payload=zlib.compress(b'abcd')+b'trailing'))
 
+    def test_native_empty_tot_and_empty_helpers_are_validated_and_preserved(self):
+        source=sav()+record('default.toh',b'\0'*20)+record('default.tot',b'')
+        parsed=c.sav_records(source)
+        self.assertEqual(parsed[-1]['size'],0)
+        self.assertEqual(c.inflate(parsed[-1]),b'')
+        changed,_=c.install_idle(source,c.inert_cre(cre(),46,'RDXIDLE'))
+        after=c.sav_records(changed)
+        self.assertEqual([r['raw'] for r in parsed[1:]],[r['raw'] for r in after[1:]])
+        for name in ['empty.toh','empty.tot']:
+            rows=c.sav_records(sav()+record(name,b''))
+            self.assertEqual(c.inflate(rows[-1]),b'')
+
+    def test_declared_empty_rejects_nonempty_trailing_and_truncated_streams(self):
+        name=b'default.tot\0'
+        empty=zlib.compress(b'')
+        for payload in [zlib.compress(b'not empty'),empty+b'trailing',empty[:-1],b'']:
+            packed=struct.pack('<I',len(name))+name+struct.pack('<II',0,len(payload))+payload
+            with self.assertRaises(ValueError): c.sav_records(sav()+packed)
+
 
 class ColorTableTests(unittest.TestCase):
     def test_deterministic_two_columns_only_preserve_other_columns_and_selectors(self):

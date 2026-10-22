@@ -110,10 +110,14 @@ def sav_records(data):
         if not re.fullmatch(r'[A-Za-z0-9_][A-Za-z0-9_. -]{0,63}', name) or '..' in name or name.casefold() in names:
             raise ValueError('Unsafe/duplicate SAV member')
         names.add(name.casefold()); size, packed = u32(data, at), u32(data, at+4); at += 8
-        if not 0 < size <= MAX or not 0 < packed <= MAX: raise ValueError('Excessive SAV member size')
+        if not 0 <= size <= MAX or not 0 < packed <= MAX: raise ValueError('Excessive SAV member size')
         total += size
         if total > 8*MAX or len(records) >= 10000: raise ValueError('Excessive SAV aggregate')
         payload = block(data, at, packed); at += packed
+        # Ordinary native saves can contain an empty default.tot (zlib stream
+        # size 8). Accept declared emptiness only when the complete stream is
+        # actually empty, with no truncation, unconsumed input or trailing data.
+        if size == 0: inflate(dict(size=0, payload=payload))
         records.append(dict(name=name, size=size, payload=payload, raw=data[start:at]))
     return records
 
