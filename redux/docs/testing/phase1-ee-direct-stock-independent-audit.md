@@ -1,0 +1,21 @@
+# Independent EE-direct stock operation and changing-heading audit
+
+The explicit AFTER stock run `compressed-spellbook-20261022/20261022T100132Z-spellbook-operation-ee-direct-4660dca4` passes this independent bounded audit. Raw result SHA-256 is `a8b41f65b8e99d667405af61de1ea3d5b805b1ac449bd41d6410170de616b323`. Operate PID 11868 exits 0 after 158.454 seconds; fresh reload PID 7308 exits 0 after 111.043 seconds. Both native/runtime receipts explicitly declare `ee-direct`; the legacy confirmation plan is not substituted or auto-detected.
+
+[Compact evidence](../evidence/phase1-ee-direct-stock-independent-audit.json), SHA-256 `9c622bee7d48c76aceb67a924f420e418f760e3af3ae7d33aa2adf8edf0dab93`, binds private `phase1-local/results/20261022T100845Z-after-stock-spellbook-independent-f50e1a7c/audit.json` (SHA-256 `6120753cd95d2e633eba758a046eb46ac0d320f7f5f3ad920b04b7b1cda1d2de`). The separate standard-library reader `phase1-local/results/audit-after-stock-spellbook-independent-worker.py` imports no journey validators or wire parsers. It rehashes 1,200 raw artifacts, 62 frozen external sources including the new heading helper, exact probe/provider/parent/input/output ties, and the frozen full 3,509-source/61-binary/five-support engine receipt. Historical guarded before/after inventories, copied/frozen inputs, empty overrides and owned process receipts agree. No test, build or runtime was launched by this audit.
+
+The independent 57-step operate and 41-step reload plans match the raw rows. Operate contains 35 actual callbacks and 26 captures; reload 24 callbacks and 18 captures. Each actual charged prepared callback immediately removes the correct charged target in its raw before/after snapshot, with the exact control/value binding and no modal in any AFTER capture. Known re-add, direct depleted removal and final re-add preserve the target identity. Independent four-party GAME/CRE parsing confirms SPWI213/SPPR113 charged-first removal and depleted append, unchanged other prepared entries/duplicates, and unchanged serialized known/page/slot metadata. Every known page matches exact reversed runtime order; memo order and flags match directly on the fresh process's loaded/final snapshots. Per-callback and net world comparisons allow only selection and the declared memorization deltas. Arrow/tab BMP-region checks remain independently passing.
+
+The heading is independently checked in **all 44 operation/reload observations**, not only the earlier all-ready menu pages. Each capture binds selected party identity, spell type/level, displayed name and level label, original TLK prefix 11944, raw allocated array length, raw bonus capacity, actual heading text and geometry. Observed target-page transitions are:
+
+| Boundary | Wizard allocated/ready/capacity | Priest allocated/ready/capacity |
+| --- | --- | --- |
+| Before removal | 3 / 3 / 3 | 5 / 5 / 5 |
+| After immediate charged removal | 2 / 2 / 3 | 4 / 4 / 5 |
+| After depleted re-add | 3 / 2 / 3 | 5 / 4 / 5 |
+| After depleted removal | 2 / 2 / 3 | 4 / 4 / 5 |
+| Final depleted re-add | 3 / 2 / 3 | 5 / 4 / 5 |
+
+The actual labels show allocated/capacity, so after depleted re-add they read **Memorized: 3/3** and **Memorized: 5/5**, rather than ready/capacity 2/3 or 4/5. Fresh-process navigation retains those depleted flags and allocated counts. Relative heading y=598,height40 stays inside the actual window and ends before prepared-row y=644 across captured pages. After-add BMPs 11 and 24 were visually inspected and show readable labels and depleted target icons. No exact typography/per-label style metrics are claimed.
+
+This stock run remains identity-sorted (`nonidentity_sort_runtime=false`); it does not validate the separate name-permutation control. Direct removal aligns with the measured original wizard operation and both original menu callback sources, but eligible original priest runtime remains unmeasured. The native known-icon callback route differs from the original's select-known/press-Memorize layout, so this is not complete UI parity. Registered callbacks are not OS pointer input; no hidden RNG, whole-world, all-spell-level or campaign fidelity claim follows. BEFORE receipts and infrastructure failures keep their original verdicts.
