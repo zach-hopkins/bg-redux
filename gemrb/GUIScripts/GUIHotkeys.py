@@ -41,13 +41,13 @@ def Open():
 		button = Window.CreateButton(5000 + offset, 40, 76 + offset * 30, w - 330, 28)
 		button.SetFlags(IE_GUI_BUTTON_NO_IMAGE | IE_GUI_BUTTON_ALIGN_LEFT, OP_SET)
 		button.SetFont("NORMAL")
-		button.OnPress(lambda row=offset: Select(Page * ROWS + row))
+		button.OnPress(lambda _control, row=offset: Select(Page * ROWS + row))
 	Window.CreateLabel(6008, w - 270, 76, 230, 28, "NORMAL", "", IE_FONT_ALIGN_CENTER)
 	edit = Window.CreateTextArea(6000, w - 245, 112, 180, 32, "NORMAL")
 	edit.SetFlags(IE_GUI_TEXTAREA_EDITABLE, OP_OR)
 	edit.SetColor(ColorWhitish, TA_COLOR_NORMAL)
 	edit.SetBackground({'r': 0, 'g': 0, 'b': 0, 'a': 255})
-	for cid, y, label, callback in ((6001, 158, "Assign", Assign), (6002, 194, "Clear", Clear),
+	for cid, y, label, callback in ((6001, 158, "Assign", lambda _control: Assign()), (6002, 194, "Clear", Clear),
 		(6003, 230, "Replace conflict", Replace), (6004, 266, "Defaults", Defaults)):
 		button = Window.CreateButton(cid, w - 255, y, 200, 30)
 		button.SetFlags(IE_GUI_BUTTON_NO_IMAGE, OP_SET)
@@ -59,7 +59,7 @@ def Open():
 		button.SetFlags(IE_GUI_BUTTON_NO_IMAGE, OP_SET)
 		button.SetFont("NORMAL")
 		button.SetText(label)
-		button.OnPress(lambda delta=step: TurnPage(delta))
+		button.OnPress(lambda _control, delta=step: TurnPage(delta))
 	Window.CreateLabel(6007, 40, 486, w - 330, 24, "NORMAL", "", IE_FONT_ALIGN_CENTER)
 	Render()
 	Select(0)

@@ -182,7 +182,7 @@ class EditorUITests(unittest.TestCase):
     def test_real_assign_cancel_callbacks_do_not_apply_or_persist(self):
         self.ui.Select(self.ui.Names.index("inventory"))
         self.window.GetControl(6000).SetText("B")
-        self.window.GetControl(6001).callback()
+        self.window.GetControl(6001).callback(self.window.GetControl(6001))
         self.assertEqual(self.ui.Editor.working["inventory"], "b")
         self.assertEqual(self.api.current["inventory"], "i")
         self.window.GetControl(14).callback()
@@ -193,7 +193,7 @@ class EditorUITests(unittest.TestCase):
     def test_conflict_clear_defaults_and_apply_use_real_callbacks(self):
         self.ui.Select(self.ui.Names.index("inventory"))
         self.window.GetControl(6000).SetText("m")
-        self.window.GetControl(6001).callback()
+        self.window.GetControl(6001).callback(self.window.GetControl(6001))
         self.assertIn("assigned", self.window.GetControl(15).text)
         self.assertEqual(self.ui.Editor.working["map"], "m")
         self.window.GetControl(6003).callback()
@@ -204,12 +204,27 @@ class EditorUITests(unittest.TestCase):
         self.assertEqual(self.ui.Editor.working["inventory"], "i")
         self.assertEqual(self.ui.Editor.working["map"], "m")
         self.window.GetControl(6000).SetText("B")
-        self.window.GetControl(6001).callback()
+        self.window.GetControl(6001).callback(self.window.GetControl(6001))
         self.window.GetControl(11).callback()
         self.assertTrue(self.window.closed)
         self.assertEqual(self.api.current["inventory"], "b")
         self.assertEqual(self.rebound[0]["inventory"], "b")
         self.assertIn("inventory=b", (Path(self.temp.name) / "gemrb-keymap.ini").read_text())
+
+    def test_actual_control_argument_does_not_replace_captured_row_or_page(self):
+        # Enough real Draft entries to require another page; the supplied
+        # button is an event argument, never an index or navigation delta.
+        self.ui.Names = ['action%02d' % i for i in range(25)]
+        self.ui.Editor.working = {name:'' for name in self.ui.Names}
+        self.ui.Render()
+        self.window.GetControl(5002).callback(self.window.GetControl(5002))
+        self.assertEqual(self.ui.Selected,2)
+        self.window.GetControl(6006).callback(self.window.GetControl(6006))
+        self.assertEqual(self.ui.Page,1)
+        self.assertEqual(self.ui.Selected,12)
+        self.window.GetControl(6005).callback(self.window.GetControl(6005))
+        self.assertEqual(self.ui.Page,0)
+        self.assertEqual(self.ui.Selected,0)
 
 
 if __name__ == "__main__": unittest.main()

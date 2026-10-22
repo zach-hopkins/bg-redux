@@ -330,7 +330,7 @@ def InitEEStats(Window):
 		button.SetFont("NORMAL")
 		button.SetFlags(IE_GUI_BUTTON_NO_IMAGE, OP_SET)
 		button.SetText(name)
-		button.OnPress(lambda section=index: SelectEEStats(Window, section))
+		button.OnPress(lambda _control, section=index: SelectEEStats(Window, section))
 	text = Window.GetControl(45)
 	text.SetFrame({"x": 546, "y": 163, "w": 285, "h": 188})
 	EECharacterSheet.StyleTextPanel(text)
@@ -341,7 +341,7 @@ def InitEEStats(Window):
 		button.SetFont("NORMAL")
 		button.SetText(name)
 		button.SetColor(ColorWhitish)
-		button.OnPress(lambda step=delta: SelectEEStats(Window, None, step))
+		button.OnPress(lambda _control, step=delta: SelectEEStats(Window, None, step))
 	# This CHU scrollbar was attached to the former unbounded overview.
 	Window.GetControl(46).SetVisible(False)
 
