@@ -170,10 +170,20 @@ void Window::DrawAfterSubviews(const Region& /*drawFrame*/, const Region& /*clip
 void Window::WillDraw(const Region& /*drawFrame*/, const Region& /*clip*/)
 {
 	backBuffer->SetOrigin(frame.origin);
+	// A dirty window repaints its complete view tree. Start with the same
+	// transparent surface as a new buffer: translucent backgrounds must not
+	// blend over pixels left by removed controls or previous text.
+	const bool redraw = NeedsDraw();
+	if (redraw) {
+		backBuffer->Clear();
+	}
 	VideoDriver->PushDrawingBuffer(backBuffer);
 
 	if (scaleBuffer) {
 		scaleBuffer->SetOrigin(frame.origin);
+		if (redraw) {
+			scaleBuffer->Clear();
+		}
 		VideoDriver->PushDrawingBuffer(scaleBuffer);
 	}
 }
