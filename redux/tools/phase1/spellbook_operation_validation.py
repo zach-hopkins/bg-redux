@@ -175,3 +175,22 @@ def callback_guard(before,after,case,kind):
             if len(found)!=1:raise ValueError('Callback caster identity missing/duplicate')
             page(found[0],case['kind'],case['level'])['memorized']=[]
     equal_except_selection(left,right)
+
+
+def callback_game_boundary(event,before,after):
+    """Null is factual pre-game evidence, never an invented world snapshot."""
+    initial=(event.get('sequence')==1 and event.get('step')==-1 and
+             [event.get(k)for k in ('pack','window','control')]==['GUILOAD',0,26])
+    if event.get('step')==-1 and not initial:
+        raise ValueError('Only the first declared load callback permits a pre-game boundary')
+    for key,state in (('before_game_present',before),('after_game_present',after)):
+        present=event.get(key)
+        if type(present)is not bool or present!=(state is not None):
+            raise ValueError('Actual game-presence flag contradicts callback snapshot')
+        if present:evidence.require_state(state)
+    if initial:
+        if event['before_game_present']:
+            raise ValueError('Initial load must begin before a game exists')
+    elif not event['before_game_present']or not event['after_game_present']:
+        raise ValueError('Ordinary post-load callback requires actual game snapshots')
+    return initial

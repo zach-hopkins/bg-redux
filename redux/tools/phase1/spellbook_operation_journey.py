@@ -307,6 +307,7 @@ def validate_capture(folder,nonce,mode,started_ns,receipt):
             for suffix in('cancel-modal','after-cancel','remove-modal','after-remove','after-add','after-depleted-remove','final'):v.stage_delta(baseline,captures[case['name']+'.'+suffix][1],case,suffix)
     for event in events:
         before=evidence.read(folder/('callback-%d-before.state.json'%event['sequence']));after=evidence.read(folder/('callback-%d-after.state.json'%event['sequence']));step=event['step']
+        if v.callback_game_boundary(event,before,after):continue
         if step<0:v.equal_except_selection(before,after);continue
         name=plan[step]
         if '.'in name:

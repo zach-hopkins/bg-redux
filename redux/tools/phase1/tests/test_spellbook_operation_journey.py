@@ -62,6 +62,28 @@ class SpellbookOperationContracts(unittest.TestCase):
         with self.assertRaises(ValueError):v.declared_world_delta(before,after,{'mage','priest'})
         with self.assertRaises(ValueError):v.callback_guard(before,after,v.CASES[0],'confirm-remove')
 
+    def test_initial_load_records_null_only_when_game_is_actually_absent(self):
+        event=dict(sequence=1,step=-1,pack='GUILOAD',window=0,control=26,before_game_present=False,after_game_present=False)
+        self.assertTrue(v.callback_game_boundary(event,None,None))
+        event['after_game_present']=True
+        self.assertTrue(v.callback_game_boundary(event,None,state()))
+        with self.assertRaises(ValueError):v.callback_game_boundary(event,None,None)
+        with self.assertRaises(ValueError):v.callback_game_boundary(event,state(),state())
+        for key,value in (('sequence',2),('pack','GUIMG'),('control',27)):
+            bad=dict(event);bad[key]=value
+            with self.subTest(key=key),self.assertRaises(ValueError):v.callback_game_boundary(bad,None,state())
+
+    def test_postload_callbacks_require_game_and_truthful_presence_flags(self):
+        event=dict(sequence=2,step=0,pack='PORTWIN',window=0,control=1,before_game_present=True,after_game_present=True)
+        self.assertFalse(v.callback_game_boundary(event,state(),state()))
+        for key in ('before_game_present','after_game_present'):
+            bad=dict(event);bad[key]=False
+            before=None if key=='before_game_present'else state();after=None if key=='after_game_present'else state()
+            with self.subTest(key=key),self.assertRaises(ValueError):v.callback_game_boundary(bad,before,after)
+            bad=dict(event);bad.pop(key)
+            with self.assertRaises(ValueError):v.callback_game_boundary(bad,state(),state())
+        with self.assertRaises(ValueError):v.callback_game_boundary(event,{},state())
+
     def test_cancel_preserves_ready_remove_readd_is_depleted(self):
         before=state();case=v.CASES[0];v.stage_delta(before,copy.deepcopy(before),case,'after-cancel');removed=copy.deepcopy(before);rows=v.page(before['party'][1],1,1)['memorized'];change(removed,case,rows[1:]);v.stage_delta(before,removed,case,'after-remove');after=copy.deepcopy(removed);change(after,case,rows[1:]+[dict(resref='SPWI213',flags=0)]);v.stage_delta(before,after,case,'after-add')
         change(after,case,rows[1:]+[dict(resref='SPWI213',flags=1)])
