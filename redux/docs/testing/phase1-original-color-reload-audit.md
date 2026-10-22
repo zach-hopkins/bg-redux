@@ -1,0 +1,19 @@
+# Original controlled-high color: two reload/save cycles
+
+Original BG2EE's saved leather-byte sequence is **237 → 46 → 46** for this controlled fixture. The 237→46 transition is therefore observed in the original itself and does not establish a candidate-only regression. The [new audit receipt](../compatibility/evidence/phase1-original-color-reload-audit.json) binds the three immutable outputs, two reload input verifications, owned launches, screenshots and private inputs. The earlier [first-save audit](phase1-original-color-first-save-audit.md) retains its original, narrower scope.
+
+Evidence root: `C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/controlled-high-observation`. The prepared CRE starts at leather byte228; the private controlled RANDCOLR maps every selector228 result to237 and every selector237 result to46. The original executable is pinned to SHA256 `b51093a49140b2b8a7c046b4652bb8e535be24ebbc12b1d735e0b94217a14d57`.
+
+| Frozen output | Input/launch boundary | Saved byte / persisted CRE SHA256 |
+| --- | --- | --- |
+| `ordinary-save-1` | Initial ordinary original save; historical audit retained | 237 / `37c973f5d1e64b3d436d923cd0f49a4bacef97086492c437f3cee90cd7efa9ac` |
+| `ordinary-save-2` | Reload1 input hashes equal frozen save1; owned PID6456 launched `02:40:31.6759682Z` | 46 / `154306102ddc71e7e6d7ecd44a29185134995bf3a01d1a80cafe8e2fa51f1476` |
+| `ordinary-save-3` | Reload2 input hashes equal frozen save2; owned PID13072 launched `02:50:31.7879640Z` | 46 / same CRE hash as save2 |
+
+Independent read-only SAV inflation and ARE/CRE parsing finds exactly one embedded RDXCOLOR in each save, at actor index1 and position `[3712,2844]`, with zero items/effects and five NONE scripts. Direct GAM parsing confirms case1, nonce1455348314, stage2 and ready1 in all three saves. This preserves the persisted NPC identity and completed creation markers; it is not sampling original runtime actor memory. All 15 frozen output file hashes match their observation manifests. Both five-file reload input manifests match the preceding frozen output, and the final live save3 matches its frozen copy. Prepared source and installed six-file inputs, three private overrides and nine immutable installed root files also remain unchanged.
+
+All 17 recorded screenshot hashes and JPEG signatures agree. Newly inspected screenshots08–11 show the exact private profile/version title and reload1 window2229570, Chapter 1 Start selected, loaded map, ordinary overwrite confirmation, then “Save successful”. Screenshots12–16 show the corresponding second fresh process/window525736, campaign menu, selected Chapter 1 Start, loaded map, overwrite and success. All reload screenshots follow their bound launch timestamps. The screenshots establish the UI/load/save boundaries; they do not prove numeric palette bytes.
+
+The second reload screenshots also contain “A snare has been set.” This incidental action/message is retained. No whole-world, whole-profile or RNG noninterference claim is made; the profile is writable and the observation does not locate resolution exactly at load versus another point before serialization. The unchanged save2/save3 inert NPC CRE and constant controlled table bound the recorded color result despite this wider-world activity. Linked asset contents were not fully rehashed. Process ownership is established by retained launch receipts; this audit did not query or control live processes.
+
+Legacy acceptance must compare the same controlled inputs and save boundaries with the observed original sequence. Persisted high-byte stability cannot be assumed to be the original contract. This does not waive arbitrary color changes, approve a production importer fix or establish stock-table, low-color, fresh-selector, visual-palette or campaign equivalence. Those remain separate comparisons. No engine changes, tests, builds or native/game launches were performed for this audit.

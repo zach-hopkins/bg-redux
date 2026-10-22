@@ -1,10 +1,14 @@
 # P1-04 saved NPC color investigation
 
-Status: read-only evidence/source investigation, not a fix approval. Original
-BG2EE color behavior has **not** been independently observed for these cases.
-The proposed mechanism below is a source-grounded hypothesis requiring a
-controlled native test and original-runtime comparison. No engine edits,
-builds, tests or native/game launches were performed for this investigation.
+Status: read-only evidence/source investigation, not a fix approval. The later
+[independent original reload audit](../testing/phase1-original-color-reload-audit.md)
+now observes the controlled-high saved-byte sequence **237→46→46** across two
+fresh-process original BG2EE reload/ordinary-save cycles. That transition is
+not established as a candidate-only regression, and stable persisted high bytes
+cannot be assumed to be the original contract. The historical native evidence
+and source hypothesis below remain useful; they do not establish exact original
+runtime palette memory or a universal stock-color rule. No engine edits,
+builds, tests or native/game launches were performed by this investigation/audit.
 
 ## Exact preserved evidence
 
@@ -93,18 +97,36 @@ legacy_semantic_diagnostic. The markers explain Imoen's76 to78 and Assassin
 ishaddud's5 to6 effect counts. They do not explain NPC color changes or the
 seven IMMCLOUD additions. These categories must remain separately reported.
 
-## Next bounded validation
+## Acceptance after the original controlled-high observation
+
+The original audit binds one inert RDXCOLOR, case1/nonce1455348314/stage2/ready1,
+the private selector mapping228→237 and237→46, exact preceding-save input hashes,
+two owned fresh-process launches and ordinary save UI boundaries. The three
+saved CRE leather bytes are237,46,46; saved NPC identity/position and zero
+items/effects/five NONE scripts remain consistent. This supersedes the earlier
+assumption that high-color stability itself is an original-compatibility gate.
+
+Compare the native candidate against that same sequence and controlled inputs.
+Retain low-color and fresh-resource selector controls, exact original/runtime
+palette distinctions, and all other save residuals separately. A matching
+237→46→46 sequence supports this bounded legacy behavior; it does not waive all
+NPC color differences or approve broad importer changes. A future stable-color
+policy would require a separate compatibility/product decision, not inference
+from a candidate save difference alone.
+
+## Historical next-validation hypothesis (superseded acceptance wording)
 
 Prepare one isolated NPC with a controlled RANDCOLR result above199, retain
 the exact input table/color bytes, and record initial versus two successive
 save/reload palette stats plus visual evidence. Include an ordinary low-color
 control, a fresh-resource random-selector control and the original-runtime
 counterpart. Observe calling-thread RNG state where available without seeding
-or resetting it. Acceptance requires persisted resolved colors to remain
-stable while fresh resource indirection retains its intended behavior.
+or resetting it. The earlier proposed stable-persisted-color acceptance was a
+hypothesis; the later original237→46→46 observation supersedes it as a legacy
+contract. Fresh resource indirection still needs its own intended-behavior check.
 
-Only then choose a narrow fix that distinguishes fresh selector inputs from
-persisted resolved palette colors, respecting compatible and native save
-formats. Do not recursively reroll high results, clamp colors below200,
+Only an independently demonstrated incompatibility would justify a narrow fix,
+respecting compatible and native save formats and the observed original
+transition. Do not recursively reroll high results, clamp colors below200,
 whitelist all color-stat changes, or infer original compatibility from this
 GemRB-only evidence. No fix is approved or implemented by this document.
