@@ -13,6 +13,7 @@ import GUICommon
 import CommonTables
 import GUICommonWindows
 import Spellbook
+import EESpellbookHeading
 from GUICommon import BindControlCallbackParams
 from GUIDefines import *
 from ie_stats import *
@@ -123,12 +124,12 @@ def InitMageWindow (window):
 			# the bam isn't centered, so let's cheat
 			Button.SetFlags (IE_GUI_BUTTON_NO_IMAGE, OP_OR)
 
-		# some extra slot button, sorcerer button and a label on a button
+		# Remove obsolete buttons, retaining the ordinary book's page-info label.
 		MageWindow.DeleteControl (51)
 		if Sorcerer:
 			MageWindow.DeleteControl (59)
 		else:
-			MageWindow.DeleteControl (0x10000000 + 51)
+			EESpellbookHeading.Init (MageWindow)
 
 	# Setup book spells buttons
 	for i in range (GUICommon.GetGUISpellButtonCount()):
@@ -163,6 +164,8 @@ def UpdateMageWindow (MageWindow):
 	known_cnt = GemRB.GetKnownSpellsCount (pc, spelltype, level)
 	mem_cnt = GemRB.GetMemorizedSpellsCount (pc, spelltype, level, False)
 	true_mem_cnt = GemRB.GetMemorizedSpellsCount (pc, spelltype, level, True)
+	if GameCheck.IsBG2EE ():
+		EESpellbookHeading.Update (MageWindow, mem_cnt, max_mem_cnt, Sorcerer)
 	if not Sorcerer:
 		for i in range (12):
 			Button = MageWindow.GetControl (3 + i)

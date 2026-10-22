@@ -13,6 +13,7 @@ import GUICommon
 import GUICommonWindows
 import CommonTables
 import Spellbook
+import EESpellbookHeading
 from GUICommon import BindControlCallbackParams
 from GUIDefines import *
 from ie_stats import *
@@ -73,6 +74,9 @@ def InitPriestWindow (Window):
 		Button.SetFlags (IE_GUI_BUTTON_NO_IMAGE, OP_OR)
 		Button.SetState (IE_GUI_BUTTON_LOCKED)
 
+	if GameCheck.IsBG2EE ():
+		EESpellbookHeading.Init (Window, Spellbook.HasSorcererBook (GemRB.GameGetSelectedPCSingle ()))
+
 	return
 
 def UpdatePriestWindow (Window):
@@ -98,6 +102,8 @@ def UpdatePriestWindow (Window):
 
 	Sorcerer = Spellbook.HasSorcererBook (pc)
 	mem_cnt = GemRB.GetMemorizedSpellsCount (pc, spelltype, level, False)
+	if GameCheck.IsBG2EE ():
+		EESpellbookHeading.Update (Window, mem_cnt, max_mem_cnt, Sorcerer)
 	for i in range (12):
 		Button = Window.GetControl (3 + i)
 		Button.SetFlags (IE_GUI_VIEW_INVISIBLE | IE_GUI_VIEW_DISABLED, OP_OR if Sorcerer else OP_NAND)
