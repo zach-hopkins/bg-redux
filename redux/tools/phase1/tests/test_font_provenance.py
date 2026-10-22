@@ -146,6 +146,23 @@ class ImportedFontEvidenceTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'asset link changed'):
                 adapter.validate(self.report, self.expected, wrapper)
 
+    def test_key_archive_one_terminal_asciiz_nul_preserved_but_not_part_of_os_path(self):
+        raw=self.source()['original_file']+'\0'
+        self.source()['original_file']=raw
+        result=adapter.validate(self.report,self.expected)
+        self.assertTrue(result['fonts'][0]['key_archive_terminal_nul_observed'])
+        self.assertEqual(self.source()['original_file'],raw)
+
+    def test_embedded_multiple_nonarchive_and_wrong_provider_nul_paths_fail(self):
+        for value in (r'C:\Fixture\data\Patch2.bif'+'\0\0',
+                      r'C:\Fixture\data\Patch2.bif'+'\0other',
+                      r'C:\Fixture'+'\0'+r'\data\Patch2.bif',
+                      r'C:\Other\data\Patch2.bif'+'\0',
+                      r'C:\Fixture\override\normal.ttf'+'\0'):
+            with self.subTest(value=value):
+                self.source()['original_file']=value
+                with self.assertRaises(ValueError): adapter.validate(self.report,self.expected)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -16,7 +16,25 @@ _spec.loader.exec_module(private_game)
 
 
 def normalize(path):
+    if not isinstance(path, str) or '\0' in path:
+        raise ValueError('Invalid NUL in filesystem identity')
     return ntpath.normcase(ntpath.normpath(path))
+
+
+def import_path(value, origin):
+    """KEY BIF names retain one ASCIIZ terminator in DataStream.originalfile.
+
+    Do not truncate at an embedded NUL or normalize arbitrary invalid paths.
+    The raw observation remains in the source receipt, unchanged.
+    """
+    if not isinstance(value, str):
+        raise ValueError('Missing imported source path')
+    if '\0' not in value:
+        return value, False
+    if (value.count('\0') == 1 and value.endswith('\0') and value[:-1].lower().endswith('.bif')
+            and origin.lower().endswith('.bif')):
+        return value[:-1], True
+    raise ValueError('Unsupported embedded/multiple/nonarchive NUL in imported source path')
 
 
 def validate(report, expected, wrapper=None):
@@ -76,7 +94,7 @@ def validate(report, expected, wrapper=None):
             elif parts[0] not in wrapper['copied_root_sha256']:
                 raise ValueError(role + ': candidate is not an unchanged copied root input')
             expected_path = ntpath.join(wrapper['game'], origin)
-        actual_path = source.get('original_file')
+        actual_path, terminal_nul = import_path(source.get('original_file'), origin)
         if (not isinstance(actual_path, str) or not ntpath.isabs(actual_path)
                 or normalize(actual_path) != normalize(expected_path)):
             raise ValueError(role + ': imported source path differs or is unknown')
@@ -115,6 +133,7 @@ def validate(report, expected, wrapper=None):
                 if type(source.get(key)) is not int or source[key] != 0:
                     raise ValueError(role + ': BAM must retain embedded metrics')
         results.append(dict(role=role, importer=importer, imported_metadata_bound=True,
+                            key_archive_terminal_nul_observed=terminal_nul,
                             actual_resource_sha256_observed=False))
     return dict(schema='bg-redux-font-provenance-validation/1', fonts=results,
                 all_import_metadata_bound=True, resource_bytes_identity_proven=False,
