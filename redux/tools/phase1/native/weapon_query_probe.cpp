@@ -3,15 +3,42 @@
 #define REDUX_GUI_HOST
 #include "phase0_save_probe_snapshot.cpp"
 #include "Item.h"
+#include "RNG.h"
 #include "GameScript/GameScript.h"
 #include "GameScript/Matching.h"
 #include "GameScript/Targets.h"
+#include <locale>
+#include <sstream>
 
 static const char* Queries[] = {
     "WeaponEffectiveVs(Player2,MAINHAND)", "WeaponCanDamage(Player2,MAINHAND)",
     "WeaponEffectiveVs(Player2,OFFHAND)", "WeaponCanDamage(Player2,OFFHAND)",
     "WeaponEffectiveVs(Player2,BOTH)", "WeaponCanDamage(Player2,BOTH)"
 };
+
+static std::string QueryRNGState()
+{
+#ifdef GEMRB_RNG_TRY_SNAPSHOT_STATE
+    std::mt19937_64 copy;
+    const bool initialized = RNG::TrySnapshotState(copy);
+    std::ostringstream serialized;
+    serialized.imbue(std::locale::classic());
+    if (initialized) serialized << copy;
+    return O({{"observed","true"}, {"scope",Q("calling-thread")},
+        {"initialized",initialized ? "true" : "false"}, {"state",initialized ? Q(serialized.str()) : "null"}});
+#else
+    return O({{"observed","false"}, {"scope",Q("calling-thread")}, {"initialized","null"}, {"state","null"}});
+#endif
+}
+
+static const char* RNGEqual(const std::string& before, const std::string& after)
+{
+#ifdef GEMRB_RNG_TRY_SNAPSHOT_STATE
+    return before == after ? "true" : "false";
+#else
+    return "null";
+#endif
+}
 
 static std::string Weapons(const Actor* actor)
 {
@@ -49,8 +76,10 @@ int main(int argc, char** argv)
         args[argv[i]] = argv[i+1];
     }
     const std::vector<std::string> required = {"--config", "--output", "--save-dir", "--case-id", "--repeats"};
-    if (argc % 2 != 1 || args.size() != required.size()) return 64;
+    if (argc % 2 != 1 || args.size() != required.size() + args.count("--rng-control-draw")) return 64;
     for (const auto& key : required) if (!args.count(key)) return 64;
+    if (args.count("--rng-control-draw") && args["--rng-control-draw"] != "1") return 64;
+    const bool controlDraw = args.count("--rng-control-draw");
     const auto& output = args["--output"];
     std::setlocale(LC_ALL, ".UTF8");
     std::atexit(StopLog);
@@ -63,6 +92,9 @@ int main(int argc, char** argv)
     try {
         repeats = std::stoi(args["--repeats"]);
         if (repeats < 1 || repeats > 32) throw std::runtime_error("Repeats must be in [1,32]");
+#ifndef GEMRB_RNG_TRY_SNAPSHOT_STATE
+        if (controlDraw) throw std::runtime_error("RNG positive control requires snapshot API");
+#endif
         const char* engineArgs[] = {"redux-phase1-weapon-query", "-c", args["--config"].c_str()};
         auto config = LoadFromArgs(3, const_cast<char**>(engineArgs));
         ToggleLogging(true); AddLogWriter(createStdioLogWriter()); SetMainLogLevel(FATAL);
@@ -101,6 +133,7 @@ int main(int argc, char** argv)
         }
         Write(output+"/initialized.state.json", Snapshot(game));
         Write(output+"/initialized.weapons.json", Weapons(sender));
+        Write(output+"/initialized.rng.json", QueryRNGState());
         unsigned call = 0;
         const auto evaluate = [&](const char* expression, int repetition) {
             ++call;
@@ -108,7 +141,13 @@ int main(int argc, char** argv)
             const auto before = Snapshot(game), weaponsBefore = Weapons(sender);
             Write(output+"/"+stem+"-before.state.json", before);
             Write(output+"/"+stem+"-before.weapons.json", weaponsBefore);
+            const auto rngBefore = QueryRNGState();
+            Write(output+"/"+stem+"-before.rng.json", rngBefore);
             const int value = GameScript::EvaluateString(sender, expression);
+            // Deliberate external negative control, never part of normal queries.
+            if (controlDraw && call == 3) (void) RAND<uint64_t>(0, std::numeric_limits<uint64_t>::max()-1);
+            const auto rngAfter = QueryRNGState();
+            Write(output+"/"+stem+"-after.rng.json", rngAfter);
             const auto after = Snapshot(game), weaponsAfter = Weapons(sender);
             Write(output+"/"+stem+"-after.state.json", after);
             Write(output+"/"+stem+"-after.weapons.json", weaponsAfter);
@@ -116,6 +155,8 @@ int main(int argc, char** argv)
                 {"repetition",NumberJSON(repetition)}, {"value",NumberJSON(value)},
                 {"before",Q(stem+"-before.state.json")}, {"after",Q(stem+"-after.state.json")},
                 {"weapons_before",Q(stem+"-before.weapons.json")}, {"weapons_after",Q(stem+"-after.weapons.json")},
+                {"rng_before",Q(stem+"-before.rng.json")}, {"rng_after",Q(stem+"-after.rng.json")},
+                {"rng_equal",RNGEqual(rngBefore, rngAfter)},
                 {"native_equal",before == after ? "true" : "false"},
                 {"weapons_equal",weaponsBefore == weaponsAfter ? "true" : "false"}}));
             return value;
@@ -126,6 +167,7 @@ int main(int argc, char** argv)
             for (const auto* query : Queries) evaluate(query, repetition);
         Write(output+"/final.state.json", Snapshot(game));
         Write(output+"/final.weapons.json", Weapons(sender));
+        Write(output+"/final.rng.json", QueryRNGState());
         completed = true;
     } catch (const std::exception& error) {
         failure = error.what();
@@ -134,7 +176,8 @@ int main(int argc, char** argv)
         {"case_id",Q(args["--case-id"])}, {"repeats",NumberJSON(repeats)}, {"completed",completed ? "true" : "false"},
         {"sender_runtime_id",NumberJSON(senderID)}, {"target_runtime_id",NumberJSON(targetID)},
         {"parsed_queries",A(parsed)}, {"observations",A(observations)}, {"error",Q(failure)},
-        {"scope",Q("Collected state and selected weapon caches after library initialization; no loop/ticks/save. Hidden state and RNG internals unobserved.")}}));
+        {"rng_control_draw_call",controlDraw ? "3" : "null"},
+        {"scope",Q("Collected state, weapon caches and optional existing calling-thread RNG engine. Other threads/hidden state unobserved; private same-process RNG serialization only.")}}));
     if (engine) {
         core->SetGame(nullptr); VideoDriver.reset(); engine.reset(); core = nullptr;
         PluginMgr::Get()->RunCleanup();

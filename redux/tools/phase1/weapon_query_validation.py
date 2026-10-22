@@ -15,7 +15,8 @@ from weapon_oracle_fixtures import QUERY_KEYS, inspect_output, safe_relative
 QUERIES = tuple(f'{name}(Player2,{hand})' for hand in ('MAINHAND', 'OFFHAND', 'BOTH')
                 for name in ('WeaponEffectiveVs', 'WeaponCanDamage'))
 LIMIT = ('Collected same-process state and selected weapon caches after library initialization only; '
-         'no loop/ticks/save. Hidden state, RNG internals, other caches and future scheduling are not proven unchanged.')
+         'optional calling-thread RNG state is reported separately. No loop/ticks/save. '
+         'Other threads, other hidden state/caches and future scheduling are not proven unchanged.')
 
 
 def read(path):
@@ -156,7 +157,27 @@ def runtime_guard(row, metadata, state, cache):
                 inventory=actual_items, cache=cache, defense_effects=defenses)
 
 
-def validate_capture(folder, row, metadata, repeats, expected=None):
+def require_rng_snapshot(value):
+    if (not isinstance(value, dict) or set(value) != {'observed', 'scope', 'initialized', 'state'}
+            or type(value['observed']) is not bool or value['scope'] != 'calling-thread'):
+        raise ValueError('Malformed calling-thread RNG evidence')
+    if not value['observed']:
+        if value['initialized'] is not None or value['state'] is not None:
+            raise ValueError('Unavailable RNG evidence claims state')
+    elif type(value['initialized']) is not bool:
+        raise ValueError('RNG initialized flag must be strict Boolean')
+    elif value['initialized']:
+        state = value['state']
+        if (not isinstance(state, str) or not 1 <= len(state) <= 50000
+                or any(not token.isascii() or not token.isdecimal() for token in state.split())
+                or len(state.split()) < 2):
+            raise ValueError('Malformed private RNG serialization')
+    elif value['state'] is not None:
+        raise ValueError('Absent RNG evidence contains state')
+    return value
+
+
+def validate_capture(folder, row, metadata, repeats, expected=None, require_rng_observed=False):
     folder = Path(folder)
     if type(repeats) is not int or not 1 <= repeats <= 32:
         raise ValueError('Repeats must be in [1,32]')
@@ -164,6 +185,9 @@ def validate_capture(folder, row, metadata, repeats, expected=None):
             or any(type(value) is not int or value not in (0, 1) for value in expected.values())):
         raise ValueError('Expected reference must contain six strict Boolean values')
     data = read(folder/'query-result.json')
+    controlled_draw = data.get('rng_control_draw_call')
+    if controlled_draw is not None and (type(controlled_draw) is not int or controlled_draw != 3):
+        raise ValueError('Invalid controlled RNG draw identity')
     if (data.get('schema') != 'bg-redux-phase1-weapon-query-native/1' or data.get('completed') is not True
             or data.get('case_id') != row['spec']['id'] or data.get('repeats') != repeats or data.get('error')):
         raise ValueError('Native completion/case/repeat identity failed')
@@ -184,8 +208,16 @@ def validate_capture(folder, row, metadata, repeats, expected=None):
     if len(observations) != len(order):
         raise ValueError('Repeated query coverage incomplete')
     previous, previous_cache = initialized, initialized_cache
+    has_rng = (folder/'initialized.rng.json').exists()
+    previous_rng = require_rng_snapshot(read(folder/'initialized.rng.json')) if has_rng else None
+    rng_observed = bool(has_rng and previous_rng['observed'])
+    if require_rng_observed and not rng_observed:
+        raise ValueError('Calling-thread RNG observation required but unavailable')
+    rng_mutations = []
     mutation_rows, values = [], {key: [] for key in QUERY_KEYS}
     expected_names = {'query-result.json', 'initialized.state.json', 'initialized.weapons.json', 'final.state.json', 'final.weapons.json'}
+    if has_rng:
+        expected_names.update({'initialized.rng.json', 'final.rng.json'})
     for call, (obs, (expression, repetition)) in enumerate(zip(observations, order), 1):
         if (obs.get('call') != call or obs.get('expression') != expression or obs.get('repetition') != repetition
                 or type(obs.get('value')) is not int or obs['value'] not in (0, 1)):
@@ -205,6 +237,28 @@ def validate_capture(folder, row, metadata, repeats, expected=None):
         changes, cache_changes = diff(before, after), diff(cache_before, cache_after)
         if obs.get('native_equal') is not (not changes) or obs.get('weapons_equal') is not (not cache_changes):
             raise ValueError('Native equality contradicts independent state/cache diff')
+        if has_rng:
+            rng = {}
+            for side in ('before', 'after'):
+                filename = f'call-{call}-{side}.rng.json'
+                if obs.get('rng_'+side) != filename:
+                    raise ValueError('RNG evidence filename missing/reused')
+                expected_names.add(filename)
+                rng[side] = require_rng_snapshot(read(member(folder, filename)))
+                if rng[side]['observed'] != rng_observed:
+                    raise ValueError('RNG observation availability changed')
+            if rng['before'] != previous_rng:
+                raise ValueError('RNG continuity broken between calls')
+            equal = rng['before'] == rng['after']
+            if obs.get('rng_equal') is not (equal if rng_observed else None):
+                raise ValueError('Native RNG equality contradicts independent diff')
+            if rng_observed and not equal:
+                rng_mutations.append(dict(call=call, expression=expression,
+                    initialization_changed=rng['before']['initialized'] != rng['after']['initialized'],
+                    state_changed=rng['before']['state'] != rng['after']['state']))
+            previous_rng = rng['after']
+        elif any(key in obs for key in ('rng_before', 'rng_after', 'rng_equal')):
+            raise ValueError('RNG call evidence without initialization boundary')
         if changes or cache_changes:
             mutation_rows.append(dict(call=call, expression=expression, changes=changes, weapon_changes=cache_changes))
         if expression == 'True()' and obs['value'] != 1 or expression == 'False()' and obs['value'] != 0:
@@ -216,6 +270,8 @@ def validate_capture(folder, row, metadata, repeats, expected=None):
     require_state(final)
     if final != previous or final_cache != previous_cache:
         raise ValueError('Final state/cache differs from last captured call')
+    if has_rng and require_rng_snapshot(read(folder/'final.rng.json')) != previous_rng:
+        raise ValueError('Final RNG evidence differs from last captured call')
     if set(manifest(folder)) != expected_names:
         raise ValueError('Unexpected/missing capture file inventory')
     stable = all(len(set(rows)) == 1 for rows in values.values())
@@ -226,6 +282,9 @@ def validate_capture(folder, row, metadata, repeats, expected=None):
                 original_differences=differences, original_match=None if expected is None else not differences,
                 mutation_observations=mutation_rows, collected_state_unchanged=not mutation_rows,
                 final_equals_initialized=final == initialized and final_cache == initialized_cache,
+                rng_observed=rng_observed, rng_scope='calling-thread', rng_mutation_observations=rng_mutations,
+                rng_unchanged=not rng_mutations if rng_observed else None,
+                rng_control_draw_call=controlled_draw,
                 hidden_state_unchanged=None, scope=LIMIT)
 
 

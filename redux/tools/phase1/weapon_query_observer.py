@@ -177,11 +177,28 @@ def require_process(process):
         raise ValueError('Native observer failed/timed out/incomplete receipt')
 
 
+def observation_verdict(observation, reference, rng_control_draw=False):
+    if observation['rng_control_draw_call'] != (3 if rng_control_draw else None):
+        raise ValueError('Native RNG controlled-draw marker differs from requested mode')
+    if not observation['collected_state_unchanged']:
+        return 'collected-state-mutation'
+    if observation['rng_unchanged'] is False:
+        return 'calling-thread-rng-mutation'
+    if rng_control_draw:
+        return 'rng-control-not-detected'
+    if not observation['stable_values']:
+        return 'unstable-query-values'
+    if observation['original_match'] is False:
+        return 'original-differences'
+    return 'original-match' if reference else 'observed-not-compared'
+
+
 def run_queries(args):
     project, source, build = args.project_root.resolve(), args.engine_source_root.resolve(), args.engine_build_root.resolve()
     output = new_output(args.results_root.resolve(), 'phase1-weapon-query')
     report = dict(schema='bg-redux-phase1-weapon-query-run/1', directory=str(output), hostname=socket.gethostname(),
                   started_utc=datetime.now(timezone.utc).isoformat(), repeats=args.repeats, cases=[],
+                  require_rng_observed=args.require_rng_observed, rng_control_draw=args.rng_control_draw,
                   verdict='failed', execution='not-run', compatibility='not-compared', scope=LIMIT)
     before = candidate = game_before = None
     try:
@@ -245,6 +262,8 @@ def run_queries(args):
                 config_path.write_text(''.join(f'{key}={str(value).replace(chr(92), chr(47))}\n' for key, value in config.items()), encoding='utf-8')
                 command = [str(binary), '--config', str(config_path), '--output', str(folder/'capture'),
                            '--save-dir', str(fixture), '--case-id', identity, '--repeats', str(args.repeats)]
+                if args.rng_control_draw:
+                    command += ['--rng-control-draw', '1']
                 env = api.harness.environment(folder)
                 prefix = project/'phase0-local/toolchain/msys64/ucrt64'
                 env['PATH'] = os.pathsep.join([str(build/'gemrb'), str(prefix/'bin'), env.get('PATH', '')])
@@ -254,16 +273,13 @@ def run_queries(args):
                 case['execution'] = 'passed'
                 reference = references.get(identity)
                 observation = validate_capture(folder/'capture', row, prep['item_metadata'], args.repeats,
-                                               reference['values'] if reference else None)
+                                               reference['values'] if reference else None, args.require_rng_observed)
                 case['observation'] = observation
                 if reference:
                     case['original_reference'] = reference
                 if manifest(fixture) != row['fixture_files']:
                     raise ValueError('Input fixture changed during read-only queries')
-                case['verdict'] = ('collected-state-mutation' if not observation['collected_state_unchanged']
-                                   else 'unstable-query-values' if not observation['stable_values']
-                                   else 'original-differences' if observation['original_match'] is False
-                                   else 'original-match' if reference else 'observed-not-compared')
+                case['verdict'] = observation_verdict(observation, reference, args.rng_control_draw)
             except Exception as error:
                 case['error'] = str(error)
             write(folder/'result.json', case); write(output/'result.json', report)
@@ -329,6 +345,9 @@ def main(argv=None):
             item.add_argument('--cases', nargs='+')
             item.add_argument('--repeats', type=int, default=8)
             item.add_argument('--original-receipts', nargs='+', type=Path)
+            item.add_argument('--require-rng-observed', action='store_true')
+            item.add_argument('--rng-control-draw', action='store_true',
+                              help='Deliberate failing control: one real draw during first weapon-query interval')
     args = parser.parse_args(argv)
     if not math.isfinite(args.timeout) or args.timeout <= 0 or args.mode == 'run' and not 1 <= args.repeats <= 32:
         parser.error('Positive timeout and repeats in [1,32] required')
