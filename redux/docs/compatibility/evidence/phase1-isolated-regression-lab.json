@@ -101,7 +101,9 @@
           "total": 24
         },
         "compatibility": "differences",
-        "skipped": 0
+        "skipped": 0,
+        "path": "runtime-candidate-9aa69cd5-guarded/phase0-local/results/20261022T021035Z-phase1-9aa-guarded-vanilla-60ea184f/result.json",
+        "result_sha256": "6830c0de27363f29bab10ec0ac1cfc20099299217adc644b47f4776f8c72aeb6"
       },
       "gui": {
         "execution": "passed",
@@ -110,7 +112,9 @@
           "total": 20
         },
         "compatibility": "differences",
-        "skipped": 0
+        "skipped": 0,
+        "path": "runtime-candidate-9aa69cd5-guarded/phase0-local/results/20261022T021057Z-phase1-9aa-guarded-gui-c6ac9bbf/result.json",
+        "result_sha256": "d3cd6359144220e556ba761f39dab12173213a16d9db1c273328df11dcd5021d"
       }
     },
     "all_preserved": true
