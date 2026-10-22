@@ -1,0 +1,321 @@
+{
+  "schema": "bg-redux-upstream-fidelity-context/1",
+  "retrieved_utc": "2026-10-22 10:46:12 UTC",
+  "upstream": "gemrb/gemrb",
+  "upstream_default_branch": "master",
+  "fork_remote": "https://github.com/zach-hopkins/bg-redux.git",
+  "ee_label": "game: ees",
+  "ee_search_count": 55,
+  "scope": "Targeted fresh primary thread review supplementing the existing full 55-issue index; not an upstream runtime reproduction or a full GitHub discussion-board audit",
+  "selected_threads": [
+    {
+      "number": 2230,
+      "title": "Enable playing EEs with the original's GUI",
+      "url": "https://github.com/gemrb/gemrb/issues/2230",
+      "state": "closed",
+      "created_at": "2024-12-10T07:28:19Z",
+      "updated_at": "2024-12-27T12:57:52Z",
+      "closed_at": "2024-12-27T12:57:48Z",
+      "labels": [
+        "enhancement",
+        "game: ees"
+      ],
+      "expected_comments": 2,
+      "retrieved_comments": 2,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/2230#issuecomment-2555739383",
+        "https://github.com/gemrb/gemrb/issues/2230#issuecomment-2563678174"
+      ]
+    },
+    {
+      "number": 2494,
+      "title": "Selecting a spell in spellbook enables another spell",
+      "url": "https://github.com/gemrb/gemrb/issues/2494",
+      "state": "closed",
+      "created_at": "2026-05-08T13:36:27Z",
+      "updated_at": "2026-05-09T11:04:47Z",
+      "closed_at": "2026-05-09T11:04:46Z",
+      "labels": [
+        "bug",
+        "game: bg2",
+        "game: ees",
+        "system: GUI"
+      ],
+      "expected_comments": 2,
+      "retrieved_comments": 2,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/2494#issuecomment-4406954733",
+        "https://github.com/gemrb/gemrb/issues/2494#issuecomment-4406971431"
+      ]
+    },
+    {
+      "number": 2298,
+      "title": "BG2EE: Right left/arrows in Spell Book does not change \"Spell Level Tab\" at the top",
+      "url": "https://github.com/gemrb/gemrb/issues/2298",
+      "state": "closed",
+      "created_at": "2025-01-30T20:18:44Z",
+      "updated_at": "2026-03-04T18:44:39Z",
+      "closed_at": "2026-03-04T18:44:27Z",
+      "labels": [
+        "bug",
+        "game: ees",
+        "system: GUI"
+      ],
+      "expected_comments": 0,
+      "retrieved_comments": 0,
+      "comment_urls": []
+    },
+    {
+      "number": 2490,
+      "title": "EE: TTF fonts not used",
+      "url": "https://github.com/gemrb/gemrb/issues/2490",
+      "state": "closed",
+      "created_at": "2026-05-02T10:41:23Z",
+      "updated_at": "2026-05-02T20:05:54Z",
+      "closed_at": "2026-05-02T20:05:54Z",
+      "labels": [
+        "bug",
+        "game: ees",
+        "system: core"
+      ],
+      "expected_comments": 2,
+      "retrieved_comments": 2,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/2490#issuecomment-4364499196",
+        "https://github.com/gemrb/gemrb/issues/2490#issuecomment-4364508582"
+      ]
+    },
+    {
+      "number": 1924,
+      "title": "Unicode issue in EE item description - TTF font not used",
+      "url": "https://github.com/gemrb/gemrb/issues/1924",
+      "state": "closed",
+      "created_at": "2023-10-04T08:50:25Z",
+      "updated_at": "2023-10-17T11:05:27Z",
+      "closed_at": "2023-10-17T11:05:26Z",
+      "labels": [
+        "bug",
+        "game: ees",
+        "system: core"
+      ],
+      "expected_comments": 11,
+      "retrieved_comments": 11,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/1924#issuecomment-1747309899",
+        "https://github.com/gemrb/gemrb/issues/1924#issuecomment-1747338961",
+        "https://github.com/gemrb/gemrb/issues/1924#issuecomment-1747344799",
+        "https://github.com/gemrb/gemrb/issues/1924#issuecomment-1747371733",
+        "https://github.com/gemrb/gemrb/issues/1924#issuecomment-1747377522",
+        "https://github.com/gemrb/gemrb/issues/1924#issuecomment-1747396399",
+        "https://github.com/gemrb/gemrb/issues/1924#issuecomment-1747405584",
+        "https://github.com/gemrb/gemrb/issues/1924#issuecomment-1747422439",
+        "https://github.com/gemrb/gemrb/issues/1924#issuecomment-1747566118",
+        "https://github.com/gemrb/gemrb/issues/1924#issuecomment-1747644978",
+        "https://github.com/gemrb/gemrb/issues/1924#issuecomment-1766187182"
+      ]
+    },
+    {
+      "number": 1929,
+      "title": "Unicode issue in EE item description - wrong dash",
+      "url": "https://github.com/gemrb/gemrb/issues/1929",
+      "state": "closed",
+      "created_at": "2023-10-17T11:09:46Z",
+      "updated_at": "2026-04-29T17:04:14Z",
+      "closed_at": "2026-04-29T17:04:14Z",
+      "labels": [
+        "bug",
+        "game: ees",
+        "system: core"
+      ],
+      "expected_comments": 0,
+      "retrieved_comments": 0,
+      "comment_urls": []
+    },
+    {
+      "number": 2478,
+      "title": "EE: encoding display issues",
+      "url": "https://github.com/gemrb/gemrb/issues/2478",
+      "state": "closed",
+      "created_at": "2026-04-28T14:06:19Z",
+      "updated_at": "2026-04-29T17:04:13Z",
+      "closed_at": "2026-04-29T17:04:13Z",
+      "labels": [
+        "bug",
+        "game: ees"
+      ],
+      "expected_comments": 4,
+      "retrieved_comments": 4,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/2478#issuecomment-4337136466",
+        "https://github.com/gemrb/gemrb/issues/2478#issuecomment-4337154393",
+        "https://github.com/gemrb/gemrb/issues/2478#issuecomment-4345346220",
+        "https://github.com/gemrb/gemrb/issues/2478#issuecomment-4345448742"
+      ]
+    },
+    {
+      "number": 2536,
+      "title": "EE: hardcoded font scaling for select non-English languages",
+      "url": "https://github.com/gemrb/gemrb/issues/2536",
+      "state": "open",
+      "created_at": "2026-09-25T06:24:11Z",
+      "updated_at": "2026-09-25T22:55:58Z",
+      "closed_at": null,
+      "labels": [
+        "feature",
+        "game: ees",
+        "system: core"
+      ],
+      "expected_comments": 0,
+      "retrieved_comments": 0,
+      "comment_urls": []
+    },
+    {
+      "number": 2537,
+      "title": "EE: live font scaling",
+      "url": "https://github.com/gemrb/gemrb/issues/2537",
+      "state": "open",
+      "created_at": "2026-09-25T06:29:44Z",
+      "updated_at": "2026-09-25T06:29:44Z",
+      "closed_at": null,
+      "labels": [
+        "feature",
+        "game: ees",
+        "system: core"
+      ],
+      "expected_comments": 0,
+      "retrieved_comments": 0,
+      "comment_urls": []
+    },
+    {
+      "number": 848,
+      "title": "Proper implementation of modal windows",
+      "url": "https://github.com/gemrb/gemrb/issues/848",
+      "state": "open",
+      "created_at": "2020-06-27T21:22:48Z",
+      "updated_at": "2021-06-19T19:49:55Z",
+      "closed_at": null,
+      "labels": [
+        "enhancement",
+        "game: ees"
+      ],
+      "expected_comments": 5,
+      "retrieved_comments": 5,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/848#issuecomment-650637394",
+        "https://github.com/gemrb/gemrb/issues/848#issuecomment-650646848",
+        "https://github.com/gemrb/gemrb/issues/848#issuecomment-650769335",
+        "https://github.com/gemrb/gemrb/issues/848#issuecomment-650779642",
+        "https://github.com/gemrb/gemrb/issues/848#issuecomment-864455331"
+      ]
+    },
+    {
+      "number": 921,
+      "title": "[subviews] missing dialog line spacing",
+      "url": "https://github.com/gemrb/gemrb/issues/921",
+      "state": "closed",
+      "created_at": "2020-08-28T17:25:17Z",
+      "updated_at": "2021-04-12T17:15:23Z",
+      "closed_at": "2021-04-12T17:15:23Z",
+      "labels": [
+        "game: iwd2",
+        "zzz-subviews"
+      ],
+      "expected_comments": 19,
+      "retrieved_comments": 19,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/921#issuecomment-683461792",
+        "https://github.com/gemrb/gemrb/issues/921#issuecomment-683463808",
+        "https://github.com/gemrb/gemrb/issues/921#issuecomment-727612900",
+        "https://github.com/gemrb/gemrb/issues/921#issuecomment-743979980",
+        "https://github.com/gemrb/gemrb/issues/921#issuecomment-743984276",
+        "https://github.com/gemrb/gemrb/issues/921#issuecomment-744059658",
+        "https://github.com/gemrb/gemrb/issues/921#issuecomment-744060852",
+        "https://github.com/gemrb/gemrb/issues/921#issuecomment-751297736",
+        "https://github.com/gemrb/gemrb/issues/921#issuecomment-782869147",
+        "https://github.com/gemrb/gemrb/issues/921#issuecomment-782886761",
+        "https://github.com/gemrb/gemrb/issues/921#issuecomment-782897205",
+        "https://github.com/gemrb/gemrb/issues/921#issuecomment-782899337",
+        "https://github.com/gemrb/gemrb/issues/921#issuecomment-782904483",
+        "https://github.com/gemrb/gemrb/issues/921#issuecomment-816135229",
+        "https://github.com/gemrb/gemrb/issues/921#issuecomment-816931834",
+        "https://github.com/gemrb/gemrb/issues/921#issuecomment-816934214",
+        "https://github.com/gemrb/gemrb/issues/921#issuecomment-816939972",
+        "https://github.com/gemrb/gemrb/issues/921#issuecomment-817980091",
+        "https://github.com/gemrb/gemrb/issues/921#issuecomment-817983131"
+      ]
+    },
+    {
+      "number": 1895,
+      "title": "META: font issues / add SDL_ttf support",
+      "url": "https://github.com/gemrb/gemrb/issues/1895",
+      "state": "open",
+      "created_at": "2023-08-28T17:25:20Z",
+      "updated_at": "2026-09-25T06:30:06Z",
+      "closed_at": null,
+      "labels": [
+        "enhancement",
+        "system: GUI",
+        "system: core"
+      ],
+      "expected_comments": 0,
+      "retrieved_comments": 0,
+      "comment_urls": []
+    },
+    {
+      "number": 840,
+      "title": "[subviews] Ghost cursors/tooltips in some views.",
+      "url": "https://github.com/gemrb/gemrb/issues/840",
+      "state": "closed",
+      "created_at": "2020-06-25T18:24:33Z",
+      "updated_at": "2020-06-27T21:23:57Z",
+      "closed_at": "2020-06-27T20:34:58Z",
+      "labels": [
+        "zzz-subviews"
+      ],
+      "expected_comments": 6,
+      "retrieved_comments": 6,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/840#issuecomment-649784464",
+        "https://github.com/gemrb/gemrb/issues/840#issuecomment-650613882",
+        "https://github.com/gemrb/gemrb/issues/840#issuecomment-650620834",
+        "https://github.com/gemrb/gemrb/issues/840#issuecomment-650621206",
+        "https://github.com/gemrb/gemrb/issues/840#issuecomment-650622739",
+        "https://github.com/gemrb/gemrb/issues/840#issuecomment-650631098"
+      ]
+    },
+    {
+      "number": 2271,
+      "title": "Error on installation and ",
+      "url": "https://github.com/gemrb/gemrb/issues/2271",
+      "state": "closed",
+      "created_at": "2025-01-15T18:48:28Z",
+      "updated_at": "2025-01-16T13:00:12Z",
+      "closed_at": "2025-01-15T22:17:09Z",
+      "labels": [
+        "bug",
+        "game: ees",
+        "system: GUI"
+      ],
+      "expected_comments": 6,
+      "retrieved_comments": 6,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/2271#issuecomment-2593743509",
+        "https://github.com/gemrb/gemrb/issues/2271#issuecomment-2593743857",
+        "https://github.com/gemrb/gemrb/issues/2271#issuecomment-2594028683",
+        "https://github.com/gemrb/gemrb/issues/2271#issuecomment-2594049995",
+        "https://github.com/gemrb/gemrb/issues/2271#issuecomment-2594079074",
+        "https://github.com/gemrb/gemrb/issues/2271#issuecomment-2595570261"
+      ]
+    }
+  ],
+  "all_comments_reviewed": 57,
+  "linked_commits_reviewed": [
+    "e3c4460991bbb17abadd4f7673681854ae691667",
+    "760434821852c0a71224690f02cbc3f1e6470c07",
+    "9e0ee7aec1acf5625efa1fb1db3791978641bd18",
+    "62e15373cc818513017eb997f2f52e00b13357c4"
+  ],
+  "attachments_downloaded": false,
+  "upstream_mutations": false,
+  "private_snapshot_sha256": "de15a169cc912cd33b0711f47114623fa78eff0474285333d24de481b3bad6ab"
+}
