@@ -2,10 +2,10 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 
-"""BG2EE prepared-removal policy and its persistent Feedback setting.
+"""BG2EE prepared-removal/inn prompt policy and persistent Feedback setting.
 
 Callers retain their charged/spontaneous eligibility checks. This module does
-not remove spells, change spellbook state, or implement inn-rest confirmation.
+not remove spells, change spellbook state, or perform rest operations.
 """
 
 import GemRB
@@ -17,6 +17,11 @@ DRAFT = "BG2EE Confirmation Draft"
 DEFAULT = 0
 LABEL_STRREF = 102476
 HELP_STRREF = 102477
+
+
+def ShouldPromptInnRest ():
+	# Other games retain their existing inn confirmation behavior.
+	return not GameCheck.IsBG2EE () or bool (GemRB.GetVar (OPTION))
 
 
 def PreparedRemovalIndex (pc, spelltype, level, index):

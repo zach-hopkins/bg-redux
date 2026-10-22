@@ -9,6 +9,7 @@
 
 import GemRB
 import GameCheck
+import BG2EEConfirmation
 import GUICommon
 import GUICommonWindows
 import InventoryCommon
@@ -1970,6 +1971,11 @@ def RentRoom ():
 	Gold = GemRB.GameGetPartyGold ()
 	if Gold<price:
 		ErrorWindow (strrefs['roomtoocostly'])
+		return
+
+	if not BG2EEConfirmation.ShouldPromptInnRest ():
+		RentConfirmWindow = None
+		RentConfirm (None)
 		return
 
 	RentConfirmWindow = Window = GemRB.LoadWindow (windowIDs["rentconfirm"], "GUISTORE")
