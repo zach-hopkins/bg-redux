@@ -87,7 +87,7 @@ int main(int argc, char** argv)
             || !main || main->ItemResRef != ResRef("sw1h02") || !off || off->ItemResRef != ResRef("sw1h01"))
             throw std::runtime_error("Requires prepared case02 main+1/offnormal selection");
         for (const char* ref : {"sw1h01", "sw1h02", "shld01"}) {
-            const Item* item = gamedata->GetItem(ref, true);
+            const Item* item = gamedata->GetItem(ResRef(ref), true);
             if (!item) throw std::runtime_error("Required retained item missing");
             retained.emplace_back(ResRef(ref), item);
         }
@@ -114,13 +114,13 @@ int main(int argc, char** argv)
         const auto ordinary = [&](const char* ref) {
             removeOff();
             auto item = std::make_unique<CREItem>();
-            if (!CreateItemCore(item.get(), ref, 0, 0, 0)) throw std::runtime_error("Ordinary item creation failed");
+            if (!CreateItemCore(item.get(), ResRef(ref), 0, 0, 0)) throw std::runtime_error("Ordinary item creation failed");
             if (inventory.AddSlotItem(item.get(), offSlot) != ASI_SUCCESS) throw std::runtime_error("Ordinary off-hand add refused");
             item.release(); sender->ReinitQuickSlots();
         };
         const auto createItemAPI = [&](const char* ref) {
             // Exact mutation calls used by GemRB_CreateItem's explicit-slot path.
-            inventory.SetSlotItemRes(ref, offSlot, 0, 0, 0);
+            inventory.SetSlotItemRes(ResRef(ref), offSlot, 0, 0, 0);
             inventory.EquipItem(offSlot); sender->ReinitQuickSlots();
         };
         const auto observe = [&](const char* id, const char* route, const char* expectedOff, const std::function<void()>& mutate) {

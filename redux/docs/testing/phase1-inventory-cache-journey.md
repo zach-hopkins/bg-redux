@@ -4,6 +4,15 @@ This is external diagnostic tooling. No engine cache fix is included and no
 native journey has been compiled or launched by the implementing worker.
 The coordinator must reproduce any cache defect before changing Inventory.
 
+The coordinator's first baseline-host compile failed at three resource-API
+calls because ResRef has an explicit constructor. The external source now
+constructs ResRef explicitly for GetItem, CreateItemCore and SetSlotItemRes.
+The failed build log remains at
+`C:/BGRedux/phase1-local/weapon-query-probes/baseline-cache-20261022/build.log`.
+This is a compile failure, not a cache or query observation. The worker reran
+the43 Python ingestion tests; compilation and native execution remain the
+coordinator's next checks.
+
 ## Independent original evidence review
 
 Re-ingested the exact preparation, case/script/nonce/executable/input bindings,
