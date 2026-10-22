@@ -167,24 +167,21 @@ void Window::DrawAfterSubviews(const Region& /*drawFrame*/, const Region& /*clip
 	}
 }
 
-void Window::WillDraw(const Region& /*drawFrame*/, const Region& /*clip*/)
+void Window::WillDraw(const Region& /*drawFrame*/, const Region& clip)
 {
 	backBuffer->SetOrigin(frame.origin);
-	// A dirty window repaints its complete view tree. Start with the same
-	// transparent surface as a new buffer: translucent backgrounds must not
-	// blend over pixels left by removed controls or previous text.
-	const bool redraw = NeedsDraw();
-	if (redraw) {
-		backBuffer->Clear();
-	}
 	VideoDriver->PushDrawingBuffer(backBuffer);
 
 	if (scaleBuffer) {
 		scaleBuffer->SetOrigin(frame.origin);
-		if (redraw) {
-			scaleBuffer->Clear();
-		}
 		VideoDriver->PushDrawingBuffer(scaleBuffer);
+	}
+
+	if (NeedsDraw()) {
+		// Replace the pixels that will be repainted, preserving retained pixels
+		// outside a caller's clip. Clear the active target (the scale buffer when
+		// present) so translucent art cannot blend over old text or controls.
+		VideoDriver->DrawRect(clip, Color(0, 0, 0, 0), true, BlitFlags::NONE);
 	}
 }
 

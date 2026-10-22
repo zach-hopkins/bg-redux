@@ -6,6 +6,7 @@
 #include "GUI/Button.h"
 #include "TileMap.h"
 #include "Scriptable/Door.h"
+#include "window_render_regression.h"
 
 struct DialogueBranch { int state, strref, transition, local, response; };
 static const DialogueBranch Branches[] = {
@@ -132,7 +133,8 @@ int main(int argc,char** argv)
     for(auto key:{"--config","--output","--scripts","--journey","--nonce"})if(!args.count(key))return 64;
     const bool reload=args["--journey"]=="reload";
     const bool renderDiagnostic=args["--journey"]=="render";
-    if ((!reload && !renderDiagnostic && args["--journey"]!="talk") || args["--nonce"].size()!=32 ||
+    const bool windowDiagnostic=args["--journey"]=="window-render";
+    if ((!reload && !renderDiagnostic && !windowDiagnostic && args["--journey"]!="talk") || args["--nonce"].size()!=32 ||
         args["--nonce"].find_first_not_of("0123456789abcdef")!=std::string::npos)return 64;
     const auto out=args["--output"];std::setlocale(LC_ALL,".UTF8");std::atexit(StopLog);
     std::unique_ptr<Interface> engine;std::vector<std::string> events,samples,saves;
@@ -162,7 +164,9 @@ int main(int argc,char** argv)
             if(phase==-2){run("PopulateLoad");button("GUILOAD",0,26);phase=-1;return;}
             if(!core->GetGame() || !core->GetGameControl() || !GetViews(ScriptingGroup_t("LOADWIN")).empty())return;
             auto* game=core->GetGame();auto* gc=core->GetGameControl();
-            if(phase==-1){run("SelectLeader");capture("loaded",true);startTime=game->GameTime.load();core->SetPause(PauseState::Off,3);phase=0;return;}
+            if(phase==-1){run("SelectLeader");capture("loaded",true);
+                if(windowDiagnostic){WindowRenderRegression(out);capture("fixture-final",false);completed=true;core->QuitFlag=QF_KILL;return;}
+                startTime=game->GameTime.load();core->SetPause(PauseState::Off,3);phase=0;return;}
             if(phase==0){
                 const bool ready=DialogueIdle();idle=ready?idle+1:0;
                 const auto name="startup-"+NumberJSON(samples.size());capture(name,false);
@@ -272,6 +276,7 @@ int main(int argc,char** argv)
         {"journey",Q(args["--journey"])},{"completed",completed?"true":"false"},{"error",Q(error)},
         {"talk_requests",NumberJSON(requests)},{"branches_completed",NumberJSON(branch)},{"events",A(events)},
         {"render_diagnostic",renderDiagnostic?"true":"false"},{"render_steps",NumberJSON(renderStep)},
+        {"window_render_diagnostic",windowDiagnostic?"true":"false"},
         {"ticks_per_second",engine?NumberJSON(core->Time.defaultTicksPerSec):"0"},
         {"startup_samples",A(samples)},{"saves",A(saves)},{"os_pointer_input","false"},{"forced_dialogue_state","false"}}));
     if(engine){engine.reset();core=nullptr;VideoDriver.reset();PluginMgr::Get()->RunCleanup();}StopLog();
