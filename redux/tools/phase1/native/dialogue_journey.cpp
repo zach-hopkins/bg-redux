@@ -266,8 +266,9 @@ int main(int argc,char** argv)
                     {"identity_method",Q("Sequential expected NPC strref text present in actual transcript; private internal state index not sampled")}}));
                 if(expected.response>=0){
                     const auto response=core->GetString(ieStrRef(expected.response));
-                    // The two guarded states expose all their responses; these
-                    // are visible ordinal indices, not a general transition map.
+                    // Each chosen response's guarded prefix is visibly numbered;
+                    // later conditional rows do not change its ordinal. These
+                    // are visible indices, not a general transition-value map.
                     const unsigned visibleIndex=branch==0?4:1;
                     String numberedPrefix=u"0. - ";numberedPrefix[0]=char16_t('1'+visibleIndex);
                     if(response.empty() || text.find(numberedPrefix+response)==String::npos)throw std::runtime_error("Expected numbered response is not displayed");
