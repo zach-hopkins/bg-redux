@@ -8,6 +8,34 @@ game typefaces are fidelity requirements. Modern UI direction remains approved.
 
 ## Requirements and order
 
+Current source checkpoint: the Feedback confirmation control now uses the original
+right row 41/40/0x10000029 and preserves Colored Markers on the left. The
+[source repair](testing/phase1-confirmation-feedback-row-repair.md) follows the
+actual CHU and original UI binding. New actual-helper tests fail twice against
+the old source (`feedback-row-before-1792672185705967100/result.json`) and all
+21 pass after correction. The complete suite passes **534 tests in 56.465 seconds**,
+`phase1-feedback-row-tooling-1792672463250707300/result.json`. New coherent candidate
+`20261022T123435Z-candidate-e00bb8b5` is building; its native setting/menu checks
+are pending. Earlier wrong-row persistence evidence does not accept its placement.
+
+Information journey `20261022T122217Z-spellbook-information-ee-direct-97f61bc1`
+passes both owned processes (10016/8600, zero exits, 346.684/288.751 seconds) on
+ced237a2. It visits 13 natural ordinary-book pages in each process; 65/55 captures
+and 80/67 callbacks bind paging, names, selection/deselection, actor/level resets,
+full localized help/descriptions, strict scroll movement/exact return, separate
+Memorize/icon actions, capacity guards, ordinary GUI save and fresh reload. All
+preservation guards pass. The natural maximum list is 12; `natural_over24=false`.
+Native alternate locales, female protagonist, physical pointer hits, exact font
+metrics and full-world save purity are not certified. Independent audit is pending.
+
+The [independent confirmation audit](testing/phase1-confirmation-independent.md)
+accepts the earlier wrong-row journey's bounded behavior/config/spell save chain,
+while explicitly rejecting its placement. It retains 905 full-world fresh-import
+residuals without a purity waiver. The [fresh general-baseline audit](testing/phase1-help-baseline-independent.md)
+confirms all 44 assertions and guards but changed color residuals: vanilla 0/0/26,
+GUI 451/55; old GUI 449/53 rows remain identical except two added actor-3 stat-209
+base/modified rows. All compatibility differences remain open.
+
 Latest source/diagnostic checkpoint: actual engine gender-table rules now bind
 PRO_HESHE, PRO_HIMHER and PRO_HISHER independently for the information diagnostic.
 It uses natural level-3 Remove Magic and Dispel Magic for strict scroll movement

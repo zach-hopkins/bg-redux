@@ -130,6 +130,12 @@ and verifies the retained bytes and read-only aliases. Free space increased from
 1,842,335,744 to 4,864,077,824 bytes. No result path was removed. New tests continue
 to use fresh private caches; archived caches must not be reused for writes.
 
+Before the Feedback-row rebuild, completed historical spellbook builds 5a60a03d,
+3f8cf4a0 and e52511e1 had their generated object files losslessly compressed.
+Receipt `storage-completed-spellbook-objects-1792672437951426500/result.json`
+verifies all 702 object files and unchanged build receipts before/after; no file
+was deleted or moved. The then-current ced237a2 build was explicitly excluded.
+
 The results parent now requests inherited compression without recursion. A
 baseline retry nested in the longer compressed-container path failed while
 copying a 273-character Windows destination, before the GUI stages began.
