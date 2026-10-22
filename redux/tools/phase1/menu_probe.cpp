@@ -3,8 +3,9 @@
 #define main ReduxLegacyGUIProbeMain
 #include "../phase0/native/gui_probe.cpp"
 #undef main
+#include "GUI/Button.h"
 
-static const std::vector<const char*> MenuPacks = {"GUIOPT", "GUIREC", "GUISAVE", "GUILOAD", "GUIMAP", "GUIWMAP", "GUIJRNL", "GUIMG", "GUIPR", "WIN_KEYS", "OPTWIN"};
+static const std::vector<const char*> MenuPacks = {"GUIOPT", "GUIREC", "GUISAVE", "GUILOAD", "GUIMAP", "GUIWMAP", "GUIJRNL", "GUIMG", "GUIPR", "WIN_KEYS", "OPTWIN", "PORTWIN"};
 
 static void PressRegisteredMenu(const char* pack, ScriptingId windowId, ScriptingId controlId)
 {
@@ -31,12 +32,23 @@ static std::string MenuUIJSON()
             const auto* wr = window ? window->GetScriptingRef() : nullptr;
             if (!ref || (window && !wr)) continue;
             auto* ctrl = dynamic_cast<Control*>(view);
+            auto* button = dynamic_cast<Button*>(view);
+            // Button::DragCursor returns Picture, unless the base debug cursor
+            // is active. Fail closed on that fallback; never call this a resref.
+            const bool pictureObservable = button && !button->Control::DragCursor();
+            auto picture = pictureObservable ? button->DragCursor() : Holder<Sprite2D>();
             const auto r = view->Frame();
             rows.push_back(O({{"pack", Q(pack)}, {"id", NumberJSON(ctrl ? ctrl->ControlID : ref->Id)},
                 {"window", wr ? NumberJSON(wr->Id) : "null"}, {"type", ctrl ? NumberJSON(ctrl->ControlType) : "null"},
                 {"rect", A({NumberJSON(r.x),NumberJSON(r.y),NumberJSON(r.w),NumberJSON(r.h)})},
                 {"visible", view->IsVisible() ? "true" : "false"}, {"disabled", view->IsDisabled() ? "true" : "false"},
-                {"flags", NumberJSON(view->Flags())}, {"text", ctrl ? Q(MBStringFromString(ctrl->QueryText())) : "null"}}));
+                {"flags", NumberJSON(view->Flags())}, {"text", ctrl ? Q(MBStringFromString(ctrl->QueryText())) : "null"},
+                {"value", ctrl ? NumberJSON(ctrl->GetValue()) : "null"},
+                {"tooltip", Q(MBStringFromString(view->TooltipText()))},
+                {"stored_tooltip", Q(MBStringFromString(view->View::TooltipText()))},
+                {"picture_observable", pictureObservable ? "true" : "false"},
+                {"picture_present", picture ? "true" : "false"},
+                {"picture_size", picture ? A({NumberJSON(picture->Frame.w),NumberJSON(picture->Frame.h)}) : "null"}}));
         }
     }
     return O({{"schema", Q("bg-redux-menu-ui/1")}, {"controls", A(rows)}});
@@ -129,7 +141,8 @@ int main(int argc, char** argv)
                     PressRegisteredMenu(MenuPacks[pack-1],window,control);
                     Write(out+"/"+name+".json",O({{"schema",Q("bg-redux-callback-dispatch/1")}, {"nonce",Q(args["--nonce"])},
                         {"pack",Q(MenuPacks[pack-1])}, {"window",NumberJSON(window)}, {"control",NumberJSON(control)},
-                        {"performed","true"}, {"sequence",NumberJSON(callbacks+1)}, {"timer_tick",NumberJSON(ticks)}}));
+                        {"performed","true"}, {"sequence",NumberJSON(callbacks+1)}, {"timer_tick",NumberJSON(ticks)},
+                        {"runtime_step",NumberJSON(core->GetDictionary().Get("Phase1MenuStep",0))}}));
                     Write(out+"/"+name+"-after.state.json",Snapshot(core->GetGame()));
                     Write(out+"/"+name+"-after.observer.json",ObserverJSON());
                     ++callbacks;

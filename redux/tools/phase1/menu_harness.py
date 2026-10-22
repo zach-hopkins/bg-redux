@@ -80,6 +80,51 @@ def run_owned(command, cwd, env, log, timeout):
                 cleanup_complete=process.poll() is not None)
 
 
+def validate_spellbook_capture(contract, state, ui):
+    """Bind queried spell slots to the independently captured visible controls.
+
+    Tooltip/value plus public Picture presence prove populated slot assembly;
+    they do not prove sprite pixels identify the claimed resref or visual QA.
+    """
+    pack, pc = contract['pack'], contract['actor']
+    if pack not in ('GUIMG', 'GUIPR') or not isinstance(pc, int) or not 1 <= pc <= len(state['party']):
+        raise ValueError('Invalid spellbook actor/pack')
+    def field(cid):
+        found = [item for item in ui['controls'] if item['pack'] == pack and item['window'] == 2 and item['id'] == cid]
+        if len(found) != 1 or not found[0]['visible']:
+            raise ValueError('Missing/ambiguous visible spellbook control')
+        return found[0]
+    checks = [dict(name=pack+'.native-selected-actor', passed=state['selection'] == pc),
+        dict(name=pack+'.native-displayed-name', passed=field(0x10000035)['text'] ==
+             state['party'][pc-1]['name'] == contract['actor_name'])]
+    for family, base, capacity in (('known', 27, 24), ('memorized', 3, 0 if contract['sorcerer'] else 12)):
+        spells = contract[family]
+        if contract[family+'_capacity'] != capacity or len(spells) > capacity:
+            raise ValueError('Unsupported spellbook slot capacity')
+        for index in range(capacity):
+            item = field(base+index)
+            expected = spells[index] if index < len(spells) else None
+            if expected:
+                size = item.get('picture_size')
+                rect = item.get('rect')
+                passed = (bool(expected['resref']) and bool(expected['tooltip']) and
+                    item.get('stored_tooltip') == expected['tooltip'] and
+                    item.get('tooltip') == expected['tooltip'] and
+                    item.get('value') == expected['value'] and not item.get('disabled', True) and
+                    bool(item.get('flags', 0) & 2) and item.get('picture_observable') is True and
+                    item.get('picture_present') is True and isinstance(size, list) and
+                    len(size) == 2 and all(isinstance(n, int) and n > 0 for n in size) and
+                    isinstance(rect, list) and len(rect) == 4 and rect[2] > 0 and rect[3] > 0)
+            else:
+                # Empty controls may retain a cached Picture internally, but it
+                # must no longer be displayed or expose a stale spell tooltip.
+                passed = item.get('stored_tooltip') == '' and not (item.get('flags', 0) & 2)
+            checks.append(dict(name=pack+'.'+family+'-slot-'+str(index), passed=passed))
+    if not contract['known'] and not contract['memorized']:
+        raise ValueError('Populated spellbook coverage absent')
+    return checks
+
+
 def validate_stage(directory, resolution=None):
     """Fail incomplete/missing evidence; never turn screenshots into visual QA."""
     directory = Path(directory)
@@ -114,6 +159,35 @@ def validate_stage(directory, resolution=None):
         raise ValueError("No actionable menu assertions")
     errors=callback_errors(directory/'process.log')
     checks.append(dict(name='native-python-callback-log',passed=not errors, errors=errors))
+    for name in ('mage-book', 'priest-book'):
+        applicability = [r for r in runtime['checks'] if r.get('name') == name+'.applicability']
+        if len(applicability) != 1:
+            raise ValueError('Missing/ambiguous spellbook applicability')
+        contracts = [r for r in runtime['checks'] if r.get('name') == name+'.content-contract']
+        if not applicability[0]['applicable']:
+            if contracts or applicability[0].get('selected_actor') is not None:
+                raise ValueError('Context-gated spellbook has fabricated content')
+            continue
+        if (len(contracts) != 1 or contracts[0]['actor'] != applicability[0]['selected_actor'] or
+            contracts[0]['pack'] != ('GUIMG' if name == 'mage-book' else 'GUIPR')):
+            raise ValueError('Missing/ambiguous spellbook semantic contract')
+        callbacks = [json.loads(p.read_text(encoding='utf8')) for p in directory.glob('callback-*.json')
+                     if p.stem.removeprefix('callback-').isdigit()]
+        for action, pack, control_id in ((name+'.select-eligible', 'PORTWIN', contracts[0]['actor']-1),
+                                         (name+'.open', 'OPTWIN', 5 if name=='mage-book' else 6)):
+            steps = [r for r in runtime['checks'] if r.get('action') == action]
+            if len(steps) != 1 or not isinstance(steps[0].get('step'), int):
+                raise ValueError('Missing spellbook callback action identity')
+            dispatch = [r for r in callbacks if r.get('runtime_step') == steps[0]['step']+1]
+            if (len(dispatch) != 1 or dispatch[0].get('pack') != pack or dispatch[0].get('window') != 0 or
+                dispatch[0].get('control') != control_id or dispatch[0].get('performed') is not True or
+                not host.get('nonce') or dispatch[0].get('nonce') != host['nonce']):
+                raise ValueError('Missing/stale/wrong spellbook registered callback')
+        capture = next(r['capture'] for r in runtime['checks'] if r.get('action') == name+'.observed')
+        prefix = directory / ('capture-%d' % capture)
+        checks.extend(validate_spellbook_capture(contracts[0],
+            json.loads(Path(str(prefix)+'.state.json').read_text(encoding='utf8')),
+            json.loads(Path(str(prefix)+'.ui.json').read_text(encoding='utf8'))))
     for action, pack, nameid, hpid, thacid in (
             ("inventory.observed", "GUIINV", 0x10000032, 0x10000039, 0x10000055),
             ("record.observed", "GUIREC", 0x1000000e, 0x10000029, 0x10000040)):

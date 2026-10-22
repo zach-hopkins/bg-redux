@@ -11,7 +11,7 @@ import GemRB
 from ie_stats import IE_HITPOINTS
 from GUIDefines import IE_SPELL_TYPE_PRIEST, IE_SPELL_TYPE_WIZARD
 
-PACKS = ("GUIOPT", "GUIREC", "GUISAVE", "GUILOAD", "GUIMAP", "GUIWMAP", "GUIJRNL", "GUIMG", "GUIPR", "WIN_KEYS", "OPTWIN")
+PACKS = ("GUIOPT", "GUIREC", "GUISAVE", "GUILOAD", "GUIMAP", "GUIWMAP", "GUIJRNL", "GUIMG", "GUIPR", "WIN_KEYS", "OPTWIN", "PORTWIN")
 OUTPUT = None
 PLAN = []
 ROWS = []
@@ -118,11 +118,26 @@ def select_spell_actor(name, kind, required):
     if not eligible:
         if required: raise RuntimeError('Required real spellbook actor absent: '+name)
         return
-    GemRB.GameSelectPCSingle(SPELL_ACTORS[name])
+    pc = SPELL_ACTORS[name]
+    # A top-window loader resets single selection from walking selection.
+    # Use the actual portrait callback first, on a separate timer boundary.
+    if GemRB.GameControlGetTargetMode() != 0:
+        raise RuntimeError('Portrait would target instead of select')
+    portrait = control('PORTWIN', 0, pc - 1)
+    if portrait.Value != pc:
+        raise RuntimeError('Portrait actor binding differs from eligible actor')
+    if importlib.import_module('GUICommonWindows').SelectionChangeHandler:
+        raise RuntimeError('Spellbook preparation requires ordinary walking portrait selection')
+    press('PORTWIN', 0, pc - 1)
 
 
 def open_spellbook(name, cid):
     if SPELL_ACTORS.get(name):
+        pc = SPELL_ACTORS[name]
+        if GemRB.GameGetFirstSelectedPC() != pc:
+            raise RuntimeError('Portrait callback did not select eligible walking actor')
+        # ToggleSpellWindow consults this channel before the loader (Sorcerer).
+        GemRB.GameSelectPCSingle(pc)
         # Wizard_Spells invokes ToggleSpellWindow, which initializes Sorcerer.
         # Direct OpenMageWindow bypasses this ordinary entry point.
         press('OPTWIN',0,cid)
@@ -131,6 +146,39 @@ def open_spellbook(name, cid):
 def inspect_spellbook(name, pack):
     if SPELL_ACTORS.get(name):
         expect_window(name,pack,2)
+        pc = SPELL_ACTORS[name]
+        actual = GemRB.GameGetSelectedPCSingle()
+        if actual != pc:
+            raise RuntimeError('Spellbook reset to a different actor')
+        kind = IE_SPELL_TYPE_WIZARD if pack == 'GUIMG' else IE_SPELL_TYPE_PRIEST
+        module = importlib.import_module(pack)
+        level = module.MageSpellLevel if pack == 'GUIMG' else module.PriestSpellLevel
+        actor_name = GemRB.GetPlayerName(pc, 0)
+        shown_name = control(pack, 2, 0x10000035).QueryText()
+        record(name+'.displayed-actor', shown_name == actor_name, expected_actor=pc,
+               actual_actor=actual, expected_name=actor_name, actual_name=shown_name)
+        known = []
+        for index in range(GemRB.GetKnownSpellsCount(pc, kind, level)):
+            spell = GemRB.GetKnownSpell(pc, kind, level, index)
+            resref = spell['SpellResRef']
+            known.append(dict(resref=resref, value=index,
+                tooltip=GemRB.GetString(GemRB.GetSpell(resref)['SpellName'])))
+        known.sort(key=lambda row: row['tooltip'])
+        memorized = []
+        sorcerer = bool(getattr(module, 'Sorcerer', False)) if pack == 'GUIMG' else False
+        if not sorcerer:
+            for index in range(min(12, GemRB.GetMemorizedSpellsCount(pc, kind, level, False))):
+                spell = GemRB.GetMemorizedSpell(pc, kind, level, index)
+                resref = spell['SpellResRef']
+                memorized.append(dict(resref=resref, value=index, ready=spell['Flags'],
+                    tooltip=GemRB.GetString(GemRB.GetSpell(resref)['SpellName'])))
+        if not known and not memorized:
+            raise RuntimeError('Displayed spell level has no content; populated-book coverage unproven')
+        ROWS.append(dict(name=name+'.content-contract', pack=pack, actor=pc,
+            actor_name=actor_name, level=level, sorcerer=sorcerer,
+            known=known, memorized=memorized, known_capacity=24,
+            memorized_capacity=0 if sorcerer else 12,
+            sprite_resource_identity_observed=False))
     else:
         ROWS.append(dict(name=name, passed=None, status='context-gated',
                          reason='No party actor has this actual spellbook; no direct opener bypass'))
@@ -244,6 +292,7 @@ def Step():
         GemRB.SetVar("Phase1MenuComplete", 1)
         return
     name, action, capture = PLAN[INDEX]
+    GemRB.SetVar('Phase1MenuStep', INDEX + 1)
     try:
         action()
     except Exception as error:
