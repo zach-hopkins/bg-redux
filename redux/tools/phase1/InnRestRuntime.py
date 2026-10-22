@@ -33,7 +33,10 @@ def observe(name,gold=100,store=False,confirmation=False,option=None):
     if GemRB.GetCurrentArea().upper()!='AR0704'or GemRB.GetPartySize()!=4:raise RuntimeError('Measured four-party inn input required')
     option=int(POLICY=='on')if option is None else option
     actual=dict(gold=GemRB.GameGetPartyGold(),option=GemRB.GetVar('Over Confirm Everything'),error=bool(view('GUISTORE',10)),confirmation=bool(view('GUISTORE',11)),store=bool(view('GUISTORE',7)))
-    if actual!=dict(gold=gold,option=option,error=False,confirmation=confirmation,store=store):raise RuntimeError('Unexpected inn rest gold/option/modal boundary')
+    expected=dict(gold=gold,option=option,error=False,confirmation=confirmation,store=store)
+    if actual!=expected:
+        with (OUTPUT/'unexpected-observations.jsonl').open('a',encoding='utf8')as log:log.write(json.dumps(dict(nonce=NONCE,mode=MODE,name=name,step=INDEX,actual=actual,expected=expected))+'\n')
+        raise RuntimeError('Unexpected inn rest gold/option/modal boundary: '+repr(actual))
     data=GemRB.GetStore()if store else None
     if store and(not data or data['StoreType']!=2 or data['StoreName']!=33355 or data['StoreButtons'][0]!=6 or list(data['StoreRoomPrices'])!=[1,6,10,16]):raise RuntimeError('Wrong stock inn/type/rooms/prices')
     if confirmation and control('GUISTORE',11,3).QueryText()!=GemRB.GetString(15358):raise RuntimeError('Wrong actual rest prompt')

@@ -21,7 +21,14 @@ int main(int argc,char**argv){
  const auto mode=args["--mode"],out=args["--output"];if((mode!="off"&&mode!="on"&&mode!="reload")||(args["--confirmation-policy"]!="off"&&args["--confirmation-policy"]!="on")||(mode!="reload"&&mode!=args["--confirmation-policy"])||args["--nonce"].size()!=32||args["--nonce"].find_first_not_of("0123456789abcdef")!=std::string::npos)return 64;
  std::setlocale(LC_ALL,".UTF8");std::atexit(StopLog);std::unique_ptr<Interface>engine;std::string error;bool completed=false;int phase=-2,ticks=0,idle=0,callbacks=0,captures=0,pending=0,waits=0,talkRequests=0;unsigned loadedClock=0;std::vector<std::string>events,samples,saves,commands;String beforeText;
  try{const char*ea[]={"redux-inn-checkpoint","-c",args["--config"].c_str()};auto cfg=LoadFromArgs(3,const_cast<char**>(ea));ToggleLogging(true);AddLogWriter(createStdioLogWriter());SetMainLogLevel(FATAL);engine=std::make_unique<Interface>(std::move(cfg));auto script=core->GetGUIScriptEngine();
-  const auto exec=[&](const std::string&text){if(!script->ExecString(text))throw std::runtime_error("External inn Python command failed");};
+  const auto exec=[&](const std::string&text){
+   // Preserve diagnostic exceptions before the legacy ExecString error renderer
+   // attempts to treat a Python3.14 exception instance as a Unicode string.
+   std::string wrapped="import GemRB\nGemRB.SetVar('RDXInnPythonFailed',0)\ntry:\n";
+   std::istringstream lines(text);std::string line;while(std::getline(lines,line))wrapped+=" "+line+"\n";
+   wrapped+="except Exception:\n import traceback\n traceback.print_exc()\n GemRB.SetVar('RDXInnPythonFailed',1)\n";
+   if(!script->ExecString(wrapped)||core->GetDictionary().Get("RDXInnPythonFailed",0))throw std::runtime_error("External inn Python command failed; preserved traceback");
+  };
   exec("import sys;sys.path.insert(0,"+Q(args["--scripts"])+");import InnRestRuntime;InnRestRuntime.Configure("+Q(out)+","+Q(args["--nonce"])+","+Q(mode)+","+Q(args["--confirmation-policy"])+")");core->SetNextScript("InnRestStart");
   const auto start=[&](const char*fn){exec(std::string("import InnRestStart;InnRestStart.")+fn+"()");};
   const auto capture=[&](const std::string&name){if(std::filesystem::exists(out+"/"+name+".state.json"))throw std::runtime_error("Refuse evidence overwrite");Write(out+"/"+name+".state.json",Snapshot(core->GetGame()));Write(out+"/"+name+".scene.json",IScene());Write(out+"/"+name+".ui.json",MenuUIJSON());PluginHolder<ImageWriter>w=MakePluginHolder<ImageWriter>(PLUGIN_IMAGE_WRITER_BMP);FileStream f;if(!w||!f.Create(out,name,IE_BMP_CLASS_ID))throw std::runtime_error("Screenshot creation failed");w->PutImage(&f,core->GetWindowManager()->GetScreenshot(nullptr));};
@@ -52,7 +59,7 @@ int main(int argc,char**argv){
    if(phase==2){press("GUIOPT",2,6,-2);phase=3;return;}if(phase==3){start("ChooseNewSave");press("GUISAVE",0,26,-3);phase=4;return;}
    if(phase==4){auto*c=RequiredControl("GUISAVE",1,3);c->SetText(u"Redux Inn Rest");if(!c->PerformAction(ControlActionResponder::ActionKey(Control::ValueChange)))throw std::runtime_error("Save name callback absent");Write(out+"/save-name.json",O({{"control","3"},{"nonce",Q(args["--nonce"])},{"performed","true"}}));phase=5;return;}
    if(phase==5){capture("before-save");press("GUISAVE",1,7,-4);phase=6;return;}if(phase==6){for(const auto&s:core->GetSaveGameIterator()->GetSaveGames())if(s->GetName()==u"Redux Inn Rest")saves.push_back(Q(s->GetPath()));if(saves.size()!=1)throw std::runtime_error("Unique GUI checkpoint absent");capture("final");completed=true;core->QuitFlag=QF_KILL;}
-  }catch(const std::exception&e){error=e.what();core->QuitFlag=QF_KILL;}},250,-1);engine->Main();
+  }catch(const std::exception&e){error=e.what();try{if(core->GetGame())capture("failure");}catch(...){}core->QuitFlag=QF_KILL;}},250,-1);engine->Main();
  }catch(const std::exception&e){error=e.what();}
  Write(out+"/book-result.json",O({{"schema",Q("bg-redux-inn-rest-host/1")},{"nonce",Q(args["--nonce"])},{"mode",Q(mode)},{"policy",Q(args["--confirmation-policy"])},{"completed",completed?"true":"false"},{"error",Q(error)},{"ticks",NumberJSON(ticks)},{"callbacks",NumberJSON(callbacks)},{"captures",NumberJSON(captures)},{"events",A(events)},{"commands",A(commands)},{"startup",A(samples)},{"saves",A(saves)},{"talk_requests",NumberJSON(talkRequests)},{"declared_debug_setup","false"},{"ordinary_campaign_transfer","false"},{"os_pointer_input","false"},{"production_inn_policy_changed","false"}}));if(engine){engine.reset();core=nullptr;VideoDriver.reset();PluginMgr::Get()->RunCleanup();}StopLog();return completed&&error.empty()?0:1;
 }
