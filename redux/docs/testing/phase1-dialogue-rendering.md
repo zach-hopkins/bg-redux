@@ -6,6 +6,9 @@ synthetic alpha/scale/clip cases pass their bounded comparisons. The ordinary
 dialogue save/reload rerun also passes; broader menu/world regression remains open.
 The external tooling suite passes301 tests in32.039s
 (`phase1-integrated-tests-20261022T0520.log`).
+The [independent LAB audit](phase1-window-render-lab-audit.md) rechecks all933
+synthetic artifacts,288 BMP/RGB pairs,216 image comparisons and96 opacity probes,
+and binds the ordinary dialogue regression separately.
 
 The user-observed red choices remain beneath the next white NPC response in
 the successful callback/save journey `20261022T042747Z-jaheira-dialogue-30a50511`.

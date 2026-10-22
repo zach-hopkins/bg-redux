@@ -51,6 +51,8 @@ synthetic alpha/scale/clip cases pass, including216 image comparisons and96
 opacity probes. The first broad-clear correction and two fixture-oracle errors
 are preserved. The ordinary eleven-branch dialogue/save/fresh-reload regression
 also passes on the new candidate; broader menu/world regressions remain pending.
+The [independent renderer audit](testing/phase1-window-render-lab-audit.md)
+rechecks the synthetic captures, preservation pins and ordinary-run artifact chain.
 A direct public TextArea selection entry separately exposes
 a [reentrancy defect](compatibility/phase1-textarea-update-state-reentrancy.md);
 the normal selection route passes without an engine change. The bounded
