@@ -1,0 +1,371 @@
+{
+  "schema": "bg-redux-independent-information-menu-audit/1",
+  "passed": true,
+  "raw_result": "C:\\BGRedux\\phase1-local\\results\\20261022T113936Z-inf-menu-run-918c978e\\result.json",
+  "result_sha256": "bce6268db2fb92f87c6d292e45026e8e2c5bd8ca5d8d93ec6020d32d8d6ee6dc",
+  "artifact_manifests": {
+    "C:\\BGRedux\\phase1-local\\results\\20261022T113936Z-inf-menu-run-918c978e": 1305,
+    "C:\\BGRedux\\phase1-local\\results\\20261022T113936Z-inf-menu-run-918c978e\\native\\20261022T113941Z-menu-run-c2b6f429": 1287,
+    "C:\\BGRedux\\phase1-local\\results\\20261022T113815Z-inf-menu-build-16091611": 43
+  },
+  "source_count": 3511,
+  "binary_count": 61,
+  "support_count": 5,
+  "historical_source_recovery": [
+    {
+      "source": "gemrb/GUIScripts/EESpellbookInformation.py",
+      "sha256": "8fd6cfad213a687aeb5aff20c22a30393af3d96c07693ad45a714c93b4e470f0",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T113815Z-inf-menu-build-16091611\\native\\20261022T113820Z-menu-build-a7ed1d20\\sources\\8fd6cfad213a687aeb5aff20c22a30393af3d96c07693ad45a714c93b4e470f0\\EESpellbookInformation.py"
+    }
+  ],
+  "source_commit": "0efb660a86fbce5b6c457009af002ace61dc39f6",
+  "build_result_sha256": "60516ecbbf3ff1579b67f75d74868d5f68b71bc1c28590ab0d533801eef77da3",
+  "accessed_archives": {
+    "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\Spells.bif": "3296b8ad42432ab509b90b5ab7efd43618e411bff9a6deeda315aead4e6f8d22"
+  },
+  "engine_receipt_sha256": "2f420b20439c34db5c73696b5916bdd32f6e5be661b47897aace7e8eedd9a6e2",
+  "probe_sha256": "f35f399610e8ed66533378ccd9882bc7e79bf4d55c54b270a8c475c9cad79473",
+  "parent_result_sha256": "93401ec89b0896ae8c69a846f81314afec75a69af9e62b173fdcd7c4ea8c8e6c",
+  "tlk_sha256": "9e685225ff3c3436a8a35fa7022550620d24a92efe35436a062c02955d9f0952",
+  "prefix_strref": 11944,
+  "prefix": "Memorized",
+  "stages": [
+    {
+      "resolution": [
+        1024,
+        768
+      ],
+      "pid": 16280,
+      "exit_code": 0,
+      "cleanup_complete": true,
+      "nonce": "7a4a9f6d481b4e92bb231a3f2a73dae9",
+      "reported_checks": 148,
+      "captures": 51,
+      "actual_callbacks": 39,
+      "headings": [
+        {
+          "capture": 23,
+          "pack": "GUIMG",
+          "selected_party_index": 2,
+          "script_name": "imoen",
+          "runtime_id": 10003,
+          "spell_type": 1,
+          "level": 0,
+          "allocated": 4,
+          "ready": 4,
+          "visible_names": [
+            {
+              "original_index": 0,
+              "resref": "SPWI102",
+              "name": "Armor"
+            },
+            {
+              "original_index": 1,
+              "resref": "SPWI118",
+              "name": "Chromatic Orb"
+            },
+            {
+              "original_index": 2,
+              "resref": "SPWI110",
+              "name": "Identify"
+            },
+            {
+              "original_index": 3,
+              "resref": "SPWI112",
+              "name": "Magic Missile"
+            }
+          ],
+          "help_strref": 39254,
+          "help_sha256": "71644888e33e0d57749a7c0f46c110859333bd37fe2758781e66d45ddd622390",
+          "action_strref": 17189,
+          "action_text": "MEMORIZE MAGE SPELLS",
+          "action_disabled": true,
+          "capacity_with_bonus": 4,
+          "text": "Memorized: 4/4",
+          "relative_label_rect": [
+            295,
+            598,
+            275,
+            40
+          ],
+          "window_rect": [
+            80,
+            29,
+            864,
+            710
+          ],
+          "prepared_row_y": 644,
+          "bmp_sha256": "968734f5a3b842061c6a6af279ad523f5028c435ff2afdb5a43e99ef1e44035e",
+          "raw_state_sha256": "49db19a81621a12c3b0ff0627e65fedb892063dc8bd72a025d4716040865cd3b",
+          "raw_ui_sha256": "43d952cff7bcb37f6b098daa4421a54519027d407d4f5eb0d5a2a952b8e9fa01"
+        },
+        {
+          "capture": 25,
+          "pack": "GUIPR",
+          "selected_party_index": 3,
+          "script_name": "jaheira",
+          "runtime_id": 10004,
+          "spell_type": 0,
+          "level": 0,
+          "allocated": 5,
+          "ready": 5,
+          "visible_names": [
+            {
+              "original_index": 0,
+              "resref": "SPPR111",
+              "name": "Armor of Faith"
+            },
+            {
+              "original_index": 1,
+              "resref": "SPPR101",
+              "name": "Bless"
+            },
+            {
+              "original_index": 2,
+              "resref": "SPPR103",
+              "name": "Cure Light Wounds"
+            },
+            {
+              "original_index": 3,
+              "resref": "SPPR104",
+              "name": "Detect Evil"
+            },
+            {
+              "original_index": 4,
+              "resref": "SPPR113",
+              "name": "Doom"
+            },
+            {
+              "original_index": 5,
+              "resref": "SPPR105",
+              "name": "Entangle"
+            },
+            {
+              "original_index": 6,
+              "resref": "SPPR110",
+              "name": "Shillelagh"
+            }
+          ],
+          "help_strref": 39254,
+          "help_sha256": "71644888e33e0d57749a7c0f46c110859333bd37fe2758781e66d45ddd622390",
+          "action_strref": 17224,
+          "action_text": "MEMORIZE PRIEST SPELLS",
+          "action_disabled": true,
+          "capacity_with_bonus": 5,
+          "text": "Memorized: 5/5",
+          "relative_label_rect": [
+            295,
+            598,
+            275,
+            40
+          ],
+          "window_rect": [
+            80,
+            29,
+            864,
+            710
+          ],
+          "prepared_row_y": 644,
+          "bmp_sha256": "3c9949172a50772a4b29c22fc7646141942857f0def565b377023b31caadedfb",
+          "raw_state_sha256": "a36b169cdb35d127f0957da1db13084fde3111900fef143fbd1135a2f2a982b4",
+          "raw_ui_sha256": "969f25457e3892641f92b20dd3ae8726055656b852a19be766503dfa0b201226"
+        }
+      ],
+      "private_game": {
+        "clean_game_inventory_unchanged": true,
+        "clean_game_root_hashes_unchanged": true,
+        "copied_immutable_inputs_unchanged": true,
+        "allowed_private_root_changes": {
+          "gem-baldur.ini": {
+            "before_sha256": null,
+            "after_sha256": "dc0f3749b5b25aa67ba1a99feb297729a43a22478d32c54d70c41eb5065e5a66"
+          },
+          "GemRB.log": {
+            "before_sha256": "c298eb067db2c6c619c7791afc9b6fc0997a5dba9bd5bd03d6718f2facbbf6a7",
+            "after_sha256": "12c6a5a80182bc38457764d03309215f8afb2b8188e4c3b34d02fe11a2c896f6"
+          }
+        },
+        "linked_asset_content_fully_hashed": false
+      }
+    },
+    {
+      "resolution": [
+        1280,
+        768
+      ],
+      "pid": 13916,
+      "exit_code": 0,
+      "cleanup_complete": true,
+      "nonce": "786cffd814f044639ab0ca9c65aee89c",
+      "reported_checks": 148,
+      "captures": 51,
+      "actual_callbacks": 39,
+      "headings": [
+        {
+          "capture": 23,
+          "pack": "GUIMG",
+          "selected_party_index": 2,
+          "script_name": "imoen",
+          "runtime_id": 10003,
+          "spell_type": 1,
+          "level": 0,
+          "allocated": 4,
+          "ready": 4,
+          "visible_names": [
+            {
+              "original_index": 0,
+              "resref": "SPWI102",
+              "name": "Armor"
+            },
+            {
+              "original_index": 1,
+              "resref": "SPWI118",
+              "name": "Chromatic Orb"
+            },
+            {
+              "original_index": 2,
+              "resref": "SPWI110",
+              "name": "Identify"
+            },
+            {
+              "original_index": 3,
+              "resref": "SPWI112",
+              "name": "Magic Missile"
+            }
+          ],
+          "help_strref": 39254,
+          "help_sha256": "71644888e33e0d57749a7c0f46c110859333bd37fe2758781e66d45ddd622390",
+          "action_strref": 17189,
+          "action_text": "MEMORIZE MAGE SPELLS",
+          "action_disabled": true,
+          "capacity_with_bonus": 4,
+          "text": "Memorized: 4/4",
+          "relative_label_rect": [
+            295,
+            598,
+            275,
+            40
+          ],
+          "window_rect": [
+            208,
+            29,
+            864,
+            710
+          ],
+          "prepared_row_y": 644,
+          "bmp_sha256": "401ef257d9463fd33ab1275b0124cfb5b67a91ccb301914bac934961298167fb",
+          "raw_state_sha256": "5e7f843fe8cefcbf58707ddb28e1e5ca3fa6f13aba69a4b9f2f3f53464e96d42",
+          "raw_ui_sha256": "b317a506ad487d4f92d337a184f87319bef95ee867b2f8847f5acc67029ace9a"
+        },
+        {
+          "capture": 25,
+          "pack": "GUIPR",
+          "selected_party_index": 3,
+          "script_name": "jaheira",
+          "runtime_id": 10004,
+          "spell_type": 0,
+          "level": 0,
+          "allocated": 5,
+          "ready": 5,
+          "visible_names": [
+            {
+              "original_index": 0,
+              "resref": "SPPR111",
+              "name": "Armor of Faith"
+            },
+            {
+              "original_index": 1,
+              "resref": "SPPR101",
+              "name": "Bless"
+            },
+            {
+              "original_index": 2,
+              "resref": "SPPR103",
+              "name": "Cure Light Wounds"
+            },
+            {
+              "original_index": 3,
+              "resref": "SPPR104",
+              "name": "Detect Evil"
+            },
+            {
+              "original_index": 4,
+              "resref": "SPPR113",
+              "name": "Doom"
+            },
+            {
+              "original_index": 5,
+              "resref": "SPPR105",
+              "name": "Entangle"
+            },
+            {
+              "original_index": 6,
+              "resref": "SPPR110",
+              "name": "Shillelagh"
+            }
+          ],
+          "help_strref": 39254,
+          "help_sha256": "71644888e33e0d57749a7c0f46c110859333bd37fe2758781e66d45ddd622390",
+          "action_strref": 17224,
+          "action_text": "MEMORIZE PRIEST SPELLS",
+          "action_disabled": true,
+          "capacity_with_bonus": 5,
+          "text": "Memorized: 5/5",
+          "relative_label_rect": [
+            295,
+            598,
+            275,
+            40
+          ],
+          "window_rect": [
+            208,
+            29,
+            864,
+            710
+          ],
+          "prepared_row_y": 644,
+          "bmp_sha256": "f675011651b586d671594064913e217cc9e017e42b0a3d287f54e6d6083f94ff",
+          "raw_state_sha256": "13e48d71ee0f583f1c188798bcca96f7ee702a1ca9773cd116d45c497a81acf1",
+          "raw_ui_sha256": "3fc0e996456784b827594e4c99f8089811ce9b2b355a79590a52919e01d5cc2e"
+        }
+      ],
+      "private_game": {
+        "clean_game_inventory_unchanged": true,
+        "clean_game_root_hashes_unchanged": true,
+        "copied_immutable_inputs_unchanged": true,
+        "allowed_private_root_changes": {
+          "gem-baldur.ini": {
+            "before_sha256": null,
+            "after_sha256": "dc0f3749b5b25aa67ba1a99feb297729a43a22478d32c54d70c41eb5065e5a66"
+          },
+          "GemRB.log": {
+            "before_sha256": "c298eb067db2c6c619c7791afc9b6fc0997a5dba9bd5bd03d6718f2facbbf6a7",
+            "after_sha256": "72033f9ed214bc83944910f31d37dbf4f13ffc1dc6ba4405efaf534fd7386a0c"
+          }
+        },
+        "linked_asset_content_fully_hashed": false
+      }
+    }
+  ],
+  "preservation": {
+    "phase0": true,
+    "candidate": true,
+    "game": true,
+    "closure": true,
+    "probe": true,
+    "recruitment_parent": true,
+    "coherent_build": true
+  },
+  "auditor_sha256": "ccf132e4c2c53578c4d9bfc73a1429556c371e2a8428f4dd95ce456feffd9d92",
+  "limits": [
+    "Independent heading subset and all callback invariance checked;148 recorded checks not148 independent visual judgements",
+    "No new direct-removal callback validation",
+    "No per-label font/color/alignment metric claim or exact original pixel parity",
+    "Registered callbacks not pointer hit-testing",
+    "No RNG/wholeworld purity claim",
+    "No tests/build/native launched by audit"
+  ],
+  "private_audit": "C:\\BGRedux\\phase1-local\\results\\20261022T122128Z-information-menu-independent-182221eb\\audit.json",
+  "private_audit_sha256": "9c32d8299b6bc0a4456251bf22202db405c0df6083efad706c3fb86683c0b8d4",
+  "visual_scope": "Viewed1280x768 priest capture25 only; eligible content readable, no font/style/pixel parity"
+}
