@@ -353,9 +353,10 @@ TEST(StringTest, StringToLowerUnicodeCType)
 		ScopedUnicodeCType locale;
 		ASSERT_TRUE(locale.Captured());
 		ASSERT_TRUE(locale.Selected()) << "Unsupported LC_CTYPE: " << locale.Requested();
-		String unit { u"ЗАКОНЧИТЬ" };
+		// Preserve exact Unicode units independently of compiler source encoding.
+		String unit { u"\u0417\u0410\u041a\u041e\u041d\u0427\u0418\u0422\u042c" };
 		StringToLower(unit);
-		EXPECT_EQ(unit, u"закончить");
+		EXPECT_EQ(unit, u"\u0437\u0430\u043a\u043e\u043d\u0447\u0438\u0442\u044c");
 	}
 	EXPECT_STREQ(std::setlocale(LC_CTYPE, nullptr), previous.c_str());
 }
@@ -377,9 +378,9 @@ TEST(StringTest, StringToUpper)
 	ScopedUnicodeCType locale;
 	ASSERT_TRUE(locale.Captured());
 	ASSERT_TRUE(locale.Selected()) << "Unsupported LC_CTYPE: " << locale.Requested();
-	String unit2 { u"Закончить" };
+	String unit2 { u"\u0417\u0430\u043a\u043e\u043d\u0447\u0438\u0442\u044c" };
 	StringToUpper(unit2);
-	EXPECT_EQ(unit2, u"ЗАКОНЧИТЬ");
+	EXPECT_EQ(unit2, u"\u0417\u0410\u041a\u041e\u041d\u0427\u0418\u0422\u042c");
 #endif
 }
 
