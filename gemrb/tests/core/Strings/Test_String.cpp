@@ -6,6 +6,7 @@
 #include "Strings/StringConversion.h"
 
 #include <array>
+#include <clocale>
 #include <deque>
 #include <gtest/gtest.h>
 #include <set>
@@ -289,8 +290,51 @@ TEST(StringTest, AppendFormat)
 	EXPECT_EQ(unit, std::string { "msg: 02 failures" });
 }
 
-// The underlying code has no explicit references to locales, so we only check
-// for ASCII cases.
+// Casing delegates to the CRT's LC_CTYPE. Unicode tests must select a supported
+// locale explicitly and restore it, including on an ASSERT failure.
+#if !defined(__APPLE__)
+namespace {
+class ScopedUnicodeCType {
+public:
+	ScopedUnicodeCType()
+	{
+		const char* current = std::setlocale(LC_CTYPE, nullptr);
+		if (!current) return;
+		previous = current;
+		captured = true;
+		selected = std::setlocale(LC_CTYPE, Requested()) != nullptr;
+	}
+
+	~ScopedUnicodeCType()
+	{
+		if (captured) {
+			const char* restored = std::setlocale(LC_CTYPE, previous.c_str());
+			EXPECT_NE(restored, nullptr) << "Failed to restore LC_CTYPE: " << previous;
+			if (restored) EXPECT_STREQ(restored, previous.c_str());
+		}
+	}
+
+	ScopedUnicodeCType(const ScopedUnicodeCType&) = delete;
+	ScopedUnicodeCType& operator=(const ScopedUnicodeCType&) = delete;
+
+	bool Captured() const { return captured; }
+	bool Selected() const { return selected; }
+	static const char* Requested()
+	{
+#ifdef _WIN32
+		return ".UTF8";
+#else
+		return "C.utf8";
+#endif
+	}
+
+private:
+	std::string previous;
+	bool captured = false;
+	bool selected = false;
+};
+}
+#endif
 
 TEST(StringTest, StringToLower)
 {
@@ -299,22 +343,40 @@ TEST(StringTest, StringToLower)
 	EXPECT_EQ(unit, u" str.ing");
 }
 
+#if !defined(__APPLE__)
+TEST(StringTest, StringToLowerUnicodeCType)
+{
+	const char* initial = std::setlocale(LC_CTYPE, nullptr);
+	ASSERT_NE(initial, nullptr);
+	const std::string previous = initial;
+	{
+		ScopedUnicodeCType locale;
+		ASSERT_TRUE(locale.Captured());
+		ASSERT_TRUE(locale.Selected()) << "Unsupported LC_CTYPE: " << locale.Requested();
+		String unit { u"ЗАКОНЧИТЬ" };
+		StringToLower(unit);
+		EXPECT_EQ(unit, u"закончить");
+	}
+	EXPECT_STREQ(std::setlocale(LC_CTYPE, nullptr), previous.c_str());
+}
+#endif
+
 TEST(StringTest, StringToUpper)
 {
 	// avoid problems with Turkish, since EEs do provide a Turkish translation
 	// don't test any 'i'
 	// Lowercase i (dotted) should become uppercase İ (dotted).
 	// Lowercase ı (dotless) should become uppercase I (dotless).
-	// currently not a problem, since a previous test resets the locale
+	// This ASCII assertion does not depend on another test's locale changes.
 	String unit { u" StR.oNG" };
 	StringToUpper(unit);
 	EXPECT_EQ(unit, u" STR.ONG");
 
-	// cyrilic
-	// ensure we're running on a UTF-8 enabled locale
-	// mac runners leave it lowercase, appveyor mangles it completely
-#if !defined(__APPLE__) && !defined(_MSC_VER)
-	setlocale(LC_ALL, "C.utf8");
+	// Keep the existing Apple exclusion; Windows uses its supported CRT alias.
+#if !defined(__APPLE__)
+	ScopedUnicodeCType locale;
+	ASSERT_TRUE(locale.Captured());
+	ASSERT_TRUE(locale.Selected()) << "Unsupported LC_CTYPE: " << locale.Requested();
 	String unit2 { u"Закончить" };
 	StringToUpper(unit2);
 	EXPECT_EQ(unit2, u"ЗАКОНЧИТЬ");
