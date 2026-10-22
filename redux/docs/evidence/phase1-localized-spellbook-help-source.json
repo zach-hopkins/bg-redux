@@ -726,5 +726,28 @@
     "named_ui_string_python_api_found": false,
     "interpreter_required": false,
     "implementation_performed": false
+  },
+  "additional_menu_context": {
+    "menu_path": "C:\\BGRedux\\phase1-local\\results\\20261022T095920Z-spellbook-information-gap-468c30da\\ui.menu",
+    "menu_sha256": "7987e9d38c9a1d8f4df949d880f260ad5a76dd623d08c7e7be6f0f6c8f2931fe",
+    "english_lua_path": "C:\\BGRedux\\phase1-local\\results\\20261022T095920Z-spellbook-information-gap-468c30da\\L_en_US.lua",
+    "english_lua_sha256": "9e8467d26c1e1a889eb916b678cf293475a06933020bdbae55ab18feec44ca62",
+    "known_icon_shortcut_line": 8028,
+    "selected_known_memorize_button_line": 8232,
+    "priest_icon_shortcut_line": 8762,
+    "conditional_prepared_prompt_lines": [
+      8185,
+      8825
+    ],
+    "feedback_option_table_line": 3381,
+    "feedback_panel_line": 3432,
+    "confirmation_option": [
+      41,
+      9
+    ],
+    "option_label": "More Confirmation Prompts",
+    "runtime_option_on_measured": false,
+    "extra_english_39254_sentence": "Select the Mage Book or Priest Scroll icon that appears on the left edge of the screen.",
+    "source_assessment": "Full localized paragraph supports choose/rest and left-icon navigation, including icon shortcut plus name-selection/separate Memorize; exact named literal is not required for that wording."
   }
 }
