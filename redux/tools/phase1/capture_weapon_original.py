@@ -35,12 +35,21 @@ def validate(preparation, observation):
     require(prep['run_id'] in window['title'] and type(window['id']) is int, 'Wrong profile window identity')
     boundary = read(preparation.parent/'load-boundary.json')
     require(boundary['window'] == window and boundary['nonce'] == prep['nonce'], 'Wrong isolation boundary')
+    expected_folders = {Path(r['original_fixture']).name for r in prep['cases']}
+    folders = boundary.get('profile_save_folders')
+    require(isinstance(folders, list) and all(isinstance(v, str) for v in folders)
+            and len(folders) == len(set(folders)) and set(folders) == expected_folders,
+            'Isolation boundary contains missing or unexpected saves')
+    require(isinstance(boundary.get('observation'), str) and bool(boundary['observation'].strip()),
+            'Missing isolation observation')
     launch = read(preparation.parent/'launch.json')
     require(Path(launch['executable']).resolve() == (game/'Baldur.exe').resolve(), 'Wrong launch executable')
     instant = datetime.fromisoformat(obs['captured_utc'].replace('Z', '+00:00'))
     started = datetime.fromisoformat(launch['started_utc'].replace('Z', '+00:00'))
+    isolated = datetime.fromisoformat(boundary['captured_utc'].replace('Z', '+00:00'))
     age = (datetime.now(timezone.utc)-instant).total_seconds()
     require(instant.tzinfo is not None and started <= instant and -30 <= age <= 600, 'Stale/future observation')
+    require(isolated.tzinfo is not None and started <= isolated <= instant, 'Stale/future isolation boundary')
     require(digest(game/'Baldur.exe') == prep['executable_sha256'] == launch['executable_sha256'], 'Executable drift')
     require(digest(game/'engine.lua') == prep['engine_lua_sha256'], 'Profile configuration drift')
     require(digest(game/'override'/(row['script']+'.bcs')) == row['script_sha256'], 'Script drift')
@@ -65,23 +74,29 @@ def finalize(preparation, observation, results):
     result = dict(schema='bg-redux-phase1-original-weapon-case/1', verdict='failed', directory=str(folder),
                   preparation=str(preparation.resolve()))
     try:
-        result['preparation_sha256'] = digest(preparation)
+        primary = {name: (path, digest(path)) for name, path in [
+            ('preparation.json', preparation), ('observation.json', observation),
+            ('launch.json', preparation.parent/'launch.json'),
+            ('load-boundary.json', preparation.parent/'load-boundary.json')]}
+        result['preparation_sha256'] = primary['preparation.json'][1]
         prep, obs, row, api, saved, values, boundary = validate(preparation, observation)
+        require(all(digest(path) == expected for path, expected in primary.values()),
+                'Receipt changed during validation')
         before = api.save_harness.manifest(saved)
         frozen = folder/'autosave'
         shutil.copytree(saved, frozen)
         require(api.save_harness.manifest(saved) == before == api.save_harness.manifest(frozen), 'Autosave changed while freezing')
         require(inspect_output(api, frozen/'BALDUR.gam', row) == values, 'Frozen observation differs')
-        for name, source in [('preparation.json', preparation), ('observation.json', observation),
-                             ('launch.json', preparation.parent/'launch.json'),
-                             ('load-boundary.json', preparation.parent/'load-boundary.json'),
-                             ('loaded.jpg', Path(obs['screenshot_path'])),
-                             ('selected.jpg', Path(obs['selected_screenshot_path'])),
-                             ('load-boundary.jpg', Path(boundary['screenshot_path'])),
-                             ('case.bcs', Path(prep['game'])/'override'/(row['script']+'.bcs'))]:
-            before_hash = digest(source)
+        ancillary = dict(primary)
+        ancillary.update({
+            'loaded.jpg': (Path(obs['screenshot_path']), obs['screenshot_sha256']),
+            'selected.jpg': (Path(obs['selected_screenshot_path']), obs['selected_screenshot_sha256']),
+            'load-boundary.jpg': (Path(boundary['screenshot_path']), boundary['screenshot_sha256']),
+            'case.bcs': (Path(prep['game'])/'override'/(row['script']+'.bcs'), row['script_sha256'])})
+        for name, (source, expected) in ancillary.items():
+            require(digest(source) == expected, 'Validated evidence changed before freezing: '+name)
             shutil.copy2(source, folder/name)
-            require(digest(source) == before_hash == digest(folder/name), 'Ancillary evidence changed while freezing: '+name)
+            require(digest(source) == expected == digest(folder/name), 'Ancillary evidence changed while freezing: '+name)
         result.update(verdict='original-case-observed', case_id=row['spec']['id'], number=row['number'],
                       nonce=prep['nonce'], executable_sha256=prep['executable_sha256'],
                       script_sha256=row['script_sha256'], input_files=row['fixture_files'],
