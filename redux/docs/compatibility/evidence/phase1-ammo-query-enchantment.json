@@ -1,0 +1,576 @@
+{
+  "schema": "bg-redux-phase1-ammo-query-defect/1",
+  "status": "source-corrected-awaiting-native-comparison",
+  "preparation": "C:\\BGRedux\\phase1-local\\results\\20261021T235241Z-weapon-oracle-ccf85085\\preparation.json",
+  "preparation_sha256": "b18bb391c451fb9ace9bdab3a43313c554f82cddf170af0751d95dd06ece1ce4",
+  "nonce": 690073517,
+  "references": [
+    {
+      "number": 9,
+      "case_id": "ammo-plus-pfmw",
+      "receipt": "C:\\BGRedux\\phase1-local\\results\\20261022T002825Z-original-weapon-case-1a3d9378\\result.json",
+      "receipt_sha256": "45bca82145ef9d9b1c9d56fac6ded488d4300548196eb922ba3e6bed743af9ad",
+      "input_files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+        },
+        "BALDUR.gam": {
+          "bytes": 77520,
+          "sha256": "140d8adcf38fd86ca890387315de5622ab2543e6b601aa20e29786b019fda3f7"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19443,
+          "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+        },
+        "save_000000033-GemRB.cloud.meta": {
+          "bytes": 10,
+          "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+        }
+      },
+      "script_sha256": "6f0924d9c4305bc108f96fcdf9d15a1a3c801bbed8817adb50af81c6f6a88cf5",
+      "values": {
+        "RDXE1": 0,
+        "RDXD1": 1,
+        "RDXE2": 0,
+        "RDXD2": 0,
+        "RDXE3": 0,
+        "RDXD3": 1
+      },
+      "autosave_files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "05442a140dacd35c4aac9a9ccdd85894f592b74ed77b902f2481c6e73ac79978"
+        },
+        "BALDUR.gam": {
+          "bytes": 70768,
+          "sha256": "3849340cddabd0811d8b8ccd8c72f783d7e11a3ed73a43f37c2ab1564a1f5f93"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19396,
+          "sha256": "de6444b21417bc8290321af4fb7af42ceb2476ad087e3ccb6bbd10f47da1589b"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "8baeb7b434ed6c513e8dbf0800d1a97a5e59a6fea4f1d9576e28490a1c70b87d"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "2fdc90d6b3bef384b31b22d4109345bda8dab4e758dc04bcfde198e9899d76ff"
+        }
+      },
+      "capture_artifact_count": 15
+    },
+    {
+      "number": 10,
+      "case_id": "ammo-plus-ench0",
+      "receipt": "C:\\BGRedux\\phase1-local\\results\\20261022T002602Z-original-weapon-case-93d7a40c\\result.json",
+      "receipt_sha256": "69ee6575e36e15193bece54de0efea528b76fdf92511316fb5ca44dc394a8964",
+      "input_files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+        },
+        "BALDUR.gam": {
+          "bytes": 77520,
+          "sha256": "f9d10ecc4433247f8eb67367efa65d97b9535276558b53b4623ee3bb72e1bebe"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19443,
+          "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+        },
+        "save_000000033-GemRB.cloud.meta": {
+          "bytes": 10,
+          "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+        }
+      },
+      "script_sha256": "ea4f7d8979920f4bf025d4cc27da125ddf4c0e8f1b4dd7eb720000f39556454f",
+      "values": {
+        "RDXE1": 1,
+        "RDXD1": 1,
+        "RDXE2": 0,
+        "RDXD2": 0,
+        "RDXE3": 1,
+        "RDXD3": 1
+      },
+      "autosave_files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "934e47944d98fc2b733a3f10a1744d07cfb9ae8e79ee553231b6779d560a974d"
+        },
+        "BALDUR.gam": {
+          "bytes": 70768,
+          "sha256": "e28d0b8e68f915eee2e366360ac38ff3f77006f72face4268ec3bfcc06de2e20"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19397,
+          "sha256": "3a9cef8e30b265324f202069bb0f95160f454236aa971576a43ea56e6533c4b5"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "859743f16dea6c78649cfd495b3117689416909ef0ad9703c303a483e89fcf93"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "e6f20a7f270b25f6e5d98ae12d6da670f578ac655df239a3a80c74bf76fee5d1"
+        }
+      },
+      "capture_artifact_count": 15
+    },
+    {
+      "number": 11,
+      "case_id": "ammo-plus-ench1",
+      "receipt": "C:\\BGRedux\\phase1-local\\results\\20261022T002651Z-original-weapon-case-dd6d3bc6\\result.json",
+      "receipt_sha256": "b24b24be244ad1274372b5d19182a8bd33e07f39c757e5e9a98ccc81c05c94bb",
+      "input_files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+        },
+        "BALDUR.gam": {
+          "bytes": 77520,
+          "sha256": "4bd6e2bce8706dd7a127e8516245bc98aba877f51037c13cda3b60c9cb81512b"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19443,
+          "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+        },
+        "save_000000033-GemRB.cloud.meta": {
+          "bytes": 10,
+          "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+        }
+      },
+      "script_sha256": "77fda8cb2403b3ab831d75d769c1f4702b5fa61caebac6d219bc9cb511b1d67e",
+      "values": {
+        "RDXE1": 0,
+        "RDXD1": 1,
+        "RDXE2": 0,
+        "RDXD2": 0,
+        "RDXE3": 0,
+        "RDXD3": 1
+      },
+      "autosave_files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "bce74afd469e47023fe075fc55678723836c4583763e45518a0e6b569283fd36"
+        },
+        "BALDUR.gam": {
+          "bytes": 70768,
+          "sha256": "7824918c666a39848825639553182694a45e1913533252ab75821aca61d2c98c"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19397,
+          "sha256": "82f069c25e9311d1badf900388d32624e2cbf58e0722195df322a3bcc67bddd8"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "8a42f028925adabd67108c65149cfe20f6c55e0fb55def96c7f75dd341b20d62"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "65160c3ea17cf8cc791572b80ba19a6af9652ecb04c5e4502c31b9c73bd3f89b"
+        }
+      },
+      "capture_artifact_count": 15
+    },
+    {
+      "number": 12,
+      "case_id": "ammo-plus-ench2",
+      "receipt": "C:\\BGRedux\\phase1-local\\results\\20261022T002735Z-original-weapon-case-4bffb304\\result.json",
+      "receipt_sha256": "a7f212c2a527f4a662e90d93edafdbe5efd35aaad628cc176688f81b0f849fd8",
+      "input_files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+        },
+        "BALDUR.gam": {
+          "bytes": 77520,
+          "sha256": "b4744dae13200d961064710d0ce882f3552c4d7c1049575a6e3ccd8ff4de5eff"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19443,
+          "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+        },
+        "save_000000033-GemRB.cloud.meta": {
+          "bytes": 10,
+          "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+        }
+      },
+      "script_sha256": "e6ec2d1ca9f5b89e18f9f022f22df066c2e6bfa3b68f44cec4f2e20144a3bde2",
+      "values": {
+        "RDXE1": 0,
+        "RDXD1": 1,
+        "RDXE2": 0,
+        "RDXD2": 0,
+        "RDXE3": 0,
+        "RDXD3": 1
+      },
+      "autosave_files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "f24af610f5d927b936a279db1ab6db6c0cc6f40c52918583ae57a81101d66b7f"
+        },
+        "BALDUR.gam": {
+          "bytes": 70768,
+          "sha256": "1fa02cba68bb8d9c9d17363cece4f3bcd1da7fe8310848524fe39c7b532e9372"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19397,
+          "sha256": "1aee128158b2ecd7d94b52ce8f58690a14a3271e3a5b5706cd9ef3629104b3c5"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "07a2d31c032842f8ea3f440d6928816ed76186e5b4d7fe69e9ecb1ef24119006"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "e2810ef8deb783472286f04722291440d2d002737f091fd2fb7c5ea9a22bc1e7"
+        }
+      },
+      "capture_artifact_count": 15
+    },
+    {
+      "number": 13,
+      "case_id": "bow-plus-pfmw",
+      "receipt": "C:\\BGRedux\\phase1-local\\results\\20261022T002927Z-original-weapon-case-7682657c\\result.json",
+      "receipt_sha256": "5cc1b091ce4907f7d7f9e01b0118df8dc58242d79a4e3d90b47cd09b84cacce3",
+      "input_files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+        },
+        "BALDUR.gam": {
+          "bytes": 77520,
+          "sha256": "b283f3212579bfae1ee24c4e6a82c8d881b82ae3966ef01f695fb1412af35c58"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19443,
+          "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+        },
+        "save_000000033-GemRB.cloud.meta": {
+          "bytes": 10,
+          "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+        }
+      },
+      "script_sha256": "35e81480319aa6b0e3bd2f64be8edea1c1b09408d4bf5783b9465cd06e7e868c",
+      "values": {
+        "RDXE1": 1,
+        "RDXD1": 1,
+        "RDXE2": 0,
+        "RDXD2": 0,
+        "RDXE3": 1,
+        "RDXD3": 1
+      },
+      "autosave_files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "c86266673fa63dbed04b66b80152da21b43c64621dc9757b9cd4b969cd2a4fd8"
+        },
+        "BALDUR.gam": {
+          "bytes": 70768,
+          "sha256": "3aba9b42486d2b5ead3efd09c86f3ec21853709ca968ee046664e9a1cc176e65"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19397,
+          "sha256": "e14d8e01948fe5d08fe958bd56e5288d642228637fdd9a52b925b89eddc85734"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+        }
+      },
+      "capture_artifact_count": 15
+    },
+    {
+      "number": 14,
+      "case_id": "bow-plus-ench0",
+      "receipt": "C:\\BGRedux\\phase1-local\\results\\20261022T002040Z-original-weapon-case-864f6f9f\\result.json",
+      "receipt_sha256": "88d5bc911ba623383c348d55cade8f1baa3f9759f60c599db284de5bd954d63f",
+      "input_files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+        },
+        "BALDUR.gam": {
+          "bytes": 77520,
+          "sha256": "07b73e389d661a0f65f09d0308f0fdb2793e0149c7b28c3c10b05b5491caea6c"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19443,
+          "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+        },
+        "save_000000033-GemRB.cloud.meta": {
+          "bytes": 10,
+          "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+        }
+      },
+      "script_sha256": "e54a92469a5d73a9bcc87fe14d2d300d3a3569f704b5fc819fdbcb047b8b1dac",
+      "values": {
+        "RDXE1": 0,
+        "RDXD1": 1,
+        "RDXE2": 0,
+        "RDXD2": 0,
+        "RDXE3": 0,
+        "RDXD3": 1
+      },
+      "autosave_files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "9de265c6c9b23eeafaba241c219642a8d5a6b86046fcac81550868f18b2da454"
+        },
+        "BALDUR.gam": {
+          "bytes": 70768,
+          "sha256": "ef6058d767dfbd7a87cacd469b57558ed68476359356203c5004b28300a8bec2"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19401,
+          "sha256": "ac64354d391e724dfe348bd63f822585260226f02914716b38494797d689956a"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+        }
+      },
+      "capture_artifact_count": 15
+    },
+    {
+      "number": 15,
+      "case_id": "bow-plus-ench1",
+      "receipt": "C:\\BGRedux\\phase1-local\\results\\20261022T003114Z-original-weapon-case-b65efd18\\result.json",
+      "receipt_sha256": "6aa579b791b0576ea99a1647d6dcac9aa68f6ba7fe042124cb19a8abb1e6ca47",
+      "input_files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+        },
+        "BALDUR.gam": {
+          "bytes": 77520,
+          "sha256": "61869ad7f8af64e89c22bdf113d066678dc08606afd8923808c77471e6bd14bf"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19443,
+          "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+        },
+        "save_000000033-GemRB.cloud.meta": {
+          "bytes": 10,
+          "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+        }
+      },
+      "script_sha256": "bfd35ad97991e99db10a4a51d271f23dfd2ec6f6c793e905ab4d25a9028903ad",
+      "values": {
+        "RDXE1": 0,
+        "RDXD1": 1,
+        "RDXE2": 0,
+        "RDXD2": 0,
+        "RDXE3": 0,
+        "RDXD3": 1
+      },
+      "autosave_files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "8914bc41fd852054eb5c80ab97fef18a9e78cdb302b62342d853654fa34756cb"
+        },
+        "BALDUR.gam": {
+          "bytes": 70768,
+          "sha256": "aa7bb1d37a520cb8174a50a1919f1d7f658dddf33472af66021b385f50d7dfef"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19398,
+          "sha256": "8463b3fa0711e69de4b4efee58881164d928420b40a935bf85635d30ec4b69d2"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+        }
+      },
+      "capture_artifact_count": 15
+    },
+    {
+      "number": 16,
+      "case_id": "bow-plus-ench2",
+      "receipt": "C:\\BGRedux\\phase1-local\\results\\20261022T003206Z-original-weapon-case-cb88a641\\result.json",
+      "receipt_sha256": "fa546e17433c19cb801ca39ee2be4926a7e59d301fb9a7806da546ed97d3793e",
+      "input_files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+        },
+        "BALDUR.gam": {
+          "bytes": 77520,
+          "sha256": "543790415bd805466a5dd766236f040b7575fb8406037bb5daf5807fec3f9e51"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19443,
+          "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+        },
+        "save_000000033-GemRB.cloud.meta": {
+          "bytes": 10,
+          "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+        }
+      },
+      "script_sha256": "a359656bbbcc73f1f3780b0b84a612c68efea22c6d45767b3918b774e8b8a37f",
+      "values": {
+        "RDXE1": 0,
+        "RDXD1": 1,
+        "RDXE2": 0,
+        "RDXD2": 0,
+        "RDXE3": 0,
+        "RDXD3": 1
+      },
+      "autosave_files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "77963a3155c70ce71dcf63f1b988f31774cffded046d4c9d3e5927ae5650feff"
+        },
+        "BALDUR.gam": {
+          "bytes": 70768,
+          "sha256": "a50eb9e10b35f54c2750bfa2589552a31eecf2f16b3469c47a80b839564e870e"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19403,
+          "sha256": "cbbbdd3a0b4740c1eccc5b73862ff94f9e1cea4ea76455cebb14c2021be5d05e"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+        }
+      },
+      "capture_artifact_count": 15
+    }
+  ],
+  "item_metadata": {
+    "bow01": {
+      "origin": "data\\Items.bif",
+      "sha256": "e1c6ea78523c39e961341400d94680bdb9e57c3279be32e9ef9f9831dac0ae2a",
+      "enchantment": 0,
+      "flags": 174,
+      "abilities": [
+        {
+          "index": 0,
+          "attack_type": 4,
+          "damage_type": 4
+        }
+      ]
+    },
+    "bow02": {
+      "origin": "data\\Items.bif",
+      "sha256": "b8256227996de902213d7b12d6769187d6dcae572a4e6d93fb4ae3a0c9ff6655",
+      "enchantment": 1,
+      "flags": 238,
+      "abilities": [
+        {
+          "index": 0,
+          "attack_type": 4,
+          "damage_type": 4
+        }
+      ]
+    },
+    "arow01": {
+      "origin": "data\\Items.bif",
+      "sha256": "52209dceddf99fec75e20a694b42906fa3f9ea74c6cacad5d62d33eff22f9d91",
+      "enchantment": 0,
+      "flags": 44,
+      "abilities": [
+        {
+          "index": 0,
+          "attack_type": 2,
+          "damage_type": 4
+        }
+      ]
+    },
+    "arow02": {
+      "origin": "data\\Items.bif",
+      "sha256": "a37ae5d64a2b6e3efdc4d67fcd6de29f465ddbd22412fa46762b90b3e3791a0d",
+      "enchantment": 1,
+      "flags": 108,
+      "abilities": [
+        {
+          "index": 0,
+          "attack_type": 2,
+          "damage_type": 4
+        }
+      ]
+    }
+  },
+  "scope": "Read-only frozen original receipt verification and query-only source correction; not native candidate or combat parity."
+}

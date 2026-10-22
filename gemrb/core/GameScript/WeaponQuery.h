@@ -18,6 +18,18 @@ bool ForSelectedHand(int hand, Predicate&& predicate)
 	return ((hand & 1) && predicate(false)) || ((hand & 2) && predicate(true));
 }
 
+// Combat's ranged cache may combine launcher/ammunition enchantments. The EE
+// query instead starts with the selected ammunition's own enchantment. Project
+// a value copy so the combat cache, selected header and ammunition flags stay
+// intact; subsequent enchantment effects inspect the same projected value.
+template<class Weapon>
+Weapon ForImmunity(const Weapon& equipped)
+{
+	auto query = equipped;
+	if (query.item) query.enchantment = query.item->Enchantment;
+	return query;
+}
+
 // This query tests resistance, not rolled damage, skins, images or weapon
 // immunity. In particular, protection from magical weapons must not make
 // WeaponCanDamage false (measured BG2EE +1 sword fixture: 0 / 1).

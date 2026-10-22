@@ -9616,8 +9616,11 @@ bool Actor::WeaponEffectiveVs(const Actor* target, bool offHand) const
 
 	// Read the already selected weapon/ammunition and ability. Do not call
 	// GetCombatDetails/ModifyWeaponDamage: they change combat state and can roll.
-	const ieDword enchantment = AdjustEnchantment(this, target, wi, offHand);
-	return !target->fxqueue.WeaponImmunity(enchantment, wi.itemflags);
+	// Queries use ammunition's own enchantment/flags, not the combat cache's
+	// maximum of launcher and ammunition enchantment (paired BG2EE fixtures).
+	const WeaponInfo queryWeapon = WeaponQuery::ForImmunity(wi);
+	const ieDword enchantment = AdjustEnchantment(this, target, queryWeapon, offHand);
+	return !target->fxqueue.WeaponImmunity(enchantment, queryWeapon.itemflags);
 }
 
 bool Actor::WeaponCanDamage(const Actor* target, bool offHand) const

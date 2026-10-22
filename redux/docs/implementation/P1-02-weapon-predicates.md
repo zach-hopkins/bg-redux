@@ -48,10 +48,14 @@ existing combat call uses the attacker for conversion. That existing combat
 behavior is unchanged, and compound-query policy needs its own original oracle.
 
 The existing weapon cache, rather than new inventory selection, supplies
-launcher/ammunition data. That cache currently takes maximum launcher/ammo
-enchantment. This inherited behavior is source-grounded but **not yet verified
-as the original query's launcher/ammo policy**. Hand-specific opcode344/345
-adjustments are reused; their complete original-query behavior is unverified.
+launcher/ammunition data. Its combat enchantment remains the maximum of
+launcher/ammunition. Later original cases9–16 show that EffectiveVs must use
+the selected ammunition's own enchantment/flags. The query now projects a
+value copy with the item's own enchantment before applying existing modifiers;
+the combat cache and combat caller remain unchanged. See the
+[ammo boundary defect record](../compatibility/phase1-ammo-query-enchantment.md).
+Hand-specific opcode344/345 adjustments are reused; their complete
+original-query behavior remains unverified.
 
 No query calls `GetCombatDetails`, `ModifyWeaponDamage`, `ModifyDamage`,
 attack execution, RNG, inventory selection, stat setters or effect application.

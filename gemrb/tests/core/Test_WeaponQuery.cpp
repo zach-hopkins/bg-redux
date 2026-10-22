@@ -3,6 +3,8 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "../../core/GameScript/WeaponQuery.h"
+#include "../../core/Item.h"
+#include "../../core/Scriptable/Actor.h"
 
 #include <gtest/gtest.h>
 
@@ -50,6 +52,42 @@ TEST(WeaponQueryTest, PercentageResistanceBoundaryAndSusceptibility)
 	}
 	for (int resistance : { 100, 101, 200 }) {
 		EXPECT_FALSE(WeaponQuery::ResistanceAllowsDamage(resistance));
+	}
+}
+
+TEST(WeaponQueryTest, SelectedAmmunitionOwnEnchantmentAndFlagsPreserveCombatCache)
+{
+	// Both measured launcher/ammo pairs have cached combat enchantment1.
+	// Only the selected ammunition determines the query's starting enchantment
+	// and magical flag: normal ammo/+1 bow differs from +1 ammo/normal bow.
+	for (ieDword ammoEnchantment : { 0U, 1U }) {
+		Item ammunition;
+		ammunition.Enchantment = ammoEnchantment;
+		ammunition.Flags = 44U | (ammoEnchantment ? IE_ITEM_MAGICAL : 0U);
+		ITMExtHeader header;
+		header.AttackType = ITEM_AT_PROJECTILE;
+		header.Location = ITEM_LOC_WEAPON;
+		header.DamageType = 4;
+		WeaponInfo combat;
+		combat.item = &ammunition;
+		combat.extHeader = &header;
+		combat.slot = 11;
+		combat.enchantment = 1;
+		combat.itemflags = (ammunition.Flags << 8) | IE_INV_ITEM_IDENTIFIED | IE_INV_ITEM_EQUIPPED;
+		combat.wflags = WEAPON_RANGED;
+		combat.launcherDmgBonus = 3;
+
+		const auto query = WeaponQuery::ForImmunity(combat);
+		EXPECT_EQ(query.enchantment, ammoEnchantment);
+		EXPECT_EQ(query.itemflags, combat.itemflags);
+		EXPECT_EQ(bool(query.itemflags & IE_INV_ITEM_MAGICAL), bool(ammoEnchantment));
+		EXPECT_EQ(query.item, &ammunition);
+		EXPECT_EQ(query.extHeader, &header);
+		EXPECT_EQ(query.slot, 11);
+		EXPECT_EQ(query.wflags, WEAPON_RANGED);
+		EXPECT_EQ(query.launcherDmgBonus, 3);
+		EXPECT_EQ(combat.enchantment, 1U);
+		EXPECT_EQ(ammunition.Enchantment, ammoEnchantment);
 	}
 }
 
