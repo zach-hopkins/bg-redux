@@ -75,6 +75,7 @@ class InnRestRuntimeContracts(unittest.TestCase):
             module=self.runtime(root)
             with self.assertRaises(RuntimeError):module.after_rest()
             module.REST_CALLS.append(dict(result=dict(Error=False,Cutscene=False)))
+            self.visible.add(('GUISTORE',3))
             module.after_rest();module.close_after_rest();self.assertEqual(module.ROWS[-1]['event'],'request')
             self.visible.clear()
             with self.assertRaises(RuntimeError):module.after_rest()
