@@ -7,17 +7,27 @@ import argparse
 import json
 import ntpath
 from pathlib import Path
+import importlib.util
+import hashlib
+
+_spec = importlib.util.spec_from_file_location('font_private_game', Path(__file__).with_name('private_game.py'))
+private_game = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(private_game)
 
 
 def normalize(path):
     return ntpath.normcase(ntpath.normpath(path))
 
 
-def validate(report, expected):
+def validate(report, expected, wrapper=None):
     if report.get('schema') != 'bg-redux-fonts/2':
         raise ValueError('Unknown or missing font provenance schema')
     if expected.get('schema') != 'bg-redux-font-metrics/1' or not expected.get('game'):
         raise ValueError('Missing trusted metric fixture')
+    if wrapper is not None:
+        private_game.validate(wrapper)
+        if normalize(wrapper['source']) != normalize(expected['game']):
+            raise ValueError('Private game mapping targets a different trusted fixture')
     actual, candidates = {}, {}
     for row in report.get('fonts', []):
         role = row.get('name')
@@ -55,6 +65,17 @@ def validate(report, expected):
         if not origin or type(length) is not int or length <= 0:
             raise ValueError(role + ': incomplete candidate origin/length')
         expected_path = ntpath.join(expected['game'], origin)
+        if wrapper is not None:
+            parts = origin.replace('\\', '/').split('/')
+            if any(part in ('', '.', '..') for part in parts) or ntpath.isabs(origin):
+                raise ValueError(role + ': unsafe candidate origin')
+            if len(parts) > 1:
+                target = wrapper['asset_links'].get(parts[0])
+                if not target or normalize(target) != normalize(ntpath.join(expected['game'], parts[0])):
+                    raise ValueError(role + ': candidate is not in a receipt-bound asset link')
+            elif parts[0] not in wrapper['copied_root_sha256']:
+                raise ValueError(role + ': candidate is not an unchanged copied root input')
+            expected_path = ntpath.join(wrapper['game'], origin)
         actual_path = source.get('original_file')
         if (not isinstance(actual_path, str) or not ntpath.isabs(actual_path)
                 or normalize(actual_path) != normalize(expected_path)):
@@ -97,6 +118,7 @@ def validate(report, expected):
                             actual_resource_sha256_observed=False))
     return dict(schema='bg-redux-font-provenance-validation/1', fonts=results,
                 all_import_metadata_bound=True, resource_bytes_identity_proven=False,
+                private_game_mapping_validated=wrapper is not None,
                 requested_style_fidelity_proven=False, original_ee_pixel_fidelity=False)
 
 
@@ -105,9 +127,14 @@ def main():
     parser.add_argument('--fonts', type=Path, required=True)
     parser.add_argument('--expected', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--private-game', type=Path)
     args = parser.parse_args()
     result = validate(json.loads(args.fonts.read_text(encoding='utf-8')),
-                      json.loads(args.expected.read_text(encoding='utf-8')))
+                      json.loads(args.expected.read_text(encoding='utf-8')),
+                      json.loads(args.private_game.read_text(encoding='utf-8')) if args.private_game else None)
+    if args.private_game:
+        result['private_game_receipt'] = dict(path=str(args.private_game.resolve()),
+            sha256=hashlib.sha256(args.private_game.read_bytes()).hexdigest())
     with args.output.open('x', encoding='utf-8') as stream:
         json.dump(result, stream, indent=2)
         stream.write('\n')

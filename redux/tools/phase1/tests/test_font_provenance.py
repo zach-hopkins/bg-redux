@@ -2,6 +2,7 @@ import copy
 import importlib.util
 from pathlib import Path
 import unittest
+from unittest.mock import patch
 
 spec = importlib.util.spec_from_file_location('font_provenance_test', Path(__file__).resolve().parents[1] / 'font_provenance.py')
 adapter = importlib.util.module_from_spec(spec)
@@ -126,6 +127,24 @@ class ImportedFontEvidenceTests(unittest.TestCase):
         self.source()['resource_hash_observed'] = True
         with self.assertRaisesRegex(ValueError, 'resource-hash claim'):
             adapter.validate(self.report, self.expected)
+
+    def test_only_validated_receipt_bound_wrapper_links_can_map_provider(self):
+        wrapper = dict(source=r'C:\Fixture', game=r'C:\Run\game',
+                       asset_links={'data': r'C:\Fixture\data'}, copied_root_sha256={})
+        for row in self.report['fonts']:
+            row['import_provenance']['original_file'] = row['import_provenance']['original_file'].replace(r'C:\Fixture', r'C:\Run\game')
+        with self.assertRaisesRegex(ValueError, 'source path'):
+            adapter.validate(self.report, self.expected)
+        with patch.object(adapter.private_game, 'validate', return_value={}) as guard:
+            result = adapter.validate(self.report, self.expected, wrapper)
+            self.assertTrue(result['private_game_mapping_validated'])
+            guard.assert_called_once_with(wrapper)
+            wrapper['asset_links']['data'] = r'C:\Other\data'
+            with self.assertRaisesRegex(ValueError, 'receipt-bound asset link'):
+                adapter.validate(self.report, self.expected, wrapper)
+        with patch.object(adapter.private_game, 'validate', side_effect=ValueError('asset link changed')):
+            with self.assertRaisesRegex(ValueError, 'asset link changed'):
+                adapter.validate(self.report, self.expected, wrapper)
 
 
 if __name__ == '__main__':
