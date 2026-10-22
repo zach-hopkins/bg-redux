@@ -21,13 +21,29 @@ SCOPE='Actor UseContainer plus shipped GUI callback dispatch; no OS pointer inpu
 
 def sources(project,source):
     tool=Path(__file__).resolve().parent
-    return common.sources(project)+[Path(__file__),tool/'native/loot_gui_probe_snapshot.cpp',tool/'native/loot_save_probe_snapshot.cpp',tool/'native/loot_journey.h']+[source/p for p in ['gemrb/GUIScripts/Container.py','gemrb/GUIScripts/GUICommon.py','gemrb/core/GUI/GameControl.cpp','gemrb/core/GameScript/Actions.cpp','gemrb/core/Scriptable/Actor.cpp','gemrb/core/Inventory.h','gemrb/plugins/GUIScript/GUIScript.cpp']]
+    return common.sources(project)+[Path(__file__),tool/'native/loot_gui_probe_snapshot.cpp',tool/'native/loot_save_probe_snapshot.cpp',tool/'native/loot_journey.h']+[source/p for p in ['gemrb/GUIScripts/Container.py','gemrb/GUIScripts/GUICommon.py','gemrb/core/GUI/GameControl.cpp','gemrb/core/GameScript/Actions.cpp','gemrb/core/GameScript/GameScript.cpp','gemrb/core/Scriptable/Scriptable.cpp','gemrb/core/Interface.cpp','gemrb/core/Scriptable/Actor.cpp','gemrb/core/Inventory.h','gemrb/plugins/GUIScript/GUIScript.cpp']]
+
+def startup_resources(api):
+    api.probe_ui_resources.TYPES['bcs']=0x3ef
+    result={}
+    for name in ('ar0602','bddefai','dplayer3'):
+        raw,origin=api.probe_ui_resources.read_resource(name,'bcs')
+        if raw is None or not raw.startswith(b'SC') or len(raw)>1024*1024:raise ValueError('Startup script resource missing/invalid: '+name)
+        result[name]=dict(raw=raw,origin=origin,sha256=binary.digest(raw),bytes=len(raw))
+    return result
+
+def check_resources(receipt,api):
+    actual=startup_resources(api)
+    if set(receipt.get('startup_resources',{}))!=set(actual):raise ValueError('Startup resource closure differs')
+    for name,row in receipt['startup_resources'].items():
+        expected=actual[name]
+        if any(row.get(k)!=expected[k] for k in ('origin','sha256','bytes')) or evidence.sha(row['frozen'])!=row['sha256']:raise ValueError('Startup script resource/frozen drift: '+name)
 
 def instrument(raw):
     changes=[(b'#include "save_probe.cpp"',b'#include "loot_save_probe_snapshot.cpp"'),
       (b'static Window* WindowIn',b'#include "loot_journey.h"\n\nstatic Window* WindowIn'),
       (b'    const int runningSamples=',b'    if (args["--mode"]!="live-clock" || (args["--journey"]!="take" && args["--journey"]!="reload")) return 64;\n    const int runningSamples='),
-      (b'                    const int endRunning=4+runningSamples;',b'                    const int endRunning=4+runningSamples;\n                    LootTick(out,index);'),
+      (b'                    const int endRunning=4+runningSamples;',b'                    const int endRunning=4+runningSamples;\n                    LootTick(out,index,endRunning);'),
       (b'                        Write(out+"/clock-after.state.json",Snapshot(core->GetGame()));',b'                        Write(out+"/clock-after.state.json",Snapshot(core->GetGame()));\n                        LootFinish(out);'),
       (b'                        clockStart=GetMilliseconds();sampleClock(0,"paused-initial");',b'                        LootStart(out,args["--journey"]=="reload");\n                        clockStart=GetMilliseconds();sampleClock(0,"paused-initial");')]
     for old,new in changes:
@@ -55,6 +71,11 @@ def build_host(args):
         for copy,origin in [('loot_gui_probe_snapshot.cpp','gui_probe.cpp'),('loot_save_probe_snapshot.cpp','save_probe.cpp')]:
             if evidence.sha(tool/'native'/copy)!=evidence.sha(project/'tools/phase0/native'/origin):raise ValueError('Loot frozen host/serializer differs from Phase0')
         result['sources']={str(p):shared.frozen_copy(p,out/'sources'/evidence.sha(p)/p.name) for p in sources(project,source)}
+        result['startup_resources']={}
+        resource_out=out/'startup-resources';resource_out.mkdir()
+        for name,row in startup_resources(api).items():
+            target=resource_out/(name+'.bcs');target.write_bytes(row['raw'])
+            result['startup_resources'][name]={k:v for k,v in row.items() if k!='raw'}|dict(frozen=str(target))
         compiled=out/'compiled-sources';compiled.mkdir();generated=compiled/'loot_gui_probe.cpp'
         generated.write_bytes(instrument((tool/'native/loot_gui_probe_snapshot.cpp').read_bytes()))
         for name in ('loot_save_probe_snapshot.cpp','loot_journey.h'):shared.frozen_copy(tool/'native'/name,compiled/name)
@@ -67,9 +88,12 @@ def build_host(args):
         result['process']=api.baseline_runner.execute(command,build,env,out/'build.log',args.timeout);shared.require_process(result['process'])
         result.update(binary=str(host),binary_sha256=evidence.sha(host),compiler=str(compiler),compiler_sha256=evidence.sha(compiler),candidate_inventory=candidate,command=command,verdict='built-not-executed')
         check_sources(result,project,source)
+        check_resources(result,api)
     except Exception as error:result['error']=str(error);result['verdict']='failed'
     finally:
-        try:common.finish_guards(result,out,project,source,build,api,before,candidate)
+        try:
+            if result.get('startup_resources'):check_resources(result,api)
+            common.finish_guards(result,out,project,source,build,api,before,candidate)
         except Exception as error:result.update(verdict='failed',preservation_error=str(error))
         shared.write(out/'build.json',result);shared.write(out/'artifact-manifest.json',dict(files=common.output_manifest(out)))
     print(out/'build.json',result['verdict'],flush=True)
@@ -84,6 +108,7 @@ def check_build(path,project,source,build):
     if shared.candidate_inventory(source,build)!=receipt['candidate_inventory']:raise ValueError('Loot build candidate mismatch')
     compiled=Path(path).parent/'compiled-sources'
     if evidence.manifest(compiled)!=receipt['compiled_sources'] or (compiled/'loot_gui_probe.cpp').read_bytes()!=instrument((Path(__file__).parent/'native/loot_gui_probe_snapshot.cpp').read_bytes()):raise ValueError('Loot compiled source drift')
+    check_resources(receipt,shared.phase0(project))
     return receipt
 
 def container_wire(sav):
@@ -140,9 +165,55 @@ def outcome(before,after,reload=False):
     if any(x['resref'].upper()=='SW1H04' for x in ca) or sum(x['resref'].upper()=='SW1H04' for x in pa)!=1:raise ValueError('Final item ownership differs')
     return dict(container_before=len(cb),container_after=len(ca),pc_before=len(pb),pc_after=len(pa),item='SW1H04',acquired_flag_mask_only='0x10',flags_scope='Raw flags retained; only source-grounded transient acquired bit is masked within transfer/reload comparisons.')
 
+def readiness_conservation(initial,command):
+    for key in ('container','container_script_name','container_runtime_id','position','type','flags','trapped','pc_runtime_id'):
+        if initial.get(key)!=command.get(key):raise ValueError('Natural readiness changed guarded identity/target: '+key)
+    if inventory(raw_items(initial['container_inventory']))!=inventory(raw_items(command['container_inventory'])) or inventory(actual_items(initial['pc_inventory']))!=inventory(actual_items(command['pc_inventory'])):raise ValueError('Natural readiness changed declared inventories')
+    first=sorted(command['container_inventory']['items'],key=lambda x:x['slot'])
+    if not first or first[0]['slot']!=0 or first[0]['resref'].upper()!='SW1H04':raise ValueError('Command-before first item differs')
+
+def diagnostic_eligible(context,leader,target):
+    if not isinstance(context,dict):raise ValueError('Missing readiness diagnostic context')
+    for key in ('pc_runtime_id','target_container_runtime_id','selected_runtime_id','current_container_runtime_id','current_action_id','next_action_id','bd_defai','bdai_reset_timers'):
+        value=context.get(key)
+        if key not in context or (value is not None and (type(value)is not int or value<0)):raise ValueError('Malformed/missing readiness diagnostic: '+key)
+    if context['pc_runtime_id']!=leader or context['target_container_runtime_id']!=target:raise ValueError('Readiness diagnostic actor/target differs')
+    if type(context.get('in_move'))is not bool or type(context.get('party_ai_enabled'))is not bool or type(context.get('control_status'))is not int or context['party_ai_enabled']!=bool(context['control_status']&1):raise ValueError('Readiness movement/party AI diagnostic differs')
+    if type(context.get('game_time'))is not int or type(context.get('dialogue_flags'))is not int or not isinstance(context.get('position'),list) or len(context['position'])!=2 or any(type(v)is not int for v in context['position']):raise ValueError('Readiness time/position/flags diagnostic differs')
+    scripts=context.get('scripts')
+    if not isinstance(scripts,list) or len(scripts)!=8 or any(not isinstance(s,str) or len(s)>8 for s in scripts):raise ValueError('Actual script slots absent from readiness diagnostic')
+    windows=context.get('windows')
+    if not isinstance(windows,list) or any(w.get('pack')not in ('GUIW10','GUIW08','GUIW') or type(w.get('id'))is not int or w['id']!=8 or type(w.get('visible'))is not bool or type(w.get('disabled'))is not bool for w in windows):raise ValueError('Window visibility diagnostics malformed')
+    return context['bd_defai']==1 and scripts[4].casefold()=='bddefai' and context['current_action_id']is None and context['next_action_id']is None and not context['in_move'] and context['selected_runtime_id']==leader and context['current_container_runtime_id']is None
+
+def validate_diagnostics(data,running,reload,native,initial,action_id):
+    rows=data.get('samples',[])
+    if data.get('schema')!='bg-redux-loot-diagnostics/1' or len(rows)!=running+9:raise ValueError('Missing/incomplete readiness diagnostics')
+    leader,target=initial['pc_runtime_id'],initial['container_runtime_id'];streak=count=0;command=-1
+    for index,row in enumerate(rows):
+        if type(row.get('sample'))is not int or row['sample']!=index or row.get('complete')is not True or type(row.get('running'))is not bool or row['running']!=(4<index<=4+running):raise ValueError('Readiness diagnostic coverage/phase differs')
+        before,after=row.get('before',{}),row.get('after',{})
+        eligible=diagnostic_eligible(before,leader,target);diagnostic_eligible(after,leader,target)
+        if type(row.get('eligible'))is not bool or row['eligible']!=eligible:raise ValueError('Readiness eligibility contradicts raw diagnostics')
+        if not reload and count==0:streak=streak+1 if row['running'] and eligible else 0
+        issued=not reload and count==0 and row['running'] and streak==4
+        if type(row.get('readiness_streak'))is not int or row['readiness_streak']!=streak or type(row.get('command_issued'))is not bool or row['command_issued']!=issued:raise ValueError('Early/late/duplicate command or false readiness streak')
+        if type(row.get('command_count_before'))is not int or row['command_count_before']!=count:raise ValueError('Command count continuity differs')
+        if issued:
+            command=index;count+=1
+            if action_id not in (after['current_action_id'],after['next_action_id']) or after['current_container_runtime_id']!=target:raise ValueError('One ordinary command was not observed in actual actor queue/target')
+        if type(row.get('command_count_after'))is not int or row['command_count_after']!=count:raise ValueError('Duplicate/missing command count')
+    if count!=(0 if reload else 1) or type(native.get('command_count'))is not int or native['command_count']!=count or type(native.get('command_sample'))is not int or native['command_sample']!=command:raise ValueError('Readiness/one-command completion missing')
+    callback=native.get('callback_sample')
+    if type(callback)is not int or (reload and callback!=-1) or (not reload and not command<callback<=4+running):raise ValueError('Actual callback boundary differs')
+    if not reload:
+        opened=rows[callback]['before']
+        if opened['current_container_runtime_id']!=target or opened['selected_runtime_id']!=leader or not opened['dialogue_flags']&32 or not any(w['visible'] and not w['disabled'] for w in opened['windows']):raise ValueError('Normal container-open/selection/window evidence absent')
+    return dict(command_sample=command,callback_sample=callback,command_count=count,diagnostic_samples=len(rows),required_consecutive_ready_samples=4)
+
 def validate_capture(folder,running,reload,action_id,started_ns=None):
-    folder=Path(folder);names=['clock-before.state.json','clock-after.state.json','clock-samples.json','gui-result.json','loot-before.json','loot-after.json','loot-before-save.state.json','loot-after-save.state.json','loot-result.json']
-    if not reload:names+=['loot-open.json','loot-after-take.json']
+    folder=Path(folder);names=['clock-before.state.json','clock-after.state.json','clock-samples.json','gui-result.json','loot-before.json','loot-before.state.json','loot-after.json','loot-before-save.state.json','loot-after-save.state.json','loot-result.json','loot-diagnostics.json']
+    if not reload:names+=['loot-open.json','loot-after-take.json','loot-command-before.json','loot-command-before.state.json']
     data={n:evidence.read(folder/n) for n in names}
     if started_ns is not None and any((folder/n).stat().st_mtime_ns<started_ns for n in names):raise ValueError('Stale loot evidence')
     for n in ['clock-before.state.json','clock-after.state.json','loot-before-save.state.json','loot-after-save.state.json']:evidence.require_state(data[n])
@@ -161,25 +232,44 @@ def validate_capture(folder,running,reload,action_id,started_ns=None):
     native=data['loot-result.json']
     if native.get('schema')!='bg-redux-container-loot-native/1' or native.get('completed')is not True or native.get('reload')is not reload or native.get('os_pointer_input')is not False or type(native.get('save_return_code'))is not int or native['save_return_code']!=0 or native.get('forced')is not False or len(native.get('directories',[]))!=1:raise ValueError('Loot completion/save guard differs')
     if native.get('action_id')!=(-1 if reload else action_id) or native.get('callback')!=('none' if reload else 'Container.TakeItemContainer') or native.get('close_callback')!=('none' if reload else 'Container.LeaveContainer') or native.get('ui_left_index')!=(None if reload else 0):raise ValueError('Stock action/callback dispatch evidence differs')
-    observed=outcome(data['loot-before.json'],data['loot-after.json'],reload)
+    if data['loot-before.state.json']!=data['clock-before.state.json']:raise ValueError('Initial load/clock snapshot continuity differs')
+    readiness=validate_diagnostics(data['loot-diagnostics.json'],running,reload,native,data['loot-before.json'],action_id)
+    for context,state in [(data['loot-diagnostics.json']['samples'][0]['before'],data['clock-before.state.json']),(data['loot-diagnostics.json']['samples'][-1]['after'],data['clock-after.state.json'])]:
+        globals_={k.casefold():v for k,v in state['globals'].items()}
+        if context['game_time']!=state['game_time'] or context['position']!=state['party'][0]['position'] or any(context[k]!=globals_.get(k) for k in ('bd_defai','bdai_reset_timers')):raise ValueError('Initial/final diagnostics contradict clock state')
+    command=data['loot-before.json'] if reload else data['loot-command-before.json']
+    if not reload:
+        evidence.require_state(data['loot-command-before.state.json']);readiness_conservation(data['loot-before.json'],command)
+        context=data['loot-diagnostics.json']['samples'][readiness['command_sample']]['before'];state=data['loot-command-before.state.json'];globals_={k.casefold():v for k,v in state['globals'].items()}
+        if state['current_area'].upper()!='AR0602' or len(state['party'])!=2 or state['selection']!=1:raise ValueError('Command-before selected leader/area state differs')
+        if context['game_time']!=command['game_time'] or context['position']!=command['pc_position'] or state['game_time']!=context['game_time'] or globals_.get('bd_defai')!=context['bd_defai'] or globals_.get('bdai_reset_timers')!=context['bdai_reset_timers']:raise ValueError('Command snapshot/raw readiness diagnostic differs')
+    observed=outcome(command,data['loot-after.json'],reload)
     leader_id=data['loot-before.json']['pc_runtime_id'];trace=[]
     for sample in samples:
         matching=[a for a in sample.get('action_trace',[]) if a.get('runtime_id')==leader_id]
         if len(matching)!=1:raise ValueError('Sampled leader action/position trace absent/ambiguous')
         if (matching[0].get('action_id')is not None and type(matching[0]['action_id'])is not int) or not isinstance(matching[0].get('position'),list) or len(matching[0]['position'])!=2 or any(type(v)is not int for v in matching[0]['position']):raise ValueError('Sampled action/position trace malformed')
+        context=data['loot-diagnostics.json']['samples'][sample['sample']]['after']
+        if context['game_time']!=sample['game_time'] or context['position']!=matching[0]['position'] or context['current_action_id']!=matching[0]['action_id']:raise ValueError('Sampled movement/action contradicts raw diagnostic context')
         trace.append(matching[0])
-    if not reload and (not any(t.get('position')!=data['loot-before.json']['pc_position'] for t in trace) or data['loot-before.json']['pc_position']==data['loot-after.json']['pc_position']):raise ValueError('Ordinary approach movement was not observed')
+    if not reload and (not any(t.get('position')!=command['pc_position'] for t in trace[readiness['command_sample']+1:]) or command['pc_position']==data['loot-after.json']['pc_position']):raise ValueError('Ordinary approach movement was not observed')
     if not reload:
         outcome(data['loot-open.json'],data['loot-after-take.json'])
-        if inventory(data['loot-before.json']['container_inventory']['items'])!=inventory(data['loot-open.json']['container_inventory']['items']):raise ValueError('Container changed before callback')
-        if inventory(actual_items(data['loot-before.json']['pc_inventory']))!=inventory(actual_items(data['loot-open.json']['pc_inventory'])):raise ValueError('Destination changed before callback')
+        callback=data['loot-diagnostics.json']['samples'][readiness['callback_sample']]
+        for name,context in [('loot-open.json',callback['before']),('loot-after-take.json',callback['after'])]:
+            focus=data[name]
+            if focus['pc_runtime_id']!=context['pc_runtime_id'] or focus['container_runtime_id']!=context['target_container_runtime_id'] or focus['pc_position']!=context['position'] or focus['game_time']!=context['game_time']:raise ValueError('Callback focused/raw diagnostic boundary differs')
+        if inventory(command['container_inventory']['items'])!=inventory(data['loot-open.json']['container_inventory']['items']):raise ValueError('Container changed before callback')
+        if inventory(actual_items(command['pc_inventory']))!=inventory(actual_items(data['loot-open.json']['pc_inventory'])):raise ValueError('Destination changed before callback')
     if data['clock-after.state.json']!=data['loot-before-save.state.json']:raise ValueError('Loot clock/save snapshot continuity differs')
     differences=evidence.diff(data['loot-before-save.state.json'],data['loot-after-save.state.json'])
     if differences:raise ValueError('Ordinary save changed captured state')
-    for name,state in [('loot-before.json',data['clock-before.state.json']),('loot-after.json',data['clock-after.state.json'])]:
+    pairs=[('loot-before.json',data['clock-before.state.json']),('loot-after.json',data['clock-after.state.json'])]
+    if not reload:pairs.append(('loot-command-before.json',data['loot-command-before.state.json']))
+    for name,state in pairs:
         actual=data[name];leader=state['party'][0]
         if leader['runtime_id']!=actual['pc_runtime_id'] or leader['inventory']!=actual['pc_inventory'] or leader['position']!=actual['pc_position'] or state['game_time']!=actual['game_time']:raise ValueError('Loot focused/full snapshot evidence differs')
-    return dict(outcome=observed,output_save=native['directories'][0],native=native,samples=len(samples),sampled_leader_action_ids=sorted({t['action_id'] for t in trace if t.get('action_id')is not None}),sampled_movement_observed=any(t['position']!=trace[0]['position'] for t in trace),game_time_before=samples[0]['game_time'],game_time_after=samples[-1]['game_time'])
+    return dict(outcome=observed,readiness=readiness,output_save=native['directories'][0],native=native,samples=len(samples),sampled_leader_action_ids=sorted({t['action_id'] for t in trace if t.get('action_id')is not None}),sampled_movement_observed=any(t['position']!=trace[0]['position'] for t in trace),game_time_before=samples[0]['game_time'],game_time_after=samples[-1]['game_time'])
 
 def check_wire(folder,api,expected_items,expected_pc):
     target=container_wire(common.member(folder,'sav').read_bytes());pc=api.legacy_oracle.read_wire(common.member(folder,'gam'))['party'][0]
@@ -188,7 +278,7 @@ def check_wire(folder,api,expected_items,expected_pc):
 
 def run(args):
     project,source,build=args.project_root.resolve(),args.engine_source_root.resolve(),args.engine_build_root.resolve()
-    if not 40<=args.running_samples<=160 or not 1<=args.timeout<=90:raise ValueError('Loot bounded sample/timeout range differs')
+    if args.running_samples!=80 or not 1<=args.timeout<=90:raise ValueError('Loot requires exactly 80 running samples and at most 90 seconds per process')
     results=args.results_root.resolve()
     if not results.is_relative_to(project/'phase1-local/results'):raise ValueError('Loot results must stay under private Phase1 results')
     out=shared.new_output(results,'container-loot-journey')
@@ -201,6 +291,10 @@ def run(args):
         driver=out/'driver';driver.mkdir();host=driver/'Redux_loot_gui.exe';shared.frozen_copy(Path(receipt['binary']),host);shared.frozen_copy(args.host_build.resolve(),driver/'build.json')
         for name,row in receipt['sources'].items():shared.frozen_copy(Path(row['frozen']),driver/'sources'/row['sha256']/Path(name).name)
         shutil.copytree(args.host_build.resolve().parent/'compiled-sources',driver/'compiled-sources')
+        result['startup_resources']={}
+        for name,row in receipt['startup_resources'].items():
+            frozen=driver/'startup-resources'/(name+'.bcs');shared.frozen_copy(Path(row['frozen']),frozen)
+            result['startup_resources'][name]={**row,'run_frozen':str(frozen)}
         startup=driver/'startup';startup.mkdir();shared.frozen_copy(project/'tools/phase0/gui/ReduxStart.py',startup/'ReduxStart.py')
         api.probe_ui_resources.TYPES['ids']=0x3f0
         raw_ids,origin=api.probe_ui_resources.read_resource('action','ids')
@@ -230,9 +324,10 @@ def run(args):
                 configs.append((cfg,entry['config_sha256']))
                 command=[str(host),'--config',str(cfg),'--output',str(stage/'capture'),'--scripts',str(startup),'--mode','live-clock','--clock-running-samples',str(args.running_samples),'--trace-actions','1','--journey',name]
                 env=api.harness.environment(stage);prefix=project/'phase0-local/toolchain/msys64/ucrt64';env['PATH']=os.pathsep.join([str(build/'gemrb'),str(prefix/'bin'),env.get('PATH','')]);env['PYTHONDONTWRITEBYTECODE']='1'
-                check_sources(receipt,project,source);shared.validate_private_game(private,stage)
+                check_sources(receipt,project,source);check_resources(receipt,api);shared.validate_private_game(private,stage)
                 if evidence.manifest(driver)!=driver_files:raise ValueError('Frozen loot driver/source closure drift')
                 started=time.time_ns();entry['process']=api.baseline_runner.execute(command,build,env,stage/'process.log',args.timeout)
+                check_resources(receipt,api)
                 if (stage/'capture/loot-result.json').is_file():entry['native_receipt']=evidence.read(stage/'capture/loot-result.json')
                 shared.require_process(entry['process'])
                 if 'Traceback (most recent call last)' in (stage/'process.log').read_text(encoding='utf-8',errors='replace'):raise ValueError('Stock callback traceback')
@@ -267,6 +362,7 @@ def run(args):
             result['private_game_final_validations']=[shared.validate_private_game(private,stage) for private,stage in privates]
             result['inputs_and_outputs_preserved']=True
             if 'receipt'in locals():check_sources(receipt,project,source)
+            if 'receipt'in locals():check_resources(receipt,api)
             if 'driver_files'in locals() and evidence.manifest(driver)!=driver_files:raise ValueError('Frozen loot driver/source closure changed')
             common.finish_guards(result,out,project,source,build,api,before,candidate)
         except Exception as error:result.update(execution='failed',verdict='failed',preservation_error=str(error))
