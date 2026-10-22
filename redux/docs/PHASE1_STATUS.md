@@ -9,11 +9,15 @@ game typefaces are fidelity requirements. Modern UI direction remains approved.
 ## Requirements and order
 
 Latest LAB checkpoint (October 22 UTC): see the [executed validation report](testing/phase1-lab-validation.md).
-Candidate `58c2995e` matches all 22 selected original weapon cases and passes
-44 native scenario assertions, with persistence differences and menu failures
-retained. Candidate `9aa69cd5` completes the ten-stage inventory replacement
-regression with coherent caches. Its full query/RNG and UI reruns are underway.
-The integrated Python suite passes 163 tests. The batch descriptions below are
+Candidate `9aa69cd5` matches all 22 selected original weapon cases, completes the
+ten-stage inventory replacement regression, and matches the four original AI
+branches with native attack/target samples. Its calling-thread RNG observer
+detects the deliberate draw and observes no changes in 1,100 normal calls.
+The native import/GUI scenarios pass 44 assertions with persistence differences
+retained. The two-process plain-key editor journey passes; broader menu traversal
+is underway. A strict source-root guard caught diagnostic writes from query
+hosts; private-folder host corrections pass 172 Python tests and compile, with
+fresh guarded native reruns pending. The batch descriptions below are
 historical checkpoints, superseded by the linked executed report where stated.
 
 The full [Phase 1 backlog](roadmap/phase1-backlog.md) remains the scope: preserve
