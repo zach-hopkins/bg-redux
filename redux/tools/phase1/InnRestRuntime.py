@@ -61,11 +61,13 @@ def observe(name,gold=100,store=False,confirmation=False,option=None):
     if actual!=expected:
         with (OUTPUT/'unexpected-observations.jsonl').open('a',encoding='utf8')as log:log.write(json.dumps(dict(nonce=NONCE,mode=MODE,name=name,step=INDEX,actual=actual,expected=expected))+'\n')
         raise RuntimeError('Unexpected inn rest gold/option/modal boundary: '+repr(actual))
+    draft=GemRB.GetVar('BG2EE Confirmation Draft')
+    if name=='settings.before-toggle'and draft!=0 or name=='settings.draft'and draft!=1 or name=='settings.committed'and draft is not None:raise RuntimeError('Actual confirmation draft transition differs')
     data=GemRB.GetStore()if store else None
     if store and(not data or data['StoreType']!=2 or data['StoreName']!=33355 or data['StoreButtons'][0]!=6 or list(data['StoreRoomPrices'])!=[1,6,10,16]):raise RuntimeError('Wrong stock inn/type/rooms/prices')
     if confirmation and control('GUISTORE',11,3).QueryText()!=GemRB.GetString(15358):raise RuntimeError('Wrong actual rest prompt')
     row=dict(schema='bg-redux-inn-rest-observation/1',nonce=NONCE,mode=MODE,policy=POLICY,name=name,step=INDEX,**actual,
-        store_details=data,room=GemRB.GetVar('RentIndex'),draft=GemRB.GetVar('BG2EE Confirmation Draft'),game_time=GemRB.GetGameTime())
+        store_details=data,room=GemRB.GetVar('RentIndex'),draft=draft,game_time=GemRB.GetGameTime())
     CAPTURE+=1;row['capture']=CAPTURE
     (OUTPUT/('capture-%d.inn.json'%CAPTURE)).write_text(json.dumps(row,indent=2)+'\n',encoding='utf8')
     GemRB.SetVar('RDXBookCapture',CAPTURE);ROWS.append(dict(event='observe',step=INDEX,name=name,capture=CAPTURE))
