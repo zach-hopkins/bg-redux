@@ -21,6 +21,13 @@ random-color residuals that occurred in the older reference but are absent in
 this run. All raw comparison verdicts remain preserved. These successful
 assertions do not establish full persistence or campaign fidelity.
 
+The [promoted tracked TextArea tooling](phase1-textarea-selection-tooling.md)
+also passes all fifteen native cases in
+`20261022T073540Z-textarea-selection-807b6682`, with exact independent contracts,
+fifteen owned zero exits, world/dictionary equality and all preservation guards.
+This validates the new build/run adapter separately from the earlier private v2
+matrix; it remains a synthetic control regression after ordinary GUI loading.
+
 October22 UTC renderer checkpoint: **301 external Python tests pass**
 (`phase1-integrated-tests-20261022T0520.log`). User-observed stale dialogue choices
 led to a `Window::WillDraw` correction replacing only the active target's repaint
