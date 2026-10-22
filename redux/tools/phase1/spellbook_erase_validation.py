@@ -1,11 +1,35 @@
 """Strict intended-identity Erase contracts; independent of GemRB/runtime callbacks."""
 import copy
+import re
 import spellbook_operation_validation as base
 from spellbook_operation_validation import (wire_spellbooks, wire_state_guard, page,
     equal_except_selection, callback_game_boundary, field, book_guard, caster_surfaces)
 
 TARGET='SPWI213'
 CASE=dict(name='mage',pc=2,pack='GUIMG',kind=1,level=1,ref=TARGET,known=2,modal=101,tabs=61,count=9)
+
+def gender_row(raw):
+    """Pinned bg2ee table contract; no general token evaluator."""
+    text=raw.decode('ascii');lines=[line.split('//',1)[0].split() for line in text.splitlines()]
+    lines=[line for line in lines if line]
+    if len(lines)<4 or lines[0]!=['2DA','V1.0'] or lines[1]!=['*'] or lines[2]!=['TYPE','MALE','FEMALE']:raise ValueError('Unsupported gender table header')
+    rows=[r for r in lines[3:] if r[0]=='PRO_HISHER']
+    if rows!=[['PRO_HISHER','0','27486','27487']]:raise ValueError('Wrong/duplicate PRO_HISHER row/slot/refs')
+    return dict(token='PRO_HISHER',slot=0,male=27486,female=27487)
+
+def resolve_description(raw,table,words,state):
+    row=gender_row(table)
+    if set(words)!={'27486','27487'} or any(not isinstance(w,str) or not w or '<'in w or '>'in w for w in words.values()):raise ValueError('Missing/unsupported frozen gender words')
+    tokens=re.findall(r'<[^<>]*>',raw)
+    if not tokens or any(t!='<PRO_HISHER>'for t in tokens) or '<'in re.sub(r'<[^<>]*>','',raw) or '>'in re.sub(r'<[^<>]*>','',raw):raise ValueError('Unsupported description tokens')
+    if len(state['party'])!=4:raise ValueError('Protagonist slot unavailable')
+    actor=state['party'][0]
+    if actor['in_party']!=1 or actor['script_name'].casefold()!='none':raise ValueError('Wrong protagonist actor/slot')
+    sex=actor['modified_stats'][35]
+    mirrors=[a for a in state['current_area_actors'] if a['runtime_id']==actor['runtime_id']]
+    if type(sex)is not int or sex not in(1,2) or len(mirrors)!=1 or mirrors[0]!=actor:raise ValueError('Missing/unsupported/incoherent protagonist sex')
+    ref=row['female']if sex==2 else row['male']
+    return raw.replace('<PRO_HISHER>',words[str(ref)]),dict(token=row['token'],slot=0,actor_runtime_id=actor['runtime_id'],actor_name=actor['name'],sex_stat=35,sex=sex,word_ref=ref,word=words[str(ref)],occurrences=len(tokens))
 
 def expected_plan(mode,policy=None):
     if mode not in ('operate','reload'):raise ValueError('Unsupported Erase mode')

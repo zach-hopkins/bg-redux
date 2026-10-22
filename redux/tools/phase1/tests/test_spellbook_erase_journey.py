@@ -15,6 +15,37 @@ def erased(p):
     q=copy.deepcopy(p);q['known']=q['known'][:2];q['memorized']=[q['memorized'][1]];return q
 
 class EraseContracts(unittest.TestCase):
+    def token_inputs(self,sex=1):
+        stats=[0]*36;stats[35]=sex
+        actor=dict(runtime_id=10002,name='Protagonist',script_name='None',in_party=1,modified_stats=stats)
+        state=dict(party=[actor,{}, {}, {}],current_area_actors=[copy.deepcopy(actor)])
+        return b'2DA V1.0\n*\nTYPE MALE FEMALE\nPRO_HISHER 0 27486 27487\n',{'27486':'his','27487':'her'},state
+    def test_token_uses_protagonist_sex_not_selected_caster(self):
+        for sex,word,ref in ((1,'his',27486),(2,'her',27487)):
+            table,words,state=self.token_inputs(sex)
+            text,proof=v.resolve_description('Cloud in <PRO_HISHER> area.',table,words,state)
+            self.assertEqual(text,'Cloud in '+word+' area.');self.assertEqual(proof['word_ref'],ref);self.assertEqual(proof['actor_runtime_id'],10002)
+    def test_unsupported_or_malformed_tokens_fail_closed(self):
+        table,words,state=self.token_inputs()
+        for raw in ('<HISHER>','<PRO_HISHER> <CHARNAME>','<PRO_HISHER','<pro_hisher>','<PRO_HISHER>>'):
+            with self.subTest(raw=raw),self.assertRaises(ValueError):v.resolve_description(raw,table,words,state)
+    def test_wrong_gender_row_slot_ref_or_duplicate_rejected(self):
+        table,words,state=self.token_inputs()
+        for bad in (table.replace(b' 0 ',b' -1 '),table.replace(b'27486',b'27488'),table+b'PRO_HISHER 0 27486 27487\n'):
+            with self.assertRaises(ValueError):v.resolve_description('<PRO_HISHER>',bad,words,state)
+    def test_missing_or_nested_tlk_words_rejected(self):
+        table,words,state=self.token_inputs()
+        for bad in ({'27486':'his'},{'27488':'his','27487':'her'},{'27486':'<HISHER>','27487':'her'}):
+            with self.assertRaises(ValueError):v.resolve_description('<PRO_HISHER>',table,bad,state)
+    def test_wrong_protagonist_or_incoherent_sex_rejected(self):
+        table,words,state=self.token_inputs()
+        for key,value in (('in_party',2),('script_name','imoen')):
+            bad=copy.deepcopy(state);bad['party'][0][key]=value
+            with self.assertRaises(ValueError):v.resolve_description('<PRO_HISHER>',table,words,bad)
+        bad=copy.deepcopy(state);bad['party'][0]['modified_stats'][35]=2
+        with self.assertRaises(ValueError):v.resolve_description('<PRO_HISHER>',table,words,bad)
+        table,words,state=self.token_inputs(3)
+        with self.assertRaises(ValueError):v.resolve_description('<PRO_HISHER>',table,words,state)
     def test_all_target_memorized_copies_removed(self):
         p=page();v.intended_page(p,erased(p))
     def test_wrong_known_ref_deletion_is_failure(self):

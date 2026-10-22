@@ -207,6 +207,7 @@ def sources(project,source):
         path=Path(filename).resolve()
         if path.suffix=='.py'and((path.is_relative_to(HERE)and not path.is_relative_to(HERE/'tests'))or path.is_relative_to(project/'tools/phase0')):result.add(path)
     for name in ['GUIScripts/GUIMG.py','GUIScripts/GUIPR.py','GUIScripts/EESpellbookHeading.py','GUIScripts/Spellbook.py','GUIScripts/PortraitWindow.py','GUIScripts/GUICommonWindows.py','GUIScripts/GUICommon.py','GUIScripts/GUIClasses.py','GUIScripts/GUIDefines.py','GUIScripts/GUILOAD.py','GUIScripts/GUISAVE.py','GUIScripts/GUIOPT.py','core/Spellbook.cpp','core/Spellbook.h','core/GUI/Button.cpp','core/GUI/Button.h','core/GUI/Control.cpp','core/GUI/Control.h','core/GUI/View.cpp','core/GUI/View.h','plugins/CREImporter/CREImporter.cpp','plugins/GAMImporter/GAMImporter.cpp','plugins/GUIScript/GUIScript.cpp','unhardcoded/shared/spldisp.2da','unhardcoded/bg2ee/guibtact.2da']:result.add(source/'gemrb'/name)
+    for name in ('plugins/TLKImporter/TLKImporter.cpp','plugins/TLKImporter/TLKImporter.h','core/TableMgr.cpp','core/Scriptable/Actor.cpp','includes/ie_stats.h','unhardcoded/bg2ee/gender.2da'):result.add(source/'gemrb'/name)
     return sorted(result)
 
 def source_guard(receipt,project,source):
@@ -254,10 +255,11 @@ def tlk(project,refs):
 
 def resource_guard(api,project,source):
     game=project/'phase0-local/bg2ee-clean';wire_=v.wire_spellbooks(project/'phase1-local/results'/PARENT/'recruit/frozen-save');refs={r['resref']for actor in wire_[1:3]for page in actor['pages']if page['type']in(0,1)for r in page['known']};result={};cache={}
-    specs=[(ref,'spl',1006)for ref in sorted(refs)]+[('guimg','chu',1002),('guipr','chu',1002),('spldisp','2da',1012),('guibtact','2da',1012)]
+    specs=[(ref,'spl',1006)for ref in sorted(refs)]+[('guimg','chu',1002),('guipr','chu',1002),('spldisp','2da',1012),('guibtact','2da',1012),('gender','2da',1012)]
     for ref,ext,kind in specs:
         api.probe_ui_resources.TYPES[ext]=kind;policy=None
-        if ext=='2da':raw,origin,policy=tables.table_provider(api,source,ref);provider=Path(origin)
+        if ref=='gender':raw,origin,policy=gender_provider(api,source);provider=Path(origin)
+        elif ext=='2da':raw,origin,policy=tables.table_provider(api,source,ref);provider=Path(origin)
         else:
             for category in ('override/bg2ee','override/shared','unhardcoded/bg2ee','unhardcoded/shared'):
                 if (source/'gemrb'/category/(ref+'.'+ext)).exists():raise ValueError('Unexpected engine provider shadow')
@@ -274,7 +276,22 @@ def resource_guard(api,project,source):
         result[ref+'.'+ext]=row
     for name,file in [('chitin',game/'chitin.key'),('tlk',game/'lang/en_US/dialog.tlk')]:result[name]=dict(path=str(file),bytes=file.stat().st_size,sha256=evidence.sha(file))
     result['level_template']=dict(value=tlk(project,[10345])[10345])
+    result['gender_tokens']=dict(row=v.gender_row(result['gender.2da']['raw']),words={str(k):word for k,word in tlk(project,[27486,27487]).items()})
     return result
+
+def gender_provider(api,source):
+    """Only the pinned bg2ee fallback; reject higher priority shadows."""
+    root=source/'gemrb';name='gender.2da';checks=[]
+    for folder in ('override/bg2ee','override/shared'):
+        path=root/folder/name;checks.append(dict(path=str(path),exists=path.exists()))
+        if path.exists():raise ValueError('Unexpected engine gender table override')
+    api.probe_ui_resources.TYPES['2da']=1012
+    raw,origin=api.probe_ui_resources.read_resource('gender','2da')
+    if raw is not None:raise ValueError('Unexpected higher-priority game gender table: '+str(origin))
+    chosen=root/'unhardcoded/bg2ee'/name
+    if not chosen.is_file():raise ValueError('Pinned bg2ee gender fallback absent')
+    raw=chosen.read_bytes();v.gender_row(raw)
+    return raw,str(chosen),dict(kind='pinned-bg2ee-gender-fallback',path=str(chosen),checked_paths=checks,game_probe_absent=True,runtime_proof='Actual GetResourceStream path/bytes must equal this table')
 
 def check_resources(receipt,api,project,source):
     actual=resource_guard(api,project,source)
@@ -309,7 +326,7 @@ def validate_capture(folder,nonce,mode,started_ns,receipt):
         state=evidence.read(folder/(sample['checkpoint']+'.state.json'));actual=evidence.read(folder/(sample['checkpoint']+'.scene.json'))
         if sample['game_time']!=state['game_time'] or actual['game_time']!=state['game_time'] or sample['idle']!=actual['idle'] or len(actual['party_actions'])!=4:raise ValueError('Raw readiness contradiction')
     spell_names={name.rsplit('.',1)[0].upper():dict(name=row['spell_name'])for name,row in receipt['resources'].items()if row.get('extension')=='spl'}
-    template=receipt['resources']['level_template']['value'];observations=[r for r in rows if r['event']=='observe'];captures={}
+    template=receipt['resources']['level_template']['value'];observations=[r for r in rows if r['event']=='observe'];captures={};token_resolutions=[]
     for i,row in enumerate(observations,1):
         if row['capture']!=i or row['name']!=plan[row['step']]:raise ValueError('Observation identity/inventory differs')
         meta=evidence.read(folder/('capture-%d.book.json'%i));state=evidence.read(folder/('capture-%d.state.json'%i));ui=evidence.read(folder/('capture-%d.ui.json'%i));native_scene=evidence.read(folder/('capture-%d.scene.json'%i))
@@ -325,7 +342,11 @@ def validate_capture(folder,nonce,mode,started_ns,receipt):
         if actual_info!=info or actual_modal!=modal:raise ValueError('Actual modal controls differ')
         if info:
             target=receipt['resources']['SPWI213.spl']
-            if meta['information_name']!=target['spell_name'] or meta['information_description']!=target['spell_description'] or not meta['erase_label']:raise ValueError('Information modal shows another spell/description')
+            table=(folder/'gender.2da.runtime').read_bytes()
+            if binary.digest(table)!=receipt['resources']['gender.2da']['sha256'] or v.gender_row(table)!=receipt['resources']['gender_tokens']['row']:raise ValueError('Actual gender table differs from frozen row/provider')
+            description,token_evidence=v.resolve_description(target['spell_description'],table,receipt['resources']['gender_tokens']['words'],state)
+            token_resolutions.append(dict(capture=i,raw_description_ref=target['spell_description_ref'],**token_evidence))
+            if meta['information_name']!=target['spell_name'] or meta['information_description']!=description or not meta['erase_label']:raise ValueError('Information modal shows another spell/resolved description')
             if v.field(ui,'GUIMG',3,0x0fffffff)['text']!=meta['information_name'] or v.field(ui,'GUIMG',3,3)['text']!=meta['information_description']:raise ValueError('Native info text disagrees')
         captures[row['name']]=(meta,state,ui)
     if len(observations)!=host['captures'] or len(list(folder.glob('capture-*.bmp')))!=len(observations):raise ValueError('Screenshot inventory differs')
@@ -349,6 +370,6 @@ def validate_capture(folder,nonce,mode,started_ns,receipt):
     if mode=='operate':
         if evidence.read(folder/'save-name.json')!=dict(control=3,nonce=nonce,performed=True)or len(host['saves'])!=1 or evidence.read(folder/'before-save.state.json')!=final:raise ValueError('GUI save evidence differs')
     elif host['saves']:raise ValueError('Reload unexpectedly saved')
-    return dict(save=host['saves'][0]if mode=='operate'else None,callbacks=len(events),observations=len(observations),nonidentity_sort_runtime=permutation,intended_resref=v.TARGET,original_parity=None,os_pointer_input=False)
+    return dict(save=host['saves'][0]if mode=='operate'else None,callbacks=len(events),observations=len(observations),nonidentity_sort_runtime=permutation,intended_resref=v.TARGET,token_resolutions=token_resolutions,original_parity=None,os_pointer_input=False)
 
 if __name__=='__main__':raise SystemExit(main())
