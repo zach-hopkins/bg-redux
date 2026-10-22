@@ -5,6 +5,26 @@ Evidence checkpoint: October 22, 2026 UTC, after the completed candidate `9aa69c
 Latest checkpoint: the later sections and linked summaries supersede pending
 descriptions below. Earlier failures and incomplete runs retain their verdicts.
 
+October 22, 03:38 UTC follow-up: external tooling passes **237 tests** in
+`results/phase1-integrated-tests-20261022T0335.log`. The new active-slot run
+`20261022T033723Z-active-slot-run-81396091` passes main/ranged scenarios with
+14 stages and 196 query calls, coherent caches, stable values and unchanged
+calling-thread RNG. Candidate and Phase 0 preservation checks pass. Independent
+raw audit is pending; original mutation parity and magic-slot coverage remain
+unobserved. The [original color controls audit](phase1-original-color-controls-audit.md)
+completes the low and stock-selector reference observations alongside the earlier
+[paired controlled-color audit](phase1-paired-color-audit.md).
+
+The separate container journey has three preserved failed runs:
+`20261022T032531Z-container-loot-journey-c3703e13` and
+`20261022T032917Z-container-loot-journey-eff5ffad` reject an external stored-name
+versus normalized-script-name assumption; no transfer occurs. Corrected external
+host run `20261022T033328Z-container-loot-journey-42d3a11e` observes normal
+approach movement to the table, but no container UI or transfer before its bound.
+The queued UseContainer action is seen briefly, then absent while movement
+continues. Investigation remains open. All three retain passing input, candidate
+and protected Phase 0 checks. No production fix or P1-06 success is claimed.
+
 ## Fresh isolated regression checkpoint
 
 The [isolated regression summary](../compatibility/evidence/phase1-isolated-regression-lab.json)

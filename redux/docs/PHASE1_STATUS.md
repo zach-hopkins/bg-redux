@@ -18,11 +18,18 @@ retained. Fresh private-folder query/cache/control and import/GUI reruns pass
 their preservation guards; the earlier diagnostic-write failure is retained.
 Both selected menu resolutions complete 107 checks and 51 captures. The opaque
 plain-key editor journey and measured calling-thread RNG snapshot cost pass
-their bounded checks. External tooling now passes 212 Python tests. Original
+their bounded checks. External tooling now passes 237 Python tests. Original
 controlled-color ordinary saves and candidate fresh-process saves both show
 237 to 46 to 46; the independently audited comparison establishes shared
 behavior for this controlled input, not a candidate-only persistence defect.
 See the [paired color audit](testing/phase1-paired-color-audit.md).
+The [original control audit](testing/phase1-original-color-controls-audit.md)
+adds low-color stability and separately recorded stock random outcomes. New
+main/ammo/launcher mutation coverage passes 14 native stages and 196 queries;
+independent raw review is pending. The stock-container gameplay journey remains
+failed: after correcting an external name guard, approach movement completes
+but the queued use action disappears before any observed container UI/transfer.
+No successful loot/save/reload result or engine correction is inferred.
 The batch descriptions below are
 historical checkpoints, superseded by the linked executed report where stated.
 
