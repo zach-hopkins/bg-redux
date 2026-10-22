@@ -83,6 +83,10 @@ and0 for alpha255, within one channel rounding value. This is actual compositing
 evidence, not direct texture-alpha readback. It covers unmanaged controls at
 window origin0 with75/100/125% scale; dynamic GameControl rendering and nonzero
 origin scaled copying remain separate regression requirements.
+The75% synthetic references do not contain a visible green sentinel because
+that control lies outside the smaller active surface; those cases prove equality
+to the actual fresh surface and backdrop behavior, not correct scaled layout or
+preservation of a visible off-clip sentinel. The100/125% references do contain it.
 
 Ordinary dialogue regression `20261022T052139Z-jaheira-dialogue-82159919`
 passes all eleven branches and seventeen registered operations, GUI-created save
