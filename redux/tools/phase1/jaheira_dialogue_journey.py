@@ -117,7 +117,8 @@ def validate_capture(folder,nonce,reload=False,started_ns=None,texts=None):
     folder=Path(folder);native=evidence.read(folder/'dialogue-result.json')
     if (native.get('schema')!='bg-redux-jaheira-native/1' or native.get('nonce')!=nonce or native.get('journey')!=('reload' if reload else 'talk')
         or native.get('completed')is not True or native.get('error') or native.get('os_pointer_input')is not False
-        or native.get('forced_dialogue_state')is not False or native.get('render_diagnostic',False)is not False or native.get('talk_requests')!=(0 if reload else 1)
+        or native.get('forced_dialogue_state')is not False or native.get('render_diagnostic',False)is not False
+        or native.get('window_render_diagnostic',False)is not False or native.get('talk_requests')!=(0 if reload else 1)
         or native.get('branches_completed')!=(0 if reload else 11)):
         raise ValueError('Wrong/stale/incomplete dialogue receipt')
     if started_ns is not None and any(p.stat().st_mtime_ns<started_ns for p in folder.iterdir() if p.is_file()):raise ValueError('Stale capture evidence')

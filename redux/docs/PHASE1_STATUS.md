@@ -18,7 +18,7 @@ retained. Fresh private-folder query/cache/control and import/GUI reruns pass
 their preservation guards; the earlier diagnostic-write failure is retained.
 Both selected menu resolutions complete 107 checks and 51 captures. The opaque
 plain-key editor journey and measured calling-thread RNG snapshot cost pass
-their bounded checks. External tooling now passes 297 Python tests. Original
+their bounded checks. External tooling now passes 301 Python tests. Original
 controlled-color ordinary saves and candidate fresh-process saves both show
 237 to 46 to 46; the independently audited comparison establishes shared
 behavior for this controlled input, not a candidate-only persistence defect.
@@ -44,11 +44,12 @@ also passes its one-request, eleven-branch route and GUI save/fresh reload,
 preserving the expected talk counter, unique journal entry, closed cell and
 two-member party; its [independent audit](testing/phase1-jaheira-dialogue-lab-audit.md)
 confirms 567 retained artifacts and the saved/reloaded effects.
-Its [dialogue rendering defect](testing/phase1-dialogue-rendering.md) remains open:
-old red choice pixels survive beneath new text. A held-response diagnostic proves
-the pixels persist across ordinary frames and fade on repeated invalidation;
-clearing the backing buffer removes them. Callback/save success does not establish
-visual fidelity.
+Its [dialogue rendering defect](testing/phase1-dialogue-rendering.md) now has a
+bounded correction: repainting replaces only the active buffer's clip before
+drawing the translucent background. The corrected held response and twelve
+synthetic alpha/scale/clip cases pass, including216 image comparisons and96
+opacity probes. The first broad-clear correction and two fixture-oracle errors
+are preserved; ordinary save/reload and broader menu/world regressions are pending.
 A direct public TextArea selection entry separately exposes
 a [reentrancy defect](compatibility/phase1-textarea-update-state-reentrancy.md);
 the normal selection route passes without an engine change. The bounded
@@ -58,8 +59,8 @@ reload cast. Recruitment, transitions, broader spell/combat behavior and campaig
 checkpoints remain open.
 The source-only [key/door/recruitment adapter](testing/phase1-cell-recruitment-journey.md)
 is integrated and passes17 focused validator tests; it has not yet been built or
-executed. The dialogue renderer correction is awaiting the new isolated build
-and native full/clipped/scaled verification.
+executed. The dialogue renderer correction has a fresh isolated build with
+native full/clipped/scaled verification; broader runtime regressions remain open.
 The batch descriptions below are
 historical checkpoints, superseded by the linked executed report where stated.
 
