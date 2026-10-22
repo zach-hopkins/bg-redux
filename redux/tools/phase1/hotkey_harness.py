@@ -20,6 +20,14 @@ menu = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(menu)
 
 
+def hotkey_source_inputs(source):
+    # GUIOPT now imports a persistent confirmation policy. Keep real bytes for
+    # that path and the ordinary in-game GUI modules loaded by startup.
+    return menu.menu_source_inputs(source) + [HERE/'hotkey_harness.py', HERE/'gui/HotkeyRuntime.py'] + [
+        Path(source)/'gemrb/GUIScripts'/name for name in
+        ('GUIHotkeys.py','KeyBindingEditor.py','MenuWindow.py','GUIOPTExtra.py')]
+
+
 def read(path):
     return json.loads(Path(path).read_text(encoding='utf-8'))
 
@@ -232,17 +240,13 @@ def main():
     args = parser.parse_args()
     directory = args.output_root / (datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ') + '-hotkeys-' + uuid.uuid4().hex[:8])
     directory.mkdir(parents=True, exist_ok=False)
-    source_files = [HERE/'hotkey_harness.py', HERE/'gui/HotkeyRuntime.py', HERE/'gui/MenuRuntime.py',
-                    HERE/'gui/MenuStart.py', HERE/'menu_probe.cpp', HERE/'menu_harness.py', HERE/'private_game.py',
-                    HERE/'../phase0/native/gui_probe.cpp', HERE/'../phase0/native/save_probe.cpp']
-    source_files += [args.source/'gemrb/GUIScripts'/name for name in
-                     ('GUIHotkeys.py','KeyBindingEditor.py','MenuWindow.py','GUIOPT.py','GUIOPTExtra.py')]
-    inputs = {str(p): menu.sha(p) for p in source_files}
+    source_files = hotkey_source_inputs(args.source)
+    inputs, frozen_sources = menu.freeze_source_inputs(source_files,directory)
     dll = args.build/'gemrb/libgemrb_core.dll'
     plugin_files = sorted((args.build/'gemrb/plugins').rglob('*.dll'))
     protected = dict(dll=menu.sha(dll), probe=menu.sha(args.probe), fixture=menu.manifest(args.fixture),
                      plugin_dlls={str(p):menu.sha(p) for p in plugin_files})
-    result = dict(schema='bg-redux-hotkey-journey/1', source_files=inputs, protected=protected, stages=[])
+    result = dict(schema='bg-redux-hotkey-journey/1', source_files=inputs, frozen_sources=frozen_sources, protected=protected, stages=[])
     menu.write(directory/'preparation.json', result)
     if not protected['fixture'] or not (args.fixture/'BALDUR.GAM').is_file():
         raise ValueError('Required vanilla private save fixture absent')
@@ -303,7 +307,8 @@ def main():
     result['protected_inputs_unchanged'] = (menu.sha(dll)==protected['dll'] and menu.sha(args.probe)==protected['probe']
         and menu.manifest(args.fixture)==protected['fixture'] and all(menu.sha(Path(p))==h for p,h in inputs.items())
         and {str(p):menu.sha(p) for p in (args.build/'gemrb/plugins').rglob('*.dll')}==protected['plugin_dlls'])
-    result['passed'] = len(result['stages'])==2 and all(s['passed'] for s in result['stages']) and result['protected_inputs_unchanged']
+    result['frozen_sources_unchanged'] = all(menu.sha(row['frozen'])==row['sha256'] for row in frozen_sources.values())
+    result['passed'] = len(result['stages'])==2 and all(s['passed'] for s in result['stages']) and result['protected_inputs_unchanged'] and result['frozen_sources_unchanged']
     if result['passed']:
         try:
             result['cross_process_validation'] = validate_pair(result['stages'])

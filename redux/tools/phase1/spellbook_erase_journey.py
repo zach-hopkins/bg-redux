@@ -208,6 +208,8 @@ def sources(project,source):
         if path.suffix=='.py'and((path.is_relative_to(HERE)and not path.is_relative_to(HERE/'tests'))or path.is_relative_to(project/'tools/phase0')):result.add(path)
     for name in ['GUIScripts/GUIMG.py','GUIScripts/GUIPR.py','GUIScripts/EESpellbookHeading.py','GUIScripts/Spellbook.py','GUIScripts/PortraitWindow.py','GUIScripts/GUICommonWindows.py','GUIScripts/GUICommon.py','GUIScripts/GUIClasses.py','GUIScripts/GUIDefines.py','GUIScripts/GUILOAD.py','GUIScripts/GUISAVE.py','GUIScripts/GUIOPT.py','core/Spellbook.cpp','core/Spellbook.h','core/GUI/Button.cpp','core/GUI/Button.h','core/GUI/Control.cpp','core/GUI/Control.h','core/GUI/View.cpp','core/GUI/View.h','plugins/CREImporter/CREImporter.cpp','plugins/GAMImporter/GAMImporter.cpp','plugins/GUIScript/GUIScript.cpp','unhardcoded/shared/spldisp.2da','unhardcoded/bg2ee/guibtact.2da']:result.add(source/'gemrb'/name)
     for name in ('plugins/TLKImporter/TLKImporter.cpp','plugins/TLKImporter/TLKImporter.h','core/TableMgr.h','plugins/2DAImporter/2DAImporter.cpp','core/Scriptable/Actor.cpp','includes/ie_stats.h','unhardcoded/bg2ee/gender.2da'):result.add(source/'gemrb'/name)
+    result.update(source/'gemrb/GUIScripts'/name for name in ('GUIMG.py','GUIPR.py','EESpellbookHeading.py','EESpellbookInformation.py','BG2EEConfirmation.py','GUIOPT.py','GUIOPTControls.py','GUICommon.py','GUICommonWindows.py','Spellbook.py','GameCheck.py','GUIDefines.py','GUIClasses.py'))
+    result.add(source/'gemrb/unhardcoded/shared/defaults.ini')
     return sorted(result)
 
 def source_guard(receipt,project,source):

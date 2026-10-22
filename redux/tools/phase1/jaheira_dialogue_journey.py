@@ -40,6 +40,8 @@ def sources(project,source):
         'gemrb/core/GUI/TextSystem/TextContainer.cpp','gemrb/core/Scriptable/Scriptable.h',
         'gemrb/GUIScripts/GUIWORLD.py','gemrb/GUIScripts/GUISAVE.py','gemrb/GUIScripts/GUILOAD.py')]
     paths += [source/'gemrb/core/DialogHandler.h',source/'gemrb/plugins/DLGImporter/DLGImporter.cpp']
+    paths += [source/'gemrb/GUIScripts'/name for name in ('GUIMG.py','GUIPR.py','EESpellbookHeading.py','EESpellbookInformation.py','BG2EEConfirmation.py','GUIOPT.py','GUIOPTControls.py','GUICommon.py','GUICommonWindows.py','Spellbook.py','GameCheck.py','GUIDefines.py','GUIClasses.py')]
+    paths += [source/'gemrb/unhardcoded/shared/defaults.ini']
     return sorted(set(paths))
 
 

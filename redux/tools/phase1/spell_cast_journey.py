@@ -25,6 +25,8 @@ def sources(project,source):
     engine=['gemrb/GUIScripts/'+x for x in ['ActionsWindow.py','Spellbook.py','PortraitWindow.py','GUICommonWindows.py','GUISAVE.py','GUIOPT.py','ie_action.py','ie_spells.py']]
     engine += ['gemrb/'+x for x in ['core/GUI/GameControl.cpp','core/GUI/Control.cpp','core/GUI/Button.cpp','core/GameScript/Actions.cpp','core/GameScript/GameScript.cpp','core/GameScript/GSUtils.cpp','core/GameScript/ParseText.cpp','core/Scriptable/Scriptable.cpp','core/Scriptable/Actor.cpp','core/Spellbook.cpp','core/Interface.cpp','core/InterfaceConfig.cpp','core/ResourceManager.cpp','plugins/DirectoryImporter/DirectoryImporter.cpp','plugins/FXOpcodes/FXOpcodes.cpp','plugins/CREImporter/CREImporter.cpp','plugins/EFFImporter/EFFImporter.cpp','plugins/GUIScript/GUIScript.cpp']]
     engine += ['gemrb/unhardcoded/shared/spldisp.2da','gemrb/unhardcoded/bg2ee/guibtact.2da']
+    engine += ['gemrb/GUIScripts/'+name for name in ('GUIMG.py','GUIPR.py','EESpellbookHeading.py','EESpellbookInformation.py','BG2EEConfirmation.py','GUIOPT.py','GUIOPTControls.py','GUICommon.py','GUICommonWindows.py','Spellbook.py','GameCheck.py','GUIDefines.py','GUIClasses.py')]
+    engine += ['gemrb/unhardcoded/shared/defaults.ini']
     return common.sources(project)+[tool/x for x in local]+[source/x for x in engine]
 
 

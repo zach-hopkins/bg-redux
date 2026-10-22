@@ -58,7 +58,7 @@ def menu_source_inputs(source):
     return [Path(__file__), HERE/'menu_probe.cpp', HERE/'gui/MenuRuntime.py', HERE/'gui/MenuStart.py',
             HERE/'private_game.py', HERE/'../phase0/native/gui_probe.cpp', HERE/'../phase0/native/save_probe.cpp'] + [
             Path(source)/'gemrb/GUIScripts'/name for name in
-            ('GUIMG.py','GUIPR.py','EESpellbookHeading.py','Spellbook.py','GameCheck.py','GUIDefines.py')]
+            ('GUIMG.py','GUIPR.py','EESpellbookHeading.py','EESpellbookInformation.py','BG2EEConfirmation.py','GUIOPT.py','GUIOPTControls.py','GUICommon.py','GUICommonWindows.py','Spellbook.py','GameCheck.py','GUIDefines.py','GUIClasses.py')] + [Path(source)/'gemrb/unhardcoded/shared/defaults.ini']
 
 
 def freeze_source_inputs(paths, directory):
