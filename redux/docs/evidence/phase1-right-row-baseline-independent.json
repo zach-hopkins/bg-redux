@@ -1,0 +1,5825 @@
+{
+  "schema": "bg-redux-public-right-row-baseline-independent/1",
+  "execution": "passed",
+  "compatibility": "differences",
+  "source": "Current3511source files rehashed against corrected-row candidate; frozen inputs retained",
+  "result_sha256": "9a59648d579ba71295ad05f1ae472e4bc17bdfaebb8e5cc54d545f5ebcda033c",
+  "build_receipt_sha256": "d6893b4203933ec6e5e964e8043be70a9633c176aed09016011d334df13f36f8",
+  "raw_result": "C:\\BGRedux\\phase1-local\\results\\20261022T125410Z-row-base-2d8ec7ed\\result.json",
+  "core_sha256": "da9d137d02eed781ee3859c0d3f5f298457bb4d62028e4993f44516cd9edac7f",
+  "source_count": 3511,
+  "binary_count": 61,
+  "support_count": 5,
+  "frozen_top_sources": 5,
+  "runtime_input_count": 75,
+  "commands": [
+    {
+      "pid": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 4.233,
+      "timeout_seconds": 180
+    },
+    {
+      "pid": 9300,
+      "exit_code": 0,
+      "elapsed_seconds": 3.896,
+      "timeout_seconds": 180
+    },
+    {
+      "pid": 15872,
+      "exit_code": 0,
+      "elapsed_seconds": 0.251,
+      "timeout_seconds": 30
+    }
+  ],
+  "runs": {
+    "vanilla": {
+      "result_sha256": "364b23c34167ba2835b374d1fb09459359ea4a69027e77d3bc1936242f2334c5",
+      "outer_process": {
+        "pid": 11352,
+        "exit_code": 1,
+        "elapsed_seconds": 14.428,
+        "timeout_seconds": 450
+      },
+      "stages": [
+        {
+          "pid": 17100,
+          "exit_code": 0,
+          "elapsed_seconds": 4.203,
+          "timeout_seconds": 90.0
+        },
+        {
+          "pid": 15320,
+          "exit_code": 0,
+          "elapsed_seconds": 3.207,
+          "timeout_seconds": 90.0
+        },
+        {
+          "pid": 15436,
+          "exit_code": 0,
+          "elapsed_seconds": 3.018,
+          "timeout_seconds": 90.0
+        },
+        {
+          "pid": 10304,
+          "exit_code": 0,
+          "elapsed_seconds": 3.103,
+          "timeout_seconds": 90.0
+        }
+      ],
+      "assertions": {
+        "passed": 24,
+        "total": 24
+      },
+      "cross_build_status": {
+        "status": "unreviewed-differences",
+        "reason": "Differences exceed or change the explicit reference; review required"
+      }
+    },
+    "gui": {
+      "result_sha256": "85a61eb4e12788812ed1fbae712540da75bbdccdf75935880c7b1abe6c146479",
+      "outer_process": {
+        "pid": 14480,
+        "exit_code": 1,
+        "elapsed_seconds": 86.641,
+        "timeout_seconds": 310
+      },
+      "stages": [
+        {
+          "pid": 7608,
+          "exit_code": 0,
+          "elapsed_seconds": 64.248,
+          "timeout_seconds": 140.0
+        },
+        {
+          "pid": 5008,
+          "exit_code": 0,
+          "elapsed_seconds": 21.6,
+          "timeout_seconds": 140.0
+        }
+      ],
+      "assertions": {
+        "passed": 20,
+        "total": 20
+      },
+      "cross_build_status": {
+        "status": "unreviewed-differences",
+        "reason": "Differences exceed or change the explicit reference; review required"
+      }
+    }
+  },
+  "residuals": {
+    "vanilla": {
+      "reload-1-semantic-diff.json": {
+        "new_count": 0,
+        "prior_count": 0,
+        "exact_rows_equal": true,
+        "new_rows": [],
+        "prior_sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+        "new_sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+        "new_paths": [],
+        "lost_paths": [],
+        "shared_path_rows_exact": true,
+        "removed_rows": []
+      },
+      "reload-2-semantic-diff.json": {
+        "new_count": 0,
+        "prior_count": 0,
+        "exact_rows_equal": true,
+        "new_rows": [],
+        "prior_sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+        "new_sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+        "new_paths": [],
+        "lost_paths": [],
+        "shared_path_rows_exact": true,
+        "removed_rows": []
+      },
+      "repeat-import-semantic-diff.json": {
+        "new_count": 26,
+        "prior_count": 26,
+        "exact_rows_equal": false,
+        "new_rows": [
+          {
+            "path": "/current_area_actors/3/base_stats/209",
+            "before": 2745410467,
+            "after": 673720360
+          },
+          {
+            "path": "/current_area_actors/3/base_stats/213",
+            "before": 858993459,
+            "after": 2341178251
+          },
+          {
+            "path": "/current_area_actors/3/modified_stats/209",
+            "before": 2745410467,
+            "after": 673720360
+          },
+          {
+            "path": "/current_area_actors/3/modified_stats/213",
+            "before": 858993459,
+            "after": 2341178251
+          },
+          {
+            "path": "/current_area_actors/4/base_stats/208",
+            "before": 2593823386,
+            "after": 2678038431
+          },
+          {
+            "path": "/current_area_actors/4/modified_stats/208",
+            "before": 2593823386,
+            "after": 2678038431
+          },
+          {
+            "path": "/current_area_actors/5/base_stats/209",
+            "before": 2341178251,
+            "after": 960051513
+          },
+          {
+            "path": "/current_area_actors/5/base_stats/212",
+            "before": 2273806215,
+            "after": 2341178251
+          },
+          {
+            "path": "/current_area_actors/5/base_stats/213",
+            "before": 1330597711,
+            "after": 2981212593
+          },
+          {
+            "path": "/current_area_actors/5/modified_stats/209",
+            "before": 2341178251,
+            "after": 960051513
+          },
+          {
+            "path": "/current_area_actors/5/modified_stats/212",
+            "before": 2273806215,
+            "after": 2341178251
+          },
+          {
+            "path": "/current_area_actors/5/modified_stats/213",
+            "before": 1330597711,
+            "after": 2981212593
+          },
+          {
+            "path": "/current_area_actors/6/base_stats/213",
+            "before": 2795939494,
+            "after": 320017171
+          },
+          {
+            "path": "/current_area_actors/6/modified_stats/213",
+            "before": 2795939494,
+            "after": 320017171
+          },
+          {
+            "path": "/current_area_actors/7/base_stats/208",
+            "before": 2425393296,
+            "after": 2795939494
+          },
+          {
+            "path": "/current_area_actors/7/base_stats/212",
+            "before": 1549556828,
+            "after": 3823363043
+          },
+          {
+            "path": "/current_area_actors/7/base_stats/213",
+            "before": 218959117,
+            "after": 2694881440
+          },
+          {
+            "path": "/current_area_actors/7/modified_stats/208",
+            "before": 2425393296,
+            "after": 2795939494
+          },
+          {
+            "path": "/current_area_actors/7/modified_stats/212",
+            "before": 1549556828,
+            "after": 3823363043
+          },
+          {
+            "path": "/current_area_actors/7/modified_stats/213",
+            "before": 218959117,
+            "after": 2694881440
+          },
+          {
+            "path": "/current_area_actors/19/base_stats/210",
+            "before": 909522486,
+            "after": 993737531
+          },
+          {
+            "path": "/current_area_actors/19/modified_stats/210",
+            "before": 909522486,
+            "after": 993737531
+          },
+          {
+            "path": "/current_area_actors/31/base_stats/209",
+            "before": 1027423549,
+            "after": 2139062143
+          },
+          {
+            "path": "/current_area_actors/31/base_stats/210",
+            "before": 1077952576,
+            "after": 3217014719
+          },
+          {
+            "path": "/current_area_actors/31/modified_stats/209",
+            "before": 1027423549,
+            "after": 2139062143
+          },
+          {
+            "path": "/current_area_actors/31/modified_stats/210",
+            "before": 1077952576,
+            "after": 3217014719
+          }
+        ],
+        "prior_sha256": "390b6299efa58992ef0949965f8bd4238b6dab1e97589e5c89d7b360294c0543",
+        "new_sha256": "9028e0b853aa1cf7387d2d8108a14bc302f6ab7ef2341e137845f4d489fe9780",
+        "new_paths": [
+          "/current_area_actors/6/base_stats/213",
+          "/current_area_actors/6/modified_stats/213"
+        ],
+        "lost_paths": [
+          "/current_area_actors/24/base_stats/209",
+          "/current_area_actors/24/modified_stats/209"
+        ],
+        "shared_path_rows_exact": false,
+        "removed_rows": [
+          {
+            "path": "/current_area_actors/24/base_stats/209",
+            "before": 2139062143,
+            "after": 2358021260
+          },
+          {
+            "path": "/current_area_actors/24/modified_stats/209",
+            "before": 2139062143,
+            "after": 2358021260
+          }
+        ]
+      }
+    },
+    "gui": {
+      "gui-reload-differences.json": {
+        "new_count": 451,
+        "prior_count": 451,
+        "exact_rows_equal": false,
+        "new_rows": [
+          {
+            "path": "/area_locals/MOVESCREEN",
+            "before": null,
+            "after": 1,
+            "missing": "before"
+          },
+          {
+            "path": "/area_locals/movescreen",
+            "before": 1,
+            "after": null,
+            "missing": "after"
+          },
+          {
+            "path": "/current_area_actors/11/effects/length",
+            "before": 76,
+            "after": 78
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/caster_identity",
+            "before": [
+              "[\"imoen\", \"ar0602\", [3720, 2826], \"Imoen\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/caster_level",
+            "before": 10,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/inventory_slot",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/opcode",
+            "before": 367,
+            "after": 187
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/parameters/0",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/parameters/1",
+            "before": 1,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/position/0",
+            "before": 3720,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/position/1",
+            "before": 2826,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/probability/1",
+            "before": 100,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/resources/0",
+            "before": "",
+            "after": "HASBEENINPARTY"
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/resources/1",
+            "before": "",
+            "after": "PARTY"
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/source_position/0",
+            "before": 3720,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/source_position/1",
+            "before": 2826,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/source_ref",
+            "before": "IMOENHP1",
+            "after": ""
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/source_type",
+            "before": 1,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/special",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/target",
+            "before": 1,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/timing",
+            "before": 2,
+            "after": 11
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/caster_identity",
+            "before": [
+              "[\"imoen\", \"ar0602\", [3720, 2826], \"Imoen\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/caster_level",
+            "before": 10,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/inventory_slot",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/opcode",
+            "before": 101,
+            "after": 187
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/parameters/0",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/parameters/1",
+            "before": 210,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/position/0",
+            "before": 3720,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/position/1",
+            "before": 2826,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/probability/1",
+            "before": 100,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/resources/0",
+            "before": "",
+            "after": "BD_JOINXP"
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/source_position/0",
+            "before": 3720,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/source_position/1",
+            "before": 2826,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/source_ref",
+            "before": "IMOENHP1",
+            "after": ""
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/source_type",
+            "before": 1,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/special",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/target",
+            "before": 1,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/timing",
+            "before": 2,
+            "after": 11
+          },
+          {
+            "path": "/current_area_actors/11/effects/8/opcode",
+            "before": 267,
+            "after": 367
+          },
+          {
+            "path": "/current_area_actors/11/effects/8/parameters/0",
+            "before": 14043,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/8/parameters/1",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/11/effects/8/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/9/opcode",
+            "before": 267,
+            "after": 101
+          },
+          {
+            "path": "/current_area_actors/11/effects/9/parameters/0",
+            "before": 14001,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/9/parameters/1",
+            "before": 0,
+            "after": 210
+          },
+          {
+            "path": "/current_area_actors/11/effects/10/opcode",
+            "before": 206,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/11/effects/10/parameters/0",
+            "before": 4294967295,
+            "after": 14043
+          },
+          {
+            "path": "/current_area_actors/11/effects/10/parameters/1",
+            "before": 135,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/10/resources/0",
+            "before": "spwm113",
+            "after": ""
+          },
+          {
+            "path": "/current_area_actors/11/effects/11/opcode",
+            "before": 206,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/11/effects/11/parameters/0",
+            "before": 4294967295,
+            "after": 14001
+          },
+          {
+            "path": "/current_area_actors/11/effects/11/parameters/1",
+            "before": 135,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/11/resources/0",
+            "before": "spwi415",
+            "after": ""
+          },
+          {
+            "path": "/current_area_actors/11/effects/12/resources/0",
+            "before": "spwi711",
+            "after": "spwm113"
+          },
+          {
+            "path": "/current_area_actors/11/effects/13/opcode",
+            "before": 267,
+            "after": 206
+          },
+          {
+            "path": "/current_area_actors/11/effects/13/parameters/0",
+            "before": 14026,
+            "after": 4294967295
+          },
+          {
+            "path": "/current_area_actors/11/effects/13/parameters/1",
+            "before": 0,
+            "after": 135
+          },
+          {
+            "path": "/current_area_actors/11/effects/13/resources/0",
+            "before": "",
+            "after": "spwi415"
+          },
+          {
+            "path": "/current_area_actors/11/effects/14/opcode",
+            "before": 267,
+            "after": 206
+          },
+          {
+            "path": "/current_area_actors/11/effects/14/parameters/0",
+            "before": 64285,
+            "after": 4294967295
+          },
+          {
+            "path": "/current_area_actors/11/effects/14/parameters/1",
+            "before": 0,
+            "after": 135
+          },
+          {
+            "path": "/current_area_actors/11/effects/14/resources/0",
+            "before": "",
+            "after": "spwi711"
+          },
+          {
+            "path": "/current_area_actors/11/effects/15/parameters/0",
+            "before": 14017,
+            "after": 14026
+          },
+          {
+            "path": "/current_area_actors/11/effects/16/parameters/0",
+            "before": 14662,
+            "after": 64285
+          },
+          {
+            "path": "/current_area_actors/11/effects/17/opcode",
+            "before": 169,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/11/effects/17/parameters/0",
+            "before": 0,
+            "after": 14017
+          },
+          {
+            "path": "/current_area_actors/11/effects/17/parameters/1",
+            "before": 137,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/18/parameters/0",
+            "before": 8364,
+            "after": 14662
+          },
+          {
+            "path": "/current_area_actors/11/effects/19/opcode",
+            "before": 296,
+            "after": 169
+          },
+          {
+            "path": "/current_area_actors/11/effects/19/parameters/1",
+            "before": 5,
+            "after": 137
+          },
+          {
+            "path": "/current_area_actors/11/effects/19/resources/0",
+            "before": "spnwchrm",
+            "after": ""
+          },
+          {
+            "path": "/current_area_actors/11/effects/20/parameters/0",
+            "before": 14780,
+            "after": 8364
+          },
+          {
+            "path": "/current_area_actors/11/effects/21/opcode",
+            "before": 267,
+            "after": 296
+          },
+          {
+            "path": "/current_area_actors/11/effects/21/parameters/0",
+            "before": 14672,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/21/parameters/1",
+            "before": 0,
+            "after": 5
+          },
+          {
+            "path": "/current_area_actors/11/effects/21/resources/0",
+            "before": "",
+            "after": "spnwchrm"
+          },
+          {
+            "path": "/current_area_actors/11/effects/22/opcode",
+            "before": 169,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/11/effects/22/parameters/0",
+            "before": 0,
+            "after": 14780
+          },
+          {
+            "path": "/current_area_actors/11/effects/22/parameters/1",
+            "before": 43,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/23/opcode",
+            "before": 296,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/11/effects/23/parameters/0",
+            "before": 0,
+            "after": 14672
+          },
+          {
+            "path": "/current_area_actors/11/effects/23/parameters/1",
+            "before": 24,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/23/resources/0",
+            "before": "cdhorror",
+            "after": ""
+          },
+          {
+            "path": "/current_area_actors/11/effects/24/parameters/1",
+            "before": 36,
+            "after": 43
+          },
+          {
+            "path": "/current_area_actors/11/effects/25/opcode",
+            "before": 267,
+            "after": 296
+          },
+          {
+            "path": "/current_area_actors/11/effects/25/parameters/0",
+            "before": 17427,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/25/parameters/1",
+            "before": 0,
+            "after": 24
+          },
+          {
+            "path": "/current_area_actors/11/effects/25/resources/0",
+            "before": "",
+            "after": "cdhorror"
+          },
+          {
+            "path": "/current_area_actors/11/effects/26/opcode",
+            "before": 267,
+            "after": 169
+          },
+          {
+            "path": "/current_area_actors/11/effects/26/parameters/0",
+            "before": 14007,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/26/parameters/1",
+            "before": 0,
+            "after": 36
+          },
+          {
+            "path": "/current_area_actors/11/effects/27/opcode",
+            "before": 296,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/11/effects/27/parameters/0",
+            "before": 0,
+            "after": 17427
+          },
+          {
+            "path": "/current_area_actors/11/effects/27/parameters/1",
+            "before": 175,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/27/resources/0",
+            "before": "spflayer",
+            "after": ""
+          },
+          {
+            "path": "/current_area_actors/11/effects/28/parameters/0",
+            "before": 41616,
+            "after": 14007
+          },
+          {
+            "path": "/current_area_actors/11/effects/29/opcode",
+            "before": 267,
+            "after": 296
+          },
+          {
+            "path": "/current_area_actors/11/effects/29/parameters/0",
+            "before": 40979,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/29/parameters/1",
+            "before": 0,
+            "after": 175
+          },
+          {
+            "path": "/current_area_actors/11/effects/29/resources/0",
+            "before": "",
+            "after": "spflayer"
+          },
+          {
+            "path": "/current_area_actors/11/effects/30/parameters/0",
+            "before": 40969,
+            "after": 41616
+          },
+          {
+            "path": "/current_area_actors/11/effects/31/parameters/0",
+            "before": 40968,
+            "after": 40979
+          },
+          {
+            "path": "/current_area_actors/11/effects/32/parameters/0",
+            "before": 41495,
+            "after": 40969
+          },
+          {
+            "path": "/current_area_actors/11/effects/33/opcode",
+            "before": 169,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/11/effects/33/parameters/0",
+            "before": 0,
+            "after": 40968
+          },
+          {
+            "path": "/current_area_actors/11/effects/33/parameters/1",
+            "before": 59,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/34/opcode",
+            "before": 208,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/11/effects/34/parameters/0",
+            "before": 1,
+            "after": 41495
+          },
+          {
+            "path": "/current_area_actors/11/effects/35/opcode",
+            "before": 101,
+            "after": 169
+          },
+          {
+            "path": "/current_area_actors/11/effects/35/parameters/1",
+            "before": 134,
+            "after": 59
+          },
+          {
+            "path": "/current_area_actors/11/effects/36/opcode",
+            "before": 101,
+            "after": 208
+          },
+          {
+            "path": "/current_area_actors/11/effects/36/parameters/0",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/11/effects/36/parameters/1",
+            "before": 135,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/37/parameters/1",
+            "before": 217,
+            "after": 134
+          },
+          {
+            "path": "/current_area_actors/11/effects/38/parameters/1",
+            "before": 39,
+            "after": 135
+          },
+          {
+            "path": "/current_area_actors/11/effects/39/parameters/1",
+            "before": 13,
+            "after": 217
+          },
+          {
+            "path": "/current_area_actors/11/effects/40/parameters/1",
+            "before": 55,
+            "after": 39
+          },
+          {
+            "path": "/current_area_actors/11/effects/41/parameters/1",
+            "before": 211,
+            "after": 13
+          },
+          {
+            "path": "/current_area_actors/11/effects/42/dice/1",
+            "before": 6,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/42/parameters/1",
+            "before": 5,
+            "after": 55
+          },
+          {
+            "path": "/current_area_actors/11/effects/43/parameters/1",
+            "before": 24,
+            "after": 211
+          },
+          {
+            "path": "/current_area_actors/11/effects/44/dice/1",
+            "before": 0,
+            "after": 6
+          },
+          {
+            "path": "/current_area_actors/11/effects/44/parameters/1",
+            "before": 216,
+            "after": 5
+          },
+          {
+            "path": "/current_area_actors/11/effects/46/parameters/1",
+            "before": 3,
+            "after": 216
+          },
+          {
+            "path": "/current_area_actors/11/effects/47/parameters/1",
+            "before": 209,
+            "after": 24
+          },
+          {
+            "path": "/current_area_actors/11/effects/47/resistance",
+            "before": 0,
+            "after": 2
+          },
+          {
+            "path": "/current_area_actors/11/effects/48/parameters/1",
+            "before": 238,
+            "after": 3
+          },
+          {
+            "path": "/current_area_actors/11/effects/48/resistance",
+            "before": 0,
+            "after": 2
+          },
+          {
+            "path": "/current_area_actors/11/effects/49/parameters/1",
+            "before": 5,
+            "after": 209
+          },
+          {
+            "path": "/current_area_actors/11/effects/49/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/50/opcode",
+            "before": 169,
+            "after": 101
+          },
+          {
+            "path": "/current_area_actors/11/effects/50/parameters/1",
+            "before": 14,
+            "after": 238
+          },
+          {
+            "path": "/current_area_actors/11/effects/50/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/51/opcode",
+            "before": 169,
+            "after": 101
+          },
+          {
+            "path": "/current_area_actors/11/effects/51/parameters/1",
+            "before": 0,
+            "after": 5
+          },
+          {
+            "path": "/current_area_actors/11/effects/52/parameters/1",
+            "before": 1,
+            "after": 14
+          },
+          {
+            "path": "/current_area_actors/11/effects/53/parameters/1",
+            "before": 6,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/54/opcode",
+            "before": 173,
+            "after": 169
+          },
+          {
+            "path": "/current_area_actors/11/effects/54/parameters/0",
+            "before": 100,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/54/parameters/1",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/11/effects/55/opcode",
+            "before": 101,
+            "after": 169
+          },
+          {
+            "path": "/current_area_actors/11/effects/55/parameters/1",
+            "before": 25,
+            "after": 6
+          },
+          {
+            "path": "/current_area_actors/11/effects/56/opcode",
+            "before": 101,
+            "after": 173
+          },
+          {
+            "path": "/current_area_actors/11/effects/56/parameters/0",
+            "before": 0,
+            "after": 100
+          },
+          {
+            "path": "/current_area_actors/11/effects/56/parameters/1",
+            "before": 45,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/57/opcode",
+            "before": 169,
+            "after": 101
+          },
+          {
+            "path": "/current_area_actors/11/effects/57/parameters/1",
+            "before": 55,
+            "after": 25
+          },
+          {
+            "path": "/current_area_actors/11/effects/58/opcode",
+            "before": 267,
+            "after": 101
+          },
+          {
+            "path": "/current_area_actors/11/effects/58/parameters/0",
+            "before": 14665,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/58/parameters/1",
+            "before": 0,
+            "after": 45
+          },
+          {
+            "path": "/current_area_actors/11/effects/59/opcode",
+            "before": 267,
+            "after": 169
+          },
+          {
+            "path": "/current_area_actors/11/effects/59/parameters/0",
+            "before": 340,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/59/parameters/1",
+            "before": 0,
+            "after": 55
+          },
+          {
+            "path": "/current_area_actors/11/effects/60/parameters/0",
+            "before": 384,
+            "after": 14665
+          },
+          {
+            "path": "/current_area_actors/11/effects/61/parameters/0",
+            "before": 915,
+            "after": 340
+          },
+          {
+            "path": "/current_area_actors/11/effects/62/parameters/0",
+            "before": 1473,
+            "after": 384
+          },
+          {
+            "path": "/current_area_actors/11/effects/63/parameters/0",
+            "before": 8823,
+            "after": 915
+          },
+          {
+            "path": "/current_area_actors/11/effects/64/parameters/0",
+            "before": 17404,
+            "after": 1473
+          },
+          {
+            "path": "/current_area_actors/11/effects/65/parameters/0",
+            "before": 1280,
+            "after": 8823
+          },
+          {
+            "path": "/current_area_actors/11/effects/66/parameters/0",
+            "before": 14102,
+            "after": 17404
+          },
+          {
+            "path": "/current_area_actors/11/effects/67/opcode",
+            "before": 101,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/11/effects/67/parameters/0",
+            "before": 0,
+            "after": 1280
+          },
+          {
+            "path": "/current_area_actors/11/effects/67/parameters/1",
+            "before": 109,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/68/opcode",
+            "before": 169,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/11/effects/68/parameters/0",
+            "before": 0,
+            "after": 14102
+          },
+          {
+            "path": "/current_area_actors/11/effects/68/parameters/1",
+            "before": 13,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/69/parameters/1",
+            "before": 185,
+            "after": 109
+          },
+          {
+            "path": "/current_area_actors/11/effects/70/opcode",
+            "before": 101,
+            "after": 169
+          },
+          {
+            "path": "/current_area_actors/11/effects/70/parameters/1",
+            "before": 175,
+            "after": 13
+          },
+          {
+            "path": "/current_area_actors/11/effects/71/opcode",
+            "before": 106,
+            "after": 101
+          },
+          {
+            "path": "/current_area_actors/11/effects/71/parameters/1",
+            "before": 1,
+            "after": 185
+          },
+          {
+            "path": "/current_area_actors/11/effects/72/parameters/1",
+            "before": 134,
+            "after": 175
+          },
+          {
+            "path": "/current_area_actors/11/effects/72/resistance",
+            "before": 0,
+            "after": 2
+          },
+          {
+            "path": "/current_area_actors/11/effects/73/opcode",
+            "before": 296,
+            "after": 106
+          },
+          {
+            "path": "/current_area_actors/11/effects/73/parameters/1",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/11/effects/73/resources/0",
+            "before": "SPMINDAT",
+            "after": ""
+          },
+          {
+            "path": "/current_area_actors/11/effects/74/parameters/1",
+            "before": 23,
+            "after": 134
+          },
+          {
+            "path": "/current_area_actors/11/effects/74/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/75/opcode",
+            "before": 101,
+            "after": 296
+          },
+          {
+            "path": "/current_area_actors/11/effects/75/parameters/1",
+            "before": 106,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/75/resources/0",
+            "before": "",
+            "after": "SPMINDAT"
+          },
+          {
+            "path": "/current_area_actors/12/effects/length",
+            "before": 5,
+            "after": 6
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/caster_identity",
+            "before": [
+              "[\"ishaddud\", \"ar0602\", [3752, 2946], \"Assassin\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/caster_level",
+            "before": 10,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/inventory_slot",
+            "before": 11,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/opcode",
+            "before": 319,
+            "after": 187
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/parameters/0",
+            "before": 11,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/parameters/1",
+            "before": 5,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/position/0",
+            "before": 3752,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/position/1",
+            "before": 2946,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/probability/1",
+            "before": 100,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/resources/0",
+            "before": "",
+            "after": "KICKEDOUT"
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/source_position/0",
+            "before": 3752,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/source_position/1",
+            "before": 2946,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/source_ref",
+            "before": "AROW01",
+            "after": ""
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/source_type",
+            "before": 1,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/special",
+            "before": 1080,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/target",
+            "before": 1,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/timing",
+            "before": 2,
+            "after": 11
+          },
+          {
+            "path": "/current_area_actors/12/effects/1/inventory_slot",
+            "before": 36,
+            "after": 11
+          },
+          {
+            "path": "/current_area_actors/12/effects/1/opcode",
+            "before": 7,
+            "after": 319
+          },
+          {
+            "path": "/current_area_actors/12/effects/1/parameters/0",
+            "before": 164,
+            "after": 11
+          },
+          {
+            "path": "/current_area_actors/12/effects/1/parameters/1",
+            "before": 21,
+            "after": 5
+          },
+          {
+            "path": "/current_area_actors/12/effects/1/source_ref",
+            "before": "BOW01",
+            "after": "AROW01"
+          },
+          {
+            "path": "/current_area_actors/12/effects/1/special",
+            "before": 0,
+            "after": 1080
+          },
+          {
+            "path": "/current_area_actors/12/effects/2/parameters/0",
+            "before": 95,
+            "after": 164
+          },
+          {
+            "path": "/current_area_actors/12/effects/2/parameters/1",
+            "before": 20,
+            "after": 21
+          },
+          {
+            "path": "/current_area_actors/12/effects/3/parameters/0",
+            "before": 13,
+            "after": 95
+          },
+          {
+            "path": "/current_area_actors/12/effects/3/parameters/1",
+            "before": 16,
+            "after": 20
+          },
+          {
+            "path": "/current_area_actors/12/effects/4/opcode",
+            "before": 1,
+            "after": 7
+          },
+          {
+            "path": "/current_area_actors/12/effects/4/parameters/0",
+            "before": 2,
+            "after": 13
+          },
+          {
+            "path": "/current_area_actors/12/effects/4/parameters/1",
+            "before": 1,
+            "after": 16
+          },
+          {
+            "path": "/current_area_actors/27/effects/length",
+            "before": 22,
+            "after": 29
+          },
+          {
+            "path": "/current_area_actors/27/effects/7/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/7/opcode",
+            "before": 101,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/27/effects/7/parameters/0",
+            "before": 0,
+            "after": 14665
+          },
+          {
+            "path": "/current_area_actors/27/effects/7/parameters/1",
+            "before": 217,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/7/timing",
+            "before": 2,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/27/effects/8/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/8/parameters/0",
+            "before": 14665,
+            "after": 41616
+          },
+          {
+            "path": "/current_area_actors/27/effects/9/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/9/parameters/0",
+            "before": 41616,
+            "after": 40979
+          },
+          {
+            "path": "/current_area_actors/27/effects/10/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/10/parameters/0",
+            "before": 40979,
+            "after": 40969
+          },
+          {
+            "path": "/current_area_actors/27/effects/11/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/11/parameters/0",
+            "before": 40969,
+            "after": 41495
+          },
+          {
+            "path": "/current_area_actors/27/effects/12/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/12/opcode",
+            "before": 267,
+            "after": 101
+          },
+          {
+            "path": "/current_area_actors/27/effects/12/parameters/0",
+            "before": 41495,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/12/parameters/1",
+            "before": 0,
+            "after": 134
+          },
+          {
+            "path": "/current_area_actors/27/effects/13/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/13/opcode",
+            "before": 83,
+            "after": 101
+          },
+          {
+            "path": "/current_area_actors/27/effects/13/parameters/1",
+            "before": 94,
+            "after": 216
+          },
+          {
+            "path": "/current_area_actors/27/effects/13/timing",
+            "before": 2,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/27/effects/14/parameters/1",
+            "before": 39,
+            "after": 217
+          },
+          {
+            "path": "/current_area_actors/27/effects/15/opcode",
+            "before": 169,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/27/effects/15/parameters/0",
+            "before": 0,
+            "after": 14665
+          },
+          {
+            "path": "/current_area_actors/27/effects/15/parameters/1",
+            "before": 14,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/15/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/15/timing",
+            "before": 2,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/27/effects/16/parameters/0",
+            "before": 14001,
+            "after": 41616
+          },
+          {
+            "path": "/current_area_actors/27/effects/16/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/16/timing",
+            "before": 2,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/27/effects/17/opcode",
+            "before": 101,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/27/effects/17/parameters/0",
+            "before": 0,
+            "after": 40979
+          },
+          {
+            "path": "/current_area_actors/27/effects/17/parameters/1",
+            "before": 134,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/18/opcode",
+            "before": 101,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/27/effects/18/parameters/0",
+            "before": 0,
+            "after": 40969
+          },
+          {
+            "path": "/current_area_actors/27/effects/18/parameters/1",
+            "before": 216,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/19/parameters/0",
+            "before": 40968,
+            "after": 41495
+          },
+          {
+            "path": "/current_area_actors/27/effects/19/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/19/timing",
+            "before": 2,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/inventory_slot",
+            "before": 7,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/opcode",
+            "before": 98,
+            "after": 83
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/parameters/0",
+            "before": 6,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/parameters/1",
+            "before": 3,
+            "after": 94
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/parameters/4",
+            "before": 32805,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/source_ref",
+            "before": "REGHP1",
+            "after": "IMMCLOUD"
+          },
+          {
+            "path": "/current_area_actors/27/effects/21/inventory_slot",
+            "before": 7,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/21/opcode",
+            "before": 126,
+            "after": 101
+          },
+          {
+            "path": "/current_area_actors/27/effects/21/parameters/0",
+            "before": 10,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/21/parameters/1",
+            "before": 1,
+            "after": 39
+          },
+          {
+            "path": "/current_area_actors/27/effects/21/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/21/source_ref",
+            "before": "REGHP1",
+            "after": "IMMCLOUD"
+          },
+          {
+            "path": "/current_area_actors/31/base_stats/210",
+            "before": 3435973836,
+            "after": 909522486
+          },
+          {
+            "path": "/current_area_actors/31/modified_stats/210",
+            "before": 3435973836,
+            "after": 909522486
+          },
+          {
+            "path": "/game_time",
+            "before": 32717,
+            "after": 32715
+          },
+          {
+            "path": "/globals/BD_CHAPTER_SAVE",
+            "before": null,
+            "after": 1,
+            "missing": "before"
+          },
+          {
+            "path": "/globals/bd_chapter_save",
+            "before": 1,
+            "after": null,
+            "missing": "after"
+          },
+          {
+            "path": "/party/1/effects/length",
+            "before": 76,
+            "after": 78
+          },
+          {
+            "path": "/party/1/effects/6/caster_identity",
+            "before": [
+              "[\"imoen\", \"ar0602\", [3720, 2826], \"Imoen\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/party/1/effects/6/caster_level",
+            "before": 10,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/6/inventory_slot",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/6/opcode",
+            "before": 367,
+            "after": 187
+          },
+          {
+            "path": "/party/1/effects/6/parameters/0",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/party/1/effects/6/parameters/1",
+            "before": 1,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/6/position/0",
+            "before": 3720,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/6/position/1",
+            "before": 2826,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/6/probability/1",
+            "before": 100,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/6/resources/0",
+            "before": "",
+            "after": "HASBEENINPARTY"
+          },
+          {
+            "path": "/party/1/effects/6/resources/1",
+            "before": "",
+            "after": "PARTY"
+          },
+          {
+            "path": "/party/1/effects/6/source_position/0",
+            "before": 3720,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/6/source_position/1",
+            "before": 2826,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/6/source_ref",
+            "before": "IMOENHP1",
+            "after": ""
+          },
+          {
+            "path": "/party/1/effects/6/source_type",
+            "before": 1,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/6/special",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/party/1/effects/6/target",
+            "before": 1,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/6/timing",
+            "before": 2,
+            "after": 11
+          },
+          {
+            "path": "/party/1/effects/7/caster_identity",
+            "before": [
+              "[\"imoen\", \"ar0602\", [3720, 2826], \"Imoen\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/party/1/effects/7/caster_level",
+            "before": 10,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/7/inventory_slot",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/7/opcode",
+            "before": 101,
+            "after": 187
+          },
+          {
+            "path": "/party/1/effects/7/parameters/0",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/party/1/effects/7/parameters/1",
+            "before": 210,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/7/position/0",
+            "before": 3720,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/7/position/1",
+            "before": 2826,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/7/probability/1",
+            "before": 100,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/7/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/7/resources/0",
+            "before": "",
+            "after": "BD_JOINXP"
+          },
+          {
+            "path": "/party/1/effects/7/source_position/0",
+            "before": 3720,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/7/source_position/1",
+            "before": 2826,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/7/source_ref",
+            "before": "IMOENHP1",
+            "after": ""
+          },
+          {
+            "path": "/party/1/effects/7/source_type",
+            "before": 1,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/7/special",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/party/1/effects/7/target",
+            "before": 1,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/7/timing",
+            "before": 2,
+            "after": 11
+          },
+          {
+            "path": "/party/1/effects/8/opcode",
+            "before": 267,
+            "after": 367
+          },
+          {
+            "path": "/party/1/effects/8/parameters/0",
+            "before": 14043,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/8/parameters/1",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/party/1/effects/8/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/9/opcode",
+            "before": 267,
+            "after": 101
+          },
+          {
+            "path": "/party/1/effects/9/parameters/0",
+            "before": 14001,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/9/parameters/1",
+            "before": 0,
+            "after": 210
+          },
+          {
+            "path": "/party/1/effects/10/opcode",
+            "before": 206,
+            "after": 267
+          },
+          {
+            "path": "/party/1/effects/10/parameters/0",
+            "before": 4294967295,
+            "after": 14043
+          },
+          {
+            "path": "/party/1/effects/10/parameters/1",
+            "before": 135,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/10/resources/0",
+            "before": "spwm113",
+            "after": ""
+          },
+          {
+            "path": "/party/1/effects/11/opcode",
+            "before": 206,
+            "after": 267
+          },
+          {
+            "path": "/party/1/effects/11/parameters/0",
+            "before": 4294967295,
+            "after": 14001
+          },
+          {
+            "path": "/party/1/effects/11/parameters/1",
+            "before": 135,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/11/resources/0",
+            "before": "spwi415",
+            "after": ""
+          },
+          {
+            "path": "/party/1/effects/12/resources/0",
+            "before": "spwi711",
+            "after": "spwm113"
+          },
+          {
+            "path": "/party/1/effects/13/opcode",
+            "before": 267,
+            "after": 206
+          },
+          {
+            "path": "/party/1/effects/13/parameters/0",
+            "before": 14026,
+            "after": 4294967295
+          },
+          {
+            "path": "/party/1/effects/13/parameters/1",
+            "before": 0,
+            "after": 135
+          },
+          {
+            "path": "/party/1/effects/13/resources/0",
+            "before": "",
+            "after": "spwi415"
+          },
+          {
+            "path": "/party/1/effects/14/opcode",
+            "before": 267,
+            "after": 206
+          },
+          {
+            "path": "/party/1/effects/14/parameters/0",
+            "before": 64285,
+            "after": 4294967295
+          },
+          {
+            "path": "/party/1/effects/14/parameters/1",
+            "before": 0,
+            "after": 135
+          },
+          {
+            "path": "/party/1/effects/14/resources/0",
+            "before": "",
+            "after": "spwi711"
+          },
+          {
+            "path": "/party/1/effects/15/parameters/0",
+            "before": 14017,
+            "after": 14026
+          },
+          {
+            "path": "/party/1/effects/16/parameters/0",
+            "before": 14662,
+            "after": 64285
+          },
+          {
+            "path": "/party/1/effects/17/opcode",
+            "before": 169,
+            "after": 267
+          },
+          {
+            "path": "/party/1/effects/17/parameters/0",
+            "before": 0,
+            "after": 14017
+          },
+          {
+            "path": "/party/1/effects/17/parameters/1",
+            "before": 137,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/18/parameters/0",
+            "before": 8364,
+            "after": 14662
+          },
+          {
+            "path": "/party/1/effects/19/opcode",
+            "before": 296,
+            "after": 169
+          },
+          {
+            "path": "/party/1/effects/19/parameters/1",
+            "before": 5,
+            "after": 137
+          },
+          {
+            "path": "/party/1/effects/19/resources/0",
+            "before": "spnwchrm",
+            "after": ""
+          },
+          {
+            "path": "/party/1/effects/20/parameters/0",
+            "before": 14780,
+            "after": 8364
+          },
+          {
+            "path": "/party/1/effects/21/opcode",
+            "before": 267,
+            "after": 296
+          },
+          {
+            "path": "/party/1/effects/21/parameters/0",
+            "before": 14672,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/21/parameters/1",
+            "before": 0,
+            "after": 5
+          },
+          {
+            "path": "/party/1/effects/21/resources/0",
+            "before": "",
+            "after": "spnwchrm"
+          },
+          {
+            "path": "/party/1/effects/22/opcode",
+            "before": 169,
+            "after": 267
+          },
+          {
+            "path": "/party/1/effects/22/parameters/0",
+            "before": 0,
+            "after": 14780
+          },
+          {
+            "path": "/party/1/effects/22/parameters/1",
+            "before": 43,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/23/opcode",
+            "before": 296,
+            "after": 267
+          },
+          {
+            "path": "/party/1/effects/23/parameters/0",
+            "before": 0,
+            "after": 14672
+          },
+          {
+            "path": "/party/1/effects/23/parameters/1",
+            "before": 24,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/23/resources/0",
+            "before": "cdhorror",
+            "after": ""
+          },
+          {
+            "path": "/party/1/effects/24/parameters/1",
+            "before": 36,
+            "after": 43
+          },
+          {
+            "path": "/party/1/effects/25/opcode",
+            "before": 267,
+            "after": 296
+          },
+          {
+            "path": "/party/1/effects/25/parameters/0",
+            "before": 17427,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/25/parameters/1",
+            "before": 0,
+            "after": 24
+          },
+          {
+            "path": "/party/1/effects/25/resources/0",
+            "before": "",
+            "after": "cdhorror"
+          },
+          {
+            "path": "/party/1/effects/26/opcode",
+            "before": 267,
+            "after": 169
+          },
+          {
+            "path": "/party/1/effects/26/parameters/0",
+            "before": 14007,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/26/parameters/1",
+            "before": 0,
+            "after": 36
+          },
+          {
+            "path": "/party/1/effects/27/opcode",
+            "before": 296,
+            "after": 267
+          },
+          {
+            "path": "/party/1/effects/27/parameters/0",
+            "before": 0,
+            "after": 17427
+          },
+          {
+            "path": "/party/1/effects/27/parameters/1",
+            "before": 175,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/27/resources/0",
+            "before": "spflayer",
+            "after": ""
+          },
+          {
+            "path": "/party/1/effects/28/parameters/0",
+            "before": 41616,
+            "after": 14007
+          },
+          {
+            "path": "/party/1/effects/29/opcode",
+            "before": 267,
+            "after": 296
+          },
+          {
+            "path": "/party/1/effects/29/parameters/0",
+            "before": 40979,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/29/parameters/1",
+            "before": 0,
+            "after": 175
+          },
+          {
+            "path": "/party/1/effects/29/resources/0",
+            "before": "",
+            "after": "spflayer"
+          },
+          {
+            "path": "/party/1/effects/30/parameters/0",
+            "before": 40969,
+            "after": 41616
+          },
+          {
+            "path": "/party/1/effects/31/parameters/0",
+            "before": 40968,
+            "after": 40979
+          },
+          {
+            "path": "/party/1/effects/32/parameters/0",
+            "before": 41495,
+            "after": 40969
+          },
+          {
+            "path": "/party/1/effects/33/opcode",
+            "before": 169,
+            "after": 267
+          },
+          {
+            "path": "/party/1/effects/33/parameters/0",
+            "before": 0,
+            "after": 40968
+          },
+          {
+            "path": "/party/1/effects/33/parameters/1",
+            "before": 59,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/34/opcode",
+            "before": 208,
+            "after": 267
+          },
+          {
+            "path": "/party/1/effects/34/parameters/0",
+            "before": 1,
+            "after": 41495
+          },
+          {
+            "path": "/party/1/effects/35/opcode",
+            "before": 101,
+            "after": 169
+          },
+          {
+            "path": "/party/1/effects/35/parameters/1",
+            "before": 134,
+            "after": 59
+          },
+          {
+            "path": "/party/1/effects/36/opcode",
+            "before": 101,
+            "after": 208
+          },
+          {
+            "path": "/party/1/effects/36/parameters/0",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/party/1/effects/36/parameters/1",
+            "before": 135,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/37/parameters/1",
+            "before": 217,
+            "after": 134
+          },
+          {
+            "path": "/party/1/effects/38/parameters/1",
+            "before": 39,
+            "after": 135
+          },
+          {
+            "path": "/party/1/effects/39/parameters/1",
+            "before": 13,
+            "after": 217
+          },
+          {
+            "path": "/party/1/effects/40/parameters/1",
+            "before": 55,
+            "after": 39
+          },
+          {
+            "path": "/party/1/effects/41/parameters/1",
+            "before": 211,
+            "after": 13
+          },
+          {
+            "path": "/party/1/effects/42/dice/1",
+            "before": 6,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/42/parameters/1",
+            "before": 5,
+            "after": 55
+          },
+          {
+            "path": "/party/1/effects/43/parameters/1",
+            "before": 24,
+            "after": 211
+          },
+          {
+            "path": "/party/1/effects/44/dice/1",
+            "before": 0,
+            "after": 6
+          },
+          {
+            "path": "/party/1/effects/44/parameters/1",
+            "before": 216,
+            "after": 5
+          },
+          {
+            "path": "/party/1/effects/46/parameters/1",
+            "before": 3,
+            "after": 216
+          },
+          {
+            "path": "/party/1/effects/47/parameters/1",
+            "before": 209,
+            "after": 24
+          },
+          {
+            "path": "/party/1/effects/47/resistance",
+            "before": 0,
+            "after": 2
+          },
+          {
+            "path": "/party/1/effects/48/parameters/1",
+            "before": 238,
+            "after": 3
+          },
+          {
+            "path": "/party/1/effects/48/resistance",
+            "before": 0,
+            "after": 2
+          },
+          {
+            "path": "/party/1/effects/49/parameters/1",
+            "before": 5,
+            "after": 209
+          },
+          {
+            "path": "/party/1/effects/49/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/50/opcode",
+            "before": 169,
+            "after": 101
+          },
+          {
+            "path": "/party/1/effects/50/parameters/1",
+            "before": 14,
+            "after": 238
+          },
+          {
+            "path": "/party/1/effects/50/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/51/opcode",
+            "before": 169,
+            "after": 101
+          },
+          {
+            "path": "/party/1/effects/51/parameters/1",
+            "before": 0,
+            "after": 5
+          },
+          {
+            "path": "/party/1/effects/52/parameters/1",
+            "before": 1,
+            "after": 14
+          },
+          {
+            "path": "/party/1/effects/53/parameters/1",
+            "before": 6,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/54/opcode",
+            "before": 173,
+            "after": 169
+          },
+          {
+            "path": "/party/1/effects/54/parameters/0",
+            "before": 100,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/54/parameters/1",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/party/1/effects/55/opcode",
+            "before": 101,
+            "after": 169
+          },
+          {
+            "path": "/party/1/effects/55/parameters/1",
+            "before": 25,
+            "after": 6
+          },
+          {
+            "path": "/party/1/effects/56/opcode",
+            "before": 101,
+            "after": 173
+          },
+          {
+            "path": "/party/1/effects/56/parameters/0",
+            "before": 0,
+            "after": 100
+          },
+          {
+            "path": "/party/1/effects/56/parameters/1",
+            "before": 45,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/57/opcode",
+            "before": 169,
+            "after": 101
+          },
+          {
+            "path": "/party/1/effects/57/parameters/1",
+            "before": 55,
+            "after": 25
+          },
+          {
+            "path": "/party/1/effects/58/opcode",
+            "before": 267,
+            "after": 101
+          },
+          {
+            "path": "/party/1/effects/58/parameters/0",
+            "before": 14665,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/58/parameters/1",
+            "before": 0,
+            "after": 45
+          },
+          {
+            "path": "/party/1/effects/59/opcode",
+            "before": 267,
+            "after": 169
+          },
+          {
+            "path": "/party/1/effects/59/parameters/0",
+            "before": 340,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/59/parameters/1",
+            "before": 0,
+            "after": 55
+          },
+          {
+            "path": "/party/1/effects/60/parameters/0",
+            "before": 384,
+            "after": 14665
+          },
+          {
+            "path": "/party/1/effects/61/parameters/0",
+            "before": 915,
+            "after": 340
+          },
+          {
+            "path": "/party/1/effects/62/parameters/0",
+            "before": 1473,
+            "after": 384
+          },
+          {
+            "path": "/party/1/effects/63/parameters/0",
+            "before": 8823,
+            "after": 915
+          },
+          {
+            "path": "/party/1/effects/64/parameters/0",
+            "before": 17404,
+            "after": 1473
+          },
+          {
+            "path": "/party/1/effects/65/parameters/0",
+            "before": 1280,
+            "after": 8823
+          },
+          {
+            "path": "/party/1/effects/66/parameters/0",
+            "before": 14102,
+            "after": 17404
+          },
+          {
+            "path": "/party/1/effects/67/opcode",
+            "before": 101,
+            "after": 267
+          },
+          {
+            "path": "/party/1/effects/67/parameters/0",
+            "before": 0,
+            "after": 1280
+          },
+          {
+            "path": "/party/1/effects/67/parameters/1",
+            "before": 109,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/68/opcode",
+            "before": 169,
+            "after": 267
+          },
+          {
+            "path": "/party/1/effects/68/parameters/0",
+            "before": 0,
+            "after": 14102
+          },
+          {
+            "path": "/party/1/effects/68/parameters/1",
+            "before": 13,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/69/parameters/1",
+            "before": 185,
+            "after": 109
+          },
+          {
+            "path": "/party/1/effects/70/opcode",
+            "before": 101,
+            "after": 169
+          },
+          {
+            "path": "/party/1/effects/70/parameters/1",
+            "before": 175,
+            "after": 13
+          },
+          {
+            "path": "/party/1/effects/71/opcode",
+            "before": 106,
+            "after": 101
+          },
+          {
+            "path": "/party/1/effects/71/parameters/1",
+            "before": 1,
+            "after": 185
+          },
+          {
+            "path": "/party/1/effects/72/parameters/1",
+            "before": 134,
+            "after": 175
+          },
+          {
+            "path": "/party/1/effects/72/resistance",
+            "before": 0,
+            "after": 2
+          },
+          {
+            "path": "/party/1/effects/73/opcode",
+            "before": 296,
+            "after": 106
+          },
+          {
+            "path": "/party/1/effects/73/parameters/1",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/party/1/effects/73/resources/0",
+            "before": "SPMINDAT",
+            "after": ""
+          },
+          {
+            "path": "/party/1/effects/74/parameters/1",
+            "before": 23,
+            "after": 134
+          },
+          {
+            "path": "/party/1/effects/74/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/75/opcode",
+            "before": 101,
+            "after": 296
+          },
+          {
+            "path": "/party/1/effects/75/parameters/1",
+            "before": 106,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/75/resources/0",
+            "before": "",
+            "after": "SPMINDAT"
+          }
+        ],
+        "prior_sha256": "f99132b0722e3ff74e6864ff30f32a4555ec1d27eb636a3567e699380571402b",
+        "new_sha256": "4d0e848f849c7ae5ccf1407fdd80e53c875a36903abea71e7610cfff26a93920",
+        "new_paths": [
+          "/current_area_actors/31/base_stats/210",
+          "/current_area_actors/31/modified_stats/210"
+        ],
+        "lost_paths": [
+          "/current_area_actors/3/base_stats/209",
+          "/current_area_actors/3/modified_stats/209"
+        ],
+        "shared_path_rows_exact": true,
+        "removed_rows": [
+          {
+            "path": "/current_area_actors/3/base_stats/209",
+            "before": 3385444809,
+            "after": 2728567458
+          },
+          {
+            "path": "/current_area_actors/3/modified_stats/209",
+            "before": 3385444809,
+            "after": 2728567458
+          }
+        ]
+      },
+      "legacy-semantic-differences.json": {
+        "new_count": 55,
+        "prior_count": 55,
+        "exact_rows_equal": false,
+        "new_rows": [
+          {
+            "path": "/current_area_actors/27/effects/length",
+            "before": 22,
+            "after": 29
+          },
+          {
+            "path": "/current_area_actors/27/effects/7/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/7/opcode",
+            "before": 101,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/27/effects/7/parameters/0",
+            "before": 0,
+            "after": 14665
+          },
+          {
+            "path": "/current_area_actors/27/effects/7/parameters/1",
+            "before": 217,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/7/timing",
+            "before": 2,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/27/effects/8/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/8/parameters/0",
+            "before": 14665,
+            "after": 41616
+          },
+          {
+            "path": "/current_area_actors/27/effects/9/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/9/parameters/0",
+            "before": 41616,
+            "after": 40979
+          },
+          {
+            "path": "/current_area_actors/27/effects/10/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/10/parameters/0",
+            "before": 40979,
+            "after": 40969
+          },
+          {
+            "path": "/current_area_actors/27/effects/11/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/11/parameters/0",
+            "before": 40969,
+            "after": 41495
+          },
+          {
+            "path": "/current_area_actors/27/effects/12/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/12/opcode",
+            "before": 267,
+            "after": 101
+          },
+          {
+            "path": "/current_area_actors/27/effects/12/parameters/0",
+            "before": 41495,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/12/parameters/1",
+            "before": 0,
+            "after": 134
+          },
+          {
+            "path": "/current_area_actors/27/effects/13/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/13/opcode",
+            "before": 83,
+            "after": 101
+          },
+          {
+            "path": "/current_area_actors/27/effects/13/parameters/1",
+            "before": 94,
+            "after": 216
+          },
+          {
+            "path": "/current_area_actors/27/effects/13/timing",
+            "before": 2,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/27/effects/14/parameters/1",
+            "before": 39,
+            "after": 217
+          },
+          {
+            "path": "/current_area_actors/27/effects/15/opcode",
+            "before": 169,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/27/effects/15/parameters/0",
+            "before": 0,
+            "after": 14665
+          },
+          {
+            "path": "/current_area_actors/27/effects/15/parameters/1",
+            "before": 14,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/15/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/15/timing",
+            "before": 2,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/27/effects/16/parameters/0",
+            "before": 14001,
+            "after": 41616
+          },
+          {
+            "path": "/current_area_actors/27/effects/16/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/16/timing",
+            "before": 2,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/27/effects/17/opcode",
+            "before": 101,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/27/effects/17/parameters/0",
+            "before": 0,
+            "after": 40979
+          },
+          {
+            "path": "/current_area_actors/27/effects/17/parameters/1",
+            "before": 134,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/18/opcode",
+            "before": 101,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/27/effects/18/parameters/0",
+            "before": 0,
+            "after": 40969
+          },
+          {
+            "path": "/current_area_actors/27/effects/18/parameters/1",
+            "before": 216,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/19/parameters/0",
+            "before": 40968,
+            "after": 41495
+          },
+          {
+            "path": "/current_area_actors/27/effects/19/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/19/timing",
+            "before": 2,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/inventory_slot",
+            "before": 7,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/opcode",
+            "before": 98,
+            "after": 83
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/parameters/0",
+            "before": 6,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/parameters/1",
+            "before": 3,
+            "after": 94
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/parameters/4",
+            "before": 32805,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/source_ref",
+            "before": "REGHP1",
+            "after": "IMMCLOUD"
+          },
+          {
+            "path": "/current_area_actors/27/effects/21/inventory_slot",
+            "before": 7,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/21/opcode",
+            "before": 126,
+            "after": 101
+          },
+          {
+            "path": "/current_area_actors/27/effects/21/parameters/0",
+            "before": 10,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/21/parameters/1",
+            "before": 1,
+            "after": 39
+          },
+          {
+            "path": "/current_area_actors/27/effects/21/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/21/source_ref",
+            "before": "REGHP1",
+            "after": "IMMCLOUD"
+          },
+          {
+            "path": "/current_area_actors/31/base_stats/210",
+            "before": 3435973836,
+            "after": 909522486
+          },
+          {
+            "path": "/current_area_actors/31/modified_stats/210",
+            "before": 3435973836,
+            "after": 909522486
+          }
+        ],
+        "prior_sha256": "824ed50c692936bd4598a6d294983d754e45674e2b78297027a4cc38d7e27f2a",
+        "new_sha256": "8d50e15ed65925aeab0bd772d008d4ca76162f3aa43071545707d5960d730397",
+        "new_paths": [
+          "/current_area_actors/31/base_stats/210",
+          "/current_area_actors/31/modified_stats/210"
+        ],
+        "lost_paths": [
+          "/current_area_actors/3/base_stats/209",
+          "/current_area_actors/3/modified_stats/209"
+        ],
+        "shared_path_rows_exact": true,
+        "removed_rows": [
+          {
+            "path": "/current_area_actors/3/base_stats/209",
+            "before": 3385444809,
+            "after": 2728567458
+          },
+          {
+            "path": "/current_area_actors/3/modified_stats/209",
+            "before": 3385444809,
+            "after": 2728567458
+          }
+        ]
+      }
+    }
+  },
+  "phase0_preserved": true,
+  "candidate_preserved": true,
+  "inputs_preserved": true,
+  "private_game": {
+    "clean_game_inventory_unchanged": true,
+    "clean_game_root_hashes_unchanged": true,
+    "copied_immutable_inputs_unchanged": true,
+    "allowed_private_root_changes": {
+      "GemRB.log": {
+        "before_sha256": "c298eb067db2c6c619c7791afc9b6fc0997a5dba9bd5bd03d6718f2facbbf6a7",
+        "after_sha256": "7c54f1b437a7785e56d10695df44cbd9371a932c93e5fb0a32b94f41018ee9e4"
+      },
+      "gemrb_path.txt": {
+        "before_sha256": "74f29a278dc2806d86620cd23bcd11130662c214b8854ef59d3aebcc7776fecd",
+        "after_sha256": "ac7836cb7320acf8d5dc36e2de2826f9d45751dfd7aa78a16a124b40bbf7fe9a"
+      }
+    },
+    "linked_asset_content_fully_hashed": false
+  },
+  "previous_baseline": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T121748Z-help-base-9fb35d02\\result.json",
+    "sha256": "373e5680384b3867a6af29dff063c66ab66791cc594b7c3f4d282b82889045dd"
+  },
+  "b49_baseline": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T072341Z-b49-native-baseline-b6faf631\\result.json",
+    "sha256": "a9b5abb83ecfce153f58063ce5c63284fe58b02368e85c0b3b84963829048ee7"
+  },
+  "b49_comparison": {
+    "vanilla": {
+      "reload-1-semantic-diff.json": {
+        "new_count": 0,
+        "prior_count": 0,
+        "exact_rows_equal": true,
+        "new_sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+        "prior_sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f"
+      },
+      "reload-2-semantic-diff.json": {
+        "new_count": 0,
+        "prior_count": 0,
+        "exact_rows_equal": true,
+        "new_sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+        "prior_sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f"
+      },
+      "repeat-import-semantic-diff.json": {
+        "new_count": 26,
+        "prior_count": 24,
+        "exact_rows_equal": false,
+        "new_sha256": "9028e0b853aa1cf7387d2d8108a14bc302f6ab7ef2341e137845f4d489fe9780",
+        "prior_sha256": "ee6b9cfc9c09ab8f8e6a2b8cf4b48d7b25343c4da7becdca68a1b51a5efa7625"
+      }
+    },
+    "gui": {
+      "gui-reload-differences.json": {
+        "new_count": 451,
+        "prior_count": 449,
+        "exact_rows_equal": false,
+        "new_sha256": "4d0e848f849c7ae5ccf1407fdd80e53c875a36903abea71e7610cfff26a93920",
+        "prior_sha256": "31bb2a768a48fa20f05a56aec8bc24d1e59d19e2a8cce5cbe6daa3c9248e74e2"
+      },
+      "legacy-semantic-differences.json": {
+        "new_count": 55,
+        "prior_count": 53,
+        "exact_rows_equal": false,
+        "new_sha256": "8d50e15ed65925aeab0bd772d008d4ca76162f3aa43071545707d5960d730397",
+        "prior_sha256": "efdca9a0c3316e202d4d49c6036cd6bbf7d3f2b2241b00f8d5634ca62551cc1a"
+      }
+    }
+  },
+  "source_commit": "9b30077b76aaa0f92f9e5387eb1ede8a1a54d325",
+  "private_preparation_sha256": "6d4760ddbac8e018b3e129534df3c0f2e805de9e7c751d72f99ac89634d6016f",
+  "auditor_sha256": "b8dfa480da098973e739db722399173016aeee2b3490c5adfc738da48e4388fc",
+  "limits": [
+    "No compatibility promotion; both comparisons remain unreviewed-differences",
+    "Content callbacks are not physical pointer or visual fidelity",
+    "No new engine runtime, build or test launched by audit"
+  ],
+  "historical_9aa_comparison": {
+    "vanilla": {
+      "reload-1-semantic-diff.json": {
+        "current_count": 0,
+        "reference_count": 2,
+        "exact_rows_equal": false,
+        "current_sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+        "reference_sha256": "87309057b3742bdde17b7c7c199593a159c108eb374f55f397bc522f3077a4f7",
+        "reference_path": "C:\\BGRedux\\phase1-local\\runtime-candidate-9aa69cd5-guarded\\phase0-local\\results\\20261022T021035Z-phase1-9aa-guarded-vanilla-60ea184f\\reload-1-semantic-diff.json",
+        "reference_rows": [
+          {
+            "path": "/current_area_actors/7/base_stats/212",
+            "before": 3823363043,
+            "after": 3671775962
+          },
+          {
+            "path": "/current_area_actors/7/modified_stats/212",
+            "before": 3823363043,
+            "after": 3671775962
+          }
+        ],
+        "new_paths": [],
+        "lost_paths": [
+          "/current_area_actors/7/base_stats/212",
+          "/current_area_actors/7/modified_stats/212"
+        ]
+      },
+      "reload-2-semantic-diff.json": {
+        "current_count": 0,
+        "reference_count": 2,
+        "exact_rows_equal": false,
+        "current_sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+        "reference_sha256": "aeb09d31f9c62d87f694ff3d9d6f2076012cab1fc02545cd6bb12976556ea42a",
+        "reference_path": "C:\\BGRedux\\phase1-local\\runtime-candidate-9aa69cd5-guarded\\phase0-local\\results\\20261022T021035Z-phase1-9aa-guarded-vanilla-60ea184f\\reload-2-semantic-diff.json",
+        "reference_rows": [
+          {
+            "path": "/current_area_actors/7/base_stats/212",
+            "before": 3671775962,
+            "after": 33686018
+          },
+          {
+            "path": "/current_area_actors/7/modified_stats/212",
+            "before": 3671775962,
+            "after": 33686018
+          }
+        ],
+        "new_paths": [],
+        "lost_paths": [
+          "/current_area_actors/7/base_stats/212",
+          "/current_area_actors/7/modified_stats/212"
+        ]
+      },
+      "repeat-import-semantic-diff.json": {
+        "current_count": 26,
+        "reference_count": 24,
+        "exact_rows_equal": false,
+        "current_sha256": "9028e0b853aa1cf7387d2d8108a14bc302f6ab7ef2341e137845f4d489fe9780",
+        "reference_sha256": "16a99ac6bb69261d92d9b14eefd2aa45d9e5bcb5ffdf97534c8507828330d511",
+        "reference_path": "C:\\BGRedux\\phase1-local\\runtime-candidate-9aa69cd5-guarded\\phase0-local\\results\\20261022T021035Z-phase1-9aa-guarded-vanilla-60ea184f\\repeat-import-semantic-diff.json",
+        "reference_rows": [
+          {
+            "path": "/current_area_actors/3/base_stats/209",
+            "before": 2745410467,
+            "after": 690563369
+          },
+          {
+            "path": "/current_area_actors/3/base_stats/213",
+            "before": 825307441,
+            "after": 1111638594
+          },
+          {
+            "path": "/current_area_actors/3/modified_stats/209",
+            "before": 2745410467,
+            "after": 690563369
+          },
+          {
+            "path": "/current_area_actors/3/modified_stats/213",
+            "before": 825307441,
+            "after": 1111638594
+          },
+          {
+            "path": "/current_area_actors/4/base_stats/208",
+            "before": 2576980377,
+            "after": 202116108
+          },
+          {
+            "path": "/current_area_actors/4/modified_stats/208",
+            "before": 2576980377,
+            "after": 202116108
+          },
+          {
+            "path": "/current_area_actors/5/base_stats/209",
+            "before": 2374864269,
+            "after": 1111638594
+          },
+          {
+            "path": "/current_area_actors/5/base_stats/212",
+            "before": 2273806215,
+            "after": 2256963206
+          },
+          {
+            "path": "/current_area_actors/5/base_stats/213",
+            "before": 1061109567,
+            "after": 2880154539
+          },
+          {
+            "path": "/current_area_actors/5/modified_stats/209",
+            "before": 2374864269,
+            "after": 1111638594
+          },
+          {
+            "path": "/current_area_actors/5/modified_stats/212",
+            "before": 2273806215,
+            "after": 2256963206
+          },
+          {
+            "path": "/current_area_actors/5/modified_stats/213",
+            "before": 1061109567,
+            "after": 2880154539
+          },
+          {
+            "path": "/current_area_actors/6/base_stats/213",
+            "before": 2795939494,
+            "after": 320017171
+          },
+          {
+            "path": "/current_area_actors/6/modified_stats/213",
+            "before": 2795939494,
+            "after": 320017171
+          },
+          {
+            "path": "/current_area_actors/7/base_stats/212",
+            "before": 3823363043,
+            "after": 2678038431
+          },
+          {
+            "path": "/current_area_actors/7/base_stats/213",
+            "before": 185273099,
+            "after": 2610666395
+          },
+          {
+            "path": "/current_area_actors/7/modified_stats/212",
+            "before": 3823363043,
+            "after": 2678038431
+          },
+          {
+            "path": "/current_area_actors/7/modified_stats/213",
+            "before": 185273099,
+            "after": 2610666395
+          },
+          {
+            "path": "/current_area_actors/19/base_stats/210",
+            "before": 1987475062,
+            "after": 875836468
+          },
+          {
+            "path": "/current_area_actors/19/modified_stats/210",
+            "before": 1987475062,
+            "after": 875836468
+          },
+          {
+            "path": "/current_area_actors/31/base_stats/209",
+            "before": 993737531,
+            "after": 2004318071
+          },
+          {
+            "path": "/current_area_actors/31/base_stats/210",
+            "before": 3217014719,
+            "after": 1061109567
+          },
+          {
+            "path": "/current_area_actors/31/modified_stats/209",
+            "before": 993737531,
+            "after": 2004318071
+          },
+          {
+            "path": "/current_area_actors/31/modified_stats/210",
+            "before": 3217014719,
+            "after": 1061109567
+          }
+        ],
+        "new_paths": [
+          "/current_area_actors/7/base_stats/208",
+          "/current_area_actors/7/modified_stats/208"
+        ],
+        "lost_paths": []
+      }
+    },
+    "gui": {
+      "gui-reload-differences.json": {
+        "current_count": 451,
+        "reference_count": 453,
+        "exact_rows_equal": false,
+        "current_sha256": "4d0e848f849c7ae5ccf1407fdd80e53c875a36903abea71e7610cfff26a93920",
+        "reference_sha256": "65c03bc2d92ae45c397b99866eb8f656c910569cd74b8c14f591de58738f3702",
+        "reference_path": "C:\\BGRedux\\phase1-local\\runtime-candidate-9aa69cd5-guarded\\phase0-local\\results\\20261022T021057Z-phase1-9aa-guarded-gui-c6ac9bbf\\gui-reload-differences.json",
+        "reference_rows": [
+          {
+            "path": "/area_locals/MOVESCREEN",
+            "before": null,
+            "after": 1,
+            "missing": "before"
+          },
+          {
+            "path": "/area_locals/movescreen",
+            "before": 1,
+            "after": null,
+            "missing": "after"
+          },
+          {
+            "path": "/current_area_actors/7/base_stats/212",
+            "before": 3991793133,
+            "after": 2863311530
+          },
+          {
+            "path": "/current_area_actors/7/modified_stats/212",
+            "before": 3991756567,
+            "after": 2863292183
+          },
+          {
+            "path": "/current_area_actors/11/effects/length",
+            "before": 76,
+            "after": 78
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/caster_identity",
+            "before": [
+              "[\"imoen\", \"ar0602\", [3720, 2826], \"Imoen\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/caster_level",
+            "before": 10,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/inventory_slot",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/opcode",
+            "before": 367,
+            "after": 187
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/parameters/0",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/parameters/1",
+            "before": 1,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/position/0",
+            "before": 3720,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/position/1",
+            "before": 2826,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/probability/1",
+            "before": 100,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/resources/0",
+            "before": "",
+            "after": "HASBEENINPARTY"
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/resources/1",
+            "before": "",
+            "after": "PARTY"
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/source_position/0",
+            "before": 3720,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/source_position/1",
+            "before": 2826,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/source_ref",
+            "before": "IMOENHP1",
+            "after": ""
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/source_type",
+            "before": 1,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/special",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/target",
+            "before": 1,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/6/timing",
+            "before": 2,
+            "after": 11
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/caster_identity",
+            "before": [
+              "[\"imoen\", \"ar0602\", [3720, 2826], \"Imoen\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/caster_level",
+            "before": 10,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/inventory_slot",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/opcode",
+            "before": 101,
+            "after": 187
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/parameters/0",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/parameters/1",
+            "before": 210,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/position/0",
+            "before": 3720,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/position/1",
+            "before": 2826,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/probability/1",
+            "before": 100,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/resources/0",
+            "before": "",
+            "after": "BD_JOINXP"
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/source_position/0",
+            "before": 3720,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/source_position/1",
+            "before": 2826,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/source_ref",
+            "before": "IMOENHP1",
+            "after": ""
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/source_type",
+            "before": 1,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/special",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/target",
+            "before": 1,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/7/timing",
+            "before": 2,
+            "after": 11
+          },
+          {
+            "path": "/current_area_actors/11/effects/8/opcode",
+            "before": 267,
+            "after": 367
+          },
+          {
+            "path": "/current_area_actors/11/effects/8/parameters/0",
+            "before": 14043,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/8/parameters/1",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/11/effects/8/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/9/opcode",
+            "before": 267,
+            "after": 101
+          },
+          {
+            "path": "/current_area_actors/11/effects/9/parameters/0",
+            "before": 14001,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/9/parameters/1",
+            "before": 0,
+            "after": 210
+          },
+          {
+            "path": "/current_area_actors/11/effects/10/opcode",
+            "before": 206,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/11/effects/10/parameters/0",
+            "before": 4294967295,
+            "after": 14043
+          },
+          {
+            "path": "/current_area_actors/11/effects/10/parameters/1",
+            "before": 135,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/10/resources/0",
+            "before": "spwm113",
+            "after": ""
+          },
+          {
+            "path": "/current_area_actors/11/effects/11/opcode",
+            "before": 206,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/11/effects/11/parameters/0",
+            "before": 4294967295,
+            "after": 14001
+          },
+          {
+            "path": "/current_area_actors/11/effects/11/parameters/1",
+            "before": 135,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/11/resources/0",
+            "before": "spwi415",
+            "after": ""
+          },
+          {
+            "path": "/current_area_actors/11/effects/12/resources/0",
+            "before": "spwi711",
+            "after": "spwm113"
+          },
+          {
+            "path": "/current_area_actors/11/effects/13/opcode",
+            "before": 267,
+            "after": 206
+          },
+          {
+            "path": "/current_area_actors/11/effects/13/parameters/0",
+            "before": 14026,
+            "after": 4294967295
+          },
+          {
+            "path": "/current_area_actors/11/effects/13/parameters/1",
+            "before": 0,
+            "after": 135
+          },
+          {
+            "path": "/current_area_actors/11/effects/13/resources/0",
+            "before": "",
+            "after": "spwi415"
+          },
+          {
+            "path": "/current_area_actors/11/effects/14/opcode",
+            "before": 267,
+            "after": 206
+          },
+          {
+            "path": "/current_area_actors/11/effects/14/parameters/0",
+            "before": 64285,
+            "after": 4294967295
+          },
+          {
+            "path": "/current_area_actors/11/effects/14/parameters/1",
+            "before": 0,
+            "after": 135
+          },
+          {
+            "path": "/current_area_actors/11/effects/14/resources/0",
+            "before": "",
+            "after": "spwi711"
+          },
+          {
+            "path": "/current_area_actors/11/effects/15/parameters/0",
+            "before": 14017,
+            "after": 14026
+          },
+          {
+            "path": "/current_area_actors/11/effects/16/parameters/0",
+            "before": 14662,
+            "after": 64285
+          },
+          {
+            "path": "/current_area_actors/11/effects/17/opcode",
+            "before": 169,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/11/effects/17/parameters/0",
+            "before": 0,
+            "after": 14017
+          },
+          {
+            "path": "/current_area_actors/11/effects/17/parameters/1",
+            "before": 137,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/18/parameters/0",
+            "before": 8364,
+            "after": 14662
+          },
+          {
+            "path": "/current_area_actors/11/effects/19/opcode",
+            "before": 296,
+            "after": 169
+          },
+          {
+            "path": "/current_area_actors/11/effects/19/parameters/1",
+            "before": 5,
+            "after": 137
+          },
+          {
+            "path": "/current_area_actors/11/effects/19/resources/0",
+            "before": "spnwchrm",
+            "after": ""
+          },
+          {
+            "path": "/current_area_actors/11/effects/20/parameters/0",
+            "before": 14780,
+            "after": 8364
+          },
+          {
+            "path": "/current_area_actors/11/effects/21/opcode",
+            "before": 267,
+            "after": 296
+          },
+          {
+            "path": "/current_area_actors/11/effects/21/parameters/0",
+            "before": 14672,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/21/parameters/1",
+            "before": 0,
+            "after": 5
+          },
+          {
+            "path": "/current_area_actors/11/effects/21/resources/0",
+            "before": "",
+            "after": "spnwchrm"
+          },
+          {
+            "path": "/current_area_actors/11/effects/22/opcode",
+            "before": 169,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/11/effects/22/parameters/0",
+            "before": 0,
+            "after": 14780
+          },
+          {
+            "path": "/current_area_actors/11/effects/22/parameters/1",
+            "before": 43,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/23/opcode",
+            "before": 296,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/11/effects/23/parameters/0",
+            "before": 0,
+            "after": 14672
+          },
+          {
+            "path": "/current_area_actors/11/effects/23/parameters/1",
+            "before": 24,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/23/resources/0",
+            "before": "cdhorror",
+            "after": ""
+          },
+          {
+            "path": "/current_area_actors/11/effects/24/parameters/1",
+            "before": 36,
+            "after": 43
+          },
+          {
+            "path": "/current_area_actors/11/effects/25/opcode",
+            "before": 267,
+            "after": 296
+          },
+          {
+            "path": "/current_area_actors/11/effects/25/parameters/0",
+            "before": 17427,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/25/parameters/1",
+            "before": 0,
+            "after": 24
+          },
+          {
+            "path": "/current_area_actors/11/effects/25/resources/0",
+            "before": "",
+            "after": "cdhorror"
+          },
+          {
+            "path": "/current_area_actors/11/effects/26/opcode",
+            "before": 267,
+            "after": 169
+          },
+          {
+            "path": "/current_area_actors/11/effects/26/parameters/0",
+            "before": 14007,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/26/parameters/1",
+            "before": 0,
+            "after": 36
+          },
+          {
+            "path": "/current_area_actors/11/effects/27/opcode",
+            "before": 296,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/11/effects/27/parameters/0",
+            "before": 0,
+            "after": 17427
+          },
+          {
+            "path": "/current_area_actors/11/effects/27/parameters/1",
+            "before": 175,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/27/resources/0",
+            "before": "spflayer",
+            "after": ""
+          },
+          {
+            "path": "/current_area_actors/11/effects/28/parameters/0",
+            "before": 41616,
+            "after": 14007
+          },
+          {
+            "path": "/current_area_actors/11/effects/29/opcode",
+            "before": 267,
+            "after": 296
+          },
+          {
+            "path": "/current_area_actors/11/effects/29/parameters/0",
+            "before": 40979,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/29/parameters/1",
+            "before": 0,
+            "after": 175
+          },
+          {
+            "path": "/current_area_actors/11/effects/29/resources/0",
+            "before": "",
+            "after": "spflayer"
+          },
+          {
+            "path": "/current_area_actors/11/effects/30/parameters/0",
+            "before": 40969,
+            "after": 41616
+          },
+          {
+            "path": "/current_area_actors/11/effects/31/parameters/0",
+            "before": 40968,
+            "after": 40979
+          },
+          {
+            "path": "/current_area_actors/11/effects/32/parameters/0",
+            "before": 41495,
+            "after": 40969
+          },
+          {
+            "path": "/current_area_actors/11/effects/33/opcode",
+            "before": 169,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/11/effects/33/parameters/0",
+            "before": 0,
+            "after": 40968
+          },
+          {
+            "path": "/current_area_actors/11/effects/33/parameters/1",
+            "before": 59,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/34/opcode",
+            "before": 208,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/11/effects/34/parameters/0",
+            "before": 1,
+            "after": 41495
+          },
+          {
+            "path": "/current_area_actors/11/effects/35/opcode",
+            "before": 101,
+            "after": 169
+          },
+          {
+            "path": "/current_area_actors/11/effects/35/parameters/1",
+            "before": 134,
+            "after": 59
+          },
+          {
+            "path": "/current_area_actors/11/effects/36/opcode",
+            "before": 101,
+            "after": 208
+          },
+          {
+            "path": "/current_area_actors/11/effects/36/parameters/0",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/11/effects/36/parameters/1",
+            "before": 135,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/37/parameters/1",
+            "before": 217,
+            "after": 134
+          },
+          {
+            "path": "/current_area_actors/11/effects/38/parameters/1",
+            "before": 39,
+            "after": 135
+          },
+          {
+            "path": "/current_area_actors/11/effects/39/parameters/1",
+            "before": 13,
+            "after": 217
+          },
+          {
+            "path": "/current_area_actors/11/effects/40/parameters/1",
+            "before": 55,
+            "after": 39
+          },
+          {
+            "path": "/current_area_actors/11/effects/41/parameters/1",
+            "before": 211,
+            "after": 13
+          },
+          {
+            "path": "/current_area_actors/11/effects/42/dice/1",
+            "before": 6,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/42/parameters/1",
+            "before": 5,
+            "after": 55
+          },
+          {
+            "path": "/current_area_actors/11/effects/43/parameters/1",
+            "before": 24,
+            "after": 211
+          },
+          {
+            "path": "/current_area_actors/11/effects/44/dice/1",
+            "before": 0,
+            "after": 6
+          },
+          {
+            "path": "/current_area_actors/11/effects/44/parameters/1",
+            "before": 216,
+            "after": 5
+          },
+          {
+            "path": "/current_area_actors/11/effects/46/parameters/1",
+            "before": 3,
+            "after": 216
+          },
+          {
+            "path": "/current_area_actors/11/effects/47/parameters/1",
+            "before": 209,
+            "after": 24
+          },
+          {
+            "path": "/current_area_actors/11/effects/47/resistance",
+            "before": 0,
+            "after": 2
+          },
+          {
+            "path": "/current_area_actors/11/effects/48/parameters/1",
+            "before": 238,
+            "after": 3
+          },
+          {
+            "path": "/current_area_actors/11/effects/48/resistance",
+            "before": 0,
+            "after": 2
+          },
+          {
+            "path": "/current_area_actors/11/effects/49/parameters/1",
+            "before": 5,
+            "after": 209
+          },
+          {
+            "path": "/current_area_actors/11/effects/49/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/50/opcode",
+            "before": 169,
+            "after": 101
+          },
+          {
+            "path": "/current_area_actors/11/effects/50/parameters/1",
+            "before": 14,
+            "after": 238
+          },
+          {
+            "path": "/current_area_actors/11/effects/50/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/51/opcode",
+            "before": 169,
+            "after": 101
+          },
+          {
+            "path": "/current_area_actors/11/effects/51/parameters/1",
+            "before": 0,
+            "after": 5
+          },
+          {
+            "path": "/current_area_actors/11/effects/52/parameters/1",
+            "before": 1,
+            "after": 14
+          },
+          {
+            "path": "/current_area_actors/11/effects/53/parameters/1",
+            "before": 6,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/54/opcode",
+            "before": 173,
+            "after": 169
+          },
+          {
+            "path": "/current_area_actors/11/effects/54/parameters/0",
+            "before": 100,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/54/parameters/1",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/11/effects/55/opcode",
+            "before": 101,
+            "after": 169
+          },
+          {
+            "path": "/current_area_actors/11/effects/55/parameters/1",
+            "before": 25,
+            "after": 6
+          },
+          {
+            "path": "/current_area_actors/11/effects/56/opcode",
+            "before": 101,
+            "after": 173
+          },
+          {
+            "path": "/current_area_actors/11/effects/56/parameters/0",
+            "before": 0,
+            "after": 100
+          },
+          {
+            "path": "/current_area_actors/11/effects/56/parameters/1",
+            "before": 45,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/57/opcode",
+            "before": 169,
+            "after": 101
+          },
+          {
+            "path": "/current_area_actors/11/effects/57/parameters/1",
+            "before": 55,
+            "after": 25
+          },
+          {
+            "path": "/current_area_actors/11/effects/58/opcode",
+            "before": 267,
+            "after": 101
+          },
+          {
+            "path": "/current_area_actors/11/effects/58/parameters/0",
+            "before": 14665,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/58/parameters/1",
+            "before": 0,
+            "after": 45
+          },
+          {
+            "path": "/current_area_actors/11/effects/59/opcode",
+            "before": 267,
+            "after": 169
+          },
+          {
+            "path": "/current_area_actors/11/effects/59/parameters/0",
+            "before": 340,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/59/parameters/1",
+            "before": 0,
+            "after": 55
+          },
+          {
+            "path": "/current_area_actors/11/effects/60/parameters/0",
+            "before": 384,
+            "after": 14665
+          },
+          {
+            "path": "/current_area_actors/11/effects/61/parameters/0",
+            "before": 915,
+            "after": 340
+          },
+          {
+            "path": "/current_area_actors/11/effects/62/parameters/0",
+            "before": 1473,
+            "after": 384
+          },
+          {
+            "path": "/current_area_actors/11/effects/63/parameters/0",
+            "before": 8823,
+            "after": 915
+          },
+          {
+            "path": "/current_area_actors/11/effects/64/parameters/0",
+            "before": 17404,
+            "after": 1473
+          },
+          {
+            "path": "/current_area_actors/11/effects/65/parameters/0",
+            "before": 1280,
+            "after": 8823
+          },
+          {
+            "path": "/current_area_actors/11/effects/66/parameters/0",
+            "before": 14102,
+            "after": 17404
+          },
+          {
+            "path": "/current_area_actors/11/effects/67/opcode",
+            "before": 101,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/11/effects/67/parameters/0",
+            "before": 0,
+            "after": 1280
+          },
+          {
+            "path": "/current_area_actors/11/effects/67/parameters/1",
+            "before": 109,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/68/opcode",
+            "before": 169,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/11/effects/68/parameters/0",
+            "before": 0,
+            "after": 14102
+          },
+          {
+            "path": "/current_area_actors/11/effects/68/parameters/1",
+            "before": 13,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/69/parameters/1",
+            "before": 185,
+            "after": 109
+          },
+          {
+            "path": "/current_area_actors/11/effects/70/opcode",
+            "before": 101,
+            "after": 169
+          },
+          {
+            "path": "/current_area_actors/11/effects/70/parameters/1",
+            "before": 175,
+            "after": 13
+          },
+          {
+            "path": "/current_area_actors/11/effects/71/opcode",
+            "before": 106,
+            "after": 101
+          },
+          {
+            "path": "/current_area_actors/11/effects/71/parameters/1",
+            "before": 1,
+            "after": 185
+          },
+          {
+            "path": "/current_area_actors/11/effects/72/parameters/1",
+            "before": 134,
+            "after": 175
+          },
+          {
+            "path": "/current_area_actors/11/effects/72/resistance",
+            "before": 0,
+            "after": 2
+          },
+          {
+            "path": "/current_area_actors/11/effects/73/opcode",
+            "before": 296,
+            "after": 106
+          },
+          {
+            "path": "/current_area_actors/11/effects/73/parameters/1",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/11/effects/73/resources/0",
+            "before": "SPMINDAT",
+            "after": ""
+          },
+          {
+            "path": "/current_area_actors/11/effects/74/parameters/1",
+            "before": 23,
+            "after": 134
+          },
+          {
+            "path": "/current_area_actors/11/effects/74/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/75/opcode",
+            "before": 101,
+            "after": 296
+          },
+          {
+            "path": "/current_area_actors/11/effects/75/parameters/1",
+            "before": 106,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/11/effects/75/resources/0",
+            "before": "",
+            "after": "SPMINDAT"
+          },
+          {
+            "path": "/current_area_actors/12/effects/length",
+            "before": 5,
+            "after": 6
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/caster_identity",
+            "before": [
+              "[\"ishaddud\", \"ar0602\", [3752, 2946], \"Assassin\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/caster_level",
+            "before": 10,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/inventory_slot",
+            "before": 11,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/opcode",
+            "before": 319,
+            "after": 187
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/parameters/0",
+            "before": 11,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/parameters/1",
+            "before": 5,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/position/0",
+            "before": 3752,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/position/1",
+            "before": 2946,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/probability/1",
+            "before": 100,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/resources/0",
+            "before": "",
+            "after": "KICKEDOUT"
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/source_position/0",
+            "before": 3752,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/source_position/1",
+            "before": 2946,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/source_ref",
+            "before": "AROW01",
+            "after": ""
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/source_type",
+            "before": 1,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/special",
+            "before": 1080,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/target",
+            "before": 1,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/12/effects/0/timing",
+            "before": 2,
+            "after": 11
+          },
+          {
+            "path": "/current_area_actors/12/effects/1/inventory_slot",
+            "before": 36,
+            "after": 11
+          },
+          {
+            "path": "/current_area_actors/12/effects/1/opcode",
+            "before": 7,
+            "after": 319
+          },
+          {
+            "path": "/current_area_actors/12/effects/1/parameters/0",
+            "before": 164,
+            "after": 11
+          },
+          {
+            "path": "/current_area_actors/12/effects/1/parameters/1",
+            "before": 21,
+            "after": 5
+          },
+          {
+            "path": "/current_area_actors/12/effects/1/source_ref",
+            "before": "BOW01",
+            "after": "AROW01"
+          },
+          {
+            "path": "/current_area_actors/12/effects/1/special",
+            "before": 0,
+            "after": 1080
+          },
+          {
+            "path": "/current_area_actors/12/effects/2/parameters/0",
+            "before": 95,
+            "after": 164
+          },
+          {
+            "path": "/current_area_actors/12/effects/2/parameters/1",
+            "before": 20,
+            "after": 21
+          },
+          {
+            "path": "/current_area_actors/12/effects/3/parameters/0",
+            "before": 13,
+            "after": 95
+          },
+          {
+            "path": "/current_area_actors/12/effects/3/parameters/1",
+            "before": 16,
+            "after": 20
+          },
+          {
+            "path": "/current_area_actors/12/effects/4/opcode",
+            "before": 1,
+            "after": 7
+          },
+          {
+            "path": "/current_area_actors/12/effects/4/parameters/0",
+            "before": 2,
+            "after": 13
+          },
+          {
+            "path": "/current_area_actors/12/effects/4/parameters/1",
+            "before": 1,
+            "after": 16
+          },
+          {
+            "path": "/current_area_actors/27/effects/length",
+            "before": 22,
+            "after": 29
+          },
+          {
+            "path": "/current_area_actors/27/effects/7/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/7/opcode",
+            "before": 101,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/27/effects/7/parameters/0",
+            "before": 0,
+            "after": 14665
+          },
+          {
+            "path": "/current_area_actors/27/effects/7/parameters/1",
+            "before": 217,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/7/timing",
+            "before": 2,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/27/effects/8/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/8/parameters/0",
+            "before": 14665,
+            "after": 41616
+          },
+          {
+            "path": "/current_area_actors/27/effects/9/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/9/parameters/0",
+            "before": 41616,
+            "after": 40979
+          },
+          {
+            "path": "/current_area_actors/27/effects/10/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/10/parameters/0",
+            "before": 40979,
+            "after": 40969
+          },
+          {
+            "path": "/current_area_actors/27/effects/11/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/11/parameters/0",
+            "before": 40969,
+            "after": 41495
+          },
+          {
+            "path": "/current_area_actors/27/effects/12/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/12/opcode",
+            "before": 267,
+            "after": 101
+          },
+          {
+            "path": "/current_area_actors/27/effects/12/parameters/0",
+            "before": 41495,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/12/parameters/1",
+            "before": 0,
+            "after": 134
+          },
+          {
+            "path": "/current_area_actors/27/effects/13/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/13/opcode",
+            "before": 83,
+            "after": 101
+          },
+          {
+            "path": "/current_area_actors/27/effects/13/parameters/1",
+            "before": 94,
+            "after": 216
+          },
+          {
+            "path": "/current_area_actors/27/effects/13/timing",
+            "before": 2,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/27/effects/14/parameters/1",
+            "before": 39,
+            "after": 217
+          },
+          {
+            "path": "/current_area_actors/27/effects/15/opcode",
+            "before": 169,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/27/effects/15/parameters/0",
+            "before": 0,
+            "after": 14665
+          },
+          {
+            "path": "/current_area_actors/27/effects/15/parameters/1",
+            "before": 14,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/15/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/15/timing",
+            "before": 2,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/27/effects/16/parameters/0",
+            "before": 14001,
+            "after": 41616
+          },
+          {
+            "path": "/current_area_actors/27/effects/16/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/16/timing",
+            "before": 2,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/27/effects/17/opcode",
+            "before": 101,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/27/effects/17/parameters/0",
+            "before": 0,
+            "after": 40979
+          },
+          {
+            "path": "/current_area_actors/27/effects/17/parameters/1",
+            "before": 134,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/18/opcode",
+            "before": 101,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/27/effects/18/parameters/0",
+            "before": 0,
+            "after": 40969
+          },
+          {
+            "path": "/current_area_actors/27/effects/18/parameters/1",
+            "before": 216,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/19/parameters/0",
+            "before": 40968,
+            "after": 41495
+          },
+          {
+            "path": "/current_area_actors/27/effects/19/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/19/timing",
+            "before": 2,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/inventory_slot",
+            "before": 7,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/opcode",
+            "before": 98,
+            "after": 83
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/parameters/0",
+            "before": 6,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/parameters/1",
+            "before": 3,
+            "after": 94
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/parameters/4",
+            "before": 32805,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/source_ref",
+            "before": "REGHP1",
+            "after": "IMMCLOUD"
+          },
+          {
+            "path": "/current_area_actors/27/effects/21/inventory_slot",
+            "before": 7,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/21/opcode",
+            "before": 126,
+            "after": 101
+          },
+          {
+            "path": "/current_area_actors/27/effects/21/parameters/0",
+            "before": 10,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/21/parameters/1",
+            "before": 1,
+            "after": 39
+          },
+          {
+            "path": "/current_area_actors/27/effects/21/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/21/source_ref",
+            "before": "REGHP1",
+            "after": "IMMCLOUD"
+          },
+          {
+            "path": "/current_area_actors/31/base_stats/210",
+            "before": 3739147998,
+            "after": 1330597711
+          },
+          {
+            "path": "/current_area_actors/31/modified_stats/210",
+            "before": 3739147998,
+            "after": 1330597711
+          },
+          {
+            "path": "/game_time",
+            "before": 32717,
+            "after": 32715
+          },
+          {
+            "path": "/globals/BD_CHAPTER_SAVE",
+            "before": null,
+            "after": 1,
+            "missing": "before"
+          },
+          {
+            "path": "/globals/bd_chapter_save",
+            "before": 1,
+            "after": null,
+            "missing": "after"
+          },
+          {
+            "path": "/party/1/effects/length",
+            "before": 76,
+            "after": 78
+          },
+          {
+            "path": "/party/1/effects/6/caster_identity",
+            "before": [
+              "[\"imoen\", \"ar0602\", [3720, 2826], \"Imoen\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/party/1/effects/6/caster_level",
+            "before": 10,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/6/inventory_slot",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/6/opcode",
+            "before": 367,
+            "after": 187
+          },
+          {
+            "path": "/party/1/effects/6/parameters/0",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/party/1/effects/6/parameters/1",
+            "before": 1,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/6/position/0",
+            "before": 3720,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/6/position/1",
+            "before": 2826,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/6/probability/1",
+            "before": 100,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/6/resources/0",
+            "before": "",
+            "after": "HASBEENINPARTY"
+          },
+          {
+            "path": "/party/1/effects/6/resources/1",
+            "before": "",
+            "after": "PARTY"
+          },
+          {
+            "path": "/party/1/effects/6/source_position/0",
+            "before": 3720,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/6/source_position/1",
+            "before": 2826,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/6/source_ref",
+            "before": "IMOENHP1",
+            "after": ""
+          },
+          {
+            "path": "/party/1/effects/6/source_type",
+            "before": 1,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/6/special",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/party/1/effects/6/target",
+            "before": 1,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/6/timing",
+            "before": 2,
+            "after": 11
+          },
+          {
+            "path": "/party/1/effects/7/caster_identity",
+            "before": [
+              "[\"imoen\", \"ar0602\", [3720, 2826], \"Imoen\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/party/1/effects/7/caster_level",
+            "before": 10,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/7/inventory_slot",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/7/opcode",
+            "before": 101,
+            "after": 187
+          },
+          {
+            "path": "/party/1/effects/7/parameters/0",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/party/1/effects/7/parameters/1",
+            "before": 210,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/7/position/0",
+            "before": 3720,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/7/position/1",
+            "before": 2826,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/7/probability/1",
+            "before": 100,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/7/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/7/resources/0",
+            "before": "",
+            "after": "BD_JOINXP"
+          },
+          {
+            "path": "/party/1/effects/7/source_position/0",
+            "before": 3720,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/7/source_position/1",
+            "before": 2826,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/7/source_ref",
+            "before": "IMOENHP1",
+            "after": ""
+          },
+          {
+            "path": "/party/1/effects/7/source_type",
+            "before": 1,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/7/special",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/party/1/effects/7/target",
+            "before": 1,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/7/timing",
+            "before": 2,
+            "after": 11
+          },
+          {
+            "path": "/party/1/effects/8/opcode",
+            "before": 267,
+            "after": 367
+          },
+          {
+            "path": "/party/1/effects/8/parameters/0",
+            "before": 14043,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/8/parameters/1",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/party/1/effects/8/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/9/opcode",
+            "before": 267,
+            "after": 101
+          },
+          {
+            "path": "/party/1/effects/9/parameters/0",
+            "before": 14001,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/9/parameters/1",
+            "before": 0,
+            "after": 210
+          },
+          {
+            "path": "/party/1/effects/10/opcode",
+            "before": 206,
+            "after": 267
+          },
+          {
+            "path": "/party/1/effects/10/parameters/0",
+            "before": 4294967295,
+            "after": 14043
+          },
+          {
+            "path": "/party/1/effects/10/parameters/1",
+            "before": 135,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/10/resources/0",
+            "before": "spwm113",
+            "after": ""
+          },
+          {
+            "path": "/party/1/effects/11/opcode",
+            "before": 206,
+            "after": 267
+          },
+          {
+            "path": "/party/1/effects/11/parameters/0",
+            "before": 4294967295,
+            "after": 14001
+          },
+          {
+            "path": "/party/1/effects/11/parameters/1",
+            "before": 135,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/11/resources/0",
+            "before": "spwi415",
+            "after": ""
+          },
+          {
+            "path": "/party/1/effects/12/resources/0",
+            "before": "spwi711",
+            "after": "spwm113"
+          },
+          {
+            "path": "/party/1/effects/13/opcode",
+            "before": 267,
+            "after": 206
+          },
+          {
+            "path": "/party/1/effects/13/parameters/0",
+            "before": 14026,
+            "after": 4294967295
+          },
+          {
+            "path": "/party/1/effects/13/parameters/1",
+            "before": 0,
+            "after": 135
+          },
+          {
+            "path": "/party/1/effects/13/resources/0",
+            "before": "",
+            "after": "spwi415"
+          },
+          {
+            "path": "/party/1/effects/14/opcode",
+            "before": 267,
+            "after": 206
+          },
+          {
+            "path": "/party/1/effects/14/parameters/0",
+            "before": 64285,
+            "after": 4294967295
+          },
+          {
+            "path": "/party/1/effects/14/parameters/1",
+            "before": 0,
+            "after": 135
+          },
+          {
+            "path": "/party/1/effects/14/resources/0",
+            "before": "",
+            "after": "spwi711"
+          },
+          {
+            "path": "/party/1/effects/15/parameters/0",
+            "before": 14017,
+            "after": 14026
+          },
+          {
+            "path": "/party/1/effects/16/parameters/0",
+            "before": 14662,
+            "after": 64285
+          },
+          {
+            "path": "/party/1/effects/17/opcode",
+            "before": 169,
+            "after": 267
+          },
+          {
+            "path": "/party/1/effects/17/parameters/0",
+            "before": 0,
+            "after": 14017
+          },
+          {
+            "path": "/party/1/effects/17/parameters/1",
+            "before": 137,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/18/parameters/0",
+            "before": 8364,
+            "after": 14662
+          },
+          {
+            "path": "/party/1/effects/19/opcode",
+            "before": 296,
+            "after": 169
+          },
+          {
+            "path": "/party/1/effects/19/parameters/1",
+            "before": 5,
+            "after": 137
+          },
+          {
+            "path": "/party/1/effects/19/resources/0",
+            "before": "spnwchrm",
+            "after": ""
+          },
+          {
+            "path": "/party/1/effects/20/parameters/0",
+            "before": 14780,
+            "after": 8364
+          },
+          {
+            "path": "/party/1/effects/21/opcode",
+            "before": 267,
+            "after": 296
+          },
+          {
+            "path": "/party/1/effects/21/parameters/0",
+            "before": 14672,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/21/parameters/1",
+            "before": 0,
+            "after": 5
+          },
+          {
+            "path": "/party/1/effects/21/resources/0",
+            "before": "",
+            "after": "spnwchrm"
+          },
+          {
+            "path": "/party/1/effects/22/opcode",
+            "before": 169,
+            "after": 267
+          },
+          {
+            "path": "/party/1/effects/22/parameters/0",
+            "before": 0,
+            "after": 14780
+          },
+          {
+            "path": "/party/1/effects/22/parameters/1",
+            "before": 43,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/23/opcode",
+            "before": 296,
+            "after": 267
+          },
+          {
+            "path": "/party/1/effects/23/parameters/0",
+            "before": 0,
+            "after": 14672
+          },
+          {
+            "path": "/party/1/effects/23/parameters/1",
+            "before": 24,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/23/resources/0",
+            "before": "cdhorror",
+            "after": ""
+          },
+          {
+            "path": "/party/1/effects/24/parameters/1",
+            "before": 36,
+            "after": 43
+          },
+          {
+            "path": "/party/1/effects/25/opcode",
+            "before": 267,
+            "after": 296
+          },
+          {
+            "path": "/party/1/effects/25/parameters/0",
+            "before": 17427,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/25/parameters/1",
+            "before": 0,
+            "after": 24
+          },
+          {
+            "path": "/party/1/effects/25/resources/0",
+            "before": "",
+            "after": "cdhorror"
+          },
+          {
+            "path": "/party/1/effects/26/opcode",
+            "before": 267,
+            "after": 169
+          },
+          {
+            "path": "/party/1/effects/26/parameters/0",
+            "before": 14007,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/26/parameters/1",
+            "before": 0,
+            "after": 36
+          },
+          {
+            "path": "/party/1/effects/27/opcode",
+            "before": 296,
+            "after": 267
+          },
+          {
+            "path": "/party/1/effects/27/parameters/0",
+            "before": 0,
+            "after": 17427
+          },
+          {
+            "path": "/party/1/effects/27/parameters/1",
+            "before": 175,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/27/resources/0",
+            "before": "spflayer",
+            "after": ""
+          },
+          {
+            "path": "/party/1/effects/28/parameters/0",
+            "before": 41616,
+            "after": 14007
+          },
+          {
+            "path": "/party/1/effects/29/opcode",
+            "before": 267,
+            "after": 296
+          },
+          {
+            "path": "/party/1/effects/29/parameters/0",
+            "before": 40979,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/29/parameters/1",
+            "before": 0,
+            "after": 175
+          },
+          {
+            "path": "/party/1/effects/29/resources/0",
+            "before": "",
+            "after": "spflayer"
+          },
+          {
+            "path": "/party/1/effects/30/parameters/0",
+            "before": 40969,
+            "after": 41616
+          },
+          {
+            "path": "/party/1/effects/31/parameters/0",
+            "before": 40968,
+            "after": 40979
+          },
+          {
+            "path": "/party/1/effects/32/parameters/0",
+            "before": 41495,
+            "after": 40969
+          },
+          {
+            "path": "/party/1/effects/33/opcode",
+            "before": 169,
+            "after": 267
+          },
+          {
+            "path": "/party/1/effects/33/parameters/0",
+            "before": 0,
+            "after": 40968
+          },
+          {
+            "path": "/party/1/effects/33/parameters/1",
+            "before": 59,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/34/opcode",
+            "before": 208,
+            "after": 267
+          },
+          {
+            "path": "/party/1/effects/34/parameters/0",
+            "before": 1,
+            "after": 41495
+          },
+          {
+            "path": "/party/1/effects/35/opcode",
+            "before": 101,
+            "after": 169
+          },
+          {
+            "path": "/party/1/effects/35/parameters/1",
+            "before": 134,
+            "after": 59
+          },
+          {
+            "path": "/party/1/effects/36/opcode",
+            "before": 101,
+            "after": 208
+          },
+          {
+            "path": "/party/1/effects/36/parameters/0",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/party/1/effects/36/parameters/1",
+            "before": 135,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/37/parameters/1",
+            "before": 217,
+            "after": 134
+          },
+          {
+            "path": "/party/1/effects/38/parameters/1",
+            "before": 39,
+            "after": 135
+          },
+          {
+            "path": "/party/1/effects/39/parameters/1",
+            "before": 13,
+            "after": 217
+          },
+          {
+            "path": "/party/1/effects/40/parameters/1",
+            "before": 55,
+            "after": 39
+          },
+          {
+            "path": "/party/1/effects/41/parameters/1",
+            "before": 211,
+            "after": 13
+          },
+          {
+            "path": "/party/1/effects/42/dice/1",
+            "before": 6,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/42/parameters/1",
+            "before": 5,
+            "after": 55
+          },
+          {
+            "path": "/party/1/effects/43/parameters/1",
+            "before": 24,
+            "after": 211
+          },
+          {
+            "path": "/party/1/effects/44/dice/1",
+            "before": 0,
+            "after": 6
+          },
+          {
+            "path": "/party/1/effects/44/parameters/1",
+            "before": 216,
+            "after": 5
+          },
+          {
+            "path": "/party/1/effects/46/parameters/1",
+            "before": 3,
+            "after": 216
+          },
+          {
+            "path": "/party/1/effects/47/parameters/1",
+            "before": 209,
+            "after": 24
+          },
+          {
+            "path": "/party/1/effects/47/resistance",
+            "before": 0,
+            "after": 2
+          },
+          {
+            "path": "/party/1/effects/48/parameters/1",
+            "before": 238,
+            "after": 3
+          },
+          {
+            "path": "/party/1/effects/48/resistance",
+            "before": 0,
+            "after": 2
+          },
+          {
+            "path": "/party/1/effects/49/parameters/1",
+            "before": 5,
+            "after": 209
+          },
+          {
+            "path": "/party/1/effects/49/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/50/opcode",
+            "before": 169,
+            "after": 101
+          },
+          {
+            "path": "/party/1/effects/50/parameters/1",
+            "before": 14,
+            "after": 238
+          },
+          {
+            "path": "/party/1/effects/50/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/51/opcode",
+            "before": 169,
+            "after": 101
+          },
+          {
+            "path": "/party/1/effects/51/parameters/1",
+            "before": 0,
+            "after": 5
+          },
+          {
+            "path": "/party/1/effects/52/parameters/1",
+            "before": 1,
+            "after": 14
+          },
+          {
+            "path": "/party/1/effects/53/parameters/1",
+            "before": 6,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/54/opcode",
+            "before": 173,
+            "after": 169
+          },
+          {
+            "path": "/party/1/effects/54/parameters/0",
+            "before": 100,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/54/parameters/1",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/party/1/effects/55/opcode",
+            "before": 101,
+            "after": 169
+          },
+          {
+            "path": "/party/1/effects/55/parameters/1",
+            "before": 25,
+            "after": 6
+          },
+          {
+            "path": "/party/1/effects/56/opcode",
+            "before": 101,
+            "after": 173
+          },
+          {
+            "path": "/party/1/effects/56/parameters/0",
+            "before": 0,
+            "after": 100
+          },
+          {
+            "path": "/party/1/effects/56/parameters/1",
+            "before": 45,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/57/opcode",
+            "before": 169,
+            "after": 101
+          },
+          {
+            "path": "/party/1/effects/57/parameters/1",
+            "before": 55,
+            "after": 25
+          },
+          {
+            "path": "/party/1/effects/58/opcode",
+            "before": 267,
+            "after": 101
+          },
+          {
+            "path": "/party/1/effects/58/parameters/0",
+            "before": 14665,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/58/parameters/1",
+            "before": 0,
+            "after": 45
+          },
+          {
+            "path": "/party/1/effects/59/opcode",
+            "before": 267,
+            "after": 169
+          },
+          {
+            "path": "/party/1/effects/59/parameters/0",
+            "before": 340,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/59/parameters/1",
+            "before": 0,
+            "after": 55
+          },
+          {
+            "path": "/party/1/effects/60/parameters/0",
+            "before": 384,
+            "after": 14665
+          },
+          {
+            "path": "/party/1/effects/61/parameters/0",
+            "before": 915,
+            "after": 340
+          },
+          {
+            "path": "/party/1/effects/62/parameters/0",
+            "before": 1473,
+            "after": 384
+          },
+          {
+            "path": "/party/1/effects/63/parameters/0",
+            "before": 8823,
+            "after": 915
+          },
+          {
+            "path": "/party/1/effects/64/parameters/0",
+            "before": 17404,
+            "after": 1473
+          },
+          {
+            "path": "/party/1/effects/65/parameters/0",
+            "before": 1280,
+            "after": 8823
+          },
+          {
+            "path": "/party/1/effects/66/parameters/0",
+            "before": 14102,
+            "after": 17404
+          },
+          {
+            "path": "/party/1/effects/67/opcode",
+            "before": 101,
+            "after": 267
+          },
+          {
+            "path": "/party/1/effects/67/parameters/0",
+            "before": 0,
+            "after": 1280
+          },
+          {
+            "path": "/party/1/effects/67/parameters/1",
+            "before": 109,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/68/opcode",
+            "before": 169,
+            "after": 267
+          },
+          {
+            "path": "/party/1/effects/68/parameters/0",
+            "before": 0,
+            "after": 14102
+          },
+          {
+            "path": "/party/1/effects/68/parameters/1",
+            "before": 13,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/69/parameters/1",
+            "before": 185,
+            "after": 109
+          },
+          {
+            "path": "/party/1/effects/70/opcode",
+            "before": 101,
+            "after": 169
+          },
+          {
+            "path": "/party/1/effects/70/parameters/1",
+            "before": 175,
+            "after": 13
+          },
+          {
+            "path": "/party/1/effects/71/opcode",
+            "before": 106,
+            "after": 101
+          },
+          {
+            "path": "/party/1/effects/71/parameters/1",
+            "before": 1,
+            "after": 185
+          },
+          {
+            "path": "/party/1/effects/72/parameters/1",
+            "before": 134,
+            "after": 175
+          },
+          {
+            "path": "/party/1/effects/72/resistance",
+            "before": 0,
+            "after": 2
+          },
+          {
+            "path": "/party/1/effects/73/opcode",
+            "before": 296,
+            "after": 106
+          },
+          {
+            "path": "/party/1/effects/73/parameters/1",
+            "before": 0,
+            "after": 1
+          },
+          {
+            "path": "/party/1/effects/73/resources/0",
+            "before": "SPMINDAT",
+            "after": ""
+          },
+          {
+            "path": "/party/1/effects/74/parameters/1",
+            "before": 23,
+            "after": 134
+          },
+          {
+            "path": "/party/1/effects/74/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/75/opcode",
+            "before": 101,
+            "after": 296
+          },
+          {
+            "path": "/party/1/effects/75/parameters/1",
+            "before": 106,
+            "after": 0
+          },
+          {
+            "path": "/party/1/effects/75/resources/0",
+            "before": "",
+            "after": "SPMINDAT"
+          }
+        ],
+        "new_paths": [],
+        "lost_paths": [
+          "/current_area_actors/7/base_stats/212",
+          "/current_area_actors/7/modified_stats/212"
+        ]
+      },
+      "legacy-semantic-differences.json": {
+        "current_count": 55,
+        "reference_count": 57,
+        "exact_rows_equal": false,
+        "current_sha256": "8d50e15ed65925aeab0bd772d008d4ca76162f3aa43071545707d5960d730397",
+        "reference_sha256": "01b0400a9ea43defaa39a06bc09dd779566eda7a0dfd108af7c6baa58a1b627c",
+        "reference_path": "C:\\BGRedux\\phase1-local\\runtime-candidate-9aa69cd5-guarded\\phase0-local\\results\\20261022T021057Z-phase1-9aa-guarded-gui-c6ac9bbf\\legacy-semantic-differences.json",
+        "reference_rows": [
+          {
+            "path": "/current_area_actors/7/base_stats/212",
+            "before": 3991793133,
+            "after": 2863311530
+          },
+          {
+            "path": "/current_area_actors/7/modified_stats/212",
+            "before": 3991756567,
+            "after": 2863292183
+          },
+          {
+            "path": "/current_area_actors/27/effects/length",
+            "before": 22,
+            "after": 29
+          },
+          {
+            "path": "/current_area_actors/27/effects/7/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/7/opcode",
+            "before": 101,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/27/effects/7/parameters/0",
+            "before": 0,
+            "after": 14665
+          },
+          {
+            "path": "/current_area_actors/27/effects/7/parameters/1",
+            "before": 217,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/7/timing",
+            "before": 2,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/27/effects/8/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/8/parameters/0",
+            "before": 14665,
+            "after": 41616
+          },
+          {
+            "path": "/current_area_actors/27/effects/9/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/9/parameters/0",
+            "before": 41616,
+            "after": 40979
+          },
+          {
+            "path": "/current_area_actors/27/effects/10/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/10/parameters/0",
+            "before": 40979,
+            "after": 40969
+          },
+          {
+            "path": "/current_area_actors/27/effects/11/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/11/parameters/0",
+            "before": 40969,
+            "after": 41495
+          },
+          {
+            "path": "/current_area_actors/27/effects/12/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/12/opcode",
+            "before": 267,
+            "after": 101
+          },
+          {
+            "path": "/current_area_actors/27/effects/12/parameters/0",
+            "before": 41495,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/12/parameters/1",
+            "before": 0,
+            "after": 134
+          },
+          {
+            "path": "/current_area_actors/27/effects/13/caster_identity",
+            "before": [
+              "[\"none\", \"ar0602\", [2573, 2461], \"Smoke Mephit\"]"
+            ],
+            "after": "none"
+          },
+          {
+            "path": "/current_area_actors/27/effects/13/opcode",
+            "before": 83,
+            "after": 101
+          },
+          {
+            "path": "/current_area_actors/27/effects/13/parameters/1",
+            "before": 94,
+            "after": 216
+          },
+          {
+            "path": "/current_area_actors/27/effects/13/timing",
+            "before": 2,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/27/effects/14/parameters/1",
+            "before": 39,
+            "after": 217
+          },
+          {
+            "path": "/current_area_actors/27/effects/15/opcode",
+            "before": 169,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/27/effects/15/parameters/0",
+            "before": 0,
+            "after": 14665
+          },
+          {
+            "path": "/current_area_actors/27/effects/15/parameters/1",
+            "before": 14,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/15/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/15/timing",
+            "before": 2,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/27/effects/16/parameters/0",
+            "before": 14001,
+            "after": 41616
+          },
+          {
+            "path": "/current_area_actors/27/effects/16/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/16/timing",
+            "before": 2,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/27/effects/17/opcode",
+            "before": 101,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/27/effects/17/parameters/0",
+            "before": 0,
+            "after": 40979
+          },
+          {
+            "path": "/current_area_actors/27/effects/17/parameters/1",
+            "before": 134,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/18/opcode",
+            "before": 101,
+            "after": 267
+          },
+          {
+            "path": "/current_area_actors/27/effects/18/parameters/0",
+            "before": 0,
+            "after": 40969
+          },
+          {
+            "path": "/current_area_actors/27/effects/18/parameters/1",
+            "before": 216,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/19/parameters/0",
+            "before": 40968,
+            "after": 41495
+          },
+          {
+            "path": "/current_area_actors/27/effects/19/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/19/timing",
+            "before": 2,
+            "after": 1
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/inventory_slot",
+            "before": 7,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/opcode",
+            "before": 98,
+            "after": 83
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/parameters/0",
+            "before": 6,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/parameters/1",
+            "before": 3,
+            "after": 94
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/parameters/4",
+            "before": 32805,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/20/source_ref",
+            "before": "REGHP1",
+            "after": "IMMCLOUD"
+          },
+          {
+            "path": "/current_area_actors/27/effects/21/inventory_slot",
+            "before": 7,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/21/opcode",
+            "before": 126,
+            "after": 101
+          },
+          {
+            "path": "/current_area_actors/27/effects/21/parameters/0",
+            "before": 10,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/21/parameters/1",
+            "before": 1,
+            "after": 39
+          },
+          {
+            "path": "/current_area_actors/27/effects/21/resistance",
+            "before": 2,
+            "after": 0
+          },
+          {
+            "path": "/current_area_actors/27/effects/21/source_ref",
+            "before": "REGHP1",
+            "after": "IMMCLOUD"
+          },
+          {
+            "path": "/current_area_actors/31/base_stats/210",
+            "before": 3739147998,
+            "after": 1330597711
+          },
+          {
+            "path": "/current_area_actors/31/modified_stats/210",
+            "before": 3739147998,
+            "after": 1330597711
+          }
+        ],
+        "new_paths": [],
+        "lost_paths": [
+          "/current_area_actors/7/base_stats/212",
+          "/current_area_actors/7/modified_stats/212"
+        ]
+      }
+    }
+  },
+  "private_receipt": "C:\\BGRedux\\phase1-local\\results\\20261022T125801Z-fresh-right-row-baseline-audit-5b03d9cf\\comparison-detail.json",
+  "private_receipt_sha256": "984e2a4993e30c559d97b8fd65a7588395b3ebe909f2f6be1cbcf19087f41ccd",
+  "child_artifacts_rehashed": 1016
+}
