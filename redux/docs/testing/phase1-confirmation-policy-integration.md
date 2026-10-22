@@ -39,3 +39,11 @@ failed four heading fixtures with missing `EESpellbookInformation` bindings.
 Receipt `phase1-information-source-tooling-1792667794430305000/result.json` stays
 failed. The fixture update and subsequent full suite are separate evidence;
 neither that failed run nor source-only layout work is promoted to a native pass.
+
+The subsequent fixture/import-closure update and actual controller tests are
+integrated. The full source-bound suite passes **486 tests** in 35.821 seconds,
+receipt `phase1-information-policy-tooling-1792668246277886700/result.json`, with
+source hashes unchanged during execution. The consumer tests execute both actual
+Unmemorize callback bodies and the actual helper; they confirm preferred native
+indices, retained charged rows, Classic behavior, invalid-index rejection and
+live-page revalidation at modal confirmation. Native validation remains separate.

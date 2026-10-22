@@ -24,6 +24,16 @@ unreviewed compatibility differences. Spell-name/help/selection assembly,
 persistent confirmation options, typography, other gameplay and campaign gates
 remain open; this checkpoint does not complete Phase1.
 
+Later October 22 source checkpoint: the original physical Feedback toggle now
+confirms option-ON charged prompts and depleted-first removal, including clicking
+a charged icon when a depleted copy exists. Four retained original GUI saves and
+the [independent reference](../testing/phase1-original-confirmation-option-independent.md)
+bind exact target flags. Current source adds ordinary named rows, help/description,
+paging, a persistent localized Feedback setting and both prepared-removal
+consumers. The full external source suite passes 486 tests; **fresh native layout,
+settings persistence and action validation remain pending**. Earlier passing
+native candidates do not certify these new source changes.
+
 Guest continuation, October 21: [LAB bring-up results](../testing/lab-guest-bringup.md)
 supersede historical physical-host-only status below. Guest execution and game
 reference hashes are verified; private runtime transfer and migration acceptance

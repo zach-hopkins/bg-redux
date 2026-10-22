@@ -16,7 +16,10 @@ The [candidate policy integration](testing/phase1-confirmation-policy-integratio
 wires both prepared-book consumers and preserves a charged copy when a depleted
 same-resref copy exists. Twenty focused checks pass; the first 475-test combined
 source suite failed four heading-fixture bindings, retained as a failed result.
-Fresh full-suite/build/menu/action/config-save/reload validation is pending.
+After the scoped fixture/import-closure updates and actual consumer regressions,
+the source-bound full suite passes **486 tests** in 35.821 seconds (receipt
+`phase1-information-policy-tooling-1792668246277886700/result.json`). Fresh build,
+menu/action/config-save/reload validation is pending.
 The passing native results below describe their earlier frozen source versions.
 
 The wizard information-window Erase route now has a confirmed native wrong-spell
@@ -45,8 +48,9 @@ upstream closed status is not treated as candidate acceptance.
 
 The original game's [More Confirmation Prompts option binding](testing/phase1-confirmation-option-source-binding.md)
 also establishes an open fidelity gap: unconditional direct EE removal covers the
-measured option-OFF case only. Physical original option-ON behavior, a persistent
-candidate setting and same-resref depleted-instance behavior remain unverified.
+measured option-OFF case only. The later physical original option-ON/depleted-first
+reference is now independently verified above. The candidate setting and callback
+integration still require native config/persistence/mixed-copy validation.
 Persistent spell names/localized help, other menus and broader campaign gates
 remain part of the full Phase1 scope.
 
