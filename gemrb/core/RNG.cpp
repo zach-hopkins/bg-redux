@@ -8,6 +8,10 @@
 
 namespace GemRB {
 
+namespace {
+thread_local RNG* existingInstance = nullptr;
+}
+
 /**
  * The constructor initializes the random number generator with a 32bit integer seed
  * based on a hashed value of the current timestamp.
@@ -32,6 +36,19 @@ RNG::RNG()
 	}
 
 	engine.seed(seed);
+	existingInstance = this;
+}
+
+RNG::~RNG()
+{
+	if (existingInstance == this) existingInstance = nullptr;
+}
+
+bool RNG::TrySnapshotState(std::mt19937_64& output)
+{
+	if (!existingInstance) return false;
+	output = existingInstance->engine;
+	return true;
 }
 
 /**

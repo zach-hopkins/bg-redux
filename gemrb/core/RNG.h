@@ -16,6 +16,9 @@
 
 namespace GemRB {
 
+// Diagnostic availability for external same-process query observers.
+#define GEMRB_RNG_TRY_SNAPSHOT_STATE 1
+
 // silence bogus warning
 #ifdef _MSC_VER
 	#pragma warning(disable : 4146)
@@ -29,6 +32,10 @@ private:
 
 public:
 	static RNG& getInstance();
+	~RNG();
+	/** Copies only an already initialized calling-thread engine. Never seeds,
+	 * creates or advances the live generator. Not a portable replay format. */
+	static bool TrySnapshotState(std::mt19937_64& output);
 
 	/**
 	 * It is possible to generate random numbers from [-min, +/-max].
