@@ -1,0 +1,728 @@
+{
+  "schema": "bg-redux-independent-information-journey/1",
+  "passed": true,
+  "raw_result": "C:\\BGRedux\\phase1-local\\results\\20261022T122217Z-spellbook-information-ee-direct-97f61bc1\\result.json",
+  "result_sha256": "969019ea6b29e256cb734dc6ac15b08e2334748957ac7cf793b000541401708a",
+  "artifacts_rehashed": 1826,
+  "external_sources": 85,
+  "engine_binding": {
+    "receipt_sha256": "50f035461442c6102d931ad47ba4c89f83fd90864ebd9dc1ffe48364bf0205f7",
+    "source_files": 3511,
+    "binaries": 61,
+    "support_files": 5
+  },
+  "engine_source_commit": "a24658b3809ee3c360434d4c85b276323958b94e",
+  "core_sha256": "401b2f5a66062cea00e5fbad264c9b84f7e22345e788dab0bbe65e706a431fb7",
+  "historical_source_recovery": [
+    {
+      "path": "gemrb/GUIScripts/BG2EEConfirmation.py",
+      "sha256": "da27b1c3c54e3a7419ac9afeb5bb8f413ee0361120c44f4300313f4b2e7ebaac",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T122217Z-spellbook-information-ee-direct-97f61bc1\\driver\\sources\\da27b1c3c54e3a7419ac9afeb5bb8f413ee0361120c44f4300313f4b2e7ebaac\\BG2EEConfirmation.py"
+    }
+  ],
+  "parent": {
+    "parent": "C:\\BGRedux\\phase1-local\\results\\20261022T075243Z-minsc-recruitment-072650e1",
+    "result_sha256": "93401ec89b0896ae8c69a846f81314afec75a69af9e62b173fdcd7c4ea8c8e6c",
+    "manifest_sha256": "cad14881c5aef6ef19d2396aa6ba68cc98be8855c94ddb92143ee7b78fb98252",
+    "input": "C:\\BGRedux\\phase1-local\\results\\20261022T075243Z-minsc-recruitment-072650e1\\recruit\\frozen-save",
+    "files": {
+      "baldur.bmp": {
+        "bytes": 93690,
+        "sha256": "45918b25f319a59e64c4407e985e6d1be5571bf6fc7111f66cbb25b2bfb081b3"
+      },
+      "baldur.gam": {
+        "bytes": 70164,
+        "sha256": "31ed55776f08f3ef8b351b3eda8de02cda32dd6926fbb05a0808888d75070b7a"
+      },
+      "baldur.sav": {
+        "bytes": 19454,
+        "sha256": "ab927d4f5de8a8b707a964d51c806da68360cc5d1771f77c2d8fd4ee1f2d9754"
+      },
+      "PORTRT0.bmp": {
+        "bytes": 13830,
+        "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+      },
+      "PORTRT1.bmp": {
+        "bytes": 13830,
+        "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+      },
+      "PORTRT2.bmp": {
+        "bytes": 13830,
+        "sha256": "7bd303526bb50f7dfe71d8503d9d5281df9010ce6f897fcbbbafc987febb182f"
+      },
+      "PORTRT3.bmp": {
+        "bytes": 13830,
+        "sha256": "5ca49744a57c13ffe91d2eebe5ebfd1da6f491ff549042e70155da7aa59ebf54"
+      }
+    },
+    "phase0_fixture_files": {
+      "BALDUR.bmp": {
+        "bytes": 65590,
+        "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+      },
+      "BALDUR.gam": {
+        "bytes": 69372,
+        "sha256": "d8da451c8765f209cadbbab8a274be0e218c17d2b4718b8b43b76fb10b030414"
+      },
+      "BALDUR.SAV": {
+        "bytes": 19443,
+        "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+      },
+      "PORTRT0.bmp": {
+        "bytes": 13830,
+        "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+      },
+      "PORTRT1.bmp": {
+        "bytes": 13830,
+        "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+      },
+      "save_000000033-GemRB.cloud.meta": {
+        "bytes": 10,
+        "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+      }
+    },
+    "artifact_count": 781
+  },
+  "stages": [
+    {
+      "mode": "operate",
+      "pid": 10016,
+      "elapsed_seconds": 346.684,
+      "exit_code": 0,
+      "steps": 143,
+      "callbacks": 80,
+      "captures": 65
+    },
+    {
+      "mode": "reload",
+      "pid": 8600,
+      "elapsed_seconds": 288.751,
+      "exit_code": 0,
+      "steps": 123,
+      "callbacks": 67,
+      "captures": 55
+    }
+  ],
+  "declared_mutations": [
+    {
+      "mode": "operate",
+      "step": 51,
+      "route": "charged-confirm",
+      "target": "SPWI213"
+    },
+    {
+      "mode": "operate",
+      "step": 53,
+      "route": "separate-memorize",
+      "target": "SPWI213"
+    },
+    {
+      "mode": "operate",
+      "step": 55,
+      "route": "known-memorize",
+      "target": "SPWI213"
+    },
+    {
+      "mode": "operate",
+      "step": 57,
+      "route": "depleted-no-confirm",
+      "target": "SPWI213"
+    },
+    {
+      "mode": "operate",
+      "step": 59,
+      "route": "known-memorize",
+      "target": "SPWI213"
+    },
+    {
+      "mode": "operate",
+      "step": 131,
+      "route": "charged-confirm",
+      "target": "SPPR113"
+    },
+    {
+      "mode": "operate",
+      "step": 133,
+      "route": "separate-memorize",
+      "target": "SPPR113"
+    },
+    {
+      "mode": "operate",
+      "step": 135,
+      "route": "known-memorize",
+      "target": "SPPR113"
+    },
+    {
+      "mode": "operate",
+      "step": 137,
+      "route": "depleted-no-confirm",
+      "target": "SPPR113"
+    },
+    {
+      "mode": "operate",
+      "step": 139,
+      "route": "known-memorize",
+      "target": "SPPR113"
+    }
+  ],
+  "scrolls": [
+    {
+      "mode": "operate",
+      "name": "mage.scroll.selected",
+      "capture": 17,
+      "hash": "f83d27777c83c305fa622192a0e5f2c3225f0433a6d3aed4cb7200adaee12b36",
+      "rect": [
+        528,
+        227,
+        322,
+        338
+      ]
+    },
+    {
+      "mode": "operate",
+      "name": "mage.scroll.scrolled",
+      "capture": 18,
+      "hash": "b105498868f287e7de93fffadead443b2414e370c67489bec4a3f78d3978f54b",
+      "rect": [
+        528,
+        227,
+        322,
+        338
+      ]
+    },
+    {
+      "mode": "operate",
+      "name": "mage.scroll.restored",
+      "capture": 19,
+      "hash": "f83d27777c83c305fa622192a0e5f2c3225f0433a6d3aed4cb7200adaee12b36",
+      "rect": [
+        528,
+        227,
+        322,
+        338
+      ]
+    },
+    {
+      "mode": "reload",
+      "name": "mage.scroll.selected",
+      "capture": 17,
+      "hash": "f83d27777c83c305fa622192a0e5f2c3225f0433a6d3aed4cb7200adaee12b36",
+      "rect": [
+        528,
+        227,
+        322,
+        338
+      ]
+    },
+    {
+      "mode": "reload",
+      "name": "mage.scroll.scrolled",
+      "capture": 18,
+      "hash": "b105498868f287e7de93fffadead443b2414e370c67489bec4a3f78d3978f54b",
+      "rect": [
+        528,
+        227,
+        322,
+        338
+      ]
+    },
+    {
+      "mode": "reload",
+      "name": "mage.scroll.restored",
+      "capture": 19,
+      "hash": "f83d27777c83c305fa622192a0e5f2c3225f0433a6d3aed4cb7200adaee12b36",
+      "rect": [
+        528,
+        227,
+        322,
+        338
+      ]
+    }
+  ],
+  "archives": {
+    "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\Spells.bif": "3296b8ad42432ab509b90b5ab7efd43618e411bff9a6deeda315aead4e6f8d22"
+  },
+  "tlk_sha256": "9e685225ff3c3436a8a35fa7022550620d24a92efe35436a062c02955d9f0952",
+  "initial_target_pages": [
+    {
+      "type": 1,
+      "level": 1,
+      "slots": 3,
+      "bonus": 3,
+      "known": [
+        {
+          "resref": "SPWI215",
+          "level": 1,
+          "type": 1
+        },
+        {
+          "resref": "SPWI214",
+          "level": 1,
+          "type": 1
+        },
+        {
+          "resref": "SPWI213",
+          "level": 1,
+          "type": 1
+        },
+        {
+          "resref": "SPWI212",
+          "level": 1,
+          "type": 1
+        },
+        {
+          "resref": "SPWI211",
+          "level": 1,
+          "type": 1
+        }
+      ],
+      "memorized": [
+        {
+          "resref": "SPWI213",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI214",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI215",
+          "flags": 1
+        }
+      ]
+    },
+    {
+      "type": 0,
+      "level": 0,
+      "slots": 3,
+      "bonus": 3,
+      "known": [
+        {
+          "resref": "SPPR110",
+          "level": 0,
+          "type": 0
+        },
+        {
+          "resref": "SPPR105",
+          "level": 0,
+          "type": 0
+        },
+        {
+          "resref": "SPPR113",
+          "level": 0,
+          "type": 0
+        },
+        {
+          "resref": "SPPR104",
+          "level": 0,
+          "type": 0
+        },
+        {
+          "resref": "SPPR103",
+          "level": 0,
+          "type": 0
+        },
+        {
+          "resref": "SPPR101",
+          "level": 0,
+          "type": 0
+        },
+        {
+          "resref": "SPPR111",
+          "level": 0,
+          "type": 0
+        }
+      ],
+      "memorized": [
+        {
+          "resref": "SPPR113",
+          "flags": 1
+        },
+        {
+          "resref": "SPPR105",
+          "flags": 1
+        },
+        {
+          "resref": "SPPR105",
+          "flags": 1
+        },
+        {
+          "resref": "SPPR103",
+          "flags": 1
+        },
+        {
+          "resref": "SPPR103",
+          "flags": 1
+        }
+      ]
+    }
+  ],
+  "final_target_pages": [
+    {
+      "type": 1,
+      "level": 1,
+      "slots": 3,
+      "bonus": 3,
+      "known": [
+        {
+          "resref": "SPWI215",
+          "level": 1,
+          "type": 1
+        },
+        {
+          "resref": "SPWI214",
+          "level": 1,
+          "type": 1
+        },
+        {
+          "resref": "SPWI213",
+          "level": 1,
+          "type": 1
+        },
+        {
+          "resref": "SPWI212",
+          "level": 1,
+          "type": 1
+        },
+        {
+          "resref": "SPWI211",
+          "level": 1,
+          "type": 1
+        }
+      ],
+      "memorized": [
+        {
+          "resref": "SPWI214",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI215",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI213",
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "type": 0,
+      "level": 0,
+      "slots": 3,
+      "bonus": 3,
+      "known": [
+        {
+          "resref": "SPPR110",
+          "level": 0,
+          "type": 0
+        },
+        {
+          "resref": "SPPR105",
+          "level": 0,
+          "type": 0
+        },
+        {
+          "resref": "SPPR113",
+          "level": 0,
+          "type": 0
+        },
+        {
+          "resref": "SPPR104",
+          "level": 0,
+          "type": 0
+        },
+        {
+          "resref": "SPPR103",
+          "level": 0,
+          "type": 0
+        },
+        {
+          "resref": "SPPR101",
+          "level": 0,
+          "type": 0
+        },
+        {
+          "resref": "SPPR111",
+          "level": 0,
+          "type": 0
+        }
+      ],
+      "memorized": [
+        {
+          "resref": "SPPR105",
+          "flags": 1
+        },
+        {
+          "resref": "SPPR105",
+          "flags": 1
+        },
+        {
+          "resref": "SPPR103",
+          "flags": 1
+        },
+        {
+          "resref": "SPPR103",
+          "flags": 1
+        },
+        {
+          "resref": "SPPR113",
+          "flags": 0
+        }
+      ]
+    }
+  ],
+  "auditor_sha256": "a3afd8b021d7fbf0cf0c62c1c2c686eccc73a89d8887ae814015fbe3795821fa",
+  "limits": [
+    "No source validator imports or tests/build/native launches",
+    "Stock localized sorting; no nonidentity/original parity",
+    "Callbacks not physical pointer input",
+    "No whole-world fresh-import equality or RNG purity claim",
+    "No exact style/font/color fidelity metrics"
+  ],
+  "observation_count": 120,
+  "natural_page_coverage": [
+    {
+      "mode": "operate",
+      "pc": 1,
+      "kind": 1,
+      "level": 1,
+      "top": 0,
+      "known_count": 0
+    },
+    {
+      "mode": "operate",
+      "pc": 2,
+      "kind": 0,
+      "level": 0,
+      "top": 0,
+      "known_count": 0
+    },
+    {
+      "mode": "operate",
+      "pc": 2,
+      "kind": 1,
+      "level": 0,
+      "top": 0,
+      "known_count": 4
+    },
+    {
+      "mode": "operate",
+      "pc": 2,
+      "kind": 1,
+      "level": 1,
+      "top": 0,
+      "known_count": 5
+    },
+    {
+      "mode": "operate",
+      "pc": 2,
+      "kind": 1,
+      "level": 2,
+      "top": 0,
+      "known_count": 5
+    },
+    {
+      "mode": "operate",
+      "pc": 2,
+      "kind": 1,
+      "level": 3,
+      "top": 0,
+      "known_count": 5
+    },
+    {
+      "mode": "operate",
+      "pc": 2,
+      "kind": 1,
+      "level": 4,
+      "top": 0,
+      "known_count": 4
+    },
+    {
+      "mode": "operate",
+      "pc": 3,
+      "kind": 0,
+      "level": 0,
+      "top": 0,
+      "known_count": 7
+    },
+    {
+      "mode": "operate",
+      "pc": 3,
+      "kind": 0,
+      "level": 1,
+      "top": 0,
+      "known_count": 8
+    },
+    {
+      "mode": "operate",
+      "pc": 3,
+      "kind": 0,
+      "level": 1,
+      "top": 7,
+      "known_count": 8
+    },
+    {
+      "mode": "operate",
+      "pc": 3,
+      "kind": 0,
+      "level": 2,
+      "top": 0,
+      "known_count": 12
+    },
+    {
+      "mode": "operate",
+      "pc": 3,
+      "kind": 0,
+      "level": 2,
+      "top": 7,
+      "known_count": 12
+    },
+    {
+      "mode": "operate",
+      "pc": 3,
+      "kind": 0,
+      "level": 3,
+      "top": 0,
+      "known_count": 12
+    },
+    {
+      "mode": "operate",
+      "pc": 3,
+      "kind": 0,
+      "level": 3,
+      "top": 7,
+      "known_count": 12
+    },
+    {
+      "mode": "operate",
+      "pc": 3,
+      "kind": 0,
+      "level": 4,
+      "top": 0,
+      "known_count": 1
+    },
+    {
+      "mode": "reload",
+      "pc": 1,
+      "kind": 1,
+      "level": 1,
+      "top": 0,
+      "known_count": 0
+    },
+    {
+      "mode": "reload",
+      "pc": 2,
+      "kind": 0,
+      "level": 0,
+      "top": 0,
+      "known_count": 0
+    },
+    {
+      "mode": "reload",
+      "pc": 2,
+      "kind": 1,
+      "level": 0,
+      "top": 0,
+      "known_count": 4
+    },
+    {
+      "mode": "reload",
+      "pc": 2,
+      "kind": 1,
+      "level": 1,
+      "top": 0,
+      "known_count": 5
+    },
+    {
+      "mode": "reload",
+      "pc": 2,
+      "kind": 1,
+      "level": 2,
+      "top": 0,
+      "known_count": 5
+    },
+    {
+      "mode": "reload",
+      "pc": 2,
+      "kind": 1,
+      "level": 3,
+      "top": 0,
+      "known_count": 5
+    },
+    {
+      "mode": "reload",
+      "pc": 2,
+      "kind": 1,
+      "level": 4,
+      "top": 0,
+      "known_count": 4
+    },
+    {
+      "mode": "reload",
+      "pc": 3,
+      "kind": 0,
+      "level": 0,
+      "top": 0,
+      "known_count": 7
+    },
+    {
+      "mode": "reload",
+      "pc": 3,
+      "kind": 0,
+      "level": 1,
+      "top": 0,
+      "known_count": 8
+    },
+    {
+      "mode": "reload",
+      "pc": 3,
+      "kind": 0,
+      "level": 1,
+      "top": 7,
+      "known_count": 8
+    },
+    {
+      "mode": "reload",
+      "pc": 3,
+      "kind": 0,
+      "level": 2,
+      "top": 0,
+      "known_count": 12
+    },
+    {
+      "mode": "reload",
+      "pc": 3,
+      "kind": 0,
+      "level": 2,
+      "top": 7,
+      "known_count": 12
+    },
+    {
+      "mode": "reload",
+      "pc": 3,
+      "kind": 0,
+      "level": 3,
+      "top": 0,
+      "known_count": 12
+    },
+    {
+      "mode": "reload",
+      "pc": 3,
+      "kind": 0,
+      "level": 3,
+      "top": 7,
+      "known_count": 12
+    },
+    {
+      "mode": "reload",
+      "pc": 3,
+      "kind": 0,
+      "level": 4,
+      "top": 0,
+      "known_count": 1
+    }
+  ],
+  "selected_description_observations": 52,
+  "private_receipt": "C:\\BGRedux\\phase1-local\\results\\20261022T124139Z-information-journey-independent-7f793cf1\\audit.json",
+  "private_receipt_sha256": "96992dd270214eccfa4fdf286dc4babd04fe10d6e92a8403abdd65484d4558a5"
+}
