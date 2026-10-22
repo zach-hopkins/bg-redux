@@ -15,6 +15,10 @@ import subprocess
 import uuid
 import importlib.util
 
+_stats_spec = importlib.util.spec_from_file_location('redux_stats_validation', Path(__file__).with_name('stats_validation.py'))
+stats_validation = importlib.util.module_from_spec(_stats_spec)
+_stats_spec.loader.exec_module(stats_validation)
+
 _page_spec = importlib.util.spec_from_file_location('redux_information_validation', Path(__file__).with_name('spellbook_information_validation.py'))
 page_validation = importlib.util.module_from_spec(_page_spec)
 _page_spec.loader.exec_module(page_validation)
@@ -60,9 +64,10 @@ def write(path, value):
 
 def menu_source_inputs(source):
     return [Path(__file__), HERE/'menu_probe.cpp', HERE/'gui/MenuRuntime.py', HERE/'gui/MenuStart.py',
+            HERE/'gui/StatsRuntime.py', HERE/'stats_validation.py',
             HERE/'private_game.py', HERE/'spellbook_information_validation.py', HERE/'../phase0/native/gui_probe.cpp', HERE/'../phase0/native/save_probe.cpp'] + [
             Path(source)/'gemrb/GUIScripts'/name for name in
-            ('GUIMG.py','GUIPR.py','EESpellbookHeading.py','EESpellbookInformation.py','BG2EEConfirmation.py','GUIOPT.py','GUIOPTControls.py','GUICommon.py','GUICommonWindows.py','Spellbook.py','GameCheck.py','GUIDefines.py','GUIClasses.py')] + [Path(source)/'gemrb/unhardcoded/shared/defaults.ini']
+            ('GUIREC.py','GUIRECCommon.py','EECharacterSheet.py','PortraitWindow.py','GUIMG.py','GUIPR.py','EESpellbookHeading.py','EESpellbookInformation.py','BG2EEConfirmation.py','GUIOPT.py','GUIOPTControls.py','GUICommon.py','GUICommonWindows.py','Spellbook.py','GameCheck.py','GUIDefines.py','GUIClasses.py')] + [Path(source)/'gemrb/unhardcoded/shared/defaults.ini']
 
 
 def freeze_source_inputs(paths, directory):
@@ -328,7 +333,10 @@ def main():
     parser.add_argument("--timeout", type=int, default=330)
     parser.add_argument("--require-ordinary-spellbooks", action='store_true',
                         help='Require eligible ordinary wizard and priest heading evidence; context gating is not heading acceptance')
+    parser.add_argument('--journey', choices=('menus', 'stats'), default='menus')
     args = parser.parse_args()
+    if args.journey == 'stats' and args.require_ordinary_spellbooks:
+        parser.error('Stats journey does not validate ordinary spellbooks')
     stamp = datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     directory = args.output_root / (stamp + "-menu-" + args.mode + "-" + uuid.uuid4().hex[:8])
     directory.mkdir(parents=True, exist_ok=False)
@@ -339,7 +347,7 @@ def main():
     identities, frozen_sources = freeze_source_inputs(menu_source_inputs(args.source), directory)
     receipt = dict(schema="bg-redux-menu-run/1", source_files=identities, engine_dll_sha256=sha(dll),
                    frozen_sources=frozen_sources, require_ordinary_spellbooks=args.require_ordinary_spellbooks,
-                   directory=str(directory), stages=[], font_mode="game-resources-no-override")
+                   directory=str(directory), stages=[], font_mode="game-resources-no-override", journey=args.journey)
     write(directory / "preparation.json", receipt)
     if args.mode == "build":
         receipt["compiler_sha256"] = sha(args.prefix / "bin/g++.exe")
@@ -391,6 +399,8 @@ def main():
             stage_nonce = uuid.uuid4().hex
             command = [str(args.probe), "--config", str(cfg), "--output", str(stage), "--scripts", str(HERE / "gui"),
                        "--nonce", stage_nonce]
+            if args.journey == 'stats':
+                command += ['--journey', 'stats']
             # Freeze identity before the owned process can produce evidence.
             write(stage / 'launch-pin.json', dict(schema='bg-redux-menu-launch-pin/1',
                   nonce=stage_nonce, resolution=[width, height], command=command,
@@ -406,8 +416,12 @@ def main():
             except (ValueError, OSError) as error:
                 row['private_game_error'] = str(error)
             try:
-                row["validation"] = validate_stage(stage, (width, height), expected_nonce=stage_nonce,
-                                                   require_ordinary_spellbooks=args.require_ordinary_spellbooks)
+                if args.journey == 'stats':
+                    row['validation'] = stats_validation.validate_stage(stage, (width, height),
+                        expected_nonce=stage_nonce, tlk_path=args.game/'lang/en_US/dialog.tlk')
+                else:
+                    row["validation"] = validate_stage(stage, (width, height), expected_nonce=stage_nonce,
+                                                       require_ordinary_spellbooks=args.require_ordinary_spellbooks)
             except (ValueError, OSError, KeyError, IndexError, TypeError, StopIteration) as error:
                 row["error"] = str(error)
             row["fixture_copy_unchanged"] = manifest(copied) == original

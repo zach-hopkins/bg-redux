@@ -91,10 +91,10 @@ int main(int argc, char** argv)
     for (auto required : {"--config", "--output", "--scripts"}) if (!args.count(required)) return 64;
     const auto out = args["--output"];
     const auto journey = args.count("--journey") ? args["--journey"] : "menus";
-    if (journey != "menus" && journey != "hotkeys-edit" && journey != "hotkeys-reload") return 64;
+    if (journey != "menus" && journey != "stats" && journey != "hotkeys-edit" && journey != "hotkeys-reload") return 64;
     if (!args.count("--nonce") || args["--nonce"].size()!=32 ||
         args["--nonce"].find_first_not_of("0123456789abcdef")!=std::string::npos) return 64;
-    const auto runtime = journey == "menus" ? "MenuRuntime" : "HotkeyRuntime";
+    const auto runtime = journey == "menus" ? "MenuRuntime" : journey == "stats" ? "StatsRuntime" : "HotkeyRuntime";
     std::filesystem::create_directories(out);
     if (std::filesystem::exists(out+"/menu-host-result.json")) return 73;
     std::setlocale(LC_ALL,".UTF8");
@@ -108,7 +108,7 @@ int main(int argc, char** argv)
         ToggleLogging(true); AddLogWriter(createStdioLogWriter()); SetMainLogLevel(FATAL);
         engine=std::make_unique<Interface>(std::move(config));
         auto script=core->GetGUIScriptEngine();
-        const std::string configure = journey == "menus" ? Q(out)+","+Q(args["--nonce"]) : Q(out)+","+Q(journey)+","+Q(args["--nonce"]);
+        const std::string configure = (journey == "menus" || journey == "stats") ? Q(out)+","+Q(args["--nonce"]) : Q(out)+","+Q(journey)+","+Q(args["--nonce"]);
         if (!script->ExecString("import sys; sys.path.insert(0,"+Q(args["--scripts"])+"); import "+std::string(runtime)+"; "+runtime+".Configure("+configure+")"))
             throw std::runtime_error("Cannot initialize external menu plan");
         core->SetNextScript("MenuStart");
