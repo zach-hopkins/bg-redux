@@ -24,6 +24,8 @@
 
 #include <deque>
 #include <map>
+#include <string>
+#include <utility>
 
 namespace GemRB {
 
@@ -79,6 +81,28 @@ class GEM_EXPORT Font {
 	*/
 
 public:
+	// Import-time diagnostics only; these owned values never drive rendering.
+	struct ImportProvenance {
+		std::string importer;
+		std::string originalFile;
+		std::string resourceName;
+		size_t resourceBytes = 0;
+		int requestedPixelSize = 0;
+		int requestedStyle = 0;
+		bool requestedBackground = false;
+		bool faceMetricsAvailable = false;
+		std::string family;
+		std::string faceStyle;
+		long faceIndex = 0;
+		long intrinsicStyleFlags = 0;
+		unsigned short actualPixelSizeX = 0;
+		unsigned short actualPixelSizeY = 0;
+		int synthesizedStyle = 0;
+	};
+
+	const ImportProvenance& GetImportProvenance() const noexcept { return importProvenance; }
+	void SetImportProvenance(ImportProvenance value) { importProvenance = std::move(value); }
+
 	struct PrintColors {
 		Color fg;
 		Color bg;
@@ -97,6 +121,7 @@ public:
 	};
 
 private:
+	ImportProvenance importProvenance;
 	class GlyphAtlasPage : public SpriteSheet<ieWord> {
 	private:
 		using GlyphMap = std::map<ieWord, Glyph>;

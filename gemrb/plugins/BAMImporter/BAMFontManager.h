@@ -17,6 +17,7 @@ private:
 	BAMImporter* bamImp;
 	bool isStateFont = false;
 	ResRef resRef;
+	Font::ImportProvenance importProvenance;
 
 public:
 	/** public methods */

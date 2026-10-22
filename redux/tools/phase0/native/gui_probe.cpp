@@ -82,6 +82,16 @@ static std::string FontsJSON()
     for (const auto* name : {"NORMAL","FLOATTXT","NUMBER","INITIALS","NUMBER2","NUMBER3","REALMS","STONEBIG","STONESML","TOOLFONT","TOOLTIP","STONSML","STATES","STATES2"}) {
         auto font = core->GetFont(ResRef(name));
         if (!font) { rows.push_back(O({{"name",Q(name)}, {"loaded","false"}})); continue; }
+        const auto& source = font->GetImportProvenance();
+        const auto provenance = O({{"importer",Q(source.importer)}, {"original_file",Q(source.originalFile)},
+            {"resource_name",Q(source.resourceName)}, {"resource_bytes",NumberJSON(source.resourceBytes)},
+            {"requested_px",NumberJSON(source.requestedPixelSize)}, {"requested_style",NumberJSON(source.requestedStyle)},
+            {"requested_background",source.requestedBackground ? "true" : "false"},
+            {"face_metrics_available",source.faceMetricsAvailable ? "true" : "false"},
+            {"family",Q(source.family)}, {"face_style",Q(source.faceStyle)}, {"face_index",NumberJSON(source.faceIndex)},
+            {"intrinsic_style_flags",NumberJSON(source.intrinsicStyleFlags)},
+            {"actual_px_x",NumberJSON(source.actualPixelSizeX)}, {"actual_px_y",NumberJSON(source.actualPixelSizeY)},
+            {"synthesized_style",NumberJSON(source.synthesizedStyle)}, {"resource_hash_observed","false"}});
         std::vector<std::string> glyphs;
         for (char c : std::string("Aa0gW")) {
             const auto& glyph = font->GetGlyph(c);
@@ -89,10 +99,11 @@ static std::string FontsJSON()
                 {"position",PointJSON(glyph.pos)}}));
         }
         rows.push_back(O({{"name",Q(name)}, {"loaded","true"}, {"runtime_type",Q(typeid(*font).name())},
+            {"import_provenance",provenance},
             {"line_height",NumberJSON(font->LineHeight)}, {"baseline",NumberJSON(font->Baseline)},
             {"sample_width",NumberJSON(font->StringSize(u"Strength Armor Class 123").w)}, {"glyphs",A(glyphs)}}));
     }
-    return O({{"schema",Q("bg-redux-fonts/1")}, {"fonts",A(rows)}});
+    return O({{"schema",Q("bg-redux-fonts/2")}, {"fonts",A(rows)}});
 }
 
 // Deliberate laboratory effect applications, not player commands or a spell test.

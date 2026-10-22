@@ -21,6 +21,11 @@ BAMFontManager::BAMFontManager(void)
 
 bool BAMFontManager::Import(DataStream* stream)
 {
+	importProvenance = {};
+	importProvenance.importer = "BAMImporter";
+	importProvenance.originalFile = stream->originalfile;
+	importProvenance.resourceName = std::string(stream->filename);
+	importProvenance.resourceBytes = stream->Size();
 	resRef = stream->filename;
 	// compare only first 6 chars so we can match states2 or others
 	if (resRef.BeginsWith("STATES")) {
@@ -31,7 +36,7 @@ bool BAMFontManager::Import(DataStream* stream)
 	return bamImp->Open(stream);
 }
 
-Holder<Font> BAMFontManager::GetFont(unsigned short /*ptSize*/, FontStyle /*style*/, bool background)
+Holder<Font> BAMFontManager::GetFont(unsigned short pxSize, FontStyle style, bool background)
 {
 	auto af = bamImp->GetAnimationFactory(resRef, false); // released by BAMFont
 	// FIXME: this test only exists to let the minimal test pass
@@ -74,6 +79,11 @@ Holder<Font> BAMFontManager::GetFont(unsigned short /*ptSize*/, FontStyle /*styl
 
 	auto pal = af->GetFrameWithoutCycle(0)->GetPalette();
 	auto fnt = MakeHolder<Font>(std::move(pal), lineHeight, baseLine, background);
+	auto provenance = importProvenance;
+	provenance.requestedPixelSize = pxSize;
+	provenance.requestedStyle = style;
+	provenance.requestedBackground = background;
+	fnt->SetImportProvenance(std::move(provenance));
 
 	std::map<Sprite2D*, ieWord> tmp;
 	for (ieWord cycle = 0; cycle < af->GetCycleCount(); cycle++) {

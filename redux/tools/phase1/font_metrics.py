@@ -56,12 +56,12 @@ class Assets:
             ref, kind, locator = struct.unpack_from('<8sHI', self.key, res_offset + i * 14)
             self.resources.setdefault((ref.rstrip(b'\0').decode('ascii').lower(), kind), locator)
 
-    def read_ttf(self, ref):
+    def read_resource(self, ref, extension, resource_type):
         for directory in ('override', 'lang/en_US'):
-            path = self.game / directory / (ref.lower() + '.ttf')
+            path = self.game / directory / (ref.lower() + '.' + extension)
             if path.is_file():
                 return path.read_bytes(), str(path.relative_to(self.game))
-        loc = self.resources.get((ref.lower(), 0x40a))
+        loc = self.resources.get((ref.lower(), resource_type))
         if loc is None:
             return None, None
         path = self.game / self.bifs[loc >> 20]
@@ -75,14 +75,17 @@ class Assets:
             for i in range(count):
                 rloc, start, length, kind, _ = struct.unpack_from('<IIIHH', entries, i * 16)
                 if rloc & 0x3fff == loc & 0x3fff:
-                    if kind != 0x40a:
-                        raise ValueError('TTF locator type mismatch')
+                    if kind != resource_type:
+                        raise ValueError('Font locator type mismatch')
                     f.seek(start)
                     data = f.read(length)
                     if len(data) != length:
                         raise ValueError('Truncated font resource')
                     return data, str(path.relative_to(self.game))
         raise ValueError('Unresolved font locator')
+
+    def read_ttf(self, ref):
+        return self.read_resource(ref, 'ttf', 0x40a)
 
 
 class Generic(C.Structure):
@@ -213,6 +216,7 @@ class FreeType:
                         face_style=rec.style.decode('utf-8', 'replace'), style_flags=rec.style_flags,
                         units_per_em=rec.units_per_em, face_ascender=rec.ascender,
                         face_descender=rec.descender, face_height=rec.height,
+                        actual_x_ppem=rec.size.contents.metrics.x_ppem,
                         actual_y_ppem=rec.size.contents.metrics.y_ppem,
                         predicted_current_baseline=baseline, predicted_current_lineheight=lineheight,
                         predicted_current_space=int(lineheight * .25), glyphs=rows,
@@ -232,6 +236,7 @@ def main():
     parser.add_argument('--freetype', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--runtime-fonts', type=Path)
+    parser.add_argument('--provenance-only', action='store_true', help='Keep compact identity/face metrics, omit glyph/pair/sample rows')
     args = parser.parse_args()
     if args.output.exists():
         raise FileExistsError('Evidence output must be new')
@@ -248,6 +253,11 @@ def main():
                        requested_background=int(background), prefer_bam=bool(int(flags) & 1))
             data, origin = assets.read_ttf(ref)
             row['ttf_candidate_available'] = data is not None
+            bam_data, bam_origin = assets.read_resource(ref, 'bam', 0x3e8)
+            row['bam_candidate_available'] = bam_data is not None
+            if bam_data is not None:
+                row.update(bam_candidate_origin=bam_origin, bam_candidate_sha256=sha(bam_data),
+                           bam_candidate_bytes=len(bam_data))
             if data is not None:
                 row.update(candidate_origin=origin, candidate_sha256=sha(data), candidate_bytes=len(data))
                 row.update(ft.measure(data, int(px), 'Aa0gW jAV—½'))
@@ -256,6 +266,10 @@ def main():
                     if observed and 'TTF' in observed.get('runtime_type', ''):
                         row['historical_runtime_comparison'] = compare_runtime(row, observed)
             rows.append(row)
+        if args.provenance_only:
+            for row in rows:
+                for field in ('glyphs', 'kerning', 'sample_pen_advances'):
+                    row.pop(field, None)
         versions = [C.c_int() for _ in range(3)]
         ft.ft.FT_Library_Version(ft.library, *(C.byref(v) for v in versions))
         report = dict(schema='bg-redux-font-metrics/1', created_utc=datetime.now(timezone.utc).isoformat(),

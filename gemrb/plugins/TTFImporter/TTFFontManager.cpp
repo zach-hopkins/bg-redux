@@ -37,7 +37,12 @@ TTFFontManager::~TTFFontManager(void)
 bool TTFFontManager::Import(DataStream* stream)
 {
 	Close();
+	importProvenance = {};
 	if (stream) {
+		importProvenance.importer = "TTFImporter";
+		importProvenance.originalFile = stream->originalfile;
+		importProvenance.resourceName = std::string(stream->filename);
+		importProvenance.resourceBytes = stream->Size();
 		FT_Error error;
 		ftStream = new std::remove_pointer_t<FT_Stream> {};
 		ftStream->read = [](FT_Stream TTFStream, unsigned long offset, unsigned char* buffer, unsigned long count)
@@ -84,8 +89,13 @@ void TTFFontManager::Close()
 	}
 }
 
-Holder<Font> TTFFontManager::GetFont(unsigned short pxSize, FontStyle /*style*/, bool /*background*/)
+Holder<Font> TTFFontManager::GetFont(unsigned short pxSize, FontStyle style, bool background)
 {
+	// Snapshot the request before the fixed-strike branch can change pxSize.
+	auto provenance = importProvenance;
+	provenance.requestedPixelSize = pxSize;
+	provenance.requestedStyle = style;
+	provenance.requestedBackground = background;
 	Holder<Palette> pal = MakeHolder<Palette>(ColorWhite, ColorBlack);
 
 	Palette::Colors buffer;
@@ -151,7 +161,18 @@ Holder<Font> TTFFontManager::GetFont(unsigned short pxSize, FontStyle /*style*/,
 		//font->underline_height = FT_FLOOR(face->underline_thickness);
 	}
 
-	return MakeHolder<TTFFont>(pal, face, lineHeight, baseline);
+	provenance.faceMetricsAvailable = face->size != nullptr;
+	provenance.family = face->family_name ? face->family_name : "";
+	provenance.faceStyle = face->style_name ? face->style_name : "";
+	provenance.faceIndex = face->face_index;
+	provenance.intrinsicStyleFlags = face->style_flags;
+	if (face->size) {
+		provenance.actualPixelSizeX = face->size->metrics.x_ppem;
+		provenance.actualPixelSizeY = face->size->metrics.y_ppem;
+	}
+	auto font = MakeHolder<TTFFont>(pal, face, lineHeight, baseline);
+	font->SetImportProvenance(std::move(provenance));
+	return font;
 }
 
 }

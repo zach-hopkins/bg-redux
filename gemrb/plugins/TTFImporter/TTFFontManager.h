@@ -14,6 +14,7 @@ class TTFFontManager : public FontManager {
 private:
 	FT_Stream ftStream = nullptr;
 	FT_Face face = nullptr;
+	Font::ImportProvenance importProvenance;
 
 public:
 	TTFFontManager() noexcept = default;
