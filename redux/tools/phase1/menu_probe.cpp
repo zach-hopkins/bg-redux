@@ -4,6 +4,7 @@
 #include "../phase0/native/gui_probe.cpp"
 #undef main
 #include "GUI/Button.h"
+#include "Item.h"
 #include "RNG.h"
 #include <chrono>
 #include <iostream>
@@ -33,6 +34,34 @@ struct Display3EControl {
     }
     ~Display3EControl() { if (active) core->ClearFeature(GFFlags::RULES_3ED); }
 };
+
+// Same serialized setup surface used by the established weapon-query guard.
+static std::string ArmedWeaponsJSON(const Actor* actor)
+{
+    std::vector<std::string> hands;
+    for (unsigned hand=0; hand<2; ++hand) {
+        const auto& wi=actor->weaponInfo[hand];
+        int headerIndex=-1;
+        if (wi.item && wi.extHeader) {
+            for (size_t i=0; i<wi.item->extHeaders.size(); ++i)
+                if (&wi.item->extHeaders[i]==wi.extHeader) headerIndex=static_cast<int>(i);
+        }
+        hands.push_back(O({{"hand",NumberJSON(hand+1)}, {"slot",NumberJSON(wi.slot)},
+            {"item",wi.item?Q(wi.item->Name.c_str()):"null"},
+            {"item_flags",wi.item?NumberJSON(wi.item->Flags):"null"},
+            {"base_enchantment",wi.item?NumberJSON(wi.item->Enchantment):"null"},
+            {"itemflags",NumberJSON(wi.itemflags)}, {"enchantment",NumberJSON(wi.enchantment)},
+            {"wflags",NumberJSON(wi.wflags)}, {"header_index",NumberJSON(headerIndex)},
+            {"header",wi.extHeader?O({{"attack_type",NumberJSON(wi.extHeader->AttackType)},
+                {"location",NumberJSON(wi.extHeader->Location)}, {"damage_type",NumberJSON(wi.extHeader->DamageType)},
+                {"dice_sides",NumberJSON(wi.extHeader->DiceSides)}, {"dice_thrown",NumberJSON(wi.extHeader->DiceThrown)},
+                {"damage_bonus",NumberJSON(wi.extHeader->DamageBonus)}, {"charges",NumberJSON(wi.extHeader->Charges)},
+                {"recharge_flags",NumberJSON(wi.extHeader->RechargeFlags)}}):"null"}}));
+    }
+    return O({{"schema",Q("bg-redux-phase1-weapon-cache/1")}, {"sender_runtime_id",NumberJSON(actor->GetGlobalID())},
+        {"equipped_slot",NumberJSON(actor->inventory.GetEquippedSlot())},
+        {"shield_slot",NumberJSON(actor->inventory.GetShieldSlot())}, {"hands",A(hands)}});
+}
 
 static const std::vector<const char*> MenuPacks = {"GUIOPT", "GUIREC", "GUISAVE", "GUILOAD", "GUIMAP", "GUIWMAP", "GUIJRNL", "GUIMG", "GUIPR", "WIN_KEYS", "OPTWIN", "PORTWIN"};
 
@@ -125,10 +154,10 @@ int main(int argc, char** argv)
     for (auto required : {"--config", "--output", "--scripts"}) if (!args.count(required)) return 64;
     const auto out = args["--output"];
     const auto journey = args.count("--journey") ? args["--journey"] : "menus";
-    if (journey != "menus" && journey != "stats" && journey != "display-query" && journey != "hotkeys-edit" && journey != "hotkeys-reload") return 64;
+    if (journey != "menus" && journey != "stats" && journey != "display-query" && journey != "display-armed" && journey != "hotkeys-edit" && journey != "hotkeys-reload") return 64;
     if (!args.count("--nonce") || args["--nonce"].size()!=32 ||
         args["--nonce"].find_first_not_of("0123456789abcdef")!=std::string::npos) return 64;
-    const auto runtime = journey == "menus" ? "MenuRuntime" : journey == "stats" ? "StatsRuntime" : journey == "display-query" ? "DisplayQueryRuntime" : "HotkeyRuntime";
+    const auto runtime = journey == "menus" ? "MenuRuntime" : journey == "stats" ? "StatsRuntime" : journey == "display-query" ? "DisplayQueryRuntime" : journey == "display-armed" ? "ArmedDisplayRuntime" : "HotkeyRuntime";
     std::filesystem::create_directories(out);
     if (std::filesystem::exists(out+"/menu-host-result.json")) return 73;
     std::setlocale(LC_ALL,".UTF8");
@@ -143,7 +172,7 @@ int main(int argc, char** argv)
         ToggleLogging(true); AddLogWriter(createStdioLogWriter()); SetMainLogLevel(FATAL);
         engine=std::make_unique<Interface>(std::move(config));
         auto script=core->GetGUIScriptEngine();
-        const std::string configure = (journey == "menus" || journey == "stats" || journey == "display-query") ? Q(out)+","+Q(args["--nonce"]) : Q(out)+","+Q(journey)+","+Q(args["--nonce"]);
+        const std::string configure = (journey == "menus" || journey == "stats" || journey == "display-query" || journey == "display-armed") ? Q(out)+","+Q(args["--nonce"]) : Q(out)+","+Q(journey)+","+Q(args["--nonce"]);
         if (!script->ExecString("import sys; sys.path.insert(0,"+Q(args["--scripts"])+"); import "+std::string(runtime)+"; "+runtime+".Configure("+configure+")"))
             throw std::runtime_error("Cannot initialize external menu plan");
         core->SetNextScript("MenuStart");
@@ -163,9 +192,10 @@ int main(int argc, char** argv)
                     Write(out+"/fonts.json",FontsJSON());
                     Write(out+"/before.state.json",Snapshot(core->GetGame()));
                     Write(out+"/before.observer.json",ObserverJSON());
+                    if (journey=="display-armed") Write(out+"/before.weapons.json",ArmedWeaponsJSON(core->GetGame()->GetPC(0,false)));
                     stage=1;
                 }
-                const bool queryMode=journey=="display-query";
+                const bool queryMode=journey=="display-query" || journey=="display-armed";
                 std::string actorBytes;
                 std::mt19937_64 rngBefore, rngAfter;
                 bool rngReadyBefore=false;

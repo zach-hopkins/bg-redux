@@ -1,0 +1,1651 @@
+{
+  "schema": "bg-redux-armed-display-review/1",
+  "native_armed_purity_and_legacy_parity_passed": true,
+  "original_armed_fidelity_passed": false,
+  "production_engine_changed_this_slice": false,
+  "phase1_complete": false,
+  "source_tooling": {
+    "passed": 619,
+    "log": {
+      "path": "C:\\BGRedux\\phase1-local\\results\\armed-display-final-tooling-20261022.log",
+      "sha256": "a0289118747affd4dd4a3c693d81a8252ff399542c520d484ff81618bfa4610e"
+    }
+  },
+  "native_runs": [
+    {
+      "case_id": "01-normal-plus-pfmw",
+      "resolution": "1024x768",
+      "result": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T225352Z-armed-display-4193f3c1\\result.json",
+        "sha256": "7dffa905a7d26ae2c2cc20779e821268a077be37658800396af62e53c0303bde"
+      },
+      "stage": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T225352Z-armed-display-4193f3c1\\native\\20261022T225358Z-menu-run-528cc9f7\\1024x768\\result.json",
+        "sha256": "661c1c3ca6c4948e838e6f735a875adf9856439502245fa88b579cdf3ec8f1d4"
+      },
+      "input": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T225352Z-armed-display-4193f3c1\\native\\20261022T225358Z-menu-run-528cc9f7\\1024x768\\armed-input.json",
+        "sha256": "21b7d97868f23207b88ccfaa4b03bcc73fde39e0071e568ee28615a342024a6b"
+      },
+      "validation": {
+        "assertion_passed": true,
+        "pure_phase_world_unchanged": true,
+        "collected_world_unchanged": false,
+        "case_id": "01-normal-plus-pfmw",
+        "actual_dual_wield": true,
+        "actual_ranged": false,
+        "actual_items": {
+          "9": "sw1h02",
+          "35": "sw1h01"
+        },
+        "display_api_calls": 256,
+        "sheet_observations": 4,
+        "portrait_callbacks": 3,
+        "legacy_result_parity": true,
+        "legacy_control_changed_actor_bytes": true,
+        "matrix_step_nanoseconds": [
+          5111400,
+          3605900
+        ],
+        "pure_query_actor_bytes_and_calling_thread_rng_unchanged": true,
+        "gui_collected_world_and_caches_unchanged": true,
+        "original_armed_combat_math_oracle": false,
+        "hidden_state_or_other_threads_purity": false,
+        "visual_acceptance": false
+      },
+      "actor1_details": [
+        {
+          "Slot": 35,
+          "Flags": 262177,
+          "Enchantment": 0,
+          "Range": 2,
+          "Proficiency": 89,
+          "DamageBonus": 0,
+          "Speed": 0,
+          "CriticalBonus": 0,
+          "Style": 114,
+          "APR": 5,
+          "CriticalMultiplier": 2,
+          "CriticalRange": 20,
+          "ProfDmgBon": 0,
+          "LauncherDmgBon": 0,
+          "WeaponStrBonus": 0,
+          "HitHeaderNumDice": 2,
+          "HitHeaderDiceSides": 4,
+          "HitHeaderDiceBonus": 0,
+          "AC": {
+            "Total": 10,
+            "Natural": 10,
+            "Armor": 0,
+            "Shield": 0,
+            "Deflection": 0,
+            "Generic": 0,
+            "Dexterity": 0,
+            "Wisdom": 0
+          },
+          "ToHitStats": {
+            "Total": 6,
+            "Base": 14,
+            "Armor": 0,
+            "Shield": 0,
+            "Proficiency": -8,
+            "Generic": 0,
+            "Ability": 0,
+            "Weapon": 0
+          },
+          "DamageOpcodes": []
+        },
+        {
+          "Slot": 9,
+          "Flags": 49,
+          "Enchantment": 1,
+          "Range": 2,
+          "Proficiency": 89,
+          "DamageBonus": 1,
+          "Speed": 0,
+          "CriticalBonus": 0,
+          "Style": 114,
+          "APR": 5,
+          "CriticalMultiplier": 2,
+          "CriticalRange": 20,
+          "ProfDmgBon": 0,
+          "LauncherDmgBon": 0,
+          "WeaponStrBonus": 0,
+          "HitHeaderNumDice": 2,
+          "HitHeaderDiceSides": 4,
+          "HitHeaderDiceBonus": 1,
+          "AC": {
+            "Total": 10,
+            "Natural": 10,
+            "Armor": 0,
+            "Shield": 0,
+            "Deflection": 0,
+            "Generic": 0,
+            "Dexterity": 0,
+            "Wisdom": 0
+          },
+          "ToHitStats": {
+            "Total": 9,
+            "Base": 14,
+            "Armor": 0,
+            "Shield": 0,
+            "Proficiency": -4,
+            "Generic": 0,
+            "Ability": 0,
+            "Weapon": -1
+          },
+          "DamageOpcodes": []
+        }
+      ],
+      "record_capture": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T225352Z-armed-display-4193f3c1\\native\\20261022T225358Z-menu-run-528cc9f7\\1024x768\\capture-3.bmp",
+        "sha256": "e6b3c59b47c4775441e95d3ee03300d2385c53370c6c3773e88cf53e6cb5c393"
+      },
+      "inventory_capture": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T225352Z-armed-display-4193f3c1\\native\\20261022T225358Z-menu-run-528cc9f7\\1024x768\\capture-6.bmp",
+        "sha256": "c6b35b30c1fc4c4364b01ea0a26794ba24058db69f326b3169475bde7ffd3201"
+      }
+    },
+    {
+      "case_id": "02-plus-normal-pfmw",
+      "resolution": "1024x768",
+      "result": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T225525Z-armed-display-49fb375e\\result.json",
+        "sha256": "b64e5341398661247d3f51c249a4b8598e8ae99e11244c807cbe72bc4822cba2"
+      },
+      "stage": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T225525Z-armed-display-49fb375e\\native\\20261022T225530Z-menu-run-fb4a761b\\1024x768\\result.json",
+        "sha256": "6dad73fa9216ed4825d5df8b02744e1aa902b6a9e40892754ea60cab3b56e323"
+      },
+      "input": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T225525Z-armed-display-49fb375e\\native\\20261022T225530Z-menu-run-fb4a761b\\1024x768\\armed-input.json",
+        "sha256": "da596a9afab6e40fa7738449c41989c05566d327c46fd4c8f39e0666076ae09a"
+      },
+      "validation": {
+        "assertion_passed": true,
+        "pure_phase_world_unchanged": true,
+        "collected_world_unchanged": false,
+        "case_id": "02-plus-normal-pfmw",
+        "actual_dual_wield": true,
+        "actual_ranged": false,
+        "actual_items": {
+          "9": "sw1h01",
+          "35": "sw1h02"
+        },
+        "display_api_calls": 256,
+        "sheet_observations": 4,
+        "portrait_callbacks": 3,
+        "legacy_result_parity": true,
+        "legacy_control_changed_actor_bytes": true,
+        "matrix_step_nanoseconds": [
+          5478800,
+          4164600
+        ],
+        "pure_query_actor_bytes_and_calling_thread_rng_unchanged": true,
+        "gui_collected_world_and_caches_unchanged": true,
+        "original_armed_combat_math_oracle": false,
+        "hidden_state_or_other_threads_purity": false,
+        "visual_acceptance": false
+      },
+      "actor1_details": [
+        {
+          "Slot": 35,
+          "Flags": 33,
+          "Enchantment": 1,
+          "Range": 2,
+          "Proficiency": 89,
+          "DamageBonus": 1,
+          "Speed": 0,
+          "CriticalBonus": 0,
+          "Style": 114,
+          "APR": 5,
+          "CriticalMultiplier": 2,
+          "CriticalRange": 20,
+          "ProfDmgBon": 0,
+          "LauncherDmgBon": 0,
+          "WeaponStrBonus": 0,
+          "HitHeaderNumDice": 2,
+          "HitHeaderDiceSides": 4,
+          "HitHeaderDiceBonus": 1,
+          "AC": {
+            "Total": 10,
+            "Natural": 10,
+            "Armor": 0,
+            "Shield": 0,
+            "Deflection": 0,
+            "Generic": 0,
+            "Dexterity": 0,
+            "Wisdom": 0
+          },
+          "ToHitStats": {
+            "Total": 5,
+            "Base": 14,
+            "Armor": 0,
+            "Shield": 0,
+            "Proficiency": -8,
+            "Generic": 0,
+            "Ability": 0,
+            "Weapon": -1
+          },
+          "DamageOpcodes": []
+        },
+        {
+          "Slot": 9,
+          "Flags": 262193,
+          "Enchantment": 0,
+          "Range": 2,
+          "Proficiency": 89,
+          "DamageBonus": 0,
+          "Speed": 0,
+          "CriticalBonus": 0,
+          "Style": 114,
+          "APR": 5,
+          "CriticalMultiplier": 2,
+          "CriticalRange": 20,
+          "ProfDmgBon": 0,
+          "LauncherDmgBon": 0,
+          "WeaponStrBonus": 0,
+          "HitHeaderNumDice": 2,
+          "HitHeaderDiceSides": 4,
+          "HitHeaderDiceBonus": 0,
+          "AC": {
+            "Total": 10,
+            "Natural": 10,
+            "Armor": 0,
+            "Shield": 0,
+            "Deflection": 0,
+            "Generic": 0,
+            "Dexterity": 0,
+            "Wisdom": 0
+          },
+          "ToHitStats": {
+            "Total": 10,
+            "Base": 14,
+            "Armor": 0,
+            "Shield": 0,
+            "Proficiency": -4,
+            "Generic": 0,
+            "Ability": 0,
+            "Weapon": 0
+          },
+          "DamageOpcodes": []
+        }
+      ],
+      "record_capture": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T225525Z-armed-display-49fb375e\\native\\20261022T225530Z-menu-run-fb4a761b\\1024x768\\capture-3.bmp",
+        "sha256": "3921e96859362d607d385401ca193627d846e85edb9adc5a226b072f40fb1e1f"
+      },
+      "inventory_capture": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T225525Z-armed-display-49fb375e\\native\\20261022T225530Z-menu-run-fb4a761b\\1024x768\\capture-6.bmp",
+        "sha256": "7c71b0fc0fb11caa0be0345c7987756190876b80aa60d0b8c1de132cb230cbac"
+      }
+    },
+    {
+      "case_id": "03-crush-slash-slash100",
+      "resolution": "1024x768",
+      "result": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T225811Z-armed-display-f656131e\\result.json",
+        "sha256": "a963b3ba2a56a1a79f7232c6c653e34c7d0b11e6f1ab5560963268b6c630000e"
+      },
+      "stage": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T225811Z-armed-display-f656131e\\native\\20261022T225817Z-menu-run-b9c720b3\\1024x768\\result.json",
+        "sha256": "e0f19a05b5b4c774be6cb6036036bbdc7bcbbe29d59d5716b6c2dab6b0eaa1dc"
+      },
+      "input": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T225811Z-armed-display-f656131e\\native\\20261022T225817Z-menu-run-b9c720b3\\1024x768\\armed-input.json",
+        "sha256": "68285ba426e449da299de56e4e491caf822678b926101f704e055632d2e1f5ba"
+      },
+      "validation": {
+        "assertion_passed": true,
+        "pure_phase_world_unchanged": true,
+        "collected_world_unchanged": false,
+        "case_id": "03-crush-slash-slash100",
+        "actual_dual_wield": true,
+        "actual_ranged": false,
+        "actual_items": {
+          "9": "sw1h01",
+          "35": "hamm01"
+        },
+        "display_api_calls": 256,
+        "sheet_observations": 4,
+        "portrait_callbacks": 3,
+        "legacy_result_parity": true,
+        "legacy_control_changed_actor_bytes": true,
+        "matrix_step_nanoseconds": [
+          5215300,
+          4373000
+        ],
+        "pure_query_actor_bytes_and_calling_thread_rng_unchanged": true,
+        "gui_collected_world_and_caches_unchanged": true,
+        "original_armed_combat_math_oracle": false,
+        "hidden_state_or_other_threads_purity": false,
+        "visual_acceptance": false
+      },
+      "actor1_details": [
+        {
+          "Slot": 35,
+          "Flags": 262177,
+          "Enchantment": 0,
+          "Range": 2,
+          "Proficiency": 97,
+          "DamageBonus": 1,
+          "Speed": 0,
+          "CriticalBonus": 0,
+          "Style": 114,
+          "APR": 4,
+          "CriticalMultiplier": 2,
+          "CriticalRange": 20,
+          "ProfDmgBon": 0,
+          "LauncherDmgBon": 0,
+          "WeaponStrBonus": 0,
+          "HitHeaderNumDice": 1,
+          "HitHeaderDiceSides": 4,
+          "HitHeaderDiceBonus": 1,
+          "AC": {
+            "Total": 10,
+            "Natural": 10,
+            "Armor": 0,
+            "Shield": 0,
+            "Deflection": 0,
+            "Generic": 0,
+            "Dexterity": 0,
+            "Wisdom": 0
+          },
+          "ToHitStats": {
+            "Total": 8,
+            "Base": 14,
+            "Armor": 0,
+            "Shield": 0,
+            "Proficiency": -6,
+            "Generic": 0,
+            "Ability": 0,
+            "Weapon": 0
+          },
+          "DamageOpcodes": []
+        },
+        {
+          "Slot": 9,
+          "Flags": 262193,
+          "Enchantment": 0,
+          "Range": 2,
+          "Proficiency": 89,
+          "DamageBonus": 0,
+          "Speed": 0,
+          "CriticalBonus": 0,
+          "Style": 114,
+          "APR": 4,
+          "CriticalMultiplier": 2,
+          "CriticalRange": 20,
+          "ProfDmgBon": 0,
+          "LauncherDmgBon": 0,
+          "WeaponStrBonus": 0,
+          "HitHeaderNumDice": 2,
+          "HitHeaderDiceSides": 4,
+          "HitHeaderDiceBonus": 0,
+          "AC": {
+            "Total": 10,
+            "Natural": 10,
+            "Armor": 0,
+            "Shield": 0,
+            "Deflection": 0,
+            "Generic": 0,
+            "Dexterity": 0,
+            "Wisdom": 0
+          },
+          "ToHitStats": {
+            "Total": 10,
+            "Base": 14,
+            "Armor": 0,
+            "Shield": 0,
+            "Proficiency": -4,
+            "Generic": 0,
+            "Ability": 0,
+            "Weapon": 0
+          },
+          "DamageOpcodes": []
+        }
+      ],
+      "record_capture": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T225811Z-armed-display-f656131e\\native\\20261022T225817Z-menu-run-b9c720b3\\1024x768\\capture-3.bmp",
+        "sha256": "aa21c696f4b52887a85c66ad3d610c571c8232ac93f908406178988a046189e1"
+      },
+      "inventory_capture": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T225811Z-armed-display-f656131e\\native\\20261022T225817Z-menu-run-b9c720b3\\1024x768\\capture-6.bmp",
+        "sha256": "9241d56766f7063736b4cd7889d81dfae31b07ec3a109a6b2eefee4fd8c41483"
+      }
+    },
+    {
+      "case_id": "05-normal-empty",
+      "resolution": "1024x768",
+      "result": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T225907Z-armed-display-1836c84b\\result.json",
+        "sha256": "caf87590a39061cf810bb799ab7d25d18c6c298bf9574d8c7b741ef9cff8d3ee"
+      },
+      "stage": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T225907Z-armed-display-1836c84b\\native\\20261022T225912Z-menu-run-7eeee5f2\\1024x768\\result.json",
+        "sha256": "cf037acfd76b8d2edf1c50da64357118ba3a910eadf9cfe7741301321b937163"
+      },
+      "input": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T225907Z-armed-display-1836c84b\\native\\20261022T225912Z-menu-run-7eeee5f2\\1024x768\\armed-input.json",
+        "sha256": "545ac6d5fc52a53ae37071bfa1025bca74936f031df77d9728751825145d62ff"
+      },
+      "validation": {
+        "assertion_passed": true,
+        "pure_phase_world_unchanged": true,
+        "collected_world_unchanged": false,
+        "case_id": "05-normal-empty",
+        "actual_dual_wield": false,
+        "actual_ranged": false,
+        "actual_items": {
+          "35": "sw1h01"
+        },
+        "display_api_calls": 256,
+        "sheet_observations": 4,
+        "portrait_callbacks": 3,
+        "legacy_result_parity": true,
+        "legacy_control_changed_actor_bytes": false,
+        "matrix_step_nanoseconds": [
+          4884600,
+          4463800
+        ],
+        "pure_query_actor_bytes_and_calling_thread_rng_unchanged": true,
+        "gui_collected_world_and_caches_unchanged": true,
+        "original_armed_combat_math_oracle": false,
+        "hidden_state_or_other_threads_purity": false,
+        "visual_acceptance": false
+      },
+      "actor1_details": [
+        {
+          "Slot": 35,
+          "Flags": 262177,
+          "Enchantment": 0,
+          "Range": 2,
+          "Proficiency": 89,
+          "DamageBonus": 0,
+          "Speed": 0,
+          "CriticalBonus": 0,
+          "Style": 113,
+          "APR": 3,
+          "CriticalMultiplier": 2,
+          "CriticalRange": 20,
+          "ProfDmgBon": 0,
+          "LauncherDmgBon": 0,
+          "WeaponStrBonus": 0,
+          "HitHeaderNumDice": 2,
+          "HitHeaderDiceSides": 4,
+          "HitHeaderDiceBonus": 0,
+          "AC": {
+            "Total": 10,
+            "Natural": 10,
+            "Armor": 0,
+            "Shield": 0,
+            "Deflection": 0,
+            "Generic": 0,
+            "Dexterity": 0,
+            "Wisdom": 0
+          },
+          "ToHitStats": {
+            "Total": 14,
+            "Base": 14,
+            "Armor": 0,
+            "Shield": 0,
+            "Proficiency": 0,
+            "Generic": 0,
+            "Ability": 0,
+            "Weapon": 0
+          },
+          "DamageOpcodes": []
+        },
+        {
+          "Slot": 35,
+          "Flags": 262177,
+          "Enchantment": 0,
+          "Range": 2,
+          "Proficiency": 89,
+          "DamageBonus": 0,
+          "Speed": 0,
+          "CriticalBonus": 0,
+          "Style": 113,
+          "APR": 3,
+          "CriticalMultiplier": 2,
+          "CriticalRange": 20,
+          "ProfDmgBon": 0,
+          "LauncherDmgBon": 0,
+          "WeaponStrBonus": 0,
+          "HitHeaderNumDice": 2,
+          "HitHeaderDiceSides": 4,
+          "HitHeaderDiceBonus": 0,
+          "AC": {
+            "Total": 10,
+            "Natural": 10,
+            "Armor": 0,
+            "Shield": 0,
+            "Deflection": 0,
+            "Generic": 0,
+            "Dexterity": 0,
+            "Wisdom": 0
+          },
+          "ToHitStats": {
+            "Total": 14,
+            "Base": 14,
+            "Armor": 0,
+            "Shield": 0,
+            "Proficiency": 0,
+            "Generic": 0,
+            "Ability": 0,
+            "Weapon": 0
+          },
+          "DamageOpcodes": []
+        }
+      ],
+      "record_capture": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T225907Z-armed-display-1836c84b\\native\\20261022T225912Z-menu-run-7eeee5f2\\1024x768\\capture-3.bmp",
+        "sha256": "dc755f9167fb701e2458a11051e5acfb1f579e6d320f7dca2c5424fe7810772f"
+      },
+      "inventory_capture": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T225907Z-armed-display-1836c84b\\native\\20261022T225912Z-menu-run-7eeee5f2\\1024x768\\capture-6.bmp",
+        "sha256": "e8d4ae4212ab7b7383352d4854187b8eca20cae36fbd8816e7bd7b8d1a592f99"
+      }
+    },
+    {
+      "case_id": "06-normal-shield",
+      "resolution": "1024x768",
+      "result": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T230003Z-armed-display-ab397303\\result.json",
+        "sha256": "6fe0e3fca9eca35d5528286d9fb1302ffb9d36d6224b7273ecf7cfeb8d492b3e"
+      },
+      "stage": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T230003Z-armed-display-ab397303\\native\\20261022T230008Z-menu-run-31dd1b54\\1024x768\\result.json",
+        "sha256": "cf2e60da3ad2211ae5bd6c8b1a10cf1c4d671bcf49032b11fd7f6d0fe57a80c5"
+      },
+      "input": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T230003Z-armed-display-ab397303\\native\\20261022T230008Z-menu-run-31dd1b54\\1024x768\\armed-input.json",
+        "sha256": "91c297219aa9967f61a1e55c23730f85f888f577b2795e08f0bfd5826c5c2ab0"
+      },
+      "validation": {
+        "assertion_passed": true,
+        "pure_phase_world_unchanged": true,
+        "collected_world_unchanged": false,
+        "case_id": "06-normal-shield",
+        "actual_dual_wield": false,
+        "actual_ranged": false,
+        "actual_items": {
+          "9": "shld01",
+          "35": "sw1h01"
+        },
+        "display_api_calls": 256,
+        "sheet_observations": 4,
+        "portrait_callbacks": 3,
+        "legacy_result_parity": true,
+        "legacy_control_changed_actor_bytes": false,
+        "matrix_step_nanoseconds": [
+          5098100,
+          3102100
+        ],
+        "pure_query_actor_bytes_and_calling_thread_rng_unchanged": true,
+        "gui_collected_world_and_caches_unchanged": true,
+        "original_armed_combat_math_oracle": false,
+        "hidden_state_or_other_threads_purity": false,
+        "visual_acceptance": false
+      },
+      "actor1_details": [
+        {
+          "Slot": 35,
+          "Flags": 262177,
+          "Enchantment": 0,
+          "Range": 2,
+          "Proficiency": 89,
+          "DamageBonus": 0,
+          "Speed": 0,
+          "CriticalBonus": 0,
+          "Style": 112,
+          "APR": 3,
+          "CriticalMultiplier": 2,
+          "CriticalRange": 20,
+          "ProfDmgBon": 0,
+          "LauncherDmgBon": 0,
+          "WeaponStrBonus": 0,
+          "HitHeaderNumDice": 2,
+          "HitHeaderDiceSides": 4,
+          "HitHeaderDiceBonus": 0,
+          "AC": {
+            "Total": 9,
+            "Natural": 10,
+            "Armor": 0,
+            "Shield": 0,
+            "Deflection": 0,
+            "Generic": -1,
+            "Dexterity": 0,
+            "Wisdom": 0
+          },
+          "ToHitStats": {
+            "Total": 14,
+            "Base": 14,
+            "Armor": 0,
+            "Shield": 0,
+            "Proficiency": 0,
+            "Generic": 0,
+            "Ability": 0,
+            "Weapon": 0
+          },
+          "DamageOpcodes": []
+        },
+        {
+          "Slot": 35,
+          "Flags": 262177,
+          "Enchantment": 0,
+          "Range": 2,
+          "Proficiency": 89,
+          "DamageBonus": 0,
+          "Speed": 0,
+          "CriticalBonus": 0,
+          "Style": 112,
+          "APR": 3,
+          "CriticalMultiplier": 2,
+          "CriticalRange": 20,
+          "ProfDmgBon": 0,
+          "LauncherDmgBon": 0,
+          "WeaponStrBonus": 0,
+          "HitHeaderNumDice": 2,
+          "HitHeaderDiceSides": 4,
+          "HitHeaderDiceBonus": 0,
+          "AC": {
+            "Total": 9,
+            "Natural": 10,
+            "Armor": 0,
+            "Shield": 0,
+            "Deflection": 0,
+            "Generic": -1,
+            "Dexterity": 0,
+            "Wisdom": 0
+          },
+          "ToHitStats": {
+            "Total": 14,
+            "Base": 14,
+            "Armor": 0,
+            "Shield": 0,
+            "Proficiency": 0,
+            "Generic": 0,
+            "Ability": 0,
+            "Weapon": 0
+          },
+          "DamageOpcodes": []
+        }
+      ],
+      "record_capture": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T230003Z-armed-display-ab397303\\native\\20261022T230008Z-menu-run-31dd1b54\\1024x768\\capture-3.bmp",
+        "sha256": "540f187e1ef8e8070df6627f2a3e32c1b839e9b2784c797dbe009c6ae5d014a0"
+      },
+      "inventory_capture": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T230003Z-armed-display-ab397303\\native\\20261022T230008Z-menu-run-31dd1b54\\1024x768\\capture-6.bmp",
+        "sha256": "307e75cf37e81f8b0b90f957d2700d93895951c6969a42e04995b63f781ce062"
+      }
+    },
+    {
+      "case_id": "ammo-plus-ench1",
+      "resolution": "1024x768",
+      "result": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T230059Z-armed-display-ebc17873\\result.json",
+        "sha256": "c7b7dbecef3352526aec7cc8c72b62bfbceb23375d655577a86fa61d71bd8870"
+      },
+      "stage": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T230059Z-armed-display-ebc17873\\native\\20261022T230104Z-menu-run-8e0cf1f6\\1024x768\\result.json",
+        "sha256": "192e306c48e2743f46e42e3440ff51b07c60d66d6f5a23b8061f035f5d45158d"
+      },
+      "input": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T230059Z-armed-display-ebc17873\\native\\20261022T230104Z-menu-run-8e0cf1f6\\1024x768\\armed-input.json",
+        "sha256": "bff56961e4a1a488de40bec5203e9db9738f3ef55da5c247c729aa0b789d6d07"
+      },
+      "validation": {
+        "assertion_passed": true,
+        "pure_phase_world_unchanged": true,
+        "collected_world_unchanged": false,
+        "case_id": "ammo-plus-ench1",
+        "actual_dual_wield": false,
+        "actual_ranged": true,
+        "actual_items": {
+          "11": "arow02",
+          "35": "bow01"
+        },
+        "display_api_calls": 256,
+        "sheet_observations": 4,
+        "portrait_callbacks": 3,
+        "legacy_result_parity": true,
+        "legacy_control_changed_actor_bytes": true,
+        "matrix_step_nanoseconds": [
+          4693200,
+          2576300
+        ],
+        "pure_query_actor_bytes_and_calling_thread_rng_unchanged": true,
+        "gui_collected_world_and_caches_unchanged": true,
+        "original_armed_combat_math_oracle": false,
+        "hidden_state_or_other_threads_purity": false,
+        "visual_acceptance": false
+      },
+      "actor1_details": [
+        {
+          "Slot": 11,
+          "Flags": 2,
+          "Enchantment": 1,
+          "Range": 101,
+          "Proficiency": 104,
+          "DamageBonus": 1,
+          "Speed": 0,
+          "CriticalBonus": 0,
+          "Style": 0,
+          "APR": 4,
+          "CriticalMultiplier": 2,
+          "CriticalRange": 20,
+          "ProfDmgBon": 0,
+          "LauncherDmgBon": 1,
+          "WeaponStrBonus": 0,
+          "HitHeaderNumDice": 1,
+          "HitHeaderDiceSides": 6,
+          "HitHeaderDiceBonus": 0,
+          "AC": {
+            "Total": 10,
+            "Natural": 10,
+            "Armor": 0,
+            "Shield": 0,
+            "Deflection": 0,
+            "Generic": 0,
+            "Dexterity": 0,
+            "Wisdom": 0
+          },
+          "ToHitStats": {
+            "Total": 14,
+            "Base": 14,
+            "Armor": 0,
+            "Shield": 0,
+            "Proficiency": 2,
+            "Generic": 0,
+            "Ability": 0,
+            "Weapon": -2
+          },
+          "DamageOpcodes": []
+        },
+        {
+          "Slot": 11,
+          "Flags": 2,
+          "Enchantment": 1,
+          "Range": 101,
+          "Proficiency": 104,
+          "DamageBonus": 1,
+          "Speed": 0,
+          "CriticalBonus": 0,
+          "Style": 0,
+          "APR": 4,
+          "CriticalMultiplier": 2,
+          "CriticalRange": 20,
+          "ProfDmgBon": 0,
+          "LauncherDmgBon": 1,
+          "WeaponStrBonus": 0,
+          "HitHeaderNumDice": 1,
+          "HitHeaderDiceSides": 6,
+          "HitHeaderDiceBonus": 0,
+          "AC": {
+            "Total": 10,
+            "Natural": 10,
+            "Armor": 0,
+            "Shield": 0,
+            "Deflection": 0,
+            "Generic": 0,
+            "Dexterity": 0,
+            "Wisdom": 0
+          },
+          "ToHitStats": {
+            "Total": 14,
+            "Base": 14,
+            "Armor": 0,
+            "Shield": 0,
+            "Proficiency": 2,
+            "Generic": 0,
+            "Ability": 0,
+            "Weapon": -2
+          },
+          "DamageOpcodes": []
+        }
+      ],
+      "record_capture": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T230059Z-armed-display-ebc17873\\native\\20261022T230104Z-menu-run-8e0cf1f6\\1024x768\\capture-3.bmp",
+        "sha256": "c87e9f24e01776d6922c3476649ef6659444fbfdff62a01eeca380d61e48f689"
+      },
+      "inventory_capture": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T230059Z-armed-display-ebc17873\\native\\20261022T230104Z-menu-run-8e0cf1f6\\1024x768\\capture-6.bmp",
+        "sha256": "f0f1f169eb5e63320ae684b950b5a28333d553ac623711b65b02df4d5cf90641"
+      }
+    },
+    {
+      "case_id": "bow-plus-ench1",
+      "resolution": "1024x768",
+      "result": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T230155Z-armed-display-09c0495c\\result.json",
+        "sha256": "de17bd4ced5ba4d7bb9555ad067901fc12768ebb737e102d626edd1f9cdb7a48"
+      },
+      "stage": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T230155Z-armed-display-09c0495c\\native\\20261022T230200Z-menu-run-26a5d9b9\\1024x768\\result.json",
+        "sha256": "0c9aca5b6a95b309d9e74ccbb984fd3ee68f1133d7c945a17db84343f93e09c5"
+      },
+      "input": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T230155Z-armed-display-09c0495c\\native\\20261022T230200Z-menu-run-26a5d9b9\\1024x768\\armed-input.json",
+        "sha256": "8dc72a2e33c176fb2ae1b56d30d849bd4d9c062a5a1bc1dde067d89f605618d2"
+      },
+      "validation": {
+        "assertion_passed": true,
+        "pure_phase_world_unchanged": true,
+        "collected_world_unchanged": false,
+        "case_id": "bow-plus-ench1",
+        "actual_dual_wield": false,
+        "actual_ranged": true,
+        "actual_items": {
+          "11": "arow01",
+          "35": "bow02"
+        },
+        "display_api_calls": 256,
+        "sheet_observations": 4,
+        "portrait_callbacks": 3,
+        "legacy_result_parity": true,
+        "legacy_control_changed_actor_bytes": true,
+        "matrix_step_nanoseconds": [
+          4870000,
+          2520200
+        ],
+        "pure_query_actor_bytes_and_calling_thread_rng_unchanged": true,
+        "gui_collected_world_and_caches_unchanged": true,
+        "original_armed_combat_math_oracle": false,
+        "hidden_state_or_other_threads_purity": false,
+        "visual_acceptance": false
+      },
+      "actor1_details": [
+        {
+          "Slot": 11,
+          "Flags": 2,
+          "Enchantment": 1,
+          "Range": 101,
+          "Proficiency": 104,
+          "DamageBonus": 1,
+          "Speed": 0,
+          "CriticalBonus": 0,
+          "Style": 0,
+          "APR": 4,
+          "CriticalMultiplier": 2,
+          "CriticalRange": 20,
+          "ProfDmgBon": 0,
+          "LauncherDmgBon": 1,
+          "WeaponStrBonus": 0,
+          "HitHeaderNumDice": 1,
+          "HitHeaderDiceSides": 6,
+          "HitHeaderDiceBonus": 0,
+          "AC": {
+            "Total": 10,
+            "Natural": 10,
+            "Armor": 0,
+            "Shield": 0,
+            "Deflection": 0,
+            "Generic": 0,
+            "Dexterity": 0,
+            "Wisdom": 0
+          },
+          "ToHitStats": {
+            "Total": 14,
+            "Base": 14,
+            "Armor": 0,
+            "Shield": 0,
+            "Proficiency": 2,
+            "Generic": 0,
+            "Ability": 0,
+            "Weapon": -2
+          },
+          "DamageOpcodes": []
+        },
+        {
+          "Slot": 11,
+          "Flags": 2,
+          "Enchantment": 1,
+          "Range": 101,
+          "Proficiency": 104,
+          "DamageBonus": 1,
+          "Speed": 0,
+          "CriticalBonus": 0,
+          "Style": 0,
+          "APR": 4,
+          "CriticalMultiplier": 2,
+          "CriticalRange": 20,
+          "ProfDmgBon": 0,
+          "LauncherDmgBon": 1,
+          "WeaponStrBonus": 0,
+          "HitHeaderNumDice": 1,
+          "HitHeaderDiceSides": 6,
+          "HitHeaderDiceBonus": 0,
+          "AC": {
+            "Total": 10,
+            "Natural": 10,
+            "Armor": 0,
+            "Shield": 0,
+            "Deflection": 0,
+            "Generic": 0,
+            "Dexterity": 0,
+            "Wisdom": 0
+          },
+          "ToHitStats": {
+            "Total": 14,
+            "Base": 14,
+            "Armor": 0,
+            "Shield": 0,
+            "Proficiency": 2,
+            "Generic": 0,
+            "Ability": 0,
+            "Weapon": -2
+          },
+          "DamageOpcodes": []
+        }
+      ],
+      "record_capture": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T230155Z-armed-display-09c0495c\\native\\20261022T230200Z-menu-run-26a5d9b9\\1024x768\\capture-3.bmp",
+        "sha256": "dc3042d5b423509cc27cbe174eb69a8e7132a589321fe80045db1bd23c1665d9"
+      },
+      "inventory_capture": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T230155Z-armed-display-09c0495c\\native\\20261022T230200Z-menu-run-26a5d9b9\\1024x768\\capture-6.bmp",
+        "sha256": "c00f2b8677f6a27eb6b4b7ed195979f69b98d017652f4bd5f966c064334857c0"
+      }
+    },
+    {
+      "case_id": "01-normal-plus-pfmw",
+      "resolution": "1280x768",
+      "result": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T230251Z-armed-display-27ba4214\\result.json",
+        "sha256": "2dd390a16afcd0660bc8c2a955217fd1fa1ad088b891818ceeb8cc16a1d69855"
+      },
+      "stage": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T230251Z-armed-display-27ba4214\\native\\20261022T230256Z-menu-run-28be3f41\\1280x768\\result.json",
+        "sha256": "8bcbe2e54fb472ec86f71781c75a506e656bb29258e679aaa094254dd5be0d4d"
+      },
+      "input": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T230251Z-armed-display-27ba4214\\native\\20261022T230256Z-menu-run-28be3f41\\1280x768\\armed-input.json",
+        "sha256": "21b7d97868f23207b88ccfaa4b03bcc73fde39e0071e568ee28615a342024a6b"
+      },
+      "validation": {
+        "assertion_passed": true,
+        "pure_phase_world_unchanged": true,
+        "collected_world_unchanged": false,
+        "case_id": "01-normal-plus-pfmw",
+        "actual_dual_wield": true,
+        "actual_ranged": false,
+        "actual_items": {
+          "9": "sw1h02",
+          "35": "sw1h01"
+        },
+        "display_api_calls": 256,
+        "sheet_observations": 4,
+        "portrait_callbacks": 3,
+        "legacy_result_parity": true,
+        "legacy_control_changed_actor_bytes": true,
+        "matrix_step_nanoseconds": [
+          5232500,
+          3540500
+        ],
+        "pure_query_actor_bytes_and_calling_thread_rng_unchanged": true,
+        "gui_collected_world_and_caches_unchanged": true,
+        "original_armed_combat_math_oracle": false,
+        "hidden_state_or_other_threads_purity": false,
+        "visual_acceptance": false
+      },
+      "actor1_details": [
+        {
+          "Slot": 35,
+          "Flags": 262177,
+          "Enchantment": 0,
+          "Range": 2,
+          "Proficiency": 89,
+          "DamageBonus": 0,
+          "Speed": 0,
+          "CriticalBonus": 0,
+          "Style": 114,
+          "APR": 5,
+          "CriticalMultiplier": 2,
+          "CriticalRange": 20,
+          "ProfDmgBon": 0,
+          "LauncherDmgBon": 0,
+          "WeaponStrBonus": 0,
+          "HitHeaderNumDice": 2,
+          "HitHeaderDiceSides": 4,
+          "HitHeaderDiceBonus": 0,
+          "AC": {
+            "Total": 10,
+            "Natural": 10,
+            "Armor": 0,
+            "Shield": 0,
+            "Deflection": 0,
+            "Generic": 0,
+            "Dexterity": 0,
+            "Wisdom": 0
+          },
+          "ToHitStats": {
+            "Total": 6,
+            "Base": 14,
+            "Armor": 0,
+            "Shield": 0,
+            "Proficiency": -8,
+            "Generic": 0,
+            "Ability": 0,
+            "Weapon": 0
+          },
+          "DamageOpcodes": []
+        },
+        {
+          "Slot": 9,
+          "Flags": 49,
+          "Enchantment": 1,
+          "Range": 2,
+          "Proficiency": 89,
+          "DamageBonus": 1,
+          "Speed": 0,
+          "CriticalBonus": 0,
+          "Style": 114,
+          "APR": 5,
+          "CriticalMultiplier": 2,
+          "CriticalRange": 20,
+          "ProfDmgBon": 0,
+          "LauncherDmgBon": 0,
+          "WeaponStrBonus": 0,
+          "HitHeaderNumDice": 2,
+          "HitHeaderDiceSides": 4,
+          "HitHeaderDiceBonus": 1,
+          "AC": {
+            "Total": 10,
+            "Natural": 10,
+            "Armor": 0,
+            "Shield": 0,
+            "Deflection": 0,
+            "Generic": 0,
+            "Dexterity": 0,
+            "Wisdom": 0
+          },
+          "ToHitStats": {
+            "Total": 9,
+            "Base": 14,
+            "Armor": 0,
+            "Shield": 0,
+            "Proficiency": -4,
+            "Generic": 0,
+            "Ability": 0,
+            "Weapon": -1
+          },
+          "DamageOpcodes": []
+        }
+      ],
+      "record_capture": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T230251Z-armed-display-27ba4214\\native\\20261022T230256Z-menu-run-28be3f41\\1280x768\\capture-3.bmp",
+        "sha256": "5a9003b20bae3fcd243d33af046c58530fecdaf031414607423a220c4ada7e77"
+      },
+      "inventory_capture": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T230251Z-armed-display-27ba4214\\native\\20261022T230256Z-menu-run-28be3f41\\1280x768\\capture-6.bmp",
+        "sha256": "21ad51248e3e7413e5fa700a68ed5ce2a207baa11ee59578013e3615a58c6d9e"
+      }
+    },
+    {
+      "case_id": "ammo-plus-ench1",
+      "resolution": "1280x768",
+      "result": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T230355Z-armed-display-faf42eb1\\result.json",
+        "sha256": "5ad32be31a798bedbdf9816c9cf756895e0a5cf3c81df6bf0e7e3771386b465e"
+      },
+      "stage": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T230355Z-armed-display-faf42eb1\\native\\20261022T230400Z-menu-run-362d7876\\1280x768\\result.json",
+        "sha256": "8397e4bb489627025f02e4e6dbb9b70cd1cf785229df3624c8f9587365c50aef"
+      },
+      "input": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T230355Z-armed-display-faf42eb1\\native\\20261022T230400Z-menu-run-362d7876\\1280x768\\armed-input.json",
+        "sha256": "bff56961e4a1a488de40bec5203e9db9738f3ef55da5c247c729aa0b789d6d07"
+      },
+      "validation": {
+        "assertion_passed": true,
+        "pure_phase_world_unchanged": true,
+        "collected_world_unchanged": false,
+        "case_id": "ammo-plus-ench1",
+        "actual_dual_wield": false,
+        "actual_ranged": true,
+        "actual_items": {
+          "11": "arow02",
+          "35": "bow01"
+        },
+        "display_api_calls": 256,
+        "sheet_observations": 4,
+        "portrait_callbacks": 3,
+        "legacy_result_parity": true,
+        "legacy_control_changed_actor_bytes": true,
+        "matrix_step_nanoseconds": [
+          5028200,
+          2562400
+        ],
+        "pure_query_actor_bytes_and_calling_thread_rng_unchanged": true,
+        "gui_collected_world_and_caches_unchanged": true,
+        "original_armed_combat_math_oracle": false,
+        "hidden_state_or_other_threads_purity": false,
+        "visual_acceptance": false
+      },
+      "actor1_details": [
+        {
+          "Slot": 11,
+          "Flags": 2,
+          "Enchantment": 1,
+          "Range": 101,
+          "Proficiency": 104,
+          "DamageBonus": 1,
+          "Speed": 0,
+          "CriticalBonus": 0,
+          "Style": 0,
+          "APR": 4,
+          "CriticalMultiplier": 2,
+          "CriticalRange": 20,
+          "ProfDmgBon": 0,
+          "LauncherDmgBon": 1,
+          "WeaponStrBonus": 0,
+          "HitHeaderNumDice": 1,
+          "HitHeaderDiceSides": 6,
+          "HitHeaderDiceBonus": 0,
+          "AC": {
+            "Total": 10,
+            "Natural": 10,
+            "Armor": 0,
+            "Shield": 0,
+            "Deflection": 0,
+            "Generic": 0,
+            "Dexterity": 0,
+            "Wisdom": 0
+          },
+          "ToHitStats": {
+            "Total": 14,
+            "Base": 14,
+            "Armor": 0,
+            "Shield": 0,
+            "Proficiency": 2,
+            "Generic": 0,
+            "Ability": 0,
+            "Weapon": -2
+          },
+          "DamageOpcodes": []
+        },
+        {
+          "Slot": 11,
+          "Flags": 2,
+          "Enchantment": 1,
+          "Range": 101,
+          "Proficiency": 104,
+          "DamageBonus": 1,
+          "Speed": 0,
+          "CriticalBonus": 0,
+          "Style": 0,
+          "APR": 4,
+          "CriticalMultiplier": 2,
+          "CriticalRange": 20,
+          "ProfDmgBon": 0,
+          "LauncherDmgBon": 1,
+          "WeaponStrBonus": 0,
+          "HitHeaderNumDice": 1,
+          "HitHeaderDiceSides": 6,
+          "HitHeaderDiceBonus": 0,
+          "AC": {
+            "Total": 10,
+            "Natural": 10,
+            "Armor": 0,
+            "Shield": 0,
+            "Deflection": 0,
+            "Generic": 0,
+            "Dexterity": 0,
+            "Wisdom": 0
+          },
+          "ToHitStats": {
+            "Total": 14,
+            "Base": 14,
+            "Armor": 0,
+            "Shield": 0,
+            "Proficiency": 2,
+            "Generic": 0,
+            "Ability": 0,
+            "Weapon": -2
+          },
+          "DamageOpcodes": []
+        }
+      ],
+      "record_capture": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T230355Z-armed-display-faf42eb1\\native\\20261022T230400Z-menu-run-362d7876\\1280x768\\capture-3.bmp",
+        "sha256": "c784472eac8c590845511bdf4b5082fb0b3931d4446dc4bca5ae6d2589e9c558"
+      },
+      "inventory_capture": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T230355Z-armed-display-faf42eb1\\native\\20261022T230400Z-menu-run-362d7876\\1280x768\\capture-6.bmp",
+        "sha256": "b9add6d86533e412ee4559e29e853619159a8fd99b7534291ecc072fd01490cd"
+      }
+    }
+  ],
+  "total_display_matrix_calls": 2304,
+  "sheet_observations": 36,
+  "registered_portrait_callbacks": 27,
+  "original_comparison": {
+    "original": {
+      "path": "C:\\BGRedux\\phase1-local\\results\\20261022T225701Z-original-armed-reference-729193e0\\observed-combat-values.json",
+      "sha256": "711464a3fe4632441f9022dc297f1d9c2255ec8d1601452fe1cfa17a5bc1f1c6"
+    },
+    "closed_reference": {
+      "path": "C:\\BGRedux\\phase1-local\\results\\20261022T225701Z-original-armed-reference-729193e0\\closed-reference-verification.json",
+      "sha256": "969085cd1b235fb8ddac4d06363aae3ac484dab8403851ca71b05131a73439fc"
+    },
+    "exact_native_input_equal": true,
+    "original_base": 14,
+    "native_base": [
+      14,
+      14
+    ],
+    "original_hands": [
+      18,
+      21
+    ],
+    "native_hands": [
+      6,
+      9
+    ],
+    "original_style": [
+      4,
+      8
+    ],
+    "native_proficiency_components": [
+      -8,
+      -4
+    ],
+    "off_weapon_bonus": -1,
+    "apr_both_half_attacks": 5,
+    "presentation_mismatch_proven": true,
+    "delivered_attacks_measured": false,
+    "original_live_script_stat7_queried": false,
+    "production_correction_implemented": false
+  },
+  "source_findings": {
+    "gemrb/core/GameData.h": {
+      "candidate": {
+        "path": "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\GameData.h",
+        "sha256": "97749e1a4ed949f9755a48b3d6156b89a6ffc0edbe805705494a4a3f6ad41052"
+      },
+      "protected_baseline": {
+        "path": "C:\\BGRedux\\gemrb\\gemrb\\core\\GameData.h",
+        "sha256": "97749e1a4ed949f9755a48b3d6156b89a6ffc0edbe805705494a4a3f6ad41052"
+      },
+      "byte_identical": true
+    },
+    "gemrb/core/GameData.cpp": {
+      "candidate": {
+        "path": "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\GameData.cpp",
+        "sha256": "2a0306db65140e5a755de6a98001ded8e6172d2019ddc0b60e2492c367659a00"
+      },
+      "protected_baseline": {
+        "path": "C:\\BGRedux\\gemrb\\gemrb\\core\\GameData.cpp",
+        "sha256": "2a0306db65140e5a755de6a98001ded8e6172d2019ddc0b60e2492c367659a00"
+      },
+      "byte_identical": true
+    },
+    "style_helper_and_sign": {
+      "preexisting_helper": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\preexisting-proficiency-helper.json",
+        "sha256": "0c249ab8a227fd5d9f0da38a9118246ba8e527d2b627f2ceeb10e5761057abf5"
+      },
+      "aggregate_old": "int prof = GetNonProficiencyPenalty(stars);\n\tprof += GetProficiencyBonus(style, leftOrRight, damageBonus, speed, criticalBonus);\n\tif (ReverseToHit) {\n\t\tprof = -prof;\n\t}\n\tAutoTable classBonus = gamedata->LoadTable(\"clasthac\", true);\n\tif (classBonus) { // bonuses are stored negative, so we apply them after the inversion above\n\t\tieDword kit = Modified[IE_KIT];\n\t\tstd::string className = GetClassName(GetActiveClass());\n\t\tprof += classBonus->QueryFieldSigned<int>(\"BONUS\", GetKitName(kit));\n\t\tprof += classBonus->QueryFieldSigned<int>(\"BONUS\", className);\n\t}\n\tToHit.SetProficiencyBonus(prof);",
+      "aggregate_new": "int prof = GetNonProficiencyPenalty(stars);\n\tprof += GetProficiencyBonus(style, leftOrRight, damageBonus, speed, criticalBonus);\n\tif (ReverseToHit) {\n\t\tprof = -prof;\n\t}\n\tAutoTable classBonus = gamedata->LoadTable(\"clasthac\", true);\n\tif (classBonus) { // bonuses are stored negative, so we apply them after the inversion above\n\t\tieDword kit = Modified[IE_KIT];\n\t\tstd::string className = GetClassName(GetActiveClass());\n\t\tprof += classBonus->QueryFieldSigned<int>(\"BONUS\", GetKitName(kit));\n\t\tprof += classBonus->QueryFieldSigned<int>(\"BONUS\", className);\n\t}\n\tstats.SetProficiencyBonus(prof);",
+      "only_aggregate_difference": "ToHit receiver renamed stats in detached/shared calculation",
+      "hypothesis": "WSB Left/Right enum order disagrees with column-name order; positive two-weapon penalties enter aggregate bonus sign inversion",
+      "actor_source": {
+        "path": "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\Scriptable\\Actor.cpp",
+        "sha256": "5da98b4a16d729c2af9d27e64e4ad1836e06db3a0c33a5688874dc2f985d427f"
+      },
+      "protected_actor_source": {
+        "path": "C:\\BGRedux\\gemrb\\gemrb\\core\\Scriptable\\Actor.cpp",
+        "sha256": "bbdec1ad20a251a357ac621d5b1376aaf43a25c2e429c8c5d5a39a6d4808ccd6"
+      }
+    }
+  },
+  "coordinator_review_only": true,
+  "batch1": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T225524Z-armed-display-batch-589f2ec6\\result.json",
+    "sha256": "25c5b0ce6f11852f903b01a688bb772d3d8dc68abea5affe68b047f0f9456545"
+  },
+  "launcher_failure": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T225524Z-armed-display-batch-589f2ec6\\launcher-error.json",
+    "sha256": "6fbb4f1f9dae5ab238ed0a620dec9457f5a85448e4d7a853e03585eca6eda113"
+  },
+  "batch2": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T225811Z-armed-display-batch-v2-bc5ad878\\result.json",
+    "sha256": "7f4b75fffeb3dd91fbe89b477bb194e4fe4fa482d2ae2063664239e863c3fc13"
+  },
+  "first_rejected_plan": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T224915Z-armed-display-7ff074d7\\result.json",
+    "sha256": "4a8ae3097bacebe189f0352cff03c2748e21103f3223d1bf70bac1129bd5c72c"
+  },
+  "next_priority": "Correct measured two-weapon THAC0 calculation with explicit Classic boundary, then rerun exact original and regression cases",
+  "remaining": [
+    "Self attack-modifier/effect and nonzero proficiency-bonus display cases",
+    "Other fighting-style ranks and affected game variants",
+    "Delivered attack behavior",
+    "Unarmed APR and Jaheira HP mismatches",
+    "Save/color residuals, typography, pointer, ordinary journeys and campaign gates"
+  ],
+  "pins": {
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225352Z-armed-display-4193f3c1\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225352Z-armed-display-4193f3c1\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\7dffa905a7d26ae2c2cc20779e821268a077be37658800396af62e53c0303bde\\result.json",
+      "sha256": "7dffa905a7d26ae2c2cc20779e821268a077be37658800396af62e53c0303bde"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225352Z-armed-display-4193f3c1\\native\\20261022T225358Z-menu-run-528cc9f7\\1024x768\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225352Z-armed-display-4193f3c1\\native\\20261022T225358Z-menu-run-528cc9f7\\1024x768\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\661c1c3ca6c4948e838e6f735a875adf9856439502245fa88b579cdf3ec8f1d4\\result.json",
+      "sha256": "661c1c3ca6c4948e838e6f735a875adf9856439502245fa88b579cdf3ec8f1d4"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225352Z-armed-display-4193f3c1\\native\\20261022T225358Z-menu-run-528cc9f7\\1024x768\\armed-input.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225352Z-armed-display-4193f3c1\\native\\20261022T225358Z-menu-run-528cc9f7\\1024x768\\armed-input.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\21b7d97868f23207b88ccfaa4b03bcc73fde39e0071e568ee28615a342024a6b\\armed-input.json",
+      "sha256": "21b7d97868f23207b88ccfaa4b03bcc73fde39e0071e568ee28615a342024a6b"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225352Z-armed-display-4193f3c1\\native\\20261022T225358Z-menu-run-528cc9f7\\1024x768\\capture-3.bmp": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225352Z-armed-display-4193f3c1\\native\\20261022T225358Z-menu-run-528cc9f7\\1024x768\\capture-3.bmp",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\e6b3c59b47c4775441e95d3ee03300d2385c53370c6c3773e88cf53e6cb5c393\\capture-3.bmp",
+      "sha256": "e6b3c59b47c4775441e95d3ee03300d2385c53370c6c3773e88cf53e6cb5c393"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225352Z-armed-display-4193f3c1\\native\\20261022T225358Z-menu-run-528cc9f7\\1024x768\\capture-6.bmp": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225352Z-armed-display-4193f3c1\\native\\20261022T225358Z-menu-run-528cc9f7\\1024x768\\capture-6.bmp",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\c6b35b30c1fc4c4364b01ea0a26794ba24058db69f326b3169475bde7ffd3201\\capture-6.bmp",
+      "sha256": "c6b35b30c1fc4c4364b01ea0a26794ba24058db69f326b3169475bde7ffd3201"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225525Z-armed-display-49fb375e\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225525Z-armed-display-49fb375e\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\b64e5341398661247d3f51c249a4b8598e8ae99e11244c807cbe72bc4822cba2\\result.json",
+      "sha256": "b64e5341398661247d3f51c249a4b8598e8ae99e11244c807cbe72bc4822cba2"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225525Z-armed-display-49fb375e\\native\\20261022T225530Z-menu-run-fb4a761b\\1024x768\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225525Z-armed-display-49fb375e\\native\\20261022T225530Z-menu-run-fb4a761b\\1024x768\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\6dad73fa9216ed4825d5df8b02744e1aa902b6a9e40892754ea60cab3b56e323\\result.json",
+      "sha256": "6dad73fa9216ed4825d5df8b02744e1aa902b6a9e40892754ea60cab3b56e323"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225525Z-armed-display-49fb375e\\native\\20261022T225530Z-menu-run-fb4a761b\\1024x768\\armed-input.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225525Z-armed-display-49fb375e\\native\\20261022T225530Z-menu-run-fb4a761b\\1024x768\\armed-input.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\da596a9afab6e40fa7738449c41989c05566d327c46fd4c8f39e0666076ae09a\\armed-input.json",
+      "sha256": "da596a9afab6e40fa7738449c41989c05566d327c46fd4c8f39e0666076ae09a"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225525Z-armed-display-49fb375e\\native\\20261022T225530Z-menu-run-fb4a761b\\1024x768\\capture-3.bmp": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225525Z-armed-display-49fb375e\\native\\20261022T225530Z-menu-run-fb4a761b\\1024x768\\capture-3.bmp",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\3921e96859362d607d385401ca193627d846e85edb9adc5a226b072f40fb1e1f\\capture-3.bmp",
+      "sha256": "3921e96859362d607d385401ca193627d846e85edb9adc5a226b072f40fb1e1f"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225525Z-armed-display-49fb375e\\native\\20261022T225530Z-menu-run-fb4a761b\\1024x768\\capture-6.bmp": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225525Z-armed-display-49fb375e\\native\\20261022T225530Z-menu-run-fb4a761b\\1024x768\\capture-6.bmp",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\7c71b0fc0fb11caa0be0345c7987756190876b80aa60d0b8c1de132cb230cbac\\capture-6.bmp",
+      "sha256": "7c71b0fc0fb11caa0be0345c7987756190876b80aa60d0b8c1de132cb230cbac"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225811Z-armed-display-f656131e\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225811Z-armed-display-f656131e\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\a963b3ba2a56a1a79f7232c6c653e34c7d0b11e6f1ab5560963268b6c630000e\\result.json",
+      "sha256": "a963b3ba2a56a1a79f7232c6c653e34c7d0b11e6f1ab5560963268b6c630000e"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225811Z-armed-display-f656131e\\native\\20261022T225817Z-menu-run-b9c720b3\\1024x768\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225811Z-armed-display-f656131e\\native\\20261022T225817Z-menu-run-b9c720b3\\1024x768\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\e0f19a05b5b4c774be6cb6036036bbdc7bcbbe29d59d5716b6c2dab6b0eaa1dc\\result.json",
+      "sha256": "e0f19a05b5b4c774be6cb6036036bbdc7bcbbe29d59d5716b6c2dab6b0eaa1dc"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225811Z-armed-display-f656131e\\native\\20261022T225817Z-menu-run-b9c720b3\\1024x768\\armed-input.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225811Z-armed-display-f656131e\\native\\20261022T225817Z-menu-run-b9c720b3\\1024x768\\armed-input.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\68285ba426e449da299de56e4e491caf822678b926101f704e055632d2e1f5ba\\armed-input.json",
+      "sha256": "68285ba426e449da299de56e4e491caf822678b926101f704e055632d2e1f5ba"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225811Z-armed-display-f656131e\\native\\20261022T225817Z-menu-run-b9c720b3\\1024x768\\capture-3.bmp": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225811Z-armed-display-f656131e\\native\\20261022T225817Z-menu-run-b9c720b3\\1024x768\\capture-3.bmp",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\aa21c696f4b52887a85c66ad3d610c571c8232ac93f908406178988a046189e1\\capture-3.bmp",
+      "sha256": "aa21c696f4b52887a85c66ad3d610c571c8232ac93f908406178988a046189e1"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225811Z-armed-display-f656131e\\native\\20261022T225817Z-menu-run-b9c720b3\\1024x768\\capture-6.bmp": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225811Z-armed-display-f656131e\\native\\20261022T225817Z-menu-run-b9c720b3\\1024x768\\capture-6.bmp",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\9241d56766f7063736b4cd7889d81dfae31b07ec3a109a6b2eefee4fd8c41483\\capture-6.bmp",
+      "sha256": "9241d56766f7063736b4cd7889d81dfae31b07ec3a109a6b2eefee4fd8c41483"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225907Z-armed-display-1836c84b\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225907Z-armed-display-1836c84b\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\caf87590a39061cf810bb799ab7d25d18c6c298bf9574d8c7b741ef9cff8d3ee\\result.json",
+      "sha256": "caf87590a39061cf810bb799ab7d25d18c6c298bf9574d8c7b741ef9cff8d3ee"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225907Z-armed-display-1836c84b\\native\\20261022T225912Z-menu-run-7eeee5f2\\1024x768\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225907Z-armed-display-1836c84b\\native\\20261022T225912Z-menu-run-7eeee5f2\\1024x768\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\cf037acfd76b8d2edf1c50da64357118ba3a910eadf9cfe7741301321b937163\\result.json",
+      "sha256": "cf037acfd76b8d2edf1c50da64357118ba3a910eadf9cfe7741301321b937163"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225907Z-armed-display-1836c84b\\native\\20261022T225912Z-menu-run-7eeee5f2\\1024x768\\armed-input.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225907Z-armed-display-1836c84b\\native\\20261022T225912Z-menu-run-7eeee5f2\\1024x768\\armed-input.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\545ac6d5fc52a53ae37071bfa1025bca74936f031df77d9728751825145d62ff\\armed-input.json",
+      "sha256": "545ac6d5fc52a53ae37071bfa1025bca74936f031df77d9728751825145d62ff"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225907Z-armed-display-1836c84b\\native\\20261022T225912Z-menu-run-7eeee5f2\\1024x768\\capture-3.bmp": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225907Z-armed-display-1836c84b\\native\\20261022T225912Z-menu-run-7eeee5f2\\1024x768\\capture-3.bmp",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\dc755f9167fb701e2458a11051e5acfb1f579e6d320f7dca2c5424fe7810772f\\capture-3.bmp",
+      "sha256": "dc755f9167fb701e2458a11051e5acfb1f579e6d320f7dca2c5424fe7810772f"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225907Z-armed-display-1836c84b\\native\\20261022T225912Z-menu-run-7eeee5f2\\1024x768\\capture-6.bmp": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225907Z-armed-display-1836c84b\\native\\20261022T225912Z-menu-run-7eeee5f2\\1024x768\\capture-6.bmp",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\e8d4ae4212ab7b7383352d4854187b8eca20cae36fbd8816e7bd7b8d1a592f99\\capture-6.bmp",
+      "sha256": "e8d4ae4212ab7b7383352d4854187b8eca20cae36fbd8816e7bd7b8d1a592f99"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T230003Z-armed-display-ab397303\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T230003Z-armed-display-ab397303\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\6fe0e3fca9eca35d5528286d9fb1302ffb9d36d6224b7273ecf7cfeb8d492b3e\\result.json",
+      "sha256": "6fe0e3fca9eca35d5528286d9fb1302ffb9d36d6224b7273ecf7cfeb8d492b3e"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T230003Z-armed-display-ab397303\\native\\20261022T230008Z-menu-run-31dd1b54\\1024x768\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T230003Z-armed-display-ab397303\\native\\20261022T230008Z-menu-run-31dd1b54\\1024x768\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\cf2e60da3ad2211ae5bd6c8b1a10cf1c4d671bcf49032b11fd7f6d0fe57a80c5\\result.json",
+      "sha256": "cf2e60da3ad2211ae5bd6c8b1a10cf1c4d671bcf49032b11fd7f6d0fe57a80c5"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T230003Z-armed-display-ab397303\\native\\20261022T230008Z-menu-run-31dd1b54\\1024x768\\armed-input.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T230003Z-armed-display-ab397303\\native\\20261022T230008Z-menu-run-31dd1b54\\1024x768\\armed-input.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\91c297219aa9967f61a1e55c23730f85f888f577b2795e08f0bfd5826c5c2ab0\\armed-input.json",
+      "sha256": "91c297219aa9967f61a1e55c23730f85f888f577b2795e08f0bfd5826c5c2ab0"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T230003Z-armed-display-ab397303\\native\\20261022T230008Z-menu-run-31dd1b54\\1024x768\\capture-3.bmp": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T230003Z-armed-display-ab397303\\native\\20261022T230008Z-menu-run-31dd1b54\\1024x768\\capture-3.bmp",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\540f187e1ef8e8070df6627f2a3e32c1b839e9b2784c797dbe009c6ae5d014a0\\capture-3.bmp",
+      "sha256": "540f187e1ef8e8070df6627f2a3e32c1b839e9b2784c797dbe009c6ae5d014a0"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T230003Z-armed-display-ab397303\\native\\20261022T230008Z-menu-run-31dd1b54\\1024x768\\capture-6.bmp": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T230003Z-armed-display-ab397303\\native\\20261022T230008Z-menu-run-31dd1b54\\1024x768\\capture-6.bmp",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\307e75cf37e81f8b0b90f957d2700d93895951c6969a42e04995b63f781ce062\\capture-6.bmp",
+      "sha256": "307e75cf37e81f8b0b90f957d2700d93895951c6969a42e04995b63f781ce062"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T230059Z-armed-display-ebc17873\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T230059Z-armed-display-ebc17873\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\c7b7dbecef3352526aec7cc8c72b62bfbceb23375d655577a86fa61d71bd8870\\result.json",
+      "sha256": "c7b7dbecef3352526aec7cc8c72b62bfbceb23375d655577a86fa61d71bd8870"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T230059Z-armed-display-ebc17873\\native\\20261022T230104Z-menu-run-8e0cf1f6\\1024x768\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T230059Z-armed-display-ebc17873\\native\\20261022T230104Z-menu-run-8e0cf1f6\\1024x768\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\192e306c48e2743f46e42e3440ff51b07c60d66d6f5a23b8061f035f5d45158d\\result.json",
+      "sha256": "192e306c48e2743f46e42e3440ff51b07c60d66d6f5a23b8061f035f5d45158d"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T230059Z-armed-display-ebc17873\\native\\20261022T230104Z-menu-run-8e0cf1f6\\1024x768\\armed-input.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T230059Z-armed-display-ebc17873\\native\\20261022T230104Z-menu-run-8e0cf1f6\\1024x768\\armed-input.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\bff56961e4a1a488de40bec5203e9db9738f3ef55da5c247c729aa0b789d6d07\\armed-input.json",
+      "sha256": "bff56961e4a1a488de40bec5203e9db9738f3ef55da5c247c729aa0b789d6d07"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T230059Z-armed-display-ebc17873\\native\\20261022T230104Z-menu-run-8e0cf1f6\\1024x768\\capture-3.bmp": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T230059Z-armed-display-ebc17873\\native\\20261022T230104Z-menu-run-8e0cf1f6\\1024x768\\capture-3.bmp",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\c87e9f24e01776d6922c3476649ef6659444fbfdff62a01eeca380d61e48f689\\capture-3.bmp",
+      "sha256": "c87e9f24e01776d6922c3476649ef6659444fbfdff62a01eeca380d61e48f689"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T230059Z-armed-display-ebc17873\\native\\20261022T230104Z-menu-run-8e0cf1f6\\1024x768\\capture-6.bmp": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T230059Z-armed-display-ebc17873\\native\\20261022T230104Z-menu-run-8e0cf1f6\\1024x768\\capture-6.bmp",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\f0f1f169eb5e63320ae684b950b5a28333d553ac623711b65b02df4d5cf90641\\capture-6.bmp",
+      "sha256": "f0f1f169eb5e63320ae684b950b5a28333d553ac623711b65b02df4d5cf90641"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T230155Z-armed-display-09c0495c\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T230155Z-armed-display-09c0495c\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\de17bd4ced5ba4d7bb9555ad067901fc12768ebb737e102d626edd1f9cdb7a48\\result.json",
+      "sha256": "de17bd4ced5ba4d7bb9555ad067901fc12768ebb737e102d626edd1f9cdb7a48"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T230155Z-armed-display-09c0495c\\native\\20261022T230200Z-menu-run-26a5d9b9\\1024x768\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T230155Z-armed-display-09c0495c\\native\\20261022T230200Z-menu-run-26a5d9b9\\1024x768\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\0c9aca5b6a95b309d9e74ccbb984fd3ee68f1133d7c945a17db84343f93e09c5\\result.json",
+      "sha256": "0c9aca5b6a95b309d9e74ccbb984fd3ee68f1133d7c945a17db84343f93e09c5"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T230155Z-armed-display-09c0495c\\native\\20261022T230200Z-menu-run-26a5d9b9\\1024x768\\armed-input.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T230155Z-armed-display-09c0495c\\native\\20261022T230200Z-menu-run-26a5d9b9\\1024x768\\armed-input.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\8dc72a2e33c176fb2ae1b56d30d849bd4d9c062a5a1bc1dde067d89f605618d2\\armed-input.json",
+      "sha256": "8dc72a2e33c176fb2ae1b56d30d849bd4d9c062a5a1bc1dde067d89f605618d2"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T230155Z-armed-display-09c0495c\\native\\20261022T230200Z-menu-run-26a5d9b9\\1024x768\\capture-3.bmp": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T230155Z-armed-display-09c0495c\\native\\20261022T230200Z-menu-run-26a5d9b9\\1024x768\\capture-3.bmp",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\dc3042d5b423509cc27cbe174eb69a8e7132a589321fe80045db1bd23c1665d9\\capture-3.bmp",
+      "sha256": "dc3042d5b423509cc27cbe174eb69a8e7132a589321fe80045db1bd23c1665d9"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T230155Z-armed-display-09c0495c\\native\\20261022T230200Z-menu-run-26a5d9b9\\1024x768\\capture-6.bmp": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T230155Z-armed-display-09c0495c\\native\\20261022T230200Z-menu-run-26a5d9b9\\1024x768\\capture-6.bmp",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\c00f2b8677f6a27eb6b4b7ed195979f69b98d017652f4bd5f966c064334857c0\\capture-6.bmp",
+      "sha256": "c00f2b8677f6a27eb6b4b7ed195979f69b98d017652f4bd5f966c064334857c0"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T230251Z-armed-display-27ba4214\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T230251Z-armed-display-27ba4214\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\2dd390a16afcd0660bc8c2a955217fd1fa1ad088b891818ceeb8cc16a1d69855\\result.json",
+      "sha256": "2dd390a16afcd0660bc8c2a955217fd1fa1ad088b891818ceeb8cc16a1d69855"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T230251Z-armed-display-27ba4214\\native\\20261022T230256Z-menu-run-28be3f41\\1280x768\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T230251Z-armed-display-27ba4214\\native\\20261022T230256Z-menu-run-28be3f41\\1280x768\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\8bcbe2e54fb472ec86f71781c75a506e656bb29258e679aaa094254dd5be0d4d\\result.json",
+      "sha256": "8bcbe2e54fb472ec86f71781c75a506e656bb29258e679aaa094254dd5be0d4d"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T230251Z-armed-display-27ba4214\\native\\20261022T230256Z-menu-run-28be3f41\\1280x768\\armed-input.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T230251Z-armed-display-27ba4214\\native\\20261022T230256Z-menu-run-28be3f41\\1280x768\\armed-input.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\21b7d97868f23207b88ccfaa4b03bcc73fde39e0071e568ee28615a342024a6b\\armed-input.json",
+      "sha256": "21b7d97868f23207b88ccfaa4b03bcc73fde39e0071e568ee28615a342024a6b"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T230251Z-armed-display-27ba4214\\native\\20261022T230256Z-menu-run-28be3f41\\1280x768\\capture-3.bmp": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T230251Z-armed-display-27ba4214\\native\\20261022T230256Z-menu-run-28be3f41\\1280x768\\capture-3.bmp",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\5a9003b20bae3fcd243d33af046c58530fecdaf031414607423a220c4ada7e77\\capture-3.bmp",
+      "sha256": "5a9003b20bae3fcd243d33af046c58530fecdaf031414607423a220c4ada7e77"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T230251Z-armed-display-27ba4214\\native\\20261022T230256Z-menu-run-28be3f41\\1280x768\\capture-6.bmp": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T230251Z-armed-display-27ba4214\\native\\20261022T230256Z-menu-run-28be3f41\\1280x768\\capture-6.bmp",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\21ad51248e3e7413e5fa700a68ed5ce2a207baa11ee59578013e3615a58c6d9e\\capture-6.bmp",
+      "sha256": "21ad51248e3e7413e5fa700a68ed5ce2a207baa11ee59578013e3615a58c6d9e"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T230355Z-armed-display-faf42eb1\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T230355Z-armed-display-faf42eb1\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\5ad32be31a798bedbdf9816c9cf756895e0a5cf3c81df6bf0e7e3771386b465e\\result.json",
+      "sha256": "5ad32be31a798bedbdf9816c9cf756895e0a5cf3c81df6bf0e7e3771386b465e"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T230355Z-armed-display-faf42eb1\\native\\20261022T230400Z-menu-run-362d7876\\1280x768\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T230355Z-armed-display-faf42eb1\\native\\20261022T230400Z-menu-run-362d7876\\1280x768\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\8397e4bb489627025f02e4e6dbb9b70cd1cf785229df3624c8f9587365c50aef\\result.json",
+      "sha256": "8397e4bb489627025f02e4e6dbb9b70cd1cf785229df3624c8f9587365c50aef"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T230355Z-armed-display-faf42eb1\\native\\20261022T230400Z-menu-run-362d7876\\1280x768\\armed-input.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T230355Z-armed-display-faf42eb1\\native\\20261022T230400Z-menu-run-362d7876\\1280x768\\armed-input.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\bff56961e4a1a488de40bec5203e9db9738f3ef55da5c247c729aa0b789d6d07\\armed-input.json",
+      "sha256": "bff56961e4a1a488de40bec5203e9db9738f3ef55da5c247c729aa0b789d6d07"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T230355Z-armed-display-faf42eb1\\native\\20261022T230400Z-menu-run-362d7876\\1280x768\\capture-3.bmp": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T230355Z-armed-display-faf42eb1\\native\\20261022T230400Z-menu-run-362d7876\\1280x768\\capture-3.bmp",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\c784472eac8c590845511bdf4b5082fb0b3931d4446dc4bca5ae6d2589e9c558\\capture-3.bmp",
+      "sha256": "c784472eac8c590845511bdf4b5082fb0b3931d4446dc4bca5ae6d2589e9c558"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T230355Z-armed-display-faf42eb1\\native\\20261022T230400Z-menu-run-362d7876\\1280x768\\capture-6.bmp": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T230355Z-armed-display-faf42eb1\\native\\20261022T230400Z-menu-run-362d7876\\1280x768\\capture-6.bmp",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\b9add6d86533e412ee4559e29e853619159a8fd99b7534291ecc072fd01490cd\\capture-6.bmp",
+      "sha256": "b9add6d86533e412ee4559e29e853619159a8fd99b7534291ecc072fd01490cd"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225701Z-original-armed-reference-729193e0\\observed-combat-values.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225701Z-original-armed-reference-729193e0\\observed-combat-values.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\711464a3fe4632441f9022dc297f1d9c2255ec8d1601452fe1cfa17a5bc1f1c6\\observed-combat-values.json",
+      "sha256": "711464a3fe4632441f9022dc297f1d9c2255ec8d1601452fe1cfa17a5bc1f1c6"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225701Z-original-armed-reference-729193e0\\closed-reference-verification.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225701Z-original-armed-reference-729193e0\\closed-reference-verification.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\969085cd1b235fb8ddac4d06363aae3ac484dab8403851ca71b05131a73439fc\\closed-reference-verification.json",
+      "sha256": "969085cd1b235fb8ddac4d06363aae3ac484dab8403851ca71b05131a73439fc"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225701Z-original-armed-reference-729193e0\\04-original-dual-record-18-21.png": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225701Z-original-armed-reference-729193e0\\04-original-dual-record-18-21.png",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\f9695bec8def6a78d41dfa58162dc28fe1101f0ccf31cd7766bcdc0e4a8469a4\\04-original-dual-record-18-21.png",
+      "sha256": "f9695bec8def6a78d41dfa58162dc28fe1101f0ccf31cd7766bcdc0e4a8469a4"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225701Z-original-armed-reference-729193e0\\05-original-combat-style-breakdown.png": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225701Z-original-armed-reference-729193e0\\05-original-combat-style-breakdown.png",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\f8d646d353a447228aa152d8b9fe296980e2ab70c861e99e2da2f32c9315f0a1\\05-original-combat-style-breakdown.png",
+      "sha256": "f8d646d353a447228aa152d8b9fe296980e2ab70c861e99e2da2f32c9315f0a1"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225701Z-original-armed-reference-729193e0\\06-original-offhand-weapon-bonus.png": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225701Z-original-armed-reference-729193e0\\06-original-offhand-weapon-bonus.png",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\5e5460e15f6a4c3856dc2ce6d3de5db547e1a236a6dd7f4f853c3c9c35bfe1c6\\06-original-offhand-weapon-bonus.png",
+      "sha256": "5e5460e15f6a4c3856dc2ce6d3de5db547e1a236a6dd7f4f853c3c9c35bfe1c6"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225701Z-original-armed-reference-729193e0\\07-original-dual-inventory-18-21.png": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225701Z-original-armed-reference-729193e0\\07-original-dual-inventory-18-21.png",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\5abf47c7002baf2156d9750087c9534e98902cf5ffb8276604e0815dfd4a0ae4\\07-original-dual-inventory-18-21.png",
+      "sha256": "5abf47c7002baf2156d9750087c9534e98902cf5ffb8276604e0815dfd4a0ae4"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225701Z-original-armed-reference-729193e0\\08-original-record-refresh-18-21.png": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225701Z-original-armed-reference-729193e0\\08-original-record-refresh-18-21.png",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\882985b5f305cc1b2b1290526550efca754447392fc739b40fef2915ea0d93dc\\08-original-record-refresh-18-21.png",
+      "sha256": "882985b5f305cc1b2b1290526550efca754447392fc739b40fef2915ea0d93dc"
+    },
+    "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\GameData.h": {
+      "source": "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\GameData.h",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\97749e1a4ed949f9755a48b3d6156b89a6ffc0edbe805705494a4a3f6ad41052\\GameData.h",
+      "sha256": "97749e1a4ed949f9755a48b3d6156b89a6ffc0edbe805705494a4a3f6ad41052"
+    },
+    "C:\\BGRedux\\gemrb\\gemrb\\core\\GameData.h": {
+      "source": "C:\\BGRedux\\gemrb\\gemrb\\core\\GameData.h",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\97749e1a4ed949f9755a48b3d6156b89a6ffc0edbe805705494a4a3f6ad41052\\GameData.h",
+      "sha256": "97749e1a4ed949f9755a48b3d6156b89a6ffc0edbe805705494a4a3f6ad41052"
+    },
+    "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\GameData.cpp": {
+      "source": "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\GameData.cpp",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\2a0306db65140e5a755de6a98001ded8e6172d2019ddc0b60e2492c367659a00\\GameData.cpp",
+      "sha256": "2a0306db65140e5a755de6a98001ded8e6172d2019ddc0b60e2492c367659a00"
+    },
+    "C:\\BGRedux\\gemrb\\gemrb\\core\\GameData.cpp": {
+      "source": "C:\\BGRedux\\gemrb\\gemrb\\core\\GameData.cpp",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\2a0306db65140e5a755de6a98001ded8e6172d2019ddc0b60e2492c367659a00\\GameData.cpp",
+      "sha256": "2a0306db65140e5a755de6a98001ded8e6172d2019ddc0b60e2492c367659a00"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\preexisting-proficiency-helper.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\preexisting-proficiency-helper.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\0c249ab8a227fd5d9f0da38a9118246ba8e527d2b627f2ceeb10e5761057abf5\\preexisting-proficiency-helper.json",
+      "sha256": "0c249ab8a227fd5d9f0da38a9118246ba8e527d2b627f2ceeb10e5761057abf5"
+    },
+    "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\Scriptable\\Actor.cpp": {
+      "source": "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\Scriptable\\Actor.cpp",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\5da98b4a16d729c2af9d27e64e4ad1836e06db3a0c33a5688874dc2f985d427f\\Actor.cpp",
+      "sha256": "5da98b4a16d729c2af9d27e64e4ad1836e06db3a0c33a5688874dc2f985d427f"
+    },
+    "C:\\BGRedux\\gemrb\\gemrb\\core\\Scriptable\\Actor.cpp": {
+      "source": "C:\\BGRedux\\gemrb\\gemrb\\core\\Scriptable\\Actor.cpp",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\bbdec1ad20a251a357ac621d5b1376aaf43a25c2e429c8c5d5a39a6d4808ccd6\\Actor.cpp",
+      "sha256": "bbdec1ad20a251a357ac621d5b1376aaf43a25c2e429c8c5d5a39a6d4808ccd6"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\armed-display-final-tooling-20261022.log": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\armed-display-final-tooling-20261022.log",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\a0289118747affd4dd4a3c693d81a8252ff399542c520d484ff81618bfa4610e\\armed-display-final-tooling-20261022.log",
+      "sha256": "a0289118747affd4dd4a3c693d81a8252ff399542c520d484ff81618bfa4610e"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225524Z-armed-display-batch-589f2ec6\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225524Z-armed-display-batch-589f2ec6\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\25c5b0ce6f11852f903b01a688bb772d3d8dc68abea5affe68b047f0f9456545\\result.json",
+      "sha256": "25c5b0ce6f11852f903b01a688bb772d3d8dc68abea5affe68b047f0f9456545"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225524Z-armed-display-batch-589f2ec6\\launcher-error.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225524Z-armed-display-batch-589f2ec6\\launcher-error.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\6fbb4f1f9dae5ab238ed0a620dec9457f5a85448e4d7a853e03585eca6eda113\\launcher-error.json",
+      "sha256": "6fbb4f1f9dae5ab238ed0a620dec9457f5a85448e4d7a853e03585eca6eda113"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T225811Z-armed-display-batch-v2-bc5ad878\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T225811Z-armed-display-batch-v2-bc5ad878\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\7f4b75fffeb3dd91fbe89b477bb194e4fe4fa482d2ae2063664239e863c3fc13\\result.json",
+      "sha256": "7f4b75fffeb3dd91fbe89b477bb194e4fe4fa482d2ae2063664239e863c3fc13"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T224915Z-armed-display-7ff074d7\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T224915Z-armed-display-7ff074d7\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T231334Z-armed-display-review-27b1506f\\inputs\\4a8ae3097bacebe189f0352cff03c2748e21103f3223d1bf70bac1129bd5c72c\\result.json",
+      "sha256": "4a8ae3097bacebe189f0352cff03c2748e21103f3223d1bf70bac1129bd5c72c"
+    }
+  }
+}

@@ -115,8 +115,10 @@ the refactored core; it does not exercise the new armed display API.
 
 [Pinned evidence](../evidence/phase1-display-combat-correction.json) and private
 review `20261022T223720Z-display-combat-review-03961c7d/review.json` bind these
-results,603 source tests, screenshots and exact residual changes. The armed
-display-query matrix remains outstanding. Full Phase1 remains incomplete.
+results,603 source tests, screenshots and exact residual changes. The subsequent
+[armed matrix and stock comparison](phase1-armed-display-validation.md) now pass
+bounded armed query/GUI conservation, but expose a separate pre-existing
+two-weapon THAC0 arithmetic mismatch. Full Phase1 remains incomplete.
 
 ## Separate APR follow-up
 

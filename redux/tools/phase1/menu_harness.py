@@ -15,6 +15,10 @@ import subprocess
 import uuid
 import importlib.util
 
+_armed_spec = importlib.util.spec_from_file_location('redux_armed_display_validation', Path(__file__).with_name('armed_display_validation.py'))
+armed_display_validation = importlib.util.module_from_spec(_armed_spec)
+_armed_spec.loader.exec_module(armed_display_validation)
+
 _stats_spec = importlib.util.spec_from_file_location('redux_stats_validation', Path(__file__).with_name('stats_validation.py'))
 stats_validation = importlib.util.module_from_spec(_stats_spec)
 _stats_spec.loader.exec_module(stats_validation)
@@ -70,6 +74,8 @@ def menu_source_inputs(source):
     return [Path(__file__), HERE/'menu_probe.cpp', HERE/'gui/MenuRuntime.py', HERE/'gui/MenuStart.py',
             HERE/'gui/StatsRuntime.py', HERE/'stats_validation.py',
             HERE/'gui/DisplayQueryRuntime.py', HERE/'display_query_validation.py',
+            HERE/'gui/ArmedDisplayRuntime.py', HERE/'armed_display_validation.py',
+            HERE/'weapon_query_validation.py', HERE/'weapon_oracle_fixtures.py',
             HERE/'private_game.py', HERE/'spellbook_information_validation.py', HERE/'../phase0/native/gui_probe.cpp', HERE/'../phase0/native/save_probe.cpp'] + [
             Path(source)/'gemrb/GUIScripts'/name for name in
             ('GUIREC.py','GUIRECCommon.py','EECharacterSheet.py','PortraitWindow.py','GUIMG.py','GUIPR.py','EESpellbookHeading.py','EESpellbookInformation.py','BG2EEConfirmation.py','GUIOPT.py','GUIOPTControls.py','GUICommon.py','GUICommonWindows.py','Spellbook.py','GameCheck.py','GUIDefines.py','GUIClasses.py')] + [Path(source)/'gemrb/unhardcoded/shared/defaults.ini']
@@ -338,10 +344,14 @@ def main():
     parser.add_argument("--timeout", type=int, default=330)
     parser.add_argument("--require-ordinary-spellbooks", action='store_true',
                         help='Require eligible ordinary wizard and priest heading evidence; context gating is not heading acceptance')
-    parser.add_argument('--journey', choices=('menus', 'stats', 'display-query'), default='menus')
+    parser.add_argument('--journey', choices=('menus', 'stats', 'display-query', 'display-armed'), default='menus')
+    parser.add_argument('--armed-input', type=Path, help='Caller-pinned prepared weapon case and metadata for display-armed')
     args = parser.parse_args()
     if args.journey != 'menus' and args.require_ordinary_spellbooks:
         parser.error('Stats journey does not validate ordinary spellbooks')
+    if (args.journey=='display-armed') != bool(args.armed_input):
+        parser.error('display-armed requires --armed-input, which is exclusive to that journey')
+    armed_input = json.loads(args.armed_input.read_text(encoding='utf8')) if args.armed_input else None
     stamp = datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     directory = args.output_root / (stamp + "-menu-" + args.mode + "-" + uuid.uuid4().hex[:8])
     directory.mkdir(parents=True, exist_ok=False)
@@ -350,6 +360,9 @@ def main():
     env["PATH"] = os.pathsep.join([str(args.prefix / "bin"), str(args.build / "gemrb"), env.get("PATH", "")])
     dll = args.build / "gemrb/libgemrb_core.dll"
     identities, frozen_sources = freeze_source_inputs(menu_source_inputs(args.source), directory)
+    if args.armed_input:
+        extra, copies = freeze_source_inputs([args.armed_input], directory)
+        identities.update(extra); frozen_sources.update(copies)
     receipt = dict(schema="bg-redux-menu-run/1", source_files=identities, engine_dll_sha256=sha(dll),
                    frozen_sources=frozen_sources, require_ordinary_spellbooks=args.require_ordinary_spellbooks,
                    directory=str(directory), stages=[], font_mode="game-resources-no-override", journey=args.journey)
@@ -385,6 +398,8 @@ def main():
                 raise ValueError("Resolution below the declared UI baseline")
             stage = directory / size
             stage.mkdir()
+            if armed_input is not None:
+                write(stage/'armed-input.json', armed_input)
             profile = stage / "profile"
             copied = profile / "save/000000007-HarnessInput"
             shutil.copytree(args.fixture, copied)
@@ -421,7 +436,10 @@ def main():
             except (ValueError, OSError) as error:
                 row['private_game_error'] = str(error)
             try:
-                if args.journey == 'display-query':
+                if args.journey == 'display-armed':
+                    row['validation'] = armed_display_validation.validate_stage(stage,(width,height),
+                        expected_nonce=stage_nonce,expected_input=armed_input)
+                elif args.journey == 'display-query':
                     row['validation'] = display_validation.validate_stage(stage, expected_nonce=stage_nonce)
                 elif args.journey == 'stats':
                     row['validation'] = stats_validation.validate_stage(stage, (width, height),
@@ -432,7 +450,7 @@ def main():
             except (ValueError, OSError, KeyError, IndexError, TypeError, StopIteration) as error:
                 row["error"] = str(error)
             row["fixture_copy_unchanged"] = manifest(copied) == original
-            conservation = row.get('validation', {}).get('pure_phase_world_unchanged', False) if args.journey == 'display-query' else row.get('validation', {}).get('collected_world_unchanged', False)
+            conservation = row.get('validation', {}).get('pure_phase_world_unchanged', False) if args.journey in ('display-query','display-armed') else row.get('validation', {}).get('collected_world_unchanged', False)
             row["passed"] = row["process"]["exit_code"] == 0 and not row["process"]["timed_out"] and row["fixture_copy_unchanged"] and not row.get('private_game_error') and row.get("validation", {}).get("assertion_passed", False) and conservation
             write(stage / "result.json", row)
             receipt["stages"].append(row)

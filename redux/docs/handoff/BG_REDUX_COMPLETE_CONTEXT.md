@@ -1,6 +1,24 @@
 # BG Redux — complete continuation context
 
-Current working continuation: production commit `cd83f1e48` adds a detached 2E
+Latest armed continuation: productioncd83f1e48 and corefaf62922 remain unchanged.
+New external tooling passes619 tests. Nine armed normal-loop runs pass2,304
+display queries,36 sheet observations and27 actual portrait callbacks, including
+dual weapons, empty/shield offhand, launcher/ammo and both resolutions. All
+preservation guards pass. The first rejected selection assumption and the batch
+launcher profile-reuse error remain preserved. All owned sessions are terminal.
+
+Stock original exact-input reference729193e0 proves a separate armed fidelity
+defect: original Record/Inventory show main18/off21; native shows6/9, from Base14
+in both. Original style penalties are+4/+8; native proficiency terms are−8/−4.
+APR5/2 and physical2d4/2d4+1 match in this case. Source enum/column order and
+aggregate sign paths are pre-existing in the protected baseline. No production
+math correction has been made yet. **Next priority: correct shared two-weapon
+math with an explicit Classic boundary, then rerun exact original and regression
+cases.** Do not change only UI text. Self attack effects/proficiency variants,
+unarmed APR, Jaheira HP, color residuals and broader Phase1 scope remain open.
+[Armed frontier and evidence](../testing/phase1-armed-display-validation.md).
+
+Preceding read-only checkpoint: production commit `cd83f1e48` adds a detached 2E
 display combat query and routes EE character-sheet callers through it. It is
 compiled in the verified resumed candidate `faf62922` (configured `a71c06f9`),
 with a separately pinned shader-layout junction. The new source tooling suite
