@@ -38,11 +38,13 @@ class ConfirmationSettingTests(unittest.TestCase):
         self.bound = []
         controls.OptCheckbox = lambda *args: self.bound.append(args)
         self.labels = []
+        self.label_text = {0x10000028:77524,0x10000029:102476}
         self.closed = 0
-        label = types.SimpleNamespace(SetText=self.labels.append)
         def get_control(identifier):
-            self.assertEqual(identifier, 0x10000028)
-            return label
+            if identifier not in self.label_text:raise AssertionError('Unexpected label access')
+            def set_text(value):
+                self.labels.append((identifier,value));self.label_text[identifier]=value
+            return types.SimpleNamespace(SetText=set_text)
         def close():
             self.closed += 1
         self.window = types.SimpleNamespace(GetControl=get_control, Close=close)
@@ -121,11 +123,22 @@ class ConfirmationSettingTests(unittest.TestCase):
 
     def test_feedback_binds_draft_and_localized_existing_row(self):
         self.module.BeginFeedback(self.window)
-        self.assertEqual(self.labels, [102476])
-        self.assertEqual(self.bound, [(102477, 38, 39, 102476, self.module.DRAFT)])
+        self.assertEqual(self.labels, [(0x10000029,102476)])
+        self.assertEqual(self.bound, [(102477, 41, 40, 102476, self.module.DRAFT)])
+        self.assertEqual(self.label_text[0x10000028],77524)
         self.assertEqual(self.variables[self.module.OPTION], 0)
         self.assertEqual(self.variables[self.module.DRAFT], 0)
         self.assertEqual(self.saved, [])
+
+    def test_reopen_done_and_cancel_never_repurpose_colored_markers_row(self):
+        done,cancel=self.module.BeginFeedback(self.window)
+        self.variables[self.module.DRAFT]=1;cancel()
+        done,cancel=self.module.BeginFeedback(self.window)
+        self.variables[self.module.DRAFT]=1;done()
+        self.module.BeginFeedback(self.window)
+        self.assertEqual(self.label_text,{0x10000028:77524,0x10000029:102476})
+        self.assertEqual([r[1:3]for r in self.bound],[(41,40)]*3)
+        self.assertEqual(self.variables[self.module.OPTION],1)
 
     def test_done_writes_actual_option_before_persistent_save(self):
         done, cancel = self.module.BeginFeedback(self.window)

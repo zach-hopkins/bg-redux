@@ -119,9 +119,13 @@ def setting_observation(name,meta,native,mode):
     if name in drafts and settings['draft']!=drafts[name]:raise ValueError('Actual checkbox draft did not change')
 
 
+def feedback_labels(ui,strings):
+    if base.field(ui,'GUIOPT',9,0x10000029)['text']!=strings['102476']:raise ValueError('Localized right confirmation label differs')
+    if base.field(ui,'GUIOPT',9,0x10000028)['text']!=strings['77524']:raise ValueError('Left Colored Markers label was overwritten')
+
 def route_guard(name,event):
     actual=(event['pack'],event['window'],event['control'])
-    settings={'settings.open':('OPTWIN',0,7),'settings.gameplay':('GUIOPT',2,9),'settings.feedback':('GUIOPT',8,5),'settings.feedback-again':('GUIOPT',8,5),'settings.toggle-cancel':('GUIOPT',9,38),'settings.toggle-done':('GUIOPT',9,38),'settings.cancel':('GUIOPT',9,27),'settings.done':('GUIOPT',9,26),'settings.gameplay-done':('GUIOPT',8,7),'settings.return':('GUIOPT',2,11),'leader-portrait':('PORTWIN',0,0)}
+    settings={'settings.open':('OPTWIN',0,7),'settings.gameplay':('GUIOPT',2,9),'settings.feedback':('GUIOPT',8,5),'settings.feedback-again':('GUIOPT',8,5),'settings.toggle-cancel':('GUIOPT',9,41),'settings.toggle-done':('GUIOPT',9,41),'settings.cancel':('GUIOPT',9,27),'settings.done':('GUIOPT',9,26),'settings.gameplay-done':('GUIOPT',8,7),'settings.return':('GUIOPT',2,11),'leader-portrait':('PORTWIN',0,0)}
     if name in settings:
         if actual!=settings[name]:raise ValueError('Wrong actual settings/toolbar route')
         return
@@ -170,7 +174,7 @@ def validate_capture(folder,nonce,mode,started_ns,receipt):
         if(meta.get('schema'),meta.get('nonce'),meta.get('name'),meta.get('step'),meta.get('capture'))!=('bg-redux-confirmation-observation/1',nonce,row['name'],row['step'],i)or state['game_time']!=ready['game_time']:raise ValueError('Stale/incorrect capture binding')
         setting_observation(row['name'],meta,native,mode)
         if row['name']in('settings.draft-before','settings.draft-cancel','settings.draft-done'):
-            if base.field(ui,'GUIOPT',9,0x10000028)['text']!=strings['102476']:raise ValueError('Localized actual setting label differs')
+            feedback_labels(ui,strings)
             if row['name']!='settings.draft-before'and base.field(ui,'GUIOPT',9,28)['text']!=strings['102477']:raise ValueError('Actual checkbox callback did not set help')
         if 'book'in meta:
             c=next(c for c in CASES if row['name'].startswith(c['name']+'.'));b=meta['book'];a=state['party'][c['pc']-1];p=page(a,c['kind'],c['level'])
@@ -201,7 +205,7 @@ def validate_capture(folder,nonce,mode,started_ns,receipt):
             if event['actual_value']!=0xffffffff or event['actual_variable']!='':raise ValueError('Unbound null bridge differs')
         elif event['actual_value']!=want['value']:raise ValueError('Bound original callback value differs')
         if plan[event['step']].startswith('settings.toggle-'):
-            if event['dispatch']!='view-mouse-down-up'or event['actual_variable']!='BG2EE Confirmation Draft'or event['control']!=38:raise ValueError('Checkbox used fabricated option setter')
+            if event['dispatch']!='view-mouse-down-up'or event['actual_variable']!='BG2EE Confirmation Draft'or event['control']!=41:raise ValueError('Checkbox used fabricated option setter')
         elif event['dispatch']!='registered-callback':raise ValueError('Undeclared dispatch route')
         binding=want['binding'];name=plan[event['step']];route_guard(name,event)
         if name.endswith(('.target-request','.mixed-charged-click','.filler-request')):

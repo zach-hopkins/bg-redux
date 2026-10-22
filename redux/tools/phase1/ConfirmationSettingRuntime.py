@@ -110,10 +110,10 @@ def Configure(output,nonce,mode,ini):
     if mode=='operate':
         for name,pack,win,cid in [('settings.open','OPTWIN',0,7),('settings.gameplay','GUIOPT',2,9),('settings.feedback','GUIOPT',8,5)]:add(name,lambda p=pack,w=win,c=cid:press(p,w,c))
         add('settings.draft-before',lambda:observe('settings.draft-before'))
-        add('settings.toggle-cancel',lambda:press('GUIOPT',9,38,route='checkbox-mouse'))
+        add('settings.toggle-cancel',lambda:press('GUIOPT',9,41,route='checkbox-mouse'))
         add('settings.draft-cancel',lambda:observe('settings.draft-cancel'))
         add('settings.cancel',lambda:press('GUIOPT',9,27));add('settings.after-cancel',lambda:observe('settings.after-cancel'))
-        add('settings.feedback-again',lambda:press('GUIOPT',8,5));add('settings.toggle-done',lambda:press('GUIOPT',9,38,route='checkbox-mouse'))
+        add('settings.feedback-again',lambda:press('GUIOPT',8,5));add('settings.toggle-done',lambda:press('GUIOPT',9,41,route='checkbox-mouse'))
         add('settings.draft-done',lambda:observe('settings.draft-done'));add('settings.done',lambda:press('GUIOPT',9,26));add('settings.after-done',lambda:observe('settings.after-done'))
         add('settings.gameplay-done',lambda:press('GUIOPT',8,7));add('settings.return',lambda:press('GUIOPT',2,11));add('settings.final',lambda:observe('settings.final'))
     for case in CASES:

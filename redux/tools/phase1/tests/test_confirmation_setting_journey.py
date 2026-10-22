@@ -118,6 +118,20 @@ class ConfirmationJourneyTests(unittest.TestCase):
         for c in (27,38):
             with self.assertRaises(ValueError):v.route_guard('settings.done',dict(pack='GUIOPT',window=9,control=c))
 
+    def test_checkbox_must_use_right_confirmation_row_not_colored_markers(self):
+        for action in ('settings.toggle-cancel','settings.toggle-done'):
+            v.route_guard(action,dict(pack='GUIOPT',window=9,control=41))
+            for wrong in (38,39,40):
+                with self.subTest(action=action,wrong=wrong),self.assertRaises(ValueError):v.route_guard(action,dict(pack='GUIOPT',window=9,control=wrong))
+
+    def test_native_labels_reject_old_duplicate_and_swapped_context(self):
+        strings={'102476':'localized confirmation','77524':'localized colored markers'}
+        controls=[dict(pack='GUIOPT',window=9,id=cid,visible=True,text=text)for cid,text in ((0x10000028,strings['77524']),(0x10000029,strings['102476']))]
+        v.feedback_labels(dict(controls=controls),strings)
+        for left,right in ((strings['102476'],strings['102476']),(strings['102476'],strings['77524']),('',strings['102476'])):
+            bad=copy.deepcopy(controls);bad[0]['text']=left;bad[1]['text']=right
+            with self.subTest(left=left,right=right),self.assertRaises(ValueError):v.feedback_labels(dict(controls=bad),strings)
+
     def test_memo_route_requires_actual_original_index(self):
         v.route_guard('mage.mixed-charged-click',dict(pack='GUIMG',window=2,control=3,actual_value=0))
         with self.assertRaises(ValueError):v.route_guard('mage.mixed-charged-click',dict(pack='GUIMG',window=2,control=4,actual_value=0))

@@ -56,10 +56,10 @@ def BeginFeedback (window):
 	if not GameCheck.IsBG2EE ():
 		raise ValueError ("BG2EE confirmation control requires BG2EE")
 	GemRB.SetVar (DRAFT, int (bool (GemRB.GetVar (OPTION))))
-	# GUIOPT window 9 already contains this unused checkbox/buddy-label row.
-	# Keep its CHU font/frame and use the localized TLK, not English literals.
-	window.GetControl (0x10000028).SetText (LABEL_STRREF)
-	GUIOPTControls.OptCheckbox (HELP_STRREF, 38, 39, LABEL_STRREF, DRAFT)
+	# GUIOPT window 9's right row is confirmation (41/40/0x10000029).
+	# Preserve the left Colored Markers row and both existing CHU font/frames.
+	window.GetControl (0x10000029).SetText (LABEL_STRREF)
+	GUIOPTControls.OptCheckbox (HELP_STRREF, 41, 40, LABEL_STRREF, DRAFT)
 
 	def Done ():
 		previous = GemRB.GetVar (OPTION)

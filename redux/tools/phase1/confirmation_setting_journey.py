@@ -289,7 +289,7 @@ def resource_guard(api,project,source):
             row['spell_description_ref']=binary.u32(raw,0x50);row['spell_description']=tlk(project,[row['spell_description_ref']])[row['spell_description_ref']]
         result[ref+'.'+ext]=row
     for name,file in [('chitin',game/'chitin.key'),('tlk',game/'lang/en_US/dialog.tlk')]:result[name]=dict(path=str(file),bytes=file.stat().st_size,sha256=evidence.sha(file))
-    result['setting_strings']=dict(values={str(k):value for k,value in tlk(project,[102476,102477,11824,17507,13727]).items()})
+    result['setting_strings']=dict(values={str(k):value for k,value in tlk(project,[77524,102476,102477,11824,17507,13727]).items()})
     result['level_template']=dict(value=tlk(project,[10345])[10345])
     result['gender_tokens']=dict(row=v.gender_row(result['gender.2da']['raw']),words={str(k):word for k,word in tlk(project,[27486,27487]).items()})
     return result
