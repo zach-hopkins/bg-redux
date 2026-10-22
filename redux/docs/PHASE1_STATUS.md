@@ -52,3 +52,46 @@ attempts are immutable evidence; new builds/results use separate destinations.
 All engine changes are unaccepted until built and verified against the relevant
 original behavior, normal-loop operations, import/reload and preservation checks.
 Broader campaign/menu fidelity remains incomplete. No Phase 1 completion claim.
+
+
+## Executed first-batch evidence
+
+The isolated before-build completed all 285 Ninja steps. Receipt:
+`phase1-local/builds/baseline-lab-20261021/before-build-receipt.json`; 61 binaries
+are copied under its `frozen-before-binaries`. Core run
+`20261021-164807-phase1-before-core-3ca310db` reproduces 219 pass, one locale
+failure, nine skips and six disabled tests. Before vanilla
+`20261021T234929Z-phase1-before-vanilla-6a4c9726` and GUI
+`20261021T234944Z-phase1-before-gui-a5757621` execute successfully with all 44
+assertions and retain compatibility differences. Those results live under
+`phase1-local/runtime-baseline/phase0-local/results`.
+
+Candidate build `20261021T235026Z-candidate-1c6316a3` completed, then integrated
+the UI/resource changes and a comment correction through an incremental build.
+Both initial and integrated receipts/logs are preserved, including the prior
+candidate binaries under `pre-ui-revision`. Current candidate DLL SHA256:
+`1073429c5af42e7ffd8e8bd88dc000b187014e0f3afef9ab70c231d81b39acab`.
+The integrated Python suite passes 63/63 tests. The six-query observer and menu
+host compile; neither has yet been executed against this candidate.
+
+Original preparation `20261021T235241Z-weapon-oracle-ccf85085` has 22 cases,
+six queries per case, nonce 690073517 (`2921AFAD`). Fresh original captures so
+far cover cases 22, 4, 3 and 7. Both opposite slashing/crushing configurations
+support the any-effective-hand damage result; the protected enchanted main hand
+with empty offhand gives effectiveness 0/0/0 and damage 1/0/1. No universal
+predicate contract is inferred from this partial batch. All remaining cases,
+actual candidate state invariance, native AI pairs and rendered UI checks remain
+pending.
+
+The original launch without a game working directory crashed before the menu;
+its dump/receipt are preserved. Relaunch with the explicit private game cwd
+succeeded. An original save reordered the item table while retaining exact
+physical equipment: the rejected reader result and raw save are preserved; a
+reviewed multiset-plus-slot guard now accepts this representation and still
+rejects missing/extra/wrong-slot items. Eight actual-evidence adversarial capture
+checks reject stale/wrong nonce, case, window, image and fixture observations.
+The Phase 0 protected source/binaries/fixture still match the accepted release.
+
+A separate cache investigation and functional hotkey editor are in progress.
+All Phase 1 work remains unaccepted pending runtime/journey/campaign evidence;
+this status does not replace the full backlog completion requirements.
