@@ -1,0 +1,859 @@
+{
+  "schema": "bg-redux-independent-original-confirmation-audit/1",
+  "passed": true,
+  "reference": "C:\\BGRedux\\phase1-local\\results\\20261022T105910Z-original-confirmation-installation-19dc70e7",
+  "checks": {
+    "verification_files_rehashed": 58,
+    "canonical_and_private_input_files": 6,
+    "private_prelaunch_root_files": 9,
+    "clean_root_files": 9,
+    "clean_inventory_entries": 2457
+  },
+  "verification_sha256": "7c5c080ba695f95f9576582fedb5371bba41e6288bf5f530343a090e1f6d60cc",
+  "observation_sha256": "9414e49bcf6b64454ea706f5ea06a849b46deb8dd5cdbb61e88e07bbde276a6a",
+  "terminal": {
+    "pid": 17348,
+    "terminal": true,
+    "exit_code": 0,
+    "completed_utc": "2026-10-22T11:13:58.2868489Z"
+  },
+  "configuration": {
+    "Over Confirm Everything": 1,
+    "Confirm Dialog": 0
+  },
+  "configuration_sha256": "70cbd91ed5861658269880219aeb5c687a36029d5c0dbb4c659568ad192e0a0a",
+  "initial_level2": {
+    "level": 1,
+    "type": 1,
+    "slots": 3,
+    "bonus": 3,
+    "known": [
+      "SPWI215",
+      "SPWI214",
+      "SPWI213",
+      "SPWI212",
+      "SPWI211"
+    ],
+    "memorized": [
+      {
+        "resref": "SPWI213",
+        "flags": 1
+      },
+      {
+        "resref": "SPWI214",
+        "flags": 1
+      },
+      {
+        "resref": "SPWI215",
+        "flags": 1
+      }
+    ]
+  },
+  "saved_target_pages": {
+    "frozen-depleted-save": {
+      "level": 1,
+      "type": 1,
+      "slots": 3,
+      "bonus": 3,
+      "known": [
+        "SPWI215",
+        "SPWI214",
+        "SPWI213",
+        "SPWI212",
+        "SPWI211"
+      ],
+      "memorized": [
+        {
+          "resref": "SPWI214",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI215",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI213",
+          "flags": 0
+        }
+      ]
+    },
+    "frozen-depleted-removal-save": {
+      "level": 1,
+      "type": 1,
+      "slots": 3,
+      "bonus": 3,
+      "known": [
+        "SPWI215",
+        "SPWI214",
+        "SPWI213",
+        "SPWI212",
+        "SPWI211"
+      ],
+      "memorized": [
+        {
+          "resref": "SPWI214",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI215",
+          "flags": 1
+        }
+      ]
+    },
+    "frozen-mixed-save": {
+      "level": 1,
+      "type": 1,
+      "slots": 3,
+      "bonus": 3,
+      "known": [
+        "SPWI215",
+        "SPWI214",
+        "SPWI213",
+        "SPWI212",
+        "SPWI211"
+      ],
+      "memorized": [
+        {
+          "resref": "SPWI213",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI215",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI213",
+          "flags": 0
+        }
+      ]
+    },
+    "frozen-mixed-removal-save": {
+      "level": 1,
+      "type": 1,
+      "slots": 3,
+      "bonus": 3,
+      "known": [
+        "SPWI215",
+        "SPWI214",
+        "SPWI213",
+        "SPWI212",
+        "SPWI211"
+      ],
+      "memorized": [
+        {
+          "resref": "SPWI213",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI215",
+          "flags": 1
+        }
+      ]
+    }
+  },
+  "save_bindings": {
+    "frozen-depleted-save": {
+      "original_save": "C:\\Users\\labuser\\Documents\\BGReduxP1\\20261022T105910Z-original-confirmation-installation-19dc70e7\\spellbook-reference\\save\\000000026-a",
+      "files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "4c27b48ce1e5ef97a1397851446048fd688fcec86bf45963956327574c986e1b"
+        },
+        "BALDUR.gam": {
+          "bytes": 77280,
+          "sha256": "7a495360f6f900b1eca8b9a6880a33a5e10e96957210c2d7fdb597bb5c2d87f5"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19395,
+          "sha256": "21e9fc1b2327747298d95808e5395eec4f7bb5f07986539a71478109a5e2caf6"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "6b798e5822ac5ab33a9d011de6b99dc56fa11e6a54bd08105405360e8828d0a7"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "d3f94925986402d28277025f42e35d700ec27861ef72e233bcc54768e5f6604e"
+        }
+      }
+    },
+    "frozen-depleted-removal-save": {
+      "original_save": "C:\\Users\\labuser\\Documents\\BGReduxP1\\20261022T105910Z-original-confirmation-installation-19dc70e7\\spellbook-reference\\save\\000000027-b",
+      "files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "4c27b48ce1e5ef97a1397851446048fd688fcec86bf45963956327574c986e1b"
+        },
+        "BALDUR.gam": {
+          "bytes": 77268,
+          "sha256": "69aab356be4d8a7af80cd029940f5a00f9eb477d73a3c566933424d72c8680be"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19402,
+          "sha256": "210299517d95ba6be5a991a7c3b1f487f88861b1bd21a82d0b7ae3bb7499a3d1"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "6b798e5822ac5ab33a9d011de6b99dc56fa11e6a54bd08105405360e8828d0a7"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "d3f94925986402d28277025f42e35d700ec27861ef72e233bcc54768e5f6604e"
+        }
+      }
+    },
+    "frozen-mixed-save": {
+      "original_save": "C:\\Users\\labuser\\Documents\\BGReduxP1\\20261022T105910Z-original-confirmation-installation-19dc70e7\\spellbook-reference\\save\\000000028-c",
+      "files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "8adee44c68a5faa9f1e9697d602ff8dd36a2abcc4e7baf0ebb71fd2865360605"
+        },
+        "BALDUR.gam": {
+          "bytes": 76224,
+          "sha256": "2e2c03a632b924908c624ea1cd6a73581aa674429f18cc2a4f16b93926839bfe"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19402,
+          "sha256": "080d4597da3c482d12ad6b9f46a3b3d0b8ee8b27ae547ad351ac2830f2692b94"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "6b798e5822ac5ab33a9d011de6b99dc56fa11e6a54bd08105405360e8828d0a7"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "a9688903416054b2070c2e123b33b1565de3c00c03f591ff5fb4f331e6d0f361"
+        }
+      }
+    },
+    "frozen-mixed-removal-save": {
+      "original_save": "C:\\Users\\labuser\\Documents\\BGReduxP1\\20261022T105910Z-original-confirmation-installation-19dc70e7\\spellbook-reference\\save\\000000029-d",
+      "files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "22aa071322009e8bcf0078e23ca25794daaf1e530549113a2f8fb62d51054298"
+        },
+        "BALDUR.gam": {
+          "bytes": 76212,
+          "sha256": "78f61e518d8e46b3069c77677428d0dc906c016c48bf65e2eb564f25dfbad73b"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19402,
+          "sha256": "080d4597da3c482d12ad6b9f46a3b3d0b8ee8b27ae547ad351ac2830f2692b94"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "6b798e5822ac5ab33a9d011de6b99dc56fa11e6a54bd08105405360e8828d0a7"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "a9688903416054b2070c2e123b33b1565de3c00c03f591ff5fb4f331e6d0f361"
+        }
+      }
+    }
+  },
+  "all_page_deltas_from_canonical": {
+    "frozen-depleted-save": [
+      {
+        "actor": "Imoen",
+        "type": 1,
+        "level": 0,
+        "before": [
+          {
+            "resref": "SPWI102",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI118",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI110",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI112",
+            "flags": 1
+          }
+        ],
+        "after": [
+          {
+            "resref": "SPWI102",
+            "flags": 0
+          },
+          {
+            "resref": "SPWI118",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI110",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI112",
+            "flags": 1
+          }
+        ]
+      },
+      {
+        "actor": "Imoen",
+        "type": 1,
+        "level": 1,
+        "before": [
+          {
+            "resref": "SPWI213",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI214",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI215",
+            "flags": 1
+          }
+        ],
+        "after": [
+          {
+            "resref": "SPWI214",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI215",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI213",
+            "flags": 0
+          }
+        ]
+      },
+      {
+        "actor": "Imoen",
+        "type": 1,
+        "level": 3,
+        "before": [
+          {
+            "resref": "SPWI406",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI408",
+            "flags": 1
+          }
+        ],
+        "after": [
+          {
+            "resref": "SPWI406",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI408",
+            "flags": 0
+          }
+        ]
+      }
+    ],
+    "frozen-depleted-removal-save": [
+      {
+        "actor": "Imoen",
+        "type": 1,
+        "level": 0,
+        "before": [
+          {
+            "resref": "SPWI102",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI118",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI110",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI112",
+            "flags": 1
+          }
+        ],
+        "after": [
+          {
+            "resref": "SPWI102",
+            "flags": 0
+          },
+          {
+            "resref": "SPWI118",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI110",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI112",
+            "flags": 1
+          }
+        ]
+      },
+      {
+        "actor": "Imoen",
+        "type": 1,
+        "level": 1,
+        "before": [
+          {
+            "resref": "SPWI213",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI214",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI215",
+            "flags": 1
+          }
+        ],
+        "after": [
+          {
+            "resref": "SPWI214",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI215",
+            "flags": 1
+          }
+        ]
+      },
+      {
+        "actor": "Imoen",
+        "type": 1,
+        "level": 3,
+        "before": [
+          {
+            "resref": "SPWI406",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI408",
+            "flags": 1
+          }
+        ],
+        "after": [
+          {
+            "resref": "SPWI406",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI408",
+            "flags": 0
+          }
+        ]
+      }
+    ],
+    "frozen-mixed-save": [
+      {
+        "actor": "Imoen",
+        "type": 1,
+        "level": 0,
+        "before": [
+          {
+            "resref": "SPWI102",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI118",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI110",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI112",
+            "flags": 1
+          }
+        ],
+        "after": [
+          {
+            "resref": "SPWI102",
+            "flags": 0
+          },
+          {
+            "resref": "SPWI118",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI110",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI112",
+            "flags": 1
+          }
+        ]
+      },
+      {
+        "actor": "Imoen",
+        "type": 1,
+        "level": 1,
+        "before": [
+          {
+            "resref": "SPWI213",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI214",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI215",
+            "flags": 1
+          }
+        ],
+        "after": [
+          {
+            "resref": "SPWI213",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI215",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI213",
+            "flags": 0
+          }
+        ]
+      },
+      {
+        "actor": "Imoen",
+        "type": 1,
+        "level": 3,
+        "before": [
+          {
+            "resref": "SPWI406",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI408",
+            "flags": 1
+          }
+        ],
+        "after": [
+          {
+            "resref": "SPWI406",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI408",
+            "flags": 0
+          }
+        ]
+      }
+    ],
+    "frozen-mixed-removal-save": [
+      {
+        "actor": "Imoen",
+        "type": 1,
+        "level": 0,
+        "before": [
+          {
+            "resref": "SPWI102",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI118",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI110",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI112",
+            "flags": 1
+          }
+        ],
+        "after": [
+          {
+            "resref": "SPWI102",
+            "flags": 0
+          },
+          {
+            "resref": "SPWI118",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI110",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI112",
+            "flags": 1
+          }
+        ]
+      },
+      {
+        "actor": "Imoen",
+        "type": 1,
+        "level": 1,
+        "before": [
+          {
+            "resref": "SPWI213",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI214",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI215",
+            "flags": 1
+          }
+        ],
+        "after": [
+          {
+            "resref": "SPWI213",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI215",
+            "flags": 1
+          }
+        ]
+      },
+      {
+        "actor": "Imoen",
+        "type": 1,
+        "level": 3,
+        "before": [
+          {
+            "resref": "SPWI406",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI408",
+            "flags": 1
+          }
+        ],
+        "after": [
+          {
+            "resref": "SPWI406",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI408",
+            "flags": 0
+          }
+        ]
+      }
+    ]
+  },
+  "screenshots": [
+    {
+      "name": "feedback-option-off-before",
+      "metadata_sha256": "8787418aa7f14be7aed81a8f85d4187d7b1e2fb002cd8413644df4f570c62c02",
+      "image_sha256": "3b64585b8e28f4b2ac73ee5b2340ce0ff6fb4eb041fb2a842ffe64272c258c29",
+      "utc": "2026-10-22T11:01:20.134Z",
+      "window": {
+        "app": "process:C:\\BGRedux\\phase1-local\\original-confirmation-game-19dc70e7\\Baldur.exe",
+        "id": 9896518,
+        "title": "BGReduxP1/20261022T105910Z-original-confirmation-installation-19dc70e7/spellbook-reference - v2.7.3.0"
+      }
+    },
+    {
+      "name": "feedback-option-on-help",
+      "metadata_sha256": "d1eb3e7a88543fc3fadf1931037156a2af91bc4e5ba6051577742610a3eac757",
+      "image_sha256": "097d58d76ceb2f5701c9a3ddc04ac52eba0a179e162a70a8d17f34e061473228",
+      "utc": "2026-10-22T11:01:34.575Z",
+      "window": {
+        "app": "process:C:\\BGRedux\\phase1-local\\original-confirmation-game-19dc70e7\\Baldur.exe",
+        "id": 9896518,
+        "title": "BGReduxP1/20261022T105910Z-original-confirmation-installation-19dc70e7/spellbook-reference - v2.7.3.0"
+      }
+    },
+    {
+      "name": "original-depleted-removal-save-success",
+      "metadata_sha256": "e54111450ba9ce234c29100292e569eb9b15cc31e04e0096795084afea927229",
+      "image_sha256": "a8f86d190342496ac3290edc6ffe0847b9aa240171fd45f2ecb938ce95a6e505",
+      "utc": "2026-10-22T11:08:05.271Z",
+      "window": {
+        "app": "process:C:\\BGRedux\\phase1-local\\original-confirmation-game-19dc70e7\\Baldur.exe",
+        "id": 9896518,
+        "title": "BGReduxP1/20261022T105910Z-original-confirmation-installation-19dc70e7/spellbook-reference - v2.7.3.0"
+      }
+    },
+    {
+      "name": "original-depleted-save-success",
+      "metadata_sha256": "420bf6e2d987f6597809d8e39cab37c3f70cbef0d003925f7f8bd7c8390acfde",
+      "image_sha256": "90e8f9eef7928236c0022a514f79913b8d4dca611818203b1d5d618b9af9b3f7",
+      "utc": "2026-10-22T11:06:11.015Z",
+      "window": {
+        "app": "process:C:\\BGRedux\\phase1-local\\original-confirmation-game-19dc70e7\\Baldur.exe",
+        "id": 9896518,
+        "title": "BGReduxP1/20261022T105910Z-original-confirmation-installation-19dc70e7/spellbook-reference - v2.7.3.0"
+      }
+    },
+    {
+      "name": "original-mixed-removal-save-success",
+      "metadata_sha256": "edaecba3cb769de32875478b66c6105c588e6838776594afbefba2c3f053b927",
+      "image_sha256": "3a0f6dce88075dd26ef6d14dff0b40bc78575a81c08d498b15e6e67586b0d2ef",
+      "utc": "2026-10-22T11:13:09.588Z",
+      "window": {
+        "app": "process:C:\\BGRedux\\phase1-local\\original-confirmation-game-19dc70e7\\Baldur.exe",
+        "id": 9896518,
+        "title": "BGReduxP1/20261022T105910Z-original-confirmation-installation-19dc70e7/spellbook-reference - v2.7.3.0"
+      }
+    },
+    {
+      "name": "original-mixed-save-success",
+      "metadata_sha256": "fa63ffafa861dc4b87051039538babf1ff1d88add73f2391aabd2f93bf1c59a9",
+      "image_sha256": "954154e13c49bc6970087caac1b89b03a361514ad4c4bdc4c3ca87c0d8fc2652",
+      "utc": "2026-10-22T11:11:07.893Z",
+      "window": {
+        "app": "process:C:\\BGRedux\\phase1-local\\original-confirmation-game-19dc70e7\\Baldur.exe",
+        "id": 9896518,
+        "title": "BGReduxP1/20261022T105910Z-original-confirmation-installation-19dc70e7/spellbook-reference - v2.7.3.0"
+      }
+    },
+    {
+      "name": "wizard-charged-after-cancel",
+      "metadata_sha256": "2bf7e856e982947548ceddcadd47ad10fbf8200b3e2c75eec5cd1bb236d693ee",
+      "image_sha256": "1eeafde9414e0612168cc6e2a5b7c31db4649dc2bf23fcc732795808f47b01c7",
+      "utc": "2026-10-22T11:04:04.701Z",
+      "window": {
+        "app": "process:C:\\BGRedux\\phase1-local\\original-confirmation-game-19dc70e7\\Baldur.exe",
+        "id": 9896518,
+        "title": "BGReduxP1/20261022T105910Z-original-confirmation-installation-19dc70e7/spellbook-reference - v2.7.3.0"
+      }
+    },
+    {
+      "name": "wizard-charged-after-remove",
+      "metadata_sha256": "58be64964577d7e50a0f0bd8fbaa38f669868c81a0f0669b5c8a5f25a9e27de9",
+      "image_sha256": "bbecb3f05e137113fd432aa01b36c0b19980a70f3d05fd7d28f2294a6eb123ed",
+      "utc": "2026-10-22T11:04:40.352Z",
+      "window": {
+        "app": "process:C:\\BGRedux\\phase1-local\\original-confirmation-game-19dc70e7\\Baldur.exe",
+        "id": 9896518,
+        "title": "BGReduxP1/20261022T105910Z-original-confirmation-installation-19dc70e7/spellbook-reference - v2.7.3.0"
+      }
+    },
+    {
+      "name": "wizard-charged-confirmation",
+      "metadata_sha256": "4bbda14b8c4be5741dbc2d2dabd3c662eb3f68517b42161244c5165536b0880e",
+      "image_sha256": "c8a2f1c828e69d73dae4cfcde87248ed209b4b5acd646ff1c3a51c57bee2daf3",
+      "utc": "2026-10-22T11:03:50.793Z",
+      "window": {
+        "app": "process:C:\\BGRedux\\phase1-local\\original-confirmation-game-19dc70e7\\Baldur.exe",
+        "id": 9896518,
+        "title": "BGReduxP1/20261022T105910Z-original-confirmation-installation-19dc70e7/spellbook-reference - v2.7.3.0"
+      }
+    },
+    {
+      "name": "wizard-cloud-name-selected",
+      "metadata_sha256": "b42ce61c559138baca2b77f0ea8e54363638a082abeb7971d0a9ebdcc94fe99f",
+      "image_sha256": "aca76f020a33e9479eb0277e6ce14909bf59e13d296cb21112cb32e7d0000997",
+      "utc": "2026-10-22T11:04:50.636Z",
+      "window": {
+        "app": "process:C:\\BGRedux\\phase1-local\\original-confirmation-game-19dc70e7\\Baldur.exe",
+        "id": 9896518,
+        "title": "BGReduxP1/20261022T105910Z-original-confirmation-installation-19dc70e7/spellbook-reference - v2.7.3.0"
+      }
+    },
+    {
+      "name": "wizard-depleted-after-direct-remove",
+      "metadata_sha256": "d1d2e2ee43c930e27fcde5bf59aa908ad5b2e9f9361be4c9204723a7226012d8",
+      "image_sha256": "0bea7476ff2bc756e185d0c17bf30a2bf8f8806bf225d237408f65d626b8906c",
+      "utc": "2026-10-22T11:07:03.252Z",
+      "window": {
+        "app": "process:C:\\BGRedux\\phase1-local\\original-confirmation-game-19dc70e7\\Baldur.exe",
+        "id": 9896518,
+        "title": "BGReduxP1/20261022T105910Z-original-confirmation-installation-19dc70e7/spellbook-reference - v2.7.3.0"
+      }
+    },
+    {
+      "name": "wizard-depleted-cloud-before",
+      "metadata_sha256": "08890f5a88d47ac014c7b3a8a7a57e87e399f63a22381e16f068dfd2d688f3fc",
+      "image_sha256": "65f5a72862295ce28106119ed37de3fea2f7cd4a759eec5c8b4c513d53949b82",
+      "utc": "2026-10-22T11:05:22.471Z",
+      "window": {
+        "app": "process:C:\\BGRedux\\phase1-local\\original-confirmation-game-19dc70e7\\Baldur.exe",
+        "id": 9896518,
+        "title": "BGReduxP1/20261022T105910Z-original-confirmation-installation-19dc70e7/spellbook-reference - v2.7.3.0"
+      }
+    },
+    {
+      "name": "wizard-level2-charged-before",
+      "metadata_sha256": "af1a4b370b4568d4d07b734e8c98b523e744b848e9736d56fbee87686cf6ec82",
+      "image_sha256": "c92ab660e40b8766343803763a0d00a3b67e8570dc7b0c581f76af4d1c210e79",
+      "utc": "2026-10-22T11:03:39.443Z",
+      "window": {
+        "app": "process:C:\\BGRedux\\phase1-local\\original-confirmation-game-19dc70e7\\Baldur.exe",
+        "id": 9896518,
+        "title": "BGReduxP1/20261022T105910Z-original-confirmation-installation-19dc70e7/spellbook-reference - v2.7.3.0"
+      }
+    },
+    {
+      "name": "wizard-mixed-after-bright-direct-click",
+      "metadata_sha256": "09234a55e654c3dc84155ab5b47cb50c63ca45d9045532f8ade4ee6376a76517",
+      "image_sha256": "f6b97c7cf59b67c872d986e18237e4d4f41348d47f97913140ce285162aa604e",
+      "utc": "2026-10-22T11:11:48.665Z",
+      "window": {
+        "app": "process:C:\\BGRedux\\phase1-local\\original-confirmation-game-19dc70e7\\Baldur.exe",
+        "id": 9896518,
+        "title": "BGReduxP1/20261022T105910Z-original-confirmation-installation-19dc70e7/spellbook-reference - v2.7.3.0"
+      }
+    },
+    {
+      "name": "wizard-mixed-bright-click-before",
+      "metadata_sha256": "771dc3e33a6ee661f5115103e8fd61627b55daeb79fee3935e6cb812deef66b2",
+      "image_sha256": "98f2db9e9f00b9ce6d2b58398e52395d89531ef6642741d101668ab5c8c4c615",
+      "utc": "2026-10-22T11:11:33.241Z",
+      "window": {
+        "app": "process:C:\\BGRedux\\phase1-local\\original-confirmation-game-19dc70e7\\Baldur.exe",
+        "id": 9896518,
+        "title": "BGReduxP1/20261022T105910Z-original-confirmation-installation-19dc70e7/spellbook-reference - v2.7.3.0"
+      }
+    },
+    {
+      "name": "wizard-mixed-charged-depleted-before",
+      "metadata_sha256": "f89f7458812c68e9d03bfa38cd3f1a4c8b7cec1d29e89b1e8b3491952f381e56",
+      "image_sha256": "96cdecc5fc6d8951d60744559efa13bfbf090e9a928dd2cc39094aecfdd323f3",
+      "utc": "2026-10-22T11:10:07.083Z",
+      "window": {
+        "app": "process:C:\\BGRedux\\phase1-local\\original-confirmation-game-19dc70e7\\Baldur.exe",
+        "id": 9896518,
+        "title": "BGReduxP1/20261022T105910Z-original-confirmation-installation-19dc70e7/spellbook-reference - v2.7.3.0"
+      }
+    }
+  ],
+  "menu_source": {
+    "archive": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\Patch2.bif",
+    "archive_sha256": "9972c8f3cb8f9cbcc00eaa7cc64dcb2fbc2f562b15b1b643806b768490704062",
+    "menu_sha256": "7987e9d38c9a1d8f4df949d880f260ad5a76dd623d08c7e7be6f0f6c8f2931fe",
+    "selected_lines": [
+      {
+        "line": 7778,
+        "text": "function findMemorizedUncastable(resref)"
+      },
+      {
+        "line": 8185,
+        "text": "\t\t\t\tif findMemorizedUncastable(bottomSpells[currentBottomSpell].resref) == -1 and Infinity_GetOption(41, 9) ~= 0 then"
+      }
+    ]
+  },
+  "auditor_sha256": "44cf5d8a36a4e54358cc6fed4150477c155bee1130312d697925aac223c19689",
+  "limits": [
+    "Original wizard physical UI only; no eligible priest or inn reference",
+    "One owned process; same-process HarnessInput reload, no fresh-process config reload",
+    "Snapshot absence of modal also depends on operator click observation",
+    "Other-page SPWI102/SPWI408 charges changed naturally; no whole-world/AI/RNG purity",
+    "Linked assets inventory/root checked, not all archive contents hashed"
+  ],
+  "artifacts_hashed": 59,
+  "artifact_inventory_sha256": "b28dfb667423cb6cdecd138d2275f85ca11f526c24d77308985a80030d3d2027",
+  "private_audit": "C:\\BGRedux\\phase1-local\\results\\20261022T111754Z-original-confirmation-independent-6adc511c\\audit.json",
+  "private_audit_sha256": "c3078000cddb0703132535ae349c2de547d4ef69adc66d99c5ac2e4fe29b8f84"
+}
