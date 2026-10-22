@@ -1,0 +1,27 @@
+# Independent audit of the chained AR0602 recruitment checkpoint
+
+The bounded candidate run `phase1-local/results/20261022T054005Z-cell-recruitment-ac33ed70` supports the declared key→Cell01→stock auto dialogue→Jaheira recruitment→GUI save→fresh-process reload checkpoint. No material evidence blocker was found. It does not establish original parity, physical pointer operation, dungeon exit, full campaign acceptance, whole-world equality or RNG purity.
+
+The raw result SHA256 is `73479cf269f2aa27e3651db75dec2bc6779b2b2c051a44569f96fdc5ed2bba55`; artifact manifest `b34e07c1b49d50bd1257d48b337569ece0b0533d510e918af03121908ac99699`. Independent read-only review rehashed all741 run artifacts, all567 parent artifacts, and67 source/current/frozen triplets. It rehashed3555 candidate source/binary files and3556 protected Phase0 source/binary/fixture files, matched before/after inventories, and checked the private GamePath wrappers, copied root inputs, consumed resource archives and save chain. The external build receipt SHA256 is `0b374ceb533c78e2bfc8b772ca838175c97890fc02b938420c40176462f19b8c`; host executable `74856486bfe1c1de51aaa4e58243d15f33c478927ba03bf0ceda346ffea96d8c`.
+
+The only starting checkpoint was the earlier measured Jaheira talk save `20261022T042747Z-jaheira-dialogue-30a50511/talk/frozen-save`, parent result SHA256 `d1d8a784ff203df8793bc4e0726deb67f95b6dd896c17095f6d6ce33f4a1bd3d` and manifest `958f1cd894cb5acc14a0feb5b59943306566292ff40d59e062a79d92f8176a1b`. This chain did not incorporate the independent sword-loot fixture.
+
+| Observation | Starting checkpoint | Saved checkpoint and fresh reload |
+| --- | --- | --- |
+| Party / Jaheira | Two; Jaheira stored outside party | Three; Jaheira exactly once in party index2 |
+| Jaheira dialogue / TalkCount | `JAHEIRA` /1 | `JAHEIRAJ` /2 |
+| Jailkeep Table | Eleven items, one `MISC4B` | Ten; only `MISC4B` removed |
+| Party key | Absent, then actually acquired once | Consumed; absent |
+| Cell01 | Flags1634, locked/closed | Flags1633, unlocked/open |
+| Quest | Released0; unsolved34105 | Released1;34105 erased;47519 solved, section2/chapter1 |
+| XP: leader / Imoen / Jaheira |89000 /95000 /90000 |90500 /96500 /90000 |
+
+An independent standard-library decoder, importing no journey/parser module, read the actual GAMEV2.0 actor tables and embedded CRE V1.0 records, bounded SAV deflate streams, and AR0602 AREAV1.0 door/container tables. It confirmed the table ownership change, key absence, party membership, dialogue/counter, actual serialized XP and journal/global fields. Both earlier journal records34089 and96383 retained their complete recorded fields. The saved GAM SHA256 is `64e5833d97499b2ffb6186640667bc1b24844ee7bb946cd28b7f1f99e24deae5`; SAV `aee7d02f2d641456dce7eb25aef14cc0356d2c3e685de41f2196f4b225a62e2f`. All six final files, including the third portrait, match the fresh reload's input exactly. Reload runtime state agrees with those decoded fields. Runtime actor IDs are process-local: Jaheira10005 in the first process becomes10004 after reload; persistent identity and membership remain consistent.
+
+Raw events show one UseContainer actor command, one scrollbar52 value1, one enabled MISC4B-bound Take control4/LeftIndex7, one close, and one mirrored private HandleDoor/NIDSpecial9 actor command. The host makes zero dialogue requests. Door-open state appears at game time33110; actual leader/Jaheira dialogue participants and TalkCount2 appear at33113, with Released1 while Jaheira is still outside the party. The public response callback selects text1022 from state33, then the actual End control finishes state34. Joined state appears at33137. The source supports automatic JAHEIRA.BCS initiation; instantaneous action198 was not sampled, so its exact execution is not claimed as traced. Released1 alone was not accepted as recruitment.
+
+The live process PID11360 exited0 in87.811seconds within180seconds, with71 timer samples and13 ordered events. It used the ordinary GUI save callbacks; the audit verifies the resulting save, without inventing a captured synchronous save return code. Fresh PID14256 exited0 in18.383seconds within90seconds, with six samples and zero gameplay/dialogue commands. Its loaded game time33137 advances naturally to33167. Observed XP increases are1500 each for the two existing members; no3000-per-new-member award or sampled intermediate allocation is inferred.
+
+A separate independent KEY/BIFF decoder confirmed all seven actual captured streams in both processes: JAHEIRA.DLG, MISC4B.ITM, ACTION.IDS, PDIALOG.2DA, JAHEIRA.BCS, TRIGGER.IDS and OBJECT.IDS. They match the declared clean-game archives byte for byte. These checks cover the consumed providers; all linked asset contents were not exhaustively hashed. Callback dispatch and the mirrored actor route are measured; OS pointer hit testing is unobserved.
+
+Private audit sources are `phase1-local/results/recruitment-audit-20261022-worker.py` and `recruitment-provider-audit-20261022-worker.py`. Their new immutable review receipts are `20261022T054716Z-recruitment-independent-audit-70e39c42/audit.json`, SHA256 `022c7f1fdc5802c493a66f9d4b13b38f4505a1134f365f791c5c0c7336fc6514`, and `20261022T054834Z-recruitment-provider-audit-a9126245/audit.json`, SHA256 `8dd61d169f014ee15215a8f1b5967a1717601cf4ece5160e1f390b55480501cf`. Only metadata/hash review and independent decoding ran during this audit; no tests, compilers, native hosts, original game or production edits were executed.
