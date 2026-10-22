@@ -1,0 +1,26 @@
+# TextArea selection native correction audit
+
+Independent read-only audit confirms `20261022T063920Z-textarea-selection-v2-df237edb` passes all fifteen declared synthetic selection cases against candidate `20261022T063419Z-candidate-24f35a4e`, including direct public `TextArea::UpdateState`. Each case uses a distinct fresh owned process and nonce, loads the stock two-party AR0602 fixture through the ordinary GUI load path, pauses, and dispatches the synthetic fixture exactly once. All fifteen processes exit 0 without timeout; no case is missing or replaced with a normal-route control.
+
+The independent audit owns its expected trace/value map rather than trusting native echoed expectations or importing the driver's validator. All 31 raw callback events match this map, their sequence numbers, native counts and final values. V means ValueChange; S means Select; INVALID is unsigned 4294967295.
+
+| Cases | Required and observed trace | Final value |
+| --- | --- | --- |
+| direct-replace, direct-remove, normal-replace, already-selected, select-reentry | V40, S40 | 40 |
+| new-context | V40, S40, S40 | 40 |
+| invalid-visible-index, invalid-value-clear | V40, S40, VINVALID | INVALID |
+| value-clear, unnumbered-direct-clear, unnumbered-normal-clear | V40 | 40 |
+| value-replace, unnumbered-direct-replace, unnumbered-normal-replace | V40, V99, S99 | 99 |
+| invalid-unselected | No callbacks | INVALID |
+
+The unnumbered replacement cases additionally retain only V40 before the explicit new selection. The stale old Select is suppressed even though unnumbered selector monitor IDs are -1. Recreated numbered options permit one new Select at the same scalar value; unchanged repeated selection and same-selection Select reentry do not dispatch again. The already-selected native fixture asserts actual selected text equals `2. - beta`; the raw text is not separately serialized, and other cases' `selected_text_matches` flags are not treated as additional text measurements.
+
+The built production source byte-matches the reviewed two-file patch in commit `b49d68b09`. A direct span-selection call returns immediately to avoid reading a replaced vector or dispatching twice. Context is committed before SetValue's dictionary redraw/ValueChange boundary. The pending Select requires unchanged options generation, actual selection/context/index and scalar value afterwards. ClearSelectOptions increments the generation before removal, also covering unnumbered replacement and reused identities. The candidate and external host were coherently rebuilt for the changed TextArea size; this is not a DLL-only swap.
+
+For every case, independently rehashed full dictionary and collected world snapshots are identical before and after the fixture returns and its cleanup guards destruct. The private RDXTASELECT dictionary key does not leak. Actual command, caller nonce, native dispatch/host receipt, owned terminal receipt and process log agree. Six original fixture files match all fifteen private profile copies. Private-game guards report unchanged immutable inputs and source/root inventories; linked licensed archive content is not independently fully hashed. Hidden RNG, arbitrary immediate control self-deletion and nested different-selection responder recursion are outside this evidence.
+
+The audit verifies 3,161 native artifact hashes, 34 frozen/live build source inputs, five compiled files and 37 frozen launch files, plus all 3,508 candidate source and 61 binary hashes. All Phase0 source/binary/fixture and candidate/immutable-input guards pass; 3,500 current Phase0 source, 50 binary and six fixture hashes also match their retained pins. The host SHA256 is `96f718200bd61e5da4472cf5e935d1dfc5378884c4f769f2fa4b879769bc37c1`; candidate core DLL is `051c3ea9f1e2d582e62f3b8dad61d46c6fab04a093cd4bd9c8b865c8a920a26b`.
+
+The complete BEFORE batch `20261022T063003Z-textarea-selection-v2-5489dbb0` remains failed: three passes, seven process crashes and five failed contracts, with all fifteen owned processes terminal and preservation guards passing. Its five compiled fixture files are byte-identical to AFTER inputs. BEFORE result SHA256 is `7b680ace7086a8512adb62a8040e2610be7be743bbf14ccf01336a29cae00c31`; AFTER result is `54db2a4068ea19365365d60a3e5a79fb446d66cb661761b99e3e590453521a71`. The isolated v1 direct-replace crash and the two earlier real-dialogue direct-entry assertion runs remain failed historical evidence.
+
+Private independent evidence is retained at `C:/BGRedux/phase1-local/results/20261022T064847Z-textarea-independent-audit-48b586a4`: result SHA256 `4472a43ca1911e6c4d53eff4068b3cfec87988f38ccb47942d81aa57dc2f539b`, reproducible script `5e0509c99af597f83650094c602f9b58c880723e85eb631182e8c83876f2f65e`, manifest `f41d3e1f550fbcbaaf6fcba1f0fe230a2f3e83ac8fb8ea772b3a709787de954c`. Two independent audit preparation failures are preserved beside the corrected successful audit; no native inputs changed. This establishes the declared synthetic control contracts. Ordinary and direct Jaheira dialogue/save/reload and post-fix menus require their separate runtime results; it does not establish full campaign, original-game or OS pointer parity. This worker launched no test, compiler, engine or game process.
