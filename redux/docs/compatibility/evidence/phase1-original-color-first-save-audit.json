@@ -1,0 +1,170 @@
+{
+  "schema": "bg-redux-phase1-original-color-first-save-independent-audit/1",
+  "verdict": "first-original-save-wire237-bound-to-controlled-input",
+  "installation": "C:\\BGRedux\\phase1-local\\results\\20261022T022308Z-original-color-installation-08d20bb7",
+  "installation_preparation_sha256": "7df900bbb218d2f6d4e3ff4d561fc69be21762db1f283b638d8bda4cdd121406",
+  "color_preparation_sha256": "908c70249faf8b64d5096ea4cc69556fdb71db8766254c6336d4a5933e7c5ee9",
+  "installer_sha256": "7595d30ad915464671a6d08c54382a9d2a397b8e674d64910a9bb21639657e9f",
+  "observation_sha256": "485e2eb902ba9fa5e220751d54cf66ac1d1f995945c148e0f023afde301e087d",
+  "original_executable_sha256": "b51093a49140b2b8a7c046b4652bb8e535be24ebbc12b1d735e0b94217a14d57",
+  "nonce": 1455348314,
+  "case_id": "controlled-high",
+  "input_files": {
+    "BALDUR.bmp": {
+      "bytes": 65590,
+      "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+    },
+    "BALDUR.gam": {
+      "bytes": 69372,
+      "sha256": "6f64a4d3cf30baddfd8800a66e49e35e67cd03504227396f89279e6662fdd142"
+    },
+    "BALDUR.SAV": {
+      "bytes": 20438,
+      "sha256": "43f8b46c1dedd77e89e7730b916490b1d8f67a201aebba95ed8ab5ca446195d3"
+    },
+    "PORTRT0.bmp": {
+      "bytes": 13830,
+      "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+    },
+    "PORTRT1.bmp": {
+      "bytes": 13830,
+      "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+    },
+    "save_000000033-GemRB.cloud.meta": {
+      "bytes": 10,
+      "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+    }
+  },
+  "override_files": {
+    "CEDA5A01.bcs": {
+      "bytes": 1082,
+      "sha256": "229aed6c65680ac0668bd57acb69e475b9cb9ac157cdcd8e1c85ed83203d7ecf"
+    },
+    "RANDCOLR.2da": {
+      "bytes": 15917,
+      "sha256": "854de0203f0086f3a7e4573ab50b03666586517fb2a4b3d57b1571acf6a3bee6"
+    },
+    "RDXCOLOR.cre": {
+      "bytes": 1988,
+      "sha256": "b9e9a2a7698662b41daac840cb531fc9948c2195ab2f83a6e6b1892afc1e1ec6"
+    }
+  },
+  "output_files": {
+    "BALDUR.bmp": {
+      "bytes": 65590,
+      "sha256": "29cac87ac6103b0b354307cfd2385ae2be3ac233c7ca10c0de5bf340399cb632"
+    },
+    "BALDUR.gam": {
+      "bytes": 74976,
+      "sha256": "c0af0eb52956d57571fb511b65add1be1aa3281544581a3b270d465974aaea9c"
+    },
+    "BALDUR.SAV": {
+      "bytes": 19324,
+      "sha256": "96cbe75fef4cf24439f4602ad64ab006668159cea00c1a55d5ccb7fa61881232"
+    },
+    "PORTRT0.bmp": {
+      "bytes": 13830,
+      "sha256": "2392f8f8a6fb3eea22f92c8a6ae445e58f0648316a549df82379c4a792cf5f82"
+    },
+    "PORTRT1.bmp": {
+      "bytes": 13830,
+      "sha256": "4874f98ed7eb4171afab3b4c6c9edac3c99d2faa2b54d6d6f4b26b05f6bc4dcd"
+    }
+  },
+  "npc_wire": {
+    "actor_index": 1,
+    "identity": "RDXCOLOR",
+    "leather_wire_byte": 237,
+    "cre_sha256": "37c973f5d1e64b3d436d923cd0f49a4bacef97086492c437f3cee90cd7efa9ac",
+    "position": [
+      3712,
+      2844
+    ],
+    "effects": 0,
+    "items": 0,
+    "scripts": [
+      "NONE",
+      "NONE",
+      "NONE",
+      "NONE",
+      "NONE"
+    ],
+    "scope": "Serialized CRE byte only; initial/fresh-reloaded runtime palette is not observed here."
+  },
+  "persisted_globals": {
+    "RDXCCASE": 1,
+    "RDXCNONCE": 1455348314,
+    "RDXCSTAGE": 2,
+    "RDXCREADY": 1
+  },
+  "input_original_fixture_unchanged": true,
+  "input_source_fixture_unchanged": true,
+  "final_overrides_unchanged": true,
+  "immutable_installed_root_files_unchanged": true,
+  "new_private_root_files": [],
+  "clean_source_root_hashes_and_inventory_unchanged": true,
+  "linked_assets_fully_hashed": false,
+  "profile_config": {
+    "before_sha256": "744ab0a96802939e931c9929d5d0bc1caf0171fd871f9b9d12c44d9bbc5d1d13",
+    "after_sha256": "697fe47b504cce5650eafad0e69ee425b57c457d81574173a8a0a80f48e8832a",
+    "unchanged": false,
+    "scope": "Mutable original-game preferences; not covered by an unchanged-profile claim."
+  },
+  "profile_save_directories": [
+    "000000000-Auto-Save",
+    "000000001-controlled-high",
+    "000000007-Chapter 1 Start"
+  ],
+  "screenshot_hashes_verified": [
+    {
+      "label": "00-campaign-menu",
+      "sha256": "5fcb056aafa477e5bf4a989bbf2098208c9f8f88307f5688df680d1dd458afcc"
+    },
+    {
+      "label": "01-load-list",
+      "sha256": "c230cfe16d0284e84d60c53c4f1a0bfb18b3bc173f7cfaa242661d04f6aa471d"
+    },
+    {
+      "label": "02-load-selected",
+      "sha256": "03459ca55709359a2d11ba70c434187c927b66926ba8651026500612414c4523"
+    },
+    {
+      "label": "03-loaded-map",
+      "sha256": "7ef17acb061e097b6172334f849d3e8853072e1e292c050ee09b6aab10a51ea4"
+    },
+    {
+      "label": "04-empty-name-input-not-received",
+      "sha256": "6c4ef98a5f85728bf297a6e67c04c11bffb91ceeccd56a4b077c4d0dcca335b6"
+    },
+    {
+      "label": "05-preserved-chapter-save-confirm",
+      "sha256": "c57e8a0808a3846b9245aa267e4b46055bb7fbde2a4c93108627563695d246a3"
+    },
+    {
+      "label": "06-save-successful",
+      "sha256": "600163d81a6602290992894c26bfbe31f454fb482a1ea2f48c6b5ff673db08f3"
+    }
+  ],
+  "static_images_reviewed": [
+    "02-load-selected.jpg",
+    "03-loaded-map.jpg",
+    "05-preserved-chapter-save-confirm.jpg",
+    "06-save-successful.jpg"
+  ],
+  "static_visual_findings": [
+    "Exact private profile/version title and CONTROLLED-HIGH selected input visible.",
+    "Ordinary overwrite confirmation targets preserved Chapter 1 Start slot.",
+    "Subsequent map screenshot visibly reports Save successful.",
+    "No numeric runtime palette237 is established by these images."
+  ],
+  "visible_launch_sha256": "c44fcd4fb8cd5e4829645ca5cc31f54e378dd6d2080262be51a9b400bb35994b",
+  "hidden_cleanup_sha256": "6cddd41909029bae1cc5f173e7639ef029186d1b757b8630bce903c58d42715b",
+  "limits": [
+    "Only first original save observed; original reload unobserved.",
+    "Saved leather byte237 is not an exact original runtime-memory palette observation.",
+    "Created NPC position3712,2844 differs from requested3781,2801; normal creation placement is observed rather than assumed.",
+    "Private profile settings and additional saves are mutable; copied controlled-high input is unchanged.",
+    "Process exit was reported by coordinator and was not independently queried in this metadata/static-image audit.",
+    "No tests, native/game launches, engine edits or input/result mutation occurred."
+  ]
+}
