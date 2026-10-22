@@ -5,6 +5,9 @@
 #include <cwctype>
 #include <iostream>
 #include <string>
+#ifdef _WIN32
+#include <windows.h>
+#endif
 
 namespace {
 // Exact UTF-16 input and expected result from StringTest.StringToUpper.
@@ -91,6 +94,21 @@ int main(int argc, char** argv)
     WriteMapping();
     std::cout << ",\"input_utf16_units\":";
     WriteUnits(input);
+#ifdef _WIN32
+    // Read-only provenance from this process, rather than assuming which CRT
+    // was selected from the compiler distribution or a system file listing.
+    const auto module = GetModuleHandleW(L"ucrtbase.dll");
+    wchar_t modulePath[32768] = {};
+    const auto length = module ? GetModuleFileNameW(module, modulePath, 32768) : 0;
+    std::cout << ",\"loaded_ucrtbase_module_path_utf16_units\":";
+    if (length && length < 32768) {
+        std::u16string path;
+        for (DWORD i = 0; i < length; ++i) path += char16_t(modulePath[i]);
+        WriteUnits(path);
+    } else {
+        std::cout << "null";
+    }
+#endif
     std::cout << ",\"expected_utf16_units\":";
     WriteUnits(expected);
     std::cout << ",\"cases\":[";

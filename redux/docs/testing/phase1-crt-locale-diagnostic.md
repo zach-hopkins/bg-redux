@@ -6,6 +6,12 @@ This source-only diagnostic investigates the retained `StringTest.StringToUpper`
 
 The input is exactly `Закончить`, represented numerically as `[1047,1072,1082,1086,1085,1095,1080,1090,1100]`. The existing test expects `ЗАКОНЧИТЬ`, `[1047,1040,1050,1054,1053,1063,1048,1058,1068]`. The diagnostic records both full `wint_t` returns and UTF-16 destination units. JSON contains only ASCII; locale-name bytes are preserved numerically with an escaped preview, so console encoding cannot change the evidence.
 
+The coordinator added read-only Windows loaded-module provenance: the child
+records `GetModuleHandleW`/`GetModuleFileNameW`'s actual loaded ucrtbase path as
+numeric UTF-16 units. Hash that returned file and retain the executable import
+listing; do not infer the loaded path from a system-file listing alone. This
+adds no engine dependency and changes no host setting.
+
 The coordinator must compile and run serially after other guarded hosts finish. No compilation or execution was performed by the source author. Use the same pinned compiler as the engine, GNU++14 and default dynamic UCRT linkage. Do not add engine includes/libraries, `-static`, alternate CRT, or locale environment overrides. Example compiler argv (substitute a fresh private output directory):
 
 ```powershell
