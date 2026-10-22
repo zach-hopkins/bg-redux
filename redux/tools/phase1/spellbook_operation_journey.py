@@ -88,8 +88,10 @@ def run(args):
     project,source,build=(getattr(args,k).resolve() for k in ('project_root','engine_source_root','engine_build_root'))
     root_guard(project,source,build)
     if not args.results_root.resolve().is_relative_to(project/'phase1-local/results'):raise ValueError('Private Phase1 results root required')
+    policy=getattr(args,'confirmation_policy','legacy-confirmation')
     control_mode=getattr(args,'presentation_control','stock');label='spellbook-operation'if control_mode=='stock'else'spellbook-operation-name-control'
-    out=shared.new_output(args.results_root.resolve(),label);result=dict(presentation_control=control_mode,schema='bg-redux-spellbook-operation-journey/1',passed=False,stages=[],original_parity=None)
+    if policy=='ee-direct':label+='-ee-direct'
+    out=shared.new_output(args.results_root.resolve(),label);result=dict(confirmation_policy=policy,presentation_control=control_mode,schema='bg-redux-spellbook-operation-journey/1',passed=False,stages=[],original_parity=None)
     api=before=candidate=None;preserved=[];privates=[];pins={};override_pins=[];controls=[]
     try:
         api=shared.phase0(project);result['preflight']=api.baseline_runner.preflight(project)
@@ -115,15 +117,15 @@ def run(args):
             preserved.extend([(incoming,input_files),(copied,input_files)]);entry['input_files']=input_files
             private=shared.prepare_private_game(project,stage);privates.append((private,stage))
             for name in ('cache','capture','override'):(stage/name).mkdir()
-            observed_receipt=receipt
+            observed_receipt=dict(receipt,confirmation_policy=policy)
             if control_mode==presentation.CONTROL:
                 control=presentation.prepare(receipt,stage/'override');presentation.verify(control,receipt);controls.append(control)
                 shared.write(stage/'presentation-control.json',control);entry['presentation_control']=control
-                observed_receipt=dict(receipt,resources=control['resources'],presentation_control=presentation.CONTROL)
+                observed_receipt=dict(receipt,resources=control['resources'],presentation_control=presentation.CONTROL,confirmation_policy=policy)
             override_pins.append((stage/'override',evidence.manifest(stage/'override')))
             config=dict(GameType='bg2ee',GamePath=private['game'],GemRBPath=source/'gemrb',PluginsPath=build/'gemrb/plugins',CachePath=stage/'cache',SavePath=stage/'profile',ModPath=stage/'override',UseAsLibrary=0,SaveAsOriginal=1,Width=1024,Height=768,FullScreen=0,CapFPS=30,AudioDriver='none',GameLanguagePath='lang/en_US',SkipIntroVideos=1,Logging=1,LogColor=0,PathfinderThreadsCount=0,PathfinderMainThreadMode='immediate')
             cfg=stage/'probe.cfg';cfg.write_text(''.join('%s=%s\n'%(k,str(v).replace('\\','/')) for k,v in config.items()),encoding='utf-8');pins[str(cfg)]=evidence.sha(cfg)
-            command=[str(host),'--config',str(cfg),'--output',str(stage/'capture'),'--scripts',str(startup),'--mode',mode,'--nonce',entry['nonce'],'--resources',str(driver/'resource-list.txt')]
+            command=[str(host),'--config',str(cfg),'--output',str(stage/'capture'),'--scripts',str(startup),'--mode',mode,'--nonce',entry['nonce'],'--resources',str(driver/'resource-list.txt'),'--confirmation-policy',policy]
             env=api.harness.environment(stage);prefix=project/'phase0-local/toolchain/msys64/ucrt64';env['PATH']=os.pathsep.join([str(build/'gemrb'),str(prefix/'bin'),env.get('PATH','')]);env['PYTHONDONTWRITEBYTECODE']='1'
             source_guard(receipt,project,source);check_resources(receipt,api,project,source);parent_proof(project);shared.validate_private_game(private,stage)
             if evidence.manifest(driver)!=driver_files:raise ValueError('Frozen launch closure changed')
@@ -178,7 +180,7 @@ def main(argv=None):
         if mode=='build':
             q.add_argument('--timeout',type=int,default=240);q.add_argument('--output-dir',type=Path,required=True)
         else:
-            q.add_argument('--host-build',type=Path,required=True);q.add_argument('--results-root',type=Path,required=True);q.add_argument('--presentation-control',choices=('stock',presentation.CONTROL),default='stock')
+            q.add_argument('--host-build',type=Path,required=True);q.add_argument('--results-root',type=Path,required=True);q.add_argument('--presentation-control',choices=('stock',presentation.CONTROL),default='stock');q.add_argument('--confirmation-policy',choices=('legacy-confirmation','ee-direct'),default='legacy-confirmation')
     args=p.parse_args(argv)
     if args.command=='build' and not 1<=args.timeout<=300:p.error('Timeout must be bounded to 1..300 seconds')
     return build_host(args) if args.command=='build' else run(args)
@@ -282,7 +284,8 @@ def check_runtime_resources(folder,receipt):
 
 
 def validate_capture(folder,nonce,mode,started_ns,receipt):
-    host=evidence.read(folder/'book-result.json');runtime=evidence.read(folder/'book-runtime.json');plan=v.expected_plan(mode)
+    host=evidence.read(folder/'book-result.json');runtime=evidence.read(folder/'book-runtime.json');policy=receipt.get('confirmation_policy','legacy-confirmation');plan=v.expected_plan(mode,policy)
+    if host.get('confirmation_policy')!=policy or runtime.get('confirmation_policy')!=policy:raise ValueError('Actual host/runtime confirmation policy differs from explicit request')
     if host.get('schema')!='bg-redux-book-host/1'or host.get('nonce')!=nonce or host.get('mode')!=mode or host.get('completed')is not True or host.get('error')or host.get('os_pointer_input')is not False or host.get('direct_spell_mutation')is not False:raise ValueError('Native spellbook host incomplete/stale/forced')
     if runtime.get('schema')!='bg-redux-book-runtime/1'or runtime.get('nonce')!=nonce or runtime.get('mode')!=mode or runtime.get('planned')!=plan or runtime.get('steps')!=len(plan)or runtime.get('completed')is not True:raise ValueError('Independent operation plan coverage incomplete')
     if started_ns is not None and any(p.stat().st_mtime_ns<started_ns for p in folder.iterdir()if p.is_file()):raise ValueError('Stale evidence capture')
@@ -311,7 +314,7 @@ def validate_capture(folder,nonce,mode,started_ns,receipt):
         if meta['level']!=expectedlevel:raise ValueError('Arrow/tab requested level disagrees with actual shown content')
         nonidentity=v.book_guard(meta,state,ui,case,spell_names,template)or nonidentity
         modal=any(c['pack']==case['pack']and c['window']==case['modal']and c['visible']for c in ui['controls'])
-        if modal!=meta['confirmation']or modal!=(suffix in('cancel-modal','remove-modal')):raise ValueError('Actual charged/depleted confirmation boundary differs')
+        if modal!=meta['confirmation']or modal!=(policy=='legacy-confirmation'and suffix in('cancel-modal','remove-modal')):raise ValueError('Actual charged/depleted confirmation boundary differs')
         captures[row['name']]=(meta,state,ui)
         if suffix in('tab0','tab1','arrow0','arrow1','back1','tab1-repeat'):pixel_rows[row['name']]=v.tab_hashes(folder,meta,ui,case)
     if len(observations)!=host['captures']or len(list(folder.glob('capture-*.bmp')))!=len(observations):raise ValueError('Missing/extra actual screenshot inventory')
@@ -319,7 +322,7 @@ def validate_capture(folder,nonce,mode,started_ns,receipt):
         v.tabs_guard(pixel_rows,case)
         if mode=='operate':
             baseline=captures[case['name']+'.before'][1]
-            for suffix in('cancel-modal','after-cancel','remove-modal','after-remove','after-add','after-depleted-remove','final'):v.stage_delta(baseline,captures[case['name']+'.'+suffix][1],case,suffix)
+            for suffix in (('cancel-modal','after-cancel','remove-modal','after-remove','after-add','after-depleted-remove','final')if policy=='legacy-confirmation'else('after-remove','after-add','after-depleted-remove','final')):v.stage_delta(baseline,captures[case['name']+'.'+suffix][1],case,suffix)
     for event in events:
         before=evidence.read(folder/('callback-%d-before.state.json'%event['sequence']));after=evidence.read(folder/('callback-%d-after.state.json'%event['sequence']));step=event['step']
         if v.callback_game_boundary(event,before,after):continue
@@ -327,7 +330,7 @@ def validate_capture(folder,nonce,mode,started_ns,receipt):
         name=plan[step]
         if '.'in name:
             prefix,suffix=name.split('.',1);case=next(c for c in v.CASES if c['name']==prefix)
-            if suffix in('confirm-remove','known-add','known-readd','depleted-remove'):
+            if suffix in('confirm-remove','charged-remove','known-add','known-readd','depleted-remove'):
                 if mode!='operate':raise ValueError('Reload executed memorization mutation')
                 v.callback_guard(before,after,case,suffix)
             else:v.equal_except_selection(before,after)
@@ -335,6 +338,7 @@ def validate_capture(folder,nonce,mode,started_ns,receipt):
                 original=v.page(before['party'][case['pc']-1],case['kind'],case['level'])['known'];shown=sorted(enumerate(original),key=lambda pair:spell_names[pair[1]['resref'].upper()]['name']);matches=[i for i,pair in enumerate(shown)if pair[1]['resref'].upper()==case['ref']]
                 if receipt.get('presentation_control')==presentation.CONTROL and matches!=[0]:raise ValueError('Controlled target did not move from original index to visible index zero')
                 if len(matches)!=1 or event['actual_value']!=case['known']or event['control']!=27+matches[0]or event['actual_tooltip']!=spell_names[case['ref']]['name']:raise ValueError('Actual selected shown spell mapped to wrong original index/resref')
+            if suffix=='charged-remove'and(event['window']!=2 or event['control']!=3+case['memo']or event['actual_value']!=case['memo']or event['pack']!=case['pack']):raise ValueError('Actual direct charged prepared callback differs')
             if suffix=='confirm-remove'and(event['window']!=case['modal']or event['control']!=0 or event['actual_value']!=case['memo']):raise ValueError('Actual charged confirmation index differs')
         else:v.equal_except_selection(before,after)
     final=evidence.read(folder/'final.state.json');operations=evidence.read(folder/'operations-final.state.json');v.declared_world_delta(ready,operations,{c['name']for c in v.CASES}if mode=='operate'else set());v.equal_except_selection(operations,final)
@@ -344,7 +348,7 @@ def validate_capture(folder,nonce,mode,started_ns,receipt):
         name=evidence.read(folder/'save-name.json')
         if name!=dict(control=3,nonce=nonce,performed=True)or len(host['saves'])!=1 or evidence.read(folder/'before-save.state.json')!=final:raise ValueError('Ordinary GUI save did not preserve collected state')
     elif len(extras)!=1 or host['saves']!=[]:raise ValueError('Reload issued extra load/save/gameplay callback')
-    return dict(save=host['saves'][0]if mode=='operate'else None,callbacks=len(events),observations=len(observations),actual_memorization_operations=mode=='operate',nonidentity_sort_runtime=nonidentity,arrow_tab_pixel_agreement=True,original_parity=None,os_pointer_input=False)
+    return dict(confirmation_policy=policy,save=host['saves'][0]if mode=='operate'else None,callbacks=len(events),observations=len(observations),actual_memorization_operations=mode=='operate',nonidentity_sort_runtime=nonidentity,arrow_tab_pixel_agreement=True,original_parity=None,os_pointer_input=False)
 
 
 if __name__=='__main__':raise SystemExit(main())

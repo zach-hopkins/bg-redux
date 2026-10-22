@@ -227,17 +227,39 @@ class SpellbookOperationContracts(unittest.TestCase):
                 else:struct.pack_into('<I',g,start+ba+8,mn+1)
                 (p/'baldur.gam').write_bytes(g)
                 with self.subTest(kind=kind),self.assertRaises(ValueError):v.wire_spellbooks(p)
+    def test_after_plan_explicitly_replaces_modal_cancel_with_one_charged_press(self):
+        before=v.expected_plan('operate','legacy-confirmation');after=v.expected_plan('operate','ee-direct')
+        self.assertEqual(len(before),69);self.assertEqual(len(after),57)
+        for case in v.CASES:
+            prefix=case['name']+'.';self.assertIn(prefix+'charged-remove',after)
+            for step in ('cancel-modal','after-cancel','remove-modal','confirm-remove','charged-cancel-request','charged-remove-request'):self.assertNotIn(prefix+step,after)
+            for step in ('known-add','depleted-remove','known-readd','final'):self.assertIn(prefix+step,after)
+        self.assertEqual(v.expected_plan('reload','ee-direct'),v.expected_plan('reload','legacy-confirmation'))
+        with self.assertRaises(ValueError):v.expected_plan('operate','automatic')
+    def test_direct_charged_callback_requires_immediate_exact_removal(self):
+        before=state();case=v.CASES[0];after=copy.deepcopy(before);rows=v.page(before['party'][1],1,1)['memorized'];change(after,case,rows[1:]);v.callback_guard(before,after,case,'charged-remove')
+        with self.assertRaises(ValueError):v.callback_guard(before,before,case,'charged-remove')
+        wrong=copy.deepcopy(before);change(wrong,case,rows[:-1])
+        with self.assertRaises(ValueError):v.callback_guard(before,wrong,case,'charged-remove')
+    def test_policy_is_explicit_in_host_and_runtime_without_fallback(self):
+        with tempfile.TemporaryDirectory()as temp:
+            folder=Path(temp)
+            for hostpolicy,runtimepolicy in (('legacy-confirmation','ee-direct'),('ee-direct','legacy-confirmation'),(None,'ee-direct')):
+                (folder/'book-result.json').write_text(json.dumps(dict(confirmation_policy=hostpolicy)))
+                (folder/'book-runtime.json').write_text(json.dumps(dict(confirmation_policy=runtimepolicy)))
+                with self.subTest(host=hostpolicy,runtime=runtimepolicy),self.assertRaisesRegex(ValueError,'policy'):runner.validate_capture(folder,'a'*32,'operate',None,dict(confirmation_policy='ee-direct'))
+
     def test_independent_plan_rejects_missing_confirmation_or_depleted_operation(self):
         self.assertEqual(len(v.expected_plan('operate')),69);self.assertEqual(len(v.expected_plan('reload')),41)
         with tempfile.TemporaryDirectory()as temp:
-            folder=Path(temp);host=dict(schema='bg-redux-book-host/1',nonce='a'*32,mode='operate',completed=True,error='',os_pointer_input=False,direct_spell_mutation=False);runtime=dict(schema='bg-redux-book-runtime/1',nonce='a'*32,mode='operate',planned=v.expected_plan('operate')[:-1],steps=68,completed=True)
+            folder=Path(temp);host=dict(schema='bg-redux-book-host/1',nonce='a'*32,mode='operate',confirmation_policy='legacy-confirmation',completed=True,error='',os_pointer_input=False,direct_spell_mutation=False);runtime=dict(schema='bg-redux-book-runtime/1',nonce='a'*32,mode='operate',confirmation_policy='legacy-confirmation',planned=v.expected_plan('operate')[:-1],steps=68,completed=True)
             (folder/'book-result.json').write_text(json.dumps(host));(folder/'book-runtime.json').write_text(json.dumps(runtime))
             with self.assertRaises(ValueError):runner.validate_capture(folder,'a'*32,'operate',None,{})
     def test_wrong_nonce_or_forced_native_receipt_rejected(self):
         with tempfile.TemporaryDirectory()as temp:
-            folder=Path(temp);(folder/'book-runtime.json').write_text('{}')
+            folder=Path(temp);(folder/'book-runtime.json').write_text(json.dumps(dict(confirmation_policy='legacy-confirmation')))
             for kind in('nonce','forced'):
-                host=dict(schema='bg-redux-book-host/1',nonce='b'*32 if kind=='nonce'else'a'*32,mode='operate',completed=True,error='',os_pointer_input=False,direct_spell_mutation=kind=='forced');(folder/'book-result.json').write_text(json.dumps(host))
+                host=dict(schema='bg-redux-book-host/1',nonce='b'*32 if kind=='nonce'else'a'*32,mode='operate',confirmation_policy='legacy-confirmation',completed=True,error='',os_pointer_input=False,direct_spell_mutation=kind=='forced');(folder/'book-result.json').write_text(json.dumps(host))
                 with self.subTest(kind=kind),self.assertRaises(ValueError):runner.validate_capture(folder,'a'*32,'operate',None,{})
     def test_wrong_measured_parent_hash_fails_before_any_runtime(self):
         with patch.object(runner.evidence,'sha',return_value='wrong'),self.assertRaises(ValueError):runner.parent_proof(Path('private-parent'))

@@ -10,9 +10,13 @@ CASES=(dict(name='mage',pc=2,pack='GUIMG',kind=1,level=1,ref='SPWI213',known=2,m
 NAV=('portrait','open','initial','next1','arrow1','tab1-click','tab1','previous0','arrow0','tab0-click','tab0','tab2-click','tab2','previous1','back1','tab1-repeat-click','tab1-repeat','operation-level-click','before')
 OPERATIONS=('charged-cancel-request','cancel-modal','cancel','after-cancel','charged-remove-request','remove-modal','confirm-remove','after-remove','known-add','after-add','depleted-remove','after-depleted-remove','known-readd','final')
 
-def expected_plan(mode):
+DIRECT_OPERATIONS=('charged-remove','after-remove','known-add','after-add','depleted-remove','after-depleted-remove','known-readd','final')
+
+def expected_plan(mode,policy='legacy-confirmation'):
+    if policy not in ('legacy-confirmation','ee-direct'):raise ValueError('Explicit supported confirmation policy required')
     if mode not in ('operate','reload'):raise ValueError('Unsupported mode')
-    return [c['name']+'.'+step for c in CASES for step in NAV+(OPERATIONS if mode=='operate'else())+('close',)]+['leader-portrait']
+    operations=OPERATIONS if policy=='legacy-confirmation'else DIRECT_OPERATIONS
+    return [c['name']+'.'+step for c in CASES for step in NAV+(operations if mode=='operate'else())+('close',)]+['leader-portrait']
 
 def page(actor,kind,level):
     rows=[r for r in actor['spellbook']if r['type']==kind and r['level']==level]
@@ -159,7 +163,7 @@ def equal_except_selection(before,after):
 def callback_guard(before,after,case,kind):
     caster_surfaces(before);caster_surfaces(after)
     pc=case['pc'];left=copy.deepcopy(before);right=copy.deepcopy(after);a=page(left['party'][pc-1],case['kind'],case['level']);b=page(right['party'][pc-1],case['kind'],case['level']);old=spells(a['memorized'])
-    if kind=='confirm-remove':
+    if kind in('confirm-remove','charged-remove'):
         if not old or old[0]!=(case['ref'],1):raise ValueError('Charged confirmation target differs')
         expected=old[1:]
     elif kind in('known-add','known-readd'):expected=old+[(case['ref'],0)]

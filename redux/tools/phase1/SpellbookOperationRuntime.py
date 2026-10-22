@@ -13,6 +13,7 @@ INDEX=0
 CAPTURE=0
 NONCE=None
 MODE=None
+POLICY=None
 
 def view(pack,window):
     item=GemRB.GetView(pack,window)
@@ -98,10 +99,11 @@ def confirm(case,cancel):
 
 def add(name,fn):PLAN.append((name,fn))
 
-def Configure(output,nonce,mode):
-    global OUTPUT,NONCE,MODE,PLAN,ROWS,INDEX,CAPTURE
+def Configure(output,nonce,mode,policy):
+    global OUTPUT,NONCE,MODE,POLICY,PLAN,ROWS,INDEX,CAPTURE
+    if policy not in ('legacy-confirmation','ee-direct'):raise RuntimeError('Explicit confirmation policy required')
     if mode not in ('operate','reload')or len(nonce)!=32 or any(c not in'0123456789abcdef'for c in nonce):raise RuntimeError('Invalid private plan mode/nonce')
-    OUTPUT=Path(output);NONCE=nonce;MODE=mode;PLAN=[];ROWS=[];INDEX=CAPTURE=0
+    OUTPUT=Path(output);NONCE=nonce;MODE=mode;POLICY=policy;PLAN=[];ROWS=[];INDEX=CAPTURE=0
     GemRB.SetVar('RDXBookComplete',0);GemRB.SetVar('RDXBookPressPack',0);GemRB.SetVar('RDXBookCapture',0)
     for case in CASES:
         name=case['name'];add(name+'.portrait',lambda c=case:select(c));add(name+'.open',lambda c=case:open_book(c))
@@ -109,7 +111,9 @@ def Configure(output,nonce,mode):
         add(name+'.initial',lambda c=case:observe(c,c['name']+'.initial',0))
         for suffix,fn in [('next1',lambda c=case:arrow(c,True)),('arrow1',lambda c=case:observe(c,c['name']+'.arrow1',1)),('tab1-click',lambda c=case:tab(c,1)),('tab1',lambda c=case:observe(c,c['name']+'.tab1',1)),('previous0',lambda c=case:arrow(c,False)),('arrow0',lambda c=case:observe(c,c['name']+'.arrow0',0)),('tab0-click',lambda c=case:tab(c,0)),('tab0',lambda c=case:observe(c,c['name']+'.tab0',0)),('tab2-click',lambda c=case:tab(c,2)),('tab2',lambda c=case:observe(c,c['name']+'.tab2',2)),('previous1',lambda c=case:arrow(c,False)),('back1',lambda c=case:observe(c,c['name']+'.back1',1)),('tab1-repeat-click',lambda c=case:tab(c,1)),('tab1-repeat',lambda c=case:observe(c,c['name']+'.tab1-repeat',1)),('operation-level-click',lambda c=case:tab(c,c['level'])),('before',lambda c=case:observe(c,c['name']+'.before',c['level']))]:add(name+'.'+suffix,fn)
         if mode=='operate':
-            for suffix,fn in [('charged-cancel-request',lambda c=case:memo(c)),('cancel-modal',lambda c=case:observe(c,c['name']+'.cancel-modal',c['level'],True)),('cancel',lambda c=case:confirm(c,True)),('after-cancel',lambda c=case:observe(c,c['name']+'.after-cancel',c['level'])),('charged-remove-request',lambda c=case:memo(c)),('remove-modal',lambda c=case:observe(c,c['name']+'.remove-modal',c['level'],True)),('confirm-remove',lambda c=case:confirm(c,False)),('after-remove',lambda c=case:observe(c,c['name']+'.after-remove',c['level'])),('known-add',lambda c=case:known(c)),('after-add',lambda c=case:observe(c,c['name']+'.after-add',c['level'])),('depleted-remove',lambda c=case:memo(c,True)),('after-depleted-remove',lambda c=case:observe(c,c['name']+'.after-depleted-remove',c['level'])),('known-readd',lambda c=case:known(c)),('final',lambda c=case:observe(c,c['name']+'.final',c['level']))]:add(name+'.'+suffix,fn)
+            steps=[('charged-cancel-request',lambda c=case:memo(c)),('cancel-modal',lambda c=case:observe(c,c['name']+'.cancel-modal',c['level'],True)),('cancel',lambda c=case:confirm(c,True)),('after-cancel',lambda c=case:observe(c,c['name']+'.after-cancel',c['level'])),('charged-remove-request',lambda c=case:memo(c)),('remove-modal',lambda c=case:observe(c,c['name']+'.remove-modal',c['level'],True)),('confirm-remove',lambda c=case:confirm(c,False)),('after-remove',lambda c=case:observe(c,c['name']+'.after-remove',c['level'])),('known-add',lambda c=case:known(c)),('after-add',lambda c=case:observe(c,c['name']+'.after-add',c['level'])),('depleted-remove',lambda c=case:memo(c,True)),('after-depleted-remove',lambda c=case:observe(c,c['name']+'.after-depleted-remove',c['level'])),('known-readd',lambda c=case:known(c)),('final',lambda c=case:observe(c,c['name']+'.final',c['level']))]
+            if POLICY=='ee-direct':steps=[('charged-remove',lambda c=case:memo(c)),('after-remove',lambda c=case:observe(c,c['name']+'.after-remove',c['level'])),('known-add',lambda c=case:known(c)),('after-add',lambda c=case:observe(c,c['name']+'.after-add',c['level'])),('depleted-remove',lambda c=case:memo(c,True)),('after-depleted-remove',lambda c=case:observe(c,c['name']+'.after-depleted-remove',c['level'])),('known-readd',lambda c=case:known(c)),('final',lambda c=case:observe(c,c['name']+'.final',c['level']))]
+            for suffix,fn in steps:add(name+'.'+suffix,fn)
         add(name+'.close',lambda c=case:close_book(c))
     add('leader-portrait',lambda:press('PORTWIN',0,0,actor=1,route='restore walking selection'))
 
@@ -119,5 +123,5 @@ def Step():
     if INDEX>=len(PLAN):GemRB.SetVar('RDXBookComplete',1)
     else:
         name,fn=PLAN[INDEX];GemRB.SetVar('RDXBookStep',INDEX);fn();INDEX+=1
-    result=dict(schema='bg-redux-book-runtime/1',nonce=NONCE,mode=MODE,planned=[name for name,_ in PLAN],steps=INDEX,completed=INDEX==len(PLAN),rows=ROWS,sort_permutation_runtime_coverage=None,sort_assessment_owner="independent_external_validator")
+    result=dict(schema='bg-redux-book-runtime/1',nonce=NONCE,mode=MODE,confirmation_policy=POLICY,planned=[name for name,_ in PLAN],steps=INDEX,completed=INDEX==len(PLAN),rows=ROWS,sort_permutation_runtime_coverage=None,sort_assessment_owner="independent_external_validator")
     (OUTPUT/'book-runtime.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf8')
