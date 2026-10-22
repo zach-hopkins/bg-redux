@@ -2428,3 +2428,33 @@ The [native testing client](../testing/ai-first-harness.md) now implements fixtu
 ## Compatibility priority after original query execution
 
 The [original-script comparison](../testing/original-script-query-results.md) now demonstrates missing EE weapon predicates with positive/negative hand/target controls. A narrow compatibility predicate implementation is a separate candidate from the first combat-causality instrumentation seam. Do not let the MR proposal block a characterized compatibility fix, or substitute new combat resolution for a read-only query. Complete equipped-weapon/defense characterization and side-effect constraints before choosing its implementation scope. Phase0 has not authorized engine edits.
+
+
+### Phase 1 spellbook checkpoint — October 22, 2026 UTC
+
+Current coherent candidate is `phase1-local/builds/20261022T093226Z-candidate-5a60a03d`:
+3,509 engine sources, 61 binaries, five support files; core SHA-256
+`7ff543a31cbebb01dff8fdf9e318367cd60322dc82c1d947b829685f7d6493ee`.
+The [heading repair report](../testing/phase1-ee-spellbook-heading-repair.md)
+and [operation report](../testing/phase1-spellbook-operation-journey.md) bind
+424 source-bound tooling tests, the audited fresh 44-assertion baseline,
+196 checks/51 captures at both 1024x768 and 1280x768, and independently audited
+EE-direct stock/private name-control GUI save/fresh reload passes. Actual heading
+updates distinguish allocated entries from ready charges. Compatibility
+residuals, original-priest/Classic runtime, pointer and typography limits remain
+explicit. Every native/original session from this checkpoint is terminal.
+
+The protected Phase0 checkout/build/fixture remain unchanged. All raw results,
+including disk exhaustion and a 273-character test-path failure, are retained.
+[Storage preservation](../testing/phase1-lab-storage-preservation.md) records
+verified byte-preserving compression and shared read-only archived cache storage;
+all new runs must use fresh private caches, never reopen archived profiles writable.
+
+Next bounded work is the
+[spellbook information/selection gap](../testing/phase1-spellbook-information-layout-gap.md)
+and a separate controlled native reproduction of the source-inferred wizard
+info-to-Erase index risk. The contracts worker is preparing an external
+source-only diagnostic; it has no native result or production correction yet.
+Keep the full P1-01 through P1-07 scope active, including broader menus,
+inventory/record information, persistence, ordinary journeys and campaign gates.
+No release or Phase 1 completion is claimed.

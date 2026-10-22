@@ -1,5 +1,12 @@
 # Stock spellbook operations: external journey
 
+Latest checkpoint: audited stock and private name-control BEFORE journeys pass.
+The heading/direct-removal candidate passes the fresh 44-assertion baseline and
+both 196-check menu resolutions. Explicit EE-direct stock and private name-control operation/save/reload runs
+now pass; independent audit scope is recorded below. Historical failures remain failed.
+
+## Historical adapter failures
+
 Coordinator checkpoint, October 22 UTC: the first 16 focused tests and external
 build pass, but `20261022T084001Z-spellbook-operation-6cc4d25f` crashes before game
 load. Fresh diagnostic `20261022T084520Z-spellbook-operation-5f0f9586` confirms
@@ -30,7 +37,7 @@ does not rewrite its raw failed verdict. Review receipt:
 
 This source-only adapter exercises Imoen's wizard book and Jaheira's priest book from the measured four-party Minsc checkpoint `20261022T075243Z-minsc-recruitment-072650e1/recruit/frozen-save`. No build, test, or runtime result is claimed by this implementation delivery. The coordinator owns execution. It adds no engine changes or fixture edits.
 
-## Ordinary route and acceptance
+## Legacy BEFORE route and acceptance
 
 Each caster is selected with the registered portrait callback, then the real OPTWIN spellbook callback. Observations bind selected identity, shown name/level, original known index, displayed tooltip, actual registered control, and raw spellbook content. Arrow results are compared with the same level reached by a real tab press. Actual tab BMP regions must distinguish tab 0 from tab 1 before their equality is accepted; icon presence alone cannot pass.
 
@@ -64,7 +71,7 @@ $taskBuild = 'C:\BGRedux\phase1-local\builds\REPLACE_WITH_COHERENT_CANDIDATE'
 $taskHost = 'C:\BGRedux\phase1-local\spellbook-probes\ordinary-1'
 & $taskPython -B -m unittest discover -s "$taskSource\redux\tools\phase1\tests" -p test_spellbook_operation_journey.py
 & $taskPython -B "$taskSource\redux\tools\phase1\spellbook_operation_journey.py" build --project-root C:\BGRedux --engine-source-root $taskSource --engine-build-root $taskBuild --output-dir $taskHost --timeout 240
-& $taskPython -B "$taskSource\redux\tools\phase1\spellbook_operation_journey.py" run --project-root C:\BGRedux --engine-source-root $taskSource --engine-build-root $taskBuild --host-build "$taskHost\build.json" --results-root C:\BGRedux\phase1-local\results
+& $taskPython -B "$taskSource\redux\tools\phase1\spellbook_operation_journey.py" run --project-root C:\BGRedux --engine-source-root $taskSource --engine-build-root $taskBuild --host-build "$taskHost\build.json" --results-root C:\BGRedux\phase1-local\results --confirmation-policy ee-direct
 ```
 
 Run only after the coordinator's other game process has terminated. Fresh source changes invalidate the external receipt and require a new build.
@@ -80,7 +87,7 @@ Focused test sources include wrong resref/index/charge, duplicate loss, forbidde
 Coordinator control command (after a fresh external build and all other runtimes terminal):
 
 ```powershell
-& $taskPython -B "$taskSource\redux\tools\phase1\spellbook_operation_journey.py" run --project-root C:\BGRedux --engine-source-root $taskSource --engine-build-root $taskBuild --host-build "$taskHost\build.json" --results-root C:\BGRedux\phase1-local\results --presentation-control spellname-permutation
+& $taskPython -B "$taskSource\redux\tools\phase1\spellbook_operation_journey.py" run --project-root C:\BGRedux --engine-source-root $taskSource --engine-build-root $taskBuild --host-build "$taskHost\build.json" --results-root C:\BGRedux\phase1-local\results --confirmation-policy ee-direct --presentation-control spellname-permutation
 ```
 
 Original serialized append order is a separate observation: the coordinator decoded SPWI213 ready1/SPWI214 ready1/SPWI215 ready1 becoming SPWI214 ready1/SPWI215 ready1/SPWI213 ready0, while prepared icons remained visually sorted. This control validates the declared raw memorization delta and known-icon original-index mapping; it does not declare GemRB prepared-row display order equivalent to original.
@@ -137,3 +144,45 @@ operation closure explicitly freezes the new `EESpellbookHeading.py` helper as
 well as the full engine receipt. `ee-direct-1` was built but never executed;
 adding this explicit frozen helper required the separate `ee-direct-2` build.
 Focused operation tests pass 29/29 after that closure addition.
+
+
+## Executed EE-direct AFTER passes
+
+Stock AFTER `compressed-spellbook-20261022/20261022T100132Z-spellbook-operation-ee-direct-4660dca4`
+passes with explicit policy `ee-direct`; result SHA-256
+`a8b41f65b8e99d667405af61de1ea3d5b805b1ac449bd41d6410170de616b323`.
+Operate PID 11868 exits 0 in 158.454 seconds; fresh reload PID 7308 exits 0 in
+111.043 seconds. The actual 57-step operation plan has 35 registered callbacks
+and 26 captures; reload has 41 steps, 24 callbacks and 18 captures. Charged
+removal is immediate with no confirmation; depleted removal/re-add, exact saved
+resrefs/order/flags, duplicates, other known pages/slots and all preservation
+checks pass. Stock order retains its explicit permutation coverage gap.
+The [independent stock AFTER audit](phase1-ee-direct-stock-independent-audit.md)
+confirms raw effects and 44 heading observations: allocated counts return to
+3/3 and 5/5 after re-add while ready counts remain 2 and 4. Labels remain in the
+measured strip and follow actual selected actors/levels/capacities.
+
+Separate AFTER name control
+`compressed-spellbook-20261022/20261022T100702Z-spellbook-operation-name-control-ee-direct-38a3a754`
+also passes; result SHA-256
+`00301deb3470d37cf26c1dd972b382b80a26122666eeda90b9527a3b7dededeb`.
+Operate PID 14444 exits 0 in 158.151 seconds; reload PID 4592 exits 0 in
+110.826 seconds. Actual nonidentity order is observed in both processes, with
+shown index 0 mapped to original indices 2/4 and correct saved spell identities.
+Four private name-only overrides, unchanged TLK and all preservation checks pass.
+This remains a private control, not a stock/original-parity run.
+
+The [remaining information/selection gap](phase1-spellbook-information-layout-gap.md)
+records missing persistent names/help and the separate name-selection/Memorize
+route. Existing icon shortcuts are source-supported in the original; they are
+not rejected merely because original name-cell selection is also available.
+Wizard info-to-Erase original-index handling needs its own reproduction; these
+memorization passes do not validate erasure. Full spontaneous books, physical
+pointer operation, typography/localization and campaign fidelity remain open.
+
+
+The [independent combined AFTER audit](phase1-ee-direct-name-control-independent-audit.md)
+confirms the private name-control pass, full source/build/provider bindings,
+immediate direct removal, exact saved identities and 44 changing heading
+observations. Like the stock audit it observes allocated counts after depleted
+re-adds, rather than accepting an all-ready-only counter comparison.

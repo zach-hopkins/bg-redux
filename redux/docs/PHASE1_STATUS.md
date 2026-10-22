@@ -9,6 +9,18 @@ game typefaces are fidelity requirements. Modern UI direction remains approved.
 ## Requirements and order
 
 Latest LAB checkpoint (October 22 UTC): see the [executed validation report](testing/phase1-lab-validation.md).
+New heading/direct-removal candidate `20261022T093226Z-candidate-5a60a03d`
+passes the fresh 44-assertion baseline (known differences retained), with an
+[independent audit](testing/phase1-heading-policy-fresh-baseline-audit.md).
+Its [heading repair](testing/phase1-ee-spellbook-heading-repair.md) passes
+196 native menu checks and 51 captures at both 1024x768 and 1280x768.
+Audited stock and controlled-name spellbook BEFORE operation/save/reload journeys
+also pass. Explicit EE-direct stock and private name-control AFTER operation/save/reload
+journeys now pass; the [stock independent audit](testing/phase1-ee-direct-stock-independent-audit.md)
+also binds 44 changing heading observations, including allocated versus ready counts.
+Persistent spell-name/help assembly, exact typography and the full Phase1
+backlog remain open. The following paragraphs retain earlier checkpoints.
+
 Candidate `9aa69cd5` matches all 22 selected original weapon cases, completes the
 ten-stage inventory replacement regression, and matches the four original AI
 branches with native attack/target samples. Its calling-thread RNG observer
@@ -18,8 +30,8 @@ retained. Fresh private-folder query/cache/control and import/GUI reruns pass
 their preservation guards; the earlier diagnostic-write failure is retained.
 Both selected menu resolutions complete 107 checks and 51 captures. The opaque
 plain-key editor journey and measured calling-thread RNG snapshot cost pass
-their bounded checks. External tooling now passes 424 Python tests (fresh integrated run: 35.614 seconds;
-private log `phase1-local/results/phase1-integrated-tests-20261022T0950.log`). Original
+their bounded checks. External tooling now passes 424 Python tests (final source-bound run: 34.768 seconds;
+receipt `phase1-local/results/phase1-tooling-final-1792664175947971600/result.json`). Original
 controlled-color ordinary saves and candidate fresh-process saves both show
 237 to 46 to 46; the independently audited comparison establishes shared
 behavior for this controlled input, not a candidate-only persistence defect.
@@ -65,7 +77,8 @@ The [independent artifact audit](testing/phase1-caster-menu-native-audit.md)
 passes and retains the faint priest-heading observation and visual scope limits.
 The [heading layout investigation](testing/phase1-spellbook-heading-layout-gap.md)
 binds that readability issue to obsolete CHU placement/styling versus the shipped
-EE menu assembly; a correction and original/rendered comparison remain pending.
+EE menu assembly. Its bounded repair now passes both native menu resolutions;
+original information assembly and exact typography remain open.
 The [independent renderer audit](testing/phase1-window-render-lab-audit.md)
 rechecks the synthetic captures, preservation pins and ordinary-run artifact chain.
 A direct public TextArea selection entry separately exposes

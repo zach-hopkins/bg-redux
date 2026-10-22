@@ -46,3 +46,20 @@ Each candidate carries: user-visible trigger and expected/observed behavior; exa
 ## Deliberately later decisions
 
 Navigation Redux requires measured delivered attacks/timing as well as arrival; combat event foundations and controlled RNG/clock observation belong to the staged instrumentation work. Party Stash is always available in the approved future design, with no Combat Pack/combat lock; legacy ownership, capacity progression and overflow need their own transaction/migration decision before implementation. Combat Info must filter authoritative events through earned player knowledge. SCS/Ascension use a pinned later installation, not a universal-mod promise. Multiplayer, rules changes, renderer replacement and human-led visual restoration remain separate workstreams and approvals.
+
+
+## October 22 spellbook follow-up
+
+The [heading repair](../testing/phase1-ee-spellbook-heading-repair.md) now passes
+both menu resolutions and actual depleted-slot updates. Explicit direct-removal
+stock and private nonidentity-name journeys pass GUI save/fresh reload on the
+coherent new candidate; compatibility differences from the fresh baseline stay
+unwaived. This completes a bounded ordinary spellbook slice, not P1-03/P1-06.
+
+Next concrete fidelity work is the
+[information/selection assembly gap](../testing/phase1-spellbook-information-layout-gap.md):
+persistent localized spell names, help/description content, information-only
+name selection and a separately gated Memorize action, while retaining the
+original's icon shortcut. A source-inferred info-to-Erase displayed/original
+index risk requires its own controlled native reproduction before correction.
+Do not infer erase coverage from successful known-icon Memorize tests.

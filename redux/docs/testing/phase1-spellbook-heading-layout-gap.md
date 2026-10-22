@@ -1,5 +1,8 @@
 # Spellbook heading layout and readability gap
 
+Historical reproduction below. The [bounded repair](phase1-ee-spellbook-heading-repair.md)
+now passes both native menu resolutions; broader assembly/typography gaps remain.
+
 The current candidate's populated priest book passes actor/slot checks but its
 “Memorized” heading is faint and detached from the memorized row. Coordinator
 inspection of `20261022T064911Z-guarded-textarea-menu-run-eba67ffa` capture 25 at
