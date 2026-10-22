@@ -10,6 +10,17 @@ two-failure BEFORE and 15-pass AFTER, plus 523 passing source checks. Candidate
 and setting save/fresh-process reload remain pending. Feedback's duplicate
 confirmation labels and exact typeface metrics remain open. Preserve every result.
 
+Later source/native checkpoint: candidate ced237a2 builds and the corrected full
+source suite passes 524 tests. First information journey90991fb5 is failed on
+unsupported diagnostic pronoun tokens (native operations/save completed); its
+scroll proof also needs a naturally longer description. First confirmation
+journeyd8efb6d2 is failed on diagnostic case comparisons and remains retained.
+Fresh confirmation journey `20261022T121354Z-confirmation-setting-mixed-a92b7cdc`
+passes both owned processes (14408/13540), actual Cancel/Done INI behavior,
+option-one fresh-process loading, both books' depleted-first mixed-copy removal,
+normal GUI save/wire/fresh reload and all preservation guards. Independent audit
+and fresh general baseline are pending. This does not complete Phase1.
+
 October 22 UTC implementation update: the user has explicitly authorized Phase 1 engine work with two workers and a coordinator. Follow [Phase 1 status](../PHASE1_STATUS.md) and the full [backlog](../roadmap/phase1-backlog.md). Work is isolated in `C:\BGRedux\phase1-local\engine`; the original Phase 0 checkout, binaries, fixtures and evidence remain preserved. The freeze and immediate assignment below describe the accepted historical Phase 0 baseline, not a prohibition on the separately authorized Phase 1 work. Phase 1 has not been accepted; original behavior, native non-interference, menu/typeface fidelity, ordinary journeys and campaign checkpoints remain required.
 
 October 21 LAB update: Phase 0 technical evidence is consolidated in [the release record](../PHASE0_RELEASE.md). Base/context transfer and native validation are complete; engine source/binaries are unchanged. Host input isolation is user-confirmed. VM snapshots are optional and excluded from gates by explicit user instruction. Earlier pending-transfer/snapshot statements below are historical. Phase 1 engine implementation remains separately authorized work.

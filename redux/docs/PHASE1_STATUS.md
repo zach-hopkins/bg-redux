@@ -47,6 +47,19 @@ The complete corrected source suite passes **524 tests in 35.095 seconds**,
 Earlier native
 receipts do not validate the latest helper bytes. Phase1 remains incomplete.
 
+Subsequent terminal result: `20261022T121354Z-confirmation-setting-mixed-a92b7cdc`
+**passes** on candidate ced237a2. Operate PID 14408 exits zero in 141.770 seconds
+(36 callbacks, 22 captures); fresh reload PID 13540 exits zero in 40.294 seconds
+(10 callbacks, 3 captures). The actual option starts at zero, Cancel does not
+publish/save the draft, Done writes the owned INI, and fresh reload reads option
+one from the exact copied configuration without a restore setter. Both books
+pass charged-target Cancel, filler Confirm and charged-click depleted-first
+removal, retaining charged copies. Normal GUI save, independent wire deltas and
+fresh saved-book reload pass. Phase0/source/binary/fixture, candidate and private
+inputs are preserved. Independent audit is pending. Original parity is not
+claimed by this journey; inn-rest use, duplicate labels and physical hit testing
+remain open. Fresh general baseline is running separately on this candidate.
+
 Latest LAB checkpoint (October 22 UTC): see the [executed validation report](testing/phase1-lab-validation.md).
 Current source additionally contains an **unvalidated** ordinary EE named-row/
 description/paging layout and persistent Feedback setting. The original physical
