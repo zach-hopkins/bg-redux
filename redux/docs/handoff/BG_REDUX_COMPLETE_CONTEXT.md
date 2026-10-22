@@ -1,25 +1,25 @@
 # BG Redux — complete continuation context
 
-Latest October 22 continuation: consult the leading checkpoint in
-[Phase 1 status](../PHASE1_STATUS.md). Named-layout general/Erase results have an
-[independent audit](../testing/phase1-information-candidate-regression-audit.md);
-44 assertions and correct intended deletion/save/reload pass, with compatibility
-differences retained (vanilla 2/2/24, GUI 449/53). The latest help fix has a retained
-two-failure BEFORE and 15-pass AFTER, plus 523 passing source checks. Candidate
-`20261022T115526Z-candidate-ced237a2` is building; dedicated native paging/selection
-and setting save/fresh-process reload remain pending. Feedback's duplicate
-confirmation labels and exact typeface metrics remain open. Preserve every result.
+Latest October 22 continuation: Phase1 remains active and incomplete. Current
+coherent candidate is `20261022T123435Z-candidate-e00bb8b5`; source tooling passes
+534 tests. The right-row Feedback setting, actual INI persistence/fresh-process
+loading, both books' mixed-copy removal, two-resolution menus and fresh 44-assertion
+general baseline pass their bounded execution checks with protected baseline and
+all results retained. Compatibility remains differences (vanilla0/0/26,GUI451/55),
+including changing actor/color rows; no save-purity waiver applies. Earlier
+ced237a2 information journey97f61bc1 has an independent 120-capture audit covering
+13 natural ordinary-book pages per process, scrolling and save/fresh reload.
+See [current Phase1 status](../PHASE1_STATUS.md) for exact receipts and scope.
 
-Later source/native checkpoint: candidate ced237a2 builds and the corrected full
-source suite passes 524 tests. First information journey90991fb5 is failed on
-unsupported diagnostic pronoun tokens (native operations/save completed); its
-scroll proof also needs a naturally longer description. First confirmation
-journeyd8efb6d2 is failed on diagnostic case comparisons and remains retained.
-Fresh confirmation journey `20261022T121354Z-confirmation-setting-mixed-a92b7cdc`
-passes both owned processes (14408/13540), actual Cancel/Done INI behavior,
-option-one fresh-process loading, both books' depleted-first mixed-copy removal,
-normal GUI save/wire/fresh reload and all preservation guards. Independent audit
-and fresh general baseline are pending. This does not complete Phase1.
+Next work includes a private stock AR0704/WINNKEEP inn fixture, prepared through
+explicit authorized debug area transfer and a separately measured100-gold setup,
+normal GUI save/fresh reload and ordinary inn dialogue. This is source preparation,
+not executed evidence or an ordinary campaign-transition claim. Original/native
+inn confirmation, the unbound Colored Markers setting, save/color residuals,
+exact typography, pointer paths and remaining full Phase1 milestones remain open.
+Use the same two workers and coordinator, serialize native sessions, preserve the
+Phase0 checkout and all failures/results. Historical pending statements below
+refer to their earlier frozen checkpoints. VM snapshots remain optional.
 
 October 22 UTC implementation update: the user has explicitly authorized Phase 1 engine work with two workers and a coordinator. Follow [Phase 1 status](../PHASE1_STATUS.md) and the full [backlog](../roadmap/phase1-backlog.md). Work is isolated in `C:\BGRedux\phase1-local\engine`; the original Phase 0 checkout, binaries, fixtures and evidence remain preserved. The freeze and immediate assignment below describe the accepted historical Phase 0 baseline, not a prohibition on the separately authorized Phase 1 work. Phase 1 has not been accepted; original behavior, native non-interference, menu/typeface fidelity, ordinary journeys and campaign checkpoints remain required.
 

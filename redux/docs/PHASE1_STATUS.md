@@ -8,133 +8,60 @@ game typefaces are fidelity requirements. Modern UI direction remains approved.
 
 ## Requirements and order
 
-Latest executed checkpoint: right-row candidate e00bb8b5 builds with all guards.
-Corrected setting journey `20261022T123904Z-confirmation-setting-mixed-e9957e50`
-passes (13540/16656, both zero, 194.960/40.240 seconds) and its
-[independent audit](testing/phase1-confirmation-right-row-independent.md) verifies
-the actual right checkbox 41, label 29, full localized help, Cancel/Done, exact
-owned INI copy/fresh option-one loading, both books' charged/depleted behavior,
-normal GUI save/wire and fresh reload. The left Colored Markers label is preserved;
-its unbound control remains a separate existing implementation gap. The audit
-retains 885 broader fresh-import residuals, including world effects/time/selection,
-without a whole-world purity claim. Two-resolution menu run
-`20261022T124438Z-row-menu-run-c59be7e9` and a fresh current-build general baseline
-are pending. The earlier information journey has now passed its
-[independent 120-capture audit](testing/phase1-information-journey-independent.md).
+Current October 22 checkpoint: **Phase1 remains incomplete**. Coherent candidate
+`20261022T123435Z-candidate-e00bb8b5` builds from source `9b30077b7`, with protected
+Phase0 source/binaries/fixtures unchanged. New Phase1 work remains isolated in
+`C:/BGRedux/phase1-local/engine`. All completed results, including failures, remain
+preserved. See the full [backlog](roadmap/phase1-backlog.md).
 
-Current source checkpoint: the Feedback confirmation control now uses the original
-right row 41/40/0x10000029 and preserves Colored Markers on the left. The
-[source repair](testing/phase1-confirmation-feedback-row-repair.md) follows the
-actual CHU and original UI binding. New actual-helper tests fail twice against
-the old source (`feedback-row-before-1792672185705967100/result.json`) and all
-21 pass after correction. The complete suite passes **534 tests in 56.465 seconds**,
-`phase1-feedback-row-tooling-1792672463250707300/result.json`. New coherent candidate
-`20261022T123435Z-candidate-e00bb8b5` is building; its native setting/menu checks
-are pending. Earlier wrong-row persistence evidence does not accept its placement.
+| Bounded evidence | Current result and scope |
+|---|---|
+| Source tooling | **534 tests pass**, 56.465 seconds, `phase1-feedback-row-tooling-1792672463250707300/result.json`. This is distinct from engine CTest and native game validation. |
+| Fresh general baseline | `20261022T125410Z-row-base-2d8ec7ed`: **24/24 import/reload + 20/20 GUI/save assertions**, zero skips, all preservation guards. Execution passes; compatibility remains **differences**, so the outer wrapper exits one intentionally. [Independent raw audit](testing/phase1-right-row-baseline-independent.md). |
+| Menus at both required sizes | `20261022T124438Z-row-menu-run-c59be7e9`: **148 checks, 51 captures, 39 callbacks and 107 steps per resolution**, 1024x768 and 1280x768. [Independent audit](testing/phase1-right-row-menu-independent.md) verifies both processes and all seven guards. |
+| Correct Feedback setting | `20261022T123904Z-confirmation-setting-mixed-e9957e50`: right checkbox 41/buddy 40/label 29; left Colored Markers label retained. Actual Cancel/Done, owned INI write, byte-exact configuration transfer, fresh-process option-one loading, both books' charged prompts and depleted-first mixed-copy removal, normal GUI save/wire/fresh reload pass. [Independent audit](testing/phase1-confirmation-right-row-independent.md). |
+| Spellbook information | Earlier candidate ced237a2, `20261022T122217Z-spellbook-information-ee-direct-97f61bc1`: both owned processes pass, visiting 13 natural ordinary-book pages each with 65/55 captures and 80/67 callbacks. [Independent 120-capture audit](testing/phase1-information-journey-independent.md) verifies names, selection/deselection, paging, actor/level resets, help/descriptions, scroll movement/exact return, spell actions/capacity guards, GUI save and fresh reload. This historical receipt does not certify later changed helper files. |
 
-Information journey `20261022T122217Z-spellbook-information-ee-direct-97f61bc1`
-passes both owned processes (10016/8600, zero exits, 346.684/288.751 seconds) on
-ced237a2. It visits 13 natural ordinary-book pages in each process; 65/55 captures
-and 80/67 callbacks bind paging, names, selection/deselection, actor/level resets,
-full localized help/descriptions, strict scroll movement/exact return, separate
-Memorize/icon actions, capacity guards, ordinary GUI save and fresh reload. All
-preservation guards pass. The natural maximum list is 12; `natural_over24=false`.
-Native alternate locales, female protagonist, physical pointer hits, exact font
-metrics and full-world save purity are not certified. Independent audit is pending.
+The information helper now keeps complete localized help for ineligible and
+initially hidden books while still blocking spell actions. Actual-helper BEFORE
+has two failures of fifteen; AFTER passes fifteen
+(`phase1-disabled-help-before-20261022.log` / `phase1-disabled-help-after-20261022.log`). The
+[Feedback-row repair](testing/phase1-confirmation-feedback-row-repair.md) corrects
+the initial binding to the Colored Markers row: its new tests fail twice against
+the old helper (`feedback-row-before-1792672185705967100/result.json`) and all
+twenty-one pass after correction. Earlier wrong-row persistence passes establish
+behavior only, not accepted placement.
 
-The [independent confirmation audit](testing/phase1-confirmation-independent.md)
-accepts the earlier wrong-row journey's bounded behavior/config/spell save chain,
-while explicitly rejecting its placement. It retains 905 full-world fresh-import
-residuals without a purity waiver. The [fresh general-baseline audit](testing/phase1-help-baseline-independent.md)
-confirms all 44 assertions and guards but changed color residuals: vanilla 0/0/26,
-GUI 451/55; old GUI 449/53 rows remain identical except two added actor-3 stat-209
-base/modified rows. All compatibility differences remain open.
+Failed information journey90991fb5 remains failed: unsupported diagnostic pronoun
+tokens and a short description could not establish the intended coverage. The
+replacement binds the actual gender table/TLK words and uses naturally known
+Remove Magic and Dispel Magic for strict scroll proof. Failed confirmation
+journeyd8efb6d2 also remains failed; its Python/native resource-case comparison
+was corrected without normalizing unrelated world state. [First-attempt analysis](testing/phase1-confirmation-native-first-attempt.md)
+retains the exact native mixed-case storage distinction. Diagnostic-only
+reanalysis does not replace a fresh native pass. The physical original
+[option-ON/depleted-first reference](testing/phase1-original-confirmation-option-independent.md)
+remains separately pinned and bounded.
 
-Latest source/diagnostic checkpoint: actual engine gender-table rules now bind
-PRO_HESHE, PRO_HIMHER and PRO_HISHER independently for the information diagnostic.
-It uses natural level-3 Remove Magic and Dispel Magic for strict scroll movement
-and exact return; mutation targets remain unchanged. The complete source suite
-passes **531 tests in 35.384 seconds**, receipt
-`phase1-information-tokens-tooling-1792671690371783800/result.json`. Fresh external
-host `information-3` is running under
-`20261022T122217Z-spellbook-information-ee-direct-97f61bc1`; no pass is claimed yet.
-The [independent two-resolution menu audit](testing/phase1-information-menu-independent.md)
-passes 148 checks, 51 captures, 39 callbacks and 107 steps per resolution. Its
-historical helper is frozen; it does not certify the newer default-help fix,
-active paging, name selection, scrolling, physical pointer input or exact fonts.
+Current baseline residuals are vanilla **0/0/26** and GUI **451/55**. Their counts
+match the preceding help baseline, but some actor/color paths and values change;
+they are not identical results and are not waived. The targeted setting audit
+also preserves 885 broader fresh-import world/effect/time/selection residuals.
+Passing targeted spell/config checks does not establish whole-world save purity,
+RNG non-interference, original operation parity or complete campaign fidelity.
 
-October 22 follow-up: the named-layout candidate's [independent audit](testing/phase1-information-candidate-regression-audit.md)
-confirms all 44 general assertions and correct stock/reordered Erase save/reload.
-The compatibility verdict remains differences: vanilla residuals are 2/2/24,
-including reload-2 actor 7 color stat 212; GUI residuals remain 449/53. These
-differences are open. The two-resolution menu receipt
-`20261022T113936Z-inf-menu-run-918c978e/result.json` passes, pending its independent
-audit. Actual priest help/names are visible; Feedback has two identically labeled
-confirmation controls, an open presentation issue requiring original-label research.
+Remaining work includes the source-grounded [inn confirmation gap](testing/phase1-inn-confirmation-source-and-journey.md),
+the existing unbound Colored Markers control, save/color differences, exact
+typeface metrics, physical pointer/focus/clipping paths, alternate native locales,
+native female-protagonist token coverage, spontaneous books and broader menus and
+campaign journeys. The natural spell lists reach twelve entries, not above
+twenty-four; synthetic thirty-one-entry coverage does not prove that native case.
+The coordinator retains native-session ownership; the same two workers continue
+source preparation and independent audits. [Storage preservation](testing/phase1-lab-storage-preservation.md)
+records lossless compression and completed-cache sharing; no result is deleted.
 
-Two actual-helper regressions reproduced blank help for ineligible and initially
-hidden books. The source now preserves localized help independently of action
-eligibility; both cases keep spell actions blocked. Before/after focused logs are
-`phase1-disabled-help-before-20261022.log` (2 failures of 15) and
-`phase1-disabled-help-after-20261022.log` (15 pass). The complete source-bound suite
-passes **523 tests in 60.832 seconds**, receipt
-`phase1-disabled-help-tooling-1792670115069129200/result.json`. Fresh candidate
-`20261022T115526Z-candidate-ced237a2` builds with all preservation guards. Its first
-dedicated information run `20261022T115836Z-spellbook-information-ee-direct-90991fb5`
-is **failed**, not accepted: the actual native process completes 157 ticks,
-74 callbacks, 61 captures and an ordinary GUI save, but the independent validator
-rejects unsupported description tokens (PRO_HESHE/PRO_HIMHER in natural spells).
-All protected baseline, candidate and input guards pass. Native disabled-book
-capture 17 visibly retains full help. The chosen Stinking Cloud description also
-fits the panel, so it cannot prove scrolling; a naturally longer description is
-required without weakening the viewport-change oracle. No reload stage is accepted
-from this failed run. The diagnostic decoder and scroll target need refinement.
-The first setting/mixed-copy journey
-`20261022T120547Z-confirmation-setting-mixed-d8efb6d2` is also failed: the validator
-compared uppercase Python observations against lowercase native imported prepared
-refs. Native actions and GUI save complete; all guards pass. The [first-attempt
-analysis](testing/phase1-confirmation-native-first-attempt.md) preserves the casing
-boundary, exact mixed-case world deltas and passing diagnostic-only reanalysis.
-The complete corrected source suite passes **524 tests in 35.095 seconds**,
-`phase1-confirmation-case-tooling-1792671175315062400/result.json`. Fresh host
-`confirmation-setting-4` is running at
-`20261022T121354Z-confirmation-setting-mixed-a92b7cdc`; persistence remains pending.
-Earlier native
-receipts do not validate the latest helper bytes. Phase1 remains incomplete.
-
-Subsequent terminal result: `20261022T121354Z-confirmation-setting-mixed-a92b7cdc`
-**passes** on candidate ced237a2. Operate PID 14408 exits zero in 141.770 seconds
-(36 callbacks, 22 captures); fresh reload PID 13540 exits zero in 40.294 seconds
-(10 callbacks, 3 captures). The actual option starts at zero, Cancel does not
-publish/save the draft, Done writes the owned INI, and fresh reload reads option
-one from the exact copied configuration without a restore setter. Both books
-pass charged-target Cancel, filler Confirm and charged-click depleted-first
-removal, retaining charged copies. Normal GUI save, independent wire deltas and
-fresh saved-book reload pass. Phase0/source/binary/fixture, candidate and private
-inputs are preserved. Independent audit is pending. Original parity is not
-claimed by this journey; inn-rest use, duplicate labels and physical hit testing
-remain open. Fresh general baseline is running separately on this candidate.
-
-Fresh current-helper general baseline `20261022T121748Z-help-base-9fb35d02`
-is terminal: **24/24 vanilla and 20/20 GUI/save assertions, zero skips**,
-execution passed and compatibility differences retained. All Phase0, candidate
-and input guards pass. The wrapper exits one for its explicit differences
-verdict; it has no execution error. Independent comparison of residuals is
-pending. These 44 bounded checks do not establish complete save or campaign parity.
-
-Latest LAB checkpoint (October 22 UTC): see the [executed validation report](testing/phase1-lab-validation.md).
-Current source additionally contains an **unvalidated** ordinary EE named-row/
-description/paging layout and persistent Feedback setting. The original physical
-option-ON and depleted-first reference now [passes independent inspection](testing/phase1-original-confirmation-option-independent.md).
-The [candidate policy integration](testing/phase1-confirmation-policy-integration.md)
-wires both prepared-book consumers and preserves a charged copy when a depleted
-same-resref copy exists. Twenty focused checks pass; the first 475-test combined
-source suite failed four heading-fixture bindings, retained as a failed result.
-After the scoped fixture/import-closure updates and actual consumer regressions,
-the source-bound full suite passes **486 tests** in 35.821 seconds (receipt
-`phase1-information-policy-tooling-1792668246277886700/result.json`). Fresh build,
-menu/action/config-save/reload validation is pending.
-The passing native results below describe their earlier frozen source versions.
+The paragraphs below retain **historical checkpoints**. Their pending/unvalidated
+statements describe those frozen versions, not the current summary above.
 
 The wizard information-window Erase route now has a confirmed native wrong-spell
 failure when localized names reorder known entries. The stock route passes, but
