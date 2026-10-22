@@ -33,8 +33,14 @@ def make_journey(folder, stale=False):
             cache['hands'][1].update(item=off_ref, item_flags=64 if enchantment else 0,
                                       base_enchantment=enchantment, enchantment=enchantment,
                                       itemflags=16417 if enchantment else 97)
-        if stale and identity == '05-create-plus':
-            cache['hands'][1].update(item='sw1h01', item_flags=0, base_enchantment=0, enchantment=0, itemflags=97)
+        stale_steps = {'05-create-plus'} if stale is True else stale or set()
+        if identity in stale_steps:
+            # The actual baseline reproduced both normal->plus routes and
+            # the reverse plus->normal route; don't assume stale means zero.
+            old_enchantment = int(identity == '09-create-normal')
+            cache['hands'][1].update(item='sw1h02' if old_enchantment else 'sw1h01',
+                item_flags=64 if old_enchantment else 0, base_enchantment=old_enchantment,
+                enchantment=old_enchantment, itemflags=16417 if old_enchantment else 97)
         data, _ = capture(location, row, state, cache)
         (location/'query-result.json').unlink()
         write(location/'before-mutation.state.json', previous_state if index else state)
@@ -94,6 +100,17 @@ class InventoryJourneyEvidenceTests(unittest.TestCase):
         self.assertEqual(result['cache_mismatch_steps'], ['05-create-plus'])
         with self.assertRaisesRegex(ValueError, 'incomplete'):
             journey.validate_journey(self.folder, row, metadata, 1)
+
+    def test_actual_three_transition_failure_pattern_remains_a_regression_failure(self):
+        row, metadata, _ = make_journey(self.folder, stale={
+            '05-create-plus', '07-transform-plus', '09-create-normal'})
+        result = journey.validate_journey(self.folder, row, metadata, 1)
+        self.assertEqual(result['cache_mismatch_steps'], [
+            '05-create-plus', '07-transform-plus', '09-create-normal'])
+        self.assertEqual(result['steps'][9]['actual_inventory'][9], 'sw1h01')
+        self.assertEqual(result['steps'][9]['cached_weapons']['hands'][1]['enchantment'], 1)
+        self.assertEqual(result['query_mutation_steps'], [])
+        self.assertEqual(result['unstable_query_steps'], [])
 
     def test_transform_implicit_sender_accepts_multiple_targets_rejects_wrong_resolution(self):
         row, metadata, _ = make_journey(self.folder)

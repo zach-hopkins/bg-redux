@@ -1655,7 +1655,19 @@ void Inventory::SetSlotItemRes(const ResRef& ItemResRef, size_t SlotID, int Char
 	if (!ItemResRef.IsEmpty()) {
 		CREItem* TmpItem = new CREItem();
 		if (CreateItemCore(TmpItem, ItemResRef, Charge0, Charge1, Charge2)) {
+			// Runtime replacement can keep the same equipment animation (or, for
+			// TransformItem, never call EquipItem). Refresh metadata independently
+			// of animation changes, but leave loading and unrelated slots alone.
+			bool refreshWeapons = false;
+			if (Owner && (Owner->weaponInfo[0].extHeader || Owner->weaponInfo[1].extHeader)) {
+				int launcherSlot = -1;
+				GetUsedWeapon(false, launcherSlot);
+				const int slot = static_cast<int>(SlotID);
+				refreshWeapons = slot == GetEquippedSlot() || slot == GetShieldSlot()
+					|| slot == launcherSlot || slot == SLOT_MAGIC;
+			}
 			SetSlotItem(TmpItem, (unsigned int) SlotID);
+			if (refreshWeapons) CacheAllWeaponInfo();
 		} else {
 			delete TmpItem;
 		}
