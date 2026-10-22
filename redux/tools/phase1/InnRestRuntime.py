@@ -9,6 +9,30 @@ NONCE=MODE=POLICY=None
 PLAN=[]
 ROWS=[]
 INDEX=CAPTURE=0
+REST_CALLS=[]
+BASE_REST=None
+
+def traced_rest(*args):
+    if REST_CALLS:raise RuntimeError('Only one completed inn rest request is permitted')
+    row=dict(nonce=NONCE,mode=MODE,args=list(args),gold_before=GemRB.GameGetPartyGold(),time_before=GemRB.GetGameTime())
+    try:
+        result=BASE_REST(*args);row['result']=result
+        row.update(gold_after=GemRB.GameGetPartyGold(),time_after=GemRB.GetGameTime())
+        REST_CALLS.append(row)
+        return result
+    finally:
+        (OUTPUT/'rest-call.json').write_text(json.dumps(row,indent=2)+'\n',encoding='utf8')
+
+def after_rest():
+    if len(REST_CALLS)!=1 or REST_CALLS[0].get('result',{}).get('Error')is not False:raise RuntimeError('Successful actual rest result absent')
+    observe('after-rest',99,store=not REST_CALLS[0]['result']['Cutscene'])
+
+def close_after_rest():
+    if len(REST_CALLS)!=1:raise RuntimeError('Actual rest branch absent')
+    if REST_CALLS[0]['result']['Cutscene']:
+        if view('GUISTORE',7):raise RuntimeError('Cutscene return did not close the inn')
+        ROWS.append(dict(event='cutscene-store-already-closed',step=INDEX))
+    else:press('GUISTORE',3,0)
 
 def view(pack,window):
     found=GemRB.GetView(pack,window)
@@ -47,9 +71,12 @@ def observe(name,gold=100,store=False,confirmation=False,option=None):
     GemRB.SetVar('RDXBookCapture',CAPTURE);ROWS.append(dict(event='observe',step=INDEX,name=name,capture=CAPTURE))
 
 def Configure(output,nonce,mode,policy):
-    global OUTPUT,NONCE,MODE,POLICY,PLAN,ROWS,INDEX,CAPTURE
+    global OUTPUT,NONCE,MODE,POLICY,PLAN,ROWS,INDEX,CAPTURE,REST_CALLS,BASE_REST
     if mode not in('off','on','reload')or policy not in('off','on')or mode!='reload'and mode!=policy or len(nonce)!=32 or any(c not in'0123456789abcdef'for c in nonce):raise RuntimeError('Explicit inn rest mode/policy/nonce required')
     OUTPUT=Path(output);NONCE=nonce;MODE=mode;POLICY=policy;PLAN=[];ROWS=[];INDEX=CAPTURE=0
+    REST_CALLS=[]
+    if mode!='reload':
+        BASE_REST=GemRB.RestParty;GemRB.RestParty=traced_rest
     def add(name,fn):PLAN.append((name,fn))
     if mode=='reload':add('reloaded-rest-save',lambda:observe('reloaded-rest-save',99))
     else:
@@ -76,8 +103,8 @@ def Configure(output,nonce,mode,policy):
             add('rent-again',lambda:press('GUISTORE',7,11))
             add('confirmation-again',lambda:observe('confirmation-again',store=True,confirmation=True))
             add('confirm',lambda:press('GUISTORE',11,0))
-        add('after-rest',lambda:observe('after-rest',99,store=True))
-        add('store-done',lambda:press('GUISTORE',3,0))
+        add('after-rest',after_rest)
+        add('store-done',close_after_rest)
         add('closed',lambda:observe('closed',99))
     for name in('RDXBookComplete','RDXBookPressPack','RDXBookCapture','RDXInnCommand'):GemRB.SetVar(name,0)
 
