@@ -1,0 +1,379 @@
+{
+  "schema": "bg-redux-independent-original-spellbook-audit/1",
+  "passed": true,
+  "reference": "C:\\BGRedux\\phase1-local\\results\\20261022T082351Z-original-spellbook-installation-4de00a9c",
+  "auditor_sha256": "4fe699f597ff705b2132f40810eee6f90202d65a897aa507fe590f725fb1322c",
+  "verification_sha256": "34d97aaa69cc1583614423556e5681499709ac81ade9487b54cd246f9212fc5e",
+  "checks": {
+    "verification_manifest_files_rehashed": 23,
+    "canonical_and_private_input_files": 6,
+    "private_prelaunch_root_hashes": 9,
+    "clean_root_files": 9,
+    "owned_terminal_receipt": {
+      "completed_utc": "2026-10-22T08:39:48.5468456Z",
+      "exit_code": 0,
+      "terminal": true,
+      "pid": 5040,
+      "evidence": "owned Start-Process Process.WaitForExit"
+    },
+    "menu_source": {
+      "archive": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data\\Patch2.bif",
+      "archive_sha256": "9972c8f3cb8f9cbcc00eaa7cc64dcb2fbc2f562b15b1b643806b768490704062",
+      "menu_sha256": "7987e9d38c9a1d8f4df949d880f260ad5a76dd623d08c7e7be6f0f6c8f2931fe",
+      "functions": [
+        {
+          "line": 7808,
+          "name": "function unmemorizeMageSpell(slot)"
+        },
+        {
+          "line": 8589,
+          "name": "function unmemorizePriestSpell(slot)"
+        }
+      ]
+    }
+  },
+  "initial_level2": {
+    "level": 1,
+    "type": 1,
+    "slots": 3,
+    "bonus": 3,
+    "known": [
+      "SPWI215",
+      "SPWI214",
+      "SPWI213",
+      "SPWI212",
+      "SPWI211"
+    ],
+    "memorized": [
+      {
+        "resref": "SPWI213",
+        "flags": 1
+      },
+      {
+        "resref": "SPWI214",
+        "flags": 1
+      },
+      {
+        "resref": "SPWI215",
+        "flags": 1
+      }
+    ]
+  },
+  "saved_level2": {
+    "level": 1,
+    "type": 1,
+    "slots": 3,
+    "bonus": 3,
+    "known": [
+      "SPWI215",
+      "SPWI214",
+      "SPWI213",
+      "SPWI212",
+      "SPWI211"
+    ],
+    "memorized": [
+      {
+        "resref": "SPWI214",
+        "flags": 1
+      },
+      {
+        "resref": "SPWI215",
+        "flags": 1
+      },
+      {
+        "resref": "SPWI213",
+        "flags": 0
+      }
+    ]
+  },
+  "all_spellbook_page_deltas": [
+    {
+      "actor": "Imoen",
+      "before": {
+        "level": 0,
+        "type": 1,
+        "slots": 4,
+        "bonus": 4,
+        "known": [
+          "SPWI112",
+          "SPWI110",
+          "SPWI118",
+          "SPWI102"
+        ],
+        "memorized": [
+          {
+            "resref": "SPWI102",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI118",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI110",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI112",
+            "flags": 1
+          }
+        ]
+      },
+      "after": {
+        "level": 0,
+        "type": 1,
+        "slots": 4,
+        "bonus": 4,
+        "known": [
+          "SPWI112",
+          "SPWI110",
+          "SPWI118",
+          "SPWI102"
+        ],
+        "memorized": [
+          {
+            "resref": "SPWI102",
+            "flags": 0
+          },
+          {
+            "resref": "SPWI118",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI110",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI112",
+            "flags": 1
+          }
+        ]
+      }
+    },
+    {
+      "actor": "Imoen",
+      "before": {
+        "level": 1,
+        "type": 1,
+        "slots": 3,
+        "bonus": 3,
+        "known": [
+          "SPWI215",
+          "SPWI214",
+          "SPWI213",
+          "SPWI212",
+          "SPWI211"
+        ],
+        "memorized": [
+          {
+            "resref": "SPWI213",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI214",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI215",
+            "flags": 1
+          }
+        ]
+      },
+      "after": {
+        "level": 1,
+        "type": 1,
+        "slots": 3,
+        "bonus": 3,
+        "known": [
+          "SPWI215",
+          "SPWI214",
+          "SPWI213",
+          "SPWI212",
+          "SPWI211"
+        ],
+        "memorized": [
+          {
+            "resref": "SPWI214",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI215",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI213",
+            "flags": 0
+          }
+        ]
+      }
+    },
+    {
+      "actor": "Imoen",
+      "before": {
+        "level": 3,
+        "type": 1,
+        "slots": 2,
+        "bonus": 2,
+        "known": [
+          "SPWI408",
+          "SPWI406",
+          "SPWI405",
+          "SPWI418",
+          "SPWI403"
+        ],
+        "memorized": [
+          {
+            "resref": "SPWI406",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI408",
+            "flags": 1
+          }
+        ]
+      },
+      "after": {
+        "level": 3,
+        "type": 1,
+        "slots": 2,
+        "bonus": 2,
+        "known": [
+          "SPWI408",
+          "SPWI406",
+          "SPWI405",
+          "SPWI418",
+          "SPWI403"
+        ],
+        "memorized": [
+          {
+            "resref": "SPWI406",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI408",
+            "flags": 0
+          }
+        ]
+      }
+    }
+  ],
+  "files": {
+    "hidden-launch-cancellation.json": {
+      "bytes": 244,
+      "sha256": "c5c904ef7a2d077593aa67f0058049dbf15bf3df5d7d7f6467f95b142a2fefdb"
+    },
+    "initial-launch-crash.dmp": {
+      "bytes": 49518170,
+      "sha256": "2569ee27b679ed198d77c0b560cdfe576b2b6a1ebed8d4780352737a6a8304cb"
+    },
+    "installer.py": {
+      "bytes": 3216,
+      "sha256": "0a4c50d0aee8165aecf7bf2b02094f97246179491143e4f31fd5103ae8a7ef72"
+    },
+    "interactive-launch.json": {
+      "bytes": 232,
+      "sha256": "8f798d051524df4036114cc6d31556fb73f31287ffca2411b29839bb763efd7a"
+    },
+    "interactive-owned-terminal.json": {
+      "bytes": 171,
+      "sha256": "fccc5f047ec4ab56244c4807be30bc8783a13359e4e3e2cf64330ae6df893871"
+    },
+    "launch-cwd.json": {
+      "bytes": 314,
+      "sha256": "e489d0c76ff10950023598f1aae06a54adb8dc16a9cb97c4194ee7ff2892bd9f"
+    },
+    "original-mage-level1-observation.json": {
+      "bytes": 547,
+      "sha256": "2b350ad050039e2ffa4be0480176a429b04cd3f7df06e76922894ed835ed2d94"
+    },
+    "original-mage-level1.jpg": {
+      "bytes": 183316,
+      "sha256": "a28ca9f325d02d9b9195a3462195ada60c19248f4f0c721b9504bd655614b5da"
+    },
+    "original-mage-level2-before.jpg": {
+      "bytes": 184193,
+      "sha256": "84dddb12364e80090925116595cec2ff5a6e1ec9db95116f7477d843643a5336"
+    },
+    "original-mage-level2-removed-no-prompt.jpg": {
+      "bytes": 184067,
+      "sha256": "08face5a301c9993fd16dfbe100c7db73f1c46317803ce5ed1e474a4ad376f62"
+    },
+    "original-mage-level2-reprepared.jpg": {
+      "bytes": 199479,
+      "sha256": "31c98bbd0e9c0c58acd41b7a97fcafc1032425d1bf540b74cc9305d0003df657"
+    },
+    "original-menu-operation-source.json": {
+      "bytes": 996,
+      "sha256": "af0f36c6175913a85245524ce49ea7c74e6f02f623a3d831ab561bb1fe2125d8"
+    },
+    "original-priest-ineligible-level1.jpg": {
+      "bytes": 110203,
+      "sha256": "e17faf06b16061b9a765466d7136da5c12ba2adff1b8de81dd075ebd9edaecf9"
+    },
+    "original-priest-ineligible-observation.json": {
+      "bytes": 542,
+      "sha256": "2f521789fa23b2f29e10f0b3de5a2d8b0ff578cc179e35a26b65d93b2adf09c0"
+    },
+    "original-save-success.jpg": {
+      "bytes": 131309,
+      "sha256": "c35e7de43ac2f68fe31a88899bd8393eb3d24af4d3ec7875cba01519ed20ca41"
+    },
+    "original-wire-spellbook.json": {
+      "bytes": 1698,
+      "sha256": "3d548c81080561a5c3d3188da3d5883aa1da28225b5756c2ec85869dff3d98e2"
+    },
+    "original-wizard-operation-observation.json": {
+      "bytes": 475,
+      "sha256": "1ad942f8ee4d91009ebde41741959e716a9219b6a581d5476e2470686b7a2134"
+    },
+    "owned-terminal-cwd.json": {
+      "bytes": 173,
+      "sha256": "fc50d29a0dcb508379d8f862072d0e998091082252d1504dbd402af3f456217e"
+    },
+    "preparation.json": {
+      "bytes": 366817,
+      "sha256": "5c037b8aef4208976d3c1a09eb99587f6d32a908416fca7ab8deb771b51c2f1a"
+    },
+    "verification.json": {
+      "bytes": 4636,
+      "sha256": "34d97aaa69cc1583614423556e5681499709ac81ade9487b54cd246f9212fc5e"
+    },
+    "frozen-original-operation-save\\BALDUR.bmp": {
+      "bytes": 65590,
+      "sha256": "c5fcb1dfdbda849759bf671599e09be22e2032c9e79e06d9a01917cca4adc228"
+    },
+    "frozen-original-operation-save\\BALDUR.gam": {
+      "bytes": 77280,
+      "sha256": "57d636769a6b42b97d89c1b2c1b47c604be64c69a768edc6ca56eb9ebd717393"
+    },
+    "frozen-original-operation-save\\BALDUR.SAV": {
+      "bytes": 19400,
+      "sha256": "f52fe20bcf2701354c7706002d3bac274a4731552acb7e8c42e095caf91e0e63"
+    },
+    "frozen-original-operation-save\\PORTRT0.bmp": {
+      "bytes": 13830,
+      "sha256": "f9977b9ae0fccfc86fe0d8fc40ea2bd89e56259e8c6b608114005dc51efe5df0"
+    },
+    "frozen-original-operation-save\\PORTRT1.bmp": {
+      "bytes": 13830,
+      "sha256": "cd169431284ff072ca97594635f1e5ea94420c8ac5dcc06bb2d9fe3732325270"
+    }
+  },
+  "limits": [
+    "No original fresh-process reload observed",
+    "Priest no-confirmation is source-supported only; runtime priest screen is ineligible Imoen",
+    "No whole-world/AI/RNG purity",
+    "Linked archive inventory not fully content-hashed; accessed Patch2 archive independently hashed",
+    "Single-click timing/absence of transient modal rests on coordinator observation plus screenshots and direct source callbacks"
+  ],
+  "private_audit": "C:\\BGRedux\\phase1-local\\results\\20261022T090059Z-original-spellbook-independent-a0a2bb2b\\audit.json",
+  "private_audit_sha256": "5aebde4969d60d838c98c63c732f3c79dd0c2c08a6cf76b535334ab38b9ad4ba",
+  "visually_inspected": [
+    "original-mage-level1.jpg",
+    "original-mage-level2-before.jpg",
+    "original-mage-level2-removed-no-prompt.jpg",
+    "original-mage-level2-reprepared.jpg",
+    "original-priest-ineligible-level1.jpg",
+    "original-save-success.jpg"
+  ]
+}
