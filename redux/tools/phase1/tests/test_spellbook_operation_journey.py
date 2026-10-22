@@ -49,7 +49,7 @@ def wire_fixture(folder):
         cre=bytearray(0x2d4+80);cre[:8]=b'CRE V1.0';cre[0x33]=1;cre[0x280:0x2a0]=actor['script_name'].encode().ljust(32,b'\0');struct.pack_into('<I',cre,0x2b8,0x2d4);struct.pack_into('<38HhH',cre,0x2d4,*([0xffff]*38),1000,0)
         if actor['spellbook']:
             page=actor['spellbook'][0];ka=len(cre)
-            for r in page['known']:cre.extend(r['resref'].encode().ljust(8,b'\0')+struct.pack('<2H',r['level'],r['type']))
+            for r in reversed(page['known']):cre.extend(r['resref'].encode().ljust(8,b'\0')+struct.pack('<2H',r['level'],r['type']))
             ba=len(cre);cre.extend(struct.pack('<4H2I',page['level'],page['slots'],page['slots_with_bonus'],page['type'],0,len(page['memorized'])));ma=len(cre)
             for r in page['memorized']:cre.extend(r['resref'].encode().ljust(8,b'\0')+struct.pack('<I',r['flags']))
             struct.pack_into('<6I',cre,0x2a0,ka,len(page['known']),ba,1,ma,len(page['memorized']))
@@ -195,6 +195,21 @@ class SpellbookOperationContracts(unittest.TestCase):
             with self.assertRaises(ValueError):v.bmp_region_sha(p,[3,0,2,2])
             p.write_bytes(raw[:-1])
             with self.assertRaises(ValueError):v.bmp_region_sha(p,[0,0,1,1])
+    def test_wire_known_order_is_exact_reverse_not_arbitrary_permutation(self):
+        with tempfile.TemporaryDirectory()as temp:
+            p=Path(temp);runtime=wire_fixture(p);saved=v.wire_spellbooks(p);v.wire_state_guard(saved,runtime)
+            known=saved[1]['pages'][0]['known'];self.assertGreaterEqual(len(known),3)
+            self.assertEqual([r['resref']for r in known],[r['resref']for r in reversed(runtime['party'][1]['spellbook'][0]['known'])])
+            for mutation in ('identity','rotate','ref','type','level','ready','memo-order'):
+                bad=copy.deepcopy(saved);page=bad[1]['pages'][0]
+                if mutation=='identity':page['known'].reverse()
+                elif mutation=='rotate':page['known']=page['known'][1:]+page['known'][:1]
+                elif mutation in ('type','level'):page['known'][0][mutation]+=1
+                elif mutation=='ref':page['known'][0]['resref']='SPWI999'
+                elif mutation=='ready':page['memorized'][0]['flags']=0
+                else:page['memorized'].reverse()
+                with self.subTest(mutation=mutation),self.assertRaises(ValueError):v.wire_state_guard(bad,runtime)
+
     def test_wire_actual_refs_ready_flags_and_all_other_pages_conserved(self):
         with tempfile.TemporaryDirectory()as temp:
             p=Path(temp);s=wire_fixture(p);before=v.wire_spellbooks(p);v.wire_state_guard(before,s);after=copy.deepcopy(before)

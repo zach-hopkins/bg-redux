@@ -138,7 +138,7 @@ def wire_state_guard(wire,state):
     for saved,actor in zip(wire,state['party']):
         for page_ in saved['pages']:
             actual=page(actor,page_['type'],page_['level'])
-            if spells(page_['memorized'])!=spells(actual['memorized'])or [(s['resref'].upper(),s['level'],s['type'])for s in page_['known']]!=[(s['resref'].upper(),s['level'],s['type'])for s in actual['known']]:raise ValueError('Saved spell refs/order/ready flags differ from actual caster')
+            if spells(page_['memorized'])!=spells(actual['memorized'])or [(s['resref'].upper(),s['level'],s['type'])for s in page_['known']]!=[(s['resref'].upper(),s['level'],s['type'])for s in reversed(actual['known'])]:raise ValueError('Saved spell refs/exact reversed known order/ready flags differ from actual caster')
     return True
 
 def wire_delta_guard(before,after):

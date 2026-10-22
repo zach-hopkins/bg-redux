@@ -75,3 +75,7 @@ Coordinator control command (after a fresh external build and all other runtimes
 ```
 
 Original serialized append order is a separate observation: the coordinator decoded SPWI213 ready1/SPWI214 ready1/SPWI215 ready1 becoming SPWI214 ready1/SPWI215 ready1/SPWI213 ready0, while prepared icons remained visually sorted. This control validates the declared raw memorization delta and known-icon original-index mapping; it does not declare GemRB prepared-row display order equivalent to original.
+
+## Known-spell wire/runtime representation correction
+
+Preserved ordinary-3 result `20261022T085806Z-spellbook-operation-3c673787` failed its outer wire check after the actual host completed 41 callbacks/32 captures and saved successfully. The reader/writer source explains the representation: CREImporter::PutKnownSpells iterates known entries from last to first; ReadSpellbook traverses the serialized entries backwards before pushing runtime known entries. Therefore each serialized known page must equal the **exact reverse** of that page's actual runtime list, including innates. The validator now enforces this exact mapping, including resref/type/level; it does not sort or accept multiset equality. Memorized entries/order/flags remain exact in both representations. Serialized before/after known lists and slot fields still must remain unchanged. CREImporter.cpp remains in the frozen external source closure. The raw failed result stays failed and unchanged; the correction requires a fresh build/run.
