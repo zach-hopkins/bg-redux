@@ -1,0 +1,180 @@
+{
+  "schema": "bg-redux-confirmation-option-source-binding/1",
+  "source_only": true,
+  "original_game_executed": false,
+  "tests_or_build_executed": false,
+  "exe": {
+    "path": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\Baldur.exe",
+    "sha256": "b51093a49140b2b8a7c046b4652bb8e535be24ebbc12b1d735e0b94217a14d57",
+    "machine": "AMD64",
+    "preferred_base": "0x140000000",
+    "unchanged": true
+  },
+  "supported_static_binding": {
+    "lua_api": "Infinity_GetOption",
+    "arguments": [
+      41,
+      9
+    ],
+    "wrapper_va": "0x1403c94d0",
+    "getter_va": "0x1401ed070",
+    "panel9_branch_va": "0x1401ed1ab",
+    "remap_offset": 33,
+    "remap_index": 9,
+    "case_va": "0x1401ed281",
+    "original_game_field_offset": "0x7dc4",
+    "ini_section": "Game Options",
+    "ini_key": "Over Confirm Everything",
+    "distinct_other_key": {
+      "key": "Confirm Dialog",
+      "field_offset": "0x7eb4"
+    }
+  },
+  "original_profile": {
+    "path": "C:\\Users\\labuser\\Documents\\BGReduxP1\\20261022T082351Z-original-spellbook-installation-4de00a9c\\spellbook-reference\\Baldur.lua",
+    "sha256": "a45352f46be5cd61c286dac28a3db42d45e3937b288721e1d332032c99f50c30",
+    "values": {
+      "Over Confirm Everything": 0,
+      "Confirm Dialog": 0
+    },
+    "physical_toggle_measured": false
+  },
+  "disassembler": {
+    "path": "C:\\BGRedux\\phase0-local\\toolchain\\msys64\\ucrt64\\bin\\objdump.exe",
+    "sha256": "cfabf2663d6312ce40b65b8b414b8aa5f03e2b71b0efd398714df1c418cad0b8"
+  },
+  "disassembly": [
+    {
+      "command": [
+        "C:\\BGRedux\\phase0-local\\toolchain\\msys64\\ucrt64\\bin\\objdump.exe",
+        "-d",
+        "--start-address=0x1403d9db8",
+        "--stop-address=0x1403d9de2",
+        "C:\\BGRedux\\phase0-local\\bg2ee-clean\\Baldur.exe"
+      ],
+      "exit_code": 0,
+      "output": "C:\\BGRedux\\phase1-local\\results\\20261022T103308Z-confirmation-option-source-45542118\\registration.txt",
+      "sha256": "4298a056309fc15778e96ad2d32c56ea5ad1d6018eee859974624db00cb3ef73"
+    },
+    {
+      "command": [
+        "C:\\BGRedux\\phase0-local\\toolchain\\msys64\\ucrt64\\bin\\objdump.exe",
+        "-d",
+        "--start-address=0x1403c94d0",
+        "--stop-address=0x1403c9547",
+        "C:\\BGRedux\\phase0-local\\bg2ee-clean\\Baldur.exe"
+      ],
+      "exit_code": 0,
+      "output": "C:\\BGRedux\\phase1-local\\results\\20261022T103308Z-confirmation-option-source-45542118\\wrapper.txt",
+      "sha256": "48a8cef2bb878a99aec708e923d760281a6b6cbd5676c9c4e2b660bfe467c2f7"
+    },
+    {
+      "command": [
+        "C:\\BGRedux\\phase0-local\\toolchain\\msys64\\ucrt64\\bin\\objdump.exe",
+        "-d",
+        "--start-address=0x1401ed070",
+        "--stop-address=0x1401ed1d5",
+        "C:\\BGRedux\\phase0-local\\bg2ee-clean\\Baldur.exe"
+      ],
+      "exit_code": 0,
+      "output": "C:\\BGRedux\\phase1-local\\results\\20261022T103308Z-confirmation-option-source-45542118\\getter-dispatch.txt",
+      "sha256": "5620674fc574b8d610bd823a3f7f723dd06a38d22d590580fd96142157ec6dc7"
+    },
+    {
+      "command": [
+        "C:\\BGRedux\\phase0-local\\toolchain\\msys64\\ucrt64\\bin\\objdump.exe",
+        "-d",
+        "--start-address=0x1401ed281",
+        "--stop-address=0x1401ed290",
+        "C:\\BGRedux\\phase0-local\\bg2ee-clean\\Baldur.exe"
+      ],
+      "exit_code": 0,
+      "output": "C:\\BGRedux\\phase1-local\\results\\20261022T103308Z-confirmation-option-source-45542118\\getter-case.txt",
+      "sha256": "98b4f0d7d6b8e239c49f7fa094443f2d64654d824bdaf8e4c8888218bf742d8c"
+    },
+    {
+      "command": [
+        "C:\\BGRedux\\phase0-local\\toolchain\\msys64\\ucrt64\\bin\\objdump.exe",
+        "-d",
+        "--start-address=0x140282013",
+        "--stop-address=0x1402820e4",
+        "C:\\BGRedux\\phase0-local\\bg2ee-clean\\Baldur.exe"
+      ],
+      "exit_code": 0,
+      "output": "C:\\BGRedux\\phase1-local\\results\\20261022T103308Z-confirmation-option-source-45542118\\config-read.txt",
+      "sha256": "367de0b4967f74e64f72d027b5f29164f8f5f0967a32fa597aeef643a231592f"
+    },
+    {
+      "command": [
+        "C:\\BGRedux\\phase0-local\\toolchain\\msys64\\ucrt64\\bin\\objdump.exe",
+        "-d",
+        "--start-address=0x14028b6ff",
+        "--stop-address=0x14028b7b7",
+        "C:\\BGRedux\\phase0-local\\bg2ee-clean\\Baldur.exe"
+      ],
+      "exit_code": 0,
+      "output": "C:\\BGRedux\\phase1-local\\results\\20261022T103308Z-confirmation-option-source-45542118\\config-write.txt",
+      "sha256": "639dfa8e8e2ebc345ebf68da193afaa96b917d1b4e650406f68018f8751ffed3"
+    }
+  ],
+  "gemrb_source_sha256": {
+    "gemrb/core/Interface.cpp": "1f89535b05baf76de8370d2b94bf9b3a12c0cf7c1248c63bbe440ad49731c47d",
+    "gemrb/core/InterfaceConfig.cpp": "52993eb804f7d22346fc7075092b76e69b6beff0aa723a9a3d78cb256fef70b4",
+    "gemrb/plugins/GUIScript/GUIScript.cpp": "484602f77ed51235f2e63bc90558ab0a77cad58cf360a5830173f3919351a48d",
+    "gemrb/GUIScripts/GUIOPT.py": "05af6da5c66cf4e4b9a4b2eab19c30a4b6220898b3892fc1d848c847a839b705",
+    "gemrb/GUIScripts/GUIOPTControls.py": "c7a264ea32d1c0bd247c5112d251cf1ba09839e59a39a27fd75ed00a3a9c10e4",
+    "gemrb/unhardcoded/shared/defaults.ini": "ee10227f0184188e547b4cde36ce608ff3fce6033195521218db214e67547c0d",
+    "gemrb/GUIScripts/GUIMG.py": "c9d85d57f2d81c9ac7e52ad85e3b97df3ab5fa8e03f57b12ad6dd925ba3c6033",
+    "gemrb/GUIScripts/GUIPR.py": "1dd8d1eba2a0a0e2e1ae5d546d1a4abae9187f22ce8f0b0e1a22f52e2c4d5f4b"
+  },
+  "existing_feedback_checkboxes": [
+    {
+      "button": 10,
+      "label_control": 32,
+      "variable": "Effect Text Level",
+      "bit": 1
+    },
+    {
+      "button": 11,
+      "label_control": 33,
+      "variable": "Effect Text Level",
+      "bit": 2
+    },
+    {
+      "button": 12,
+      "label_control": 34,
+      "variable": "Effect Text Level",
+      "bit": 4
+    },
+    {
+      "button": 13,
+      "label_control": 35,
+      "variable": "Effect Text Level",
+      "bit": 8
+    },
+    {
+      "button": 14,
+      "label_control": 36,
+      "variable": "Effect Text Level",
+      "bit": 16
+    },
+    {
+      "button": 15,
+      "label_control": 37,
+      "variable": "Effect Text Level",
+      "bit": 32
+    }
+  ],
+  "default_ini_keys_absent": [
+    "Over Confirm Everything",
+    "Confirm Dialog"
+  ],
+  "auditor_sha256": "42313e6ffaf92432eadcd4a9dfad403695c1ab3751cffbe24c1714056736d88b",
+  "limits": [
+    "Binary-specific static disassembly and shipped source, not physical-toggle or live option query",
+    "Both original profile keys0 cannot distinguish their behavior without this static trace",
+    "No live GemRB dictionary/config persistence exercise; source-only inspection"
+  ],
+  "private_receipt": "C:\\BGRedux\\phase1-local\\results\\20261022T103308Z-confirmation-option-source-45542118\\result.json",
+  "private_receipt_sha256": "f8759ee2f3e51adf211a12e9a75ae78086d456216c8b8df9544099f7d00bc460"
+}
