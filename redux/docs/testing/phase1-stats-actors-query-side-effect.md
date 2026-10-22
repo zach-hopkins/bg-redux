@@ -1,5 +1,10 @@
 # Four-actor Stats journey and observable THAC0 initialization
 
+Follow-up: [original EE contract and exact-input native comparison](phase1-original-thac0-contract.md)
+now establishes original script stat14 before/after Record alongside adjusted
+display12. The failed native results below remain failed; no cache-field waiver
+or production correction was made by that reference run.
+
 ## Result and scope
 
 **Both complete journeys remain rejected.** The new focused observer covers all

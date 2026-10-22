@@ -1,0 +1,262 @@
+{
+  "schema": "bg-redux-original-thac0-contract/1",
+  "comparison_completed": true,
+  "production_fix_implemented": false,
+  "production_feature_accepted": false,
+  "phase1_complete": false,
+  "coordinator_review_only": true,
+  "original_preparation": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T211110Z-original-thac0-reference-e010858c\\preparation.json",
+    "sha256": "2643e846f7f42c64662d144539454d4183b6a749fde674ff1fca10930ce954a3"
+  },
+  "original_closed_verification": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T211110Z-original-thac0-reference-e010858c\\closed-reference-verification.json",
+    "sha256": "dc3a2ace3bc09f765d7ad5a2fc149a7bcd6db04f3d97e6a397ce0764c024ce78"
+  },
+  "original_manifest": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T211110Z-original-thac0-reference-e010858c\\artifact-manifest.json",
+    "sha256": "64d692000dd3e56b98c6f164f39bdabe77d86d3a8728c9b15b3b22a96566db97"
+  },
+  "native_characterization": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T211801Z-paired-original-thac0-native-600426d0\\result.json",
+    "sha256": "33238d4d11c37694bea25e69a0e94e8edeb7f8aebcf88460bbc78247083220f7"
+  },
+  "exact_prepared_input_equal": true,
+  "input_origin": "Native ordinary four-party recruitment GUI save; controlled script-only variation, not an original campaign fixture",
+  "observer_sha256": "2be54805f34b7fa56ce329f05af98800cde317c3c3e7006802285f4f2cc514f8",
+  "original_samples": [
+    {
+      "phase": 1,
+      "values": {
+        "EQ14": 1,
+        "EQ12": 0,
+        "GT13": 1,
+        "MISS": 0,
+        "CTRL": 1
+      }
+    },
+    {
+      "phase": 2,
+      "values": {
+        "EQ14": 1,
+        "EQ12": 0,
+        "GT13": 1,
+        "MISS": 0,
+        "CTRL": 1
+      }
+    }
+  ],
+  "native_trigger_observation": {
+    "before": {
+      "gt13": true,
+      "old14": true,
+      "new12": false,
+      "missing": false,
+      "control": true
+    },
+    "after": {
+      "gt13": false,
+      "old14": false,
+      "new12": true,
+      "missing": false,
+      "control": true
+    },
+    "scope": "Actual GameScript evaluator via area sender, explicit Player4 target. Trigger evaluation itself sets LastTrigger on positive results; not an AI execution or non-interference proof."
+  },
+  "native_queries": [
+    {
+      "name": "query.observed",
+      "passed": true,
+      "actor": 4,
+      "actor_name": "Minsc",
+      "before": 14,
+      "after": 12,
+      "details": {
+        "Slot": 10,
+        "Flags": 33,
+        "Enchantment": 0,
+        "Range": 1,
+        "Proficiency": 254,
+        "DamageBonus": 0,
+        "Speed": 0,
+        "CriticalBonus": 0,
+        "Style": 113,
+        "APR": 2,
+        "CriticalMultiplier": 2,
+        "CriticalRange": 20,
+        "ProfDmgBon": 0,
+        "LauncherDmgBon": 0,
+        "WeaponStrBonus": 5,
+        "HitHeaderNumDice": 1,
+        "HitHeaderDiceSides": 2,
+        "HitHeaderDiceBonus": 0,
+        "AC": {
+          "Total": 8,
+          "Natural": 10,
+          "Armor": 0,
+          "Shield": 0,
+          "Deflection": 0,
+          "Generic": 0,
+          "Dexterity": -2,
+          "Wisdom": 0
+        },
+        "ToHitStats": {
+          "Total": 12,
+          "Base": 14,
+          "Armor": 0,
+          "Shield": 0,
+          "Proficiency": 0,
+          "Generic": 0,
+          "Ability": -2,
+          "Weapon": 0
+        },
+        "DamageOpcodes": []
+      },
+      "signals_before": {
+        "gt13": true,
+        "old14": true,
+        "new12": false,
+        "missing": false,
+        "control": true
+      },
+      "signals_after": {
+        "gt13": false,
+        "old14": false,
+        "new12": true,
+        "missing": false,
+        "control": true
+      }
+    },
+    {
+      "name": "query.observed",
+      "passed": true,
+      "actor": 4,
+      "actor_name": "Minsc",
+      "before": 12,
+      "after": 12,
+      "details": {
+        "Slot": 10,
+        "Flags": 33,
+        "Enchantment": 0,
+        "Range": 1,
+        "Proficiency": 254,
+        "DamageBonus": 0,
+        "Speed": 0,
+        "CriticalBonus": 0,
+        "Style": 113,
+        "APR": 2,
+        "CriticalMultiplier": 2,
+        "CriticalRange": 20,
+        "ProfDmgBon": 0,
+        "LauncherDmgBon": 0,
+        "WeaponStrBonus": 5,
+        "HitHeaderNumDice": 1,
+        "HitHeaderDiceSides": 2,
+        "HitHeaderDiceBonus": 0,
+        "AC": {
+          "Total": 8,
+          "Natural": 10,
+          "Armor": 0,
+          "Shield": 0,
+          "Deflection": 0,
+          "Generic": 0,
+          "Dexterity": -2,
+          "Wisdom": 0
+        },
+        "ToHitStats": {
+          "Total": 12,
+          "Base": 14,
+          "Armor": 0,
+          "Shield": 0,
+          "Proficiency": 0,
+          "Generic": 0,
+          "Ability": -2,
+          "Weapon": 0
+        },
+        "DamageOpcodes": []
+      },
+      "signals_before": {
+        "gt13": false,
+        "old14": false,
+        "new12": true,
+        "missing": false,
+        "control": true
+      },
+      "signals_after": {
+        "gt13": false,
+        "old14": false,
+        "new12": true,
+        "missing": false,
+        "control": true
+      }
+    }
+  ],
+  "original_record_observation": {
+    "screenshot": "05-minsc-record-open.png",
+    "actor": "Minsc",
+    "strength": "18/93",
+    "base_thac0": 14,
+    "adjusted_thac0": 12,
+    "apr": "3/2"
+  },
+  "conclusion": "Original CheckStat stat7 retains14 before/after Record while adjusted UI total is12. Matched native GetCombatDetails changes raw Modified[7]14 to12 and actual stat-trigger results.",
+  "selected_screenshots": [
+    {
+      "path": "C:\\BGRedux\\phase1-local\\results\\20261022T211110Z-original-thac0-reference-e010858c\\01-four-party-loaded-before-record.png",
+      "sha256": "b7aab674efd1b76aec81a3cfcae67cf376bad82624c0ff255556f01fad8fdc3f"
+    },
+    {
+      "path": "C:\\BGRedux\\phase1-local\\results\\20261022T211110Z-original-thac0-reference-e010858c\\05-minsc-record-open.png",
+      "sha256": "1711dde254be37d791596858c1d66296e9ee3e3fa86c0da6cb5be52cd580c5d7"
+    },
+    {
+      "path": "C:\\BGRedux\\phase1-local\\results\\20261022T211110Z-original-thac0-reference-e010858c\\08-after-sample-complete.png",
+      "sha256": "5ce3611a32008dd2d291a76dd7d9af9e940ada8d28483cb4fd8aa5cdfba02c54"
+    }
+  ],
+  "followups": [
+    {
+      "subject": "APR",
+      "original_visual": "Minsc3/2",
+      "native_api_half_attacks": 2,
+      "native_display": "1",
+      "actual_attack_rate_compared": false
+    },
+    {
+      "subject": "HP",
+      "original_portrait": "Jaheira51/51",
+      "native_snapshot": "Jaheira53/53",
+      "root_cause_established": false
+    }
+  ],
+  "original_trigger_method": "Same fixed compiled BCS CheckStat/CheckStatGT opcode/Player4/stat7 via override observer; results in nonce-bound scripted autosaves",
+  "native_trigger_method": "Actual EvaluateString GameScript evaluator with explicit Player4/stat7; diagnostic evaluator LastTrigger effects declared",
+  "original_exe_sha256": "b51093a49140b2b8a7c046b4652bb8e535be24ebbc12b1d735e0b94217a14d57",
+  "preservation": {
+    "original": {
+      "phase0": true,
+      "clean_game": true,
+      "private_root": true,
+      "original_input": true,
+      "prepared_input": true,
+      "overrides": true,
+      "frozen_outputs": true
+    },
+    "native": {
+      "phase0": true,
+      "candidate": true,
+      "game": true,
+      "closure": true,
+      "fixture": true
+    }
+  },
+  "all_owned_sessions_terminal": true,
+  "research_references": [
+    "https://gibberlings3.github.io/iesdp/files/ids/bgee/stats.htm",
+    "https://eeex-docs.readthedocs.io/en/latest/EE%20Game%20Lua%20Functions/Infinity/"
+  ],
+  "private_review": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\original-thac0-contract-review-1792704250484502300\\review.json",
+    "sha256": "89e75f1de41ff817f748b0d1453f2d3b3cc020883162f46ed89824c57c445654"
+  }
+}

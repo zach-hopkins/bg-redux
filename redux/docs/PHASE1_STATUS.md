@@ -20,6 +20,7 @@ preserved. See the full [backlog](roadmap/phase1-backlog.md).
 | Fresh general baseline | `20261022T202715Z-stats-base-4eeccc08`: **24/24 import/reload + 20/20 GUI/save assertions**, zero skips, all preservation guards. Execution passes; compatibility remains **differences**. Vanilla4/0/24 and GUI449/53 residuals are retained without a conformance or causal claim. [Coordinator evidence](testing/phase1-stats-zero-resistances.md). |
 | Menus at both required sizes | `20261022T201520Z-stats-menu-run-8f0f646e` and `20261022T202136Z-stats-menu-run-efa0530e`: **156 checks, 53 captures, 41 callbacks and 111 steps per resolution**, 1024x768 and 1280x768. All natural Stats pages and seven preservation guards pass. [Numeric/content review and selected visual scope](testing/phase1-stats-zero-resistances.md) are coordinator validation; earlier [independent menu audit](testing/phase1-right-row-menu-independent.md) retains its historical binding. |
 | Four-actor Stats frontier | Both1024x768/1280x768 processes finish92 steps,45 captures,44 callbacks,24 actor/section contracts and40 page visits; all77 runtime assertions pass. **Both complete journeys remain rejected** because Minsc's modified THAC0 changes14→12. Fresh query-only isolation and actual CheckStatGT evaluation confirm the observable writing path. [Strict failures, causal scope and next work](testing/phase1-stats-actors-query-side-effect.md). |
+| Original THAC0 contract | Original EE scripted autosaves retain stat7=14 before/after Record while the UI shows base14/adjusted12. Matched exact-input native query600426d0 still changes stat7/trigger results to12. [Original reference and correction boundary](testing/phase1-original-thac0-contract.md). Production correction remains pending; APR and Jaheira HP observations are separately open. |
 | Correct Feedback setting | `20261022T123904Z-confirmation-setting-mixed-e9957e50`: right checkbox 41/buddy 40/label 29; left Colored Markers label retained. Actual Cancel/Done, owned INI write, byte-exact configuration transfer, fresh-process option-one loading, both books' charged prompts and depleted-first mixed-copy removal, normal GUI save/wire/fresh reload pass. [Independent audit](testing/phase1-confirmation-right-row-independent.md). |
 | Spellbook information | Earlier candidate ced237a2, `20261022T122217Z-spellbook-information-ee-direct-97f61bc1`: both owned processes pass, visiting 13 natural ordinary-book pages each with 65/55 captures and 80/67 callbacks. [Independent 120-capture audit](testing/phase1-information-journey-independent.md) verifies names, selection/deselection, paging, actor/level resets, help/descriptions, scroll movement/exact return, spell actions/capacity guards, GUI save and fresh reload. This historical receipt does not certify later changed helper files. |
 
@@ -38,9 +39,12 @@ Four-actor journeys7e89a03f/7098280f expose a broader conservation gap missed by
 the fighter-only record checks: viewing Minsc initializes shared modified
 THAC0 from14 to12. An actual CheckStatGT(Player4,13,7) result changes true→false
 after the same combat-details query. The source writing path is present in the
-protected baseline, but gameplay/save/original equivalence is unproven. Strict
+protected baseline. Original referencee010858c now establishes that Record keeps
+the script stat14 while displaying adjusted12; matched native input confirms the
+divergence. Save/attack equivalence remains unproven. Strict
 acceptance remains failed; completed-prefix forensic review cannot waive the
-delta. This is the next P1-03 investigation, with full Phase1 scope retained.
+delta. The next P1-03 correction must preserve that script-stat/attack-total
+distinction and audit all query mutations, with full Phase1 scope retained.
 
 Historical BG2EE inn option production change19de56ed5 is built in650b61c7. Native OFF
 direct rest/save and fresh reload pass; native ON ordinary checkbox/Done,

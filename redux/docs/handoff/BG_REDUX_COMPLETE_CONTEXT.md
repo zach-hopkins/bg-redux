@@ -19,6 +19,16 @@ true→false, with missing/unchanged controls. Source writing path exists in the
 protected baseline; script/save/attack and original parity remain unproven.
 No engine change or cache-field waiver was made. [Current frontier and pins](../testing/phase1-stats-actors-query-side-effect.md).
 
+Original follow-upe010858c completes both nonce-bound BCS samples and owned exit0.
+Before and after ordinary Minsc Record, CheckStat stat7 remains14; the Record
+shows Base14, adjusted12, Strength18/93. Exact prepared-input native600426d0
+still changes stat7 and trigger results to12. The reference uses a declared
+script-only variation of the native four-party recruitment fixture, not an
+original campaign checkpoint. All guards pass; no production fix yet. Separate
+follow-ups are original Minsc APR3/2 versus native API2 half-attacks/display1,
+and original Jaheira portrait51/51 versus native53/53; causes/actual attack
+behavior remain open. [Contract/evidence](../testing/phase1-original-thac0-contract.md).
+
 Stats now explicitly lists all thirteen resistance values, including0%, instead
 of showing only a heading. Default/legacy zero omission remains unchanged.
 Native1024x768 and1280x768 runs8f0f646e/efa0530e each pass156 checks,111 steps,
@@ -40,9 +50,10 @@ need their own correction/validation. All rejected attempts remain preserved.
 See [current status](../PHASE1_STATUS.md) and
 [inn implementation evidence](../testing/phase1-inn-option-implementation.md).
 
-Next: pair original EE THAC0 stat-trigger behavior before/after Record with a
-nonzero ability adjustment, resolve the P1-03 query contract and script/save/
-attack implications, then continue actor/class/effect and exact typeface/size work.
+Next: implement/validate the P1-03 query correction while preserving original
+script stat14 and displayed calculated12. Audit all query mutations, not just
+Modified[7], and preserve Classic behavior. Then continue APR/HP, script/save/
+attack, actor/class/effect and exact typeface/size work.
 Carry the private first-execution/rest-reload runner integration and matched
 rest/store/dream/movie fidelity cases into P1-06, while preserving full
 P1-01..P1-07 acceptance. Existing workers remain
