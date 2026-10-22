@@ -115,9 +115,11 @@ static void Capture(Window& window, const std::string& directory, const std::str
     auto white = Composite(buffer, 255);
     WriteRGB(black, directory, name + ".black");
     WriteRGB(white, directory, name + ".white");
-    const auto b = black->GetPixel(Point(80, 80)), w = white->GetPixel(Point(80, 80));
+    // This stays outside the old and replacement children at all declared
+    // scales. The v2 (80,80) probe could hit the old opaque child at 75%.
+    const auto b = black->GetPixel(Point(6, 6)), w = white->GetPixel(Point(6, 6));
     std::ofstream probe(directory + "/" + name + ".composite.json");
-    probe << "{\"probe\":[80,80],\"black_rgb\":[" << int(b.r) << ',' << int(b.g) << ',' << int(b.b)
+    probe << "{\"probe\":[6,6],\"black_rgb\":[" << int(b.r) << ',' << int(b.g) << ',' << int(b.b)
         << "],\"white_rgb\":[" << int(w.r) << ',' << int(w.g) << ',' << int(w.b)
         << "],\"transmission_rgb\":[" << int(w.r)-int(b.r) << ',' << int(w.g)-int(b.g) << ',' << int(w.b)-int(b.b)
         << "],\"direct_alpha_readback\":false}\n";
@@ -134,9 +136,11 @@ static void WindowRenderRegression(const std::string& out)
     if (!std::filesystem::create_directory(directory)) throw std::runtime_error("Synthetic output must be new");
     std::ofstream report(directory + "/fixture.json");
     if (!report) throw std::runtime_error("Synthetic receipt unavailable");
-    report << "{\"schema\":\"bg-redux-window-render-fixture/2\",\"width\":160,\"height\":120,"
+    report << "{\"schema\":\"bg-redux-window-render-fixture/3\",\"width\":160,\"height\":120,"
         "\"rgb_bytes_per_capture\":57600,\"direct_alpha_readback\":false,"
-        "\"opacity_observation\":\"paired-opaque-black-white-composition\",\"game_mutations_requested\":false,\"cases\":[";
+        "\"opacity_observation\":\"paired-opaque-black-white-composition\","
+        "\"opacity_expectation_scope\":\"LAB-pinned-SDL20-shared-DISPLAY-DISPLAY_ALPHA-native-format\","
+        "\"background_probe\":[6,6],\"game_mutations_requested\":false,\"cases\":[";
     bool first = true;
     for (unsigned alpha : {202u, 255u}) for (bool alphaWindow : {false, true}) for (unsigned scale : {100u, 75u, 125u}) {
         const std::string name = "bg" + std::to_string(alpha) + "-alpha" + (alphaWindow ? "1" : "0") + "-scale" + std::to_string(scale);
@@ -172,7 +176,10 @@ static void WindowRenderRegression(const std::string& out)
             << ",\"partial_clip\":[8,20,60,50],\"outside_sentinel\":[130,90,15,15],"
             "\"reference\":\"fresh-final.rgb\",\"comparison_suffixes\":[\".rgb\",\".black.rgb\",\".white.rgb\"],"
             "\"must_equal_reference_stems\":[\"removed-final\",\"dirty-0\",\"dirty-1\",\"dirty-2\",\"partial-dirty\",\"full-after-partial\"],"
-            "\"old_child_must_differ\":\"old.rgb\",\"expected_background_probe_transmission\":" << (alphaWindow ? 255-alpha : 0)
+            // Pinned SDL20Video::SDLPixelFormatFromBufferFormat maps DISPLAY
+            // and DISPLAY_ALPHA to the same renderer texture_formats[0].
+            // LAB's actual shared format retains alpha for both flag states.
+            "\"old_child_must_differ\":\"old.rgb\",\"expected_background_probe_transmission\":" << 255-alpha
             << ",\"transmission_rounding_tolerance\":1,\"comparison_status\":\"external-comparison-required\"}";
     }
     report << "],\"completed\":true,\"passed\":null}\n";
