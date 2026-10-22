@@ -1,5 +1,22 @@
 # BG Redux — complete continuation context
 
+Current working continuation: production commit `cd83f1e48` adds a detached 2E
+display combat query and routes EE character-sheet callers through it. It is
+compiled in the verified resumed candidate `faf62922` (configured `a71c06f9`),
+with a separately pinned shader-layout junction. The new source tooling suite
+passes603 tests. This candidate is **not yet runtime accepted**; the historical
+be5 baseline below remains the last accepted baseline. The first diagnostic
+stopped for missing shader layout, and the second completed the query/control
+matrix but was rejected for the deliberately caught unsupported-3E error log.
+A fresh external host marks that expected log boundary; API diagnostic2cc042eb
+now passes144 display calls, script14/display12, cache/RNG conservation and
+sensitive mutation controls. Its four actors are all unarmed: armed/dual-wield
+display-query coverage is still required. Stats parent51a7179d has an accepted
+1024×768 stage (92 steps/24 sections/45 captures/44 callbacks, strict world/cache
+conservation);1280×768 is still running. Fresh baseline and weapon-predicate
+regression remain pending. All failures and the original disk-full/bookkeeping receipts remain
+preserved. [Implementation and validation scope](../testing/phase1-display-combat-query.md).
+
 Latest October22 continuation: Phase1 remains active and incomplete. Current
 coherent candidatebe5f907d builds production sourcef8fbd45d9; source tooling
 passes584 external tests at27cd16cdc. Current baseline stats-base-4eeccc08 passes

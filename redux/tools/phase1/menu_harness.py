@@ -19,6 +19,10 @@ _stats_spec = importlib.util.spec_from_file_location('redux_stats_validation', P
 stats_validation = importlib.util.module_from_spec(_stats_spec)
 _stats_spec.loader.exec_module(stats_validation)
 
+_display_spec = importlib.util.spec_from_file_location('redux_display_query_validation', Path(__file__).with_name('display_query_validation.py'))
+display_validation = importlib.util.module_from_spec(_display_spec)
+_display_spec.loader.exec_module(display_validation)
+
 _page_spec = importlib.util.spec_from_file_location('redux_information_validation', Path(__file__).with_name('spellbook_information_validation.py'))
 page_validation = importlib.util.module_from_spec(_page_spec)
 _page_spec.loader.exec_module(page_validation)
@@ -65,6 +69,7 @@ def write(path, value):
 def menu_source_inputs(source):
     return [Path(__file__), HERE/'menu_probe.cpp', HERE/'gui/MenuRuntime.py', HERE/'gui/MenuStart.py',
             HERE/'gui/StatsRuntime.py', HERE/'stats_validation.py',
+            HERE/'gui/DisplayQueryRuntime.py', HERE/'display_query_validation.py',
             HERE/'private_game.py', HERE/'spellbook_information_validation.py', HERE/'../phase0/native/gui_probe.cpp', HERE/'../phase0/native/save_probe.cpp'] + [
             Path(source)/'gemrb/GUIScripts'/name for name in
             ('GUIREC.py','GUIRECCommon.py','EECharacterSheet.py','PortraitWindow.py','GUIMG.py','GUIPR.py','EESpellbookHeading.py','EESpellbookInformation.py','BG2EEConfirmation.py','GUIOPT.py','GUIOPTControls.py','GUICommon.py','GUICommonWindows.py','Spellbook.py','GameCheck.py','GUIDefines.py','GUIClasses.py')] + [Path(source)/'gemrb/unhardcoded/shared/defaults.ini']
@@ -333,9 +338,9 @@ def main():
     parser.add_argument("--timeout", type=int, default=330)
     parser.add_argument("--require-ordinary-spellbooks", action='store_true',
                         help='Require eligible ordinary wizard and priest heading evidence; context gating is not heading acceptance')
-    parser.add_argument('--journey', choices=('menus', 'stats'), default='menus')
+    parser.add_argument('--journey', choices=('menus', 'stats', 'display-query'), default='menus')
     args = parser.parse_args()
-    if args.journey == 'stats' and args.require_ordinary_spellbooks:
+    if args.journey != 'menus' and args.require_ordinary_spellbooks:
         parser.error('Stats journey does not validate ordinary spellbooks')
     stamp = datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     directory = args.output_root / (stamp + "-menu-" + args.mode + "-" + uuid.uuid4().hex[:8])
@@ -399,8 +404,8 @@ def main():
             stage_nonce = uuid.uuid4().hex
             command = [str(args.probe), "--config", str(cfg), "--output", str(stage), "--scripts", str(HERE / "gui"),
                        "--nonce", stage_nonce]
-            if args.journey == 'stats':
-                command += ['--journey', 'stats']
+            if args.journey != 'menus':
+                command += ['--journey', args.journey]
             # Freeze identity before the owned process can produce evidence.
             write(stage / 'launch-pin.json', dict(schema='bg-redux-menu-launch-pin/1',
                   nonce=stage_nonce, resolution=[width, height], command=command,
@@ -416,7 +421,9 @@ def main():
             except (ValueError, OSError) as error:
                 row['private_game_error'] = str(error)
             try:
-                if args.journey == 'stats':
+                if args.journey == 'display-query':
+                    row['validation'] = display_validation.validate_stage(stage, expected_nonce=stage_nonce)
+                elif args.journey == 'stats':
                     row['validation'] = stats_validation.validate_stage(stage, (width, height),
                         expected_nonce=stage_nonce, tlk_path=args.game/'lang/en_US/dialog.tlk')
                 else:
@@ -425,7 +432,8 @@ def main():
             except (ValueError, OSError, KeyError, IndexError, TypeError, StopIteration) as error:
                 row["error"] = str(error)
             row["fixture_copy_unchanged"] = manifest(copied) == original
-            row["passed"] = row["process"]["exit_code"] == 0 and not row["process"]["timed_out"] and row["fixture_copy_unchanged"] and not row.get('private_game_error') and row.get("validation", {}).get("assertion_passed", False) and row.get("validation", {}).get("collected_world_unchanged", False)
+            conservation = row.get('validation', {}).get('pure_phase_world_unchanged', False) if args.journey == 'display-query' else row.get('validation', {}).get('collected_world_unchanged', False)
+            row["passed"] = row["process"]["exit_code"] == 0 and not row["process"]["timed_out"] and row["fixture_copy_unchanged"] and not row.get('private_game_error') and row.get("validation", {}).get("assertion_passed", False) and conservation
             write(stage / "result.json", row)
             receipt["stages"].append(row)
         receipt["original_fixture_unchanged"] = manifest(args.fixture) == original
