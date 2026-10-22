@@ -97,6 +97,7 @@ def controller(filename, ee=True, spontaneous=False):
                      # This fixture owns heading lifecycle only. Information
                      # assembly has its own actual-helper/native coverage.
                      EESpellbookInformation=types.SimpleNamespace(Update=lambda *args: False, Reset=lambda *args: None),
+                     BG2EEConfirmation=types.SimpleNamespace(ShouldPromptPreparedRemoval=lambda *args: False),
                      MageSpellLevel=0, PriestSpellLevel=0, spellLevelOffset=None,
                      IE_SPELL_TYPE_WIZARD=1, IE_SPELL_TYPE_PRIEST=0)
     # GUIDefines is a constants-only source; no native module import is needed.
