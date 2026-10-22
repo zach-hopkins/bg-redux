@@ -9,8 +9,11 @@ October 22, 03:38 UTC follow-up: external tooling passes **237 tests** in
 `results/phase1-integrated-tests-20261022T0335.log`. The new active-slot run
 `20261022T033723Z-active-slot-run-81396091` passes main/ranged scenarios with
 14 stages and 196 query calls, coherent caches, stable values and unchanged
-calling-thread RNG. Candidate and Phase 0 preservation checks pass. Independent
-raw audit is pending; original mutation parity and magic-slot coverage remain
+calling-thread RNG. Candidate and Phase 0 preservation checks pass. The
+[independent audit](phase1-active-slot-journey.md) confirms 588 byte-equal query
+snapshot pairs and the reverse launcher THAC0 restoration. Three deliberate
+mutation boundaries changed RNG; the query intervals did not. Original mutation
+parity and magic-slot coverage remain
 unobserved. The [original color controls audit](phase1-original-color-controls-audit.md)
 completes the low and stock-selector reference observations alongside the earlier
 [paired controlled-color audit](phase1-paired-color-audit.md).

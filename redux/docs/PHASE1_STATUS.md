@@ -26,7 +26,10 @@ See the [paired color audit](testing/phase1-paired-color-audit.md).
 The [original control audit](testing/phase1-original-color-controls-audit.md)
 adds low-color stability and separately recorded stock random outcomes. New
 main/ammo/launcher mutation coverage passes 14 native stages and 196 queries;
-independent raw review is pending. The stock-container gameplay journey remains
+the [independent raw audit](testing/phase1-active-slot-journey.md) confirms the
+bounded pass, including 588 equal query state/cache/RNG pairs. Deliberate
+inventory mutations consumed RNG at three boundaries; this is not a whole-journey
+RNG preservation claim. The stock-container gameplay journey remains
 failed: after correcting an external name guard, approach movement completes
 but the queued use action disappears before any observed container UI/transfer.
 No successful loot/save/reload result or engine correction is inferred.
