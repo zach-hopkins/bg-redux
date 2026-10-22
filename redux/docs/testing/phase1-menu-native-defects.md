@@ -1,5 +1,28 @@
 # First native menu run: defect disposition
 
+## Fresh corrected traversal
+
+Candidate `9aa69cd5` completes the fresh run
+`20261022T015239Z-menu-run-b9d5ebb2` at both 1024×768 and 1280×960.
+Each stage passes 107 checks, completes 107 actions and preserves 51 captures;
+both processes exit 0 without a timeout. Native callback logs are clear,
+collected world state is unchanged, and fixture, source, binary and private-game
+guards pass. The [public summary](../compatibility/evidence/phase1-menu-lab.json)
+binds the private receipts and capture manifest by hash.
+
+These are revised ordinary-callback scenarios with explicit applicability,
+not a relabelling of the earlier 124-action failure. Stats category/page changes
+and the eligible wizard sidebar path now pass. The fixture has no priest;
+priest memorization/casting is explicitly context-gated. Store, container,
+dialogue/cutscene, chargen, travel, advancement and other context families remain
+open. Metadata-only font validation passes for both resolutions; selected
+inventory/record captures visibly show readable summaries. Physical pointer
+testing, complete typography/overflow and original pixel fidelity remain open.
+The separate hotkey journey exposes a translucent editor backdrop; its proposed
+opaque correction has not been transferred to these candidate results.
+
+The original failed stage and timeout below remain unchanged evidence.
+
 Evidence remains in `C:/BGRedux/phase1-local/results/20261022T010029Z-menu-run-bf0932e2`. The 1024×768 stage completed 124 actions / 67 captures / 128 timer ticks and exited 1 with 19 failed checks. It was not a timeout. Native world and private-game preservation guards passed; content/callback/visual fidelity did not. The 1280×960 stage timed out at the 330-second owned-process budget, with 85 of 124 actions retained in `menu-runtime.json` and no `menu-host-result.json`. Owned process cleanup and the private-game preservation guard passed. This second stage is incomplete, not accepted or waived.
 
 ## Production fixes

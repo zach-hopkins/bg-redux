@@ -1,0 +1,196 @@
+{
+  "schema": "bg-redux-phase1-menu-lab-summary/1",
+  "run_id": "20261022T015239Z-menu-run-b9d5ebb2",
+  "result_sha256": "d7492abb70f36b4edb18279604d81af6c3445405029efe75f602f9a4ab951789",
+  "artifact_manifest_sha256": "686b7479920e464899e1b3c16c5b222f8434b8e32bb91e0728756077de3fd142",
+  "core_dll_sha256": "79650612926d96a8748320bcf3d0f8f265f7d20747448a30a5ec8918b472ebb9",
+  "probe_sha256": "835393d6148afbec30ec5f338a9df4a4299c732f520e91141ccb96c5e50375ce",
+  "passed": true,
+  "source_inputs_unchanged": true,
+  "engine_dll_unchanged": true,
+  "original_fixture_unchanged": true,
+  "stages": [
+    {
+      "resolution": "1024x768",
+      "result_sha256": "8f0d36fbf7d2e048d3e6010e1124189f4d44bffae58e9017b177fd16589c47d0",
+      "checks": 107,
+      "checks_failed": 0,
+      "actions": 107,
+      "captures": 51,
+      "host_callbacks": 36,
+      "timer_ticks": 111,
+      "process_exit_code": 0,
+      "timed_out": false,
+      "collected_world_unchanged": true,
+      "private_game_validation": {
+        "clean_game_inventory_unchanged": true,
+        "clean_game_root_hashes_unchanged": true,
+        "copied_immutable_inputs_unchanged": true,
+        "allowed_private_root_changes": {
+          "gem-baldur.ini": {
+            "before_sha256": null,
+            "after_sha256": "28760d47a367993a599fb847e0d124ba2d78aa40a74d69041f79968fe6723695"
+          },
+          "GemRB.log": {
+            "before_sha256": "c298eb067db2c6c619c7791afc9b6fc0997a5dba9bd5bd03d6718f2facbbf6a7",
+            "after_sha256": "d4a267d7a16fdf13bb2490598942585a1057e47ae03d060625b1cf3d05439291"
+          }
+        },
+        "linked_asset_content_fully_hashed": false
+      },
+      "fixture_copy_unchanged": true,
+      "context_required": [
+        "priest memorization/casting needs priest",
+        "store/merchant",
+        "container/bag/loot",
+        "dialogue/cutscene",
+        "character generation",
+        "world travel",
+        "level-up/dual-class",
+        "sequencer/contingency",
+        "rest confirmation",
+        "export/customization submenus"
+      ],
+      "applicability": [
+        {
+          "name": "export.applicability",
+          "applicable": true,
+          "status": "applicable"
+        },
+        {
+          "name": "mage-book.applicability",
+          "applicable": true,
+          "candidates": [
+            {
+              "pc": 1,
+              "name": "wfsdf",
+              "known": 0,
+              "slots": 0
+            },
+            {
+              "pc": 2,
+              "name": "Imoen",
+              "known": 23,
+              "slots": 12
+            }
+          ],
+          "selected_actor": 2,
+          "status": "applicable"
+        },
+        {
+          "name": "priest-book.applicability",
+          "applicable": false,
+          "candidates": [
+            {
+              "pc": 1,
+              "name": "wfsdf",
+              "known": 0,
+              "slots": 0
+            },
+            {
+              "pc": 2,
+              "name": "Imoen",
+              "known": 0,
+              "slots": 0
+            }
+          ],
+          "selected_actor": null,
+          "status": "context-gated"
+        }
+      ]
+    },
+    {
+      "resolution": "1280x960",
+      "result_sha256": "a369eb719b2f95d49162840ea0258ef8f136e272cd2484093755256e8bb9d750",
+      "checks": 107,
+      "checks_failed": 0,
+      "actions": 107,
+      "captures": 51,
+      "host_callbacks": 36,
+      "timer_ticks": 111,
+      "process_exit_code": 0,
+      "timed_out": false,
+      "collected_world_unchanged": true,
+      "private_game_validation": {
+        "clean_game_inventory_unchanged": true,
+        "clean_game_root_hashes_unchanged": true,
+        "copied_immutable_inputs_unchanged": true,
+        "allowed_private_root_changes": {
+          "gem-baldur.ini": {
+            "before_sha256": null,
+            "after_sha256": "28760d47a367993a599fb847e0d124ba2d78aa40a74d69041f79968fe6723695"
+          },
+          "GemRB.log": {
+            "before_sha256": "c298eb067db2c6c619c7791afc9b6fc0997a5dba9bd5bd03d6718f2facbbf6a7",
+            "after_sha256": "e87e03a3aacfbf2437e535b556e3f2f46a1feecf9e709cfea10d9ed4a9af660b"
+          }
+        },
+        "linked_asset_content_fully_hashed": false
+      },
+      "fixture_copy_unchanged": true,
+      "context_required": [
+        "priest memorization/casting needs priest",
+        "store/merchant",
+        "container/bag/loot",
+        "dialogue/cutscene",
+        "character generation",
+        "world travel",
+        "level-up/dual-class",
+        "sequencer/contingency",
+        "rest confirmation",
+        "export/customization submenus"
+      ],
+      "applicability": [
+        {
+          "name": "export.applicability",
+          "applicable": true,
+          "status": "applicable"
+        },
+        {
+          "name": "mage-book.applicability",
+          "applicable": true,
+          "candidates": [
+            {
+              "pc": 1,
+              "name": "wfsdf",
+              "known": 0,
+              "slots": 0
+            },
+            {
+              "pc": 2,
+              "name": "Imoen",
+              "known": 23,
+              "slots": 12
+            }
+          ],
+          "selected_actor": 2,
+          "status": "applicable"
+        },
+        {
+          "name": "priest-book.applicability",
+          "applicable": false,
+          "candidates": [
+            {
+              "pc": 1,
+              "name": "wfsdf",
+              "known": 0,
+              "slots": 0
+            },
+            {
+              "pc": 2,
+              "name": "Imoen",
+              "known": 0,
+              "slots": 0
+            }
+          ],
+          "selected_actor": null,
+          "status": "context-gated"
+        }
+      ]
+    }
+  ],
+  "visual_acceptance": false,
+  "pointer_hit_testing": false,
+  "complete_menu_or_campaign_fidelity": false,
+  "earlier_failed_run_preserved": "20261022T010029Z-menu-run-bf0932e2"
+}
