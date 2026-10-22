@@ -115,7 +115,7 @@ def UpdatePriestWindow (Window):
 			Button.SetSpellIcon (ms['SpellResRef'], 0)
 			if not GameCheck.IsBG2EE ():
 				Button.SetFlags (IE_GUI_BUTTON_PICTURE, OP_SET)
-			if ms['Flags']:
+			if ms['Flags'] and not GameCheck.IsBG2EE ():
 				Button.OnPress (OpenPriestSpellUnmemorizeWindow)
 			else:
 				Button.OnPress (OnPriestUnmemorizeSpell)
