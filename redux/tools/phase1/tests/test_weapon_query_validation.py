@@ -289,7 +289,8 @@ class BuildReceiptTests(unittest.TestCase):
                            binary_sha256=v.sha(root/'binary'), compiler=str(root/'compiler'), compiler_sha256=v.sha(root/'compiler'),
                            sources={str(root/'source'): dict(sha256=v.sha(root/'source'), frozen=str(root/'frozen'))})
             path = root/'receipt.json'; write(path, receipt)
-            with patch.object(runner, 'candidate_inventory', return_value=inventory):
+            with patch.object(runner, 'candidate_inventory', return_value=inventory), \
+                    patch.object(runner, 'required_sources', return_value=[root/'source']):
                 runner.check_build(path, root, root, root)
                 for change in [dict(phase0_preservation={}), dict(candidate_preserved=False),
                                dict(process=dict(exit_code=0, timed_out=True)), dict(candidate_inventory={'changed': True})]:

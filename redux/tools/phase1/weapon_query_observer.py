@@ -18,6 +18,7 @@ import socket
 import subprocess
 import sys
 import uuid
+import private_game
 
 from weapon_oracle_fixtures import load_api, equipment_guard
 from weapon_query_validation import LIMIT, bind_original_reference, manifest, member, read, sha, validate_capture, verify_original_artifacts
@@ -72,6 +73,54 @@ def frozen_copy(path, destination):
     return dict(source=str(path), frozen=str(destination), sha256=before)
 
 
+def required_sources(kind='six-hand-query'):
+    tool = Path(__file__).resolve().parent
+    if Path(private_game.__file__).resolve() != tool/'private_game.py':
+        raise ValueError('Private game helper import escaped tool directory')
+    names = ['native/weapon_query_probe.cpp', 'native/phase0_save_probe_snapshot.cpp',
+             'weapon_query_observer.py', 'weapon_query_validation.py', 'weapon_oracle_fixtures.py', 'private_game.py']
+    if kind == 'inventory-mutation-journey':
+        names += ['native/weapon_inventory_journey.cpp', 'weapon_inventory_journey.py']
+    elif kind != 'six-hand-query':
+        raise ValueError('Unknown external observer host kind')
+    return [tool/name for name in names]
+
+
+def prepare_private_game(project, output):
+    required_sources() # verify the imported helper identity before any use
+    receipt = private_game.prepare(project/'phase0-local/bg2ee-clean', output/'private-game')
+    write(output/'private-game-preparation.json', receipt)
+    validate_private_game(receipt, output)
+    return receipt
+
+
+def validate_private_game(receipt, output):
+    required_sources()
+    if read(output/'private-game-preparation.json') != receipt:
+        raise ValueError('Frozen private game preparation changed')
+    write(output/'private-game-source-after.json', private_game.source_inventory(receipt['source']))
+    validation = private_game.validate(receipt)
+    write(output/'private-game-validation.json', validation)
+    return validation
+
+
+def result_manifest(output):
+    """Hash owned outputs/root copies, without traversing shared asset links."""
+    output = Path(output)
+    wrapper = output/'private-game'
+    files = {}
+    for parent, directories, names in os.walk(output, followlinks=False):
+        directories[:] = [name for name in directories if Path(parent)/name != wrapper]
+        for name in names:
+            path = Path(parent)/name
+            files[path.relative_to(output).as_posix()] = dict(bytes=path.stat().st_size, sha256=sha(path))
+    if wrapper.is_dir():
+        for path in wrapper.iterdir():
+            if path.is_file() and not path.is_symlink():
+                files[path.relative_to(output).as_posix()] = dict(bytes=path.stat().st_size, sha256=sha(path))
+    return dict(sorted(files.items()))
+
+
 def build_host(args):
     project, source, build = args.project_root.resolve(), args.engine_source_root.resolve(), args.engine_build_root.resolve()
     output = args.output_dir.resolve()
@@ -79,7 +128,8 @@ def build_host(args):
         raise ValueError('External build destination must be new')
     output.mkdir(parents=True)
     report = dict(schema='bg-redux-phase1-weapon-query-build/1', directory=str(output),
-                  project=str(project), engine_source_root=str(source), engine_build_root=str(build), verdict='failed')
+                  project=str(project), engine_source_root=str(source), engine_build_root=str(build),
+                  kind='six-hand-query', verdict='failed')
     before = candidate = None
     try:
         api = phase0(project); baseline = api.baseline_runner
@@ -90,8 +140,7 @@ def build_host(args):
         serializer = tool/'native/phase0_save_probe_snapshot.cpp'
         if sha(serializer) != sha(project/'tools/phase0/native/save_probe.cpp'):
             raise ValueError('Frozen serializer differs from read-only Phase 0 original')
-        files = [tool/'native/weapon_query_probe.cpp', serializer, Path(__file__).resolve(),
-                 tool/'weapon_query_validation.py', tool/'weapon_oracle_fixtures.py']
+        files = required_sources()
         report['sources'] = {str(p): frozen_copy(p, output/'sources'/p.name) for p in files}
         binary = output/'Redux_phase1_weapon_query.exe'
         prefix = project/'phase0-local/toolchain/msys64/ucrt64'
@@ -146,6 +195,9 @@ def check_build(receipt_path, project, source, build):
         raise ValueError('External build binary/compiler changed')
     if receipt['candidate_inventory'] != candidate_inventory(source, build):
         raise ValueError('Candidate source/binaries drifted since observer build')
+    expected_sources = {str(path) for path in required_sources(receipt.get('kind', 'six-hand-query'))}
+    if set(receipt.get('sources', {})) != expected_sources:
+        raise ValueError('External observer required source inventory differs (fresh build required)')
     for path, row in receipt['sources'].items():
         if sha(path) != row['sha256'] or sha(row['frozen']) != row['sha256']:
             raise ValueError('External observer source changed: '+path)
@@ -200,7 +252,7 @@ def run_queries(args):
                   started_utc=datetime.now(timezone.utc).isoformat(), repeats=args.repeats, cases=[],
                   require_rng_observed=args.require_rng_observed, rng_control_draw=args.rng_control_draw,
                   verdict='failed', execution='not-run', compatibility='not-compared', scope=LIMIT)
-    before = candidate = game_before = None
+    before = candidate = game_before = private = None
     try:
         api = phase0(project); baseline = api.baseline_runner
         report['phase0_preflight'] = baseline.preflight(project)
@@ -208,6 +260,10 @@ def run_queries(args):
         candidate = candidate_inventory(source, build); write(output/'candidate-before.json', candidate)
         game_before = api.query_side_effects.verify_game(project); report['game_before'] = game_before
         receipt = check_build(args.build_receipt.resolve(), project, source, build)
+        if receipt.get('kind') != 'six-hand-query':
+            raise ValueError('Wrong external host kind')
+        private = prepare_private_game(project, output)
+        report['private_game_preparation_sha256'] = sha(output/'private-game-preparation.json')
         prep, rows = check_preparation(args.preparation.resolve(), args.cases)
         report['selected_cases'] = [r['spec']['id'] for r in rows]
         report['unselected_cases'] = [r['spec']['id'] for r in prep['cases'] if r not in rows]
@@ -254,7 +310,8 @@ def run_queries(args):
                     raise ValueError('Copied fixed script differs')
                 for directory in ('cache', 'engine-profile', 'capture'):
                     (folder/directory).mkdir()
-                config = dict(GameType='bg2ee', GamePath=project/'phase0-local/bg2ee-clean', GemRBPath=source/'gemrb',
+                validate_private_game(private, output)
+                config = dict(GameType='bg2ee', GamePath=Path(private['game']), GemRBPath=source/'gemrb',
                               PluginsPath=build/'gemrb/plugins', CachePath=folder/'cache', SavePath=folder/'engine-profile',
                               UseAsLibrary=1, AudioDriver='none', GameLanguagePath='lang/en_US', ModPath=override,
                               Logging=1, LogColor=0, PathfinderThreadsCount=0, PathfinderMainThreadMode='immediate')
@@ -269,6 +326,7 @@ def run_queries(args):
                 env['PATH'] = os.pathsep.join([str(build/'gemrb'), str(prefix/'bin'), env.get('PATH', '')])
                 env['PYTHONDONTWRITEBYTECODE'] = '1'
                 case['process'] = baseline.execute(command, build, env, folder/'process.log', args.timeout)
+                case['private_game_validation'] = validate_private_game(private, output)
                 require_process(case['process'])
                 case['execution'] = 'passed'
                 reference = references.get(identity)
@@ -293,6 +351,13 @@ def run_queries(args):
     except Exception as error:
         report['error'] = str(error)
     finally:
+        if private is not None:
+            try:
+                report['private_game_validation'] = validate_private_game(private, output)
+            except Exception as error:
+                report['private_game_preservation_error'] = str(error)
+                report['private_game_validation'] = dict(verdict='failed', error=str(error))
+                report['verdict'] = 'failed'
         if report['cases']:
             report['execution'] = ('passed' if all(c.get('process', {}).get('exit_code') == 0
                                    and c.get('process', {}).get('timed_out') is False for c in report['cases']) else 'failed')
@@ -302,6 +367,8 @@ def run_queries(args):
             report['collected_state_status'] = ('not-observed' if not observed else 'mutation-observed'
                                                 if any(o['mutation_observations'] for o in observed)
                                                 else 'unchanged-in-completed-captures')
+        if 'private_game_preservation_error' in report:
+            report['validation'] = 'failed'
         try:
             if before is not None:
                 after = baseline.protected(project); write(output/'phase0-after.json', after)
@@ -322,7 +389,8 @@ def run_queries(args):
         report['completed_utc'] = datetime.now(timezone.utc).isoformat()
         write(output/'result.json', report)
         (output/'REPORT.md').write_text(f'Phase 1 weapon query observer: {report["verdict"]}\n\nExecution: {report["execution"]}. Compatibility: {report["compatibility"]}.\n\n{LIMIT}\n', encoding='utf-8')
-        write(output/'artifact-manifest.json', dict(files=manifest(output)))
+        write(output/'artifact-manifest.json', dict(files=result_manifest(output),
+            scope='Owned outputs and private root copies; shared asset links excluded'))
     print(json.dumps(dict(directory=str(output), verdict=report['verdict']), indent=2), flush=True)
     return 0 if report['verdict'] in ('matched-selected-original-cases', 'not-fully-compared') else 1
 

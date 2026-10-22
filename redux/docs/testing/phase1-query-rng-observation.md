@@ -75,3 +75,43 @@ Focused Python tests cover initialized/absent/unavailable observations,
 controlled draw and lazy initialization detection, forged equality,
 missing/reused files, continuity/final boundaries, strict schema and mode
 binding. The full Phase 1 Python suite passed 56 tests; git diff --check passed.
+
+## Subsequent private game isolation correction
+
+The original query/journey runners passed the protected clean game directly
+as GamePath. Library initialization can write GemRB.log and gemrb_path.txt
+there. The later candidate9aa source-root guard failure is preserved at
+`C:/BGRedux/phase1-local/runtime-candidate-9aa69cd5/clean-game-guard-failure.json`:
+GemRB.log changed SHA256 and gemrb_path.txt changed modification time. Existing
+native observations remain preserved; their 2324 pinned asset checks do not
+establish complete clean-source-root preservation.
+
+Both runners now prepare one new private game wrapper per run through the
+unchanged private_game helper from coordinator commit1c4f86262 (helper SHA256
+`9dce77132b5d39b2ac210a76cfd27388063887867cadad5e3ae0956b396a3582`).
+Root files are copied; approved asset directories remain linked. GamePath
+uses the wrapper, while cache/profile/fixtures remain separate private paths.
+The frozen private-game-preparation.json records the initial source inventory,
+root hashes, copied files and asset-link targets. Validation checks that
+preparation and the wrapper before launches, after launches and at finalization.
+Source-after inventories and validation receipts are retained. Unexpected
+source writes or private immutable-input/link changes fail the run; a stale
+successful private validation is replaced by failure evidence.
+
+New build receipts bind the exact external source closure including
+private_game.py and reject omitted, changed or mismatched frozen helper
+sources. Existing query/cache host receipts are intentionally stale and need
+fresh isolated external builds. Run manifests hash owned outputs and copied
+private root files, without traversing shared asset links. Linked asset
+content is not claimed fully hashed by that manifest; source root hashes and
+recursive names/size/mtime checks remain explicit, alongside existing pinned
+asset hashes. The wrapper is write isolation for known root writes, not a
+filesystem security boundary.
+
+New unit tests exercise actual runner-generated configs at mocked launch
+boundaries for both hosts, permitted private log/path writes, rejected source
+log writes, frozen preparation tampering, helper source omission/drift/import
+escape and manifest asset-link exclusion. These tests were added but **not
+executed by the worker**, per coordinator instruction. Fresh coordinator
+builds/runs and test execution remain required; the earlier56-test result does
+not validate this subsequent isolation correction.

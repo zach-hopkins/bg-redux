@@ -163,8 +163,7 @@ def build_journey(args):
         tool = Path(__file__).resolve().parent
         if evidence.sha(tool/'native/phase0_save_probe_snapshot.cpp') != evidence.sha(project/'tools/phase0/native/save_probe.cpp'):
             raise ValueError('Frozen Phase 0 serializer differs')
-        sources = [tool/'native'/name for name in ('weapon_inventory_journey.cpp', 'weapon_query_probe.cpp', 'phase0_save_probe_snapshot.cpp')]
-        sources += [tool/name for name in ('weapon_inventory_journey.py', 'weapon_query_observer.py', 'weapon_query_validation.py', 'weapon_oracle_fixtures.py')]
+        sources = observer.required_sources('inventory-mutation-journey')
         result['sources'] = {str(p): observer.frozen_copy(p, output/'sources'/p.name) for p in sources}
         prefix = project/'phase0-local/toolchain/msys64/ucrt64'; compiler = prefix/'bin/g++.exe'
         binary = output/'Redux_inventory_journey.exe'
@@ -202,7 +201,7 @@ def run_journey(args):
     output = observer.new_output(args.results_root.resolve(), 'inventory-journey')
     result = dict(schema='bg-redux-phase1-inventory-journey/1', directory=str(output), verdict='failed',
                   execution='not-run', scope=evidence.LIMIT, original_journey_parity=None)
-    before = candidate = None
+    before = candidate = private = None
     try:
         api = observer.phase0(project); baseline = api.baseline_runner
         result['phase0_preflight'] = baseline.preflight(project)
@@ -211,6 +210,8 @@ def run_journey(args):
         result['game_before'] = api.query_side_effects.verify_game(project)
         receipt = observer.check_build(args.build_receipt.resolve(), project, source, build)
         if receipt.get('kind') != 'inventory-mutation-journey': raise ValueError('Wrong external host kind')
+        private = observer.prepare_private_game(project, output)
+        result['private_game_preparation_sha256'] = evidence.sha(output/'private-game-preparation.json')
         prep, rows = observer.check_preparation(args.preparation.resolve(), ['02-plus-normal-pfmw'])
         row = rows[0]
         if row['spec']['main'] != 'sw1h02' or row['spec']['off'] != 'sw1h01' or row['spec']['defense'] != [120, 0, 1]:
@@ -224,7 +225,8 @@ def run_journey(args):
         observer.frozen_copy(Path(receipt['binary']), binary); observer.frozen_copy(args.build_receipt, driver/'build.json')
         for item in receipt['sources'].values(): observer.frozen_copy(Path(item['frozen']), driver/'sources'/Path(item['frozen']).name)
         for name in ('cache', 'engine-profile', 'capture'): (output/name).mkdir()
-        config = dict(GameType='bg2ee', GamePath=project/'phase0-local/bg2ee-clean', GemRBPath=source/'gemrb',
+        observer.validate_private_game(private, output)
+        config = dict(GameType='bg2ee', GamePath=Path(private['game']), GemRBPath=source/'gemrb',
                       PluginsPath=build/'gemrb/plugins', CachePath=output/'cache', SavePath=output/'engine-profile',
                       UseAsLibrary=1, AudioDriver='none', GameLanguagePath='lang/en_US', ModPath=override,
                       Logging=1, LogColor=0, PathfinderThreadsCount=0, PathfinderMainThreadMode='immediate')
@@ -234,6 +236,7 @@ def run_journey(args):
         env = api.harness.environment(output); prefix = project/'phase0-local/toolchain/msys64/ucrt64'
         env['PATH'] = os.pathsep.join([str(build/'gemrb'), str(prefix/'bin'), env.get('PATH', '')]); env['PYTHONDONTWRITEBYTECODE'] = '1'
         result['process'] = baseline.execute(command, build, env, output/'process.log', args.timeout)
+        result['private_game_validation'] = observer.validate_private_game(private, output)
         result['execution'] = ('passed' if result['process'].get('exit_code') == 0
                                and result['process'].get('timed_out') is False else 'failed')
         observer.require_process(result['process']); result['execution'] = 'passed'
@@ -245,6 +248,13 @@ def run_journey(args):
         if evidence.manifest(output/'input') != row['fixture_files']: raise ValueError('Immutable input changed')
     except Exception as error: result['error'] = str(error); result['verdict'] = 'failed'
     finally:
+        if private is not None:
+            try:
+                result['private_game_validation'] = observer.validate_private_game(private, output)
+            except Exception as error:
+                result['private_game_preservation_error'] = str(error)
+                result['private_game_validation'] = dict(verdict='failed', error=str(error))
+                result['verdict'] = 'failed'
         try:
             if before is not None:
                 after = baseline.protected(project); observer.write(output/'phase0-after.json', after)
@@ -259,7 +269,8 @@ def run_journey(args):
                 if result['game_before'] != result['game_after']: raise ValueError('Clean game changed')
         except Exception as error: result['preservation_error'] = str(error); result['verdict'] = 'failed'
         result['completed_utc'] = datetime.now(timezone.utc).isoformat()
-        observer.write(output/'result.json', result); observer.write(output/'artifact-manifest.json', dict(files=evidence.manifest(output)))
+        observer.write(output/'result.json', result); observer.write(output/'artifact-manifest.json', dict(
+            files=observer.result_manifest(output), scope='Owned outputs and private root copies; shared asset links excluded'))
     print(output, result['verdict'], result.get('error', ''), flush=True)
     return 0 if result['verdict'] == 'journey-observed-cache-coherent' else 1
 
