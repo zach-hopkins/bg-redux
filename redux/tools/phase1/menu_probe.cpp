@@ -1,0 +1,148 @@
+// External normal-loop menu observer. Reuse the established host's serializers,
+// fonts and destruction order; do not alter or replace an application screen.
+#define main ReduxLegacyGUIProbeMain
+#include "../phase0/native/gui_probe.cpp"
+#undef main
+
+static const std::vector<const char*> MenuPacks = {"GUIOPT", "GUIREC", "GUISAVE", "GUILOAD", "GUIMAP", "GUIWMAP", "GUIJRNL", "GUIMG", "GUIPR"};
+
+static std::string MenuUIJSON()
+{
+    std::vector<std::string> rows;
+    auto packs = MenuPacks;
+    for (auto pack : {"GUIINV", "WIN_TOP", "GAMEWIN", "SUB_WIN", "LOADWIN"}) packs.push_back(pack);
+    for (const auto* pack : packs) {
+        std::set<View*> seen;
+        for (auto* view : GetViews(ScriptingGroup_t(pack))) {
+            if (!seen.insert(view).second) continue;
+            const auto* ref = view->GetScriptingRef();
+            auto* window = view->GetWindow();
+            const auto* wr = window ? window->GetScriptingRef() : nullptr;
+            if (!ref || (window && !wr)) continue;
+            auto* ctrl = dynamic_cast<Control*>(view);
+            const auto r = view->Frame();
+            rows.push_back(O({{"pack", Q(pack)}, {"id", NumberJSON(ctrl ? ctrl->ControlID : ref->Id)},
+                {"window", wr ? NumberJSON(wr->Id) : "null"}, {"type", ctrl ? NumberJSON(ctrl->ControlType) : "null"},
+                {"rect", A({NumberJSON(r.x),NumberJSON(r.y),NumberJSON(r.w),NumberJSON(r.h)})},
+                {"visible", view->IsVisible() ? "true" : "false"}, {"disabled", view->IsDisabled() ? "true" : "false"},
+                {"flags", NumberJSON(view->Flags())}, {"text", ctrl ? Q(MBStringFromString(ctrl->QueryText())) : "null"}}));
+        }
+    }
+    return O({{"schema", Q("bg-redux-menu-ui/1")}, {"controls", A(rows)}});
+}
+
+static std::string ObserverJSON()
+{
+    std::vector<std::string> actors;
+    auto* game = core->GetGame();
+    for (int i=0; i<game->GetPartySize(false); ++i) {
+        auto* actor = game->GetPC(i, false);
+        auto action = actor->GetCurrentAction();
+        std::vector<std::string> weapons;
+        for (int hand=0;hand<2;++hand) {
+            const auto& wi=actor->weaponInfo[hand];
+            auto* header=wi.extHeader;
+            weapons.push_back(O({{"hand",NumberJSON(hand)}, {"slot",NumberJSON(wi.slot)},
+                {"header_dice",header?NumberJSON(header->DiceThrown):"null"},
+                {"header_sides",header?NumberJSON(header->DiceSides):"null"},
+                {"header_bonus",header?NumberJSON(header->DamageBonus):"null"},
+                {"cached_proficiency_bonus",NumberJSON(wi.profdmgbon)}, {"launcher_bonus",NumberJSON(wi.launcherDmgBonus)}}));
+        }
+        actors.push_back(O({{"party_index", NumberJSON(i+1)}, {"runtime_id", NumberJSON(actor->GetGlobalID())},
+            {"cached_thac0", NumberJSON(actor->ToHit.GetTotal())}, {"cached_base_thac0", NumberJSON(actor->ToHit.GetBase())},
+            {"used_left_hand", actor->usedLeftHand ? "true" : "false"},
+            {"attack_count", NumberJSON(actor->attackcount)}, {"attacks_per_round", NumberJSON(actor->attacksperround)},
+            {"action_id", action ? NumberJSON(action->actionID) : "null"},
+            {"action_target", NumberJSON(actor->CurrentActionTarget)}, {"action_state", NumberJSON(actor->CurrentActionState)},
+            {"action_ticks", NumberJSON(actor->CurrentActionTicks)}, {"weapon_cache",A(weapons)}}));
+    }
+    return O({{"schema",Q("bg-redux-menu-observer/1")}, {"actors",A(actors)}, {"rng_sampled","false"}});
+}
+
+int main(int argc, char** argv)
+{
+    std::map<std::string,std::string> args;
+    for (int i=1; i+1<argc; i+=2) args[argv[i]]=argv[i+1];
+    for (auto required : {"--config", "--output", "--scripts"}) if (!args.count(required)) return 64;
+    const auto out = args["--output"];
+    std::filesystem::create_directories(out);
+    if (std::filesystem::exists(out+"/menu-host-result.json")) return 73;
+    std::setlocale(LC_ALL,".UTF8");
+    std::atexit(StopLog);
+    std::unique_ptr<Interface> engine;
+    int rc=0, stage=-1, waits=0, ticks=0, captures=0, callbacks=0;
+    bool completed=false;
+    try {
+        const char* argvEngine[]={"redux-menu-probe","-c",args["--config"].c_str()};
+        auto config=LoadFromArgs(3,const_cast<char**>(argvEngine));
+        ToggleLogging(true); AddLogWriter(createStdioLogWriter()); SetMainLogLevel(FATAL);
+        engine=std::make_unique<Interface>(std::move(config));
+        auto script=core->GetGUIScriptEngine();
+        if (!script->ExecString("import sys; sys.path.insert(0,"+Q(args["--scripts"])+"); import MenuRuntime; MenuRuntime.Configure("+Q(out)+")"))
+            throw std::runtime_error("Cannot initialize external menu plan");
+        core->SetNextScript("MenuStart");
+        core->SetTimer([&]() {
+            try {
+                if (++ticks>1200) throw std::runtime_error("Menu plan exceeded 300-second timer budget");
+                if (stage==-1) {
+                    if (!script->ExecString("import MenuStart; MenuStart.PopulateLoad()")) throw std::runtime_error("Load list not ready");
+                    Press("GUILOAD",0,26); stage=0; return;
+                }
+                if (!core->GetGame() || !core->GetGameControl() || !GetViews(ScriptingGroup_t("LOADWIN")).empty()) {
+                    if (++waits>80) throw std::runtime_error("Menu game/load boundary not ready");
+                    return;
+                }
+                if (stage==0) {
+                    core->SetPause(PauseState::On,3);
+                    Write(out+"/fonts.json",FontsJSON());
+                    Write(out+"/before.state.json",Snapshot(core->GetGame()));
+                    Write(out+"/before.observer.json",ObserverJSON());
+                    stage=1;
+                }
+                if (!script->ExecString("MenuRuntime.Step()")) throw std::runtime_error("Menu plan Python exception");
+                const int pack=core->GetDictionary().Get("Phase1PressPack",0);
+                if (pack) {
+                    if (pack<1 || pack>int(MenuPacks.size())) throw std::runtime_error("Invalid menu callback pack");
+                    const auto name="callback-"+NumberJSON(callbacks+1);
+                    Write(out+"/"+name+"-before.state.json",Snapshot(core->GetGame()));
+                    Write(out+"/"+name+"-before.observer.json",ObserverJSON());
+                    Press(MenuPacks[pack-1],core->GetDictionary().Get("Phase1PressWindow",0),core->GetDictionary().Get("Phase1PressControl",0));
+                    Write(out+"/"+name+"-after.state.json",Snapshot(core->GetGame()));
+                    Write(out+"/"+name+"-after.observer.json",ObserverJSON());
+                    ++callbacks;
+                }
+                const int capture=core->GetDictionary().Get("Phase1MenuCapture",0);
+                if (capture) {
+                    const auto name="capture-"+NumberJSON(capture);
+                    Write(out+"/"+name+".ui.json",MenuUIJSON());
+                    Write(out+"/"+name+".state.json",Snapshot(core->GetGame()));
+                    Write(out+"/"+name+".observer.json",ObserverJSON());
+                    PluginHolder<ImageWriter> writer=MakePluginHolder<ImageWriter>(PLUGIN_IMAGE_WRITER_BMP);
+                    FileStream file;
+                    if (!writer || !file.Create(out,name,IE_BMP_CLASS_ID)) throw std::runtime_error("Cannot create menu screenshot");
+                    writer->PutImage(&file,core->GetWindowManager()->GetScreenshot(nullptr));
+                    ++captures;
+                }
+                core->SetPause(PauseState::On,3);
+                if (core->GetDictionary().Get("Phase1MenuComplete",0)) {
+                    Write(out+"/after.state.json",Snapshot(core->GetGame()));
+                    Write(out+"/after.observer.json",ObserverJSON());
+                    completed=true; core->QuitFlag=QF_KILL;
+                }
+            } catch (const std::exception& error) {
+                Write(out+"/error.json",O({{"stage",NumberJSON(stage)},{"error",Q(error.what())}}));
+                rc=1; core->QuitFlag=QF_KILL;
+            }
+        },250,-1);
+        engine->Main();
+        if (!completed) rc=1;
+        if (core->GetDictionary().Get("Phase1FailedChecks",0)) rc=1;
+    } catch (const std::exception& error) {
+        Write(out+"/error.json",O({{"error",Q(error.what())}})); rc=1;
+    }
+    Write(out+"/menu-host-result.json",O({{"schema",Q("bg-redux-menu-host/1")}, {"completed",completed?"true":"false"},
+        {"captures",NumberJSON(captures)},{"callbacks",NumberJSON(callbacks)}, {"timer_ticks",NumberJSON(ticks)},
+        {"load_waits",NumberJSON(waits)},{"visual_acceptance","false"},{"pointer_hit_testing","false"}}));
+    if (engine) { engine.reset(); core=nullptr; VideoDriver.reset(); PluginMgr::Get()->RunCleanup(); }
+    StopLog(); return rc;
+}
