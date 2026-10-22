@@ -16,11 +16,22 @@ preserved. See the full [backlog](roadmap/phase1-backlog.md).
 
 | Bounded evidence | Current result and scope |
 |---|---|
-| Source tooling | **534 tests pass**, 56.465 seconds, `phase1-feedback-row-tooling-1792672463250707300/result.json`. This is distinct from engine CTest and native game validation. |
+| Source tooling | **543 tests pass**, 34.883 seconds, `phase1-inn-checkpoint-tooling-1792694352430754000/result.json`. This is distinct from engine CTest and native game validation. |
 | Fresh general baseline | `20261022T125410Z-row-base-2d8ec7ed`: **24/24 import/reload + 20/20 GUI/save assertions**, zero skips, all preservation guards. Execution passes; compatibility remains **differences**, so the outer wrapper exits one intentionally. [Independent raw audit](testing/phase1-right-row-baseline-independent.md). |
 | Menus at both required sizes | `20261022T124438Z-row-menu-run-c59be7e9`: **148 checks, 51 captures, 39 callbacks and 107 steps per resolution**, 1024x768 and 1280x768. [Independent audit](testing/phase1-right-row-menu-independent.md) verifies both processes and all seven guards. |
 | Correct Feedback setting | `20261022T123904Z-confirmation-setting-mixed-e9957e50`: right checkbox 41/buddy 40/label 29; left Colored Markers label retained. Actual Cancel/Done, owned INI write, byte-exact configuration transfer, fresh-process option-one loading, both books' charged prompts and depleted-first mixed-copy removal, normal GUI save/wire/fresh reload pass. [Independent audit](testing/phase1-confirmation-right-row-independent.md). |
 | Spellbook information | Earlier candidate ced237a2, `20261022T122217Z-spellbook-information-ee-direct-97f61bc1`: both owned processes pass, visiting 13 natural ordinary-book pages each with 65/55 captures and 80/67 callbacks. [Independent 120-capture audit](testing/phase1-information-journey-independent.md) verifies names, selection/deselection, paging, actor/level resets, help/descriptions, scroll movement/exact return, spell actions/capacity guards, GUI save and fresh reload. This historical receipt does not certify later changed helper files. |
+
+Inn continuation: external host preparation/save validation passes, but the
+fresh reload remains rejected by exact saved-resource provider checks. Both native
+processes exit zero; that is not an end-to-end acceptance. See the
+[inn execution record](testing/phase1-inn-checkpoint-execution.md). The original
+setup save is preserved; stock-UI original rental remains unmeasured. Production
+source/binaries are unchanged in this continuation. Existing workers hit usage
+limits; new work has coordinator validation, without a new independent audit.
+The [project lead estimate](roadmap/project-lead-remaining-effort-estimate.md)
+plans about30 times additional effort for the full roadmap, with broad15-60
+uncertainty and a separate3-6-times faithful BG2EE finish line.
 
 The information helper now keeps complete localized help for ineligible and
 initially hidden books while still blocking spell actions. Actual-helper BEFORE

@@ -2,7 +2,7 @@
 
 Latest October 22 continuation: Phase1 remains active and incomplete. Current
 coherent candidate is `20261022T123435Z-candidate-e00bb8b5`; source tooling passes
-534 tests. The right-row Feedback setting, actual INI persistence/fresh-process
+543 tests. The right-row Feedback setting, actual INI persistence/fresh-process
 loading, both books' mixed-copy removal, two-resolution menus and fresh 44-assertion
 general baseline pass their bounded execution checks with protected baseline and
 all results retained. Compatibility remains differences (vanilla0/0/26,GUI451/55),
@@ -11,15 +11,19 @@ ced237a2 information journey97f61bc1 has an independent 120-capture audit coveri
 13 natural ordinary-book pages per process, scrolling and save/fresh reload.
 See [current Phase1 status](../PHASE1_STATUS.md) for exact receipts and scope.
 
-Next work includes a private stock AR0704/WINNKEEP inn fixture, prepared through
-explicit authorized debug area transfer and a separately measured100-gold setup,
-normal GUI save/fresh reload and ordinary inn dialogue. This is source preparation,
-not executed evidence or an ordinary campaign-transition claim. Original/native
-inn confirmation, the unbound Colored Markers setting, save/color residuals,
-exact typography, pointer paths and remaining full Phase1 milestones remain open.
-Use the same two workers and coordinator, serialize native sessions, preserve the
-Phase0 checkout and all failures/results. Historical pending statements below
-refer to their earlier frozen checkpoints. VM snapshots remain optional.
+Inn continuation: the private original setup save is frozen and a fresh
+stock-UI original profile is prepared, not yet runtime validated. External native
+inn attempt7058ace7 passes preparation/save validation, but overall remains failed
+because saved AR0704/inn-store providers differ from stock asset providers on
+reload. Bind them to the exact frozen save members before accepting the stage.
+Both owned processes exited zero; no rest/parity or completed-reload claim.
+See [inn execution evidence](../testing/phase1-inn-checkpoint-execution.md).
+Production source/binaries remain unchanged in this continuation; all failures
+and original setup guards are retained. Existing workers hit usage limits, so
+new coordinator work has no new independent worker audit. All game sessions are
+closed. Prepared original profile: original-inn-stock-reload-aaaca1a0.
+Phase1 remains incomplete. VM snapshots remain optional. Historical pending
+statements below refer to their earlier frozen checkpoints.
 
 October 22 UTC implementation update: the user has explicitly authorized Phase 1 engine work with two workers and a coordinator. Follow [Phase 1 status](../PHASE1_STATUS.md) and the full [backlog](../roadmap/phase1-backlog.md). Work is isolated in `C:\BGRedux\phase1-local\engine`; the original Phase 0 checkout, binaries, fixtures and evidence remain preserved. The freeze and immediate assignment below describe the accepted historical Phase 0 baseline, not a prohibition on the separately authorized Phase 1 work. Phase 1 has not been accepted; original behavior, native non-interference, menu/typeface fidelity, ordinary journeys and campaign checkpoints remain required.
 

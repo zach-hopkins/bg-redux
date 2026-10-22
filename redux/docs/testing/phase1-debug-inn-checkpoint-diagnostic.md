@@ -1,6 +1,8 @@
 # Declared debug inn checkpoint and ordinary observation
 
-This is source-only, unexecuted external tooling. The user explicitly authorized
+The initial delivery below was source-only. Coordinator execution and retained
+failures are recorded in [the inn execution record](phase1-inn-checkpoint-execution.md);
+there is no accepted end-to-end reload yet. The user explicitly authorized
 AR/debug transfers and the coordinator scoped an isolated 100-gold setup. No
 engine, game asset, parent save, production callback or inn confirmation policy
 is changed. The new checkpoint is a diagnostic fixture, not campaign travel,
