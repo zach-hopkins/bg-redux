@@ -15,9 +15,12 @@ class StatsRuntimeTests(unittest.TestCase):
             press=lambda *args: self.presses.append(args),
             control=lambda *args: types.SimpleNamespace(Value=2, QueryText=lambda: 'page'))
         self.gem = types.SimpleNamespace(GetPartySize=lambda: 4, GameGetSelectedPCSingle=lambda: 2,
-            GetVar=lambda key: 0, GetPlayerName=lambda pc, kind: 'Imoen',
+            GetVar=lambda key: 5 if key == 'ReduxStatsSection' else 0, GetPlayerName=lambda pc, kind: 'Imoen',
             GetPlayerStat=lambda pc, stat: 7, GetPlayerStates=lambda pc: bytearray())
-        self.env = dict(menu=self.menu, GemRB=self.gem, IE_CLASS=232, IE_LEVEL=34, IE_LEVEL2=68, IE_LEVEL3=69)
+        modules = dict(GUIREC=types.SimpleNamespace(GetSupplementalStats=lambda pc: ['raw']*6),
+                       EECharacterSheet=types.SimpleNamespace(Pages=lambda raw: ['page']))
+        self.env = dict(menu=self.menu, GemRB=self.gem, IE_CLASS=232, IE_LEVEL=34, IE_LEVEL2=68, IE_LEVEL3=69,
+                        importlib=types.SimpleNamespace(import_module=lambda name: modules[name]))
         path = Path(__file__).resolve().parents[1] / 'gui/StatsRuntime.py'
         tree = ast.parse(path.read_text(encoding='utf8'))
         tree.body = [n for n in tree.body if isinstance(n, ast.FunctionDef)]

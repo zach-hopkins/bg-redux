@@ -50,9 +50,9 @@ class StatsValidationTests(unittest.TestCase):
         for pc in range(1, 5):
             self.add('stats.actor-%d.portrait' % pc, callback=('PORTWIN', 0, pc-1))
             self.checks.append(dict(name='stats.actor-selected', passed=True, actor=pc,
-                actor_class=pc, levels=[7,0,0], states=[]))
+                actor_class=pc, levels=[7,0,0], states=[], section=0 if pc == 1 else 5))
             self.checks[-1]['actor_name'] = 'Actor%d' % pc
-            self.add('stats.actor-%d.selected' % pc, capture=(pc, 'Overview', 0, 1))
+            self.add('stats.actor-%d.selected' % pc, capture=(pc, 'Actor%d section%d' % (pc,0 if pc==1 else 5), 0, 1))
             for section in range(6):
                 prefix = 'stats.actor-%d.section-%d' % (pc, section)
                 self.add(prefix + '.select', callback=('GUIREC', 2, 0x7fff0210+section))

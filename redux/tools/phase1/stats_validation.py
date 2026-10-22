@@ -116,7 +116,11 @@ def validate_stage(directory, resolution, *, expected_nonce, tlk_path):
                 and field(ui, 0x10000029) == str(actor['modified_stats'][0])
                 and field(ui, 0x10000040).split('/')[0] == str(native[0]['cached_thac0']),
                 'Stats actor identity/class/level/headline mismatch')
-        require(field(ui, 0x7fff0201).startswith('1 / '), 'Stats actor change did not reset page')
+        section = 0 if pc == 1 else 5
+        expected = next(c['pages'] for c in contracts if c['actor'] == pc and c['section'] == section)
+        require(record['section'] == section and field(ui, 45) == expected[0]
+                and field(ui, 0x7fff0201) == '1 / %d' % len(expected),
+                'Stats actor change did not retain section/reset page/refresh body')
         actor_details.append(dict(actor=pc, name=actor['name'], actor_class=record['actor_class'],
                                   levels=record['levels'], states=record['states']))
     page_count = 0
