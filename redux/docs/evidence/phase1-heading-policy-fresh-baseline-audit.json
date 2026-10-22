@@ -1,0 +1,370 @@
+{
+  "schema": "bg-redux-independent-fresh-baseline-audit/1",
+  "execution": "passed",
+  "compatibility": "differences",
+  "source": "Current source matches3509files at audit time; frozen sources retained",
+  "result_sha256": "66f1e59566fff6c7c0946cfafda1fe9b4408b9218a6220529279fa3e26abd38e",
+  "build_receipt_sha256": "c080bca9aea2e196ff6167f15dd5552e20962c6c38929c35c049666e2a0b88d2",
+  "raw_result": "C:\\BGRedux\\phase1-local\\results\\20261022T094904Z-sb-base-4565dad5\\result.json",
+  "core_sha256": "7ff543a31cbebb01dff8fdf9e318367cd60322dc82c1d947b829685f7d6493ee",
+  "source_count": 3509,
+  "binary_count": 61,
+  "support_count": 5,
+  "frozen_top_sources": 5,
+  "runtime_input_count": 75,
+  "commands": [
+    {
+      "pid": 3168,
+      "exit_code": 0,
+      "elapsed_seconds": 4.157,
+      "timeout_seconds": 180
+    },
+    {
+      "pid": 15184,
+      "exit_code": 0,
+      "elapsed_seconds": 3.979,
+      "timeout_seconds": 180
+    },
+    {
+      "pid": 5496,
+      "exit_code": 0,
+      "elapsed_seconds": 0.243,
+      "timeout_seconds": 30
+    }
+  ],
+  "runs": {
+    "vanilla": {
+      "result_sha256": "4fff674277c5baa084edb2dd14f851999a8c6cfa2874c7f261249b7b56019e06",
+      "outer_process": {
+        "pid": 15812,
+        "exit_code": 1,
+        "elapsed_seconds": 14.44,
+        "timeout_seconds": 450
+      },
+      "stages": [
+        {
+          "pid": 5656,
+          "exit_code": 0,
+          "elapsed_seconds": 3.984,
+          "timeout_seconds": 90.0
+        },
+        {
+          "pid": 16128,
+          "exit_code": 0,
+          "elapsed_seconds": 3.296,
+          "timeout_seconds": 90.0
+        },
+        {
+          "pid": 11896,
+          "exit_code": 0,
+          "elapsed_seconds": 3.169,
+          "timeout_seconds": 90.0
+        },
+        {
+          "pid": 14616,
+          "exit_code": 0,
+          "elapsed_seconds": 3.061,
+          "timeout_seconds": 90.0
+        }
+      ],
+      "assertions": {
+        "passed": 24,
+        "total": 24
+      },
+      "cross_build_status": {
+        "status": "unreviewed-differences",
+        "reason": "Differences exceed or change the explicit reference; review required"
+      }
+    },
+    "gui": {
+      "result_sha256": "ea8544d88eac719a6eefac2f8408d4ebc25414ef544c68fb2c8455ace71ba2c7",
+      "outer_process": {
+        "pid": 16296,
+        "exit_code": 1,
+        "elapsed_seconds": 87.835,
+        "timeout_seconds": 310
+      },
+      "stages": [
+        {
+          "pid": 5032,
+          "exit_code": 0,
+          "elapsed_seconds": 65.473,
+          "timeout_seconds": 140.0
+        },
+        {
+          "pid": 13608,
+          "exit_code": 0,
+          "elapsed_seconds": 21.583,
+          "timeout_seconds": 140.0
+        }
+      ],
+      "assertions": {
+        "passed": 20,
+        "total": 20
+      },
+      "cross_build_status": {
+        "status": "unreviewed-differences",
+        "reason": "Differences exceed or change the explicit reference; review required"
+      }
+    }
+  },
+  "residuals": {
+    "vanilla": {
+      "reload-1-semantic-diff.json": {
+        "new_count": 4,
+        "prior_count": 0,
+        "exact_rows_equal": false,
+        "new_rows": [
+          {
+            "path": "/current_area_actors/3/base_stats/209",
+            "before": 3688618971,
+            "after": 218959117
+          },
+          {
+            "path": "/current_area_actors/3/modified_stats/209",
+            "before": 3688618971,
+            "after": 218959117
+          },
+          {
+            "path": "/current_area_actors/31/base_stats/210",
+            "before": 3435973836,
+            "after": 2004318071
+          },
+          {
+            "path": "/current_area_actors/31/modified_stats/210",
+            "before": 3435973836,
+            "after": 2004318071
+          }
+        ],
+        "prior_sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+        "new_sha256": "67db718693f3648b8654098cdf4767d4b895eb0c1ce946055fcc2169f4a78ae8",
+        "new_paths": [
+          "/current_area_actors/3/base_stats/209",
+          "/current_area_actors/3/modified_stats/209",
+          "/current_area_actors/31/base_stats/210",
+          "/current_area_actors/31/modified_stats/210"
+        ],
+        "lost_paths": []
+      },
+      "reload-2-semantic-diff.json": {
+        "new_count": 0,
+        "prior_count": 0,
+        "exact_rows_equal": true,
+        "new_rows": [],
+        "prior_sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+        "new_sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+        "new_paths": [],
+        "lost_paths": []
+      },
+      "repeat-import-semantic-diff.json": {
+        "new_count": 22,
+        "prior_count": 24,
+        "exact_rows_equal": false,
+        "new_rows": [
+          {
+            "path": "/current_area_actors/3/base_stats/209",
+            "before": 3688618971,
+            "after": 673720360
+          },
+          {
+            "path": "/current_area_actors/3/base_stats/213",
+            "before": 1111638594,
+            "after": 1010580540
+          },
+          {
+            "path": "/current_area_actors/3/modified_stats/209",
+            "before": 3688618971,
+            "after": 673720360
+          },
+          {
+            "path": "/current_area_actors/3/modified_stats/213",
+            "before": 1111638594,
+            "after": 1010580540
+          },
+          {
+            "path": "/current_area_actors/4/base_stats/208",
+            "before": 2593823386,
+            "after": 2694881440
+          },
+          {
+            "path": "/current_area_actors/4/modified_stats/208",
+            "before": 2593823386,
+            "after": 2694881440
+          },
+          {
+            "path": "/current_area_actors/5/base_stats/209",
+            "before": 2139062143,
+            "after": 2004318071
+          },
+          {
+            "path": "/current_area_actors/5/base_stats/212",
+            "before": 1010580540,
+            "after": 2374864269
+          },
+          {
+            "path": "/current_area_actors/5/base_stats/213",
+            "before": 2307492233,
+            "after": 1330597711
+          },
+          {
+            "path": "/current_area_actors/5/modified_stats/209",
+            "before": 2139062143,
+            "after": 2004318071
+          },
+          {
+            "path": "/current_area_actors/5/modified_stats/212",
+            "before": 1010580540,
+            "after": 2374864269
+          },
+          {
+            "path": "/current_area_actors/5/modified_stats/213",
+            "before": 2307492233,
+            "after": 1330597711
+          },
+          {
+            "path": "/current_area_actors/6/base_stats/213",
+            "before": 320017171,
+            "after": 168430090
+          },
+          {
+            "path": "/current_area_actors/6/modified_stats/213",
+            "before": 320017171,
+            "after": 168430090
+          },
+          {
+            "path": "/current_area_actors/7/base_stats/212",
+            "before": 1465341783,
+            "after": 1566399837
+          },
+          {
+            "path": "/current_area_actors/7/base_stats/213",
+            "before": 2762253476,
+            "after": 1465341783
+          },
+          {
+            "path": "/current_area_actors/7/modified_stats/212",
+            "before": 1465341783,
+            "after": 1566399837
+          },
+          {
+            "path": "/current_area_actors/7/modified_stats/213",
+            "before": 2762253476,
+            "after": 1465341783
+          },
+          {
+            "path": "/current_area_actors/19/base_stats/210",
+            "before": 976894522,
+            "after": 2139062143
+          },
+          {
+            "path": "/current_area_actors/19/modified_stats/210",
+            "before": 976894522,
+            "after": 2139062143
+          },
+          {
+            "path": "/current_area_actors/31/base_stats/209",
+            "before": 1111638594,
+            "after": 1010580540
+          },
+          {
+            "path": "/current_area_actors/31/modified_stats/209",
+            "before": 1111638594,
+            "after": 1010580540
+          }
+        ],
+        "prior_sha256": "ee6b9cfc9c09ab8f8e6a2b8cf4b48d7b25343c4da7becdca68a1b51a5efa7625",
+        "new_sha256": "deaec4daf1f462c1806d9aa3ab462a809d82b744b42c9ba2bce77473b9141fa1",
+        "new_paths": [
+          "/current_area_actors/19/base_stats/210",
+          "/current_area_actors/19/modified_stats/210",
+          "/current_area_actors/5/base_stats/213",
+          "/current_area_actors/5/modified_stats/213"
+        ],
+        "lost_paths": [
+          "/current_area_actors/24/base_stats/209",
+          "/current_area_actors/24/modified_stats/209",
+          "/current_area_actors/31/base_stats/210",
+          "/current_area_actors/31/modified_stats/210",
+          "/current_area_actors/7/base_stats/208",
+          "/current_area_actors/7/modified_stats/208"
+        ]
+      }
+    },
+    "gui": {
+      "gui-reload-differences.json": {
+        "new_count": 449,
+        "prior_count": 449,
+        "exact_rows_equal": true,
+        "prior_sha256": "31bb2a768a48fa20f05a56aec8bc24d1e59d19e2a8cce5cbe6daa3c9248e74e2",
+        "new_sha256": "31bb2a768a48fa20f05a56aec8bc24d1e59d19e2a8cce5cbe6daa3c9248e74e2",
+        "new_paths": [],
+        "lost_paths": []
+      },
+      "legacy-semantic-differences.json": {
+        "new_count": 53,
+        "prior_count": 53,
+        "exact_rows_equal": true,
+        "prior_sha256": "efdca9a0c3316e202d4d49c6036cd6bbf7d3f2b2241b00f8d5634ca62551cc1a",
+        "new_sha256": "efdca9a0c3316e202d4d49c6036cd6bbf7d3f2b2241b00f8d5634ca62551cc1a",
+        "new_paths": [],
+        "lost_paths": []
+      }
+    }
+  },
+  "phase0_preserved": true,
+  "candidate_preserved": true,
+  "inputs_preserved": true,
+  "private_game": {
+    "clean_game_inventory_unchanged": true,
+    "clean_game_root_hashes_unchanged": true,
+    "copied_immutable_inputs_unchanged": true,
+    "allowed_private_root_changes": {
+      "GemRB.log": {
+        "before_sha256": "c298eb067db2c6c619c7791afc9b6fc0997a5dba9bd5bd03d6718f2facbbf6a7",
+        "after_sha256": "e49308424c1ddf42a880cf3287e1a1d020232ee4d32624cef4d9cd8e80413e2f"
+      },
+      "gemrb_path.txt": {
+        "before_sha256": "74f29a278dc2806d86620cd23bcd11130662c214b8854ef59d3aebcc7776fecd",
+        "after_sha256": "adcf97ea6fcffe02dc1a739203df9c7cc6a3483d5a932dc8ecd7dc1a83f1ed6b"
+      }
+    },
+    "linked_asset_content_fully_hashed": false
+  },
+  "recovery": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\disk-exhaustion-recovery-utf8-1792662483858653400\\result.json",
+    "sha256": "95f1bf1c9a8c7b9ea3c71dc24699f48a326d48d9465193782dbf4fa19dd3c3b8",
+    "raw": {
+      "operation": "Separate UTF-8 recovery verification; failed raw run and prior reader failure retained",
+      "failed_result_sha256": "8ddeca7a462bb1c752e2f7f0ef7bdd3b7d1a104c814ce79bffbd224582d8743b",
+      "phase0_equal_to_pre_run": true,
+      "candidate_equal_to_pre_run": true,
+      "passed": true
+    }
+  },
+  "retained_failed_results": [
+    {
+      "path": "C:\\BGRedux\\phase1-local\\results\\20261022T093528Z-spellbook-native-baseline-08493d1d\\result.json",
+      "sha256": "8ddeca7a462bb1c752e2f7f0ef7bdd3b7d1a104c814ce79bffbd224582d8743b",
+      "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')",
+      "preservation_error": "OSError(28, 'No space left on device')"
+    },
+    {
+      "path": "C:\\BGRedux\\phase1-local\\results\\compressed-spellbook-20261022\\20261022T094643Z-spellbook-native-baseline-f2dae382\\result.json",
+      "sha256": "fb0b5573099b733134d678193efebbf9cfea8d744a6e44712f57603367aeeaf9",
+      "error": "ValueError('Missing or reordered native stages')",
+      "preservation_error": null
+    }
+  ],
+  "auditor_sha256": "903b6594fdcd7315d15f25b61ae2c373d6f14eaab8567ca9d49e641d6db414b8",
+  "limits": [
+    "No compatibility promotion; both comparisons remain unreviewed-differences",
+    "Content callbacks are not physical pointer or visual fidelity",
+    "No new engine runtime, build or test launched by audit"
+  ],
+  "private_audit": "C:\\BGRedux\\phase1-local\\results\\20261022T095638Z-fresh-spellbook-baseline-audit-25726161\\audit.json",
+  "private_audit_sha256": "21616c8adab544e429a773aae30f7526fbd053ef86eeeb219386ce6aa8e72339",
+  "artifact_inventory": {
+    "files": 1016,
+    "manifest_sha256": "d6c9a41ff0a6c3690fe84253bcc69559b0efeb0a5c37661765e790ac8f3b87b3"
+  }
+}
