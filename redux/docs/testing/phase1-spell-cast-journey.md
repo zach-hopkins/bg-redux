@@ -1,5 +1,23 @@
 # Imoen ordinary SPWI102 callback journey
 
+Executed coordinator checkpoint: **276 integrated Python tests pass** in
+`results/phase1-integrated-tests-20261022T0431.log`. Fresh external build
+`candidate-9aa-ui1-spell-public3` and native run
+`20261022T043347Z-spell-cast-journey-3dd76c87` pass both processes. Cast PID13524
+exits zero in 71.239 seconds; reload PID11952 exits zero in 50.975 seconds.
+Both complete 89 samples, including 80 running samples. The Cast button opens
+at sample9, one spell icon press queues actual self action75 at sample10, and
+required persistent effects plus released/idle state appear by sample31.
+The ready spell changes 1 to 0. Fresh reload makes no new cast, preserves the
+effects/depletion, and creates a second GUI save. Save-state checks and all
+preservation guards pass. GUI save return codes remain explicitly unobserved.
+
+Initial `spell1` build remains failed because its game-only resource probe
+could not find the actual GemRB SPLDISP provider. `spell-provider2` remains failed
+at link time on unexported GetWindow. The corrected external adapter binds actual
+runtime table paths/bytes and uses exported GetViews with exact window IDs;
+engine source and binaries remain unchanged.
+
 This external adapter uses the protected two-character AR0602 fixture without changing it. It observes candidate behavior only. Original spell behavior, OS pointer hit testing, whole-world equivalence, deterministic RNG behavior, and numeric armor-class parity remain unmeasured.
 
 `spell_cast_journey.py` builds a separate host from byte-exact copies of the established Phase0 GUI host and serializer. Its new external header runs in the normal 250 ms host clock; engine source, DLLs, shared helpers, and other journey files are unchanged. The separate `gui/SpellStart.py` preserves the established fixture-loading startup, copied under the expected `ReduxStart` module name for this run.

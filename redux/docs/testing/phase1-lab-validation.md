@@ -5,6 +5,19 @@ Evidence checkpoint: October 22, 2026 UTC, after the completed candidate `9aa69c
 Latest checkpoint: the later sections and linked summaries supersede pending
 descriptions below. Earlier failures and incomplete runs retain their verdicts.
 
+October 22 UTC spell checkpoint: **276 external Python tests pass** in
+`results/phase1-integrated-tests-20261022T0431.log`. Native run
+`20261022T043347Z-spell-cast-journey-3dd76c87` passes ordinary Imoen portrait,
+Cast and resref-bound Armor callbacks, one actual self-cast and observed release,
+memorization consumption and new sourced persistent effects. GUI save/fresh
+reload/second GUI save preserves depletion and expiration; reload performs no
+cast. Both processes complete 89 samples and exit zero within their 90-second
+bounds. All preservation checks pass, with exact runtime SPLDISP/GUIBTACT table
+paths and bytes matched. Actual GUI save return codes are unobserved; real save
+files and wire outcomes establish this bounded result. See the
+[spell journey](phase1-spell-cast-journey.md). Earlier resource-provider and
+external linker failures remain failed. No engine source or binary changed.
+
 October 22 UTC dialogue checkpoint: **272 external Python tests pass** in
 `results/phase1-integrated-tests-20261022T0426.log`, including twelve focused
 dialogue methods. Fresh external build `candidate-9aa-ui1-jaheira-label6` and
@@ -21,7 +34,9 @@ The [direct public UpdateState defect](../compatibility/phase1-textarea-update-s
 remains open; normal selection success does not repair it. No engine source or
 binary changed during this checkpoint. The separate spell adapter passes its
 synthetic validators but its first build rejects a game-only resource-provider
-assumption; no native casting success is claimed.
+assumption; its later bounded native pass is recorded above.
+The [independent dialogue audit](phase1-jaheira-dialogue-lab-audit.md) confirms
+567 retained artifacts and the saved/reloaded talk-counter and journal effects.
 
 October 22 UTC readiness follow-up: external tooling passes **243 tests** in
 `results/phase1-integrated-tests-20261022T0358.log`. The corrected readiness

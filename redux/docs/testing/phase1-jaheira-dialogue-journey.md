@@ -19,6 +19,10 @@ the successful run above execute this correction. Failed builds/runs remain pres
 separate adapter changes no engine, existing helper, resource or saved fixture.
 Original-engine parity remains unobserved.
 
+The [independent LAB audit](phase1-jaheira-dialogue-lab-audit.md) confirms the
+bounded result, all 567 artifact hashes, exact text/response/label evidence,
+preservation inventories and separately decoded saved/reloaded quest effects.
+
 ## Exact starting contract
 
 Use only the protected stock save `phase0-local/fixtures/original-bg2ee-20261020/GemRB`, copied intact into a fresh private profile. Its original GAM SHA256 is `d8da451c8765f209cadbbab8a274be0e218c17d2b4718b8b43b76fb10b030414`; SAV is `4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb`. The baseline preflight and full protected inventories bind all six fixture files. No synthetic actor, variable, quest marker, dialogue state or area edit is permitted.

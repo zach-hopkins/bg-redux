@@ -18,7 +18,7 @@ retained. Fresh private-folder query/cache/control and import/GUI reruns pass
 their preservation guards; the earlier diagnostic-write failure is retained.
 Both selected menu resolutions complete 107 checks and 51 captures. The opaque
 plain-key editor journey and measured calling-thread RNG snapshot cost pass
-their bounded checks. External tooling now passes 272 Python tests. Original
+their bounded checks. External tooling now passes 276 Python tests. Original
 controlled-color ordinary saves and candidate fresh-process saves both show
 237 to 46 to 46; the independently audited comparison establishes shared
 behavior for this controlled input, not a candidate-only persistence defect.
@@ -42,10 +42,15 @@ unobserved, and no engine correction was needed for this route.
 The [stock Jaheira dialogue journey](testing/phase1-jaheira-dialogue-journey.md)
 also passes its one-request, eleven-branch route and GUI save/fresh reload,
 preserving the expected talk counter, unique journal entry, closed cell and
-two-member party. A direct public TextArea selection entry separately exposes
+two-member party; its [independent audit](testing/phase1-jaheira-dialogue-lab-audit.md)
+confirms 567 retained artifacts and the saved/reloaded effects.
+A direct public TextArea selection entry separately exposes
 a [reentrancy defect](compatibility/phase1-textarea-update-state-reentrancy.md);
-the normal selection route passes without an engine change. Spell casting,
-recruitment, transitions and broader campaign checkpoints remain open.
+the normal selection route passes without an engine change. The bounded
+[Imoen Armor cast](testing/phase1-spell-cast-journey.md) also passes one ordinary
+cast, actual effects and depletion, GUI save/fresh reload/second save, with no
+reload cast. Recruitment, transitions, broader spell/combat behavior and campaign
+checkpoints remain open.
 The batch descriptions below are
 historical checkpoints, superseded by the linked executed report where stated.
 

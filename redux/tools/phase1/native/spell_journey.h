@@ -9,9 +9,10 @@ static Actor* SpellPC() {
         throw std::runtime_error("Declared Imoen/party/area absent");
     return a;
 }
-static Window* SpellWindow(const char* alias) {
+static Window* SpellWindow(const char* alias,int id=-1) {
     Window* result=nullptr;
     for (auto* v:GetViews(ScriptingGroup_t(alias))) if (auto* w=dynamic_cast<Window*>(v)) {
+        if (id>=0 && (!w->GetScriptingRef() || w->GetScriptingRef()->Id!=static_cast<ScriptingId>(id))) continue;
         if (result && result!=w) throw std::runtime_error("Ambiguous GUI alias");result=w;
     }
     if (!result || !result->IsVisible() || result->IsDisabled()) throw std::runtime_error(std::string("GUI alias unavailable: ")+alias);
@@ -157,9 +158,9 @@ static void SpellFinish(const std::string& out) {
     Write(out+"/spell-before-save.state.json",Snapshot(core->GetGame()));SpellShot(out,"spell-before-save");
     // Follow the same shipped GUI save route as the established normal-loop host.
     SpellExec("import GUIOPT; GUIOPT.OpenOptionsWindow()");
-    auto press=[](const char* pack,int win,int id) {auto* w=GetWindow(win,ScriptingGroup_t(pack));if(!w) throw std::runtime_error("GUI save window missing");SpellPress(SpellControl(w,id));};
+    auto press=[](const char* pack,int win,int id) {SpellPress(SpellControl(SpellWindow(pack,win),id));};
     press("GUIOPT",2,6);SpellExec("import ReduxStart; ReduxStart.ChooseNewRow()");press("GUISAVE",0,26);
-    auto* confirm=GetWindow(1,ScriptingGroup_t("GUISAVE"));if(!confirm) throw std::runtime_error("GUI save confirm missing");
+    auto* confirm=SpellWindow("GUISAVE",1);
     auto* edit=SpellControl(confirm,3);edit->SetText(u"Redux Spell Journey");
     if(!edit->PerformAction(ControlActionResponder::ActionKey(Control::ValueChange))) throw std::runtime_error("Save name callback unavailable");
     SpellShot(out,"spell-save-confirm");press("GUISAVE",1,7);
