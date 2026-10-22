@@ -1,0 +1,1092 @@
+{
+  "schema": "bg-redux-original-color-controls-audit/1",
+  "verdict": "original-controls-characterized",
+  "scope": "Independent raw SAV/ARE/CRE/GAM decoding and receipt/hash/static-image review. Original numeric runtime palette and visual/world/RNG equivalence are not established.",
+  "preparation": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T022308Z-original-color-installation-08d20bb7\\color-preparation.json",
+    "bytes": 13438,
+    "sha256": "908c70249faf8b64d5096ea4cc69556fdb71db8766254c6336d4a5933e7c5ee9"
+  },
+  "installation": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T022308Z-original-color-installation-08d20bb7\\preparation.json",
+    "bytes": 1248719,
+    "sha256": "7df900bbb218d2f6d4e3ff4d561fc69be21762db1f283b638d8bda4cdd121406"
+  },
+  "cases": [
+    {
+      "id": "ordinary-low",
+      "number": 2,
+      "serialized_sequence": [
+        46,
+        46,
+        46
+      ],
+      "saves": [
+        {
+          "receipt": {
+            "path": "C:\\BGRedux\\phase1-local\\results\\20261022T022308Z-original-color-installation-08d20bb7\\ordinary-low-observation\\ordinary-save-1-observation.json",
+            "bytes": 1536,
+            "sha256": "4b5a47bf8f7679884946b97151db542a0aa8c85a4c0b30e0f5412c1f5cd8f6df"
+          },
+          "files": {
+            "BALDUR.bmp": {
+              "bytes": 65590,
+              "sha256": "4983f1bcb1a2d364d22bfab2fc6e3e91df944c35e23960ae8eef8d540f7c6047"
+            },
+            "BALDUR.gam": {
+              "bytes": 74976,
+              "sha256": "8ab1bd6a826f418bd838146c9f99bd23ffc226ecd8619bbf5df42fdb076cdd0e"
+            },
+            "BALDUR.SAV": {
+              "bytes": 19323,
+              "sha256": "a0052756aec27bc514382bcc8dfc28b6b38c24cb124566d400b63d258a969f60"
+            },
+            "PORTRT0.bmp": {
+              "bytes": 13830,
+              "sha256": "7b44dd8788a1560dd528ebd850bc9b86da84e56c586e8b114e5662e20438cd33"
+            },
+            "PORTRT1.bmp": {
+              "bytes": 13830,
+              "sha256": "8aa2a2b4d9496a16a526bc04593752ffaf5fe71754572ebe2ceabda0ade628ae"
+            }
+          },
+          "npc_wire": {
+            "actor_index": 1,
+            "identity": "RDXCOLOR",
+            "leather_wire_byte": 46,
+            "cre_sha256": "c5a125a64b12905d0fddb568d8418d05674a83fbeb128ce87c051e201711bda5",
+            "position": [
+              3712,
+              2844
+            ],
+            "effects": 0,
+            "items": 0,
+            "scripts": [
+              "NONE",
+              "NONE",
+              "NONE",
+              "NONE",
+              "NONE"
+            ]
+          },
+          "markers": {
+            "RDXCCASE": 2,
+            "RDXCNONCE": 1455348314,
+            "RDXCSTAGE": 2,
+            "RDXCREADY": 1
+          },
+          "pid": 9240
+        },
+        {
+          "receipt": {
+            "path": "C:\\BGRedux\\phase1-local\\results\\20261022T022308Z-original-color-installation-08d20bb7\\ordinary-low-observation\\ordinary-save-2-observation.json",
+            "bytes": 1913,
+            "sha256": "251d2576cbe8801c4eb34a2cdb5047db330471c3e8c876a61826497ca67a0ebe"
+          },
+          "files": {
+            "BALDUR.bmp": {
+              "bytes": 65590,
+              "sha256": "60705157d55a896aac9060e8c72bde0b9584c30991c2e3c4440ef55c88c31fa9"
+            },
+            "BALDUR.gam": {
+              "bytes": 74976,
+              "sha256": "27940e79998a40cf054ac1e6653cf8686b2145ad67313da93a488056f20976b7"
+            },
+            "BALDUR.SAV": {
+              "bytes": 19337,
+              "sha256": "d13af8e8884ab126fc25605eaad6cf69db3df94cbaa4d3b72920fcaa2d5c4c86"
+            },
+            "PORTRT0.bmp": {
+              "bytes": 13830,
+              "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+            },
+            "PORTRT1.bmp": {
+              "bytes": 13830,
+              "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+            }
+          },
+          "npc_wire": {
+            "actor_index": 1,
+            "identity": "RDXCOLOR",
+            "leather_wire_byte": 46,
+            "cre_sha256": "154306102ddc71e7e6d7ecd44a29185134995bf3a01d1a80cafe8e2fa51f1476",
+            "position": [
+              3712,
+              2844
+            ],
+            "effects": 0,
+            "items": 0,
+            "scripts": [
+              "NONE",
+              "NONE",
+              "NONE",
+              "NONE",
+              "NONE"
+            ]
+          },
+          "markers": {
+            "RDXCCASE": 2,
+            "RDXCNONCE": 1455348314,
+            "RDXCSTAGE": 2,
+            "RDXCREADY": 1
+          },
+          "pid": 8380
+        },
+        {
+          "receipt": {
+            "path": "C:\\BGRedux\\phase1-local\\results\\20261022T022308Z-original-color-installation-08d20bb7\\ordinary-low-observation\\ordinary-save-3-observation.json",
+            "bytes": 1913,
+            "sha256": "f01c37ab33c3eb055b636bd4ff456437971ed329af0cebc515d811adb69db3f0"
+          },
+          "files": {
+            "BALDUR.bmp": {
+              "bytes": 65590,
+              "sha256": "446252760cbbda0afd69ce85f4576faca6f757acd6d09f8a58db700b04065c94"
+            },
+            "BALDUR.gam": {
+              "bytes": 74976,
+              "sha256": "76eb2f6ebb5741eec42fb1e33fb6b05c4e292cd6ad6171625f55c03899866e5b"
+            },
+            "BALDUR.SAV": {
+              "bytes": 19325,
+              "sha256": "8242dc67e212e46ac4c9c48f6d7c167a99ae0bd85057bb80f97e4bf0761ea8f1"
+            },
+            "PORTRT0.bmp": {
+              "bytes": 13830,
+              "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+            },
+            "PORTRT1.bmp": {
+              "bytes": 13830,
+              "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+            }
+          },
+          "npc_wire": {
+            "actor_index": 1,
+            "identity": "RDXCOLOR",
+            "leather_wire_byte": 46,
+            "cre_sha256": "154306102ddc71e7e6d7ecd44a29185134995bf3a01d1a80cafe8e2fa51f1476",
+            "position": [
+              3712,
+              2844
+            ],
+            "effects": 0,
+            "items": 0,
+            "scripts": [
+              "NONE",
+              "NONE",
+              "NONE",
+              "NONE",
+              "NONE"
+            ]
+          },
+          "markers": {
+            "RDXCCASE": 2,
+            "RDXCNONCE": 1455348314,
+            "RDXCSTAGE": 2,
+            "RDXCREADY": 1
+          },
+          "pid": 6532
+        }
+      ],
+      "launches": [
+        {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T022308Z-original-color-installation-08d20bb7\\ordinary-low-create-launch.json",
+          "bytes": 142,
+          "sha256": "85a64f6deb30e640677e1dadc7aea8212cb01c275c78291fe21149b841953559"
+        },
+        {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T022308Z-original-color-installation-08d20bb7\\ordinary-low-reload1-launch.json",
+          "bytes": 173,
+          "sha256": "fc6abc395a64c5406d278ca3899167508509e81c2d4f00d627fe0ee370ef8d05"
+        },
+        {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T022308Z-original-color-installation-08d20bb7\\ordinary-low-reload2-launch.json",
+          "bytes": 174,
+          "sha256": "debe4408d3cffd7d58b58708ddb7850141133c129bf839c25afffa9286f6af2c"
+        }
+      ],
+      "owned_pids": [
+        9240,
+        8380,
+        6532
+      ],
+      "terminal_receipt": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T022308Z-original-color-installation-08d20bb7\\ordinary-low-processes-terminal.json",
+        "bytes": 103,
+        "sha256": "185d78b586e9ee67330989f7c7da34b2fb7628ff54f06e70b5fa39846311b507"
+      },
+      "reload_input_verifications": [
+        {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T022308Z-original-color-installation-08d20bb7\\ordinary-low-observation\\reload-1-input-verification.json",
+          "bytes": 1153,
+          "sha256": "0a13a2fb1ebe3f05eface6456b17b19f0c7f870e28299b5732ee808205a9c0ee"
+        },
+        {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T022308Z-original-color-installation-08d20bb7\\ordinary-low-observation\\reload-2-input-verification.json",
+          "bytes": 1153,
+          "sha256": "66913c6605ce1e49d211c13c355fb9595a0c98bcdea78774d389d3b1a07aa0ce"
+        }
+      ],
+      "initial_input_verification": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T022308Z-original-color-installation-08d20bb7\\ordinary-low-observation\\initial-input-verification.json",
+        "bytes": 963,
+        "sha256": "b9c79e3437773eced972547f216c8a4fb1a630bfeb9c06632a39ddbc49552450"
+      },
+      "screenshots": [
+        {
+          "label": "00-campaign-menu",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low-observation/00-campaign-menu.jpg",
+          "sha256": "a0be5d2bf18e5ae0093510893c50a18db0741e1df6296d060277b2630e160a2e",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-ordinary-low\\Baldur.exe",
+            "id": 35259880,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:00:26.253Z"
+        },
+        {
+          "label": "01-load-list",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low-observation/01-load-list.jpg",
+          "sha256": "74df55eab00aa41f3f1dc903268f16b91b2790864f80ece43032dc78a0f7ec94",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-ordinary-low\\Baldur.exe",
+            "id": 35259880,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:02:00.872Z"
+        },
+        {
+          "label": "02-load-selected",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low-observation/02-load-selected.jpg",
+          "sha256": "d9d1d4492b83cab893a500805531ee1db48672f6041d935be3914f8ac1f4b422",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-ordinary-low\\Baldur.exe",
+            "id": 35259880,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:02:14.309Z"
+        },
+        {
+          "label": "03-loaded-map",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low-observation/03-loaded-map.jpg",
+          "sha256": "56af87ea037866ed0ec412f65f702bc2ae3731b4a0a8b881033c5ea54bd259d5",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-ordinary-low\\Baldur.exe",
+            "id": 35259880,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:02:27.773Z"
+        },
+        {
+          "label": "04-ready-map",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low-observation/04-ready-map.jpg",
+          "sha256": "85e731c32e73c3d5d03691d950e9679043251ee912d096ca63257fea1cc34efa",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-ordinary-low\\Baldur.exe",
+            "id": 35259880,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:02:45.153Z"
+        },
+        {
+          "label": "05-preserved-chapter-save-confirm",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low-observation/05-preserved-chapter-save-confirm.jpg",
+          "sha256": "c4b75cfa77be14a4ca6d0e80680a4b908cde54f91c3bf75e200932f972600d0f",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-ordinary-low\\Baldur.exe",
+            "id": 35259880,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:03:12.452Z"
+        },
+        {
+          "label": "06-save-successful",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low-observation/06-save-successful.jpg",
+          "sha256": "1f2d7bb010cc3d0abb604d4ef9d4d58c09c39166a6beea2871a8330908a3270f",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-ordinary-low\\Baldur.exe",
+            "id": 35259880,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:03:34.168Z"
+        },
+        {
+          "label": "07-reload1-new-process-menu",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low-observation/07-reload1-new-process-menu.jpg",
+          "sha256": "e248f25fd7f20d125f05badd5cdd9471f1af4c965436c431e8f51d4d62a4b968",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-ordinary-low\\Baldur.exe",
+            "id": 5375314,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:05:45.300Z"
+        },
+        {
+          "label": "08-reload1-selected",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low-observation/08-reload1-selected.jpg",
+          "sha256": "917e60ebac4fe2d56b51c3c69fe244997299d600174f04d01fbfb1adb21fad59",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-ordinary-low\\Baldur.exe",
+            "id": 5375314,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:06:47.592Z"
+        },
+        {
+          "label": "09-reload1-map",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low-observation/09-reload1-map.jpg",
+          "sha256": "a1583885391e2f171569f68b9622ed6ca4b062f2fa6d3e2535297cbb9b4591d2",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-ordinary-low\\Baldur.exe",
+            "id": 5375314,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:06:57.895Z"
+        },
+        {
+          "label": "10-reload1-ordinary-save-confirm",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low-observation/10-reload1-ordinary-save-confirm.jpg",
+          "sha256": "9a1f4fa5078dfcb603a1f6acd29fecc3c9b225784dd50c8ae664fe9dcc4749b8",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-ordinary-low\\Baldur.exe",
+            "id": 5375314,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:07:31.994Z"
+        },
+        {
+          "label": "11-reload1-save-successful",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low-observation/11-reload1-save-successful.jpg",
+          "sha256": "ad42533ae9d421a2a94290255250ecb2c170ce3137fb452a7754136dd9d7a56e",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-ordinary-low\\Baldur.exe",
+            "id": 5375314,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:07:46.546Z"
+        },
+        {
+          "label": "12-reload2-new-process-menu",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low-observation/12-reload2-new-process-menu.jpg",
+          "sha256": "e248f25fd7f20d125f05badd5cdd9471f1af4c965436c431e8f51d4d62a4b968",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-ordinary-low\\Baldur.exe",
+            "id": 3736776,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:09:03.198Z"
+        },
+        {
+          "label": "13-reload2-selected",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low-observation/13-reload2-selected.jpg",
+          "sha256": "e98cda6447514aececf48c69e9c08d91ad2542706508b50ce91be8b586f3ba88",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-ordinary-low\\Baldur.exe",
+            "id": 3736776,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:10:31.137Z"
+        },
+        {
+          "label": "14-reload2-map",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low-observation/14-reload2-map.jpg",
+          "sha256": "7cd45c925998b248d7037912f293e1c160f0979553f668ce9f72a9490e861347",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-ordinary-low\\Baldur.exe",
+            "id": 3736776,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:10:45.640Z"
+        },
+        {
+          "label": "15-reload2-ordinary-save-confirm",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low-observation/15-reload2-ordinary-save-confirm.jpg",
+          "sha256": "e665251c1116af52667dab56eae38b828872f8c241f888dfb6338a0730a9db5b",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-ordinary-low\\Baldur.exe",
+            "id": 3736776,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:11:16.908Z"
+        },
+        {
+          "label": "16-reload2-save-successful",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low-observation/16-reload2-save-successful.jpg",
+          "sha256": "680d155666cf5bd297733f07dc19fbb192e4880727923ec26d3de27b427ccbbe",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-ordinary-low\\Baldur.exe",
+            "id": 3736776,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/ordinary-low - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:11:33.900Z"
+        }
+      ],
+      "distinct_window_ids": [
+        35259880,
+        5375314,
+        3736776
+      ],
+      "input_files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+        },
+        "BALDUR.gam": {
+          "bytes": 69372,
+          "sha256": "60fffeb1e8d94b4d456cba80cdd66a18938be76fdaaf61695abf5ee317dcb3fd"
+        },
+        "BALDUR.SAV": {
+          "bytes": 20438,
+          "sha256": "43f8b46c1dedd77e89e7730b916490b1d8f67a201aebba95ed8ab5ca446195d3"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+        },
+        "save_000000033-GemRB.cloud.meta": {
+          "bytes": 10,
+          "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+        }
+      },
+      "override_files": {
+        "CEDA5A02.bcs": {
+          "bytes": 1082,
+          "sha256": "52faaf4b1a53e821ba35ade26890aa17df4ad79ad2de56ff171637f77eea9924"
+        },
+        "RANDCOLR.2da": {
+          "bytes": 15917,
+          "sha256": "854de0203f0086f3a7e4573ab50b03666586517fb2a4b3d57b1571acf6a3bee6"
+        },
+        "RDXCOLOR.cre": {
+          "bytes": 1988,
+          "sha256": "dc18d1a3db24756cad78b0b15ba1543cf30642a5377f4635b1d2451c05b9169f"
+        }
+      },
+      "root_hashes_rechecked": {
+        "Baldur.exe": "b51093a49140b2b8a7c046b4652bb8e535be24ebbc12b1d735e0b94217a14d57",
+        "chitin.key": "1818ffebb2424992fb39fb13509e7f629ac819b08a553c2dd4ac25f2e40a979f",
+        "engine.lua": "9bb39947a4deb076f2f31401b807e017f78abbad1d03f5ee5356d78c0da993a5",
+        "GemRB.log": "c298eb067db2c6c619c7791afc9b6fc0997a5dba9bd5bd03d6718f2facbbf6a7",
+        "gemrb_console.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "gemrb_path.txt": "74f29a278dc2806d86620cd23bcd11130662c214b8854ef59d3aebcc7776fecd",
+        "oalinst.exe": "b8f39714d41e009f75efb183c37100f2cbabb71784bbd243be881ac5b42d86fd",
+        "steam_api64.dll.phase1-retained": "e3fe06e2d802c2f753aeb46869e2af898f34715ce85f08001456fd8a80ecd21e",
+        "steam_appid.txt": "0805798a4fbfc63f2bf750561c948803816dd5e2ebbe6c73cfd5249516bcf67f"
+      },
+      "asset_links_rechecked": {
+        "data": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data",
+        "lang": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\lang",
+        "Manuals": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\Manuals",
+        "movies": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\movies",
+        "music": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\music",
+        "scripts": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\scripts"
+      },
+      "profile_configuration": {
+        "initial_sha256": "744ab0a96802939e931c9929d5d0bc1caf0171fd871f9b9d12c44d9bbc5d1d13",
+        "current_sha256": "1153bcfb50e08b66129effaa29fb14554c5d9a25faa12c57c6d9f5f7364ae441",
+        "whole_profile_unchanged_claim": false
+      }
+    },
+    {
+      "id": "stock-fresh-selector",
+      "number": 3,
+      "serialized_sequence": [
+        92,
+        92,
+        92
+      ],
+      "saves": [
+        {
+          "receipt": {
+            "path": "C:\\BGRedux\\phase1-local\\results\\20261022T022308Z-original-color-installation-08d20bb7\\stock-fresh-selector-observation\\ordinary-save-1-observation.json",
+            "bytes": 1922,
+            "sha256": "de59e7fda696cd1b771e6c73a7b853efb57cc12286a7ee35ce49a7d4a42f7c02"
+          },
+          "files": {
+            "BALDUR.bmp": {
+              "bytes": 65590,
+              "sha256": "5285fb1f46ccc9f0849882f0b0390be61172c20e147a65b64e9a9a296f9fc159"
+            },
+            "BALDUR.gam": {
+              "bytes": 74976,
+              "sha256": "6b0c99b07a2ea24a914ad99158d0f41f730b043f99a7c5397b55df33e292156b"
+            },
+            "BALDUR.SAV": {
+              "bytes": 19326,
+              "sha256": "c4abea4d8314ad64437bff089fee496ef362ecad97ef779d8a02bd240c5773df"
+            },
+            "PORTRT0.bmp": {
+              "bytes": 13830,
+              "sha256": "a911259762962e5bae8dc5ef358848c0148c5263fdaf7149d03f1b28f75ceff5"
+            },
+            "PORTRT1.bmp": {
+              "bytes": 13830,
+              "sha256": "474f0f13617d0f43fe27f7bb886c6ac60bf81a684df53aae06df2d837270d15e"
+            }
+          },
+          "npc_wire": {
+            "actor_index": 1,
+            "identity": "RDXCOLOR",
+            "leather_wire_byte": 92,
+            "cre_sha256": "86f608f19674adf6da84bfeabfee45526e631dc659f00e40b32ae0d8677b89a7",
+            "position": [
+              3712,
+              2844
+            ],
+            "effects": 0,
+            "items": 0,
+            "scripts": [
+              "NONE",
+              "NONE",
+              "NONE",
+              "NONE",
+              "NONE"
+            ]
+          },
+          "markers": {
+            "RDXCCASE": 3,
+            "RDXCNONCE": 1455348314,
+            "RDXCSTAGE": 2,
+            "RDXCREADY": 1
+          },
+          "pid": 13128
+        },
+        {
+          "receipt": {
+            "path": "C:\\BGRedux\\phase1-local\\results\\20261022T022308Z-original-color-installation-08d20bb7\\stock-fresh-selector-observation\\ordinary-save-2-observation.json",
+            "bytes": 1921,
+            "sha256": "cd0accf099e63899e6bf27831828d2800ccb5ba34acc4e0828ff641be442ba22"
+          },
+          "files": {
+            "BALDUR.bmp": {
+              "bytes": 65590,
+              "sha256": "1b1f962d7d17b5b5f31026dfba532579a5273dd6fd0e522f0e7ae60cd21a610c"
+            },
+            "BALDUR.gam": {
+              "bytes": 74976,
+              "sha256": "1820c7d76a74586811b5bffc044c0f88deb5f69e4ecee8e099d708f8b17669e3"
+            },
+            "BALDUR.SAV": {
+              "bytes": 19343,
+              "sha256": "c70dfac37d575e6d1763937b59f95975cc8bafb591be55005bf4495be247cdf8"
+            },
+            "PORTRT0.bmp": {
+              "bytes": 13830,
+              "sha256": "a911259762962e5bae8dc5ef358848c0148c5263fdaf7149d03f1b28f75ceff5"
+            },
+            "PORTRT1.bmp": {
+              "bytes": 13830,
+              "sha256": "474f0f13617d0f43fe27f7bb886c6ac60bf81a684df53aae06df2d837270d15e"
+            }
+          },
+          "npc_wire": {
+            "actor_index": 1,
+            "identity": "RDXCOLOR",
+            "leather_wire_byte": 92,
+            "cre_sha256": "db71cf754a8427625c1f3f7f0d6c7175007f70169ae26fbed64f1889e036db99",
+            "position": [
+              3712,
+              2844
+            ],
+            "effects": 0,
+            "items": 0,
+            "scripts": [
+              "NONE",
+              "NONE",
+              "NONE",
+              "NONE",
+              "NONE"
+            ]
+          },
+          "markers": {
+            "RDXCCASE": 3,
+            "RDXCNONCE": 1455348314,
+            "RDXCSTAGE": 2,
+            "RDXCREADY": 1
+          },
+          "pid": 7456
+        },
+        {
+          "receipt": {
+            "path": "C:\\BGRedux\\phase1-local\\results\\20261022T022308Z-original-color-installation-08d20bb7\\stock-fresh-selector-observation\\ordinary-save-3-observation.json",
+            "bytes": 1921,
+            "sha256": "8833bde32c5ddce47c353564d9a9f632637ac8afefd2eff8fb6f4c3813c75142"
+          },
+          "files": {
+            "BALDUR.bmp": {
+              "bytes": 65590,
+              "sha256": "cb8eae5612634ab58ea865f7757e005b9e18477b45d8f519958143712b9d2a95"
+            },
+            "BALDUR.gam": {
+              "bytes": 74976,
+              "sha256": "5afbeba31665cab3e034e320294f71abef2fe1d1175356ec014c6441e7f6ae28"
+            },
+            "BALDUR.SAV": {
+              "bytes": 19321,
+              "sha256": "638bbc5c562faa5a38f0899ef093a4838007dad0d3d369138677feaf9fc31133"
+            },
+            "PORTRT0.bmp": {
+              "bytes": 13830,
+              "sha256": "a911259762962e5bae8dc5ef358848c0148c5263fdaf7149d03f1b28f75ceff5"
+            },
+            "PORTRT1.bmp": {
+              "bytes": 13830,
+              "sha256": "474f0f13617d0f43fe27f7bb886c6ac60bf81a684df53aae06df2d837270d15e"
+            }
+          },
+          "npc_wire": {
+            "actor_index": 1,
+            "identity": "RDXCOLOR",
+            "leather_wire_byte": 92,
+            "cre_sha256": "db71cf754a8427625c1f3f7f0d6c7175007f70169ae26fbed64f1889e036db99",
+            "position": [
+              3712,
+              2844
+            ],
+            "effects": 0,
+            "items": 0,
+            "scripts": [
+              "NONE",
+              "NONE",
+              "NONE",
+              "NONE",
+              "NONE"
+            ]
+          },
+          "markers": {
+            "RDXCCASE": 3,
+            "RDXCNONCE": 1455348314,
+            "RDXCSTAGE": 2,
+            "RDXCREADY": 1
+          },
+          "pid": 7240
+        }
+      ],
+      "launches": [
+        {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T022308Z-original-color-installation-08d20bb7\\stock-fresh-selector-create-launch.json",
+          "bytes": 145,
+          "sha256": "b62324636871dfbf0b79cd506a9606e1f63e16f4c01f53bf1b3a719062f08724"
+        },
+        {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T022308Z-original-color-installation-08d20bb7\\stock-fresh-selector-reload1-launch.json",
+          "bytes": 171,
+          "sha256": "49b3e6a7e3f03fb5496a47dfd1c2a447bc0a047ad782132283fe2308e5ac66ff"
+        },
+        {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T022308Z-original-color-installation-08d20bb7\\stock-fresh-selector-reload2-launch.json",
+          "bytes": 171,
+          "sha256": "ec41881bd66e4ba0f57d454842319b875803268dcbb5732956cf55d8028d4d2a"
+        }
+      ],
+      "owned_pids": [
+        13128,
+        7456,
+        7240
+      ],
+      "terminal_receipt": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T022308Z-original-color-installation-08d20bb7\\stock-fresh-selector-processes-terminal.json",
+        "bytes": 104,
+        "sha256": "0cadb97db3d44e75cd45085291c921fe987a6f92bc4cdcb9f65700daddacec05"
+      },
+      "reload_input_verifications": [
+        {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T022308Z-original-color-installation-08d20bb7\\stock-fresh-selector-observation\\reload-1-input-verification.json",
+          "bytes": 1153,
+          "sha256": "e2032f12c0dbc7bb3c9ea592397ec80bf4eaae3f3b1a238a048dcdd502dc1929"
+        },
+        {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T022308Z-original-color-installation-08d20bb7\\stock-fresh-selector-observation\\reload-2-input-verification.json",
+          "bytes": 1153,
+          "sha256": "071c9e044b777333ebed9a13fa995cf25395325e8c8ee1b2cab2ce10c4a835a6"
+        }
+      ],
+      "initial_input_verification": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T022308Z-original-color-installation-08d20bb7\\stock-fresh-selector-observation\\initial-input-verification.json",
+        "bytes": 996,
+        "sha256": "cea74ad0a35f4511f7136578cf32c2252342d91a9104615141f7091a7effa1a8"
+      },
+      "screenshots": [
+        {
+          "label": "00-campaign-menu",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector-observation/00-campaign-menu.jpg",
+          "sha256": "debc15a773d3d37cc3404a69e2640bc8d34e3bfe96931e5f691a27b80817821e",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-stock-fresh-selector\\Baldur.exe",
+            "id": 96077020,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:12:43.921Z"
+        },
+        {
+          "label": "01-load-list",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector-observation/01-load-list.jpg",
+          "sha256": "a7cb7f6b6e012396b12a29636d88cd618a9d1954d38acb062a677f0bd0fa198a",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-stock-fresh-selector\\Baldur.exe",
+            "id": 96077020,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:13:32.378Z"
+        },
+        {
+          "label": "02-load-selected",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector-observation/02-load-selected.jpg",
+          "sha256": "b6cae67c2d0f9cb974991c5b284f9fcae1b129e459ed4791b6a9545f2fd481a0",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-stock-fresh-selector\\Baldur.exe",
+            "id": 96077020,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:13:45.804Z"
+        },
+        {
+          "label": "03-loaded-map",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector-observation/03-loaded-map.jpg",
+          "sha256": "77bfc2a936436d8dad039af97bbe97356cad544dde050bb0a7a5df7e344aeb81",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-stock-fresh-selector\\Baldur.exe",
+            "id": 96077020,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:13:59.343Z"
+        },
+        {
+          "label": "04-ready-map",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector-observation/04-ready-map.jpg",
+          "sha256": "022ef9800df66f5996a370bd1caac0f9396af5698983dac0b6e53876179dc6c8",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-stock-fresh-selector\\Baldur.exe",
+            "id": 96077020,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:14:17.287Z"
+        },
+        {
+          "label": "05-preserved-chapter-save-confirm",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector-observation/05-preserved-chapter-save-confirm.jpg",
+          "sha256": "823b7c40b3787d2a3cc728de92d37381417db4c068d69767ca2033ec8da9bdc3",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-stock-fresh-selector\\Baldur.exe",
+            "id": 96077020,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:14:57.503Z"
+        },
+        {
+          "label": "06-save-successful",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector-observation/06-save-successful.jpg",
+          "sha256": "3850f4f5f896db57777b9b62d0d384ffe7e5214f632fcfc4cfa955cc66a94e55",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-stock-fresh-selector\\Baldur.exe",
+            "id": 96077020,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:15:14.847Z"
+        },
+        {
+          "label": "07-reload1-new-process-menu",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector-observation/07-reload1-new-process-menu.jpg",
+          "sha256": "debc15a773d3d37cc3404a69e2640bc8d34e3bfe96931e5f691a27b80817821e",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-stock-fresh-selector\\Baldur.exe",
+            "id": 9241960,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:16:30.465Z"
+        },
+        {
+          "label": "08-reload1-selected",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector-observation/08-reload1-selected.jpg",
+          "sha256": "4187eaec5c5ada23cbc6c8076a3049689023032e17b322d4bf8a2a2e0638e017",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-stock-fresh-selector\\Baldur.exe",
+            "id": 9241960,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:17:35.473Z"
+        },
+        {
+          "label": "09-reload1-map",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector-observation/09-reload1-map.jpg",
+          "sha256": "6c64c33db42a6c3af14768db53bef88481d3d432021fa1d8c1d16fac137a9c64",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-stock-fresh-selector\\Baldur.exe",
+            "id": 9241960,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:17:48.809Z"
+        },
+        {
+          "label": "10-reload1-ordinary-save-confirm",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector-observation/10-reload1-ordinary-save-confirm.jpg",
+          "sha256": "0a3e3d7e9e16aba17ff3363e446c44d8833e29caf1fef592af9dafabdcfa515c",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-stock-fresh-selector\\Baldur.exe",
+            "id": 9241960,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:18:50.219Z"
+        },
+        {
+          "label": "11-reload1-save-successful",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector-observation/11-reload1-save-successful.jpg",
+          "sha256": "9a18aca39bf41a6ec1b0812a4243d419f39b61514957bfdc09e3b13e1a912c4a",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-stock-fresh-selector\\Baldur.exe",
+            "id": 9241960,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:19:17.707Z"
+        },
+        {
+          "label": "12-reload2-new-process-menu",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector-observation/12-reload2-new-process-menu.jpg",
+          "sha256": "2da771cf29f87fb008fb6778d42bc52e21c018d24a6554a12e24143770ac159a",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-stock-fresh-selector\\Baldur.exe",
+            "id": 6030674,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:21:22.423Z"
+        },
+        {
+          "label": "13-reload2-selected",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector-observation/13-reload2-selected.jpg",
+          "sha256": "d46a5ce2a6c5ddb4be37dd3afdc98cce5b14280e1e1367e680b7baa36d268eec",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-stock-fresh-selector\\Baldur.exe",
+            "id": 6030674,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:22:41.962Z"
+        },
+        {
+          "label": "14-reload2-map",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector-observation/14-reload2-map.jpg",
+          "sha256": "1dc30f4f0428fe9a2943a877c551bcc5e34d10cd968d3b45a60294dfa4bc0fb9",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-stock-fresh-selector\\Baldur.exe",
+            "id": 6030674,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:22:55.443Z"
+        },
+        {
+          "label": "15-reload2-ordinary-save-confirm",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector-observation/15-reload2-ordinary-save-confirm.jpg",
+          "sha256": "17b591e1b72e7f6e3ac350964cf0875c5f02d99809a4d6166336bbd083d21035",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-stock-fresh-selector\\Baldur.exe",
+            "id": 6030674,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:23:49.082Z"
+        },
+        {
+          "label": "16-reload2-save-successful",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector-observation/16-reload2-save-successful.jpg",
+          "sha256": "644e2161f4b31b5f4f9935da2d5490a2dfa2142110f3503591f4d53c60193359",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-stock-fresh-selector\\Baldur.exe",
+            "id": 6030674,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:24:07.222Z"
+        },
+        {
+          "label": "17-quit-modal-incidental-message",
+          "path": "C:/BGRedux/phase1-local/results/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector-observation/17-quit-modal-incidental-message.jpg",
+          "sha256": "a9a9c0c29b3b42fe347bf1e6e27444d93e24c49322d4c4144c020c28514e696b",
+          "window": {
+            "app": "process:C:\\BGRedux\\phase1-local\\original-color-game-08d20bb7-stock-fresh-selector\\Baldur.exe",
+            "id": 6030674,
+            "title": "BGReduxP1/20261022T022308Z-original-color-installation-08d20bb7/stock-fresh-selector - v2.7.3.0"
+          },
+          "screenshot_id": "screenshot-0",
+          "captured_utc": "2026-10-22T03:25:30.198Z"
+        }
+      ],
+      "distinct_window_ids": [
+        96077020,
+        9241960,
+        6030674
+      ],
+      "input_files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+        },
+        "BALDUR.gam": {
+          "bytes": 69372,
+          "sha256": "bd0a7c3a643d164bb6198409440007fcbb082fdfe19b1c6ee3eb693f325c937e"
+        },
+        "BALDUR.SAV": {
+          "bytes": 20438,
+          "sha256": "43f8b46c1dedd77e89e7730b916490b1d8f67a201aebba95ed8ab5ca446195d3"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+        },
+        "save_000000033-GemRB.cloud.meta": {
+          "bytes": 10,
+          "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+        }
+      },
+      "override_files": {
+        "CEDA5A03.bcs": {
+          "bytes": 1082,
+          "sha256": "396a371c4b6cf9d21747be6badae64ff361690471bd9316d2a8606d244345e50"
+        },
+        "RANDCOLR.2da": {
+          "bytes": 15919,
+          "sha256": "fadbc1a6b61cd3ec06105fc634e796c8a6393f0da326696636f571a0dc9b7a93"
+        },
+        "RDXCOLOR.cre": {
+          "bytes": 1988,
+          "sha256": "b9e9a2a7698662b41daac840cb531fc9948c2195ab2f83a6e6b1892afc1e1ec6"
+        }
+      },
+      "root_hashes_rechecked": {
+        "Baldur.exe": "b51093a49140b2b8a7c046b4652bb8e535be24ebbc12b1d735e0b94217a14d57",
+        "chitin.key": "1818ffebb2424992fb39fb13509e7f629ac819b08a553c2dd4ac25f2e40a979f",
+        "engine.lua": "994fcd7f0d79fb47cc318c5811ee60c22daec5fb59424a7ba8d46f7835290231",
+        "GemRB.log": "c298eb067db2c6c619c7791afc9b6fc0997a5dba9bd5bd03d6718f2facbbf6a7",
+        "gemrb_console.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "gemrb_path.txt": "74f29a278dc2806d86620cd23bcd11130662c214b8854ef59d3aebcc7776fecd",
+        "oalinst.exe": "b8f39714d41e009f75efb183c37100f2cbabb71784bbd243be881ac5b42d86fd",
+        "steam_api64.dll.phase1-retained": "e3fe06e2d802c2f753aeb46869e2af898f34715ce85f08001456fd8a80ecd21e",
+        "steam_appid.txt": "0805798a4fbfc63f2bf750561c948803816dd5e2ebbe6c73cfd5249516bcf67f"
+      },
+      "asset_links_rechecked": {
+        "data": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\data",
+        "lang": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\lang",
+        "Manuals": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\Manuals",
+        "movies": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\movies",
+        "music": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\music",
+        "scripts": "C:\\BGRedux\\phase0-local\\bg2ee-clean\\scripts"
+      },
+      "profile_configuration": {
+        "initial_sha256": "744ab0a96802939e931c9929d5d0bc1caf0171fd871f9b9d12c44d9bbc5d1d13",
+        "current_sha256": "2473b0b8a2ecf5205ee3e614d729cc261d3dceaada9311e7537160a38fca7db4",
+        "whole_profile_unchanged_claim": false
+      }
+    }
+  ],
+  "evidence_helper": {
+    "path": "C:\\BGRedux\\phase1-local\\original-color-cycle-evidence.py",
+    "bytes": 3591,
+    "sha256": "fc35b45d5a12a1e7ed25ba9aa9992e68d7665792e924e975f21492af87503802"
+  },
+  "parser_receipt_binding": {
+    "path": "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\saved_npc_color_fixtures.py",
+    "bytes": 20368,
+    "sha256": "f923208a76a15f8e527dcb63052eb6ddf2f0969cc265290d09b8b70056c8e238"
+  },
+  "audit_decoder_source": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\original-color-controls-audit-20261022-worker.py",
+    "bytes": 11402,
+    "sha256": "b6dc9c8093b27b61a860d3f3207bc8f7abcdbcc1ea5c10ebca882153c12a0328"
+  },
+  "historical_paired_audit_unchanged": {
+    "path": "C:\\BGRedux\\phase1-local\\worktrees\\weapon\\redux\\docs\\compatibility\\evidence\\phase1-paired-color-lab.json",
+    "bytes": 77073,
+    "sha256": "8ccce4d5ede2e24735fdca7958126067c22af14993fe489d528905140bb0bc67"
+  },
+  "native_controls_reference": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\result.json",
+    "bytes": 66322,
+    "sha256": "c4c3f96d1318a1589244794956f19a0203fb91343270be1a4101f3809e3a4972"
+  },
+  "selector_table": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T021632Z-color-fixtures-c8e396c4\\stock-fresh-selector\\override\\RANDCOLR.2da",
+    "bytes": 15919,
+    "sha256": "fadbc1a6b61cd3ec06105fc634e796c8a6393f0da326696636f571a0dc9b7a93"
+  },
+  "selector228_allowed_outputs": [
+    22,
+    23,
+    87,
+    91,
+    92,
+    99,
+    138,
+    209,
+    236,
+    237,
+    238,
+    239,
+    240,
+    241
+  ],
+  "selector209_allowed_outputs": [
+    37,
+    64,
+    65,
+    66,
+    87,
+    91,
+    92,
+    93,
+    137,
+    138,
+    144,
+    158,
+    159,
+    209,
+    227,
+    237,
+    239,
+    254
+  ],
+  "stock_comparison": "Original and native first outcomes are independently allowed selector228 outcomes; exact random equality is not asserted.",
+  "incidental_messages": [
+    "ordinary-low screenshot16 contains Save successful and I have secured something from them.",
+    "stock screenshot17 quit modal contains I am out of sight of others. These messages are not color/NPC/quest oracles; they support retaining whole-world/RNG limitations."
+  ],
+  "visual_review": "Reviewer inspected all six Save successful screenshots, low reload2 selected input, stock reload1/reload2 selected inputs, and final stock quit modal.",
+  "preservation_limits": "Original installed roots, asset link targets, copied input/override resources and frozen saves rehashed. Profile Baldur.lua may change; linked asset contents not fully rehashed."
+}
