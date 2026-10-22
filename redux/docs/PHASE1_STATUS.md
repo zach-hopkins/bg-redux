@@ -8,6 +8,20 @@ game typefaces are fidelity requirements. Modern UI direction remains approved.
 
 ## Requirements and order
 
+Latest executed checkpoint: right-row candidate e00bb8b5 builds with all guards.
+Corrected setting journey `20261022T123904Z-confirmation-setting-mixed-e9957e50`
+passes (13540/16656, both zero, 194.960/40.240 seconds) and its
+[independent audit](testing/phase1-confirmation-right-row-independent.md) verifies
+the actual right checkbox 41, label 29, full localized help, Cancel/Done, exact
+owned INI copy/fresh option-one loading, both books' charged/depleted behavior,
+normal GUI save/wire and fresh reload. The left Colored Markers label is preserved;
+its unbound control remains a separate existing implementation gap. The audit
+retains 885 broader fresh-import residuals, including world effects/time/selection,
+without a whole-world purity claim. Two-resolution menu run
+`20261022T124438Z-row-menu-run-c59be7e9` and a fresh current-build general baseline
+are pending. The earlier information journey has now passed its
+[independent 120-capture audit](testing/phase1-information-journey-independent.md).
+
 Current source checkpoint: the Feedback confirmation control now uses the original
 right row 41/40/0x10000029 and preserves Colored Markers on the left. The
 [source repair](testing/phase1-confirmation-feedback-row-repair.md) follows the

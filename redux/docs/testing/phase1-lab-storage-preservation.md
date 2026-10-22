@@ -136,6 +136,17 @@ Receipt `storage-completed-spellbook-objects-1792672437951426500/result.json`
 verifies all 702 object files and unchanged build receipts before/after; no file
 was deleted or moved. The then-current ced237a2 build was explicitly excluded.
 
+After ced237a2's native journeys were terminal, receipt
+`storage-completed-help-objects-1792672734147921200/result.json` similarly verifies
+its 234 generated objects before/after compression; current e00bb8b5 was excluded.
+While the subsequent e00 menu run was active, its entire result subtree
+`20261022T124438Z-row-menu-run-c59be7e9` was excluded from a closed-cache pass.
+Receipt `storage-closed-caches-excluding-row-menu-1792673168282717600/result.json`
+pins 28,460 completed PVRZ files and shares 1,786 identical paths, preserving all
+bytes and marking new shared aliases read-only. Only completed caches were
+eligible; the active result was never traversed. Free space after that pass was
+2,204,131,328 bytes. All archived cache profiles remain unsuitable for reuse.
+
 The results parent now requests inherited compression without recursion. A
 baseline retry nested in the longer compressed-container path failed while
 copying a 273-character Windows destination, before the GUI stages began.
