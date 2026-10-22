@@ -1,10 +1,18 @@
 # Wizard information → Erase identity diagnostic
 
-Status: **source-only external diagnostic; no native failure or original parity measured here**. Production GUIMG/GUIPR and spellbook core remain unchanged. The observed operation/menu results retain their prior scope.
+Status: **native wrong-spell Erase reproduced; narrow production correction applied, native AFTER validation pending**. Original Erase parity remains unmeasured. Historical operation/menu results retain their prior scope.
 
 ## Source reason and exact acceptance
 
-`GUIMG.UpdateMageWindow` sorts known entries by localized name and assigns each icon's value to its original known index. Its right-press info closure instead stores `spell['CurrentIndex']=i`, the displayed position. Info window 3's Erase control 6 passes that position through confirmation window 101/control 0 into `OnMageRemoveSpell` and `GemRB.RemoveSpell(pc, type, level, index)`. This is a source-inferred identity risk, separate from the already tested Memorize callback, which reads the correct button value. It is not a measured Erase failure.
+Before correction, `GUIMG.UpdateMageWindow` sorted known entries by localized name and assigned each icon's value to its original known index, but its right-press info closure stored the displayed position. Info window 3's Erase control 6 passed that position through confirmation window 101/control 0 into `OnMageRemoveSpell` and `GemRB.RemoveSpell(pc, type, level, index)`. The controlled native run below confirms wrong deletion, separate from the already tested Memorize callback. Commit `3f5cad097` changes only the info metadata to carry the original known index, matching the icon value.
+
+## Executed BEFORE and correction
+
+Stock result `20261022T103257Z-spellbook-erase-ee-direct-05d986b6` passes intended SPWI213 removal, GUI save and fresh reload. Its result SHA256 is `28ca5af36013ddb91e0f635788a3bd8ea480bb3db7925bbc9f2411e22855947e`.
+
+Controlled result `20261022T103610Z-spellbook-erase-name-control-ee-direct-2899b4c1` **fails** intended identity (result SHA256 `4b2a1a15ce17b5b188f118b5664c6ea7ccdda513396a308e3495d5b94e2af010`). The information window shows SPWI213, original index 2/displayed index 0. Confirming Erase actually removes SPWI211 from known entries and leaves SPWI213 plus its memorized copy intact. The ordinary GUI save is preserved in `operate/diagnostic-frozen-save` and independently decoded before acceptance fails. No reload is launched after that failure. Candidate, protected baseline and input preservation guards pass.
+
+The resource-free regression executes the actual known-row rendering loop in four display orders: BEFORE has eleven failing subtests; AFTER all four tests pass. The full external tooling suite passes 447 tests, with source-bound receipt `phase1-known-info-tooling-1792665863856746800/result.json`. Native AFTER must still establish callback, save and reload correctness; fast tests alone do not close this defect.
 
 `GUIScript.cpp`'s indexed `RemoveSpell` first resolves `GetKnownSpell(type, level, index)`. `Spellbook::RemoveSpell(const CREKnownSpell*)` erases that single known entry and calls `RemoveMemorization` for **all copies of that resref on that same page**, preserving the order and flags of unrelated memorized entries, then clears cached spell information. Therefore correct acceptance requires deleting the intended known SPWI213 and every same-page SPWI213 memorization. A count decrease, or deleting a different known spell with matching counts, is insufficient. Slot capacities, other pages/actors and collected world fields must remain unchanged, allowing ordinary selection changes only after natural startup readiness.
 

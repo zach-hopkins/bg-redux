@@ -6,7 +6,9 @@ Fake controls capture real loop calls and the real right-press callback closure 
 
 The native controlled BEFORE result `20261022T103610Z-spellbook-erase-name-control-ee-direct-2899b4c1/result.json` (SHA256 `4b2a1a15ce17b5b188f118b5664c6ea7ccdda513396a308e3495d5b94e2af010`) remains failed: the coordinator reports intended SPWI213 at original index 2/displayed index 0 but actual deletion of SPWI211, with SPWI213 and its memorized entries retained in the frozen wrong save. This fast test covers the GUI metadata dataflow responsible for that identity confusion; it does not replace the strict native callback/delta/save/reload diagnostic or establish original Erase parity.
 
-Worker delivery is **test source only, unexecuted**. Coordinator command from the integrated checkout:
+Coordinator execution on October 22: before the production correction, four tests ran with eleven failing subtests across the reordered cases. After commit `3f5cad097`, all four pass. Logs are retained at `phase1-local/results/phase1-known-info-before-20261022.log` and `phase1-known-info-after-20261022.log`. The full source-bound external tooling suite passes **447 tests** in 34.599 seconds; receipt `phase1-local/results/phase1-known-info-tooling-1792665863856746800/result.json` binds unchanged inputs. This is separate from native AFTER validation.
+
+Coordinator command from the integrated checkout:
 
 ```powershell
 python -B -m unittest discover -s redux/tools/phase1/tests -p test_spellbook_known_info_index.py
