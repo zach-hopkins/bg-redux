@@ -22,6 +22,15 @@ P1-02 and P1-03 may proceed in isolated worktrees once their independent prerequ
 
 ## Required defect record
 
+Before changing an EE GUI or conversation path, consult the
+[upstream EE issue and discussion index](../compatibility/upstream-ee-gui-issue-context.md)
+and [dialogue context](../compatibility/upstream-dialogue-issue-context.md).
+The October 22 snapshot catalogs all 55 `game: ees` issues and their 132 comments,
+plus four related dialogue issues. Compare relevant upstream fixes with the pinned
+source and obtain a local reproduction; an upstream open/closed state does not
+replace native acceptance evidence. Known spellbook operations, input/modal,
+font/encoding/scaling and quick save/load gaps should inform P1-03/P1-06 fixtures.
+
 Each candidate carries: user-visible trigger and expected/observed behavior; exact input/build/content hashes; paired original/GemRB evidence where relevant; raw output location; invalid-setup and unsupported-content controls; source-grounded root-cause candidates; uncertainty and affected scope; smallest proposed change; normal-path and negative regression scenarios; rollback/profile implications; and the authority required to execute it. A mismatch that is only source-inferred remains a hypothesis until reproduced.
 
 ## Carry-forward findings

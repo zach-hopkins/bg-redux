@@ -4,6 +4,12 @@ October 22 UTC implementation update: the user has explicitly authorized Phase 1
 
 October 21 LAB update: Phase 0 technical evidence is consolidated in [the release record](../PHASE0_RELEASE.md). Base/context transfer and native validation are complete; engine source/binaries are unchanged. Host input isolation is user-confirmed. VM snapshots are optional and excluded from gates by explicit user instruction. Earlier pending-transfer/snapshot statements below are historical. Phase 1 engine implementation remains separately authorized work.
 
+October 22 upstream context: the user's requested review of known GUI issues is
+saved in the [EE issue/discussion index](../compatibility/upstream-ee-gui-issue-context.md)
+and [related dialogue research](../compatibility/upstream-dialogue-issue-context.md).
+Consult these before duplicating upstream investigations; their issue states and
+hypotheses do not substitute for pinned-source review and local reproductions.
+
 Guest continuation, October 21: [LAB bring-up results](../testing/lab-guest-bringup.md)
 supersede historical physical-host-only status below. Guest execution and game
 reference hashes are verified; private runtime transfer and migration acceptance

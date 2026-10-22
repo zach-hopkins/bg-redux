@@ -1,0 +1,1143 @@
+{
+  "schema": "bg-redux-upstream-ee-context/1",
+  "retrieved_date_utc": "2026-10-22",
+  "repository": "gemrb/gemrb",
+  "label": "game: ees",
+  "query": "repo:gemrb/gemrb is:issue label:\"game: ees\"",
+  "scope": "55 search results (<100 limit); full issue and all-comment connector reads; not a live monitor, code audit or local reproduction",
+  "issues": [
+    {
+      "number": 2536,
+      "title": "EE: hardcoded font scaling for select non-English languages",
+      "url": "https://github.com/gemrb/gemrb/issues/2536",
+      "state": "open",
+      "state_reason": null,
+      "updated_at": "2026-09-25T22:55:58Z",
+      "closed_at": null,
+      "labels": [
+        "feature",
+        "game: ees",
+        "system: core"
+      ],
+      "reported_comment_count": 0,
+      "retrieved_comment_count": 0,
+      "comment_urls": []
+    },
+    {
+      "number": 2537,
+      "title": "EE: live font scaling",
+      "url": "https://github.com/gemrb/gemrb/issues/2537",
+      "state": "open",
+      "state_reason": null,
+      "updated_at": "2026-09-25T06:29:44Z",
+      "closed_at": null,
+      "labels": [
+        "feature",
+        "game: ees",
+        "system: core"
+      ],
+      "reported_comment_count": 0,
+      "retrieved_comment_count": 0,
+      "comment_urls": []
+    },
+    {
+      "number": 240,
+      "title": "[bug] BG2 Some wizard and priest scrolls do not fold when moving them in inventory",
+      "url": "https://github.com/gemrb/gemrb/issues/240",
+      "state": "open",
+      "state_reason": null,
+      "updated_at": "2026-09-09T20:42:52Z",
+      "closed_at": null,
+      "labels": [
+        "bug",
+        "game: bg2",
+        "game: ees",
+        "system: GUI",
+        "system: animations"
+      ],
+      "reported_comment_count": 12,
+      "retrieved_comment_count": 12,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/240#issuecomment-531934964",
+        "https://github.com/gemrb/gemrb/issues/240#issuecomment-531960731",
+        "https://github.com/gemrb/gemrb/issues/240#issuecomment-531964065",
+        "https://github.com/gemrb/gemrb/issues/240#issuecomment-532260537",
+        "https://github.com/gemrb/gemrb/issues/240#issuecomment-532271555",
+        "https://github.com/gemrb/gemrb/issues/240#issuecomment-534898273",
+        "https://github.com/gemrb/gemrb/issues/240#issuecomment-534924605",
+        "https://github.com/gemrb/gemrb/issues/240#issuecomment-534934067",
+        "https://github.com/gemrb/gemrb/issues/240#issuecomment-534945621",
+        "https://github.com/gemrb/gemrb/issues/240#issuecomment-534947137",
+        "https://github.com/gemrb/gemrb/issues/240#issuecomment-534951931",
+        "https://github.com/gemrb/gemrb/issues/240#issuecomment-535089279"
+      ]
+    },
+    {
+      "number": 2498,
+      "title": "BG2 EE: Can't leave Waukeen's Promenade",
+      "url": "https://github.com/gemrb/gemrb/issues/2498",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2026-08-04T22:40:05Z",
+      "closed_at": "2026-08-04T22:40:05Z",
+      "labels": [
+        "bug",
+        "game: ees"
+      ],
+      "reported_comment_count": 2,
+      "retrieved_comment_count": 2,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/2498#issuecomment-4457089226",
+        "https://github.com/gemrb/gemrb/issues/2498#issuecomment-4457666130"
+      ]
+    },
+    {
+      "number": 2492,
+      "title": "EE: Damage message placeholders are not fully populated",
+      "url": "https://github.com/gemrb/gemrb/issues/2492",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2026-06-30T15:00:40Z",
+      "closed_at": "2026-06-30T15:00:40Z",
+      "labels": [
+        "bug",
+        "game: ees",
+        "system: core",
+        "good first issue"
+      ],
+      "reported_comment_count": 1,
+      "retrieved_comment_count": 1,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/2492#issuecomment-4406747154"
+      ]
+    },
+    {
+      "number": 2444,
+      "title": "EE worldmap updates often do not persist",
+      "url": "https://github.com/gemrb/gemrb/issues/2444",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2026-05-31T21:10:22Z",
+      "closed_at": "2026-05-31T21:10:22Z",
+      "labels": [
+        "bug",
+        "game: ees",
+        "system: core",
+        "research needed",
+        "compatibility"
+      ],
+      "reported_comment_count": 1,
+      "retrieved_comment_count": 1,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/2444#issuecomment-4411875653"
+      ]
+    },
+    {
+      "number": 2321,
+      "title": "Replace libvlc with ffmpeg libraries",
+      "url": "https://github.com/gemrb/gemrb/issues/2321",
+      "state": "open",
+      "state_reason": null,
+      "updated_at": "2026-05-26T19:57:18Z",
+      "closed_at": null,
+      "labels": [
+        "feature",
+        "game: ees",
+        "janitorial",
+        "system: movies",
+        "portability"
+      ],
+      "reported_comment_count": 3,
+      "retrieved_comment_count": 3,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/2321#issuecomment-2794800702",
+        "https://github.com/gemrb/gemrb/issues/2321#issuecomment-2794872631",
+        "https://github.com/gemrb/gemrb/issues/2321#issuecomment-4548192583"
+      ]
+    },
+    {
+      "number": 2494,
+      "title": "Selecting a spell in spellbook enables another spell",
+      "url": "https://github.com/gemrb/gemrb/issues/2494",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2026-05-09T11:04:47Z",
+      "closed_at": "2026-05-09T11:04:46Z",
+      "labels": [
+        "bug",
+        "game: bg2",
+        "game: ees",
+        "system: GUI"
+      ],
+      "reported_comment_count": 2,
+      "retrieved_comment_count": 2,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/2494#issuecomment-4406954733",
+        "https://github.com/gemrb/gemrb/issues/2494#issuecomment-4406971431"
+      ]
+    },
+    {
+      "number": 2493,
+      "title": "EE: rendering issues on closing doors",
+      "url": "https://github.com/gemrb/gemrb/issues/2493",
+      "state": "closed",
+      "state_reason": "duplicate",
+      "updated_at": "2026-05-08T13:23:53Z",
+      "closed_at": "2026-05-08T13:23:53Z",
+      "labels": [
+        "bug",
+        "game: ees",
+        "system: core"
+      ],
+      "reported_comment_count": 0,
+      "retrieved_comment_count": 0,
+      "comment_urls": []
+    },
+    {
+      "number": 2485,
+      "title": "EE: Crash on loading a save",
+      "url": "https://github.com/gemrb/gemrb/issues/2485",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2026-05-04T19:58:38Z",
+      "closed_at": "2026-05-04T19:58:38Z",
+      "labels": [
+        "bug",
+        "game: ees",
+        "system: effects"
+      ],
+      "reported_comment_count": 9,
+      "retrieved_comment_count": 9,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/2485#issuecomment-4347374204",
+        "https://github.com/gemrb/gemrb/issues/2485#issuecomment-4347382582",
+        "https://github.com/gemrb/gemrb/issues/2485#issuecomment-4347459543",
+        "https://github.com/gemrb/gemrb/issues/2485#issuecomment-4347486604",
+        "https://github.com/gemrb/gemrb/issues/2485#issuecomment-4347508828",
+        "https://github.com/gemrb/gemrb/issues/2485#issuecomment-4352043815",
+        "https://github.com/gemrb/gemrb/issues/2485#issuecomment-4352179255",
+        "https://github.com/gemrb/gemrb/issues/2485#issuecomment-4373111810",
+        "https://github.com/gemrb/gemrb/issues/2485#issuecomment-4373483056"
+      ]
+    },
+    {
+      "number": 2407,
+      "title": "BG2 EE: Savegames from GemRB not working",
+      "url": "https://github.com/gemrb/gemrb/issues/2407",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2026-05-04T17:39:05Z",
+      "closed_at": "2026-05-04T17:31:00Z",
+      "labels": [
+        "bug",
+        "game: ees",
+        "compatibility"
+      ],
+      "reported_comment_count": 2,
+      "retrieved_comment_count": 2,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/2407#issuecomment-4372065555",
+        "https://github.com/gemrb/gemrb/issues/2407#issuecomment-4373086158"
+      ]
+    },
+    {
+      "number": 164,
+      "title": "META: add missing EE bits and pieces",
+      "url": "https://github.com/gemrb/gemrb/issues/164",
+      "state": "open",
+      "state_reason": null,
+      "updated_at": "2026-05-04T11:25:34Z",
+      "closed_at": null,
+      "labels": [
+        "feature",
+        "game: ees"
+      ],
+      "reported_comment_count": 8,
+      "retrieved_comment_count": 8,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/164#issuecomment-530158373",
+        "https://github.com/gemrb/gemrb/issues/164#issuecomment-531496817",
+        "https://github.com/gemrb/gemrb/issues/164#issuecomment-531500183",
+        "https://github.com/gemrb/gemrb/issues/164#issuecomment-531502189",
+        "https://github.com/gemrb/gemrb/issues/164#issuecomment-1243242093",
+        "https://github.com/gemrb/gemrb/issues/164#issuecomment-1243286941",
+        "https://github.com/gemrb/gemrb/issues/164#issuecomment-1245451925",
+        "https://github.com/gemrb/gemrb/issues/164#issuecomment-1306190789"
+      ]
+    },
+    {
+      "number": 2490,
+      "title": "EE: TTF fonts not used",
+      "url": "https://github.com/gemrb/gemrb/issues/2490",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2026-05-02T20:05:54Z",
+      "closed_at": "2026-05-02T20:05:54Z",
+      "labels": [
+        "bug",
+        "game: ees",
+        "system: core"
+      ],
+      "reported_comment_count": 2,
+      "retrieved_comment_count": 2,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/2490#issuecomment-4364499196",
+        "https://github.com/gemrb/gemrb/issues/2490#issuecomment-4364508582"
+      ]
+    },
+    {
+      "number": 2483,
+      "title": "EE: Crash on death of PC",
+      "url": "https://github.com/gemrb/gemrb/issues/2483",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2026-04-29T17:53:33Z",
+      "closed_at": "2026-04-29T17:53:33Z",
+      "labels": [
+        "bug",
+        "game: ees",
+        "system: core"
+      ],
+      "reported_comment_count": 3,
+      "retrieved_comment_count": 3,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/2483#issuecomment-4345003994",
+        "https://github.com/gemrb/gemrb/issues/2483#issuecomment-4345055180",
+        "https://github.com/gemrb/gemrb/issues/2483#issuecomment-4345143756"
+      ]
+    },
+    {
+      "number": 1929,
+      "title": "Unicode issue in EE item description - wrong dash",
+      "url": "https://github.com/gemrb/gemrb/issues/1929",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2026-04-29T17:04:14Z",
+      "closed_at": "2026-04-29T17:04:14Z",
+      "labels": [
+        "bug",
+        "game: ees",
+        "system: core"
+      ],
+      "reported_comment_count": 0,
+      "retrieved_comment_count": 0,
+      "comment_urls": []
+    },
+    {
+      "number": 2478,
+      "title": "EE: encoding display issues",
+      "url": "https://github.com/gemrb/gemrb/issues/2478",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2026-04-29T17:04:13Z",
+      "closed_at": "2026-04-29T17:04:13Z",
+      "labels": [
+        "bug",
+        "game: ees"
+      ],
+      "reported_comment_count": 4,
+      "retrieved_comment_count": 4,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/2478#issuecomment-4337136466",
+        "https://github.com/gemrb/gemrb/issues/2478#issuecomment-4337154393",
+        "https://github.com/gemrb/gemrb/issues/2478#issuecomment-4345346220",
+        "https://github.com/gemrb/gemrb/issues/2478#issuecomment-4345448742"
+      ]
+    },
+    {
+      "number": 2480,
+      "title": "EE: Wrong mapping of classes to item usability",
+      "url": "https://github.com/gemrb/gemrb/issues/2480",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2026-04-29T10:09:53Z",
+      "closed_at": "2026-04-29T10:09:53Z",
+      "labels": [
+        "bug",
+        "game: ees",
+        "system: core"
+      ],
+      "reported_comment_count": 4,
+      "retrieved_comment_count": 4,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/2480#issuecomment-4339710475",
+        "https://github.com/gemrb/gemrb/issues/2480#issuecomment-4341189134",
+        "https://github.com/gemrb/gemrb/issues/2480#issuecomment-4341701049",
+        "https://github.com/gemrb/gemrb/issues/2480#issuecomment-4341806914"
+      ]
+    },
+    {
+      "number": 2479,
+      "title": "EE: language setting ignored for speech files",
+      "url": "https://github.com/gemrb/gemrb/issues/2479",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2026-04-28T19:52:44Z",
+      "closed_at": "2026-04-28T19:52:44Z",
+      "labels": [
+        "bug",
+        "game: ees",
+        "system: core"
+      ],
+      "reported_comment_count": 0,
+      "retrieved_comment_count": 0,
+      "comment_urls": []
+    },
+    {
+      "number": 2456,
+      "title": "EE: VLC continues playing in background",
+      "url": "https://github.com/gemrb/gemrb/issues/2456",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2026-04-02T15:55:10Z",
+      "closed_at": "2026-04-02T15:55:10Z",
+      "labels": [
+        "bug",
+        "game: ees",
+        "system: movies"
+      ],
+      "reported_comment_count": 1,
+      "retrieved_comment_count": 1,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/2456#issuecomment-4172412344"
+      ]
+    },
+    {
+      "number": 348,
+      "title": "Which data files are we not using yet?",
+      "url": "https://github.com/gemrb/gemrb/issues/348",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2026-04-01T11:12:04Z",
+      "closed_at": "2026-04-01T11:12:04Z",
+      "labels": [
+        "feature",
+        "game: bg2",
+        "game: bg1",
+        "game: iwd1",
+        "game: iwd2",
+        "game: pst",
+        "game: ees",
+        "research needed"
+      ],
+      "reported_comment_count": 8,
+      "retrieved_comment_count": 8,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/348#issuecomment-544204938",
+        "https://github.com/gemrb/gemrb/issues/348#issuecomment-544239501",
+        "https://github.com/gemrb/gemrb/issues/348#issuecomment-544242531",
+        "https://github.com/gemrb/gemrb/issues/348#issuecomment-544243736",
+        "https://github.com/gemrb/gemrb/issues/348#issuecomment-575991618",
+        "https://github.com/gemrb/gemrb/issues/348#issuecomment-683928227",
+        "https://github.com/gemrb/gemrb/issues/348#issuecomment-2849207563",
+        "https://github.com/gemrb/gemrb/issues/348#issuecomment-4169316177"
+      ]
+    },
+    {
+      "number": 2450,
+      "title": "EE portrait highlights on item drag",
+      "url": "https://github.com/gemrb/gemrb/issues/2450",
+      "state": "open",
+      "state_reason": null,
+      "updated_at": "2026-03-24T22:31:37Z",
+      "closed_at": null,
+      "labels": [
+        "feature",
+        "game: ees",
+        "system: GUI"
+      ],
+      "reported_comment_count": 0,
+      "retrieved_comment_count": 0,
+      "comment_urls": []
+    },
+    {
+      "number": 2301,
+      "title": "BG2EE: Quick Loot window not present",
+      "url": "https://github.com/gemrb/gemrb/issues/2301",
+      "state": "open",
+      "state_reason": null,
+      "updated_at": "2026-03-23T13:11:12Z",
+      "closed_at": null,
+      "labels": [
+        "feature",
+        "game: ees",
+        "system: GUI"
+      ],
+      "reported_comment_count": 1,
+      "retrieved_comment_count": 1,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/2301#issuecomment-4110497351"
+      ]
+    },
+    {
+      "number": 2443,
+      "title": "EE lightning bolt self-replicates until consuming all resources",
+      "url": "https://github.com/gemrb/gemrb/issues/2443",
+      "state": "open",
+      "state_reason": null,
+      "updated_at": "2026-03-22T18:21:16Z",
+      "closed_at": null,
+      "labels": [
+        "bug",
+        "game: ees",
+        "system: projectiles"
+      ],
+      "reported_comment_count": 0,
+      "retrieved_comment_count": 0,
+      "comment_urls": []
+    },
+    {
+      "number": 2442,
+      "title": "EE: Bad closed door tiles in the gates district",
+      "url": "https://github.com/gemrb/gemrb/issues/2442",
+      "state": "open",
+      "state_reason": null,
+      "updated_at": "2026-03-17T11:25:32Z",
+      "closed_at": null,
+      "labels": [
+        "bug",
+        "game: ees"
+      ],
+      "reported_comment_count": 0,
+      "retrieved_comment_count": 0,
+      "comment_urls": []
+    },
+    {
+      "number": 2298,
+      "title": "BG2EE: Right left/arrows in Spell Book does not change \"Spell Level Tab\" at the top",
+      "url": "https://github.com/gemrb/gemrb/issues/2298",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2026-03-04T18:44:39Z",
+      "closed_at": "2026-03-04T18:44:27Z",
+      "labels": [
+        "bug",
+        "game: ees",
+        "system: GUI"
+      ],
+      "reported_comment_count": 0,
+      "retrieved_comment_count": 0,
+      "comment_urls": []
+    },
+    {
+      "number": 2324,
+      "title": "EE: No gui quickload",
+      "url": "https://github.com/gemrb/gemrb/issues/2324",
+      "state": "open",
+      "state_reason": null,
+      "updated_at": "2026-03-04T18:14:08Z",
+      "closed_at": null,
+      "labels": [
+        "feature",
+        "game: ees"
+      ],
+      "reported_comment_count": 0,
+      "retrieved_comment_count": 0,
+      "comment_urls": []
+    },
+    {
+      "number": 2257,
+      "title": "Syncronize and limit key IDS values",
+      "url": "https://github.com/gemrb/gemrb/issues/2257",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2026-03-01T16:24:33Z",
+      "closed_at": "2026-03-01T16:24:33Z",
+      "labels": [
+        "bug",
+        "game: bg2",
+        "game: bg1",
+        "game: iwd1",
+        "game: iwd2",
+        "game: pst",
+        "game: ees",
+        "system: scripting",
+        "system: effects",
+        "research needed",
+        "compatibility"
+      ],
+      "reported_comment_count": 1,
+      "retrieved_comment_count": 1,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/2257#issuecomment-2711875974"
+      ]
+    },
+    {
+      "number": 383,
+      "title": "We need individual speech channels",
+      "url": "https://github.com/gemrb/gemrb/issues/383",
+      "state": "open",
+      "state_reason": null,
+      "updated_at": "2026-02-28T21:47:09Z",
+      "closed_at": null,
+      "labels": [
+        "feature",
+        "game: ees",
+        "system: audio",
+        "research needed"
+      ],
+      "reported_comment_count": 7,
+      "retrieved_comment_count": 7,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/383#issuecomment-553046346",
+        "https://github.com/gemrb/gemrb/issues/383#issuecomment-553605578",
+        "https://github.com/gemrb/gemrb/issues/383#issuecomment-553609229",
+        "https://github.com/gemrb/gemrb/issues/383#issuecomment-1620801141",
+        "https://github.com/gemrb/gemrb/issues/383#issuecomment-1701299146",
+        "https://github.com/gemrb/gemrb/issues/383#issuecomment-3192773137",
+        "https://github.com/gemrb/gemrb/issues/383#issuecomment-3192901631"
+      ]
+    },
+    {
+      "number": 2409,
+      "title": "Entangle spell causes flooding of error messages",
+      "url": "https://github.com/gemrb/gemrb/issues/2409",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2026-01-18T18:38:34Z",
+      "closed_at": "2026-01-18T18:38:34Z",
+      "labels": [
+        "bug",
+        "game: ees",
+        "system: core"
+      ],
+      "reported_comment_count": 3,
+      "retrieved_comment_count": 3,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/2409#issuecomment-3619885733",
+        "https://github.com/gemrb/gemrb/issues/2409#issuecomment-3619887797",
+        "https://github.com/gemrb/gemrb/issues/2409#issuecomment-3765580368"
+      ]
+    },
+    {
+      "number": 2408,
+      "title": "Assertion failure on casting some spells",
+      "url": "https://github.com/gemrb/gemrb/issues/2408",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2026-01-18T18:38:33Z",
+      "closed_at": "2026-01-18T18:38:33Z",
+      "labels": [
+        "bug",
+        "game: ees",
+        "system: projectiles"
+      ],
+      "reported_comment_count": 2,
+      "retrieved_comment_count": 2,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/2408#issuecomment-3619878618",
+        "https://github.com/gemrb/gemrb/issues/2408#issuecomment-3619885005"
+      ]
+    },
+    {
+      "number": 2116,
+      "title": "Migrate avatars.2da to ini",
+      "url": "https://github.com/gemrb/gemrb/issues/2116",
+      "state": "open",
+      "state_reason": null,
+      "updated_at": "2025-08-14T21:03:33Z",
+      "closed_at": null,
+      "labels": [
+        "enhancement",
+        "game: bg2",
+        "game: bg1",
+        "game: iwd1",
+        "game: iwd2",
+        "game: pst",
+        "game: ees",
+        "system: animations",
+        "game: demo"
+      ],
+      "reported_comment_count": 0,
+      "retrieved_comment_count": 0,
+      "comment_urls": []
+    },
+    {
+      "number": 2299,
+      "title": "BG2EE: Quick Save freezes game",
+      "url": "https://github.com/gemrb/gemrb/issues/2299",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2025-08-14T20:59:33Z",
+      "closed_at": "2025-08-14T20:59:33Z",
+      "labels": [
+        "bug",
+        "game: ees",
+        "system: core",
+        "performance",
+        "portability"
+      ],
+      "reported_comment_count": 16,
+      "retrieved_comment_count": 16,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/2299#issuecomment-2625627950",
+        "https://github.com/gemrb/gemrb/issues/2299#issuecomment-2625655693",
+        "https://github.com/gemrb/gemrb/issues/2299#issuecomment-2625666697",
+        "https://github.com/gemrb/gemrb/issues/2299#issuecomment-2625685802",
+        "https://github.com/gemrb/gemrb/issues/2299#issuecomment-2628603198",
+        "https://github.com/gemrb/gemrb/issues/2299#issuecomment-2628635174",
+        "https://github.com/gemrb/gemrb/issues/2299#issuecomment-2628818702",
+        "https://github.com/gemrb/gemrb/issues/2299#issuecomment-2628843805",
+        "https://github.com/gemrb/gemrb/issues/2299#issuecomment-2628890709",
+        "https://github.com/gemrb/gemrb/issues/2299#issuecomment-2628895408",
+        "https://github.com/gemrb/gemrb/issues/2299#issuecomment-2629129699",
+        "https://github.com/gemrb/gemrb/issues/2299#issuecomment-2629132104",
+        "https://github.com/gemrb/gemrb/issues/2299#issuecomment-2654831602",
+        "https://github.com/gemrb/gemrb/issues/2299#issuecomment-2661619969",
+        "https://github.com/gemrb/gemrb/issues/2299#issuecomment-2661633567",
+        "https://github.com/gemrb/gemrb/issues/2299#issuecomment-3189857745"
+      ]
+    },
+    {
+      "number": 2330,
+      "title": "EE: add support for custom state icons",
+      "url": "https://github.com/gemrb/gemrb/issues/2330",
+      "state": "open",
+      "state_reason": null,
+      "updated_at": "2025-02-12T13:36:57Z",
+      "closed_at": null,
+      "labels": [
+        "feature",
+        "game: ees",
+        "system: GUI"
+      ],
+      "reported_comment_count": 0,
+      "retrieved_comment_count": 0,
+      "comment_urls": []
+    },
+    {
+      "number": 2328,
+      "title": "Buggy WEBM support",
+      "url": "https://github.com/gemrb/gemrb/issues/2328",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2025-02-11T20:16:26Z",
+      "closed_at": "2025-02-11T20:16:26Z",
+      "labels": [
+        "bug",
+        "game: ees",
+        "system: movies"
+      ],
+      "reported_comment_count": 3,
+      "retrieved_comment_count": 3,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/2328#issuecomment-2646208437",
+        "https://github.com/gemrb/gemrb/issues/2328#issuecomment-2646311291",
+        "https://github.com/gemrb/gemrb/issues/2328#issuecomment-2646377220"
+      ]
+    },
+    {
+      "number": 2317,
+      "title": "BG2EE: Equipping both two handed weapons and single handed + off-hand items.",
+      "url": "https://github.com/gemrb/gemrb/issues/2317",
+      "state": "open",
+      "state_reason": null,
+      "updated_at": "2025-02-02T21:31:20Z",
+      "closed_at": null,
+      "labels": [
+        "feature",
+        "game: ees",
+        "system: core"
+      ],
+      "reported_comment_count": 0,
+      "retrieved_comment_count": 0,
+      "comment_urls": []
+    },
+    {
+      "number": 2271,
+      "title": "Error on installation and ",
+      "url": "https://github.com/gemrb/gemrb/issues/2271",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2025-01-16T13:00:12Z",
+      "closed_at": "2025-01-15T22:17:09Z",
+      "labels": [
+        "bug",
+        "game: ees",
+        "system: GUI"
+      ],
+      "reported_comment_count": 6,
+      "retrieved_comment_count": 6,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/2271#issuecomment-2593743509",
+        "https://github.com/gemrb/gemrb/issues/2271#issuecomment-2593743857",
+        "https://github.com/gemrb/gemrb/issues/2271#issuecomment-2594028683",
+        "https://github.com/gemrb/gemrb/issues/2271#issuecomment-2594049995",
+        "https://github.com/gemrb/gemrb/issues/2271#issuecomment-2594079074",
+        "https://github.com/gemrb/gemrb/issues/2271#issuecomment-2595570261"
+      ]
+    },
+    {
+      "number": 2248,
+      "title": "EEs: fully wire up Start.py / Start2.py",
+      "url": "https://github.com/gemrb/gemrb/issues/2248",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2024-12-28T20:58:44Z",
+      "closed_at": "2024-12-28T20:58:44Z",
+      "labels": [
+        "feature",
+        "game: ees",
+        "system: GUI"
+      ],
+      "reported_comment_count": 0,
+      "retrieved_comment_count": 0,
+      "comment_urls": []
+    },
+    {
+      "number": 2230,
+      "title": "Enable playing EEs with the original's GUI",
+      "url": "https://github.com/gemrb/gemrb/issues/2230",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2024-12-27T12:57:52Z",
+      "closed_at": "2024-12-27T12:57:48Z",
+      "labels": [
+        "enhancement",
+        "game: ees"
+      ],
+      "reported_comment_count": 2,
+      "retrieved_comment_count": 2,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/2230#issuecomment-2555739383",
+        "https://github.com/gemrb/gemrb/issues/2230#issuecomment-2563678174"
+      ]
+    },
+    {
+      "number": 2232,
+      "title": "Cannot equip items into most EE inventory slots",
+      "url": "https://github.com/gemrb/gemrb/issues/2232",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2024-12-14T14:15:50Z",
+      "closed_at": "2024-12-14T14:15:50Z",
+      "labels": [
+        "bug",
+        "game: ees",
+        "system: GUI",
+        "system: core"
+      ],
+      "reported_comment_count": 1,
+      "retrieved_comment_count": 1,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/2232#issuecomment-2543111924"
+      ]
+    },
+    {
+      "number": 93,
+      "title": "[feature] fully externalised char animations",
+      "url": "https://github.com/gemrb/gemrb/issues/93",
+      "state": "open",
+      "state_reason": null,
+      "updated_at": "2024-08-21T21:10:35Z",
+      "closed_at": null,
+      "labels": [
+        "feature",
+        "enhancement",
+        "game: ees",
+        "system: animations"
+      ],
+      "reported_comment_count": 1,
+      "retrieved_comment_count": 1,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/93#issuecomment-671188334"
+      ]
+    },
+    {
+      "number": 2080,
+      "title": " Missing BMPv5 support",
+      "url": "https://github.com/gemrb/gemrb/issues/2080",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2024-05-14T18:03:11Z",
+      "closed_at": "2024-05-14T18:03:11Z",
+      "labels": [
+        "feature",
+        "game: ees",
+        "system: core"
+      ],
+      "reported_comment_count": 0,
+      "retrieved_comment_count": 0,
+      "comment_urls": []
+    },
+    {
+      "number": 1959,
+      "title": "Static charge only damages caster.",
+      "url": "https://github.com/gemrb/gemrb/issues/1959",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2023-12-09T18:34:51Z",
+      "closed_at": "2023-12-09T18:34:50Z",
+      "labels": [
+        "bug",
+        "game: iwd1",
+        "game: iwd2",
+        "game: ees",
+        "system: effects",
+        "research needed"
+      ],
+      "reported_comment_count": 1,
+      "retrieved_comment_count": 1,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/1959#issuecomment-1848589453"
+      ]
+    },
+    {
+      "number": 1924,
+      "title": "Unicode issue in EE item description - TTF font not used",
+      "url": "https://github.com/gemrb/gemrb/issues/1924",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2023-10-17T11:05:27Z",
+      "closed_at": "2023-10-17T11:05:26Z",
+      "labels": [
+        "bug",
+        "game: ees",
+        "system: core"
+      ],
+      "reported_comment_count": 11,
+      "retrieved_comment_count": 11,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/1924#issuecomment-1747309899",
+        "https://github.com/gemrb/gemrb/issues/1924#issuecomment-1747338961",
+        "https://github.com/gemrb/gemrb/issues/1924#issuecomment-1747344799",
+        "https://github.com/gemrb/gemrb/issues/1924#issuecomment-1747371733",
+        "https://github.com/gemrb/gemrb/issues/1924#issuecomment-1747377522",
+        "https://github.com/gemrb/gemrb/issues/1924#issuecomment-1747396399",
+        "https://github.com/gemrb/gemrb/issues/1924#issuecomment-1747405584",
+        "https://github.com/gemrb/gemrb/issues/1924#issuecomment-1747422439",
+        "https://github.com/gemrb/gemrb/issues/1924#issuecomment-1747566118",
+        "https://github.com/gemrb/gemrb/issues/1924#issuecomment-1747644978",
+        "https://github.com/gemrb/gemrb/issues/1924#issuecomment-1766187182"
+      ]
+    },
+    {
+      "number": 831,
+      "title": "Enhancement idea: forget about the load screens like EE does, but don't forget about them completely ",
+      "url": "https://github.com/gemrb/gemrb/issues/831",
+      "state": "open",
+      "state_reason": null,
+      "updated_at": "2023-09-30T15:08:30Z",
+      "closed_at": null,
+      "labels": [
+        "enhancement",
+        "game: ees"
+      ],
+      "reported_comment_count": 2,
+      "retrieved_comment_count": 2,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/831#issuecomment-646965637",
+        "https://github.com/gemrb/gemrb/issues/831#issuecomment-647019201"
+      ]
+    },
+    {
+      "number": 1874,
+      "title": "Improve banter timing / add banttimg.2da support",
+      "url": "https://github.com/gemrb/gemrb/issues/1874",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2023-08-31T10:39:06Z",
+      "closed_at": "2023-08-31T10:39:06Z",
+      "labels": [
+        "feature",
+        "game: ees",
+        "research needed"
+      ],
+      "reported_comment_count": 0,
+      "retrieved_comment_count": 0,
+      "comment_urls": []
+    },
+    {
+      "number": 1777,
+      "title": " Minor visual artifacts on DXT textures on Windows",
+      "url": "https://github.com/gemrb/gemrb/issues/1777",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2023-01-23T22:26:23Z",
+      "closed_at": "2023-01-23T22:20:41Z",
+      "labels": [
+        "bug",
+        "game: ees"
+      ],
+      "reported_comment_count": 5,
+      "retrieved_comment_count": 5,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/1777#issuecomment-1400978498",
+        "https://github.com/gemrb/gemrb/issues/1777#issuecomment-1401016160",
+        "https://github.com/gemrb/gemrb/issues/1777#issuecomment-1401022014",
+        "https://github.com/gemrb/gemrb/issues/1777#issuecomment-1401036353",
+        "https://github.com/gemrb/gemrb/issues/1777#issuecomment-1401052299"
+      ]
+    },
+    {
+      "number": 1099,
+      "title": " Add support for PVRZ files",
+      "url": "https://github.com/gemrb/gemrb/issues/1099",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2023-01-07T22:26:13Z",
+      "closed_at": "2023-01-07T22:26:13Z",
+      "labels": [
+        "feature",
+        "game: ees",
+        "system: animations",
+        "game: demo"
+      ],
+      "reported_comment_count": 1,
+      "retrieved_comment_count": 1,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/1099#issuecomment-743918580"
+      ]
+    },
+    {
+      "number": 547,
+      "title": "[feature] check if anything is missing in our VEF support",
+      "url": "https://github.com/gemrb/gemrb/issues/547",
+      "state": "open",
+      "state_reason": null,
+      "updated_at": "2022-08-14T21:59:39Z",
+      "closed_at": null,
+      "labels": [
+        "feature",
+        "game: bg2",
+        "game: ees",
+        "research needed"
+      ],
+      "reported_comment_count": 0,
+      "retrieved_comment_count": 0,
+      "comment_urls": []
+    },
+    {
+      "number": 722,
+      "title": "Ensure MakeGlobal works the same way as in the original ",
+      "url": "https://github.com/gemrb/gemrb/issues/722",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2022-01-13T19:50:21Z",
+      "closed_at": "2022-01-13T19:50:21Z",
+      "labels": [
+        "bug",
+        "game: bg2",
+        "game: ees",
+        "system: scripting",
+        "good first issue"
+      ],
+      "reported_comment_count": 2,
+      "retrieved_comment_count": 2,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/722#issuecomment-653807211",
+        "https://github.com/gemrb/gemrb/issues/722#issuecomment-1011540244"
+      ]
+    },
+    {
+      "number": 937,
+      "title": "Check the old beamdog bg file format code ",
+      "url": "https://github.com/gemrb/gemrb/issues/937",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2021-08-05T13:13:43Z",
+      "closed_at": "2021-08-05T13:13:43Z",
+      "labels": [
+        "feature",
+        "game: bg2",
+        "game: ees",
+        "system: core",
+        "research needed"
+      ],
+      "reported_comment_count": 0,
+      "retrieved_comment_count": 0,
+      "comment_urls": []
+    },
+    {
+      "number": 848,
+      "title": "Proper implementation of modal windows",
+      "url": "https://github.com/gemrb/gemrb/issues/848",
+      "state": "open",
+      "state_reason": null,
+      "updated_at": "2021-06-19T19:49:55Z",
+      "closed_at": null,
+      "labels": [
+        "enhancement",
+        "game: ees"
+      ],
+      "reported_comment_count": 5,
+      "retrieved_comment_count": 5,
+      "comment_urls": [
+        "https://github.com/gemrb/gemrb/issues/848#issuecomment-650637394",
+        "https://github.com/gemrb/gemrb/issues/848#issuecomment-650646848",
+        "https://github.com/gemrb/gemrb/issues/848#issuecomment-650769335",
+        "https://github.com/gemrb/gemrb/issues/848#issuecomment-650779642",
+        "https://github.com/gemrb/gemrb/issues/848#issuecomment-864455331"
+      ]
+    },
+    {
+      "number": 902,
+      "title": "Add middle-mouse viewport scrolling",
+      "url": "https://github.com/gemrb/gemrb/issues/902",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2021-06-03T04:55:51Z",
+      "closed_at": "2021-06-03T04:55:51Z",
+      "labels": [
+        "feature",
+        "game: ees",
+        "system: core"
+      ],
+      "reported_comment_count": 0,
+      "retrieved_comment_count": 0,
+      "comment_urls": []
+    },
+    {
+      "number": 90,
+      "title": "[feature] nexttriggerobject / triggeroverride support",
+      "url": "https://github.com/gemrb/gemrb/issues/90",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2019-10-10T17:29:36Z",
+      "closed_at": "2019-10-10T17:29:36Z",
+      "labels": [
+        "feature",
+        "game: ees",
+        "system: scripting",
+        "mods"
+      ],
+      "reported_comment_count": 0,
+      "retrieved_comment_count": 0,
+      "comment_urls": []
+    },
+    {
+      "number": 229,
+      "title": "[subviews] VLC plugin needs update to new API",
+      "url": "https://github.com/gemrb/gemrb/issues/229",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2019-09-14T17:15:18Z",
+      "closed_at": "2019-09-14T17:15:18Z",
+      "labels": [
+        "game: ees",
+        "system: movies",
+        "zzz-subviews"
+      ],
+      "reported_comment_count": 0,
+      "retrieved_comment_count": 0,
+      "comment_urls": []
+    },
+    {
+      "number": 112,
+      "title": "[enhancement] customizable weapon slot count",
+      "url": "https://github.com/gemrb/gemrb/issues/112",
+      "state": "closed",
+      "state_reason": "completed",
+      "updated_at": "2019-02-16T10:12:05Z",
+      "closed_at": "2019-02-16T10:12:05Z",
+      "labels": [
+        "enhancement",
+        "game: ees",
+        "system: core"
+      ],
+      "reported_comment_count": 0,
+      "retrieved_comment_count": 0,
+      "comment_urls": []
+    }
+  ]
+}
