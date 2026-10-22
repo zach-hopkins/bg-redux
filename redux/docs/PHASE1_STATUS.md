@@ -23,7 +23,9 @@ confirms selected SPWI213 removal with unrelated SPWI211 retained. Fresh general
 baseline `20261022T105238Z-erase-base-4ec5c4f2` passes 24/24 import/reload and 20/20
 GUI/save assertions, zero skips, with all baseline/candidate/input guards. Its
 compatibility verdict remains **differences**, with cross-build residuals
-unreviewed; independent general-baseline review is pending.
+unreviewed. The [independent general-baseline audit](testing/phase1-erase-candidate-fresh-baseline-audit.md)
+confirms all assertions and preservation guards: GUI residuals are exactly the
+prior 449/53 rows; vanilla reload/repeat-import color differences remain open.
 
 The [upstream fidelity follow-up](compatibility/upstream-fidelity-followup-context.md)
 now records a fresh `game: ees` issue index check, fourteen targeted issues,
