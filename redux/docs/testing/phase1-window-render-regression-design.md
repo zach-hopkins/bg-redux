@@ -1,6 +1,6 @@
 # Dirty-window render regression fixture
 
-This is a source-only fixture and review proposal. No build or native result is claimed for the new header. The callback/save passes for the Jaheira journey remain valid within their stated scope; the visible stale choices are a separate rendering defect.
+The current version-2 header is source-only; no build or native result is claimed for it. Version 1 ran in `20261022T051009Z-jaheira-dialogue-09e00275`, but its description of canonical RGBA as actual alpha was incorrect and is superseded here. `SDL20VideoDriver::GetScreenshot` creates a three-byte RGB format with Amask0 and calls SDL_RenderReadPixels with BGR24; `GetPixel().a` therefore supplies a synthetic byte. Historical RGB comparisons remain RGB evidence, while equality of that synthetic byte proves nothing about backing-texture alpha. Existing receipts remain unchanged. The callback/save passes for the Jaheira journey remain valid within their stated scope; the visible stale choices are a separate rendering defect.
 
 ## Source and private resource evidence
 
@@ -34,13 +34,16 @@ Include [window_render_regression.h](../../tools/phase1/native/window_render_reg
 
 The function creates a fresh `out/window-render-regression` directory, rejecting reuse. It emits 12 cases: background alpha 202/255 × window AlphaChannel off/on × scale 100/75/125. Each case draws a large red child, removes it through the public hierarchy, and adds a small blue replacement. A separate fresh Window constructs the identical final semantic scene. A green rectangle outside the partial clip acts as a retained-pixel sentinel. Colored regions deliberately isolate composition from font selection, glyph metrics and licensed art.
 
-Each case emits eight BMPs and eight canonical 160×120 RGBA readbacks: old scene, removed-final, fresh-final, three repeated dirty repaints, one partial dirty repaint, and full repaint after the partial one. Canonical RGBA is top-to-bottom, four bytes per pixel, 76,800 bytes per file; it preserves alpha and avoids BMP orientation/padding differences. Readback follows exactly one DrawWithoutComposition call. In particular, no second window screenshot is allowed to repaint and hide a clipped-clear defect.
+Each case emits eight scene checkpoints: old scene, removed-final, fresh-final, three repeated dirty repaints, one partial dirty repaint, and full repaint after the partial one. Each checkpoint has three BMPs and three canonical 160×120 RGB readbacks: the backing-buffer screenshot, plus that same buffer composed separately onto fresh opaque black and white targets through public `BlitVideoBuffer(..., BLENDED)`. Canonical RGB is top-to-bottom, three bytes per pixel, 57,600 bytes per file. The output deliberately contains no purported alpha byte. All compositions follow exactly one DrawWithoutComposition call and never redraw the window; no second window screenshot may hide a clipped-clear defect.
 
-`fixture.json` records exact case settings and comparison pairs with `passed:null`. An external comparator must require all 12 cases, all 96 BMP/RGBA pairs and complete file lengths/signatures, then check:
+The paired compositions observe genuine texture transmission despite RGB-only screenshot readback. At a fixed background probe (80,80), white-output minus black-output is approximately `255 × (1 − source alpha)`, independently of source RGB. Expected transmission is 53 for alpha-202 art in an AlphaChannel window, and 0 for the opaque-background/opaque-window controls, allowing one RGB unit for integer blending. Each checkpoint records actual black/white RGB and channel differences in a `.composite.json` file with `direct_alpha_readback:false`. This is a compositing measurement, not direct extraction of texture alpha. Scaled-path differences must fail or remain incomplete rather than being explained away by the expected input alpha.
 
-1. Old-child RGBA differs from fresh-final, proving that the removed region was actually rendered.
-2. Removed-final and all three dirty repeats exactly equal fresh-final in RGBA, including alpha.
+`fixture.json` schema `bg-redux-window-render-fixture/2` records exact case settings and comparison pairs with `passed:null`. An external comparator must require all 12 cases, all 96 checkpoints (288 BMP/RGB pairs and 96 composition probes), complete file lengths/signatures and the new schema, then check:
+
+1. Old-child RGB differs from fresh-final, proving that the removed region was actually rendered.
+2. Removed-final and all three dirty repeats exactly equal fresh-final in each of direct, black-composed and white-composed RGB. This checks stable color and transmission, without pretending to read alpha directly.
 3. Partial-dirty exactly equals the same reference: semantics are unchanged, so the outside green sentinel and background must survive the clipped repaint. A whole-target clear followed by clipped rendering must fail this check.
-4. Full-after-partial exactly equals fresh-final, recording recovery separately from the partial result.
+4. Full-after-partial exactly equals fresh-final in all three outputs, recording recovery separately from the partial result.
+5. Every background probe has all three measured transmission channels within one unit of the declared expectation. Repeated/fresh equality alone cannot prove correct opacity if every draw is identically wrong.
 
 Keep full, repeated, partial and scaled outcomes separate in reports. An unsupported export, readback, scale or capture failure is a retained failure/incomplete case, never a pass or implicit skip. Exact synthetic equality is appropriate because no game animations, text, clock or random data enter these unmanaged surfaces. It does not replace the fresh native dialogue visual comparison against the original engine.

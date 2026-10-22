@@ -63,28 +63,65 @@ static std::unique_ptr<Window> Make(unsigned alpha, bool alphaWindow, unsigned s
     return window;
 }
 
-static void Capture(Window& window, const std::string& directory, const std::string& name, const Region* clip = nullptr)
+static void WriteRGB(const Holder<Sprite2D>& sprite, const std::string& directory, const std::string& name)
 {
-    VideoDriver->SetScreenClip(clip);
-    // Exactly one draw. A second window screenshot could repaint and hide a
-    // partial-clear defect, so read the returned buffer directly afterwards.
-    const auto& buffer = window.DrawWithoutComposition();
-    auto sprite = VideoDriver->GetScreenshot(Region(0, 0, 160, 120), buffer);
     if (!sprite || sprite->Frame.w != 160 || sprite->Frame.h != 120) throw std::runtime_error("Synthetic readback geometry differs");
     PluginHolder<ImageWriter> writer = MakePluginHolder<ImageWriter>(PLUGIN_IMAGE_WRITER_BMP);
     FileStream file;
     if (!writer || !file.Create(directory, name, IE_BMP_CLASS_ID)) throw std::runtime_error("Synthetic BMP creation failed");
     writer->PutImage(&file, sprite);
-    std::ofstream rgba(directory + "/" + name + ".rgba", std::ios::binary);
-    if (!rgba) throw std::runtime_error("Synthetic RGBA creation failed");
-    // Canonical top-to-bottom RGBA avoids BMP padding/orientation/provider
-    // differences and retains alpha, which RGB-only screenshots cannot prove.
+    std::ofstream rgb(directory + "/" + name + ".rgb", std::ios::binary);
+    if (!rgb) throw std::runtime_error("Synthetic RGB creation failed");
+    // GetScreenshot uses BGR24 with Amask0: GetPixel().a is synthetic. Never
+    // serialize or describe it as actual backing-texture alpha.
     for (int y = 0; y < 120; ++y) for (int x = 0; x < 160; ++x) {
         const auto c = sprite->GetPixel(Point(x, y));
-        const unsigned char bytes[] = {c.r, c.g, c.b, c.a};
-        rgba.write(reinterpret_cast<const char*>(bytes), 4);
+        const unsigned char bytes[] = {c.r, c.g, c.b};
+        rgb.write(reinterpret_cast<const char*>(bytes), 3);
     }
-    if (!rgba) throw std::runtime_error("Synthetic RGBA write failed");
+    if (!rgb) throw std::runtime_error("Synthetic RGB write failed");
+}
+
+static Holder<Sprite2D> Composite(const VideoBufferPtr& source, unsigned backdrop)
+{
+    const Region full(0, 0, 160, 120);
+    auto target = VideoDriver->CreateBuffer(full, Video::BufferFormat::DISPLAY_ALPHA);
+    if (!target) throw std::runtime_error("Synthetic composite target unavailable");
+    VideoDriver->SetScreenClip(nullptr);
+    VideoDriver->PushDrawingBuffer(target);
+    try {
+        VideoDriver->DrawRect(full, Color(backdrop, backdrop, backdrop, 255), true, BlitFlags::NONE);
+        VideoDriver->BlitVideoBuffer(source, Point(0, 0), BlitFlags::BLENDED);
+        auto result = VideoDriver->GetScreenshot(full, target);
+        VideoDriver->PopDrawingBuffer();
+        return result;
+    } catch (...) {
+        VideoDriver->PopDrawingBuffer();
+        throw;
+    }
+}
+
+static void Capture(Window& window, const std::string& directory, const std::string& name, const Region* clip = nullptr)
+{
+    RestoreClip restore;
+    VideoDriver->SetScreenClip(clip);
+    // Exactly one window draw. Later readback/composition never invokes Draw.
+    const auto& buffer = window.DrawWithoutComposition();
+    WriteRGB(VideoDriver->GetScreenshot(Region(0, 0, 160, 120), buffer), directory, name);
+    // Genuine opacity observation through two known opaque backdrops. RGB
+    // transmission (white minus black) depends on the source texture's alpha,
+    // unlike the screenshot's synthetic a byte. No SDL private access needed.
+    auto black = Composite(buffer, 0);
+    auto white = Composite(buffer, 255);
+    WriteRGB(black, directory, name + ".black");
+    WriteRGB(white, directory, name + ".white");
+    const auto b = black->GetPixel(Point(80, 80)), w = white->GetPixel(Point(80, 80));
+    std::ofstream probe(directory + "/" + name + ".composite.json");
+    probe << "{\"probe\":[80,80],\"black_rgb\":[" << int(b.r) << ',' << int(b.g) << ',' << int(b.b)
+        << "],\"white_rgb\":[" << int(w.r) << ',' << int(w.g) << ',' << int(w.b)
+        << "],\"transmission_rgb\":[" << int(w.r)-int(b.r) << ',' << int(w.g)-int(b.g) << ',' << int(w.b)-int(b.b)
+        << "],\"direct_alpha_readback\":false}\n";
+    if (!probe) throw std::runtime_error("Synthetic composite probe write failed");
 }
 }
 
@@ -97,8 +134,9 @@ static void WindowRenderRegression(const std::string& out)
     if (!std::filesystem::create_directory(directory)) throw std::runtime_error("Synthetic output must be new");
     std::ofstream report(directory + "/fixture.json");
     if (!report) throw std::runtime_error("Synthetic receipt unavailable");
-    report << "{\"schema\":\"bg-redux-window-render-fixture/1\",\"width\":160,\"height\":120,"
-        "\"rgba_bytes_per_capture\":76800,\"game_mutations_requested\":false,\"cases\":[";
+    report << "{\"schema\":\"bg-redux-window-render-fixture/2\",\"width\":160,\"height\":120,"
+        "\"rgb_bytes_per_capture\":57600,\"direct_alpha_readback\":false,"
+        "\"opacity_observation\":\"paired-opaque-black-white-composition\",\"game_mutations_requested\":false,\"cases\":[";
     bool first = true;
     for (unsigned alpha : {202u, 255u}) for (bool alphaWindow : {false, true}) for (unsigned scale : {100u, 75u, 125u}) {
         const std::string name = "bg" + std::to_string(alpha) + "-alpha" + (alphaWindow ? "1" : "0") + "-scale" + std::to_string(scale);
@@ -132,9 +170,10 @@ static void WindowRenderRegression(const std::string& out)
         report << "{\"id\":\"" << name << "\",\"background_alpha\":" << alpha
             << ",\"window_alpha_channel\":" << (alphaWindow ? "true" : "false") << ",\"scale_percent\":" << scale
             << ",\"partial_clip\":[8,20,60,50],\"outside_sentinel\":[130,90,15,15],"
-            "\"reference\":\"fresh-final.rgba\",\"must_equal_reference\":[\"removed-final.rgba\",\"dirty-0.rgba\","
-            "\"dirty-1.rgba\",\"dirty-2.rgba\",\"partial-dirty.rgba\",\"full-after-partial.rgba\"],"
-            "\"old_child_must_differ\":\"old.rgba\",\"comparison_status\":\"external-comparison-required\"}";
+            "\"reference\":\"fresh-final.rgb\",\"comparison_suffixes\":[\".rgb\",\".black.rgb\",\".white.rgb\"],"
+            "\"must_equal_reference_stems\":[\"removed-final\",\"dirty-0\",\"dirty-1\",\"dirty-2\",\"partial-dirty\",\"full-after-partial\"],"
+            "\"old_child_must_differ\":\"old.rgb\",\"expected_background_probe_transmission\":" << (alphaWindow ? 255-alpha : 0)
+            << ",\"transmission_rounding_tolerance\":1,\"comparison_status\":\"external-comparison-required\"}";
     }
     report << "],\"completed\":true,\"passed\":null}\n";
     if (!report) throw std::runtime_error("Synthetic receipt write failed");
