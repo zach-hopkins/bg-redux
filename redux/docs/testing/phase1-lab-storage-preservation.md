@@ -52,3 +52,20 @@ receipts matched afterward. Receipt:
 `storage-archived-phase1-binaries-1792660672394588700/result.json`.
 Phase0 and the current b49 runtime build were excluded. No files were deleted,
 moved, or changed in logical content.
+
+
+A third receipt-matching archived build, `20261022T003854Z-candidate-58c2995e`,
+has 61 additional binary/support files verified before/after compression in
+`storage-archived-phase1-binaries-1792660996350160200/result.json`.
+The oldest archived build (`1c6316a3`) instead has 60 preexisting historical
+receipt mismatches. Its **actual current bytes** were independently inventoried
+and preserved exactly during a separate compression operation; this does not
+certify that historical build's coherence. Its historical receipt also remains
+unchanged: `storage-historical-build-1792661127689289400/result.json`.
+
+A further 199 previously uncompressed binary/object files in the completed
+Phase1 before-build and failed `2f06ed29` build were inventoried and compressed,
+with exact actual before/after lengths/hashes and unchanged receipt files:
+`storage-reference-binaries-1792661210670941900/result.json`. This storage
+operation does not promote the failed build or claim historical receipt
+coherence. The current candidate and Phase0 were excluded from these targets.
