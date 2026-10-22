@@ -1,5 +1,11 @@
 # Corrected-renderer broad menu rerun audit
 
+Follow-up limitation: the [spellbook caster validation gap](phase1-spellbook-caster-validation-gap.md)
+was found by inspecting actual captured selection/name. The checks audited below
+establish window/callback presence, not correct eligible-caster spell content.
+Those stronger claims require the corrected external portrait-selection route
+and content oracle; prior raw results remain retained.
+
 Independent read-only audit supports the bounded pass in `20261022T052939Z-guarded-renderer-menu-run-35f95c1d`, with nested native run `native/20261022T052943Z-menu-run-ce0b8b58`. Both 1024×768 and 1280×960 complete the declared 107-step menu plan, pass 107 validation checks and retain 51 captures. This is normal-loop menu/callback and collected-state regression evidence on the corrected renderer; it does not mark all menus, typography or Phase 1 complete.
 
 The independent script/result and additional build/visual bindings are private at `C:/BGRedux/phase1-local/results/20261022T054226Z-renderer-menu-independent-audit-483c7e2f`. Private audit result SHA-256 is `fb770aafcb74360dbedcc42a2be26c50a9423712c20925576e25123915342ddf`; successful audit script SHA-256 is `8c145a71734ec00fd21301735e395d911418353a1996d854f56bc59f2a1ff157`. The audit launched no compiler, tests, native host or game and changed no engine/helper inputs.

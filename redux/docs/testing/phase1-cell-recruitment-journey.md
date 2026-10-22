@@ -1,5 +1,13 @@
 # Chained AR0602 key, Cell01 and Jaheira recruitment journey
 
+Executed checkpoint: `20261022T054005Z-cell-recruitment-ac33ed70` passes the
+composed key/door/stock auto-dialogue/recruitment/GUI-save/fresh-reload route.
+Both processes exit0 (87.811s/18.383s), with preservation guards passing.
+The [independent raw audit](phase1-cell-recruitment-audit.md) confirms the
+three-party membership, consumed key, open Cell01, solved quest, actual XP and
+six-file save chain. The source-only proposal below is now executed for this
+bounded checkpoint; broader campaign/original/physical-input claims remain open.
+
 This separate external adapter proposes one composed checkpoint: acquire the existing cage key, open Cell01, answer the stock auto dialogue, recruit Jaheira, save through the shipped GUI, and inspect that save in a fresh process. It changes no engine, existing helper/journey, game resource, or input save. This is candidate characterization; original parity, OS pointer hit testing, dungeon exit and Phase1 completion are unmeasured.
 
 The only accepted parent is `phase1-local/results/20261022T042747Z-jaheira-dialogue-30a50511/talk/frozen-save`. The parent result SHA256 is `d1d8a784ff203df8793bc4e0726deb67f95b6dd896c17095f6d6ce33f4a1bd3d` and artifact-manifest SHA256 is `958f1cd894cb5acc14a0feb5b59943306566292ff40d59e062a79d92f8176a1b`. The adapter rehashes every declared parent artifact, requires both prior owned processes passed, verifies their save/load chain, binds the current protected Phase0 fixture to the parent's exact original six-file input, and verifies the measured frozen five-file output. Its GAM/SAV hashes are `7925bdbcf11c3833f41ecae8f6fbd02c12b9948d2e845ca0e150a4c3c6c34cff` and `f102de5734ea685d75f1b9afc2a239d16d955fae41506b5f3180fe9ae45c6e43`. No arbitrary fixture argument or edited substitute is accepted.

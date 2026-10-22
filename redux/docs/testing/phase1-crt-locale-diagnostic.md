@@ -1,5 +1,32 @@
 # Standalone Windows CRT locale diagnostic
 
+Executed LAB checkpoint: `20261022T053949Z-crt-locale-diagnostic-7f68a26d`
+completes the standalone diagnostic with Phase0 and source/executable guards
+passing. `C.utf8` is rejected (null return), leaves effective `C`, and fails the
+exact Cyrillic uppercase mapping. `.UTF8` selects
+`English_United States.utf8` and passes; native empty-string selection chooses
+`English_United States.1252` and also passes. Explicit `C` fails the Unicode
+mapping. Initial/final `LC_CTYPE` is `C`, with independent resets before every
+case. This supports the unchecked test-setup diagnosis, not a production casing
+correction or complete localized GUI acceptance.
+
+The child reports its loaded `C:/Windows/System32/ucrtbase.dll`, independently
+hashed as `dedb7611e1abc1ff3852dcac3d4c93a048d729e25b061973b9969f22698f14ca`;
+the import listing and post-run file/version metadata are retained. Result
+SHA256 is `012a446acc30db7dc2a38ce14bb90f0b9d40b68cb06c15355dc0dbf989ae2261`.
+Independent worker review matched raw/embedded observations and all declared
+source/compiler/import/child/executable/CRT bindings. The first preparation
+attempt `20261022T053927Z-crt-locale-diagnostic-8e16175d` failed while freezing an
+incorrect test-source path; no compiler or diagnostic launched. That partial
+attempt and driver remain preserved.
+
+Test-only corrections `61780eabf` and encoding refinement `5af04cdf7` are prepared
+in the worker checkout but are **not integrated, built or tested**. The existing
+candidate core still has its retained locale failure. A future fresh test build
+must prove the fix.
+
+The following design describes the diagnostic before execution:
+
 This source-only diagnostic investigates the retained `StringTest.StringToUpper` failure. The corrected-CWD receipt is `phase1-local/results/20261022T051513Z-correct-cwd-core-e071d5bb/result.json`: normal exit1,229 passed, one Cyrillic casing failure, nine skipped and six disabled. It does not establish whether the unchecked `setlocale(LC_ALL,"C.utf8")` at `gemrb/tests/core/Strings/Test_String.cpp:317` selected a locale. `gemrb/core/Strings/String.h:186` uses `std::towupper` per UTF-16 code unit. Production `GemRB.cpp:19` uses the native empty-string locale; existing external native hosts request `.UTF8`.
 
 `redux/tools/phase1/native/crt_locale_diagnostic.cpp` has no GemRB dependencies. It captures initial effective `LC_CTYPE` and mapping, then independently resets `LC_CTYPE` to `C` before each request: `C.utf8`, `.UTF8`, native empty string, and `C`. Every reset/request return and effective locale is recorded. The initial locale is copied and restored before exit. These are changes inside the diagnostic child process only; no OS settings, parent locale, engine, game assets or profile are changed.

@@ -50,7 +50,13 @@ drawing the translucent background. The corrected held response and twelve
 synthetic alpha/scale/clip cases pass, including216 image comparisons and96
 opacity probes. The first broad-clear correction and two fixture-oracle errors
 are preserved. The ordinary eleven-branch dialogue/save/fresh-reload regression
-also passes on the new candidate; broader menu/world regressions remain pending.
+also passes on the new candidate. The broader two-resolution menu rerun passes
+its existing107 checks and51 captures per resolution with preservation guards;
+its [independent audit](testing/phase1-renderer-menu-rerun-audit.md) records scope.
+A follow-up [spellbook caster gap](testing/phase1-spellbook-caster-validation-gap.md)
+rejects eligible-caster content coverage: the observer selected only the GUI
+single actor, then top-window initialization restored the walking leader. An
+external portrait-callback/content correction and rerun remain pending.
 The [independent renderer audit](testing/phase1-window-render-lab-audit.md)
 rechecks the synthetic captures, preservation pins and ordinary-run artifact chain.
 A direct public TextArea selection entry separately exposes
@@ -58,11 +64,15 @@ a [reentrancy defect](compatibility/phase1-textarea-update-state-reentrancy.md);
 the normal selection route passes without an engine change. The bounded
 [Imoen Armor cast](testing/phase1-spell-cast-journey.md) also passes one ordinary
 cast, actual effects and depletion, GUI save/fresh reload/second save, with no
-reload cast. Recruitment, transitions, broader spell/combat behavior and campaign
+reload cast. Transitions, broader spell/combat behavior and campaign
 checkpoints remain open.
 The source-only [key/door/recruitment adapter](testing/phase1-cell-recruitment-journey.md)
-is integrated and passes17 focused validator tests; it has not yet been built or
-executed. The dialogue renderer correction has a fresh isolated build with
+is now built and passes the chained key/Cell01/stock auto-dialogue/Jaheira join,
+GUI save and fresh reload in `20261022T054005Z-cell-recruitment-ac33ed70`.
+The [independent recruitment audit](testing/phase1-cell-recruitment-audit.md)
+confirms three-party membership, consumed key, open door, solved quest and actual
+XP persistence. This opening-area checkpoint does not satisfy the campaign gate.
+The dialogue renderer correction has a fresh isolated build with
 native full/clipped/scaled verification; broader runtime regressions remain open.
 The batch descriptions below are
 historical checkpoints, superseded by the linked executed report where stated.
