@@ -17,6 +17,26 @@ PINS={'AR0704.are':('are',1010,'c8061c51f2e009917a0b95ba537456da7adf3b308de4d202
  'guistore.chu':('chu',1002,None),'action.ids':('ids',1008,None),'trigger.ids':('ids',1008,None)}
 POINTS=[[690,550],[730,550],[690,590],[730,590]]
 
+def reload_resources(receipt,save,cache):
+    """Bind only saved inn resources to exact input archive members."""
+    archive=common.member(save,'sav');raw=archive.read_bytes()
+    records={r['name'].casefold():r for r in binary.sav_records(raw)}
+    result=copy.deepcopy(receipt)
+    for name,signature in (('AR0704.are',b'AREAV1.0'),('WINNKEEP.sto',b'STORV1.0')):
+        member=records.get(name.casefold())
+        if member is None:raise ValueError('Required saved inn resource missing: '+name)
+        data=binary.inflate(member)
+        if not data.startswith(signature) or len(data)>8*1024*1024:raise ValueError('Saved inn resource signature/size differs')
+        provider=cache/member['name']
+        if provider.resolve().parent!=cache.resolve():raise ValueError('Saved resource provider escaped owned cache')
+        row=result['resources'][name]
+        stock={k:v for k,v in row.items()if k!='frozen'}
+        row.pop('frozen',None)
+        row.update(provider=str(provider),bytes=len(data),sha256=binary.digest(data),
+            saved_member=dict(archive=str(archive),archive_sha256=binary.digest(raw),
+                name=member['name'],bytes=len(data),sha256=binary.digest(data),stock_resource=stock))
+    return result
+
 def resolved_dialogue(raw,table,words,state,scene):
     lines=[line.split('//',1)[0].split() for line in table.decode('ascii').splitlines()]
     if [r for r in lines if r and r[0]=='SIRMAAM']!=[['SIRMAAM','-1','27473','27475']]:raise ValueError('Wrong current-speaker gender rule')

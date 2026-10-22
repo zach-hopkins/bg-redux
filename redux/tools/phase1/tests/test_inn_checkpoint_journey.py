@@ -6,15 +6,59 @@ from pathlib import Path
 import sys
 import tempfile
 import types
+import zlib
+import struct
 import unittest
 from unittest.mock import patch
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 import inn_checkpoint_validation as v
+import inn_checkpoint_journey as journey
 
 def state(area='AR0602',gold=0):
     return dict(current_area=area,gold=gold,selection=1,globals={'JAHEIRARELEASED':1},journal=[dict(text_ref=47518)],party=[dict(runtime_id=100+i,script_name=name,area=area,position=[10,20],inventory=['owned-item'],xp=90000,spellbook=['unchanged'])for i,name in enumerate(('none','imoen','jaheira','minsc'))])
 
 class InnCheckpointContracts(unittest.TestCase):
+    def archive(self,folder,rows):
+        data=b'SAV V1.0'
+        for name,raw in rows:
+            name=name.encode('ascii')+b'\0';packed=zlib.compress(raw)
+            data+=struct.pack('<I',len(name))+name+struct.pack('<II',len(raw),len(packed))+packed
+        (folder/'BALDUR.SAV').write_bytes(data)
+
+    def test_saved_resources_require_exact_members_and_preserve_stock_contract(self):
+        with tempfile.TemporaryDirectory()as root:
+            folder=Path(root);cache=folder/'cache';cache.mkdir()
+            rows=[('AR0704.are',b'AREAV1.0saved area'),('WINNKEEP.sto',b'STORV1.0saved store')]
+            receipt=dict(resources={name:dict(frozen='stock',provider='stock.bif',bytes=8,sha256='stock')for name,_ in rows},nonce='unchanged')
+            self.archive(folder,rows);bound=v.reload_resources(receipt,folder,cache)
+            self.assertEqual(receipt['resources']['AR0704.are']['sha256'],'stock')
+            self.assertEqual(bound['nonce'],'unchanged')
+            for name,raw in rows:
+                row=bound['resources'][name];self.assertEqual(row['sha256'],v.binary.digest(raw));self.assertEqual(row['saved_member']['archive_sha256'],v.evidence.sha(folder/'BALDUR.SAV'));self.assertEqual(Path(row['provider']),cache/name)
+            for broken in (rows[:1],rows+[rows[0]],[(rows[0][0],b'BAD V1.0'),rows[1]]):
+                self.archive(folder,broken)
+                with self.assertRaises(ValueError):v.reload_resources(receipt,folder,cache)
+
+    def test_runtime_saved_providers_still_reject_wrong_bytes_paths_and_extra_resources(self):
+        with tempfile.TemporaryDirectory()as root:
+            folder=Path(root);cache=folder/'cache';cache.mkdir();capture=folder/'capture';capture.mkdir()
+            rows=[('AR0704.are',b'AREAV1.0saved area'),('WINNKEEP.sto',b'STORV1.0saved store')]
+            receipt=dict(resources={name:dict(frozen='stock',provider='stock.bif',bytes=8,sha256='stock')for name,_ in rows})
+            self.archive(folder,rows);bound=v.reload_resources(receipt,folder,cache)
+            data=dict(schema='bg-redux-book-providers/1',resources={name:dict(originalfile=str(cache/name),bytes=len(raw))for name,raw in rows})
+            for name,raw in rows:(capture/(name+'.runtime')).write_bytes(raw)
+            def write(value):(capture/'book-providers.json').write_text(json.dumps(value),encoding='utf8')
+            write(data);journey.check_runtime_resources(capture,bound)
+            for fault in ('path','size','extra','bytes'):
+                bad=copy.deepcopy(data)
+                if fault=='path':bad['resources']['AR0704.are']['originalfile']=str(folder/'other/AR0704.are')
+                elif fault=='size':bad['resources']['AR0704.are']['bytes']+=1
+                elif fault=='extra':bad['resources']['extra.are']=bad['resources']['AR0704.are']
+                else:(capture/'AR0704.are.runtime').write_bytes(b'AREAV1.0different')
+                write(bad)
+                with self.subTest(fault=fault),self.assertRaises(ValueError):journey.check_runtime_resources(capture,bound)
+                (capture/'AR0704.are.runtime').write_bytes(rows[0][1])
+
     def test_dialogue_gender_uses_actual_speaker_and_exact_table_words(self):
         table=b'2DA V1.0\n*\n TYPE MALE FEMALE\nSIRMAAM -1 27473 27475\n'
         scene=dict(in_dialog=True,dialogue_speaker=102)

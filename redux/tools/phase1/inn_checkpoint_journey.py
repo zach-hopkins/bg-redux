@@ -121,6 +121,9 @@ def run(args):
             private=shared.prepare_private_game(project,stage);privates.append((private,stage))
             for name in ('cache','capture','override'):(stage/name).mkdir()
             observed_receipt=dict(receipt,confirmation_policy=policy)
+            if mode=='observe':
+                observed_receipt=info.reload_resources(observed_receipt,copied,stage/'cache')
+                entry['saved_resource_bindings']={name:row['saved_member']for name,row in observed_receipt['resources'].items()if 'saved_member'in row}
             if control_mode==presentation.CONTROL:
                 control=presentation.prepare(receipt,stage/'override');presentation.verify(control,receipt);controls.append(control)
                 shared.write(stage/'presentation-control.json',control);entry['presentation_control']=control
@@ -269,7 +272,7 @@ def check_resources(receipt,api,project,source):
         if {k:value for k,value in expected.items()if k!='frozen'}!={k:value for k,value in row.items()if k!='raw'}or 'frozen'in expected and evidence.sha(expected['frozen'])!=expected['sha256']:raise ValueError('Resource/source/provider drift: '+name)
 
 def check_runtime_resources(folder,receipt):
-    data=evidence.read(folder/'book-providers.json');expected={k:r for k,r in receipt['resources'].items()if 'frozen'in r}
+    data=evidence.read(folder/'book-providers.json');expected={k:r for k,r in receipt['resources'].items()if 'frozen'in r or 'saved_member'in r}
     if data.get('schema')!='bg-redux-book-providers/1'or set(data.get('resources',{}))!=set(expected):raise ValueError('Actual runtime provider closure incomplete')
     for name,row in expected.items():
         actual=data['resources'][name]
