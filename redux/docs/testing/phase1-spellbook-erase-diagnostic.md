@@ -1,0 +1,37 @@
+# Wizard information → Erase identity diagnostic
+
+Status: **source-only external diagnostic; no native failure or original parity measured here**. Production GUIMG/GUIPR and spellbook core remain unchanged. The observed operation/menu results retain their prior scope.
+
+## Source reason and exact acceptance
+
+`GUIMG.UpdateMageWindow` sorts known entries by localized name and assigns each icon's value to its original known index. Its right-press info closure instead stores `spell['CurrentIndex']=i`, the displayed position. Info window 3's Erase control 6 passes that position through confirmation window 101/control 0 into `OnMageRemoveSpell` and `GemRB.RemoveSpell(pc, type, level, index)`. This is a source-inferred identity risk, separate from the already tested Memorize callback, which reads the correct button value. It is not a measured Erase failure.
+
+`GUIScript.cpp`'s indexed `RemoveSpell` first resolves `GetKnownSpell(type, level, index)`. `Spellbook::RemoveSpell(const CREKnownSpell*)` erases that single known entry and calls `RemoveMemorization` for **all copies of that resref on that same page**, preserving the order and flags of unrelated memorized entries, then clears cached spell information. Therefore correct acceptance requires deleting the intended known SPWI213 and every same-page SPWI213 memorization. A count decrease, or deleting a different known spell with matching counts, is insufficient. Slot capacities, other pages/actors and collected world fields must remain unchanged, allowing ordinary selection changes only after natural startup readiness.
+
+## External route and evidence
+
+New `spellbook_erase_journey.py`, `SpellbookEraseRuntime.py`, `SpellbookEraseStart.py`, native host and independent validation module reuse the existing read-only serializers, private wrapper, provider reader, four-party wire decoder and source-bound build receipt checks. Existing helper and historical closure files are not edited. These canonical dependency files must be present in the integrated source checkout; a worker checkout lacking recent root-only tooling is not a runnable installation.
+
+Each invocation uses the exact immutable Minsc parent `20261022T075243Z-minsc-recruitment-072650e1` (result, manifest, GAM and SAV pinned by the adapter), a new owned profile and fresh 32-hex nonce. It loads through the registered GUILOAD callback with factual null pre-game snapshots, waits for natural stock startup plus four idle samples, pauses, then uses actual registered portrait/toolbar/level callbacks. It right-presses the known SPWI213 icon, checks the shown info name and full description against selected SPL/TLK inputs, dispatches Erase → Cancel without mutation, then Erase → Confirm. RightPress uses the public packed `Control::Click`, `GEM_MB_MENU`, single-click action key matching `GUIClasses.OnRightPress`; it does not call the production Python function directly or simulate OS pointer input.
+
+The stock and `spellname-permutation` modes are separate invocations. The latter reuses the existing **exact four SPL SpellName-field-only exchange**; TLK and every other byte remain pinned. Actual target original index must be 2; the declared control additionally requires displayed index 0. Imoen's other known names, the exact UI tooltip/value/control and modal identity are observed, not inferred from a requested index. This control changes presentation only and makes no original parity claim.
+
+The normal GUI save chain executes even when deletion proves wrong: the native host completes the actual callback sequence without deciding that wrong deletion is acceptable. The external adapter freezes the produced save and decodes its actual wire state **before** strict intended-resref acceptance. A wrong deletion remains failed with diagnostic frozen save, callbacks, before/after snapshots, screenshots, providers, process log and manifests retained. Only a correctly accepted operation proceeds to a second owned fresh process loading the frozen save; it navigates/observes the same wizard page without any Erase or save callback. No rest, cast, grants, gameplay setters, cheats or callback monkeypatching are used. Reload is deliberately not attempted after failed intended-resref validation.
+
+Build/run guards freeze the imported external Python closure, compiled native/helper sources, production GUI/core/importer/policy sources, build receipt/support, compiler, candidate source/binaries, parent proof and selected resource bytes/provider hashes. The private wrapper and copied input/override/config/driver/frozen outputs are checked again on completion/failure; protected Phase 0 source/binaries/fixture are independently checked. Runtime provider path/bytes and source module identity remain strict. Existing Color/loot/native journeys are not modified.
+
+## Coordinator commands (not executed by this worker)
+
+Use the coordinator's configured Python executable, with the integrated source checkout as working directory. These example paths select the coherent heading/policy candidate; build receipt validation rejects a stale source/build combination rather than substituting an older engine.
+
+```powershell
+$src = 'C:/BGRedux/phase1-local/engine'
+$build = 'C:/BGRedux/phase1-local/builds/20261022T093226Z-candidate-5a60a03d'
+$hostOut = 'C:/BGRedux/phase1-local/weapon-query-probes/heading-erase-1'
+python -B redux/tools/phase1/spellbook_erase_journey.py build --project-root C:/BGRedux --engine-source-root $src --engine-build-root $build --output-dir $hostOut
+python -B redux/tools/phase1/spellbook_erase_journey.py run --project-root C:/BGRedux --engine-source-root $src --engine-build-root $build --host-build "$hostOut/build.json" --results-root C:/BGRedux/phase1-local/results --confirmation-policy ee-direct --presentation-control stock
+python -B redux/tools/phase1/spellbook_erase_journey.py run --project-root C:/BGRedux --engine-source-root $src --engine-build-root $build --host-build "$hostOut/build.json" --results-root C:/BGRedux/phase1-local/results --confirmation-policy ee-direct --presentation-control spellname-permutation
+python -B -m unittest discover -s redux/tools/phase1/tests -p test_spellbook_erase_journey.py
+```
+
+Source-only negative tests cover wrong known ref/index, duplicate target, retained target memorization, changed unrelated ready flags/capacity, reversed wire ordering, wrong actor/world/journal changes, mutation during Cancel, displayed/original index confusion, wrong action/control/tooltip, stale nonce, truncated plan and wrong confirmation route. They have not been executed here; compile/API and actual native outcomes remain pending coordinator validation. Screenshots are retained for QA, not an automatic pixel fidelity oracle; exact original Erase behavior, physical pointer routing, hidden RNG and complete spontaneous/Classic book behavior remain unmeasured.
