@@ -12838,7 +12838,11 @@ static PyObject* GemRB_SetKeyBindings(PyObject*, PyObject* args)
 		if (!PyUnicode_Check(name) || !PyUnicode_Check(value) || PyUnicode_GetLength(value) > 1)
 			return AttributeError("Bindings require action names and empty/single ASCII key strings");
 		const int key = PyUnicode_GetLength(value) ? static_cast<int>(PyUnicode_ReadChar(value, 0)) : 0;
-		keys.emplace(PyString_AsStringView(name).MakeString(), key);
+		Py_ssize_t nameLength = 0;
+		const char* bindingName = PyUnicode_AsUTF8AndSize(name, &nameLength);
+		if (!bindingName) return nullptr;
+		// Copy the borrowed UTF-8 buffer while the dictionary still owns name.
+		keys.emplace(std::string(bindingName, static_cast<size_t>(nameLength)), key);
 	}
 	const auto error = core->GetKeyMap()->ApplyBindings(keys, dryRun);
 	if (!error.empty()) return RuntimeError(error);
