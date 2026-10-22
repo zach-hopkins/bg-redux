@@ -12,12 +12,21 @@ A fresh external host marks that expected log boundary; API diagnostic2cc042eb
 now passes144 display calls, script14/display12, cache/RNG conservation and
 sensitive mutation controls. Its four actors are all unarmed: armed/dual-wield
 display-query coverage is still required. Stats parent51a7179d has an accepted
-1024×768 stage (92 steps/24 sections/45 captures/44 callbacks, strict world/cache
-conservation);1280×768 is still running. Fresh baseline and weapon-predicate
-regression remain pending. All failures and the original disk-full/bookkeeping receipts remain
+1024×768 and1280×768 stages (each92 steps/24 sections/45 captures/44 callbacks,
+strict world/cache conservation), with all seven parent guards. Fresh baseline
+6b4d1dd6 passes24/24 import/reload and20/20 GUI/save, no skips, all guards.
+Compatibility remains unreviewed differences: vanilla0/0/28 versusbe5's4/0/24,
+GUI451/55 versus449/53. Only two added GUI rows are area actor31 color210,
+base/modified3435973836→875836468; no causal/conformance ruling is made.
+Source-bound core388048bf passes231, skips9, disables6. Weapon-predicate
+run521dfe4c matches all22 originals across1,056 repeated predicates and44
+controls; collected state/weapon caches/calling-thread RNG stay unchanged and
+all guards pass. This does not cover the new armed display API: that matrix is
+the next priority. All sessions in this checkpoint are terminal. All failures
+and the original disk-full/bookkeeping receipts remain
 preserved. [Implementation and validation scope](../testing/phase1-display-combat-query.md).
 
-Latest October22 continuation: Phase1 remains active and incomplete. Current
+Previous October22 checkpoint: Phase1 remains active and incomplete. Its
 coherent candidatebe5f907d builds production sourcef8fbd45d9; source tooling
 passes584 external tests at27cd16cdc. Current baseline stats-base-4eeccc08 passes
 24/24 import/reload and20/20 GUI/save assertions, no skips, all guards.

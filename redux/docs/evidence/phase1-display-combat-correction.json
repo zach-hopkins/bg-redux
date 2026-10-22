@@ -1,0 +1,636 @@
+{
+  "schema": "bg-redux-display-combat-correction/1",
+  "production_fix_implemented": true,
+  "bounded_unarmed_query_and_stats_accepted": true,
+  "production_feature_complete": false,
+  "phase1_complete": false,
+  "coordinator_review_only": true,
+  "production_source_commit": "cd83f1e480afab3b8120954a583413ee8ef63b25",
+  "tooling_commit": "14857b79f718aaffbea8e761386a5e7c2d082c5a",
+  "query": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T221720Z-display-query-contract-2cc042eb\\result.json",
+    "sha256": "9649f1449791ee78f73456ccd6f632e2c550188ad86b259d2c6d39b35b98bec4"
+  },
+  "stats": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T221812Z-display-fixed-stats-menu-run-51a7179d\\result.json",
+    "sha256": "6b6389508ed7e131d252ebdf84068f2f0ad17733605b0490b191f1e61656ffa3"
+  },
+  "baseline": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T222836Z-display-base-6b4d1dd6\\result.json",
+    "sha256": "c0ae01a00f0814b6aa4f78ca40503bc76e7162b7c5d0c7e45a51feb4bbffbfa8"
+  },
+  "reference_baseline": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T202715Z-stats-base-4eeccc08\\result.json",
+    "sha256": "4a5cd6858bd077ff5e4a98fe80d9e8c730d44c7515d61d5fb12315fd7c069c85"
+  },
+  "core": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T223102Z-source-bound-core-388048bf\\result.json",
+    "sha256": "62dd700160c3cc6396b63a4920a69f592d81c30c4105406be906075c7fa45604"
+  },
+  "stats_stages": [
+    {
+      "resolution": [
+        1024,
+        768
+      ],
+      "steps": 92,
+      "passing_runtime_assertions": 77,
+      "captures": 45,
+      "callbacks": 44,
+      "actor_sections": 24,
+      "page_visits": 40,
+      "minsc_display_thac0": 12,
+      "minsc_script_thac0": 14,
+      "visible_capture": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T221812Z-display-fixed-stats-menu-run-51a7179d\\native\\20261022T221817Z-menu-run-f0a3fa20\\1024x768\\capture-34.bmp",
+        "sha256": "068148875a6b1291f28e7dcd2014121d4fd09a7c20e9055464a8e76d8a1ce79f"
+      },
+      "raw_result": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T221812Z-display-fixed-stats-menu-run-51a7179d\\native\\20261022T221817Z-menu-run-f0a3fa20\\1024x768\\result.json",
+        "sha256": "957547b589979a0a00614e7bdcb219a28b0259d982cbbdce954af0f14b53a6fe"
+      }
+    },
+    {
+      "resolution": [
+        1280,
+        768
+      ],
+      "steps": 92,
+      "passing_runtime_assertions": 77,
+      "captures": 45,
+      "callbacks": 44,
+      "actor_sections": 24,
+      "page_visits": 40,
+      "minsc_display_thac0": 12,
+      "minsc_script_thac0": 14,
+      "visible_capture": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T221812Z-display-fixed-stats-menu-run-51a7179d\\native\\20261022T221817Z-menu-run-f0a3fa20\\1280x768\\capture-34.bmp",
+        "sha256": "d04bc9a428d0c9b6a5ecd7468182dcac58cf16a0df9f628dd14c29338cd2ebac"
+      },
+      "raw_result": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T221812Z-display-fixed-stats-menu-run-51a7179d\\native\\20261022T221817Z-menu-run-f0a3fa20\\1280x768\\result.json",
+        "sha256": "44cb9f1d55cd99882adab5b43cb133d73d2456a695a8f32d828955a3c850eae4"
+      }
+    }
+  ],
+  "visual_review": {
+    "coordinator_inspected_capture34_both_resolutions": true,
+    "visible_minsc_thac0": 12,
+    "full_visual_acceptance": false,
+    "full_font_fidelity": false,
+    "physical_pointer_hit_testing": false
+  },
+  "baseline_residual_review": {
+    "status": "unreviewed-differences",
+    "facts": {
+      "vanilla": {
+        "wire-oracle.json": {
+          "current": {
+            "path": "C:\\BGRedux\\phase1-local\\results\\20261022T222836Z-display-base-6b4d1dd6\\runtime\\phase0-local\\results\\20261022T222854Z-phase1-sb-vanilla-33dc5081\\wire-oracle.json",
+            "sha256": "997196609177dda883466d4d39914772ffac8137e525b9ab2b60657240b28880"
+          },
+          "reference": {
+            "path": "C:\\BGRedux\\phase1-local\\results\\20261022T202715Z-stats-base-4eeccc08\\runtime\\phase0-local\\results\\20261022T202732Z-phase1-sb-vanilla-fea29ee9\\wire-oracle.json",
+            "sha256": "997196609177dda883466d4d39914772ffac8137e525b9ab2b60657240b28880"
+          },
+          "current_count": 36,
+          "reference_count": 36,
+          "added_or_changed": [],
+          "removed_or_changed": []
+        },
+        "reload-1-semantic-diff.json": {
+          "current": {
+            "path": "C:\\BGRedux\\phase1-local\\results\\20261022T222836Z-display-base-6b4d1dd6\\runtime\\phase0-local\\results\\20261022T222854Z-phase1-sb-vanilla-33dc5081\\reload-1-semantic-diff.json",
+            "sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f"
+          },
+          "reference": {
+            "path": "C:\\BGRedux\\phase1-local\\results\\20261022T202715Z-stats-base-4eeccc08\\runtime\\phase0-local\\results\\20261022T202732Z-phase1-sb-vanilla-fea29ee9\\reload-1-semantic-diff.json",
+            "sha256": "9bb0b36d65d990b19ea535c9bf9360bf655d0c65d785ee7c6dcb5cdfff94e253"
+          },
+          "current_count": 0,
+          "reference_count": 4,
+          "added_or_changed": [],
+          "removed_or_changed": [
+            {
+              "path": "/current_area_actors/3/base_stats/209",
+              "before": 3873892070,
+              "after": 2139062143
+            },
+            {
+              "path": "/current_area_actors/3/modified_stats/209",
+              "before": 3873892070,
+              "after": 2139062143
+            },
+            {
+              "path": "/current_area_actors/7/base_stats/212",
+              "before": 3520188881,
+              "after": 1566399837
+            },
+            {
+              "path": "/current_area_actors/7/modified_stats/212",
+              "before": 3520188881,
+              "after": 1566399837
+            }
+          ]
+        },
+        "reload-2-semantic-diff.json": {
+          "current": {
+            "path": "C:\\BGRedux\\phase1-local\\results\\20261022T222836Z-display-base-6b4d1dd6\\runtime\\phase0-local\\results\\20261022T222854Z-phase1-sb-vanilla-33dc5081\\reload-2-semantic-diff.json",
+            "sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f"
+          },
+          "reference": {
+            "path": "C:\\BGRedux\\phase1-local\\results\\20261022T202715Z-stats-base-4eeccc08\\runtime\\phase0-local\\results\\20261022T202732Z-phase1-sb-vanilla-fea29ee9\\reload-2-semantic-diff.json",
+            "sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f"
+          },
+          "current_count": 0,
+          "reference_count": 0,
+          "added_or_changed": [],
+          "removed_or_changed": []
+        },
+        "repeat-import-semantic-diff.json": {
+          "current": {
+            "path": "C:\\BGRedux\\phase1-local\\results\\20261022T222836Z-display-base-6b4d1dd6\\runtime\\phase0-local\\results\\20261022T222854Z-phase1-sb-vanilla-33dc5081\\repeat-import-semantic-diff.json",
+            "sha256": "1fd4e7e2f41f5e6552ded080e698e5d568ee17d3154300acb77bda08d8da1101"
+          },
+          "reference": {
+            "path": "C:\\BGRedux\\phase1-local\\results\\20261022T202715Z-stats-base-4eeccc08\\runtime\\phase0-local\\results\\20261022T202732Z-phase1-sb-vanilla-fea29ee9\\repeat-import-semantic-diff.json",
+            "sha256": "ea4bd13e48bafc71293fbb9c9d597d89b0e856de8ad8f686a26cd29b0e64089f"
+          },
+          "current_count": 28,
+          "reference_count": 24,
+          "added_or_changed": [
+            {
+              "path": "/current_area_actors/3/base_stats/209",
+              "before": 673720360,
+              "after": 3873892070
+            },
+            {
+              "path": "/current_area_actors/3/base_stats/213",
+              "before": 1111638594,
+              "after": 1010580540
+            },
+            {
+              "path": "/current_area_actors/3/modified_stats/209",
+              "before": 673720360,
+              "after": 3873892070
+            },
+            {
+              "path": "/current_area_actors/3/modified_stats/213",
+              "before": 1111638594,
+              "after": 1010580540
+            },
+            {
+              "path": "/current_area_actors/4/base_stats/208",
+              "before": 218959117,
+              "after": 2593823386
+            },
+            {
+              "path": "/current_area_actors/4/modified_stats/208",
+              "before": 218959117,
+              "after": 2593823386
+            },
+            {
+              "path": "/current_area_actors/5/base_stats/209",
+              "before": 993737531,
+              "after": 976894522
+            },
+            {
+              "path": "/current_area_actors/5/base_stats/212",
+              "before": 2256963206,
+              "after": 1044266558
+            },
+            {
+              "path": "/current_area_actors/5/base_stats/213",
+              "before": 2307492233,
+              "after": 1330597711
+            },
+            {
+              "path": "/current_area_actors/5/modified_stats/209",
+              "before": 993737531,
+              "after": 976894522
+            },
+            {
+              "path": "/current_area_actors/5/modified_stats/212",
+              "before": 2256963206,
+              "after": 1044266558
+            },
+            {
+              "path": "/current_area_actors/5/modified_stats/213",
+              "before": 2307492233,
+              "after": 1330597711
+            },
+            {
+              "path": "/current_area_actors/6/base_stats/213",
+              "before": 2425393296,
+              "after": 2661195422
+            },
+            {
+              "path": "/current_area_actors/6/modified_stats/213",
+              "before": 2425393296,
+              "after": 2661195422
+            },
+            {
+              "path": "/current_area_actors/7/base_stats/208",
+              "before": 2795939494,
+              "after": 320017171
+            },
+            {
+              "path": "/current_area_actors/7/base_stats/212",
+              "before": 2678038431,
+              "after": 3520188881
+            },
+            {
+              "path": "/current_area_actors/7/base_stats/213",
+              "before": 2762253476,
+              "after": 2627509404
+            },
+            {
+              "path": "/current_area_actors/7/modified_stats/208",
+              "before": 2795939494,
+              "after": 320017171
+            },
+            {
+              "path": "/current_area_actors/7/modified_stats/212",
+              "before": 2678038431,
+              "after": 3520188881
+            },
+            {
+              "path": "/current_area_actors/7/modified_stats/213",
+              "before": 2762253476,
+              "after": 2627509404
+            },
+            {
+              "path": "/current_area_actors/19/base_stats/210",
+              "before": 875836468,
+              "after": 2004318071
+            },
+            {
+              "path": "/current_area_actors/19/modified_stats/210",
+              "before": 875836468,
+              "after": 2004318071
+            },
+            {
+              "path": "/current_area_actors/24/base_stats/209",
+              "before": 1010580540,
+              "after": 1027423549
+            },
+            {
+              "path": "/current_area_actors/24/modified_stats/209",
+              "before": 1010580540,
+              "after": 1027423549
+            },
+            {
+              "path": "/current_area_actors/31/base_stats/209",
+              "before": 1010580540,
+              "after": 1027423549
+            },
+            {
+              "path": "/current_area_actors/31/base_stats/210",
+              "before": 1077952576,
+              "after": 1111638594
+            },
+            {
+              "path": "/current_area_actors/31/modified_stats/209",
+              "before": 1010580540,
+              "after": 1027423549
+            },
+            {
+              "path": "/current_area_actors/31/modified_stats/210",
+              "before": 1077952576,
+              "after": 1111638594
+            }
+          ],
+          "removed_or_changed": [
+            {
+              "path": "/current_area_actors/3/base_stats/209",
+              "before": 3873892070,
+              "after": 2459079314
+            },
+            {
+              "path": "/current_area_actors/3/base_stats/213",
+              "before": 1111638594,
+              "after": 2374864269
+            },
+            {
+              "path": "/current_area_actors/3/modified_stats/209",
+              "before": 3873892070,
+              "after": 2459079314
+            },
+            {
+              "path": "/current_area_actors/3/modified_stats/213",
+              "before": 1111638594,
+              "after": 2374864269
+            },
+            {
+              "path": "/current_area_actors/4/base_stats/208",
+              "before": 151587081,
+              "after": 2694881440
+            },
+            {
+              "path": "/current_area_actors/4/modified_stats/208",
+              "before": 151587081,
+              "after": 2694881440
+            },
+            {
+              "path": "/current_area_actors/5/base_stats/209",
+              "before": 960051513,
+              "after": 875836468
+            },
+            {
+              "path": "/current_area_actors/5/base_stats/212",
+              "before": 2896997548,
+              "after": 1010580540
+            },
+            {
+              "path": "/current_area_actors/5/modified_stats/209",
+              "before": 960051513,
+              "after": 875836468
+            },
+            {
+              "path": "/current_area_actors/5/modified_stats/212",
+              "before": 2896997548,
+              "after": 1010580540
+            },
+            {
+              "path": "/current_area_actors/6/base_stats/213",
+              "before": 2425393296,
+              "after": 2728567458
+            },
+            {
+              "path": "/current_area_actors/6/modified_stats/213",
+              "before": 2425393296,
+              "after": 2728567458
+            },
+            {
+              "path": "/current_area_actors/7/base_stats/212",
+              "before": 3520188881,
+              "after": 2324335242
+            },
+            {
+              "path": "/current_area_actors/7/base_stats/213",
+              "before": 2678038431,
+              "after": 2560137368
+            },
+            {
+              "path": "/current_area_actors/7/modified_stats/212",
+              "before": 3520188881,
+              "after": 2324335242
+            },
+            {
+              "path": "/current_area_actors/7/modified_stats/213",
+              "before": 2678038431,
+              "after": 2560137368
+            },
+            {
+              "path": "/current_area_actors/19/base_stats/210",
+              "before": 2358021260,
+              "after": 1061109567
+            },
+            {
+              "path": "/current_area_actors/19/modified_stats/210",
+              "before": 2358021260,
+              "after": 1061109567
+            },
+            {
+              "path": "/current_area_actors/24/base_stats/209",
+              "before": 2004318071,
+              "after": 1111638594
+            },
+            {
+              "path": "/current_area_actors/24/modified_stats/209",
+              "before": 2004318071,
+              "after": 1111638594
+            },
+            {
+              "path": "/current_area_actors/31/base_stats/209",
+              "before": 2139062143,
+              "after": 2004318071
+            },
+            {
+              "path": "/current_area_actors/31/base_stats/210",
+              "before": 2391707278,
+              "after": 3217014719
+            },
+            {
+              "path": "/current_area_actors/31/modified_stats/209",
+              "before": 2139062143,
+              "after": 2004318071
+            },
+            {
+              "path": "/current_area_actors/31/modified_stats/210",
+              "before": 2391707278,
+              "after": 3217014719
+            }
+          ]
+        }
+      },
+      "gui": {
+        "gui-reload-differences.json": {
+          "current": {
+            "path": "C:\\BGRedux\\phase1-local\\results\\20261022T222836Z-display-base-6b4d1dd6\\runtime\\phase0-local\\results\\20261022T222910Z-phase1-sb-gui-544acd85\\gui-reload-differences.json",
+            "sha256": "35fb9d36bbd48e0bfff5a75fcce284f070b0ea9a277b1aea0f1522cd9e0d1f50"
+          },
+          "reference": {
+            "path": "C:\\BGRedux\\phase1-local\\results\\20261022T202715Z-stats-base-4eeccc08\\runtime\\phase0-local\\results\\20261022T202748Z-phase1-sb-gui-260e5ae3\\gui-reload-differences.json",
+            "sha256": "31bb2a768a48fa20f05a56aec8bc24d1e59d19e2a8cce5cbe6daa3c9248e74e2"
+          },
+          "current_count": 451,
+          "reference_count": 449,
+          "added_or_changed": [
+            {
+              "path": "/current_area_actors/31/base_stats/210",
+              "before": 3435973836,
+              "after": 875836468
+            },
+            {
+              "path": "/current_area_actors/31/modified_stats/210",
+              "before": 3435973836,
+              "after": 875836468
+            }
+          ],
+          "removed_or_changed": []
+        },
+        "legacy-semantic-differences.json": {
+          "current": {
+            "path": "C:\\BGRedux\\phase1-local\\results\\20261022T222836Z-display-base-6b4d1dd6\\runtime\\phase0-local\\results\\20261022T222910Z-phase1-sb-gui-544acd85\\legacy-semantic-differences.json",
+            "sha256": "8d6ec407e9a8ae5a1d8cc7b983be37d0b7242eb954a6b1a56f460f211d72fd2c"
+          },
+          "reference": {
+            "path": "C:\\BGRedux\\phase1-local\\results\\20261022T202715Z-stats-base-4eeccc08\\runtime\\phase0-local\\results\\20261022T202748Z-phase1-sb-gui-260e5ae3\\legacy-semantic-differences.json",
+            "sha256": "efdca9a0c3316e202d4d49c6036cd6bbf7d3f2b2241b00f8d5634ca62551cc1a"
+          },
+          "current_count": 55,
+          "reference_count": 53,
+          "added_or_changed": [
+            {
+              "path": "/current_area_actors/31/base_stats/210",
+              "before": 3435973836,
+              "after": 875836468
+            },
+            {
+              "path": "/current_area_actors/31/modified_stats/210",
+              "before": 3435973836,
+              "after": 875836468
+            }
+          ],
+          "removed_or_changed": []
+        }
+      }
+    },
+    "causal_attribution_established": false,
+    "color_conformance_established": false,
+    "note": "Current vanilla 0/0/28 versus reference4/0/24; GUI451/55 versus449/53. No difference is normalized away."
+  },
+  "source_tooling": {
+    "passed": 603,
+    "log": {
+      "path": "C:\\BGRedux\\phase1-local\\results\\display-query-final-tooling-20261022.log",
+      "sha256": "dc925a0b9fa5fe0f7582d372d6819c6cc09be9960a8e37d7b0f2892da2b761bf"
+    }
+  },
+  "core_counts": {
+    "discovered": 246,
+    "executed": 240,
+    "passed": 231,
+    "failed": 0,
+    "skipped": 9,
+    "disabled": 6
+  },
+  "weapon_predicate_regression": {
+    "result": {
+      "path": "C:\\BGRedux\\phase1-local\\results\\20261022T223310Z-phase1-weapon-query-521dfe4c\\result.json",
+      "sha256": "bcdcf4da3a80f024e8d69e1a2ce21c91b5cb9f6d6e75b227bff38f5c1930c5b2"
+    },
+    "cases": 22,
+    "repeated_predicate_calls": 1056,
+    "evaluator_controls": 44,
+    "matched_original_cases": 22,
+    "collected_state_and_weapon_caches_unchanged": true,
+    "calling_thread_rng_unchanged": true,
+    "armed_display_api_validated": false,
+    "hidden_state_unchanged": null
+  },
+  "remaining": [
+    "Armed, true dual-wield, launcher/ammo and effect display-query matrix",
+    "Color residual cause/conformance",
+    "Original APR3/2 versus native1 and Jaheira HP51/53",
+    "Broader menus, typography, pointer, ordinary journeys and campaign gates"
+  ],
+  "preservation_inputs": {
+    "C:\\BGRedux\\phase1-local\\results\\20261022T221720Z-display-query-contract-2cc042eb\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T221720Z-display-query-contract-2cc042eb\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T223720Z-display-combat-review-03961c7d\\inputs\\9649f1449791ee78f73456ccd6f632e2c550188ad86b259d2c6d39b35b98bec4\\result.json",
+      "sha256": "9649f1449791ee78f73456ccd6f632e2c550188ad86b259d2c6d39b35b98bec4"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T221812Z-display-fixed-stats-menu-run-51a7179d\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T221812Z-display-fixed-stats-menu-run-51a7179d\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T223720Z-display-combat-review-03961c7d\\inputs\\6b6389508ed7e131d252ebdf84068f2f0ad17733605b0490b191f1e61656ffa3\\result.json",
+      "sha256": "6b6389508ed7e131d252ebdf84068f2f0ad17733605b0490b191f1e61656ffa3"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T222836Z-display-base-6b4d1dd6\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T222836Z-display-base-6b4d1dd6\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T223720Z-display-combat-review-03961c7d\\inputs\\c0ae01a00f0814b6aa4f78ca40503bc76e7162b7c5d0c7e45a51feb4bbffbfa8\\result.json",
+      "sha256": "c0ae01a00f0814b6aa4f78ca40503bc76e7162b7c5d0c7e45a51feb4bbffbfa8"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T202715Z-stats-base-4eeccc08\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T202715Z-stats-base-4eeccc08\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T223720Z-display-combat-review-03961c7d\\inputs\\4a5cd6858bd077ff5e4a98fe80d9e8c730d44c7515d61d5fb12315fd7c069c85\\result.json",
+      "sha256": "4a5cd6858bd077ff5e4a98fe80d9e8c730d44c7515d61d5fb12315fd7c069c85"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T223102Z-source-bound-core-388048bf\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T223102Z-source-bound-core-388048bf\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T223720Z-display-combat-review-03961c7d\\inputs\\62dd700160c3cc6396b63a4920a69f592d81c30c4105406be906075c7fa45604\\result.json",
+      "sha256": "62dd700160c3cc6396b63a4920a69f592d81c30c4105406be906075c7fa45604"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T221812Z-display-fixed-stats-menu-run-51a7179d\\native\\20261022T221817Z-menu-run-f0a3fa20\\1024x768\\capture-34.bmp": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T221812Z-display-fixed-stats-menu-run-51a7179d\\native\\20261022T221817Z-menu-run-f0a3fa20\\1024x768\\capture-34.bmp",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T223720Z-display-combat-review-03961c7d\\inputs\\068148875a6b1291f28e7dcd2014121d4fd09a7c20e9055464a8e76d8a1ce79f\\capture-34.bmp",
+      "sha256": "068148875a6b1291f28e7dcd2014121d4fd09a7c20e9055464a8e76d8a1ce79f"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T221812Z-display-fixed-stats-menu-run-51a7179d\\native\\20261022T221817Z-menu-run-f0a3fa20\\1024x768\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T221812Z-display-fixed-stats-menu-run-51a7179d\\native\\20261022T221817Z-menu-run-f0a3fa20\\1024x768\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T223720Z-display-combat-review-03961c7d\\inputs\\957547b589979a0a00614e7bdcb219a28b0259d982cbbdce954af0f14b53a6fe\\result.json",
+      "sha256": "957547b589979a0a00614e7bdcb219a28b0259d982cbbdce954af0f14b53a6fe"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T221812Z-display-fixed-stats-menu-run-51a7179d\\native\\20261022T221817Z-menu-run-f0a3fa20\\1280x768\\capture-34.bmp": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T221812Z-display-fixed-stats-menu-run-51a7179d\\native\\20261022T221817Z-menu-run-f0a3fa20\\1280x768\\capture-34.bmp",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T223720Z-display-combat-review-03961c7d\\inputs\\d04bc9a428d0c9b6a5ecd7468182dcac58cf16a0df9f628dd14c29338cd2ebac\\capture-34.bmp",
+      "sha256": "d04bc9a428d0c9b6a5ecd7468182dcac58cf16a0df9f628dd14c29338cd2ebac"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T221812Z-display-fixed-stats-menu-run-51a7179d\\native\\20261022T221817Z-menu-run-f0a3fa20\\1280x768\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T221812Z-display-fixed-stats-menu-run-51a7179d\\native\\20261022T221817Z-menu-run-f0a3fa20\\1280x768\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T223720Z-display-combat-review-03961c7d\\inputs\\44cb9f1d55cd99882adab5b43cb133d73d2456a695a8f32d828955a3c850eae4\\result.json",
+      "sha256": "44cb9f1d55cd99882adab5b43cb133d73d2456a695a8f32d828955a3c850eae4"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T222836Z-display-base-6b4d1dd6\\runtime\\phase0-local\\results\\20261022T222854Z-phase1-sb-vanilla-33dc5081\\wire-oracle.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T222836Z-display-base-6b4d1dd6\\runtime\\phase0-local\\results\\20261022T222854Z-phase1-sb-vanilla-33dc5081\\wire-oracle.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T223720Z-display-combat-review-03961c7d\\inputs\\997196609177dda883466d4d39914772ffac8137e525b9ab2b60657240b28880\\wire-oracle.json",
+      "sha256": "997196609177dda883466d4d39914772ffac8137e525b9ab2b60657240b28880"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T202715Z-stats-base-4eeccc08\\runtime\\phase0-local\\results\\20261022T202732Z-phase1-sb-vanilla-fea29ee9\\wire-oracle.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T202715Z-stats-base-4eeccc08\\runtime\\phase0-local\\results\\20261022T202732Z-phase1-sb-vanilla-fea29ee9\\wire-oracle.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T223720Z-display-combat-review-03961c7d\\inputs\\997196609177dda883466d4d39914772ffac8137e525b9ab2b60657240b28880\\wire-oracle.json",
+      "sha256": "997196609177dda883466d4d39914772ffac8137e525b9ab2b60657240b28880"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T222836Z-display-base-6b4d1dd6\\runtime\\phase0-local\\results\\20261022T222854Z-phase1-sb-vanilla-33dc5081\\reload-1-semantic-diff.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T222836Z-display-base-6b4d1dd6\\runtime\\phase0-local\\results\\20261022T222854Z-phase1-sb-vanilla-33dc5081\\reload-1-semantic-diff.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T223720Z-display-combat-review-03961c7d\\inputs\\a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f\\reload-1-semantic-diff.json",
+      "sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T202715Z-stats-base-4eeccc08\\runtime\\phase0-local\\results\\20261022T202732Z-phase1-sb-vanilla-fea29ee9\\reload-1-semantic-diff.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T202715Z-stats-base-4eeccc08\\runtime\\phase0-local\\results\\20261022T202732Z-phase1-sb-vanilla-fea29ee9\\reload-1-semantic-diff.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T223720Z-display-combat-review-03961c7d\\inputs\\9bb0b36d65d990b19ea535c9bf9360bf655d0c65d785ee7c6dcb5cdfff94e253\\reload-1-semantic-diff.json",
+      "sha256": "9bb0b36d65d990b19ea535c9bf9360bf655d0c65d785ee7c6dcb5cdfff94e253"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T222836Z-display-base-6b4d1dd6\\runtime\\phase0-local\\results\\20261022T222854Z-phase1-sb-vanilla-33dc5081\\reload-2-semantic-diff.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T222836Z-display-base-6b4d1dd6\\runtime\\phase0-local\\results\\20261022T222854Z-phase1-sb-vanilla-33dc5081\\reload-2-semantic-diff.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T223720Z-display-combat-review-03961c7d\\inputs\\a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f\\reload-2-semantic-diff.json",
+      "sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T202715Z-stats-base-4eeccc08\\runtime\\phase0-local\\results\\20261022T202732Z-phase1-sb-vanilla-fea29ee9\\reload-2-semantic-diff.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T202715Z-stats-base-4eeccc08\\runtime\\phase0-local\\results\\20261022T202732Z-phase1-sb-vanilla-fea29ee9\\reload-2-semantic-diff.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T223720Z-display-combat-review-03961c7d\\inputs\\a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f\\reload-2-semantic-diff.json",
+      "sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T222836Z-display-base-6b4d1dd6\\runtime\\phase0-local\\results\\20261022T222854Z-phase1-sb-vanilla-33dc5081\\repeat-import-semantic-diff.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T222836Z-display-base-6b4d1dd6\\runtime\\phase0-local\\results\\20261022T222854Z-phase1-sb-vanilla-33dc5081\\repeat-import-semantic-diff.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T223720Z-display-combat-review-03961c7d\\inputs\\1fd4e7e2f41f5e6552ded080e698e5d568ee17d3154300acb77bda08d8da1101\\repeat-import-semantic-diff.json",
+      "sha256": "1fd4e7e2f41f5e6552ded080e698e5d568ee17d3154300acb77bda08d8da1101"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T202715Z-stats-base-4eeccc08\\runtime\\phase0-local\\results\\20261022T202732Z-phase1-sb-vanilla-fea29ee9\\repeat-import-semantic-diff.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T202715Z-stats-base-4eeccc08\\runtime\\phase0-local\\results\\20261022T202732Z-phase1-sb-vanilla-fea29ee9\\repeat-import-semantic-diff.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T223720Z-display-combat-review-03961c7d\\inputs\\ea4bd13e48bafc71293fbb9c9d597d89b0e856de8ad8f686a26cd29b0e64089f\\repeat-import-semantic-diff.json",
+      "sha256": "ea4bd13e48bafc71293fbb9c9d597d89b0e856de8ad8f686a26cd29b0e64089f"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T222836Z-display-base-6b4d1dd6\\runtime\\phase0-local\\results\\20261022T222910Z-phase1-sb-gui-544acd85\\gui-reload-differences.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T222836Z-display-base-6b4d1dd6\\runtime\\phase0-local\\results\\20261022T222910Z-phase1-sb-gui-544acd85\\gui-reload-differences.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T223720Z-display-combat-review-03961c7d\\inputs\\35fb9d36bbd48e0bfff5a75fcce284f070b0ea9a277b1aea0f1522cd9e0d1f50\\gui-reload-differences.json",
+      "sha256": "35fb9d36bbd48e0bfff5a75fcce284f070b0ea9a277b1aea0f1522cd9e0d1f50"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T202715Z-stats-base-4eeccc08\\runtime\\phase0-local\\results\\20261022T202748Z-phase1-sb-gui-260e5ae3\\gui-reload-differences.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T202715Z-stats-base-4eeccc08\\runtime\\phase0-local\\results\\20261022T202748Z-phase1-sb-gui-260e5ae3\\gui-reload-differences.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T223720Z-display-combat-review-03961c7d\\inputs\\31bb2a768a48fa20f05a56aec8bc24d1e59d19e2a8cce5cbe6daa3c9248e74e2\\gui-reload-differences.json",
+      "sha256": "31bb2a768a48fa20f05a56aec8bc24d1e59d19e2a8cce5cbe6daa3c9248e74e2"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T222836Z-display-base-6b4d1dd6\\runtime\\phase0-local\\results\\20261022T222910Z-phase1-sb-gui-544acd85\\legacy-semantic-differences.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T222836Z-display-base-6b4d1dd6\\runtime\\phase0-local\\results\\20261022T222910Z-phase1-sb-gui-544acd85\\legacy-semantic-differences.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T223720Z-display-combat-review-03961c7d\\inputs\\8d6ec407e9a8ae5a1d8cc7b983be37d0b7242eb954a6b1a56f460f211d72fd2c\\legacy-semantic-differences.json",
+      "sha256": "8d6ec407e9a8ae5a1d8cc7b983be37d0b7242eb954a6b1a56f460f211d72fd2c"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T202715Z-stats-base-4eeccc08\\runtime\\phase0-local\\results\\20261022T202748Z-phase1-sb-gui-260e5ae3\\legacy-semantic-differences.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T202715Z-stats-base-4eeccc08\\runtime\\phase0-local\\results\\20261022T202748Z-phase1-sb-gui-260e5ae3\\legacy-semantic-differences.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T223720Z-display-combat-review-03961c7d\\inputs\\efdca9a0c3316e202d4d49c6036cd6bbf7d3f2b2241b00f8d5634ca62551cc1a\\legacy-semantic-differences.json",
+      "sha256": "efdca9a0c3316e202d4d49c6036cd6bbf7d3f2b2241b00f8d5634ca62551cc1a"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\display-query-final-tooling-20261022.log": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\display-query-final-tooling-20261022.log",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T223720Z-display-combat-review-03961c7d\\inputs\\dc925a0b9fa5fe0f7582d372d6819c6cc09be9960a8e37d7b0f2892da2b761bf\\display-query-final-tooling-20261022.log",
+      "sha256": "dc925a0b9fa5fe0f7582d372d6819c6cc09be9960a8e37d7b0f2892da2b761bf"
+    },
+    "C:\\BGRedux\\phase1-local\\results\\20261022T223310Z-phase1-weapon-query-521dfe4c\\result.json": {
+      "source": "C:\\BGRedux\\phase1-local\\results\\20261022T223310Z-phase1-weapon-query-521dfe4c\\result.json",
+      "frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T223720Z-display-combat-review-03961c7d\\inputs\\bcdcf4da3a80f024e8d69e1a2ce21c91b5cb9f6d6e75b227bff38f5c1930c5b2\\result.json",
+      "sha256": "bcdcf4da3a80f024e8d69e1a2ce21c91b5cb9f6d6e75b227bff38f5c1930c5b2"
+    }
+  }
+}

@@ -76,7 +76,7 @@ lacked its configured `Shaders` directory. An additional byte-pinned junction
 now exposes that same build's shaders; no resource or binary was changed. The
 next attempt completed the matrix and sensitive controls, but its strict reader
 rejected the expected unsupported-3E error log. Both attempts remain failed;
-the marked-error-boundary host requires a fresh execution. An intermediate
+the marked-error-boundary host passed a separate fresh execution. An intermediate
 external-host compile failure from a missing `<iostream>` include is also kept.
 
 Native result `20261022T221720Z-display-query-contract-2cc042eb` passes the
@@ -85,15 +85,38 @@ sensitive legacy/RNG controls, rejection/flag restoration, and all six outer
 preservation guards. The matrix Python step took5,893,500ns; this includes
 serialization and is not a per-call benchmark.
 
-The1024×768 stage of `20261022T221812Z-display-fixed-stats-menu-run-51a7179d`
-passes92 steps,77 runtime assertions,24 actor/section contracts,40 page visits,
-45 captures and44 callbacks. Strict world and cache conservation passes, with
-Minsc display12/script14. The1280×768 stage is still running. Its parent result
-is not yet accepted. Screenshot capture34 was inspected for the visible Minsc
-THAC012; this does not establish full typography or physical-pointer fidelity.
+Both1024×768 and1280×768 stages of
+`20261022T221812Z-display-fixed-stats-menu-run-51a7179d` pass92 steps,77 runtime
+assertions,24 actor/section contracts,40 page visits,45 captures and44 callbacks
+each. Strict world and cache conservation passes, with Minsc display12/script14.
+All seven parent preservation guards pass. Capture34 at both resolutions was
+inspected for visible Minsc THAC012; this does not establish full typography or
+physical-pointer fidelity.
 
-Import/reload, GUI/save, weapon-predicate regression and the armed display-query
-matrix remain pending for this candidate. Full Phase1 remains incomplete.
+Fresh baseline `20261022T222836Z-display-base-6b4d1dd6` passes24/24 import/reload
+and20/20 GUI/save checks, zero skips, and all preservation guards. Compatibility
+remains **unreviewed differences**. Vanilla wire residuals matchbe5, but reload
+and repeat-import color rows now number0/0/28 versus4/0/24. GUI residuals number
+451/55 versus449/53; the only added rows are base/modified color210 on area
+actor31,3435973836→875836468. All other GUI residual rows match. No color
+normalization, causal attribution to this fix or conformance ruling is made.
+The wrapper's exit1 reflects compatibility differences, not failed execution.
+
+Source-bound core run `20261022T223102Z-source-bound-core-388048bf` passes231
+tests, with9 skipped and6 disabled; none failed. These results do not erase
+earlier Phase0 locale failures or establish coverage for the skipped cases.
+
+Fresh weapon-predicate run `20261022T223310Z-phase1-weapon-query-521dfe4c` matches
+all22 original cases, including dual weapons, empty/shield offhands, launcher/ammo
+and defense combinations. Across1,056 repeated predicate calls and44 evaluator
+controls, collected state, weapon caches and calling-thread RNG remain unchanged.
+All preservation guards pass. This checks the existing predicate contract against
+the refactored core; it does not exercise the new armed display API.
+
+[Pinned evidence](../evidence/phase1-display-combat-correction.json) and private
+review `20261022T223720Z-display-combat-review-03961c7d/review.json` bind these
+results,603 source tests, screenshots and exact residual changes. The armed
+display-query matrix remains outstanding. Full Phase1 remains incomplete.
 
 ## Separate APR follow-up
 

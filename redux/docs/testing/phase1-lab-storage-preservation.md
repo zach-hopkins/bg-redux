@@ -169,3 +169,30 @@ That failed run is retained under
 The separate short-name run `20261022T094904Z-sb-base-4565dad5` passes all 44
 baseline assertions and preservation guards while keeping its compatibility
 differences explicit. See the [fresh baseline audit](phase1-heading-policy-fresh-baseline-audit.md).
+
+## Display-query build and validation continuation
+
+Candidatea71c06f9 stopped for disk exhaustion. Its failed receipt/log remain
+unchanged. Object-file compression and a guarded same-directory resume completed
+the build; the first resume receipt failed bookkeeping and remains preserved too.
+[Display-query provenance](phase1-display-combat-query.md) identifies the separate
+verified alias and same-build shader/test metadata supplements.
+
+`storage-closed-stats-objects-1792706922689607400/result.json` verifies unchanged
+bytes for the completed candidate's object files. Later compression attempts on
+already compressed prior objects preserve bytes but do not establish additional
+space savings; `/I` plus an exit code alone is not such evidence.
+
+After all native sessions were terminal,
+`storage-identical-completed-caches-readonly-1792707384507512400/result.json`
+shared215 identical closed-cache paths. Following both accepted Stats stages,
+`20261022T222707Z-display-closed-cache-sharing-8d7326f4/result.json` verifies a
+targeted closed-cache sharing pass. No archived profile is reused writable.
+
+`20261022T222756Z-closed-core-compression-8d2e7d36/result.json` pins five previously
+uncompressed, closed Phase1 DLL copies in old builds/results. Each file retains
+its path, length and SHA256; measured allocated sizes fall from about270MB to
+about54MB per copy. The strict compact invocations omit `/I`, and their exit
+codes, per-file allocated sizes and final hashes are checked. This operation
+does not touch the protected Phase0 checkout, build or fixtures, or alter a
+candidate's binary contents. All earlier storage failures/partial receipts remain.
