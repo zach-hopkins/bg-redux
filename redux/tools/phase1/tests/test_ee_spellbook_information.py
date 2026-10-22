@@ -83,6 +83,18 @@ class Harness:
     def panel(self):return next(iter(self.m.Panels.values()))
 
 class SpellbookInformationTests(unittest.TestCase):
+    def test_ineligible_book_keeps_full_help_without_enabling_actions(self):
+        h=Harness();h.eligible=False;h.render()
+        self.assertEqual(h.window.GetControl(h.m.INFORMATION).text,39254)
+        self.assertEqual(h.window.GetControl(h.m.MEMORIZE).state,h.m.IE_GUI_BUTTON_DISABLED)
+        h.press(27);h.press(h.m.NAME_BASE)
+        self.assertEqual(h.operations,[]);self.assertIsNone(h.panel.selected)
+    def test_initially_hidden_book_keeps_help_and_rejects_actions(self):
+        h=Harness();h.window.visible=False;h.render()
+        self.assertEqual(h.window.GetControl(h.m.INFORMATION).text,39254)
+        self.assertEqual(h.window.GetControl(h.m.MEMORIZE).state,h.m.IE_GUI_BUTTON_DISABLED)
+        h.press(27);h.press(h.m.NAME_BASE)
+        self.assertEqual(h.operations,[]);self.assertIsNone(h.panel.selected)
     def test_select_and_deselect_names_never_memorize(self):
         h=Harness();h.render();h.press(h.m.NAME_BASE+2)
         self.assertEqual(h.operations,[]);self.assertIn('desc:SPWI213',h.window.GetControl(h.m.INFORMATION).text)

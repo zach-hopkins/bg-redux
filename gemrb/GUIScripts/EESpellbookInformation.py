@@ -239,12 +239,12 @@ class Panel:
             spell = GemRB.GetSpell(self.selected[3])
             description = GemRB.GetString(spell['SpellDesc'])
             text.SetText(self.selected[5]+'\n\n'+description)
-        elif self.Live(generation):
+        else:
+            # Instructions remain visible for a disabled book and during its
+            # initial hidden render; Live still gates every spell action.
             if not GemRB.GetString(HELP):
                 raise RuntimeError('BG2EE spellbook help strref 39254 is missing or empty')
             text.SetText(HELP)
-        else:
-            text.SetText('')
         text.ScrollTo(0,0)
         for cid, delta in ((INFO_UP,250), (INFO_DOWN,-250)):
             self.window.GetControl(cid).OnPress(lambda _button, amount=delta, g=generation:self.Scroll(amount,g))

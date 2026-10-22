@@ -1,0 +1,1163 @@
+{
+  "schema": "bg-redux-independent-information-candidate-regression-audit/1",
+  "execution_passed": true,
+  "compatibility": "differences",
+  "baseline": {
+    "schema": "bg-redux-independent-information-fresh-baseline-audit/1",
+    "execution": "passed",
+    "compatibility": "differences",
+    "source": "Current source matches3511files at audit time; frozen sources retained",
+    "result_sha256": "c374dfc07c150202ff068ce8e7ebd1994e07c4a6b7cf795ae0740bc60503abfd",
+    "build_receipt_sha256": "2f420b20439c34db5c73696b5916bdd32f6e5be661b47897aace7e8eedd9a6e2",
+    "raw_result": "C:\\BGRedux\\phase1-local\\results\\20261022T112734Z-inf-base-68f94440\\result.json",
+    "core_sha256": "8ecfc214773b62336c1c8312215bc1bd9f929bd790978ff8353684b5e8bed49c",
+    "source_count": 3511,
+    "binary_count": 61,
+    "support_count": 5,
+    "frozen_top_sources": 5,
+    "runtime_input_count": 75,
+    "commands": [
+      {
+        "pid": 2844,
+        "exit_code": 0,
+        "elapsed_seconds": 4.386,
+        "timeout_seconds": 180
+      },
+      {
+        "pid": 12160,
+        "exit_code": 0,
+        "elapsed_seconds": 3.985,
+        "timeout_seconds": 180
+      },
+      {
+        "pid": 16700,
+        "exit_code": 0,
+        "elapsed_seconds": 0.249,
+        "timeout_seconds": 30
+      }
+    ],
+    "runs": {
+      "vanilla": {
+        "result_sha256": "6a4132162ba8649cefbd74f6b8ff49598e7fc58fd14b922ecc369bafa01254ae",
+        "outer_process": {
+          "pid": 16300,
+          "exit_code": 1,
+          "elapsed_seconds": 56.744,
+          "timeout_seconds": 450
+        },
+        "stages": [
+          {
+            "pid": 15392,
+            "exit_code": 0,
+            "elapsed_seconds": 46.253,
+            "timeout_seconds": 90.0
+          },
+          {
+            "pid": 3672,
+            "exit_code": 0,
+            "elapsed_seconds": 3.339,
+            "timeout_seconds": 90.0
+          },
+          {
+            "pid": 15940,
+            "exit_code": 0,
+            "elapsed_seconds": 3.1,
+            "timeout_seconds": 90.0
+          },
+          {
+            "pid": 12156,
+            "exit_code": 0,
+            "elapsed_seconds": 3.141,
+            "timeout_seconds": 90.0
+          }
+        ],
+        "assertions": {
+          "passed": 24,
+          "total": 24
+        },
+        "cross_build_status": {
+          "status": "unreviewed-differences",
+          "reason": "Differences exceed or change the explicit reference; review required"
+        }
+      },
+      "gui": {
+        "result_sha256": "b3625099bd97c1c3015785afa44a0d7b0f629d03a60c475e463f487b20cd0c2d",
+        "outer_process": {
+          "pid": 10748,
+          "exit_code": 1,
+          "elapsed_seconds": 87.917,
+          "timeout_seconds": 310
+        },
+        "stages": [
+          {
+            "pid": 1848,
+            "exit_code": 0,
+            "elapsed_seconds": 64.924,
+            "timeout_seconds": 140.0
+          },
+          {
+            "pid": 272,
+            "exit_code": 0,
+            "elapsed_seconds": 22.192,
+            "timeout_seconds": 140.0
+          }
+        ],
+        "assertions": {
+          "passed": 20,
+          "total": 20
+        },
+        "cross_build_status": {
+          "status": "unreviewed-differences",
+          "reason": "Differences exceed or change the explicit reference; review required"
+        }
+      }
+    },
+    "residuals": {
+      "vanilla": {
+        "reload-1-semantic-diff.json": {
+          "new_count": 2,
+          "prior_count": 2,
+          "exact_rows_equal": false,
+          "new_rows": [
+            {
+              "path": "/current_area_actors/7/base_stats/212",
+              "before": 3823363043,
+              "after": 3385444809
+            },
+            {
+              "path": "/current_area_actors/7/modified_stats/212",
+              "before": 3823363043,
+              "after": 3385444809
+            }
+          ],
+          "prior_sha256": "efb69fc27181a1340a834f3071ae116f7e7aa0db9a0c9b7872ca63dbff448ca2",
+          "new_sha256": "9bc11f4a9a4290836919e7753a6f2716cd6ed2e35cfd9b9de4255709d3da5b31",
+          "new_paths": [
+            "/current_area_actors/7/base_stats/212",
+            "/current_area_actors/7/modified_stats/212"
+          ],
+          "lost_paths": [
+            "/current_area_actors/31/base_stats/210",
+            "/current_area_actors/31/modified_stats/210"
+          ]
+        },
+        "reload-2-semantic-diff.json": {
+          "new_count": 2,
+          "prior_count": 0,
+          "exact_rows_equal": false,
+          "new_rows": [
+            {
+              "path": "/current_area_actors/7/base_stats/212",
+              "before": 3385444809,
+              "after": 2593823386
+            },
+            {
+              "path": "/current_area_actors/7/modified_stats/212",
+              "before": 3385444809,
+              "after": 2593823386
+            }
+          ],
+          "prior_sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+          "new_sha256": "7f88f803c4bb0c7733d76f7ac4ebe873355b7b717e5fb178888d0aedbbd5aaa9",
+          "new_paths": [
+            "/current_area_actors/7/base_stats/212",
+            "/current_area_actors/7/modified_stats/212"
+          ],
+          "lost_paths": []
+        },
+        "repeat-import-semantic-diff.json": {
+          "new_count": 24,
+          "prior_count": 26,
+          "exact_rows_equal": false,
+          "new_rows": [
+            {
+              "path": "/current_area_actors/3/base_stats/209",
+              "before": 2745410467,
+              "after": 892679477
+            },
+            {
+              "path": "/current_area_actors/3/base_stats/213",
+              "before": 3048584629,
+              "after": 2374864269
+            },
+            {
+              "path": "/current_area_actors/3/modified_stats/209",
+              "before": 2745410467,
+              "after": 892679477
+            },
+            {
+              "path": "/current_area_actors/3/modified_stats/213",
+              "before": 3048584629,
+              "after": 2374864269
+            },
+            {
+              "path": "/current_area_actors/4/base_stats/208",
+              "before": 202116108,
+              "after": 2762253476
+            },
+            {
+              "path": "/current_area_actors/4/modified_stats/208",
+              "before": 202116108,
+              "after": 2762253476
+            },
+            {
+              "path": "/current_area_actors/5/base_stats/212",
+              "before": 1010580540,
+              "after": 2273806215
+            },
+            {
+              "path": "/current_area_actors/5/base_stats/213",
+              "before": 2307492233,
+              "after": 1330597711
+            },
+            {
+              "path": "/current_area_actors/5/modified_stats/212",
+              "before": 1010580540,
+              "after": 2273806215
+            },
+            {
+              "path": "/current_area_actors/5/modified_stats/213",
+              "before": 2307492233,
+              "after": 1330597711
+            },
+            {
+              "path": "/current_area_actors/6/base_stats/213",
+              "before": 320017171,
+              "after": 2795939494
+            },
+            {
+              "path": "/current_area_actors/6/modified_stats/213",
+              "before": 320017171,
+              "after": 2795939494
+            },
+            {
+              "path": "/current_area_actors/7/base_stats/212",
+              "before": 3823363043,
+              "after": 2307492233
+            },
+            {
+              "path": "/current_area_actors/7/base_stats/213",
+              "before": 2762253476,
+              "after": 2745410467
+            },
+            {
+              "path": "/current_area_actors/7/modified_stats/212",
+              "before": 3823363043,
+              "after": 2307492233
+            },
+            {
+              "path": "/current_area_actors/7/modified_stats/213",
+              "before": 2762253476,
+              "after": 2745410467
+            },
+            {
+              "path": "/current_area_actors/19/base_stats/210",
+              "before": 960051513,
+              "after": 2004318071
+            },
+            {
+              "path": "/current_area_actors/19/modified_stats/210",
+              "before": 960051513,
+              "after": 2004318071
+            },
+            {
+              "path": "/current_area_actors/24/base_stats/209",
+              "before": 1010580540,
+              "after": 2004318071
+            },
+            {
+              "path": "/current_area_actors/24/modified_stats/209",
+              "before": 1010580540,
+              "after": 2004318071
+            },
+            {
+              "path": "/current_area_actors/31/base_stats/209",
+              "before": 960051513,
+              "after": 875836468
+            },
+            {
+              "path": "/current_area_actors/31/base_stats/210",
+              "before": 2459079314,
+              "after": 3435973836
+            },
+            {
+              "path": "/current_area_actors/31/modified_stats/209",
+              "before": 960051513,
+              "after": 875836468
+            },
+            {
+              "path": "/current_area_actors/31/modified_stats/210",
+              "before": 2459079314,
+              "after": 3435973836
+            }
+          ],
+          "prior_sha256": "bfeb484f3ba2f5eb09f5a1ccbcee5471eedcd5d1aee284be61fd940438ada29e",
+          "new_sha256": "ddab7463498570291117e61a8a793d3907e58f0fad419e665479351933fcfe07",
+          "new_paths": [
+            "/current_area_actors/5/base_stats/212",
+            "/current_area_actors/5/modified_stats/212"
+          ],
+          "lost_paths": [
+            "/current_area_actors/5/base_stats/209",
+            "/current_area_actors/5/modified_stats/209",
+            "/current_area_actors/7/base_stats/208",
+            "/current_area_actors/7/modified_stats/208"
+          ]
+        }
+      },
+      "gui": {
+        "gui-reload-differences.json": {
+          "new_count": 449,
+          "prior_count": 449,
+          "exact_rows_equal": true,
+          "prior_sha256": "31bb2a768a48fa20f05a56aec8bc24d1e59d19e2a8cce5cbe6daa3c9248e74e2",
+          "new_sha256": "31bb2a768a48fa20f05a56aec8bc24d1e59d19e2a8cce5cbe6daa3c9248e74e2",
+          "new_paths": [],
+          "lost_paths": []
+        },
+        "legacy-semantic-differences.json": {
+          "new_count": 53,
+          "prior_count": 53,
+          "exact_rows_equal": true,
+          "prior_sha256": "efdca9a0c3316e202d4d49c6036cd6bbf7d3f2b2241b00f8d5634ca62551cc1a",
+          "new_sha256": "efdca9a0c3316e202d4d49c6036cd6bbf7d3f2b2241b00f8d5634ca62551cc1a",
+          "new_paths": [],
+          "lost_paths": []
+        }
+      }
+    },
+    "phase0_preserved": true,
+    "candidate_preserved": true,
+    "inputs_preserved": true,
+    "private_game": {
+      "clean_game_inventory_unchanged": true,
+      "clean_game_root_hashes_unchanged": true,
+      "copied_immutable_inputs_unchanged": true,
+      "allowed_private_root_changes": {
+        "GemRB.log": {
+          "before_sha256": "c298eb067db2c6c619c7791afc9b6fc0997a5dba9bd5bd03d6718f2facbbf6a7",
+          "after_sha256": "7b6f9fc86e6b5197163163c741989589ee6a54dfc66606a4ac123104153f3d9c"
+        },
+        "gemrb_path.txt": {
+          "before_sha256": "74f29a278dc2806d86620cd23bcd11130662c214b8854ef59d3aebcc7776fecd",
+          "after_sha256": "a5a2cf064ab0741b5fcbd74a26d6cd2f04f6b0d26a348e11200547f7ca8d830b"
+        }
+      },
+      "linked_asset_content_fully_hashed": false
+    },
+    "previous_baseline": {
+      "path": "C:\\BGRedux\\phase1-local\\results\\20261022T105238Z-erase-base-4ec5c4f2\\result.json",
+      "sha256": "c39b468d4454870aab651ee309f41e605ea73bfc495d6c9e86a14332864b6cf3"
+    },
+    "b49_baseline": {
+      "path": "C:\\BGRedux\\phase1-local\\results\\20261022T072341Z-b49-native-baseline-b6faf631\\result.json",
+      "sha256": "a9b5abb83ecfce153f58063ce5c63284fe58b02368e85c0b3b84963829048ee7"
+    },
+    "b49_comparison": {
+      "vanilla": {
+        "reload-1-semantic-diff.json": {
+          "new_count": 2,
+          "prior_count": 0,
+          "exact_rows_equal": false,
+          "new_sha256": "9bc11f4a9a4290836919e7753a6f2716cd6ed2e35cfd9b9de4255709d3da5b31",
+          "prior_sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f"
+        },
+        "reload-2-semantic-diff.json": {
+          "new_count": 2,
+          "prior_count": 0,
+          "exact_rows_equal": false,
+          "new_sha256": "7f88f803c4bb0c7733d76f7ac4ebe873355b7b717e5fb178888d0aedbbd5aaa9",
+          "prior_sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f"
+        },
+        "repeat-import-semantic-diff.json": {
+          "new_count": 24,
+          "prior_count": 24,
+          "exact_rows_equal": false,
+          "new_sha256": "ddab7463498570291117e61a8a793d3907e58f0fad419e665479351933fcfe07",
+          "prior_sha256": "ee6b9cfc9c09ab8f8e6a2b8cf4b48d7b25343c4da7becdca68a1b51a5efa7625"
+        }
+      },
+      "gui": {
+        "gui-reload-differences.json": {
+          "new_count": 449,
+          "prior_count": 449,
+          "exact_rows_equal": true,
+          "new_sha256": "31bb2a768a48fa20f05a56aec8bc24d1e59d19e2a8cce5cbe6daa3c9248e74e2",
+          "prior_sha256": "31bb2a768a48fa20f05a56aec8bc24d1e59d19e2a8cce5cbe6daa3c9248e74e2"
+        },
+        "legacy-semantic-differences.json": {
+          "new_count": 53,
+          "prior_count": 53,
+          "exact_rows_equal": true,
+          "new_sha256": "efdca9a0c3316e202d4d49c6036cd6bbf7d3f2b2241b00f8d5634ca62551cc1a",
+          "prior_sha256": "efdca9a0c3316e202d4d49c6036cd6bbf7d3f2b2241b00f8d5634ca62551cc1a"
+        }
+      }
+    },
+    "source_commit": "0efb660a86fbce5b6c457009af002ace61dc39f6",
+    "private_preparation_sha256": "3fa9b644f4afdbc5d9dc78a0b8b00751b0b226aba2ea453fb23d32f19dd3ff4b",
+    "auditor_sha256": "d7ac07d8d87902b0d0b2afbd4b594ef6c1274e4b62e1b2ae3420bb9abea586e2",
+    "limits": [
+      "No compatibility promotion; both comparisons remain unreviewed-differences",
+      "Content callbacks are not physical pointer or visual fidelity",
+      "No new engine runtime, build or test launched by audit"
+    ],
+    "inner_artifacts_hashed": 1016,
+    "inner_inventory_sha256": "916caf06f9c256a3e39ce2d033328d81c88362ea7d975d9278e89d64731db9d6",
+    "private_audit": "C:\\BGRedux\\phase1-local\\results\\20261022T114827Z-fresh-information-baseline-audit-998e2c68\\audit.json",
+    "private_audit_sha256": "45908323a82f57c56fb3dce4e68cb2ae3ad8860c895a9951815018fb28f11a62"
+  },
+  "erase_stock": {
+    "schema": "bg-redux-independent-stock-spellbook-erase-after-audit/1",
+    "passed": true,
+    "raw_result": "C:\\BGRedux\\phase1-local\\results\\20261022T113103Z-spellbook-erase-ee-direct-2ea36248\\result.json",
+    "result_sha256": "3846a2ef43ec06e4b98cae8b1794f82813cae3856c4bceeef6963898272dc098",
+    "manifest_sha256": "5034726ffce49dad08da76b9b881490623faaffe83df498eafd8bd360a3d8df0",
+    "artifacts_rehashed": 895,
+    "source_closure": 79,
+    "engine_build_binding": {
+      "receipt_sha256": "2f420b20439c34db5c73696b5916bdd32f6e5be661b47897aace7e8eedd9a6e2",
+      "source_files": 3511,
+      "binaries": 61,
+      "support_files": 5
+    },
+    "information_closure": {
+      "EESpellbookInformation.py": "8fd6cfad213a687aeb5aff20c22a30393af3d96c07693ad45a714c93b4e470f0",
+      "BG2EEConfirmation.py": "da27b1c3c54e3a7419ac9afeb5bb8f413ee0361120c44f4300313f4b2e7ebaac",
+      "EESpellbookHeading.py": "b4464ab777efeaaf567d3548b5bfc228534f35bdba35b6f3dcf077d5bdab66bd",
+      "GUIOPTControls.py": "c7a264ea32d1c0bd247c5112d251cf1ba09839e59a39a27fd75ed00a3a9c10e4"
+    },
+    "historical_observer_scope": {
+      "paging_observed": false,
+      "name_selection_observed": false,
+      "visible_initial_wizard_rows": 5
+    },
+    "actual_visible_names_and_help": [
+      {
+        "mode": "operate",
+        "capture": 1,
+        "nonce": "f21809f4e7f846d2b40b1375708d006f",
+        "names": [
+          {
+            "original_index": 0,
+            "resref": "SPWI211",
+            "name": "Melf's Acid Arrow"
+          },
+          {
+            "original_index": 1,
+            "resref": "SPWI212",
+            "name": "Mirror Image"
+          },
+          {
+            "original_index": 2,
+            "resref": "SPWI213",
+            "name": "Stinking Cloud"
+          },
+          {
+            "original_index": 3,
+            "resref": "SPWI214",
+            "name": "Strength"
+          },
+          {
+            "original_index": 4,
+            "resref": "SPWI215",
+            "name": "Web"
+          }
+        ],
+        "help_strref": 39254,
+        "help_sha256": "71644888e33e0d57749a7c0f46c110859333bd37fe2758781e66d45ddd622390",
+        "help_characters": 265,
+        "rect": [
+          448,
+          198,
+          322,
+          338
+        ],
+        "screenshot_sha256": "cc90b6146f161e41c84fc5e9508c7492400b082c193b341e5a3dcff4cfaf02dd"
+      },
+      {
+        "mode": "reload",
+        "capture": 1,
+        "nonce": "84a9024aae5b4a19a65c6e7d1d99c493",
+        "names": [
+          {
+            "original_index": 0,
+            "resref": "SPWI211",
+            "name": "Melf's Acid Arrow"
+          },
+          {
+            "original_index": 1,
+            "resref": "SPWI212",
+            "name": "Mirror Image"
+          },
+          {
+            "original_index": 2,
+            "resref": "SPWI214",
+            "name": "Strength"
+          },
+          {
+            "original_index": 3,
+            "resref": "SPWI215",
+            "name": "Web"
+          }
+        ],
+        "help_strref": 39254,
+        "help_sha256": "71644888e33e0d57749a7c0f46c110859333bd37fe2758781e66d45ddd622390",
+        "help_characters": 265,
+        "rect": [
+          448,
+          198,
+          322,
+          338
+        ],
+        "screenshot_sha256": "3984a8767599864df55c47fbfad2e414509ea7acd43afd034ab60550620dd024"
+      }
+    ],
+    "historical_guimg_sha256": "0258e6614eb620f596f38a3ac5e33717d97d278ad684f2db70cd5673f114c4c9",
+    "ordinary_gui_save_callbacks_verified": true,
+    "source_commit": "0efb660a86fbce5b6c457009af002ace61dc39f6",
+    "full_engine_current_rehash": true,
+    "core_sha256": "8ecfc214773b62336c1c8312215bc1bd9f929bd790978ff8353684b5e8bed49c",
+    "stages": [
+      {
+        "mode": "operate",
+        "pid": 9064,
+        "exit_code": 0,
+        "elapsed_seconds": 61.574,
+        "callbacks": 14,
+        "captures": 6,
+        "steps": 16,
+        "nonce": "f21809f4e7f846d2b40b1375708d006f",
+        "capture_names": [
+          "mage.before",
+          "mage.information",
+          "mage.confirmation",
+          "mage.after-cancel",
+          "mage.confirmation-again",
+          "mage.after-erase"
+        ]
+      },
+      {
+        "mode": "reload",
+        "pid": 15552,
+        "exit_code": 0,
+        "elapsed_seconds": 30.341,
+        "callbacks": 6,
+        "captures": 1,
+        "steps": 6,
+        "nonce": "84a9024aae5b4a19a65c6e7d1d99c493",
+        "capture_names": [
+          "mage.before"
+        ]
+      }
+    ],
+    "intended_target": "SPWI213",
+    "token_resolutions": [
+      {
+        "capture": 2,
+        "nonce": "f21809f4e7f846d2b40b1375708d006f",
+        "raw_description_ref": 12181,
+        "raw_description_sha256": "15cc55d237cb8b39364049a5891668a68ec0026cf5146c39dbea8867fa4a192c",
+        "expected_description_sha256": "5b70af68d980aec28eab12749dfc0db5d6fdb11fd50ace1664af389029ab0c80",
+        "actor_runtime_id": 10002,
+        "slot": 0,
+        "protagonist_sex": 1,
+        "selected_imoen_sex": 2,
+        "word_ref": 27486,
+        "word": "his",
+        "occurrences": 1
+      },
+      {
+        "capture": 3,
+        "nonce": "f21809f4e7f846d2b40b1375708d006f",
+        "raw_description_ref": 12181,
+        "raw_description_sha256": "15cc55d237cb8b39364049a5891668a68ec0026cf5146c39dbea8867fa4a192c",
+        "expected_description_sha256": "5b70af68d980aec28eab12749dfc0db5d6fdb11fd50ace1664af389029ab0c80",
+        "actor_runtime_id": 10002,
+        "slot": 0,
+        "protagonist_sex": 1,
+        "selected_imoen_sex": 2,
+        "word_ref": 27486,
+        "word": "his",
+        "occurrences": 1
+      },
+      {
+        "capture": 4,
+        "nonce": "f21809f4e7f846d2b40b1375708d006f",
+        "raw_description_ref": 12181,
+        "raw_description_sha256": "15cc55d237cb8b39364049a5891668a68ec0026cf5146c39dbea8867fa4a192c",
+        "expected_description_sha256": "5b70af68d980aec28eab12749dfc0db5d6fdb11fd50ace1664af389029ab0c80",
+        "actor_runtime_id": 10002,
+        "slot": 0,
+        "protagonist_sex": 1,
+        "selected_imoen_sex": 2,
+        "word_ref": 27486,
+        "word": "his",
+        "occurrences": 1
+      },
+      {
+        "capture": 5,
+        "nonce": "f21809f4e7f846d2b40b1375708d006f",
+        "raw_description_ref": 12181,
+        "raw_description_sha256": "15cc55d237cb8b39364049a5891668a68ec0026cf5146c39dbea8867fa4a192c",
+        "expected_description_sha256": "5b70af68d980aec28eab12749dfc0db5d6fdb11fd50ace1664af389029ab0c80",
+        "actor_runtime_id": 10002,
+        "slot": 0,
+        "protagonist_sex": 1,
+        "selected_imoen_sex": 2,
+        "word_ref": 27486,
+        "word": "his",
+        "occurrences": 1
+      }
+    ],
+    "token_table": {
+      "provider": "C:\\BGRedux\\phase1-local\\engine\\gemrb\\unhardcoded\\bg2ee\\gender.2da",
+      "sha256": "fc7f5f95df9ebe380307fa453f0110ba8a5a5f441736f4ee70e4cdcab190d8e4",
+      "row": [
+        "PRO_HISHER",
+        "0",
+        "27486",
+        "27487"
+      ],
+      "tlk_sha256": "9e685225ff3c3436a8a35fa7022550620d24a92efe35436a062c02955d9f0952"
+    },
+    "retained_failures": [
+      {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T102210Z-spellbook-erase-ee-direct-1bd64447\\result.json",
+        "sha256": "8b5730d36716561ba79b017f569b52cd15df171253331bd318b6e76a69bbddf1",
+        "error": "Information modal shows another spell/description"
+      },
+      {
+        "path": "C:\\BGRedux\\phase1-local\\spellbook-probes\\erase-before-2\\build.json",
+        "sha256": "831e5f10164414daa68dd35de8b24da8181f7fbc4aba6074be67db5e42b55a53",
+        "error": "[Errno 2] No such file or directory: 'C:\\\\BGRedux\\\\phase1-local\\\\engine\\\\gemrb\\\\core\\\\TableMgr.cpp'"
+      }
+    ],
+    "auditor_sha256": "254893a4dd8828e051c030b887d2a0618c0439be331667d0da4b7dd304471883",
+    "limits": [
+      "No source validator imports or engine/runtime/test/build launches",
+      "Stock sorting only; nonidentity erase separate",
+      "No original erasure parity",
+      "Pronoun is protagonist modifiedsex context, not selected female caster",
+      "Exact known reverse wire mapping; memo direct; all other pages/slots/world retained"
+    ],
+    "known_before_sha256": "f5012f15cb10da4cbc150a84dcc6aacaf6858c28ecfe8ac80a63d6d13f790db4",
+    "known_before_target_page": [
+      {
+        "type": 1,
+        "level": 1,
+        "slots": 3,
+        "bonus": 3,
+        "known": [
+          {
+            "resref": "SPWI215",
+            "level": 1,
+            "type": 1
+          },
+          {
+            "resref": "SPWI214",
+            "level": 1,
+            "type": 1
+          },
+          {
+            "resref": "SPWI213",
+            "level": 1,
+            "type": 1
+          },
+          {
+            "resref": "SPWI212",
+            "level": 1,
+            "type": 1
+          },
+          {
+            "resref": "SPWI211",
+            "level": 1,
+            "type": 1
+          }
+        ],
+        "memorized": [
+          {
+            "resref": "SPWI213",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI214",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI215",
+            "flags": 1
+          }
+        ]
+      }
+    ],
+    "known_after_sha256": "c990222dbd3a6303fdfb71e8491b8a73bcc36994a011f7214d23fd9353192e8a",
+    "known_after_target_page": [
+      {
+        "type": 1,
+        "level": 1,
+        "slots": 3,
+        "bonus": 3,
+        "known": [
+          {
+            "resref": "SPWI215",
+            "level": 1,
+            "type": 1
+          },
+          {
+            "resref": "SPWI214",
+            "level": 1,
+            "type": 1
+          },
+          {
+            "resref": "SPWI212",
+            "level": 1,
+            "type": 1
+          },
+          {
+            "resref": "SPWI211",
+            "level": 1,
+            "type": 1
+          }
+        ],
+        "memorized": [
+          {
+            "resref": "SPWI214",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI215",
+            "flags": 1
+          }
+        ]
+      }
+    ],
+    "private_audit": "C:\\BGRedux\\phase1-local\\results\\20261022T115008Z-information-stock-erase-independent-46833a2e\\audit.json",
+    "private_audit_sha256": "1380432c5790afa863bd5be438249c2db81fb108689e877c0df92b471a50336b"
+  },
+  "erase_private_control": {
+    "schema": "bg-redux-independent-controlled-spellbook-erase-after-audit/1",
+    "passed": true,
+    "raw_result": "C:\\BGRedux\\phase1-local\\results\\20261022T113337Z-spellbook-erase-name-control-ee-direct-30f94ed1\\result.json",
+    "result_sha256": "dff92fb2d7d8a927889218616a5793ee15ef4f44aa3568710d943647343038ac",
+    "manifest_sha256": "8575bff7b08d70484dfb5c1fb9fb05b86f9d30f69882f21925a7c03f247b4f54",
+    "artifacts_rehashed": 911,
+    "source_closure": 79,
+    "engine_build_binding": {
+      "receipt_sha256": "2f420b20439c34db5c73696b5916bdd32f6e5be661b47897aace7e8eedd9a6e2",
+      "source_files": 3511,
+      "binaries": 61,
+      "support_files": 5
+    },
+    "information_closure": {
+      "EESpellbookInformation.py": "8fd6cfad213a687aeb5aff20c22a30393af3d96c07693ad45a714c93b4e470f0",
+      "BG2EEConfirmation.py": "da27b1c3c54e3a7419ac9afeb5bb8f413ee0361120c44f4300313f4b2e7ebaac",
+      "EESpellbookHeading.py": "b4464ab777efeaaf567d3548b5bfc228534f35bdba35b6f3dcf077d5bdab66bd",
+      "GUIOPTControls.py": "c7a264ea32d1c0bd247c5112d251cf1ba09839e59a39a27fd75ed00a3a9c10e4"
+    },
+    "historical_observer_scope": {
+      "paging_observed": false,
+      "name_selection_observed": false,
+      "visible_initial_wizard_rows": 5
+    },
+    "actual_visible_names_and_help": [
+      {
+        "mode": "operate",
+        "capture": 1,
+        "nonce": "01df2be1563245f59ccd4fddfdc53537",
+        "names": [
+          {
+            "original_index": 2,
+            "resref": "SPWI213",
+            "name": "Melf's Acid Arrow"
+          },
+          {
+            "original_index": 1,
+            "resref": "SPWI212",
+            "name": "Mirror Image"
+          },
+          {
+            "original_index": 0,
+            "resref": "SPWI211",
+            "name": "Stinking Cloud"
+          },
+          {
+            "original_index": 3,
+            "resref": "SPWI214",
+            "name": "Strength"
+          },
+          {
+            "original_index": 4,
+            "resref": "SPWI215",
+            "name": "Web"
+          }
+        ],
+        "help_strref": 39254,
+        "help_sha256": "71644888e33e0d57749a7c0f46c110859333bd37fe2758781e66d45ddd622390",
+        "help_characters": 265,
+        "rect": [
+          448,
+          198,
+          322,
+          338
+        ],
+        "screenshot_sha256": "9d412b15791ac59d3a3a3a4378b95bf348170c286f5395f1c71cd498bf6bfff5"
+      },
+      {
+        "mode": "reload",
+        "capture": 1,
+        "nonce": "3a8c63409285433da91892d1c09f871b",
+        "names": [
+          {
+            "original_index": 1,
+            "resref": "SPWI212",
+            "name": "Mirror Image"
+          },
+          {
+            "original_index": 0,
+            "resref": "SPWI211",
+            "name": "Stinking Cloud"
+          },
+          {
+            "original_index": 2,
+            "resref": "SPWI214",
+            "name": "Strength"
+          },
+          {
+            "original_index": 3,
+            "resref": "SPWI215",
+            "name": "Web"
+          }
+        ],
+        "help_strref": 39254,
+        "help_sha256": "71644888e33e0d57749a7c0f46c110859333bd37fe2758781e66d45ddd622390",
+        "help_characters": 265,
+        "rect": [
+          448,
+          198,
+          322,
+          338
+        ],
+        "screenshot_sha256": "85a7fa9181331e0bc3cd1418bb0134e10a254f922d5daa44ddd6ac9b6e12357a"
+      }
+    ],
+    "historical_guimg_sha256": "0258e6614eb620f596f38a3ac5e33717d97d278ad684f2db70cd5673f114c4c9",
+    "ordinary_gui_save_callbacks_verified": true,
+    "source_commit": "0efb660a86fbce5b6c457009af002ace61dc39f6",
+    "full_engine_current_rehash": true,
+    "core_sha256": "8ecfc214773b62336c1c8312215bc1bd9f929bd790978ff8353684b5e8bed49c",
+    "stages": [
+      {
+        "mode": "operate",
+        "pid": 7236,
+        "exit_code": 0,
+        "elapsed_seconds": 61.131,
+        "callbacks": 14,
+        "captures": 6,
+        "steps": 16,
+        "nonce": "01df2be1563245f59ccd4fddfdc53537",
+        "capture_names": [
+          "mage.before",
+          "mage.information",
+          "mage.confirmation",
+          "mage.after-cancel",
+          "mage.confirmation-again",
+          "mage.after-erase"
+        ]
+      },
+      {
+        "mode": "reload",
+        "pid": 15548,
+        "exit_code": 0,
+        "elapsed_seconds": 30.578,
+        "callbacks": 6,
+        "captures": 1,
+        "steps": 6,
+        "nonce": "3a8c63409285433da91892d1c09f871b",
+        "capture_names": [
+          "mage.before"
+        ]
+      }
+    ],
+    "intended_target": "SPWI213",
+    "retained_other": "SPWI211",
+    "control_proof": [
+      {
+        "mode": "operate",
+        "resref": "SPWI213",
+        "original_sha256": "cd1af476a141570d00f2ba84efd0167209632ab87053e92f9bafed2c6347e887",
+        "override_sha256": "8c91f8bd5f778221aa8bf3aa7e1677ba7a0c34877a6fd7212063101c58cea4c2",
+        "changed_offsets": [
+          8
+        ],
+        "original_name_ref": 12056,
+        "override_name_ref": 12033
+      },
+      {
+        "mode": "operate",
+        "resref": "SPWI211",
+        "original_sha256": "837fd3be783d9ec9e91437cd849dc18c4ed6266117c0bebc63972f67dcaca89b",
+        "override_sha256": "6f67fdd2fff1f36889f6f309dbbd5942882e12f3876dc237103cdac4751d4cff",
+        "changed_offsets": [
+          8
+        ],
+        "original_name_ref": 12033,
+        "override_name_ref": 12056
+      },
+      {
+        "mode": "operate",
+        "resref": "SPPR113",
+        "original_sha256": "81b3955ea7c3d1243d85c3391b5120a4d56a9d0e4fe47e4207e562c668b0fa99",
+        "override_sha256": "925f67705bea60a48f7e6b3b025fa7541ef5d391d8031acb80484bacf3e070a8",
+        "changed_offsets": [
+          8,
+          9
+        ],
+        "original_name_ref": 3351,
+        "override_name_ref": 25601
+      },
+      {
+        "mode": "operate",
+        "resref": "SPPR111",
+        "original_sha256": "f21765bd5db520c8c50411d96052d03e3ab9d50b786c29b7899048bdc406099b",
+        "override_sha256": "36b39e87a82d53d13c240b99a9fb242c5a03b404c24767ba560ed97307f4a5b1",
+        "changed_offsets": [
+          8,
+          9
+        ],
+        "original_name_ref": 25601,
+        "override_name_ref": 3351
+      },
+      {
+        "mode": "reload",
+        "resref": "SPWI213",
+        "original_sha256": "cd1af476a141570d00f2ba84efd0167209632ab87053e92f9bafed2c6347e887",
+        "override_sha256": "8c91f8bd5f778221aa8bf3aa7e1677ba7a0c34877a6fd7212063101c58cea4c2",
+        "changed_offsets": [
+          8
+        ],
+        "original_name_ref": 12056,
+        "override_name_ref": 12033
+      },
+      {
+        "mode": "reload",
+        "resref": "SPWI211",
+        "original_sha256": "837fd3be783d9ec9e91437cd849dc18c4ed6266117c0bebc63972f67dcaca89b",
+        "override_sha256": "6f67fdd2fff1f36889f6f309dbbd5942882e12f3876dc237103cdac4751d4cff",
+        "changed_offsets": [
+          8
+        ],
+        "original_name_ref": 12033,
+        "override_name_ref": 12056
+      },
+      {
+        "mode": "reload",
+        "resref": "SPPR113",
+        "original_sha256": "81b3955ea7c3d1243d85c3391b5120a4d56a9d0e4fe47e4207e562c668b0fa99",
+        "override_sha256": "925f67705bea60a48f7e6b3b025fa7541ef5d391d8031acb80484bacf3e070a8",
+        "changed_offsets": [
+          8,
+          9
+        ],
+        "original_name_ref": 3351,
+        "override_name_ref": 25601
+      },
+      {
+        "mode": "reload",
+        "resref": "SPPR111",
+        "original_sha256": "f21765bd5db520c8c50411d96052d03e3ab9d50b786c29b7899048bdc406099b",
+        "override_sha256": "36b39e87a82d53d13c240b99a9fb242c5a03b404c24767ba560ed97307f4a5b1",
+        "changed_offsets": [
+          8,
+          9
+        ],
+        "original_name_ref": 25601,
+        "override_name_ref": 3351
+      }
+    ],
+    "nonidentity_sort_runtime": true,
+    "token_resolutions": [
+      {
+        "capture": 2,
+        "nonce": "01df2be1563245f59ccd4fddfdc53537",
+        "raw_description_ref": 12181,
+        "raw_description_sha256": "15cc55d237cb8b39364049a5891668a68ec0026cf5146c39dbea8867fa4a192c",
+        "expected_description_sha256": "5b70af68d980aec28eab12749dfc0db5d6fdb11fd50ace1664af389029ab0c80",
+        "actor_runtime_id": 10002,
+        "slot": 0,
+        "protagonist_sex": 1,
+        "selected_imoen_sex": 2,
+        "word_ref": 27486,
+        "word": "his",
+        "occurrences": 1
+      },
+      {
+        "capture": 3,
+        "nonce": "01df2be1563245f59ccd4fddfdc53537",
+        "raw_description_ref": 12181,
+        "raw_description_sha256": "15cc55d237cb8b39364049a5891668a68ec0026cf5146c39dbea8867fa4a192c",
+        "expected_description_sha256": "5b70af68d980aec28eab12749dfc0db5d6fdb11fd50ace1664af389029ab0c80",
+        "actor_runtime_id": 10002,
+        "slot": 0,
+        "protagonist_sex": 1,
+        "selected_imoen_sex": 2,
+        "word_ref": 27486,
+        "word": "his",
+        "occurrences": 1
+      },
+      {
+        "capture": 4,
+        "nonce": "01df2be1563245f59ccd4fddfdc53537",
+        "raw_description_ref": 12181,
+        "raw_description_sha256": "15cc55d237cb8b39364049a5891668a68ec0026cf5146c39dbea8867fa4a192c",
+        "expected_description_sha256": "5b70af68d980aec28eab12749dfc0db5d6fdb11fd50ace1664af389029ab0c80",
+        "actor_runtime_id": 10002,
+        "slot": 0,
+        "protagonist_sex": 1,
+        "selected_imoen_sex": 2,
+        "word_ref": 27486,
+        "word": "his",
+        "occurrences": 1
+      },
+      {
+        "capture": 5,
+        "nonce": "01df2be1563245f59ccd4fddfdc53537",
+        "raw_description_ref": 12181,
+        "raw_description_sha256": "15cc55d237cb8b39364049a5891668a68ec0026cf5146c39dbea8867fa4a192c",
+        "expected_description_sha256": "5b70af68d980aec28eab12749dfc0db5d6fdb11fd50ace1664af389029ab0c80",
+        "actor_runtime_id": 10002,
+        "slot": 0,
+        "protagonist_sex": 1,
+        "selected_imoen_sex": 2,
+        "word_ref": 27486,
+        "word": "his",
+        "occurrences": 1
+      }
+    ],
+    "token_table": {
+      "provider": "C:\\BGRedux\\phase1-local\\engine\\gemrb\\unhardcoded\\bg2ee\\gender.2da",
+      "sha256": "fc7f5f95df9ebe380307fa453f0110ba8a5a5f441736f4ee70e4cdcab190d8e4",
+      "row": [
+        "PRO_HISHER",
+        "0",
+        "27486",
+        "27487"
+      ],
+      "tlk_sha256": "9e685225ff3c3436a8a35fa7022550620d24a92efe35436a062c02955d9f0952"
+    },
+    "retained_failures": [
+      {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T102210Z-spellbook-erase-ee-direct-1bd64447\\result.json",
+        "sha256": "8b5730d36716561ba79b017f569b52cd15df171253331bd318b6e76a69bbddf1",
+        "error": "Information modal shows another spell/description"
+      },
+      {
+        "path": "C:\\BGRedux\\phase1-local\\spellbook-probes\\erase-before-2\\build.json",
+        "sha256": "831e5f10164414daa68dd35de8b24da8181f7fbc4aba6074be67db5e42b55a53",
+        "error": "[Errno 2] No such file or directory: 'C:\\\\BGRedux\\\\phase1-local\\\\engine\\\\gemrb\\\\core\\\\TableMgr.cpp'"
+      }
+    ],
+    "auditor_sha256": "31f4e4873008343876f94e40c207bb461a46483db17cefe317d79d9c504bc503",
+    "limits": [
+      "No source validator imports or engine/runtime/test/build launches",
+      "Private nonidentity presentation control, not stock/original parity",
+      "No original erasure parity",
+      "Pronoun is protagonist modifiedsex context, not selected female caster",
+      "Exact known reverse wire mapping; memo direct; all other pages/slots/world retained"
+    ],
+    "known_before_sha256": "f5012f15cb10da4cbc150a84dcc6aacaf6858c28ecfe8ac80a63d6d13f790db4",
+    "known_before_target_page": [
+      {
+        "type": 1,
+        "level": 1,
+        "slots": 3,
+        "bonus": 3,
+        "known": [
+          {
+            "resref": "SPWI215",
+            "level": 1,
+            "type": 1
+          },
+          {
+            "resref": "SPWI214",
+            "level": 1,
+            "type": 1
+          },
+          {
+            "resref": "SPWI213",
+            "level": 1,
+            "type": 1
+          },
+          {
+            "resref": "SPWI212",
+            "level": 1,
+            "type": 1
+          },
+          {
+            "resref": "SPWI211",
+            "level": 1,
+            "type": 1
+          }
+        ],
+        "memorized": [
+          {
+            "resref": "SPWI213",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI214",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI215",
+            "flags": 1
+          }
+        ]
+      }
+    ],
+    "known_after_sha256": "c990222dbd3a6303fdfb71e8491b8a73bcc36994a011f7214d23fd9353192e8a",
+    "known_after_target_page": [
+      {
+        "type": 1,
+        "level": 1,
+        "slots": 3,
+        "bonus": 3,
+        "known": [
+          {
+            "resref": "SPWI215",
+            "level": 1,
+            "type": 1
+          },
+          {
+            "resref": "SPWI214",
+            "level": 1,
+            "type": 1
+          },
+          {
+            "resref": "SPWI212",
+            "level": 1,
+            "type": 1
+          },
+          {
+            "resref": "SPWI211",
+            "level": 1,
+            "type": 1
+          }
+        ],
+        "memorized": [
+          {
+            "resref": "SPWI214",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI215",
+            "flags": 1
+          }
+        ]
+      }
+    ],
+    "private_audit": "C:\\BGRedux\\phase1-local\\results\\20261022T115011Z-information-controlled-erase-independent-c4628f3d\\audit.json",
+    "private_audit_sha256": "76bf283812064ef30e9e0470b29eedee583dbc223cf57144869bd723890ab2b5"
+  },
+  "visual_scope": "Viewed only stock/control operate capture1: actual visible English names/help and action phrase; no exact font/style/size parity"
+}
