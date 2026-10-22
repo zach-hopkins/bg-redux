@@ -5,7 +5,7 @@ import os
 from pathlib import Path
 import sys
 import struct
-from unittest.mock import patch
+from unittest.mock import patch, Mock
 from types import SimpleNamespace
 import tempfile
 import unittest
@@ -38,7 +38,8 @@ def capture(folder,reload=False):
         if not reload and i==9:after['next']=dict(id=113,resref='SPWI102',target_mode=-1,target_id=10003)
         rows.append(dict(sample=i,running=4<i<=12,eligible=j.eligible(ctx),streak=0 if reload or i<5 else min(4,i-4),press_count=0 if reload or i<9 else 1,opened=not reload and i==8,issued=not reload and i==9,before=ctx,after=after))
         samples.append(dict(sample=i,phase='paused-initial' if i<5 else 'running' if i<=12 else 'paused-final',game_time=t,elapsed_ms=i*250,action_trace=[dict(runtime_id=10003,position=after['actor']['position'],action_id=after['current']['id'] if after['current'] else None,current_action_target=after['current_action_target'])]))
-    records={'clock-before.state.json':first,'clock-after.state.json':last,'clock-samples.json':dict(schema='bg-redux-live-clock/1',ticks_per_second=15,samples=samples),
+    for table in ('spldisp','guibtact'):(folder/(table+'.runtime.2da')).write_bytes(b'2DA V1.0\n0\n')
+    records={'spell-table-providers.json':dict(schema='bg-redux-spell-table-providers/1',tables={}), 'clock-before.state.json':first,'clock-after.state.json':last,'clock-samples.json':dict(schema='bg-redux-live-clock/1',ticks_per_second=15,samples=samples),
       'gui-result.json':dict(completed=True,steps=17,events=['ReduxStart.PopulateLoad','press:load.baseline-row','ReduxStart.Ready','clock:resume','clock:pause']),
       'spell-before.state.json':first,'spell-portrait-before.state.json':copy.deepcopy(first),'spell-before-save.state.json':last,'spell-after-save.state.json':copy.deepcopy(last),
       'spell-diagnostics.json':dict(schema='bg-redux-spell-diagnostics/1',samples=rows),
@@ -175,5 +176,57 @@ class SpellWireAndProvenanceTests(unittest.TestCase):
             for count,timeout in [(80,91),(79,90),(80,0)]:
                 args=SimpleNamespace(project_root=Path('.'),engine_source_root=Path('.'),engine_build_root=Path('.'),running_samples=count,timeout=timeout)
                 with self.assertRaises(ValueError):j.run(args)
+
+class SpellTableProviderTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup);self.root=Path(self.tmp.name)
+        self.api=SimpleNamespace(probe_ui_resources=SimpleNamespace(TYPES={},read_resource=Mock(return_value=(None,None))))
+    def put(self,relative,raw=b'2DA V1.0\n0\n COL\n0 1\n'):
+        p=self.root/relative;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(raw);return p
+    def test_shared_fallback_and_bg2ee_precedence_are_explicit(self):
+        shared=self.put('gemrb/unhardcoded/shared/spldisp.2da')
+        raw,origin,proof=j.table_provider(self.api,self.root,'spldisp')
+        self.assertEqual(Path(origin),shared);self.assertEqual(raw,shared.read_bytes());self.assertFalse(proof['checked_paths'][2]['exists'])
+        specific=self.put('gemrb/unhardcoded/bg2ee/spldisp.2da',b'2DA V1.0\n0\n COL\n0 2\n')
+        raw,origin,proof=j.table_provider(self.api,self.root,'spldisp')
+        self.assertEqual(Path(origin),specific);self.assertEqual(raw,specific.read_bytes());self.assertTrue(proof['checked_paths'][2]['exists'])
+    def test_missing_malformed_and_game_or_engine_shadow_rejected(self):
+        with self.assertRaises(ValueError):j.table_provider(self.api,self.root,'guibtact')
+        p=self.put('gemrb/unhardcoded/bg2ee/guibtact.2da',b'invalid')
+        with self.assertRaises(ValueError):j.table_provider(self.api,self.root,'guibtact')
+        p.write_bytes(b'2DA V1.0\n0\n')
+        self.api.probe_ui_resources.read_resource.return_value=(b'2DA V1.0\n0\n','override/guibtact.2da')
+        with self.assertRaisesRegex(ValueError,'game table provider'):j.table_provider(self.api,self.root,'guibtact')
+        self.api.probe_ui_resources.read_resource.return_value=(None,None)
+        self.put('gemrb/override/shared/guibtact.2da')
+        with self.assertRaisesRegex(ValueError,'GemRB table override'):j.table_provider(self.api,self.root,'guibtact')
+    def test_absence_proof_and_selected_content_drift_rejected(self):
+        p=self.put('gemrb/unhardcoded/shared/spldisp.2da')
+        def current(api,source):
+            raw,origin,provider=j.table_provider(api,source,'spldisp')
+            return dict(spldisp=dict(raw=raw,origin=origin,provider=provider,bytes=len(raw),sha256=j.binary.digest(raw)))
+        expected=current(self.api,self.root)['spldisp'];frozen=self.put('frozen.2da',expected['raw'])
+        receipt=dict(source=str(self.root),startup_resources=dict(spldisp={k:v for k,v in expected.items() if k!='raw'}|dict(frozen=str(frozen))))
+        with patch.object(j,'startup_resources',side_effect=current):
+            j.check_resources(receipt,self.api)
+            self.put('gemrb/unhardcoded/bg2ee/spldisp.2da',p.read_bytes())
+            with self.assertRaisesRegex(ValueError,'provider/frozen drift'):j.check_resources(receipt,self.api)
+        (self.root/'gemrb/unhardcoded/bg2ee/spldisp.2da').unlink();p.write_bytes(b'2DA V1.0\n1\n')
+        with patch.object(j,'startup_resources',side_effect=current),self.assertRaises(ValueError):j.check_resources(receipt,self.api)
+    def test_runtime_actual_path_and_exact_bytes_required(self):
+        rows={};receipt=dict(startup_resources={})
+        for name in ('spldisp','guibtact'):
+            original=self.put('gemrb/unhardcoded/shared/'+name+'.2da')
+            frozen=self.put(name+'.runtime.2da',original.read_bytes())
+            receipt['startup_resources'][name]=dict(provider=dict(path=str(original)),bytes=original.stat().st_size,sha256=j.evidence.sha(original))
+            rows[name]=dict(originalfile=str(original),bytes=original.stat().st_size)
+        report=self.root/'spell-table-providers.json'
+        def save():report.write_text(json.dumps(dict(schema='bg-redux-spell-table-providers/1',tables=rows)),encoding='utf-8')
+        save();j.check_runtime_tables(self.root,receipt)
+        rows['spldisp']['originalfile']=str(self.root/'unexpected-identical.2da');save()
+        with self.assertRaises(ValueError):j.check_runtime_tables(self.root,receipt)
+        rows['spldisp']['originalfile']=receipt['startup_resources']['spldisp']['provider']['path'];save()
+        (self.root/'spldisp.runtime.2da').write_bytes(b'drift')
+        with self.assertRaises(ValueError):j.check_runtime_tables(self.root,receipt)
 
 if __name__=='__main__':unittest.main()

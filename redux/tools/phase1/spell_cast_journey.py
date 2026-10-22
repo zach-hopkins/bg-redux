@@ -23,26 +23,68 @@ def sources(project,source):
     tool=Path(__file__).resolve().parent
     local=['spell_cast_journey.py','gui/SpellStart.py','native/spell_gui_probe_snapshot.cpp','native/spell_save_probe_snapshot.cpp','native/spell_journey.h']
     engine=['gemrb/GUIScripts/'+x for x in ['ActionsWindow.py','Spellbook.py','PortraitWindow.py','GUICommonWindows.py','GUISAVE.py','GUIOPT.py','ie_action.py','ie_spells.py']]
-    engine += ['gemrb/'+x for x in ['core/GUI/GameControl.cpp','core/GUI/Control.cpp','core/GUI/Button.cpp','core/GameScript/Actions.cpp','core/GameScript/GameScript.cpp','core/GameScript/GSUtils.cpp','core/GameScript/ParseText.cpp','core/Scriptable/Scriptable.cpp','core/Scriptable/Actor.cpp','core/Spellbook.cpp','core/Interface.cpp','plugins/FXOpcodes/FXOpcodes.cpp','plugins/CREImporter/CREImporter.cpp','plugins/EFFImporter/EFFImporter.cpp','plugins/GUIScript/GUIScript.cpp']]
+    engine += ['gemrb/'+x for x in ['core/GUI/GameControl.cpp','core/GUI/Control.cpp','core/GUI/Button.cpp','core/GameScript/Actions.cpp','core/GameScript/GameScript.cpp','core/GameScript/GSUtils.cpp','core/GameScript/ParseText.cpp','core/Scriptable/Scriptable.cpp','core/Scriptable/Actor.cpp','core/Spellbook.cpp','core/Interface.cpp','core/InterfaceConfig.cpp','core/ResourceManager.cpp','plugins/DirectoryImporter/DirectoryImporter.cpp','plugins/FXOpcodes/FXOpcodes.cpp','plugins/CREImporter/CREImporter.cpp','plugins/EFFImporter/EFFImporter.cpp','plugins/GUIScript/GUIScript.cpp']]
+    engine += ['gemrb/unhardcoded/shared/spldisp.2da','gemrb/unhardcoded/bg2ee/guibtact.2da']
     return common.sources(project)+[tool/x for x in local]+[source/x for x in engine]
 
 
-def startup_resources(api):
+def table_provider(api,source,name):
+    """Bounded stock bg2ee provider contract, not a general resource resolver.
+
+    Interface registers GemRB overrides before game providers, then bg2ee and
+    shared unhardcoded directories. Reject high-priority table shadows here;
+    native GetResourceStream separately verifies the actual runtime path/bytes,
+    covering profile/loose providers outside the game-only Phase0 probe.
+    """
+    if name not in ('spldisp','guibtact'):raise ValueError('Unsupported spell table')
+    source=Path(source).resolve();root=source/'gemrb';filename=name+'.2da';checks=[]
+    for path in (root/'override/bg2ee'/filename,root/'override/shared'/filename):
+        checks.append(dict(path=str(path),exists=path.exists()))
+        if path.exists():raise ValueError('Unexpected higher-priority GemRB table override: '+str(path))
+    api.probe_ui_resources.TYPES['2da']=0x3f4
+    game,origin=api.probe_ui_resources.read_resource(name,'2da')
+    if game is not None:raise ValueError('Unexpected higher-priority game table provider: '+str(origin))
+    chosen=None
+    for label in ('bg2ee','shared'):
+        path=root/'unhardcoded'/label/filename
+        checks.append(dict(path=str(path),exists=path.exists()))
+        if path.exists() and chosen is None:chosen=path
+    if chosen is None or not chosen.is_file():raise ValueError('Required GemRB table provider absent: '+name)
+    raw=chosen.read_bytes()
+    if not raw.startswith(b'2DA V1.0') or len(raw)>1024*1024:raise ValueError('Invalid GemRB table: '+name)
+    return raw,str(chosen),dict(kind='stock-bg2ee-unhardcoded',path=str(chosen),checked_paths=checks,game_probe_absent=True,
+        runtime_proof='GetResourceStream path and byte equality required for both fresh processes')
+
+
+def startup_resources(api,source):
     result={}
     for name,(ext,kind) in RESOURCE_SPECS.items():
         api.probe_ui_resources.TYPES[ext]=kind
-        raw,origin=api.probe_ui_resources.read_resource(name,ext)
+        provider=None
+        if name in ('spldisp','guibtact'):raw,origin,provider=table_provider(api,source,name)
+        else:raw,origin=api.probe_ui_resources.read_resource(name,ext)
         if not raw or len(raw)>1024*1024:raise ValueError('Spell resource missing/invalid: '+name)
         if name=='spwi102' and binary.digest(raw)!='7525db308f6d76b6e31587623fe9b19cfe2a8b49f0b1fdb43b6df57906974b70':raise ValueError('Declared stock SPWI102 resource differs')
-        result[name]=dict(raw=raw,origin=origin,sha256=binary.digest(raw),bytes=len(raw))
+        result[name]=dict(raw=raw,origin=origin,sha256=binary.digest(raw),bytes=len(raw),provider=provider)
     return result
 
+
 def check_resources(receipt,api):
-    actual=startup_resources(api)
+    actual=startup_resources(api,Path(receipt['source']))
     if set(receipt.get('startup_resources',{}))!=set(actual):raise ValueError('Startup resource closure differs')
     for name,row in receipt['startup_resources'].items():
         expected=actual[name]
-        if any(row.get(k)!=expected[k] for k in ('origin','sha256','bytes')) or evidence.sha(row['frozen'])!=row['sha256']:raise ValueError('Startup script resource/frozen drift: '+name)
+        if any(row.get(k)!=expected[k] for k in ('origin','sha256','bytes','provider')) or evidence.sha(row['frozen'])!=row['sha256']:raise ValueError('Startup resource/provider/frozen drift: '+name)
+
+
+def check_runtime_tables(folder,receipt):
+    rows=evidence.read(folder/'spell-table-providers.json')
+    if rows.get('schema')!='bg-redux-spell-table-providers/1' or set(rows.get('tables',{}))!={'spldisp','guibtact'}:raise ValueError('Actual runtime table provider evidence incomplete')
+    for name,row in rows['tables'].items():
+        expected=receipt['startup_resources'][name]
+        path=folder/(name+'.runtime.2da')
+        if Path(row.get('originalfile','')).resolve()!=Path(expected['provider']['path']).resolve() or row.get('bytes')!=expected['bytes'] or evidence.sha(path)!=expected['sha256']:raise ValueError('Actual runtime table path/bytes differs: '+name)
+    return rows
 
 def instrument(raw):
     changes=[(b'actor!=core->GetGame()->GetPC(0,false) &&',b'actor!=core->GetGame()->GetPC(0,false) && actor!=core->GetGame()->GetPC(1,false) &&'),(b'#include "save_probe.cpp"',b'#include "spell_save_probe_snapshot.cpp"'),
@@ -78,7 +120,7 @@ def build_host(args):
         result['sources']={str(p):shared.frozen_copy(p,out/'sources'/evidence.sha(p)/p.name) for p in sources(project,source)}
         result['startup_resources']={}
         resource_out=out/'startup-resources';resource_out.mkdir()
-        for name,row in startup_resources(api).items():
+        for name,row in startup_resources(api,source).items():
             target=resource_out/(name+'.'+RESOURCE_SPECS[name][0]);target.write_bytes(row['raw'])
             result['startup_resources'][name]={k:v for k,v in row.items() if k!='raw'}|dict(frozen=str(target))
         compiled=out/'compiled-sources';compiled.mkdir();generated=compiled/'spell_gui_probe.cpp'
@@ -209,11 +251,11 @@ def validate_diagnostics(data,running,reload,native,action_id):
     return dict(command_sample=command,release_sample=release,casting_self_target_observed=casting,callback_count=presses)
 
 def validate_capture(folder,running,reload,action_id,started_ns=None):
-    names=['clock-before.state.json','clock-after.state.json','clock-samples.json','gui-result.json','spell-before.state.json','spell-portrait-before.state.json','spell-before-save.state.json','spell-after-save.state.json','spell-result.json','spell-diagnostics.json']
+    names=['clock-before.state.json','clock-after.state.json','clock-samples.json','gui-result.json','spell-before.state.json','spell-portrait-before.state.json','spell-before-save.state.json','spell-after-save.state.json','spell-result.json','spell-diagnostics.json','spell-table-providers.json']
     if not reload:names+=['spell-cast-before.state.json','spell-cast-button.json','spell-command-before.state.json','spell-command-after.state.json','spell-released.state.json','spell-button.json']
     shots=['spell-before-portrait','spell-before','spell-before-save','spell-save-confirm','spell-after-save']
     if not reload:shots+=['spell-cast-before','spell-command-before','spell-icons','spell-command-after','spell-released']
-    for name in names+[s+'.bmp' for s in shots]:
+    for name in names+[s+'.bmp' for s in shots]+['spldisp.runtime.2da','guibtact.runtime.2da']:
         path=folder/name
         if not path.is_file() or (started_ns is not None and path.stat().st_mtime_ns<started_ns):raise ValueError('Missing/stale spell evidence: '+name)
     for shot in shots:
@@ -355,6 +397,7 @@ def run(args):
                 if (stage/'capture/spell-result.json').is_file():entry['native_receipt']=evidence.read(stage/'capture/spell-result.json')
                 shared.require_process(entry['process'])
                 if 'Traceback (most recent call last)' in (stage/'process.log').read_text(encoding='utf-8',errors='replace'):raise ValueError('Stock callback traceback')
+                entry['runtime_table_providers']=check_runtime_tables(stage/'capture',receipt)
                 observed=validate_capture(stage/'capture',args.running_samples,bool(index),action_id,started);entry['observation']=observed
                 loaded=evidence.read(stage/'capture/spell-before.state.json')
                 entry['loaded_wire_guard']=check_wire(incoming,loaded) if index else dict(memorized=wire_spells(incoming)['spellbook'])

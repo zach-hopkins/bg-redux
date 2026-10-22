@@ -83,7 +83,21 @@ static bool SpellEffects() {
     }
     return ac && icon;
 }
+static void SpellTables(const std::string& out) {
+    Fields rows;
+    for (const char* name:{"spldisp","guibtact"}) {
+        std::unique_ptr<DataStream> stream(gamedata->GetResourceStream(StringView(name),IE_2DA_CLASS_ID));
+        if (!stream || stream->Size()<8 || stream->Size()>1024*1024) throw std::runtime_error("Actual spell table stream unavailable/bounds");
+        std::string raw(stream->Size(),'\0');
+        if (stream->Read(&raw[0],raw.size())!=static_cast<strret_t>(raw.size())) throw std::runtime_error("Short actual spell table read");
+        std::ofstream frozen(out+"/"+name+".runtime.2da",std::ios::binary);
+        if (!frozen || !frozen.write(raw.data(),raw.size())) throw std::runtime_error("Cannot freeze exact runtime table bytes");
+        rows.emplace_back(name,O({{"originalfile",Q(stream->originalfile.c_str())},{"bytes",NumberJSON(raw.size())}}));
+    }
+    Write(out+"/spell-table-providers.json",O({{"schema",Q("bg-redux-spell-table-providers/1")},{"tables",O(rows)}}));
+}
 static void SpellStart(const std::string& out,bool reload) {
+    SpellTables(out);
     SpellReload=reload;auto* a=SpellPC();
     auto* p=SpellControl(SpellWindow("PORTWIN"),1);
     if (!p->IsDictBound() || p->DictVariable()!=StringView("portrait") || p->GetValue()!=2) throw std::runtime_error("Actual Imoen portrait binding differs");
