@@ -127,7 +127,9 @@ def run(args):
             env=api.harness.environment(stage);prefix=project/'phase0-local/toolchain/msys64/ucrt64';env['PATH']=os.pathsep.join([str(build/'gemrb'),str(prefix/'bin'),env.get('PATH','')]);env['PYTHONDONTWRITEBYTECODE']='1'
             source_guard(receipt,project,source);check_resources(receipt,api,project,source);parent_proof(project);shared.validate_private_game(private,stage)
             if evidence.manifest(driver)!=driver_files:raise ValueError('Frozen launch closure changed')
-            started=time.time_ns();entry['process']=api.baseline_runner.execute(command,build,env,stage/'process.log',180 if mode=='operate'else 120)
+            # Complete before-runs took ~177 seconds including evidence writes.
+            # Keep a bounded margin for normal storage/capture variation.
+            started=time.time_ns();entry['process']=api.baseline_runner.execute(command,build,env,stage/'process.log',240 if mode=='operate'else 120)
             shared.require_process(entry['process'])
             if 'Traceback (most recent call last)' in (stage/'process.log').read_text(encoding='utf-8',errors='replace'):raise ValueError('Stock callback traceback')
             check_resources(receipt,api,project,source);parent_proof(project)

@@ -42,7 +42,16 @@ The host runs the normal loop through observed natural startup, then pauses for 
 
 Build and run require the coherent full candidate engine build receipt, including its complete source, binary, and build-support inventories. The external compile receipt freezes the compiler/CMake hashes, Python dependency closure, GUIMG/GUIPR/Spellbook/portrait/load/save/control/provider sources, generated helper, and exact resource bytes. The GUI helper is copied with its unused main renamed, avoiding nested main macros. Runtime resource streams must match frozen provider paths and bytes; KEY, TLK, SPL/CHU archive providers, and source fallback 2DAs are bound. `spldisp` and `guibtact` follow the previously characterized explicit provider resolver, not a game-only assumption.
 
-Each process gets a private GamePath wrapper, empty private override, cache, profile, immutable input, fresh nonce, and owned bounded subprocess receipt. The normal phase is bounded to 180 seconds/720 timer samples; reload to 120 seconds/480 samples. No retry or fallback hides a failed callback. All logs, raw before/after callback snapshots, screenshots, UI dictionaries, startup samples, resource streams, and failed prefixes remain in a unique result folder. Phase0, candidate, source/resource closure, parent artifacts, input/save, and private wrapper guards run before/after/final.
+Each process gets a private GamePath wrapper, empty private override for stock runs, cache, profile, immutable input, fresh nonce, and owned bounded subprocess receipt. The normal phase is bounded to 240 seconds/720 timer samples; reload to 120 seconds/480 samples. No retry or fallback hides a failed callback. All logs, raw before/after callback snapshots, screenshots, UI dictionaries, startup samples, resource streams, and failed prefixes remain in a unique result folder. Phase0, candidate, source/resource closure, parent artifacts, input/save, and private wrapper guards run before/after/final.
+
+The original 180-second process budget had only about three seconds of margin:
+two completed native phases took 177.292/177.009 seconds. Run
+`compressed-spellbook-20261022/20261022T090558Z-spellbook-operation-b75b1509`
+completed all 69 Python plan steps but timed out during GUI saving at 181.298
+seconds; owned process-tree cleanup completed and every preservation guard passes.
+It remains failed. The new 240-second bound provides measured evidence-writing
+margin; it changes no plan, state, callback, pixel or saved-byte assertion. Timer
+sampling counts and requested intervals do not establish wall-clock performance.
 
 ## Coordinator commands
 
