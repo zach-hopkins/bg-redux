@@ -166,7 +166,8 @@ def inspect_spellbook(name, pack):
                 tooltip=GemRB.GetString(GemRB.GetSpell(resref)['SpellName'])))
         known.sort(key=lambda row: row['tooltip'])
         memorized = []
-        sorcerer = bool(getattr(module, 'Sorcerer', False)) if pack == 'GUIMG' else False
+        sorcerer = (bool(getattr(module, 'Sorcerer', False)) if pack == 'GUIMG' else
+                    bool(importlib.import_module('Spellbook').HasSorcererBook(pc)))
         if not sorcerer:
             for index in range(min(12, GemRB.GetMemorizedSpellsCount(pc, kind, level, False))):
                 spell = GemRB.GetMemorizedSpell(pc, kind, level, index)
@@ -175,10 +176,19 @@ def inspect_spellbook(name, pack):
                     tooltip=GemRB.GetString(GemRB.GetSpell(resref)['SpellName'])))
         if not known and not memorized:
             raise RuntimeError('Displayed spell level has no content; populated-book coverage unproven')
+        heading = None
+        if not sorcerer:
+            heading = dict(schema='bg-redux-ordinary-spellbook-heading/1', strref=11944,
+                localized_prefix=GemRB.GetString(11944),
+                allocated_count=GemRB.GetMemorizedSpellsCount(pc, kind, level, False),
+                capacity=GemRB.GetMemorizableSpellsCount(pc, kind, level, 1),
+                level_text=GemRB.GetString(10345), level_token=GemRB.GetToken('SPELLLEVEL'),
+                per_label_style_observed=False)
         ROWS.append(dict(name=name+'.content-contract', pack=pack, actor=pc,
             actor_name=actor_name, level=level, sorcerer=sorcerer,
             known=known, memorized=memorized, known_capacity=24,
             memorized_capacity=0 if sorcerer else 12,
+            heading=heading,
             sprite_resource_identity_observed=False))
     else:
         ROWS.append(dict(name=name, passed=None, status='context-gated',

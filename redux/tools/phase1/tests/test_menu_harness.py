@@ -1,4 +1,5 @@
 import importlib.util
+import copy
 import json
 from pathlib import Path
 import struct
@@ -21,21 +22,30 @@ def load(name, path):
 harness = load("menu_harness_test", HERE / "menu_harness.py")
 
 
-def spell_fixture():
-    contract = dict(pack='GUIMG', actor=2, actor_name='Imoen', level=0, sorcerer=False,
+def spell_fixture(pack='GUIMG'):
+    kind = 1 if pack == 'GUIMG' else 0
+    contract = dict(pack=pack, actor=2, actor_name='Imoen', level=0, sorcerer=False,
         known=[dict(resref='spwi112', value=3, tooltip='Magic Missile')],
         memorized=[dict(resref='spwi112', value=0, tooltip='Magic Missile', ready=1)],
-        known_capacity=24, memorized_capacity=12)
-    state = dict(selection=2, party=[dict(name='Fighter'), dict(name='Imoen')])
-    controls = [dict(pack='GUIMG', window=2, id=0x10000035, visible=True, text='Imoen')]
+        known_capacity=24, memorized_capacity=12,
+        heading=dict(schema='bg-redux-ordinary-spellbook-heading/1', strref=11944,
+            localized_prefix='Memorized', allocated_count=1, capacity=3,
+            level_text='Level 1', level_token='1', per_label_style_observed=False))
+    state = dict(selection=2, party=[dict(name='Fighter'), dict(name='Imoen',
+        spellbook=[dict(type=kind,level=0,slots=2,slots_with_bonus=3,
+            memorized=[dict(resref='spwi112',flags=1)])])])
+    controls = [dict(pack=pack, window=2, id=0x10000035, visible=True, text='Imoen')]
     for family, base, count in (('known',27,24),('memorized',3,12)):
         for i in range(count):
             spell = contract[family][i] if i < len(contract[family]) else None
-            controls.append(dict(pack='GUIMG',window=2,id=base+i,visible=True,disabled=False,
-                rect=[0,0,32,32],
+            controls.append(dict(pack=pack,window=2,id=base+i,visible=True,disabled=False,
+                rect=[100+62*i,644,54,54] if family=='memorized' else [0,0,32,32],
                 value=spell['value'] if spell else i, flags=2 if spell else 0,
                 tooltip=spell['tooltip'] if spell else '', stored_tooltip=spell['tooltip'] if spell else '',
                 picture_observable=True,picture_present=bool(spell),picture_size=[32,32] if spell else None))
+    controls.append(dict(pack=pack,window=None,type=None,id=2,visible=True,disabled=False,rect=[80,29,864,710]))
+    controls.extend([dict(pack=pack,window=2,id=0x10000033,visible=True,text='Memorized: 1/3',rect=[295,598,275,40]),
+                     dict(pack=pack,window=2,id=0x10000032,visible=True,text='Level 1')])
     return contract,state,dict(controls=controls)
 
 
@@ -118,6 +128,31 @@ class MenuReceiptTests(unittest.TestCase):
 
     def test_validation_has_no_unpinned_call_compatibility_bypass(self):
         with self.assertRaises(TypeError): harness.validate_stage(self.path)
+
+    def test_required_ordinary_books_do_not_accept_context_gated_priest(self):
+        value=harness.validate_stage(self.path,expected_nonce=self.host['nonce'],require_ordinary_spellbooks=True)
+        self.assertFalse(value['assertion_passed'])
+        self.assertEqual(value['ordinary_spellbook_heading_coverage'],['mage-book'])
+        self.assertFalse(value['ordinary_spellbook_heading_coverage_complete'])
+
+    def test_required_ordinary_books_accept_both_native_heading_contracts(self):
+        contract,state,ui=spell_fixture('GUIPR')
+        priest=next(r for r in self.runtime['checks'] if r.get('name')=='priest-book.applicability')
+        priest.update(applicable=True,selected_actor=2)
+        self.runtime['checks'].extend([dict(name='priest-book.content-contract',**contract),
+            dict(step=9,action='priest-book.select-eligible'),dict(step=10,action='priest-book.open')])
+        self.runtime.update(steps=20,planned_steps=20)
+        for sequence,step,pack,cid in ((3,10,'PORTWIN',1),(4,11,'OPTWIN',6)):
+            harness.write(self.path/('callback-%d.json'%sequence),dict(runtime_step=step,pack=pack,
+                window=0,control=cid,performed=True,nonce=self.host['nonce']))
+        index=next(r['capture'] for r in self.runtime['checks'] if r.get('action')=='priest-book.observed')
+        harness.write(self.path/('capture-%d.ui.json'%index),ui)
+        harness.write(self.path/('capture-%d.state.json'%index),state)
+        self.save()
+        value=harness.validate_stage(self.path,expected_nonce=self.host['nonce'],require_ordinary_spellbooks=True)
+        self.assertTrue(value['assertion_passed'])
+        self.assertTrue(value['ordinary_spellbook_heading_coverage_complete'])
+        self.assertFalse(value['per_label_font_color_alignment_observed'])
 
     def test_same_process_success_cannot_hide_changed_effects_or_ammo(self):
         self.after["ammo"] -= 1
@@ -319,6 +354,42 @@ class MenuRuntimeTests(unittest.TestCase):
         self.assertIsNone(self.runtime.ROWS[-1]['passed'])
         self.assertEqual(self.runtime.ROWS[-1]['status'],'context-gated')
 
+    def test_runtime_heading_contract_reads_live_allocated_count_capacity_and_level(self):
+        for pack,name,kind in (('GUIMG','mage-book',1),('GUIPR','priest-book',0)):
+            with self.subTest(pack=pack):
+                self.runtime.SPELL_ACTORS[name]=2
+                self.gem.GameGetSelectedPCSingle=lambda:2
+                self.gem.GetPlayerName=lambda *args:'Imoen'
+                self.runtime.expect_window=lambda *args:None
+                self.runtime.control=lambda *args:types.SimpleNamespace(QueryText=lambda:'Imoen')
+                self.gem.GetKnownSpellsCount=lambda *args:1
+                self.gem.GetKnownSpell=lambda *args:dict(SpellResRef='SPWI112')
+                self.gem.GetMemorizedSpell=lambda *args:dict(SpellResRef='SPWI112',Flags=0)
+                self.gem.GetSpell=lambda *args:dict(SpellName=100)
+                self.gem.GetString=lambda ref:{11944:'Mémorisés',10345:'Niveau 1',100:'Magic Missile'}[ref]
+                self.gem.GetToken=lambda token:'1'
+                calls=[]
+                def count(pc,book,level,ready):
+                    calls.append((pc,book,level,ready))
+                    return 0 if ready else 2
+                self.gem.GetMemorizedSpellsCount=count
+                self.gem.GetMemorizableSpellsCount=lambda *args:5
+                books=dict(GUIMG=types.SimpleNamespace(MageSpellLevel=0,Sorcerer=False),
+                           GUIPR=types.SimpleNamespace(PriestSpellLevel=0),
+                           Spellbook=types.SimpleNamespace(HasSorcererBook=lambda pc:False))
+                with patch.dict(sys.modules,books):
+                    self.runtime.inspect_spellbook(name,pack)
+                contract=self.runtime.ROWS[-1]
+                self.assertEqual(contract['actor'],2)
+                self.assertEqual(contract['level'],0)
+                self.assertEqual(contract['heading']['allocated_count'],2)
+                self.assertEqual(contract['heading']['capacity'],5)
+                self.assertEqual(contract['heading']['localized_prefix'],'Mémorisés')
+                self.assertEqual(contract['heading']['level_text'],'Niveau 1')
+                self.assertEqual(contract['heading']['level_token'],'1')
+                self.assertIs(contract['heading']['per_label_style_observed'],False)
+                self.assertIn((2,kind,0,False),calls)
+
 
 class SpellbookContentTests(unittest.TestCase):
     def test_real_populated_and_empty_controls_match(self):
@@ -350,6 +421,120 @@ class SpellbookContentTests(unittest.TestCase):
                 else: u['controls'][1]['visible']=False
                 with self.assertRaisesRegex(ValueError,'spellbook control'):
                     harness.validate_spellbook_capture(c,s,u)
+
+
+class SpellbookHeadingEvidenceTests(unittest.TestCase):
+    def valid(self, c, s, u):
+        return all(row['passed'] for row in harness.validate_spellbook_capture(c,s,u))
+
+    def test_both_ordinary_books_bind_bonus_capacity_and_spent_entries(self):
+        for pack in ('GUIMG','GUIPR'):
+            with self.subTest(pack=pack):
+                c,s,u=spell_fixture(pack)
+                s['party'][1]['spellbook'][0]['memorized'][0]['flags']=0
+                self.assertTrue(self.valid(c,s,u))
+
+    def test_localization_is_used_without_hardcoded_english_or_ready_count(self):
+        c,s,u=spell_fixture('GUIPR')
+        c['heading']['localized_prefix']='Mémorisés'
+        u['controls'][-2]['text']='Mémorisés: 1/3'
+        self.assertTrue(self.valid(c,s,u))
+        u['controls'][-2]['text']='Memorized: 1/3'
+        self.assertFalse(self.valid(c,s,u))
+
+    def test_forged_count_or_capacity_cannot_pass_by_matching_label(self):
+        for key, text in (('allocated_count','Memorized: 2/3'),('capacity','Memorized: 1/4')):
+            with self.subTest(key=key):
+                c,s,u=spell_fixture()
+                c['heading'][key]+=1
+                u['controls'][-2]['text']=text
+                self.assertFalse(self.valid(c,s,u))
+
+    def test_stale_native_heading_and_wrong_level_are_rejected(self):
+        for field,value in (('text','Memorized: 0/3'),('rect',[295,490,275,30])):
+            with self.subTest(field=field):
+                c,s,u=spell_fixture();u['controls'][-2][field]=value
+                self.assertFalse(self.valid(c,s,u))
+        for mutate in ('title','token'):
+            c,s,u=spell_fixture()
+            if mutate=='title':u['controls'][-1]['text']='Level 2'
+            else:c['heading']['level_token']='2'
+            self.assertFalse(self.valid(c,s,u))
+
+    def test_missing_duplicate_or_wrong_type_native_page_fails_closed(self):
+        for mode in ('missing','duplicate','type','level'):
+            with self.subTest(mode=mode):
+                c,s,u=spell_fixture();pages=s['party'][1]['spellbook']
+                if mode=='missing':pages.clear()
+                elif mode=='duplicate':pages.append(copy.deepcopy(pages[0]))
+                elif mode=='type':pages[0]['type']=0
+                else:pages[0]['level']=1
+                with self.assertRaisesRegex(ValueError,'native spellbook page'):
+                    self.valid(c,s,u)
+
+    def test_hidden_missing_duplicate_or_clipped_heading_is_not_a_pass(self):
+        for mode in ('hidden','missing','duplicate','short','overlap','horizontal'):
+            with self.subTest(mode=mode):
+                c,s,u=spell_fixture()
+                if mode=='hidden':u['controls'][-2]['visible']=False
+                elif mode=='missing':u['controls'].pop(-2)
+                elif mode=='duplicate':u['controls'].append(copy.deepcopy(u['controls'][-2]))
+                elif mode=='short':u['controls'][-2]['rect'][-1]=8
+                elif mode=='overlap':u['controls'][-2]['rect']=[295,630,275,40]
+                else:u['controls'][-2]['rect'][0]+=1
+                if mode in ('hidden','missing','duplicate'):
+                    with self.assertRaisesRegex(ValueError,'spellbook control'):self.valid(c,s,u)
+                else:self.assertFalse(self.valid(c,s,u))
+
+    def test_native_world_count_change_cannot_hide_behind_old_contract(self):
+        c,s,u=spell_fixture()
+        s['party'][1]['spellbook'][0]['memorized'].append(dict(resref='spwi101',flags=0))
+        self.assertFalse(self.valid(c,s,u))
+
+    def test_heading_or_prepared_row_clipped_by_native_window_is_rejected(self):
+        for dimension,value in ((2,550),(3,620),(3,670)):
+            c,s,u=spell_fixture()
+            window=next(row for row in u['controls'] if row.get('window') is None)
+            window['rect'][dimension]=value
+            self.assertFalse(self.valid(c,s,u))
+
+    def test_ineligible_or_missing_native_window_cannot_pass_from_label_alone(self):
+        for mode in ('missing','disabled','duplicate'):
+            c,s,u=spell_fixture()
+            window=next(row for row in u['controls'] if row.get('window') is None)
+            if mode=='missing':u['controls'].remove(window)
+            elif mode=='disabled':window['disabled']=True
+            else:u['controls'].append(copy.deepcopy(window))
+            with self.assertRaisesRegex(ValueError,'eligible native spellbook window'):
+                self.valid(c,s,u)
+
+    def test_missing_contract_or_invented_per_label_style_claim_fails_closed(self):
+        for mode in ('missing','style','malformed'):
+            with self.subTest(mode=mode):
+                c,s,u=spell_fixture()
+                if mode=='missing':c.pop('heading')
+                elif mode=='style':c['heading']['per_label_style_observed']=True
+                else:c['heading']['allocated_count']=True
+                with self.assertRaisesRegex(ValueError,'heading contract'):self.valid(c,s,u)
+
+
+class MenuHeadingSourceClosureTests(unittest.TestCase):
+    def test_actual_production_helper_is_required_and_frozen_not_just_transitively_assumed(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder)
+            paths=harness.menu_source_inputs(root)
+            helper=root/'gemrb/GUIScripts/EESpellbookHeading.py'
+            self.assertIn(helper,paths)
+            with self.assertRaises(FileNotFoundError):harness.freeze_source_inputs(paths,root/'missing')
+            helper.parent.mkdir(parents=True)
+            helper.write_text('heading before\n',encoding='utf8')
+            pins,copies=harness.freeze_source_inputs([helper],root/'frozen')
+            original=pins[str(helper.resolve())]
+            helper.write_text('heading changed\n',encoding='utf8')
+            self.assertNotEqual(harness.sha(helper),original)
+            self.assertEqual(harness.sha(copies[str(helper.resolve())]['frozen']),original)
+            Path(copies[str(helper.resolve())]['frozen']).write_text('tampered\n',encoding='utf8')
+            self.assertNotEqual(harness.sha(copies[str(helper.resolve())]['frozen']),original)
 
 
 if __name__ == "__main__": unittest.main()

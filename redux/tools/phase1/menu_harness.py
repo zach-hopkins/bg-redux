@@ -54,6 +54,27 @@ def write(path, value):
     Path(path).write_text(json.dumps(value, indent=2) + "\n", encoding="utf8")
 
 
+def menu_source_inputs(source):
+    return [Path(__file__), HERE/'menu_probe.cpp', HERE/'gui/MenuRuntime.py', HERE/'gui/MenuStart.py',
+            HERE/'private_game.py', HERE/'../phase0/native/gui_probe.cpp', HERE/'../phase0/native/save_probe.cpp'] + [
+            Path(source)/'gemrb/GUIScripts'/name for name in
+            ('GUIMG.py','GUIPR.py','EESpellbookHeading.py','Spellbook.py','GameCheck.py','GUIDefines.py')]
+
+
+def freeze_source_inputs(paths, directory):
+    identities = {str(Path(path).resolve()): sha(path) for path in paths}
+    copies = {}
+    for path, digest in identities.items():
+        original = Path(path)
+        frozen = Path(directory)/'sources'/digest/original.name
+        frozen.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(original, frozen)
+        if sha(frozen) != digest:
+            raise ValueError('Menu frozen source differs from its input')
+        copies[path] = dict(frozen=str(frozen),sha256=digest)
+    return identities, copies
+
+
 def callback_errors(path):
     """Known native bridge failure prefixes, not arbitrary UI text 'error'."""
     return [dict(line=i+1, text=line) for i,line in enumerate(Path(path).read_text(encoding='utf-8',errors='replace').splitlines())
@@ -97,6 +118,8 @@ def validate_spellbook_capture(contract, state, ui):
     checks = [dict(name=pack+'.native-selected-actor', passed=state['selection'] == pc),
         dict(name=pack+'.native-displayed-name', passed=field(0x10000035)['text'] ==
              state['party'][pc-1]['name'] == contract['actor_name'])]
+    if not contract['sorcerer']:
+        checks.extend(validate_spellbook_heading(contract, state, ui, field))
     for family, base, capacity in (('known', 27, 24), ('memorized', 3, 0 if contract['sorcerer'] else 12)):
         spells = contract[family]
         if contract[family+'_capacity'] != capacity or len(spells) > capacity:
@@ -125,7 +148,52 @@ def validate_spellbook_capture(contract, state, ui):
     return checks
 
 
-def validate_stage(directory, resolution=None, *, expected_nonce):
+def validate_spellbook_heading(contract, state, ui, field):
+    """Compare ordinary heading queries with actual native controls/world pages.
+
+    Label font/color/alignment are private and not sampled by MenuUIJSON. Global
+    FontsJSON provenance and rendered QA remain separate evidence requirements.
+    """
+    pack, pc, level = contract['pack'], contract['actor'], contract['level']
+    kind = 1 if pack == 'GUIMG' else 0
+    heading = contract.get('heading')
+    if (type(level) is not int or not 0 <= level < (9 if kind else 7) or
+        not isinstance(heading, dict) or heading.get('schema') != 'bg-redux-ordinary-spellbook-heading/1' or
+        heading.get('strref') != 11944 or heading.get('per_label_style_observed') is not False or
+        not isinstance(heading.get('localized_prefix'), str) or not heading['localized_prefix'] or
+        not isinstance(heading.get('level_text'), str) or not heading['level_text'] or
+        any(type(heading.get(key)) is not int or heading[key] < 0 for key in ('allocated_count','capacity'))):
+        raise ValueError('Missing/malformed ordinary spellbook heading contract')
+    pages = [page for page in state['party'][pc-1].get('spellbook', [])
+             if page.get('type') == kind and page.get('level') == level]
+    if len(pages) != 1 or not isinstance(pages[0].get('memorized'), list) or type(pages[0].get('slots_with_bonus')) is not int:
+        raise ValueError('Missing/ambiguous native spellbook page for heading')
+    page = pages[0]
+    label, level_label = field(0x10000033), field(0x10000032)
+    windows = [row for row in ui['controls'] if row.get('pack') == pack and row.get('id') == 2 and
+               row.get('window') is None and row.get('type') is None]
+    if len(windows) != 1 or not windows[0].get('visible') or windows[0].get('disabled', True):
+        raise ValueError('Missing/ambiguous eligible native spellbook window')
+    window_rect = windows[0].get('rect')
+    expected = '%s: %d/%d' % (heading['localized_prefix'], heading['allocated_count'], heading['capacity'])
+    rect = label.get('rect')
+    prepared = [field(3+index).get('rect') for index in range(12)]
+    geometry = (isinstance(window_rect,list) and len(window_rect)==4 and all(type(n) is int for n in window_rect) and
+                rect == [295,598,275,40] and rect[0]+rect[2] <= window_rect[2] and
+                rect[1]+rect[3] <= window_rect[3] and all(isinstance(r,list) and len(r)==4 and
+                all(type(n) is int for n in r) and r[1] == 644 and r[2] > 0 and r[3] > 0 and
+                r[0] >= 0 and r[0]+r[2] <= window_rect[2] and r[1]+r[3] <= window_rect[3] and
+                rect[1]+rect[3] < r[1] for r in prepared))
+    return [
+        dict(name=pack+'.heading-native-page-counts', passed=(heading['allocated_count'] == len(page['memorized']) and
+             heading['capacity'] == page['slots_with_bonus'])),
+        dict(name=pack+'.heading-native-localized-text', passed=label.get('text') == expected),
+        dict(name=pack+'.heading-native-selected-level', passed=(heading.get('level_token') == str(level+1) and
+             level_label.get('text') == heading['level_text'])),
+        dict(name=pack+'.heading-native-strip-geometry', passed=geometry)]
+
+
+def validate_stage(directory, resolution=None, *, expected_nonce, require_ordinary_spellbooks=False):
     """Fail incomplete/missing evidence; never turn screenshots into visual QA."""
     directory = Path(directory)
     host = json.loads((directory / "menu-host-result.json").read_text(encoding="utf8"))
@@ -163,6 +231,7 @@ def validate_stage(directory, resolution=None, *, expected_nonce):
         raise ValueError("No actionable menu assertions")
     errors=callback_errors(directory/'process.log')
     checks.append(dict(name='native-python-callback-log',passed=not errors, errors=errors))
+    ordinary_spellbooks = []
     for name in ('mage-book', 'priest-book'):
         applicability = [r for r in runtime['checks'] if r.get('name') == name+'.applicability']
         if len(applicability) != 1:
@@ -175,6 +244,8 @@ def validate_stage(directory, resolution=None, *, expected_nonce):
         if (len(contracts) != 1 or contracts[0]['actor'] != applicability[0]['selected_actor'] or
             contracts[0]['pack'] != ('GUIMG' if name == 'mage-book' else 'GUIPR')):
             raise ValueError('Missing/ambiguous spellbook semantic contract')
+        if not contracts[0]['sorcerer']:
+            ordinary_spellbooks.append(name)
         callbacks = [json.loads(p.read_text(encoding='utf8')) for p in directory.glob('callback-*.json')
                      if p.stem.removeprefix('callback-').isdigit()]
         for action, pack, control_id in ((name+'.select-eligible', 'PORTWIN', contracts[0]['actor']-1),
@@ -192,6 +263,9 @@ def validate_stage(directory, resolution=None, *, expected_nonce):
         checks.extend(validate_spellbook_capture(contracts[0],
             json.loads(Path(str(prefix)+'.state.json').read_text(encoding='utf8')),
             json.loads(Path(str(prefix)+'.ui.json').read_text(encoding='utf8'))))
+    if require_ordinary_spellbooks:
+        checks.append(dict(name='ordinary-spellbooks.heading-coverage',
+            passed=set(ordinary_spellbooks) == {'mage-book','priest-book'}))
     for action, pack, nameid, hpid, thacid in (
             ("inventory.observed", "GUIINV", 0x10000032, 0x10000039, 0x10000055),
             ("record.observed", "GUIREC", 0x1000000e, 0x10000029, 0x10000040)):
@@ -222,6 +296,10 @@ def validate_stage(directory, resolution=None, *, expected_nonce):
                 collected_world_unchanged=before == after, captures=len(ids),
                 context_required=runtime["context_required"], visual_acceptance=False,
                 applicability=[row for row in runtime['checks'] if 'applicable' in row],
+                per_label_font_color_alignment_observed=False,
+                ordinary_spellbook_heading_coverage=ordinary_spellbooks,
+                ordinary_spellbook_heading_coverage_complete=set(ordinary_spellbooks) == {'mage-book','priest-book'},
+                font_provenance_scope='Separate fonts.json provider/metric validation; role presence does not prove label assignment',
                 pointer_hit_testing=False, hidden_rng_unchanged=None)
 
 
@@ -237,6 +315,8 @@ def main():
     parser.add_argument("--game", type=Path)
     parser.add_argument("--resolutions", default="1024x768,1280x960")
     parser.add_argument("--timeout", type=int, default=330)
+    parser.add_argument("--require-ordinary-spellbooks", action='store_true',
+                        help='Require eligible ordinary wizard and priest heading evidence; context gating is not heading acceptance')
     args = parser.parse_args()
     stamp = datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     directory = args.output_root / (stamp + "-menu-" + args.mode + "-" + uuid.uuid4().hex[:8])
@@ -245,11 +325,9 @@ def main():
     env["PYTHONDONTWRITEBYTECODE"] = "1"
     env["PATH"] = os.pathsep.join([str(args.prefix / "bin"), str(args.build / "gemrb"), env.get("PATH", "")])
     dll = args.build / "gemrb/libgemrb_core.dll"
-    source_files = [HERE / "menu_probe.cpp", HERE / "gui/MenuRuntime.py", HERE / "gui/MenuStart.py",
-                    HERE / "private_game.py",
-                    HERE / "../phase0/native/gui_probe.cpp", HERE / "../phase0/native/save_probe.cpp"]
-    identities = {str(p.resolve()): sha(p) for p in source_files}
+    identities, frozen_sources = freeze_source_inputs(menu_source_inputs(args.source), directory)
     receipt = dict(schema="bg-redux-menu-run/1", source_files=identities, engine_dll_sha256=sha(dll),
+                   frozen_sources=frozen_sources, require_ordinary_spellbooks=args.require_ordinary_spellbooks,
                    directory=str(directory), stages=[], font_mode="game-resources-no-override")
     write(directory / "preparation.json", receipt)
     if args.mode == "build":
@@ -305,6 +383,7 @@ def main():
             # Freeze identity before the owned process can produce evidence.
             write(stage / 'launch-pin.json', dict(schema='bg-redux-menu-launch-pin/1',
                   nonce=stage_nonce, resolution=[width, height], command=command,
+                  require_ordinary_spellbooks=args.require_ordinary_spellbooks,
                   config_sha256=config_before, probe_sha256=receipt['probe_sha256']))
             stage_env = env.copy()
             stage_env.update(HOME=str(profile), USERPROFILE=str(profile), APPDATA=str(profile / "AppData/Roaming"))
@@ -316,7 +395,8 @@ def main():
             except (ValueError, OSError) as error:
                 row['private_game_error'] = str(error)
             try:
-                row["validation"] = validate_stage(stage, (width, height), expected_nonce=stage_nonce)
+                row["validation"] = validate_stage(stage, (width, height), expected_nonce=stage_nonce,
+                                                   require_ordinary_spellbooks=args.require_ordinary_spellbooks)
             except (ValueError, OSError, KeyError, IndexError, TypeError, StopIteration) as error:
                 row["error"] = str(error)
             row["fixture_copy_unchanged"] = manifest(copied) == original
@@ -327,7 +407,8 @@ def main():
         receipt["passed"] = receipt["original_fixture_unchanged"] and all(row["passed"] for row in receipt["stages"])
     receipt["engine_dll_unchanged"] = sha(dll) == receipt["engine_dll_sha256"]
     receipt["source_inputs_unchanged"] = all(sha(Path(path)) == expected for path, expected in identities.items())
-    receipt["passed"] = receipt["passed"] and receipt["engine_dll_unchanged"] and receipt["source_inputs_unchanged"]
+    receipt["frozen_sources_unchanged"] = all(sha(row['frozen']) == row['sha256'] for row in frozen_sources.values())
+    receipt["passed"] = receipt["passed"] and receipt["engine_dll_unchanged"] and receipt["source_inputs_unchanged"] and receipt["frozen_sources_unchanged"]
     write(directory / "result.json", receipt)
     write(directory / "artifact-manifest.json", artifact_manifest(directory))
     print(directory)
