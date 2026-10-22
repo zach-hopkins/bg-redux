@@ -139,19 +139,21 @@ def equipment_guard(cre, spec):
         raise ValueError('Inventory offsets/count invalid')
     refs = [cre[item_at+i*20:item_at+i*20+8].split(b'\0')[0].decode('ascii').lower() for i in range(count)]
     expected = [spec['main']]+([spec['off']] if spec['off'] else [])+([spec['ammo']] if spec['ammo'] else [])
-    if refs != expected:
+    if sorted(refs) != sorted(expected):
         raise ValueError('Exact declared item table differs')
     slots = struct.unpack_from('<38HhH', cre, slot_at)
-    expected_slots = [0xffff]*38
-    expected_slots[9] = 0
+    expected_slots = {9: spec['main']}
     if spec['off']:
-        expected_slots[2] = 1
+        expected_slots[2] = spec['off']
     if spec['ammo']:
-        expected_slots[13] = len(refs)-1
-        if struct.unpack_from('<H', cre, item_at+20*(len(refs)-1)+10)[0] != 40:
-            raise ValueError('Required ammunition charges differ')
-    if tuple(expected_slots) != slots[:38] or slots[38:] != (-24 if spec['ammo'] else 0, 0):
+        expected_slots[13] = spec['ammo']
+    occupied = {slot: index for slot, index in enumerate(slots[:38]) if index != 0xffff}
+    if (any(index >= count for index in occupied.values()) or len(set(occupied.values())) != count
+            or {slot: refs[index] for slot, index in occupied.items()} != expected_slots
+            or slots[38:] != (-24 if spec['ammo'] else 0, 0)):
         raise ValueError('Physical slots, selected weapon/ammo or ability differ')
+    if spec['ammo'] and struct.unpack_from('<H', cre, item_at+20*occupied[13]+10)[0] != 40:
+        raise ValueError('Required ammunition charges differ')
     return dict(items=refs, main_physical_slot=9, off_physical_slot=2 if spec['off'] else None,
                 ammo_physical_slot=13 if spec['ammo'] else None, selected=slots[38], ability=slots[39])
 

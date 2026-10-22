@@ -73,6 +73,33 @@ class OracleFixtureTests(unittest.TestCase):
         self.assertEqual(struct.unpack_from('<H', value, slot_at+4)[0], 1)
         self.assertEqual(m.equipment_guard(value, row)['items'], ['sw1h01', 'sw1h01'])
 
+    def test_original_reordered_item_table_preserves_exact_slot_mapping(self):
+        value = cre(); row = m.cases()[3]
+        m.replace_equipment(value, row)
+        item_at = struct.unpack_from('<I', value, 0x2bc)[0]
+        slot_at = struct.unpack_from('<I', value, 0x2b8)[0]
+        main, off = bytes(value[item_at:item_at+20]), bytes(value[item_at+20:item_at+40])
+        value[item_at:item_at+40] = off+main
+        struct.pack_into('<H', value, slot_at+4, 0)
+        struct.pack_into('<H', value, slot_at+18, 1)
+        self.assertEqual(m.equipment_guard(value, row)['items'], ['hamm01', 'sw1h01'])
+        struct.pack_into('<H', value, slot_at+4, 1)
+        struct.pack_into('<H', value, slot_at+18, 0)
+        with self.assertRaisesRegex(ValueError, 'Physical'):
+            m.equipment_guard(value, row)
+
+    def test_exact_item_multiset_cannot_hide_loss_extra_or_aliased_slots(self):
+        row = m.cases()[0]; original = cre(); m.replace_equipment(original, row)
+        slot_at = struct.unpack_from('<I', original, 0x2b8)[0]
+        for count in (1, 3):
+            value = original.copy(); struct.pack_into('<I', value, 0x2c0, count)
+            with self.assertRaises(ValueError): m.equipment_guard(value, row)
+        row = row | dict(off='sw1h01'); value = cre(); m.replace_equipment(value, row)
+        slot_at = struct.unpack_from('<I', value, 0x2b8)[0]
+        struct.pack_into('<H', value, slot_at+4, 0)
+        with self.assertRaisesRegex(ValueError, 'Physical'):
+            m.equipment_guard(value, row)
+
     def test_ammo_slot_selection_and_charge_guard(self):
         row = m.selected_cases('ammo')[0]; value = cre()
         guard = m.replace_equipment(value, row)
