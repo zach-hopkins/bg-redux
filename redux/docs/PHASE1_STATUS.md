@@ -8,6 +8,14 @@ game typefaces are fidelity requirements. Modern UI direction remains approved.
 
 ## Requirements and order
 
+Latest LAB checkpoint (October 22 UTC): see the [executed validation report](testing/phase1-lab-validation.md).
+Candidate `58c2995e` matches all 22 selected original weapon cases and passes
+44 native scenario assertions, with persistence differences and menu failures
+retained. Candidate `9aa69cd5` completes the ten-stage inventory replacement
+regression with coherent caches. Its full query/RNG and UI reruns are underway.
+The integrated Python suite passes 163 tests. The batch descriptions below are
+historical checkpoints, superseded by the linked executed report where stated.
+
 The full [Phase 1 backlog](roadmap/phase1-backlog.md) remains the scope: preserve
 reproducible before/after evidence (P1-01); implement distinct EE weapon predicates
 (P1-02); restore inventory/record information and ordinary UI operations (P1-03);

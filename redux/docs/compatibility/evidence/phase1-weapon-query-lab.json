@@ -1,0 +1,1143 @@
+{
+  "schema": "bg-redux-phase1-weapon-query-lab-summary/1",
+  "original_preparation_sha256": "b18bb391c451fb9ace9bdab3a43313c554f82cddf170af0751d95dd06ece1ce4",
+  "independent_original_review_sha256": "af28d35ea5f83276235c08a9e0fa778a3ec847f8af61e83a94caee70afda3755",
+  "before": {
+    "run_id": "20261022T004646Z-phase1-weapon-query-b137c292",
+    "result_sha256": "8e5c2249be388bf1f22799e89cb072e2aaf60fd1a330de98cbac1136ebe3823b",
+    "inventory_sha256": "a1f1d10495220cd5719ee05407a8d034212fcb28c8d4748eb064a7ef55bd2715",
+    "core_dll_sha256": "1073429c5af42e7ffd8e8bd88dc000b187014e0f3afef9ab70c231d81b39acab",
+    "execution": "passed",
+    "validation": "passed",
+    "compatibility": "differences",
+    "candidate_preserved": true,
+    "phase0_preservation": {
+      "source": true,
+      "binaries": true,
+      "fixture": true
+    },
+    "cases": [
+      {
+        "id": "01-normal-plus-pfmw",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 1,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 1,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "8cdc071e01374e7d4254656946f21e5bab70d838b315903fbe721afb21bd8ade",
+        "native_case_receipt_sha256": "40fac17da56733a8e8375999f428842da5679f83433ac13e115ebb7fe73cf692",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "02-plus-normal-pfmw",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 1,
+          "RDXD2": 1,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 1,
+          "RDXD2": 1,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "d4d629caa80166236bf51d56ba1cb2ae1d29d2fdfcc49d9c04f3593209694282",
+        "native_case_receipt_sha256": "88ac467ba38c04152260c1cbe13f6eddfc496c6ab2c21c4b83703720355e2dd9",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "03-crush-slash-slash100",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 1,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 1,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "7e27ba17e8e8342f1a56cbbfbf07b0f000c982caddae136efa4014076ff4fbf7",
+        "native_case_receipt_sha256": "b748cb9b1f6b2fe97968d836aef385e318424925b5f77657fe04636778bdddca",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "04-slash-crush-slash100",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 0,
+          "RDXE2": 1,
+          "RDXD2": 1,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 0,
+          "RDXE2": 1,
+          "RDXD2": 1,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "fc5de64cf4d6d378da774b2da5c022d315c33c1a31671831499f976b365f00cb",
+        "native_case_receipt_sha256": "a735b6c8d2f2e7345f03508d26096824e473821a187ff1794afc6940891726ed",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "05-normal-empty",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "74bdbf33835ebcb549f33a2ef366e17ee3c539e02de6a929782f8b8381a8e5c9",
+        "native_case_receipt_sha256": "2bf9ce8a85b857ac8457541b6396bb08ae1c2c5900fbf08f42f4aef6d8e4ade0",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "06-normal-shield",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "372c99d1e93a57b97db8e5adcb851b2a935b26f8daa8667916fd5851a6f32ed9",
+        "native_case_receipt_sha256": "7edbee8ff04b575850ef587de4a843988d0d80ceebc581b295c73de10722854a",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "07-plus-empty-pfmw",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 0,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 0,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "0c6a993b96c42727a6d9d0a9b47ff0ed2b72a867140b8197b0ddb7c6c9f39f1a",
+        "native_case_receipt_sha256": "aaee699b14dfce88377f03b39d7b3423b20512269d38b937daedb431a0c2653e",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "08-normal-shield-pfmw",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "170091d80ac2466855a73a189fa80b6a0dbe4a9bd9fa3a5cb821db61915e44a9",
+        "native_case_receipt_sha256": "dd8fb1b8fd52185ececde155fbeeee176b60ceae4ac2e4aad1cebf0c71db1b2e",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "ammo-plus-pfmw",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 0,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 0,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "45bca82145ef9d9b1c9d56fac6ded488d4300548196eb922ba3e6bed743af9ad",
+        "native_case_receipt_sha256": "35c7bbaa20b4c1359ede7caf8259aaf1753f8ebeab9002eeca1ad6fab3dfbfc6",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "ammo-plus-ench0",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "69ee6575e36e15193bece54de0efea528b76fdf92511316fb5ca44dc394a8964",
+        "native_case_receipt_sha256": "68070675bd3738effdeb0d09378f30a203a304fe99249871dfcb78aae8f17f3d",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "ammo-plus-ench1",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 0,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 0,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "b24b24be244ad1274372b5d19182a8bd33e07f39c757e5e9a98ccc81c05c94bb",
+        "native_case_receipt_sha256": "086c10ab2cfbcdd47be176abdd371dc82209785ce19cb26f1e15f76e032590b6",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "ammo-plus-ench2",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 0,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 0,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "a7f212c2a527f4a662e90d93edafdbe5efd35aaad628cc176688f81b0f849fd8",
+        "native_case_receipt_sha256": "abd6481a78c5f8551fca4e665f0c2290043ff148c1cee75c6d8c4f8b18069b68",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "bow-plus-pfmw",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "5cc1b091ce4907f7d7f9e01b0118df8dc58242d79a4e3d90b47cd09b84cacce3",
+        "native_case_receipt_sha256": "3fcc79d6de399c12c49ed051955256c67258f30c2a0c743fa8b38679db5967dc",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "bow-plus-ench0",
+        "verdict": "original-differences",
+        "original": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 0,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "88d5bc911ba623383c348d55cade8f1baa3f9759f60c599db284de5bd954d63f",
+        "native_case_receipt_sha256": "669b11a1debb59f7c0aa6409663f97fbe3670eaeebdc7046fbd4543a0ad25e79",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "bow-plus-ench1",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 0,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 0,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "6aa579b791b0576ea99a1647d6dcac9aa68f6ba7fe042124cb19a8abb1e6ca47",
+        "native_case_receipt_sha256": "49f1fbd85a32de773c335fddcc2a1160b6b3a857cdd33b00341694ffbad1ff0a",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "bow-plus-ench2",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 0,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 0,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "fa546e17433c19cb801ca39ee2be4926a7e59d301fb9a7806da546ed97d3793e",
+        "native_case_receipt_sha256": "3e5945a6b230de09248224095f325013b78027af5990ebaac6bfdf1dbc7c9449",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "crush-crush100",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 0,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 0
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 0,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 0
+        },
+        "original_receipt_sha256": "52afcaefa38feaa244abfb635008544f4f4169462e9451928fcd90b1bea1c55c",
+        "native_case_receipt_sha256": "c87519e4091c806b8f1823a9fbcacd4792d45006a504828644082780e3035dc8",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "pierce-pierce100",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 0,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 0
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 0,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 0
+        },
+        "original_receipt_sha256": "861754c94627c337c928f1b180477c684f0572a03581e482ae88d29d0012b513",
+        "native_case_receipt_sha256": "451d1b6813633b9c950c2dd593112fef61369086b2a0957ec9061d33a4b76c28",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "missile-missile100",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 0,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 0
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 0,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 0
+        },
+        "original_receipt_sha256": "2dc5d3f61cce9596d73b6af75882f44111a0e2a4bd2e6be585c5b30b1def0aee",
+        "native_case_receipt_sha256": "55200de8698b2a822d5fb61141d94639990291d142497822713daafdc13a030a",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "crush-slash100",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "bf90fbf270cf15b1cfa4f0ee47c757f28b763200192268f2415cedab6b5fa812",
+        "native_case_receipt_sha256": "1dcd04ce505918abc9e39ce959bb4b1dadbbff172b2aab6f8140fc4f7fdcb35f",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "pierce-slash100",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "3b0764bef426fe629747cfad3aceefde037631ebe668774fdf75aef7b0d7eb0f",
+        "native_case_receipt_sha256": "2ad8e3ef27d7c926d45b34a35bd88da61f50bd19a2f5327d8aeb5655b0e8872f",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "missile-slash100",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "23bbab303b8c273072584357a80c4cdd0adeb68b69a78551cf568d990b22dde0",
+        "native_case_receipt_sha256": "844a8ce095ad462d72afb81efc0e8e42022e9da9f88ed01f34f19370c407057f",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      }
+    ],
+    "scope": "Collected same-process state and selected weapon caches after library initialization only; no loop/ticks/save. Hidden state, RNG internals, other caches and future scheduling are not proven unchanged."
+  },
+  "after": {
+    "run_id": "20261022T005240Z-phase1-weapon-query-7c384246",
+    "result_sha256": "d3d7a6ad594ec89d51e5c001e91cfb67c83d8570eb521a153b9c336f2e30ebe3",
+    "inventory_sha256": "c66644df8916ed5e92b9d613ef789a3c4c0029fd240ffbf22612b2281d013510",
+    "core_dll_sha256": "4e64873cab7c872cbb5b2d626cb7f494fae1955e39f594cfedd87bdea0a96724",
+    "execution": "passed",
+    "validation": "passed",
+    "compatibility": "matched-selected-original-cases",
+    "candidate_preserved": true,
+    "phase0_preservation": {
+      "source": true,
+      "binaries": true,
+      "fixture": true
+    },
+    "cases": [
+      {
+        "id": "01-normal-plus-pfmw",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 1,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 1,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "8cdc071e01374e7d4254656946f21e5bab70d838b315903fbe721afb21bd8ade",
+        "native_case_receipt_sha256": "4098e0b16d6823d23aa553c1417b609f9c3b040d76df5dcd8dce9a06c699dbec",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "02-plus-normal-pfmw",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 1,
+          "RDXD2": 1,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 1,
+          "RDXD2": 1,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "d4d629caa80166236bf51d56ba1cb2ae1d29d2fdfcc49d9c04f3593209694282",
+        "native_case_receipt_sha256": "f8bf20b665f7b9ad70e16ce703f32cb94cc7175920821996317dcb3fc58f49c2",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "03-crush-slash-slash100",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 1,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 1,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "7e27ba17e8e8342f1a56cbbfbf07b0f000c982caddae136efa4014076ff4fbf7",
+        "native_case_receipt_sha256": "578481a800771a9ac0f42f773b28a106a8900458fd75a4849452f89dffebd686",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "04-slash-crush-slash100",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 0,
+          "RDXE2": 1,
+          "RDXD2": 1,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 0,
+          "RDXE2": 1,
+          "RDXD2": 1,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "fc5de64cf4d6d378da774b2da5c022d315c33c1a31671831499f976b365f00cb",
+        "native_case_receipt_sha256": "add05b62f88c809d1af6f97a1f72b962a2edb91d710293e0de3dcce3300890ab",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "05-normal-empty",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "74bdbf33835ebcb549f33a2ef366e17ee3c539e02de6a929782f8b8381a8e5c9",
+        "native_case_receipt_sha256": "5556c4ce65e2ec18e3d8042fb0dcaf2d2dd4c53386435d0d5ea59a0c31ac299e",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "06-normal-shield",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "372c99d1e93a57b97db8e5adcb851b2a935b26f8daa8667916fd5851a6f32ed9",
+        "native_case_receipt_sha256": "b78410281612c2f4461609c42b404acce06d86596483d87ee8a41311f4e926f5",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "07-plus-empty-pfmw",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 0,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 0,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "0c6a993b96c42727a6d9d0a9b47ff0ed2b72a867140b8197b0ddb7c6c9f39f1a",
+        "native_case_receipt_sha256": "ba79358cac268996ede26db22260100c1f0698a0a51094dbbc8b0afff2d8064e",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "08-normal-shield-pfmw",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "170091d80ac2466855a73a189fa80b6a0dbe4a9bd9fa3a5cb821db61915e44a9",
+        "native_case_receipt_sha256": "34173bd2584f8fb05bc952c86543cac8b90d6981b28955263aa71314e0b72178",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "ammo-plus-pfmw",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 0,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 0,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "45bca82145ef9d9b1c9d56fac6ded488d4300548196eb922ba3e6bed743af9ad",
+        "native_case_receipt_sha256": "88b52accb28e19c92ae942f2ea16011d312639d6604d54ebc9c8404d528777d6",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "ammo-plus-ench0",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "69ee6575e36e15193bece54de0efea528b76fdf92511316fb5ca44dc394a8964",
+        "native_case_receipt_sha256": "91b17fc2a5b778928db5587cc11234564e5627c11e3a2729a1d9dcae0729531e",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "ammo-plus-ench1",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 0,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 0,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "b24b24be244ad1274372b5d19182a8bd33e07f39c757e5e9a98ccc81c05c94bb",
+        "native_case_receipt_sha256": "b7fa7f14ca1b36d94fb9ec4868f97b5f637227b0b78e360ce09c1927e9440ddf",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "ammo-plus-ench2",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 0,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 0,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "a7f212c2a527f4a662e90d93edafdbe5efd35aaad628cc176688f81b0f849fd8",
+        "native_case_receipt_sha256": "c43de3aaf0bb8382d53dd97593a20285f11c54f8d5f41db3a741da65959feaab",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "bow-plus-pfmw",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "5cc1b091ce4907f7d7f9e01b0118df8dc58242d79a4e3d90b47cd09b84cacce3",
+        "native_case_receipt_sha256": "a0725bb881496a831d300353d6804050573c215b41266a6bdc0325ce97f397ee",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "bow-plus-ench0",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 0,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 0,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "88d5bc911ba623383c348d55cade8f1baa3f9759f60c599db284de5bd954d63f",
+        "native_case_receipt_sha256": "edae4657b2cff1332307fd1122effa8342111756309bddfe9072ffa91a6dfb8b",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "bow-plus-ench1",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 0,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 0,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "6aa579b791b0576ea99a1647d6dcac9aa68f6ba7fe042124cb19a8abb1e6ca47",
+        "native_case_receipt_sha256": "7b2916d3dbb65108d92e2e76d8225f0769c2d0d3265ea1091c552704324ce145",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "bow-plus-ench2",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 0,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 0,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 0,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "fa546e17433c19cb801ca39ee2be4926a7e59d301fb9a7806da546ed97d3793e",
+        "native_case_receipt_sha256": "ddb89e975ebff51a2875169337789a359b53dc2a24beb32cead51d3eb58df250",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "crush-crush100",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 0,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 0
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 0,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 0
+        },
+        "original_receipt_sha256": "52afcaefa38feaa244abfb635008544f4f4169462e9451928fcd90b1bea1c55c",
+        "native_case_receipt_sha256": "8429bdeb62bc2e596d6611ea4eccd32174c117fe04b0eaf2a1313b2b8ad94207",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "pierce-pierce100",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 0,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 0
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 0,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 0
+        },
+        "original_receipt_sha256": "861754c94627c337c928f1b180477c684f0572a03581e482ae88d29d0012b513",
+        "native_case_receipt_sha256": "79e293784e5c06e5fe5a110fbc256de0580f68d5512473cebb7e41f8c2d1d3e8",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "missile-missile100",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 0,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 0
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 0,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 0
+        },
+        "original_receipt_sha256": "2dc5d3f61cce9596d73b6af75882f44111a0e2a4bd2e6be585c5b30b1def0aee",
+        "native_case_receipt_sha256": "b10f92907b751c5fab2ae1474fe00cb149ac4a601cab18a47f85ebf232b6808c",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "crush-slash100",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "bf90fbf270cf15b1cfa4f0ee47c757f28b763200192268f2415cedab6b5fa812",
+        "native_case_receipt_sha256": "f334bffc8e3090b098516e308f6ee062d03cf4666b9b7403409ee3dbdf5eb340",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "pierce-slash100",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "3b0764bef426fe629747cfad3aceefde037631ebe668774fdf75aef7b0d7eb0f",
+        "native_case_receipt_sha256": "49e4bf5f869109e650d8141a3462458ade20feca59a74694ed179899844a8ee5",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      },
+      {
+        "id": "missile-slash100",
+        "verdict": "original-match",
+        "original": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "native": {
+          "RDXE1": 1,
+          "RDXD1": 1,
+          "RDXE2": 0,
+          "RDXD2": 0,
+          "RDXE3": 1,
+          "RDXD3": 1
+        },
+        "original_receipt_sha256": "23bbab303b8c273072584357a80c4cdd0adeb68b69a78551cf568d990b22dde0",
+        "native_case_receipt_sha256": "2997c1ad345a879e4c5de457da98cbc9fffbeace120184840021fa669929f5b1",
+        "observations": 50,
+        "repeated_predicates": 48,
+        "mutation_observations": []
+      }
+    ],
+    "scope": "Collected same-process state and selected weapon caches after library initialization only; no loop/ticks/save. Hidden state, RNG internals, other caches and future scheduling are not proven unchanged."
+  },
+  "calling_thread_rng_observed": false,
+  "complete_combat_or_campaign_acceptance": false
+}

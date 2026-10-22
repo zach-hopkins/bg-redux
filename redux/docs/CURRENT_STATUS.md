@@ -1,8 +1,11 @@
 # BG Redux — current status
 
-Updated October 21, 2026 on LAB. Phase 0 technical deliverables are accepted after independent review under the existing engine-source/binary freeze. The user's plan
-names milestones 0A–0F; 0D alone is not treated as full phase closure. Engine
-implementation remains separately authorized work after phase acceptance.
+Updated October 22, 2026 UTC on LAB. Phase 0 technical deliverables are accepted
+after independent review; its source, binaries and results remain preserved.
+The user separately authorized Phase 1 engine implementation. Current work and
+executed evidence are tracked in [Phase 1 status](PHASE1_STATUS.md) and the
+[LAB validation report](testing/phase1-lab-validation.md). The Phase 0 milestone
+record below remains historical evidence. Phase 1 and campaign fidelity are incomplete.
 
 ## Verified evidence
 
