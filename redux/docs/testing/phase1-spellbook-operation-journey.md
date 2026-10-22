@@ -1,5 +1,23 @@
 # Stock spellbook operations: external journey
 
+Coordinator checkpoint, October 22 UTC: the first 16 focused tests and external
+build pass, but `20261022T084001Z-spellbook-operation-6cc4d25f` crashes before game
+load. Fresh diagnostic `20261022T084520Z-spellbook-operation-5f0f9586` confirms
+`Snapshot(game=null)` from the external initial-load callback; this is a host
+defect, not evidence of an engine crash. The pregame-boundary correction adds
+two negative methods; all 18 pass, and external `ordinary-2` builds. Its run
+`20261022T085000Z-spellbook-operation-f06e9985` completes the native operation/save
+phase (41 callbacks, 32 captures, owned exit zero), but the outer validator rejects
+eight unbound control values: Python reports null and native reports the exact
+INVALID_VALUE sentinel. Reload is not launched. All three result verdicts and
+preservation guards remain retained. A narrow bridge-contract correction is
+prepared separately; no full journey pass is claimed from these receipts.
+
+The [original reference](phase1-original-spellbook-reference.md) records the
+heading/count location, immediate wizard removal without a confirmation, and
+serialized ready=0 after re-preparation. This evidence does not approve the
+current native prompt policy as original parity.
+
 This source-only adapter exercises Imoen's wizard book and Jaheira's priest book from the measured four-party Minsc checkpoint `20261022T075243Z-minsc-recruitment-072650e1/recruit/frozen-save`. No build, test, or runtime result is claimed by this implementation delivery. The coordinator owns execution. It adds no engine changes or fixture edits.
 
 ## Ordinary route and acceptance

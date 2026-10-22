@@ -39,3 +39,10 @@ font roles, label semantics and eligible-caster selection; verify both books at
 both existing resolutions with captures and native operations. A global font or
 palette change is not justified by this bounded finding. Original parity,
 pointer input, memorization operations and complete menu fidelity remain open.
+
+The subsequent [original runtime reference](phase1-original-spellbook-reference.md)
+confirms the wizard heading/count on the lower dark strip and provides a dimmed
+ineligible priest layout reference. It also records original no-confirmation
+wizard removal and the actual re-prepared spell's saved ready flag. A normal
+BG2EE heading correction is being prepared separately; Classic and spontaneous
+caster behavior must remain unchanged.

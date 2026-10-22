@@ -13,7 +13,10 @@ party members' XP changes from `[90500,96500,90000]` to
 prior solved quests persist, and an ordinary GUI save produces the exact
 four-member file inventory. Fresh reload PID 14756 exits zero after 27.861
 seconds with no new gameplay command. Source/binary, Phase0 and input guards
-pass. Independent artifact/wire audit remains pending. The coordinator viewed
+pass. The [independent artifact/wire audit](phase1-minsc-recruitment-native-audit.md)
+also passes, including actual provider mappings and all 21 DLG branches. Boo
+ownership is scoped to recruited Minsc and party ownership: a separate stored
+TTMINSC already carries its own copy in the parent save. The coordinator viewed
 the recruited capture showing four portraits and the party experience message;
 this selected visual check does not establish complete layout fidelity.
 

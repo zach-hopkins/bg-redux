@@ -33,7 +33,8 @@ matrix; it remains a synthetic control regression after ordinary GUI loading.
 The [Minsc recruitment checkpoint](phase1-minsc-recruitment-host.md) passes all
 21 stock branches, script-driven Cell02 opening/restart, party4 with measured
 divided XP, ordinary save and a separate fresh reload. Both owned processes exit
-zero and all preservation guards pass. Independent audit remains pending;
+zero and all preservation guards pass. The
+[independent Minsc audit](phase1-minsc-recruitment-native-audit.md) also passes;
 original parity, broader campaign progression and complete UI fidelity are open.
 
 October22 UTC renderer checkpoint: **301 external Python tests pass**

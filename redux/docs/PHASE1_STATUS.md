@@ -103,7 +103,8 @@ XP persistence. This opening-area checkpoint does not satisfy the campaign gate.
 The subsequent [Minsc checkpoint](testing/phase1-minsc-recruitment-host.md)
 passes all 21 stock dialogue branches, the script-driven second cage opening,
 four-party recruitment, measured XP, GUI save and fresh reload with all guards.
-Independent raw audit is pending; this also remains an opening-area checkpoint.
+The [independent raw audit](testing/phase1-minsc-recruitment-native-audit.md)
+passes; this also remains an opening-area checkpoint.
 The dialogue renderer correction has a fresh isolated build with
 native full/clipped/scaled verification; broader runtime regressions remain open.
 The batch descriptions below are

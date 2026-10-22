@@ -16,3 +16,19 @@ Private receipts are `phase1-local/results/storage-compression-verification-2026
 The additional archived-object pass is recorded in `phase1-local/results/storage-archived-objects-1792653301889028600/result.json`, with its script `phase1-local/compress-completed-build-objects-20261022.py`. This also compresses in place without deletion or movement; engine DLLs and executables are excluded.
 
 After the promoted fifteen-case TextArea run completed, another 276 manifest-pinned text files (35,309,971 logical bytes) were compressed and verified byte-for-byte. Receipt: `phase1-local/results/storage-promoted-textarea-compression-1792654781756124100/result.json`. The operation required the complete case inventory and all owned process terminal receipts before starting.
+
+A later pass verifies 962 completed b49-menu/Minsc text files (258,381,977 logical
+bytes) before/after compression in
+`storage-completed-b49-text-compression-1792658592009211800/result.json`.
+Two unsuccessful preparation attempts are retained: recursively treating a frozen
+parent manifest as a local inventory, then assuming the outer menu wrapper had a
+top-level manifest. Neither attempt began compression. The corrected operation
+uses the actual native menu manifest and top-level Minsc manifest explicitly.
+
+After the coherent b49 engine build completed, its 234 generated objects and the
+separate Phase1 before-build's 231 generated objects were also compressed in
+place with exact before/after name/length/hash equality and unchanged build
+receipts. Runtime DLLs/executables and Phase0 files were excluded. Receipt:
+`storage-completed-engine-objects-1792659009746664400/result.json`. This later
+operation includes b49 objects that were explicitly excluded from earlier passes;
+it changes allocation only, not compiled object contents.
