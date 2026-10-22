@@ -1,0 +1,219 @@
+{
+  "schema": "bg-redux-independent-menu-heading-audit/1",
+  "passed": true,
+  "raw_result": "C:\\BGRedux\\phase1-local\\results\\20261022T095203Z-sb-menu-run-bc1642be\\result.json",
+  "result_sha256": "c64289b920c1f78aac9b0913a427c57b51059429f8d9472dfe2e00c10e8c1058",
+  "artifact_manifests": {
+    "C:\\BGRedux\\phase1-local\\results\\20261022T095203Z-sb-menu-run-bc1642be": 1296,
+    "C:\\BGRedux\\phase1-local\\results\\20261022T095203Z-sb-menu-run-bc1642be\\native\\20261022T095208Z-menu-run-266c1980": 1278
+  },
+  "source_count": 3509,
+  "binary_count": 61,
+  "support_count": 5,
+  "engine_receipt_sha256": "c080bca9aea2e196ff6167f15dd5552e20962c6c38929c35c049666e2a0b88d2",
+  "probe_sha256": "76db0236dd5f06bf272476d40b3af6fbb364ede546077cdd6b7971adf3d1987b",
+  "parent_result_sha256": "93401ec89b0896ae8c69a846f81314afec75a69af9e62b173fdcd7c4ea8c8e6c",
+  "tlk_sha256": "9e685225ff3c3436a8a35fa7022550620d24a92efe35436a062c02955d9f0952",
+  "prefix_strref": 11944,
+  "prefix": "Memorized",
+  "stages": [
+    {
+      "resolution": [
+        1024,
+        768
+      ],
+      "pid": 15872,
+      "exit_code": 0,
+      "cleanup_complete": true,
+      "nonce": "e65efaedaffb49769654ff43a68bdf43",
+      "reported_checks": 196,
+      "captures": 51,
+      "actual_callbacks": 39,
+      "headings": [
+        {
+          "capture": 23,
+          "pack": "GUIMG",
+          "selected_party_index": 2,
+          "script_name": "imoen",
+          "runtime_id": 10003,
+          "spell_type": 1,
+          "level": 0,
+          "allocated": 4,
+          "ready": 4,
+          "capacity_with_bonus": 4,
+          "text": "Memorized: 4/4",
+          "relative_label_rect": [
+            295,
+            598,
+            275,
+            40
+          ],
+          "window_rect": [
+            80,
+            29,
+            864,
+            710
+          ],
+          "prepared_row_y": 644,
+          "bmp_sha256": "2639374173d7886e57cf8ed4ac0bfd24661eafed18e6911fe4713f5fd17d2da1",
+          "raw_state_sha256": "240cb95047635a27144c97c882f17ff3a7583a2d0f822032b57da357106aeed9",
+          "raw_ui_sha256": "fef0a9dc7e014299a1697009abc64da37ee77a9514983f37cf3cd5f0751ee0a5"
+        },
+        {
+          "capture": 25,
+          "pack": "GUIPR",
+          "selected_party_index": 3,
+          "script_name": "jaheira",
+          "runtime_id": 10004,
+          "spell_type": 0,
+          "level": 0,
+          "allocated": 5,
+          "ready": 5,
+          "capacity_with_bonus": 5,
+          "text": "Memorized: 5/5",
+          "relative_label_rect": [
+            295,
+            598,
+            275,
+            40
+          ],
+          "window_rect": [
+            80,
+            29,
+            864,
+            710
+          ],
+          "prepared_row_y": 644,
+          "bmp_sha256": "7248dc60d0a08ea916cb3283531d541f93ab87efb84ccfe72555eefb04b68b30",
+          "raw_state_sha256": "b70d93041a3d74559ac5d0d40dc0b25839ce812ca79e6d4ce0ffd16412f2ea79",
+          "raw_ui_sha256": "61091bf4f466fec81af76750fac357c30c799b28adfe94406c42765165334039"
+        }
+      ],
+      "private_game": {
+        "clean_game_inventory_unchanged": true,
+        "clean_game_root_hashes_unchanged": true,
+        "copied_immutable_inputs_unchanged": true,
+        "allowed_private_root_changes": {
+          "gem-baldur.ini": {
+            "before_sha256": null,
+            "after_sha256": "28760d47a367993a599fb847e0d124ba2d78aa40a74d69041f79968fe6723695"
+          },
+          "GemRB.log": {
+            "before_sha256": "c298eb067db2c6c619c7791afc9b6fc0997a5dba9bd5bd03d6718f2facbbf6a7",
+            "after_sha256": "0544a984d0ae8ba293a73243af63ed2a5f302545ea482d22ef9abbda8e79c48c"
+          }
+        },
+        "linked_asset_content_fully_hashed": false
+      }
+    },
+    {
+      "resolution": [
+        1280,
+        768
+      ],
+      "pid": 8384,
+      "exit_code": 0,
+      "cleanup_complete": true,
+      "nonce": "5e20c2d460ec49de981aefe6570d083e",
+      "reported_checks": 196,
+      "captures": 51,
+      "actual_callbacks": 39,
+      "headings": [
+        {
+          "capture": 23,
+          "pack": "GUIMG",
+          "selected_party_index": 2,
+          "script_name": "imoen",
+          "runtime_id": 10003,
+          "spell_type": 1,
+          "level": 0,
+          "allocated": 4,
+          "ready": 4,
+          "capacity_with_bonus": 4,
+          "text": "Memorized: 4/4",
+          "relative_label_rect": [
+            295,
+            598,
+            275,
+            40
+          ],
+          "window_rect": [
+            208,
+            29,
+            864,
+            710
+          ],
+          "prepared_row_y": 644,
+          "bmp_sha256": "df9b09ba483a6a1776d9c5b492a723877dab0058aee296bd767844a30c5e2672",
+          "raw_state_sha256": "d30dee51f912b18260c9207774d9f54b800ceea8b03a61598d2d88dc00bf6cb4",
+          "raw_ui_sha256": "144b961b99dc1582fc524f1cc7ee184b898ceb3728d918cb709da0526164190b"
+        },
+        {
+          "capture": 25,
+          "pack": "GUIPR",
+          "selected_party_index": 3,
+          "script_name": "jaheira",
+          "runtime_id": 10004,
+          "spell_type": 0,
+          "level": 0,
+          "allocated": 5,
+          "ready": 5,
+          "capacity_with_bonus": 5,
+          "text": "Memorized: 5/5",
+          "relative_label_rect": [
+            295,
+            598,
+            275,
+            40
+          ],
+          "window_rect": [
+            208,
+            29,
+            864,
+            710
+          ],
+          "prepared_row_y": 644,
+          "bmp_sha256": "99b602da625247bfeb9461a656c2998576593b0ef096b574897e36277d6f95e1",
+          "raw_state_sha256": "5a3b72a5715bc099b7f3485287871eb5254b2bf20382b05aed9f70c64d09de98",
+          "raw_ui_sha256": "ce791a36f3efe7bc4b89d8797df39df1e0f51f1c6cb1197bc6f5922fa6e082d0"
+        }
+      ],
+      "private_game": {
+        "clean_game_inventory_unchanged": true,
+        "clean_game_root_hashes_unchanged": true,
+        "copied_immutable_inputs_unchanged": true,
+        "allowed_private_root_changes": {
+          "gem-baldur.ini": {
+            "before_sha256": null,
+            "after_sha256": "28760d47a367993a599fb847e0d124ba2d78aa40a74d69041f79968fe6723695"
+          },
+          "GemRB.log": {
+            "before_sha256": "c298eb067db2c6c619c7791afc9b6fc0997a5dba9bd5bd03d6718f2facbbf6a7",
+            "after_sha256": "42fe7313b13e1c9914ac7b8f3fc1c761ed768d30853a98601d9681ae8c606824"
+          }
+        },
+        "linked_asset_content_fully_hashed": false
+      }
+    }
+  ],
+  "preservation": {
+    "phase0": true,
+    "candidate": true,
+    "game": true,
+    "closure": true,
+    "probe": true,
+    "recruitment_parent": true,
+    "coherent_build": true
+  },
+  "auditor_sha256": "bebc547fede07a30159be96a56d6cad427a2ae76635a3f58cad45ef38c9e0633",
+  "limits": [
+    "Independent heading subset and all callback invariance checked;196 recorded checks not196 independent visual judgements",
+    "No new direct-removal callback validation",
+    "No per-label font/color/alignment metric claim or exact original pixel parity",
+    "Registered callbacks not pointer hit-testing",
+    "No RNG/wholeworld purity claim",
+    "No tests/build/native launched by audit"
+  ],
+  "private_audit": "C:\\BGRedux\\phase1-local\\results\\20261022T100526Z-menu-heading-independent-0657d059\\audit.json",
+  "private_audit_sha256": "b2ae89e264d45538d557874c55b1f3dffab2e238b04c000f7247a2a291b33b7e"
+}
