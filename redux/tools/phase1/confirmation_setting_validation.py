@@ -55,7 +55,11 @@ def changed(rows,case,kind):
         found=[i for i,x in enumerate(rows)if x['resref'].upper()==case['filler']and x['flags']!=0]
         if not found:raise ValueError('Declared charged filler absent')
         rows.pop(found[0])
-    elif kind=='add':rows.append(dict(resref=case['ref'],flags=0))
+    elif kind=='add':
+        # Native prepared ResRefs are lowercase; wire decoding is uppercase.
+        # Preserve the existing target's storage spelling in this exact delta.
+        target=next(x['resref']for x in rows if x['resref'].upper()==case['ref'])
+        rows.append(dict(resref=target,flags=0))
     elif kind=='mixed':
         found=[i for i,x in enumerate(rows)if x['resref'].upper()==case['ref']and x['flags']==0]
         if len(found)!=1:raise ValueError('Exact measured mixed depleted copy absent/duplicate')
@@ -173,7 +177,7 @@ def validate_capture(folder,nonce,mode,started_ns,receipt):
             c=next(c for c in CASES if row['name'].startswith(c['name']+'.'));b=meta['book'];a=state['party'][c['pc']-1];p=page(a,c['kind'],c['level'])
             if state['selection']!=c['pc']or b['actor']!=c['pc']or a['script_name'].casefold()!=('imoen'if c['pc']==2 else'jaheira')or b['level']!=c['level']or Path(b['module']).resolve()!=(Path(receipt['source'])/'gemrb/GUIScripts'/ (c['pack']+'.py')).resolve():raise ValueError('Selected caster/page/provider differs')
             known=[dict(original_index=j,resref=x['resref'].upper(),name=receipt['resources'][x['resref'].upper()+'.spl']['spell_name'])for j,x in enumerate(p['known'])];shown=sorted(known,key=lambda x:x['name']);top=b['top']
-            if type(top)is not int or top<0 or top%7 or top>max(0,((len(shown)-1)//7)*7)or b['known']!=known or b['shown']!=shown or b['visible']!=shown[top:top+7]or b['memorized']!=p['memorized']or b['slots']!=p['slots_with_bonus']:raise ValueError('Actual known/memo/visible-pool/slot mapping differs')
+            if type(top)is not int or top<0 or top%7 or top>max(0,((len(shown)-1)//7)*7)or b['known']!=known or b['shown']!=shown or b['visible']!=shown[top:top+7]or memo_rows(b['memorized'])!=memo_rows(p['memorized'])or b['slots']!=p['slots_with_bonus']:raise ValueError('Actual known/memo/visible-pool/slot mapping differs')
             for j,x in enumerate(b['visible']):
                 icon=base.field(ui,c['pack'],2,27+j);label=base.field(ui,c['pack'],2,0x7fff0400+j)
                 if icon['value']!=x['original_index']or label['value']!=x['original_index']or label['text']!=x['name']or not icon['picture_present']:raise ValueError('Actual visible icon/name mapping differs')
@@ -203,7 +207,7 @@ def validate_capture(folder,nonce,mode,started_ns,receipt):
         binding=want['binding'];name=plan[event['step']];route_guard(name,event)
         if name.endswith(('.target-request','.mixed-charged-click','.filler-request')):
             c=next(c for c in CASES if name.startswith(c['name']+'.'));before=evidence.read(folder/('callback-%d-before.state.json'%event['sequence']));p=page(before['party'][c['pc']-1],c['kind'],c['level']);index=event['actual_value'];ref=c['filler']if name.endswith('.filler-request')else c['ref']
-            if not 0<=index<len(p['memorized'])or p['memorized'][index]not in[dict(resref=ref,flags=1)]or binding.get('resref')!=ref or binding.get('memo_index')!=index or event['control']!=3+index:raise ValueError('Clicked actual charged memo identity differs')
+            if not 0<=index<len(p['memorized'])or memo_rows([p['memorized'][index]])!=[(ref,1)]or binding.get('resref')!=ref or binding.get('memo_index')!=index or event['control']!=3+index:raise ValueError('Clicked actual charged memo identity differs')
         if name.endswith('.filler-request'):filler_indices[c['name']]=index
         if name.endswith('.confirm'):
             c=next(c for c in CASES if name.startswith(c['name']+'.'))
