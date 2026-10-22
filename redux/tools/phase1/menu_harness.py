@@ -13,6 +13,11 @@ import shutil
 import struct
 import subprocess
 import uuid
+import importlib.util
+
+_private_spec = importlib.util.spec_from_file_location('redux_private_game', Path(__file__).with_name('private_game.py'))
+private_game = importlib.util.module_from_spec(_private_spec)
+_private_spec.loader.exec_module(private_game)
 
 ROOT = Path(__file__).resolve().parents[3]
 HERE = Path(__file__).resolve().parent
@@ -140,6 +145,7 @@ def main():
     env["PATH"] = os.pathsep.join([str(args.prefix / "bin"), str(args.build / "gemrb"), env.get("PATH", "")])
     dll = args.build / "gemrb/libgemrb_core.dll"
     source_files = [HERE / "menu_probe.cpp", HERE / "gui/MenuRuntime.py", HERE / "gui/MenuStart.py",
+                    HERE / "private_game.py",
                     HERE / "../phase0/native/gui_probe.cpp", HERE / "../phase0/native/save_probe.cpp"]
     identities = {str(p.resolve()): sha(p) for p in source_files}
     receipt = dict(schema="bg-redux-menu-run/1", source_files=identities, engine_dll_sha256=sha(dll),
@@ -179,9 +185,11 @@ def main():
             profile = stage / "profile"
             copied = profile / "save/000000007-HarnessInput"
             shutil.copytree(args.fixture, copied)
+            private = private_game.prepare(args.game, stage / 'game')
+            write(stage / 'private-game-preparation.json', private)
             (stage / "cache").mkdir()
             config = dict(GameType="bg2ee", GameName="BG Redux menu fidelity " + directory.name,
-                GamePath=args.game.resolve(), GemRBPath=args.source / "gemrb", GUIScriptsPath=args.source / "gemrb",
+                GamePath=stage / 'game', GemRBPath=args.source / "gemrb", GUIScriptsPath=args.source / "gemrb",
                 GemRBOverridePath=args.source / "gemrb", GemRBUnhardcodedPath=args.source / "gemrb",
                 PluginsPath=args.build / "gemrb/plugins", CachePath=stage / "cache", SavePath=profile,
                 UseAsLibrary=0, Width=width, Height=height, FullScreen=0, CapFPS=30, AudioDriver="none",
@@ -196,11 +204,15 @@ def main():
             row = dict(resolution=[width, height], process=run_owned(command, args.build, stage_env, stage / "process.log", args.timeout))
             row.update(config_sha256_before=config_before, config_sha256_after=sha(cfg))
             try:
+                row['private_game_validation'] = private_game.validate(private)
+            except (ValueError, OSError) as error:
+                row['private_game_error'] = str(error)
+            try:
                 row["validation"] = validate_stage(stage, (width, height))
             except (ValueError, OSError, KeyError, IndexError, TypeError, StopIteration) as error:
                 row["error"] = str(error)
             row["fixture_copy_unchanged"] = manifest(copied) == original
-            row["passed"] = row["process"]["exit_code"] == 0 and not row["process"]["timed_out"] and row["fixture_copy_unchanged"] and row.get("validation", {}).get("assertion_passed", False) and row.get("validation", {}).get("collected_world_unchanged", False)
+            row["passed"] = row["process"]["exit_code"] == 0 and not row["process"]["timed_out"] and row["fixture_copy_unchanged"] and not row.get('private_game_error') and row.get("validation", {}).get("assertion_passed", False) and row.get("validation", {}).get("collected_world_unchanged", False)
             write(stage / "result.json", row)
             receipt["stages"].append(row)
         receipt["original_fixture_unchanged"] = manifest(args.fixture) == original

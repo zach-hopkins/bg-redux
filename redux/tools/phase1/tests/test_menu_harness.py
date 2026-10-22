@@ -108,6 +108,9 @@ class MenuReceiptTests(unittest.TestCase):
 
 class MenuRuntimeTests(unittest.TestCase):
     def setUp(self):
+        # This module must also run independently of the character-sheet suite.
+        self.paths = patch.object(sys, 'path', [str(HERE.parents[2] / 'gemrb/GUIScripts')] + sys.path)
+        self.paths.start()
         self.gem = types.ModuleType("GemRB")
         self.vars = {}
         self.gem.SetVar = lambda name, value: self.vars.update({name: value})
@@ -120,6 +123,7 @@ class MenuRuntimeTests(unittest.TestCase):
 
     def tearDown(self):
         self.modules.stop()
+        self.paths.stop()
         self.temp.cleanup()
 
     def test_declared_plan_covers_all_required_observations(self):
