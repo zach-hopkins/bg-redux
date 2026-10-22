@@ -324,7 +324,7 @@ def GetSupplementalStats(pc, combat=None):
 def InitEEStats(Window):
 	GemRB.SetVar("ReduxStatsSection", 0)
 	GemRB.SetVar("ReduxStatsPage", 0)
-	Window.CreateLabel(0x7fff0200, 546, 96, 300, 20, "STONESML", "Stats", IE_FONT_ALIGN_CENTER)
+	Window.CreateLabel(0x7fff0200, 546, 96, 300, 20, "STONESML", "Stats", IE_FONT_ALIGN_CENTER).SetColor(ColorWhitish)
 	for index, name in enumerate(("Overview", "Skills", "Saves", "Resists", "Weapons", "Abilities")):
 		button = Window.CreateButton(0x7fff0210 + index, 546 + index % 3 * 100, 117 + index // 3 * 22, 100, 21)
 		button.SetFont("NORMAL")
@@ -333,13 +333,14 @@ def InitEEStats(Window):
 		button.OnPress(lambda section=index: SelectEEStats(Window, section))
 	text = Window.GetControl(45)
 	text.SetFrame({"x": 546, "y": 163, "w": 285, "h": 188})
-	text.SetFont("NORMAL")
-	Window.CreateLabel(0x7fff0201, 595, 351, 200, 23, "NORMAL", "", IE_FONT_ALIGN_CENTER)
+	EECharacterSheet.StyleTextPanel(text)
+	Window.CreateLabel(0x7fff0201, 595, 351, 200, 23, "NORMAL", "", IE_FONT_ALIGN_CENTER).SetColor(ColorWhitish)
 	for cid, x, delta, name in ((0x7fff0202, 546, -1, "<"), (0x7fff0203, 806, 1, ">")):
 		button = Window.CreateButton(cid, x, 351, 40, 23)
 		button.SetFlags(IE_GUI_BUTTON_NO_IMAGE, OP_SET)
 		button.SetFont("NORMAL")
 		button.SetText(name)
+		button.SetColor(ColorWhitish)
 		button.OnPress(lambda step=delta: SelectEEStats(Window, None, step))
 	# This CHU scrollbar was attached to the former unbounded overview.
 	Window.GetControl(46).SetVisible(False)

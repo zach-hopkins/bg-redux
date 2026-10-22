@@ -21,9 +21,16 @@ class Control:
         self.frame = {"x": 533, "y": 345, "w": 45, "h": 44}
         self.tooltip = None
         self.callback = None
+        self.font_slots = {}
+        self.color_slots = {}
+        self.style_at_text = None
 
-    def SetText(self, value): self.text = value
-    def SetFont(self, value): self.font = value
+    def SetText(self, value):
+        self.text = value
+        self.style_at_text = (dict(self.font_slots), dict(self.color_slots))
+    def SetFont(self, value, which=0):
+        self.font = value
+        self.font_slots[which] = value
     def SetTooltip(self, value): self.tooltip = value
     def GetFrame(self): return dict(self.frame)
     def SetFrame(self, value): self.frame = dict(value)
@@ -32,7 +39,9 @@ class Control:
     def SetDisabled(self, value): self.disabled = value
     def SetVisible(self, value): self.visible = value
     def SetState(self, value): self.state = value
-    def SetColor(self, value, *args): self.color = value
+    def SetColor(self, value, which=0):
+        self.color = value
+        self.color_slots[which] = value
     def OnPress(self, value): self.callback = value
     def ScrollTo(self, *args): self.scroll = args
 
@@ -61,7 +70,7 @@ class CharacterSheetTests(unittest.TestCase):
         self.common = types.ModuleType("GUICommon")
         self.common.GetACStyleBonus = lambda pc, details=None: -1
         self.gem.GetString = lambda ref: {17183: "Armor Class", 17184: "Hit Points", 9457: "THAC0",
-            10336: "Damage", 9458: "Attacks per round", 56910: "Off hand", 56911: "Main hand"}.get(ref, str(ref))
+            10336: "Damage", 9458: "Attacks per round", 56910: "Off Hand THAC0", 56911: "Main Hand THAC0"}.get(ref, str(ref))
         self.hands = [combat(), combat(Slot=10, DamageBonus=1, WeaponStrBonus=2, ToHitStats={"Total": 19})]
         self.gem.GetCombatDetails = lambda pc, hand: copy.deepcopy(self.hands[hand])
         self.gem.IsDualWielding = lambda pc: False
@@ -143,6 +152,32 @@ class CharacterSheetTests(unittest.TestCase):
         self.assertEqual(art.background, "INVSTATS")
         self.assertTrue(art.disabled)
         self.assertEqual(window.GetControl(77).font, "NORMAL")
+        self.assertEqual(window.GetControl(0x10000055).font, 'NORMAL')
+        self.assertEqual(window.GetControl(0x10000055).color, dict(r=215,g=215,b=215,a=255))
+
+    def test_real_chu_black_body_and_dim_initials_are_overridden_before_new_spans(self):
+        for record, panels in ((False,(77,78,79,80)), (True,(53,54,55,56))):
+            with self.subTest(record=record):
+                window=Window()
+                for cid in panels:
+                    control=window.GetControl(cid)
+                    control.SetFont('STONESML')
+                    control.SetFont('STONESML',1)
+                    control.SetColor(dict(r=0,g=0,b=0,a=255),0)
+                    control.SetColor(dict(r=64,g=64,b=64,a=255),1)
+                self.sheet.Update(window,1,record=record)
+                for cid in panels:
+                    fonts,colors=window.GetControl(cid).style_at_text
+                    self.assertEqual(fonts,{0:'NORMAL',1:'NORMAL'})
+                    self.assertEqual(colors[0],dict(r=215,g=215,b=215,a=255))
+                    self.assertEqual(colors[1],colors[0])
+
+    def test_actual_tlk_thac0_hand_labels_do_not_mislabel_damage(self):
+        model=self.sheet.ReadActor(1)
+        self.assertIn('Main Hand THAC0',self.sheet.PanelText(model)[2])
+        self.assertIn('Main hand: 1d8+10',self.sheet.PanelText(model)[3])
+        self.assertNotIn('THAC0',self.sheet.PanelText(model)[3])
+        self.assertNotIn('Hand THAC0:',self.sheet.CombatTooltip(model))
 
     def test_pages_preserve_every_long_record_token_with_bounded_rows(self):
         tokens = ["proficiency%03d" % i for i in range(100)]

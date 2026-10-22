@@ -20,6 +20,18 @@ def Signed(value):
 	return "%+d" % value
 
 
+def StyleTextPanel(control):
+	"""EE CHU placeholders have black body/dim initials; ui.menu styles them.
+
+	Both parser fonts/colors must change before SetText creates fresh spans.
+	Keeping the imported initial font makes the first letter a different face.
+	"""
+	control.SetFont("NORMAL")
+	control.SetFont("NORMAL", 1)
+	control.SetColor(ColorWhitish, TA_COLOR_NORMAL)
+	control.SetColor(ColorWhitish, TA_COLOR_INITIALS)
+
+
 def AttacksText(halfAttacks):
 	# GetCombatDetails APR is in half-attacks, not a rounded integer.
 	return str(halfAttacks // 2) + ("½" if halfAttacks % 2 else "")
@@ -111,7 +123,9 @@ def PanelText(model):
 	for hand in model["hands"]:
 		label = text(56910 if hand["hand"] else 56911)
 		tohit.append("%s: %d" % (label, hand["thac0"]))
-		damage.append("%s: %s" % (label, hand["damage"]))
+		# 56910/56911 include 'THAC0' in the actual TLK, so they are not
+		# generic hand labels for damage (the prior double hid this mismatch).
+		damage.append("%s: %s" % ("Off hand" if hand["hand"] else "Main hand", hand["damage"]))
 	damage.append("%s: %s" % (text(9458), model["apr"]))
 	if not model["hands"]:
 		tohit.append("—")
@@ -127,7 +141,7 @@ def CombatTooltip(model):
 			lines.append("Unidentified item: details unknown")
 			continue
 		details = hand["details"]
-		lines.append("%s: %s" % (GemRB.GetString(56910 if hand["hand"] else 56911), hand["damage"]))
+		lines.append("%s: %s" % ("Off hand" if hand["hand"] else "Main hand", hand["damage"]))
 		for key, value in details["ToHitStats"].items():
 			lines.append("THAC0 %s: %d" % (key, value))
 		for effect in details.get("DamageOpcodes", ()):
@@ -145,20 +159,24 @@ def InitInventory(Window):
 	art.SetBackground("INVSTATS")
 	art.SetDisabled(True)
 	for cid in (77, 78, 79, 80):
-		Window.GetControl(cid).SetFont("NORMAL")
+		StyleTextPanel(Window.GetControl(cid))
 	for cid in (0x10000055, 0x10000056):
-		Window.GetControl(cid).SetFont("NORMAL" if cid == 0x10000056 else "NUMBER")
+		# Both EE labels are authored as NORMAL in GUIINV.CHU. NUMBER is a
+		# legacy BAM role, not the face used by these EE headline fields.
+		Window.GetControl(cid).SetFont("NORMAL")
+		Window.GetControl(cid).SetColor(ColorWhitish)
 
 
 def Update(Window, pc, record=False):
 	model = ReadActor(pc)
 	acLabel = Window.GetControl(0x10000028 if record else 0x10000038)
+	acLabel.SetColor(ColorWhitish)
 	acLabel.SetText(str(model["ac"]))
 	acLabel.SetTooltip(17183)
 	panels = (53, 54, 55, 56) if record else (77, 78, 79, 80)
 	for cid, content in zip(panels, PanelText(model)):
 		control = Window.GetControl(cid)
-		control.SetFont("NORMAL")
+		StyleTextPanel(control)
 		control.SetText(content)
 		control.SetTooltip(content if cid in panels[:2] else CombatTooltip(model))
 	acTooltip = PanelText(model)[0] + "\n" + "\n".join(
@@ -169,6 +187,8 @@ def Update(Window, pc, record=False):
 	thac = Window.GetControl(0x10000040 if record else 0x10000055)
 	damage = Window.GetControl(0x10000041 if record else 0x10000056)
 	damage.SetFont("NORMAL")
+	thac.SetColor(ColorWhitish)
+	damage.SetColor(ColorWhitish)
 	frame = damage.GetFrame()
 	frame.update({"x": 520, "w": 78})
 	damage.SetFrame(frame)
