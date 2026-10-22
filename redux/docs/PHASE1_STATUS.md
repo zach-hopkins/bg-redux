@@ -8,6 +8,19 @@ game typefaces are fidelity requirements. Modern UI direction remains approved.
 
 ## Requirements and order
 
+Latest source/diagnostic checkpoint: actual engine gender-table rules now bind
+PRO_HESHE, PRO_HIMHER and PRO_HISHER independently for the information diagnostic.
+It uses natural level-3 Remove Magic and Dispel Magic for strict scroll movement
+and exact return; mutation targets remain unchanged. The complete source suite
+passes **531 tests in 35.384 seconds**, receipt
+`phase1-information-tokens-tooling-1792671690371783800/result.json`. Fresh external
+host `information-3` is running under
+`20261022T122217Z-spellbook-information-ee-direct-97f61bc1`; no pass is claimed yet.
+The [independent two-resolution menu audit](testing/phase1-information-menu-independent.md)
+passes 148 checks, 51 captures, 39 callbacks and 107 steps per resolution. Its
+historical helper is frozen; it does not certify the newer default-help fix,
+active paging, name selection, scrolling, physical pointer input or exact fonts.
+
 October 22 follow-up: the named-layout candidate's [independent audit](testing/phase1-information-candidate-regression-audit.md)
 confirms all 44 general assertions and correct stock/reordered Erase save/reload.
 The compatibility verdict remains differences: vanilla residuals are 2/2/24,
