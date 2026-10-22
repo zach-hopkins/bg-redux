@@ -6,7 +6,7 @@ Latest checkpoint: the later sections and linked summaries supersede pending
 descriptions below. Earlier failures and incomplete runs retain their verdicts.
 
 October 22 UTC current-candidate checkpoint: the tracked external tooling suite
-passes **368 Python tests** (`phase1-integrated-tests-20261022T0758.log`), including
+passes **393 Python tests** (`phase1-integrated-tests-20261022T0858.log`), including
 22 focused methods each for the promoted TextArea and Minsc adapters. Candidate
 `20261022T063419Z-candidate-24f35a4e` passes the independently audited
 [normal dialogue and two-resolution menus](phase1-b49-normal-dialogue-menu-audit.md)
@@ -36,6 +36,13 @@ divided XP, ordinary save and a separate fresh reload. Both owned processes exit
 zero and all preservation guards pass. The
 [independent Minsc audit](phase1-minsc-recruitment-native-audit.md) also passes;
 original parity, broader campaign progression and complete UI fidelity are open.
+
+The [original spellbook reference](phase1-original-spellbook-reference.md)
+provides actual wizard header/count placement and removal/re-preparation save
+bytes. The new [spellbook operation adapter](phase1-spellbook-operation-journey.md)
+passes 25 focused methods and compiles as `ordinary-control-3`. Its first
+pregame host crash and later bridge representation rejection remain failed;
+fresh ordinary and isolated name-permutation executions are still pending.
 
 October22 UTC renderer checkpoint: **301 external Python tests pass**
 (`phase1-integrated-tests-20261022T0520.log`). User-observed stale dialogue choices

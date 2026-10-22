@@ -18,6 +18,16 @@ heading/count location, immediate wizard removal without a confirmation, and
 serialized ready=0 after re-preparation. This evidence does not approve the
 current native prompt policy as original parity.
 
+The subsequent narrow bridge fix accepts Python null only for an unbound native
+control with an empty variable and exact INVALID_VALUE integer; every bound
+integer still requires exact identity. Together with the separate presentation
+control, all 25 focused methods and 393 integrated external methods pass.
+External `ordinary-control-3` compiles; fresh executions remain pending. A
+separate read-only content review of the earlier completed operation phase
+passes the corrected contracts, but skips freshness/build/reload validation and
+does not rewrite its raw failed verdict. Review receipt:
+`phase1-local/results/spellbook-bridge-content-review-20261022/review.json`.
+
 This source-only adapter exercises Imoen's wizard book and Jaheira's priest book from the measured four-party Minsc checkpoint `20261022T075243Z-minsc-recruitment-072650e1/recruit/frozen-save`. No build, test, or runtime result is claimed by this implementation delivery. The coordinator owns execution. It adds no engine changes or fixture edits.
 
 ## Ordinary route and acceptance
