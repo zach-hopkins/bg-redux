@@ -1,0 +1,24 @@
+# Stock container journey: independent LAB audit
+
+Independent read-only review confirms the bounded native route in `20261022T040338Z-container-loot-journey-25ffdf30`: one ordinary UseContainer command, actual stock take/close callbacks, SW1H04 transferred from Jailkeep Table to the leader, ordinary save, and ownership retained after a fresh-process reload. No material evidence or validator blocker was found for this claim.
+
+The compact [evidence receipt](../compatibility/evidence/phase1-container-loot-lab.json), SHA-256 `7350a7357719cc928b34ecbe01b48cb32a11f227790db35cf90957cda9b0c03b`, binds the raw result (`b429329e332efb8ade475d8fd22a2eb1bd395f84ffb008af2ffc64716ef3c67c`), build receipt, snapshots, diagnostics, save inventories, and failed predecessors.
+
+Readiness was observed naturally at samples 6–9: BD_DEFAI=1, actual class script bddefai, idle current/next actions, no movement/current container, and selected leader 10002. Sample 9 issues the only command; its post-context exposes parsed action 112 in the actual queue and current container 10068. Party AI remains disabled and BDAI_RESET_TIMERS remains 1; the adapter neither clears this global nor enables/disables AI. Initial and command-before inventories match. The leader moves from (3741,2801) to (3160,2838).
+
+At sample 31, the selected leader and current container still match, DF_IN_CONTAINER=32 is present, and stock GUIW10 Window8 is visible and enabled. Its take callback removes the one SW1H04 from the table and adds it to the leader; ten other table records remain. The close callback clears the current-container pointer. Window closure occurs through the following ordinary GUI update, so its immediate post-callback diagnostic can still show the window/flag. The final check requires closure before saving. Runtime SW1H04 flags are 11297 both before and after transfer; serialized flags are 1. Raw values are retained, and complete wire/runtime flag-representation equivalence is outside the assertion.
+
+Take PID 14288 and fresh reload PID 12100 both exited 0 within their separate 90-second bounds (34.109 and 32.240 seconds). Each has 89 ordered clock samples, including 80 running samples, plus complete before/after diagnostic contexts independently ingested by the validator. The reload performs zero loot commands/callbacks. Both ordinary unforced saves return 0 and leave their full captured before/after-save states unchanged. The reload input's complete five-file manifest equals the prior frozen output.
+
+| Boundary | BALDUR.gam SHA-256 | BALDUR.SAV SHA-256 |
+| --- | --- | --- |
+| First ordinary save | `edf1a204ea1c015119ee274a8873fe948f0940eae116618b1d0a061fba593128` | `06487f8b4a4f92b6e086736f32e96ed446f8fce57c7090fc04cecc517661b699` |
+| Fresh reload and save | `f2e5840b465355804a7dd172d82cb3bbfd7da344bb75407fd0c15f4728648e2e` | `3dbe3b2ef6f68dba40c3000d3faf978a538596a7377ec583717e66924c40a69a` |
+
+A separate bounded stdlib SAV/zlib/ARE/CRE/GAM decoder confirms both output saves contain ten table items, no table SW1H04, and exactly one SW1H04 in the leader inventory with zero expiration and charges [0,0,0]. It also reconfirms the unchanged stock input's eleven table items and empty serialized leader inventory. Native and frozen output directories, copied input profiles, configurations, empty overrides, and both private GamePath wrappers were independently rechecked.
+
+The audit rehashed all 500 artifact-manifest entries and all 34 current-source/frozen-source/run-source bindings, regenerated the frozen GUI instrumentation for comparison, and checked compiler/executable hashes, source snapshots, compiled hook/serializer, ACTION.IDS, and the three startup resource bindings. Driver SHA-256 is `6f25878b0c1a8a6a8ee337820cbcee7bcb8e48ce37a94bf8864b3b3d1e7b0f82`. Recorded candidate and Phase0 before/after inventories agree and were independently recomputed against current files. Linked asset contents are not fully rehashed by private-wrapper validation.
+
+Source review supports waiting for the stock AR0602 startup ActionOverride before issuing a command. The exact clearing call was not captured in the old failed run, so that historical causal attribution remains source-supported rather than directly instrumented. Failed runs c3703e13, eff5ffad and 42d3a11e, plus the ready4 external compile failure, remain failed and hash-bound in this audit; the successful run does not reinterpret their status.
+
+This proves actor operations and shipped callback dispatch with sampled action/movement evidence. It does not prove OS pointer/hit-testing input, original parity, quest progression, arbitrary container behavior, whole-world persistence, or RNG purity. The validator checks discrete observations; it does not observe every interpreter tick. No additional speculative readiness requirement is recommended from this evidence. This audit launched no tests, compiler, native host, or game and changed no production files.

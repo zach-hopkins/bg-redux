@@ -1,0 +1,1493 @@
+{
+  "schema": "bg-redux-container-loot-audit/1",
+  "verdict": "bounded-native-loot-and-reload-evidence-confirmed",
+  "scope": "Actor UseContainer, sampled movement and actual stock callback dispatch plus declared item ownership persisted through a fresh process. No OS pointer, original parity, quest/general-world, or RNG purity claim.",
+  "result": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\result.json",
+    "bytes": 39703,
+    "sha256": "b429329e332efb8ade475d8fd22a2eb1bd395f84ffb008af2ffc64716ef3c67c"
+  },
+  "artifact_manifest": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\artifact-manifest.json",
+    "bytes": 79115,
+    "sha256": "055eb03617873571e0dc2e80dc844242328478e4bea6a78ffc429c0dae19165d"
+  },
+  "artifact_hashes_rechecked": 500,
+  "build": {
+    "receipt": {
+      "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\driver\\build.json",
+      "bytes": 606630,
+      "sha256": "94b2fd18cd48f61053ad072374221e86c297ae9379ccac76bdbcf36b6ee3f3f1"
+    },
+    "binary_sha256": "6f25878b0c1a8a6a8ee337820cbcee7bcb8e48ce37a94bf8864b3b3d1e7b0f82",
+    "compiler_sha256": "5f30e02408ab97050fcbfa39bb391b0923cf9402063920b849ab8491e63334b3",
+    "source_pairs_rechecked": 34,
+    "source_bindings": {
+      "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\saved_npc_color_journey.py": {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\saved_npc_color_journey.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\0501789328beb195e9a0c55ea73a8ceb07b62857938923af7f665c67d02de852\\saved_npc_color_journey.py",
+        "sha256": "0501789328beb195e9a0c55ea73a8ceb07b62857938923af7f665c67d02de852"
+      },
+      "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\saved_npc_color_fixtures.py": {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\saved_npc_color_fixtures.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\f923208a76a15f8e527dcb63052eb6ddf2f0969cc265290d09b8b70056c8e238\\saved_npc_color_fixtures.py",
+        "sha256": "f923208a76a15f8e527dcb63052eb6ddf2f0969cc265290d09b8b70056c8e238"
+      },
+      "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\weapon_query_observer.py": {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\weapon_query_observer.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\4f9ef3dc6cb2c87c316279c3c488c23f83c01376a48fbc4ca96ed6433b6252fb\\weapon_query_observer.py",
+        "sha256": "4f9ef3dc6cb2c87c316279c3c488c23f83c01376a48fbc4ca96ed6433b6252fb"
+      },
+      "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\weapon_query_validation.py": {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\weapon_query_validation.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\44c33b8452a74c94a4e78955fbc444c0dc1ac51689cf18a570e2a1fafa21ee4d\\weapon_query_validation.py",
+        "sha256": "44c33b8452a74c94a4e78955fbc444c0dc1ac51689cf18a570e2a1fafa21ee4d"
+      },
+      "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\weapon_oracle_fixtures.py": {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\weapon_oracle_fixtures.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\46100d440c3bc9c4a36f5a0d2a35f4db8331b6f3fc1985747356086966ee4fa4\\weapon_oracle_fixtures.py",
+        "sha256": "46100d440c3bc9c4a36f5a0d2a35f4db8331b6f3fc1985747356086966ee4fa4"
+      },
+      "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\private_game.py": {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\private_game.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\9dce77132b5d39b2ac210a76cfd27388063887867cadad5e3ae0956b396a3582\\private_game.py",
+        "sha256": "9dce77132b5d39b2ac210a76cfd27388063887867cadad5e3ae0956b396a3582"
+      },
+      "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\native\\phase0_gui_probe_snapshot.cpp": {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\native\\phase0_gui_probe_snapshot.cpp",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\68142b1ef795995e145c2f4572d69a276d21dbf4a9500a1300a83fd191e65db4\\phase0_gui_probe_snapshot.cpp",
+        "sha256": "68142b1ef795995e145c2f4572d69a276d21dbf4a9500a1300a83fd191e65db4"
+      },
+      "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\native\\phase0_save_probe_snapshot.cpp": {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\native\\phase0_save_probe_snapshot.cpp",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\d4f332b73c5a0bf579538de5624add4172d460ed880ae73d1c1cdfd13a11ad1e\\phase0_save_probe_snapshot.cpp",
+        "sha256": "d4f332b73c5a0bf579538de5624add4172d460ed880ae73d1c1cdfd13a11ad1e"
+      },
+      "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\native\\color_save_after_clock.h": {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\native\\color_save_after_clock.h",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\092eeaef067999d64c15a32f662eb9691e5111a5fc1dc3d10d2a417583a7bab6\\color_save_after_clock.h",
+        "sha256": "092eeaef067999d64c15a32f662eb9691e5111a5fc1dc3d10d2a417583a7bab6"
+      },
+      "C:\\BGRedux\\tools\\phase0\\native\\gui_probe.cpp": {
+        "source": "C:\\BGRedux\\tools\\phase0\\native\\gui_probe.cpp",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\68142b1ef795995e145c2f4572d69a276d21dbf4a9500a1300a83fd191e65db4\\gui_probe.cpp",
+        "sha256": "68142b1ef795995e145c2f4572d69a276d21dbf4a9500a1300a83fd191e65db4"
+      },
+      "C:\\BGRedux\\tools\\phase0\\native\\save_probe.cpp": {
+        "source": "C:\\BGRedux\\tools\\phase0\\native\\save_probe.cpp",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\d4f332b73c5a0bf579538de5624add4172d460ed880ae73d1c1cdfd13a11ad1e\\save_probe.cpp",
+        "sha256": "d4f332b73c5a0bf579538de5624add4172d460ed880ae73d1c1cdfd13a11ad1e"
+      },
+      "C:\\BGRedux\\tools\\phase0\\gui\\ReduxStart.py": {
+        "source": "C:\\BGRedux\\tools\\phase0\\gui\\ReduxStart.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\32eaa9af6ae8630d42a17b1e8a3de44ec540d05625b3be3fe35eb5d637ae310c\\ReduxStart.py",
+        "sha256": "32eaa9af6ae8630d42a17b1e8a3de44ec540d05625b3be3fe35eb5d637ae310c"
+      },
+      "C:\\BGRedux\\tools\\phase0\\baseline_runner.py": {
+        "source": "C:\\BGRedux\\tools\\phase0\\baseline_runner.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\c67c59fb1c6459883fb71aa781ae37315215f12e653079e634dc58fd6516dbf4\\baseline_runner.py",
+        "sha256": "c67c59fb1c6459883fb71aa781ae37315215f12e653079e634dc58fd6516dbf4"
+      },
+      "C:\\BGRedux\\tools\\phase0\\query_side_effects.py": {
+        "source": "C:\\BGRedux\\tools\\phase0\\query_side_effects.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\c4b1256043b6c2a769077cc7d8dcf6dc20fbc353279590a900daffce5f6c897d\\query_side_effects.py",
+        "sha256": "c4b1256043b6c2a769077cc7d8dcf6dc20fbc353279590a900daffce5f6c897d"
+      },
+      "C:\\BGRedux\\tools\\phase0\\harness.py": {
+        "source": "C:\\BGRedux\\tools\\phase0\\harness.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\ca13b211d19bbc637af795cf64521aebf17a88d4b75072da5f2cecaa472351cb\\harness.py",
+        "sha256": "ca13b211d19bbc637af795cf64521aebf17a88d4b75072da5f2cecaa472351cb"
+      },
+      "C:\\BGRedux\\tools\\phase0\\save_harness.py": {
+        "source": "C:\\BGRedux\\tools\\phase0\\save_harness.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\8d1a4a0c9204858750c6a4339f4d29d0653c88557b68234e17b0943030f24eb8\\save_harness.py",
+        "sha256": "8d1a4a0c9204858750c6a4339f4d29d0653c88557b68234e17b0943030f24eb8"
+      },
+      "C:\\BGRedux\\tools\\phase0\\legacy_oracle.py": {
+        "source": "C:\\BGRedux\\tools\\phase0\\legacy_oracle.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\a1ea22ba4a5aec4d93e96fc6767e72c12a1ec41acd66c3109c95ff1ec60bc8f0\\legacy_oracle.py",
+        "sha256": "a1ea22ba4a5aec4d93e96fc6767e72c12a1ec41acd66c3109c95ff1ec60bc8f0"
+      },
+      "C:\\BGRedux\\tools\\phase0\\equipped_defenses.py": {
+        "source": "C:\\BGRedux\\tools\\phase0\\equipped_defenses.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\fb2aeebd0f70c29169ea33277b923bf429ed6d5af0d53ebfdaf76459ff8d2a3f\\equipped_defenses.py",
+        "sha256": "fb2aeebd0f70c29169ea33277b923bf429ed6d5af0d53ebfdaf76459ff8d2a3f"
+      },
+      "C:\\BGRedux\\tools\\phase0\\script_query_probe.py": {
+        "source": "C:\\BGRedux\\tools\\phase0\\script_query_probe.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\bbc994164a3a3b6b017be99ba404587a7d257afaae10c384cbff862bc61d5107\\script_query_probe.py",
+        "sha256": "bbc994164a3a3b6b017be99ba404587a7d257afaae10c384cbff862bc61d5107"
+      },
+      "C:\\BGRedux\\tools\\phase0\\probe_ui_resources.py": {
+        "source": "C:\\BGRedux\\tools\\phase0\\probe_ui_resources.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\5717f4bdbc6d3daa27ec2a60c39adc9f153d94b73d183e2b5f025d5b73efcc91\\probe_ui_resources.py",
+        "sha256": "5717f4bdbc6d3daa27ec2a60c39adc9f153d94b73d183e2b5f025d5b73efcc91"
+      },
+      "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\container_loot_journey.py": {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\container_loot_journey.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\18f7aeec1252d45bd0e88054ceb6f8a4996aebfae432be214dd69ce0eef3c6c6\\container_loot_journey.py",
+        "sha256": "18f7aeec1252d45bd0e88054ceb6f8a4996aebfae432be214dd69ce0eef3c6c6"
+      },
+      "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\native\\loot_gui_probe_snapshot.cpp": {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\native\\loot_gui_probe_snapshot.cpp",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\68142b1ef795995e145c2f4572d69a276d21dbf4a9500a1300a83fd191e65db4\\loot_gui_probe_snapshot.cpp",
+        "sha256": "68142b1ef795995e145c2f4572d69a276d21dbf4a9500a1300a83fd191e65db4"
+      },
+      "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\native\\loot_save_probe_snapshot.cpp": {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\native\\loot_save_probe_snapshot.cpp",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\d4f332b73c5a0bf579538de5624add4172d460ed880ae73d1c1cdfd13a11ad1e\\loot_save_probe_snapshot.cpp",
+        "sha256": "d4f332b73c5a0bf579538de5624add4172d460ed880ae73d1c1cdfd13a11ad1e"
+      },
+      "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\native\\loot_journey.h": {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\native\\loot_journey.h",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\ccda3b41086bbe929035ef958dbb2469d94da5b6b76709fbb6df7f0117a7c3d5\\loot_journey.h",
+        "sha256": "ccda3b41086bbe929035ef958dbb2469d94da5b6b76709fbb6df7f0117a7c3d5"
+      },
+      "C:\\BGRedux\\phase1-local\\engine\\gemrb\\GUIScripts\\Container.py": {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\gemrb\\GUIScripts\\Container.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\982a896848ad34757b2c8b5031018172cc8d108c73b7ab2dd751aa38e0da718b\\Container.py",
+        "sha256": "982a896848ad34757b2c8b5031018172cc8d108c73b7ab2dd751aa38e0da718b"
+      },
+      "C:\\BGRedux\\phase1-local\\engine\\gemrb\\GUIScripts\\GUICommon.py": {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\gemrb\\GUIScripts\\GUICommon.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\a2a31a41b8acfbf41f2b67c4d6d00f6c4cdf8b42a2b4530d6876aef9614649db\\GUICommon.py",
+        "sha256": "a2a31a41b8acfbf41f2b67c4d6d00f6c4cdf8b42a2b4530d6876aef9614649db"
+      },
+      "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\GUI\\GameControl.cpp": {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\GUI\\GameControl.cpp",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\0c0cda1b19a2306b390aa3741a6e5ad16e8acdcf80067597b77d982c6536a5f3\\GameControl.cpp",
+        "sha256": "0c0cda1b19a2306b390aa3741a6e5ad16e8acdcf80067597b77d982c6536a5f3"
+      },
+      "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\GameScript\\Actions.cpp": {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\GameScript\\Actions.cpp",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\675a7edad0c22b42f30e986271ae836fda48e559a5e2c42e4924353581ca6431\\Actions.cpp",
+        "sha256": "675a7edad0c22b42f30e986271ae836fda48e559a5e2c42e4924353581ca6431"
+      },
+      "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\GameScript\\GameScript.cpp": {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\GameScript\\GameScript.cpp",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\9fa3b5649b3da857bbd6c940d2be059f3427d4320f9cb23b6c8879d58cfde8ae\\GameScript.cpp",
+        "sha256": "9fa3b5649b3da857bbd6c940d2be059f3427d4320f9cb23b6c8879d58cfde8ae"
+      },
+      "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\Scriptable\\Scriptable.cpp": {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\Scriptable\\Scriptable.cpp",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\7e473a20e395c71cdc45227066e0d9978a317578306657a5bfd7e54605788162\\Scriptable.cpp",
+        "sha256": "7e473a20e395c71cdc45227066e0d9978a317578306657a5bfd7e54605788162"
+      },
+      "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\Interface.cpp": {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\Interface.cpp",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\1f89535b05baf76de8370d2b94bf9b3a12c0cf7c1248c63bbe440ad49731c47d\\Interface.cpp",
+        "sha256": "1f89535b05baf76de8370d2b94bf9b3a12c0cf7c1248c63bbe440ad49731c47d"
+      },
+      "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\Scriptable\\Actor.cpp": {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\Scriptable\\Actor.cpp",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\edd8021ed42a98bf47e641fb4079e8197baa22422b94ee5d9edec6591b9cfc3d\\Actor.cpp",
+        "sha256": "edd8021ed42a98bf47e641fb4079e8197baa22422b94ee5d9edec6591b9cfc3d"
+      },
+      "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\Inventory.h": {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\Inventory.h",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\47396d516c66885cc9409cf88cb016bb6dc43cab6980e11fa47aabbff4b91be5\\Inventory.h",
+        "sha256": "47396d516c66885cc9409cf88cb016bb6dc43cab6980e11fa47aabbff4b91be5"
+      },
+      "C:\\BGRedux\\phase1-local\\engine\\gemrb\\plugins\\GUIScript\\GUIScript.cpp": {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\gemrb\\plugins\\GUIScript\\GUIScript.cpp",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\sources\\484602f77ed51235f2e63bc90558ab0a77cad58cf360a5830173f3919351a48d\\GUIScript.cpp",
+        "sha256": "484602f77ed51235f2e63bc90558ab0a77cad58cf360a5830173f3919351a48d"
+      }
+    },
+    "compiled_sources": {
+      "loot_gui_probe.cpp": {
+        "bytes": 21268,
+        "sha256": "a0848f2332409928252c7e5c94866a86344587b8ffbda2ddf6092db60ffd81e0"
+      },
+      "loot_journey.h": {
+        "bytes": 11938,
+        "sha256": "ccda3b41086bbe929035ef958dbb2469d94da5b6b76709fbb6df7f0117a7c3d5"
+      },
+      "loot_save_probe_snapshot.cpp": {
+        "bytes": 13126,
+        "sha256": "d4f332b73c5a0bf579538de5624add4172d460ed880ae73d1c1cdfd13a11ad1e"
+      }
+    }
+  },
+  "startup_resources": {
+    "ar0602": {
+      "origin": "data\\Scripts.bif",
+      "sha256": "29c1d6d4b57787341a735532f126f1ae0e5bc1b5c8b5497f1502e83732c8f6d6",
+      "bytes": 10590,
+      "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\startup-resources\\ar0602.bcs",
+      "run_frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\driver\\startup-resources\\ar0602.bcs"
+    },
+    "bddefai": {
+      "origin": "data\\Patch2.bif",
+      "sha256": "0bb60bc3cef97b40cfee1924087562b4391194058f96f911a9870ac6d5cff9f6",
+      "bytes": 477139,
+      "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\startup-resources\\bddefai.bcs",
+      "run_frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\driver\\startup-resources\\bddefai.bcs"
+    },
+    "dplayer3": {
+      "origin": "data\\Scripts.bif",
+      "sha256": "efbf06d52f88207ccb96bd686e3d4ac41355021db41a17b49dc965cab793abe8",
+      "bytes": 5656,
+      "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready5\\startup-resources\\dplayer3.bcs",
+      "run_frozen": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\driver\\startup-resources\\dplayer3.bcs"
+    }
+  },
+  "initial_wire": {
+    "container": {
+      "name": "Jailkeep Table",
+      "position": [
+        3109,
+        2829
+      ],
+      "type": 5,
+      "flags": 0,
+      "trapped": 0,
+      "items": [
+        {
+          "resref": "SW1H04",
+          "expired": 0,
+          "usages": [
+            0,
+            0,
+            0
+          ],
+          "flags": 1
+        },
+        {
+          "resref": "SW1H07",
+          "expired": 0,
+          "usages": [
+            0,
+            0,
+            0
+          ],
+          "flags": 1
+        },
+        {
+          "resref": "STAF01",
+          "expired": 0,
+          "usages": [
+            0,
+            0,
+            0
+          ],
+          "flags": 1
+        },
+        {
+          "resref": "BLUN04",
+          "expired": 0,
+          "usages": [
+            0,
+            0,
+            0
+          ],
+          "flags": 1
+        },
+        {
+          "resref": "AX1H01",
+          "expired": 0,
+          "usages": [
+            0,
+            0,
+            0
+          ],
+          "flags": 1
+        },
+        {
+          "resref": "SPER01",
+          "expired": 0,
+          "usages": [
+            0,
+            0,
+            0
+          ],
+          "flags": 1
+        },
+        {
+          "resref": "HALB01",
+          "expired": 0,
+          "usages": [
+            0,
+            0,
+            0
+          ],
+          "flags": 1
+        },
+        {
+          "resref": "MISC4B",
+          "expired": 0,
+          "usages": [
+            0,
+            0,
+            0
+          ],
+          "flags": 1
+        },
+        {
+          "resref": "HAMM01",
+          "expired": 0,
+          "usages": [
+            0,
+            0,
+            0
+          ],
+          "flags": 1
+        },
+        {
+          "resref": "SW2H01",
+          "expired": 0,
+          "usages": [
+            0,
+            0,
+            0
+          ],
+          "flags": 1
+        },
+        {
+          "resref": "SW1H43",
+          "expired": 0,
+          "usages": [
+            0,
+            0,
+            0
+          ],
+          "flags": 1
+        }
+      ]
+    },
+    "party0_items": [],
+    "party0_position": [
+      3741,
+      2801
+    ]
+  },
+  "stages": [
+    {
+      "id": "take",
+      "process": {
+        "command": [
+          "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\driver\\Redux_loot_gui.exe",
+          "--config",
+          "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\take\\probe.cfg",
+          "--output",
+          "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\take\\capture",
+          "--scripts",
+          "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\driver\\startup",
+          "--mode",
+          "live-clock",
+          "--clock-running-samples",
+          "80",
+          "--trace-actions",
+          "1",
+          "--journey",
+          "take"
+        ],
+        "cwd": "C:\\BGRedux\\phase1-local\\builds\\20261022T012223Z-candidate-9aa69cd5",
+        "timeout_seconds": 90,
+        "timed_out": false,
+        "exit_code": 0,
+        "cleanup": "not required",
+        "pid": 14288,
+        "elapsed_seconds": 34.109,
+        "log_sha256": "28f5ea614e60f311d46946530f78406b22a4c1eb4c01bcc8c87fe3de159441bc"
+      },
+      "native": {
+        "schema": "bg-redux-container-loot-native/1",
+        "reload": false,
+        "completed": true,
+        "command_count": 1,
+        "command_sample": 9,
+        "callback_sample": 31,
+        "action_id": 112,
+        "callback": "Container.TakeItemContainer",
+        "close_callback": "Container.LeaveContainer",
+        "ui_left_index": 0,
+        "os_pointer_input": false,
+        "save_return_code": 0,
+        "forced": false,
+        "directories": [
+          "C:/BGRedux/phase1-local/results/20261022T040338Z-container-loot-journey-25ffdf30/take/profile\\save\\000000008-Redux Loot Journey"
+        ]
+      },
+      "observation": {
+        "outcome": {
+          "container_before": 11,
+          "container_after": 10,
+          "pc_before": 0,
+          "pc_after": 1,
+          "item": "SW1H04",
+          "acquired_flag_mask_only": "0x10",
+          "flags_scope": "Raw flags retained; only source-grounded transient acquired bit is masked within transfer/reload comparisons."
+        },
+        "readiness": {
+          "command_sample": 9,
+          "callback_sample": 31,
+          "command_count": 1,
+          "diagnostic_samples": 89,
+          "required_consecutive_ready_samples": 4
+        },
+        "output_save": "C:/BGRedux/phase1-local/results/20261022T040338Z-container-loot-journey-25ffdf30/take/profile\\save\\000000008-Redux Loot Journey",
+        "native": {
+          "schema": "bg-redux-container-loot-native/1",
+          "reload": false,
+          "completed": true,
+          "command_count": 1,
+          "command_sample": 9,
+          "callback_sample": 31,
+          "action_id": 112,
+          "callback": "Container.TakeItemContainer",
+          "close_callback": "Container.LeaveContainer",
+          "ui_left_index": 0,
+          "os_pointer_input": false,
+          "save_return_code": 0,
+          "forced": false,
+          "directories": [
+            "C:/BGRedux/phase1-local/results/20261022T040338Z-container-loot-journey-25ffdf30/take/profile\\save\\000000008-Redux Loot Journey"
+          ]
+        },
+        "samples": 89,
+        "sampled_leader_action_ids": [
+          112
+        ],
+        "sampled_movement_observed": true,
+        "game_time_before": 32717,
+        "game_time_after": 33063
+      },
+      "diagnostic_samples": 89,
+      "diagnostic_boundaries": [
+        {
+          "sample": 6,
+          "running": true,
+          "eligible": true,
+          "readiness_streak": 1,
+          "command_count_before": 0,
+          "command_count_after": 0,
+          "command_issued": false,
+          "complete": true,
+          "before": {
+            "pc_runtime_id": 10002,
+            "position": [
+              3741,
+              2801
+            ],
+            "target_container_runtime_id": 10068,
+            "selected_runtime_id": 10002,
+            "current_container_runtime_id": null,
+            "dialogue_flags": 0,
+            "control_status": 0,
+            "party_ai_enabled": false,
+            "game_time": 32726,
+            "bd_defai": 1,
+            "bdai_reset_timers": 1,
+            "scripts": [
+              "",
+              "",
+              "",
+              "",
+              "bddefai",
+              "",
+              "",
+              "DPLAYER3"
+            ],
+            "current_action_id": null,
+            "next_action_id": null,
+            "in_move": false,
+            "windows": []
+          },
+          "after": {
+            "pc_runtime_id": 10002,
+            "position": [
+              3741,
+              2801
+            ],
+            "target_container_runtime_id": 10068,
+            "selected_runtime_id": 10002,
+            "current_container_runtime_id": null,
+            "dialogue_flags": 0,
+            "control_status": 0,
+            "party_ai_enabled": false,
+            "game_time": 32726,
+            "bd_defai": 1,
+            "bdai_reset_timers": 1,
+            "scripts": [
+              "",
+              "",
+              "",
+              "",
+              "bddefai",
+              "",
+              "",
+              "DPLAYER3"
+            ],
+            "current_action_id": null,
+            "next_action_id": null,
+            "in_move": false,
+            "windows": []
+          }
+        },
+        {
+          "sample": 7,
+          "running": true,
+          "eligible": true,
+          "readiness_streak": 2,
+          "command_count_before": 0,
+          "command_count_after": 0,
+          "command_issued": false,
+          "complete": true,
+          "before": {
+            "pc_runtime_id": 10002,
+            "position": [
+              3741,
+              2801
+            ],
+            "target_container_runtime_id": 10068,
+            "selected_runtime_id": 10002,
+            "current_container_runtime_id": null,
+            "dialogue_flags": 0,
+            "control_status": 0,
+            "party_ai_enabled": false,
+            "game_time": 32730,
+            "bd_defai": 1,
+            "bdai_reset_timers": 1,
+            "scripts": [
+              "",
+              "",
+              "",
+              "",
+              "bddefai",
+              "",
+              "",
+              "DPLAYER3"
+            ],
+            "current_action_id": null,
+            "next_action_id": null,
+            "in_move": false,
+            "windows": []
+          },
+          "after": {
+            "pc_runtime_id": 10002,
+            "position": [
+              3741,
+              2801
+            ],
+            "target_container_runtime_id": 10068,
+            "selected_runtime_id": 10002,
+            "current_container_runtime_id": null,
+            "dialogue_flags": 0,
+            "control_status": 0,
+            "party_ai_enabled": false,
+            "game_time": 32730,
+            "bd_defai": 1,
+            "bdai_reset_timers": 1,
+            "scripts": [
+              "",
+              "",
+              "",
+              "",
+              "bddefai",
+              "",
+              "",
+              "DPLAYER3"
+            ],
+            "current_action_id": null,
+            "next_action_id": null,
+            "in_move": false,
+            "windows": []
+          }
+        },
+        {
+          "sample": 8,
+          "running": true,
+          "eligible": true,
+          "readiness_streak": 3,
+          "command_count_before": 0,
+          "command_count_after": 0,
+          "command_issued": false,
+          "complete": true,
+          "before": {
+            "pc_runtime_id": 10002,
+            "position": [
+              3741,
+              2801
+            ],
+            "target_container_runtime_id": 10068,
+            "selected_runtime_id": 10002,
+            "current_container_runtime_id": null,
+            "dialogue_flags": 0,
+            "control_status": 0,
+            "party_ai_enabled": false,
+            "game_time": 32734,
+            "bd_defai": 1,
+            "bdai_reset_timers": 1,
+            "scripts": [
+              "",
+              "",
+              "",
+              "",
+              "bddefai",
+              "",
+              "",
+              "DPLAYER3"
+            ],
+            "current_action_id": null,
+            "next_action_id": null,
+            "in_move": false,
+            "windows": []
+          },
+          "after": {
+            "pc_runtime_id": 10002,
+            "position": [
+              3741,
+              2801
+            ],
+            "target_container_runtime_id": 10068,
+            "selected_runtime_id": 10002,
+            "current_container_runtime_id": null,
+            "dialogue_flags": 0,
+            "control_status": 0,
+            "party_ai_enabled": false,
+            "game_time": 32734,
+            "bd_defai": 1,
+            "bdai_reset_timers": 1,
+            "scripts": [
+              "",
+              "",
+              "",
+              "",
+              "bddefai",
+              "",
+              "",
+              "DPLAYER3"
+            ],
+            "current_action_id": null,
+            "next_action_id": null,
+            "in_move": false,
+            "windows": []
+          }
+        },
+        {
+          "sample": 9,
+          "running": true,
+          "eligible": true,
+          "readiness_streak": 4,
+          "command_count_before": 0,
+          "command_count_after": 1,
+          "command_issued": true,
+          "complete": true,
+          "before": {
+            "pc_runtime_id": 10002,
+            "position": [
+              3741,
+              2801
+            ],
+            "target_container_runtime_id": 10068,
+            "selected_runtime_id": 10002,
+            "current_container_runtime_id": null,
+            "dialogue_flags": 0,
+            "control_status": 0,
+            "party_ai_enabled": false,
+            "game_time": 32738,
+            "bd_defai": 1,
+            "bdai_reset_timers": 1,
+            "scripts": [
+              "",
+              "",
+              "",
+              "",
+              "bddefai",
+              "",
+              "",
+              "DPLAYER3"
+            ],
+            "current_action_id": null,
+            "next_action_id": null,
+            "in_move": false,
+            "windows": []
+          },
+          "after": {
+            "pc_runtime_id": 10002,
+            "position": [
+              3741,
+              2801
+            ],
+            "target_container_runtime_id": 10068,
+            "selected_runtime_id": 10002,
+            "current_container_runtime_id": 10068,
+            "dialogue_flags": 0,
+            "control_status": 0,
+            "party_ai_enabled": false,
+            "game_time": 32738,
+            "bd_defai": 1,
+            "bdai_reset_timers": 1,
+            "scripts": [
+              "",
+              "",
+              "",
+              "",
+              "bddefai",
+              "",
+              "",
+              "DPLAYER3"
+            ],
+            "current_action_id": null,
+            "next_action_id": 112,
+            "in_move": false,
+            "windows": []
+          }
+        },
+        {
+          "sample": 31,
+          "running": true,
+          "eligible": false,
+          "readiness_streak": 4,
+          "command_count_before": 1,
+          "command_count_after": 1,
+          "command_issued": false,
+          "complete": true,
+          "before": {
+            "pc_runtime_id": 10002,
+            "position": [
+              3160,
+              2838
+            ],
+            "target_container_runtime_id": 10068,
+            "selected_runtime_id": 10002,
+            "current_container_runtime_id": 10068,
+            "dialogue_flags": 32,
+            "control_status": 0,
+            "party_ai_enabled": false,
+            "game_time": 32834,
+            "bd_defai": 1,
+            "bdai_reset_timers": 1,
+            "scripts": [
+              "",
+              "",
+              "",
+              "",
+              "bddefai",
+              "",
+              "",
+              "DPLAYER3"
+            ],
+            "current_action_id": null,
+            "next_action_id": null,
+            "in_move": false,
+            "windows": [
+              {
+                "pack": "GUIW10",
+                "id": 8,
+                "visible": true,
+                "disabled": false
+              }
+            ]
+          },
+          "after": {
+            "pc_runtime_id": 10002,
+            "position": [
+              3160,
+              2838
+            ],
+            "target_container_runtime_id": 10068,
+            "selected_runtime_id": 10002,
+            "current_container_runtime_id": null,
+            "dialogue_flags": 32,
+            "control_status": 0,
+            "party_ai_enabled": false,
+            "game_time": 32834,
+            "bd_defai": 1,
+            "bdai_reset_timers": 1,
+            "scripts": [
+              "",
+              "",
+              "",
+              "",
+              "bddefai",
+              "",
+              "",
+              "DPLAYER3"
+            ],
+            "current_action_id": null,
+            "next_action_id": null,
+            "in_move": false,
+            "windows": [
+              {
+                "pack": "GUIW10",
+                "id": 8,
+                "visible": true,
+                "disabled": false
+              }
+            ]
+          }
+        }
+      ],
+      "wire": {
+        "container": {
+          "name": "Jailkeep Table",
+          "position": [
+            3109,
+            2829
+          ],
+          "type": 5,
+          "flags": 0,
+          "trapped": 0,
+          "items": [
+            {
+              "resref": "SW1H07",
+              "expired": 0,
+              "usages": [
+                0,
+                0,
+                0
+              ],
+              "flags": 1
+            },
+            {
+              "resref": "STAF01",
+              "expired": 0,
+              "usages": [
+                0,
+                0,
+                0
+              ],
+              "flags": 1
+            },
+            {
+              "resref": "BLUN04",
+              "expired": 0,
+              "usages": [
+                0,
+                0,
+                0
+              ],
+              "flags": 1
+            },
+            {
+              "resref": "AX1H01",
+              "expired": 0,
+              "usages": [
+                0,
+                0,
+                0
+              ],
+              "flags": 1
+            },
+            {
+              "resref": "SPER01",
+              "expired": 0,
+              "usages": [
+                0,
+                0,
+                0
+              ],
+              "flags": 1
+            },
+            {
+              "resref": "HALB01",
+              "expired": 0,
+              "usages": [
+                0,
+                0,
+                0
+              ],
+              "flags": 1
+            },
+            {
+              "resref": "MISC4B",
+              "expired": 0,
+              "usages": [
+                0,
+                0,
+                0
+              ],
+              "flags": 1
+            },
+            {
+              "resref": "HAMM01",
+              "expired": 0,
+              "usages": [
+                0,
+                0,
+                0
+              ],
+              "flags": 1
+            },
+            {
+              "resref": "SW2H01",
+              "expired": 0,
+              "usages": [
+                0,
+                0,
+                0
+              ],
+              "flags": 1
+            },
+            {
+              "resref": "SW1H43",
+              "expired": 0,
+              "usages": [
+                0,
+                0,
+                0
+              ],
+              "flags": 1
+            }
+          ]
+        },
+        "party0_items": [
+          {
+            "resref": "SW1H04",
+            "expired": 0,
+            "usages": [
+              0,
+              0,
+              0
+            ],
+            "flags": 1
+          }
+        ],
+        "party0_position": [
+          3160,
+          2838
+        ]
+      },
+      "input_files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+        },
+        "BALDUR.gam": {
+          "bytes": 69372,
+          "sha256": "d8da451c8765f209cadbbab8a274be0e218c17d2b4718b8b43b76fb10b030414"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19443,
+          "sha256": "4c5953f573ebed530c4718c0e960ca388bf3ba2897babf2fa666f3658de6ebfb"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+        },
+        "save_000000033-GemRB.cloud.meta": {
+          "bytes": 10,
+          "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+        }
+      },
+      "frozen_save_files": {
+        "baldur.bmp": {
+          "bytes": 93690,
+          "sha256": "99de803834fedef3124b3e79239e24733838a60ffe1e8151cadf77732451e9d0"
+        },
+        "baldur.gam": {
+          "bytes": 69644,
+          "sha256": "edf1a204ea1c015119ee274a8873fe948f0940eae116618b1d0a061fba593128"
+        },
+        "baldur.sav": {
+          "bytes": 19398,
+          "sha256": "06487f8b4a4f92b6e086736f32e96ed446f8fce57c7090fc04cecc517661b699"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+        }
+      },
+      "private_game_validation": {
+        "clean_game_inventory_unchanged": true,
+        "clean_game_root_hashes_unchanged": true,
+        "copied_immutable_inputs_unchanged": true,
+        "allowed_private_root_changes": {
+          "GemRB.log": {
+            "before_sha256": "c298eb067db2c6c619c7791afc9b6fc0997a5dba9bd5bd03d6718f2facbbf6a7",
+            "after_sha256": "fa48aec66d6347f82777d3f240d9aed2cd04a702bebea9a2c6e67f2aa3a95958"
+          }
+        },
+        "linked_asset_content_fully_hashed": false
+      },
+      "raw": {
+        "clock-after.state.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\take\\capture\\clock-after.state.json",
+          "bytes": 710598,
+          "sha256": "14b42f4889403f6bf13f9171e10b9712ee3ed5929144a1e3d51e5b1fc58b7b13"
+        },
+        "clock-before.state.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\take\\capture\\clock-before.state.json",
+          "bytes": 710417,
+          "sha256": "1dfa712129b602653ba5533c10e95e5264eb07558b625b80b564027b1cfdbdf6"
+        },
+        "clock-samples.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\take\\capture\\clock-samples.json",
+          "bytes": 23681,
+          "sha256": "b32af1741c10513ca7d1283350692415cba1e8c8434b00c25a7aadf2983f1bb1"
+        },
+        "events.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\take\\capture\\events.json",
+          "bytes": 102,
+          "sha256": "0c643d5bd22e3daf81cc654bfd84e43899afed9306758e9744e24891f6eb7214"
+        },
+        "gui-result.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\take\\capture\\gui-result.json",
+          "bytes": 141,
+          "sha256": "631114e35eb4387eedea275c6914b5fd2cd0679fc72b86c5dd62f0adf95f77d4"
+        },
+        "loot-after-save.state.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\take\\capture\\loot-after-save.state.json",
+          "bytes": 710598,
+          "sha256": "14b42f4889403f6bf13f9171e10b9712ee3ed5929144a1e3d51e5b1fc58b7b13"
+        },
+        "loot-after-take.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\take\\capture\\loot-after-take.json",
+          "bytes": 1321,
+          "sha256": "b0285129dca744c0e5111f682c2f96c63736b9065c862ebd1f2dddfb391f3e13"
+        },
+        "loot-after.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\take\\capture\\loot-after.json",
+          "bytes": 1321,
+          "sha256": "3719603954fc99676b502a9ec9c57dd6e197cf2701f345a35e4e81883affe46d"
+        },
+        "loot-before-save.state.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\take\\capture\\loot-before-save.state.json",
+          "bytes": 710598,
+          "sha256": "14b42f4889403f6bf13f9171e10b9712ee3ed5929144a1e3d51e5b1fc58b7b13"
+        },
+        "loot-before.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\take\\capture\\loot-before.json",
+          "bytes": 1321,
+          "sha256": "739db7572ef2d83bf67ec9a20ce8f3bf31218d6cecf205d758370d948f0ffe09"
+        },
+        "loot-before.state.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\take\\capture\\loot-before.state.json",
+          "bytes": 710417,
+          "sha256": "1dfa712129b602653ba5533c10e95e5264eb07558b625b80b564027b1cfdbdf6"
+        },
+        "loot-command-before.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\take\\capture\\loot-command-before.json",
+          "bytes": 1321,
+          "sha256": "229597673ae6932e56dbbc9888f3cda550008718e4dcb0b73e1de1b2a8f33478"
+        },
+        "loot-command-before.state.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\take\\capture\\loot-command-before.state.json",
+          "bytes": 710452,
+          "sha256": "d5b6c3b05262893826b2cd801b8783749af04f2bd309eb29c5b6f0c6bc12a7c5"
+        },
+        "loot-diagnostics.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\take\\capture\\loot-diagnostics.json",
+          "bytes": 84779,
+          "sha256": "af7ad658af1600288832c4bc355759e4f5c0a392007a94049dd8be2f4695b8dd"
+        },
+        "loot-open.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\take\\capture\\loot-open.json",
+          "bytes": 1321,
+          "sha256": "f52a89735e5b38d6ed08da0064c690bcbb0631e97fcf5ee286ddcd57f544a209"
+        },
+        "loot-result.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\take\\capture\\loot-result.json",
+          "bytes": 464,
+          "sha256": "26e617a01b9fe2883df7f4a5bdc5cd13f5e0c9c4d25375e95fc69780cd83bf2b"
+        }
+      }
+    },
+    {
+      "id": "reload",
+      "process": {
+        "command": [
+          "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\driver\\Redux_loot_gui.exe",
+          "--config",
+          "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\reload\\probe.cfg",
+          "--output",
+          "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\reload\\capture",
+          "--scripts",
+          "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\driver\\startup",
+          "--mode",
+          "live-clock",
+          "--clock-running-samples",
+          "80",
+          "--trace-actions",
+          "1",
+          "--journey",
+          "reload"
+        ],
+        "cwd": "C:\\BGRedux\\phase1-local\\builds\\20261022T012223Z-candidate-9aa69cd5",
+        "timeout_seconds": 90,
+        "timed_out": false,
+        "exit_code": 0,
+        "cleanup": "not required",
+        "pid": 12100,
+        "elapsed_seconds": 32.24,
+        "log_sha256": "ba247e5b2bcf631ef0e5daf750abf9e198650ab2ea640724e36cd8b45c1b2d79"
+      },
+      "native": {
+        "schema": "bg-redux-container-loot-native/1",
+        "reload": true,
+        "completed": true,
+        "command_count": 0,
+        "command_sample": -1,
+        "callback_sample": -1,
+        "action_id": -1,
+        "callback": "none",
+        "close_callback": "none",
+        "ui_left_index": null,
+        "os_pointer_input": false,
+        "save_return_code": 0,
+        "forced": false,
+        "directories": [
+          "C:/BGRedux/phase1-local/results/20261022T040338Z-container-loot-journey-25ffdf30/reload/profile\\save\\000000008-Redux Loot Journey"
+        ]
+      },
+      "observation": {
+        "outcome": {
+          "container_before": 10,
+          "container_after": 10,
+          "pc_before": 1,
+          "pc_after": 1,
+          "item": "SW1H04",
+          "acquired_flag_mask_only": "0x10",
+          "flags_scope": "Raw flags retained; only source-grounded transient acquired bit is masked within transfer/reload comparisons."
+        },
+        "readiness": {
+          "command_sample": -1,
+          "callback_sample": -1,
+          "command_count": 0,
+          "diagnostic_samples": 89,
+          "required_consecutive_ready_samples": 4
+        },
+        "output_save": "C:/BGRedux/phase1-local/results/20261022T040338Z-container-loot-journey-25ffdf30/reload/profile\\save\\000000008-Redux Loot Journey",
+        "native": {
+          "schema": "bg-redux-container-loot-native/1",
+          "reload": true,
+          "completed": true,
+          "command_count": 0,
+          "command_sample": -1,
+          "callback_sample": -1,
+          "action_id": -1,
+          "callback": "none",
+          "close_callback": "none",
+          "ui_left_index": null,
+          "os_pointer_input": false,
+          "save_return_code": 0,
+          "forced": false,
+          "directories": [
+            "C:/BGRedux/phase1-local/results/20261022T040338Z-container-loot-journey-25ffdf30/reload/profile\\save\\000000008-Redux Loot Journey"
+          ]
+        },
+        "samples": 89,
+        "sampled_leader_action_ids": [],
+        "sampled_movement_observed": false,
+        "game_time_before": 33062,
+        "game_time_after": 33412
+      },
+      "diagnostic_samples": 89,
+      "diagnostic_boundaries": [],
+      "wire": {
+        "container": {
+          "name": "Jailkeep Table",
+          "position": [
+            3109,
+            2829
+          ],
+          "type": 5,
+          "flags": 0,
+          "trapped": 0,
+          "items": [
+            {
+              "resref": "SW1H07",
+              "expired": 0,
+              "usages": [
+                0,
+                0,
+                0
+              ],
+              "flags": 1
+            },
+            {
+              "resref": "STAF01",
+              "expired": 0,
+              "usages": [
+                0,
+                0,
+                0
+              ],
+              "flags": 1
+            },
+            {
+              "resref": "BLUN04",
+              "expired": 0,
+              "usages": [
+                0,
+                0,
+                0
+              ],
+              "flags": 1
+            },
+            {
+              "resref": "AX1H01",
+              "expired": 0,
+              "usages": [
+                0,
+                0,
+                0
+              ],
+              "flags": 1
+            },
+            {
+              "resref": "SPER01",
+              "expired": 0,
+              "usages": [
+                0,
+                0,
+                0
+              ],
+              "flags": 1
+            },
+            {
+              "resref": "HALB01",
+              "expired": 0,
+              "usages": [
+                0,
+                0,
+                0
+              ],
+              "flags": 1
+            },
+            {
+              "resref": "MISC4B",
+              "expired": 0,
+              "usages": [
+                0,
+                0,
+                0
+              ],
+              "flags": 1
+            },
+            {
+              "resref": "HAMM01",
+              "expired": 0,
+              "usages": [
+                0,
+                0,
+                0
+              ],
+              "flags": 1
+            },
+            {
+              "resref": "SW2H01",
+              "expired": 0,
+              "usages": [
+                0,
+                0,
+                0
+              ],
+              "flags": 1
+            },
+            {
+              "resref": "SW1H43",
+              "expired": 0,
+              "usages": [
+                0,
+                0,
+                0
+              ],
+              "flags": 1
+            }
+          ]
+        },
+        "party0_items": [
+          {
+            "resref": "SW1H04",
+            "expired": 0,
+            "usages": [
+              0,
+              0,
+              0
+            ],
+            "flags": 1
+          }
+        ],
+        "party0_position": [
+          3160,
+          2838
+        ]
+      },
+      "input_files": {
+        "baldur.bmp": {
+          "bytes": 93690,
+          "sha256": "99de803834fedef3124b3e79239e24733838a60ffe1e8151cadf77732451e9d0"
+        },
+        "baldur.gam": {
+          "bytes": 69644,
+          "sha256": "edf1a204ea1c015119ee274a8873fe948f0940eae116618b1d0a061fba593128"
+        },
+        "baldur.sav": {
+          "bytes": 19398,
+          "sha256": "06487f8b4a4f92b6e086736f32e96ed446f8fce57c7090fc04cecc517661b699"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+        }
+      },
+      "frozen_save_files": {
+        "baldur.bmp": {
+          "bytes": 93690,
+          "sha256": "b0ead87d7198d5b24ed0592fd722099f88a90ca64a1b54f61e4a42f38305295e"
+        },
+        "baldur.gam": {
+          "bytes": 69644,
+          "sha256": "f2e5840b465355804a7dd172d82cb3bbfd7da344bb75407fd0c15f4728648e2e"
+        },
+        "baldur.sav": {
+          "bytes": 19421,
+          "sha256": "3dbe3b2ef6f68dba40c3000d3faf978a538596a7377ec583717e66924c40a69a"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+        }
+      },
+      "private_game_validation": {
+        "clean_game_inventory_unchanged": true,
+        "clean_game_root_hashes_unchanged": true,
+        "copied_immutable_inputs_unchanged": true,
+        "allowed_private_root_changes": {
+          "GemRB.log": {
+            "before_sha256": "c298eb067db2c6c619c7791afc9b6fc0997a5dba9bd5bd03d6718f2facbbf6a7",
+            "after_sha256": "b59cdad23bb8040d90dad512c7bb2bb8cb349b82610762455fc24bd2ea48bc2f"
+          }
+        },
+        "linked_asset_content_fully_hashed": false
+      },
+      "raw": {
+        "clock-after.state.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\reload\\capture\\clock-after.state.json",
+          "bytes": 714052,
+          "sha256": "b77b91c0d6e71db751b836350ce2f7c7e7db7995b47091bc77612aec861af185"
+        },
+        "clock-before.state.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\reload\\capture\\clock-before.state.json",
+          "bytes": 714052,
+          "sha256": "7925f3fafb747c7b2e8bf32dd21da3efcd0b3d609197771b2eb68b0ae284661d"
+        },
+        "clock-samples.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\reload\\capture\\clock-samples.json",
+          "bytes": 23682,
+          "sha256": "3ee68f985ada615dc61e2a7e747d1904df493bb885dc07ae7f1b4c1021bd47f6"
+        },
+        "events.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\reload\\capture\\events.json",
+          "bytes": 102,
+          "sha256": "0c643d5bd22e3daf81cc654bfd84e43899afed9306758e9744e24891f6eb7214"
+        },
+        "gui-result.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\reload\\capture\\gui-result.json",
+          "bytes": 141,
+          "sha256": "631114e35eb4387eedea275c6914b5fd2cd0679fc72b86c5dd62f0adf95f77d4"
+        },
+        "loot-after-save.state.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\reload\\capture\\loot-after-save.state.json",
+          "bytes": 714052,
+          "sha256": "b77b91c0d6e71db751b836350ce2f7c7e7db7995b47091bc77612aec861af185"
+        },
+        "loot-after.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\reload\\capture\\loot-after.json",
+          "bytes": 1321,
+          "sha256": "da1fb1f1087429690045f58f1462e996fe9d838274ac7c03a43f5868846ab5ec"
+        },
+        "loot-before-save.state.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\reload\\capture\\loot-before-save.state.json",
+          "bytes": 714052,
+          "sha256": "b77b91c0d6e71db751b836350ce2f7c7e7db7995b47091bc77612aec861af185"
+        },
+        "loot-before.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\reload\\capture\\loot-before.json",
+          "bytes": 1321,
+          "sha256": "ec71fc81231a9e58b953356bbb29faf550577cefcfb7375642fcb48b7c218b58"
+        },
+        "loot-before.state.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\reload\\capture\\loot-before.state.json",
+          "bytes": 714052,
+          "sha256": "7925f3fafb747c7b2e8bf32dd21da3efcd0b3d609197771b2eb68b0ae284661d"
+        },
+        "loot-diagnostics.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\reload\\capture\\loot-diagnostics.json",
+          "bytes": 84691,
+          "sha256": "d385ac358dc3bd6077f727434b94fe00b35d0fd7e9f37a9ca02405bbc23d0d4e"
+        },
+        "loot-result.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T040338Z-container-loot-journey-25ffdf30\\reload\\capture\\loot-result.json",
+          "bytes": 425,
+          "sha256": "50b5fb0eafb3336699c2f9286a952da62d317d8a2e1c2f560a5630bc50884e6f"
+        }
+      }
+    }
+  ],
+  "preservation": {
+    "candidate_before_after_equal": true,
+    "current_candidate_rehashed": true,
+    "phase0_before_after_equal": true,
+    "current_phase0_rehashed": true,
+    "source_fixture_rehashed": true,
+    "private_wrappers_independently_revalidated": true,
+    "source_and_copied_inputs_rehashed": true,
+    "native_and_frozen_outputs_rehashed": true,
+    "linked_asset_contents_fully_hashed": false
+  },
+  "known_failed_runs": [
+    {
+      "receipt": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T032531Z-container-loot-journey-c3703e13\\result.json",
+        "bytes": 15918,
+        "sha256": "97aa23322bdfde294111cd52a284ca8bff49d6025f22decf3c6c84fb9a129c83"
+      },
+      "execution": "failed",
+      "error": "Native observer failed/timed out/incomplete receipt"
+    },
+    {
+      "receipt": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T032917Z-container-loot-journey-eff5ffad\\result.json",
+        "bytes": 15918,
+        "sha256": "858140580ea5c607d27a1b11707a057eb259b5db8f1af0db3c7e8ab7c6876d6a"
+      },
+      "execution": "failed",
+      "error": "Native observer failed/timed out/incomplete receipt"
+    },
+    {
+      "receipt": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T033328Z-container-loot-journey-42d3a11e\\result.json",
+        "bytes": 15919,
+        "sha256": "1f3dc379367981e82702d3d17fd04e9b06dda46b760434b7ad1dc6663b6e2a25"
+      },
+      "execution": "failed",
+      "error": "Native observer failed/timed out/incomplete receipt"
+    }
+  ],
+  "known_failed_ready4_build": {
+    "path": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-loot-ready4\\build.json",
+    "bytes": 19360,
+    "sha256": "7d2088362af62ff2657a644ac3443c14ca4525bc36e1ff58bd1fca8df7483830"
+  },
+  "audit_decoder": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\container-loot-audit-20261022-worker.py",
+    "bytes": 10403,
+    "sha256": "b8c94074f16a5e565048d8723254b9a9c21270e8330aa9e32adda0ba64efb4d1"
+  },
+  "limits": [
+    "Readiness is observed at discrete timer samples, not every interpreter tick.",
+    "Within-runtime inventory comparisons mask only the explicit transient acquired bit0x10; raw values remain available.",
+    "Wire checks assert identity, charges and expiration; complete wire/runtime flag representation equivalence is not asserted.",
+    "Class-script startup ActionOverride mechanism is source-supported; old failed run did not record its exact clearing call."
+  ]
+}
