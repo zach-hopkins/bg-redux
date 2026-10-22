@@ -1,12 +1,22 @@
 # BG Redux — complete continuation context
 
 Latest October22 continuation: Phase1 remains active and incomplete. Current
-coherent candidate650b61c7 builds production source19de56ed5; source tooling
-passes556 tests at80484c518. Fresh general baseline inn-base-d3fa6872 passes
+coherent candidatebe5f907d builds production sourcef8fbd45d9; source tooling
+passes565 tests at the same source commit. Fresh baseline stats-base-4eeccc08 passes
 24/24 import/reload and20/20 GUI/save assertions, no skips, all guards.
-Compatibility remains differences: vanilla2/0/24, GUI449/53, changing rows
-unreviewed. Earlier e00 menu/settings and ced information audits remain
+Compatibility remains differences: vanilla4/0/24, GUI449/53. The four reload-one
+rows are actor3 minor color209 and actor7 leather color212, base/modified;
+causal/conformance conclusions remain open. Earlier e00 menu/settings and ced information audits remain
 historical with their original source/binary bindings.
+
+Stats now explicitly lists all thirteen resistance values, including0%, instead
+of showing only a heading. Default/legacy zero omission remains unchanged.
+Native1024x768 and1280x768 runs8f0f646e/efa0530e each pass156 checks,111 steps,
+53 captures and41 callbacks with all seven guards. Every natural Stats page is
+visited and returned to page one. Coordinator numeric review4950436300 compares
+actual TLK labels and captured actor statistics; four resistance-page BMPs were
+viewed. This is not an independent worker audit or exact original font/locale/
+pointer acceptance. [Current defect/evidence](../testing/phase1-stats-zero-resistances.md).
 
 Inn policy19de56ed5 honors the shared BG2EE option after the price check and
 preserves Classic prompts. Native OFF direct-rest/save (5183c1a8) and fresh
@@ -20,9 +30,10 @@ need their own correction/validation. All rejected attempts remain preserved.
 See [current status](../PHASE1_STATUS.md) and
 [inn implementation evidence](../testing/phase1-inn-option-implementation.md).
 
-Next: integrate private first-execution/rest-reload runners and negative
-validators into repository tooling, then resolve the matched rest/store/dream/
-movie fidelity cases and continue full P1-01..P1-07. Existing workers remain
+Next: continue P1-03 actor/class/effect coverage and exact typeface/size work.
+Carry the private first-execution/rest-reload runner integration and matched
+rest/store/dream/movie fidelity cases into P1-06, while preserving full
+P1-01..P1-07 acceptance. Existing workers remain
 limited; new work has coordinator validation without a new independent audit.
 All native/original/build sessions are terminal; no game remains. Preserve
 Phase0 checkout/binaries/fixtures and every result. VM snapshots remain optional.

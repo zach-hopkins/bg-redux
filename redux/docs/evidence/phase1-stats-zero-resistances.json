@@ -1,0 +1,148 @@
+{
+  "schema": "bg-redux-phase1-stats-zero-evidence/1",
+  "source_commit": "f8fbd45d979bcd6fb9b0021ff619b15ae2197cac",
+  "producer": {
+    "path": "C:\\BGRedux\\phase1-local\\record-stats-zero-evidence-20261022.py",
+    "sha256": "ac2a3f47a8ba37253cc95f875633d4cff0d9d9ff837b07b8085af28ce6946b26"
+  },
+  "coherent_build": {
+    "path": "C:\\BGRedux\\phase1-local\\builds\\20261022T201023Z-candidate-be5f907d\\build-receipt.json",
+    "sha256": "d505d7ba850fd60403a329efd2f481d86ee39493f8fc6d0aee6ad4f5e665b880"
+  },
+  "source_tooling": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\phase1-stats-zero-tooling-1792699847692313400\\result.json",
+    "sha256": "a679361143ed6e146aab103cb747efa7d9ab39d5e8ab5301d354b1f8fd016155"
+  },
+  "review": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\stats-resistance-review-1792700834950436300\\review.json",
+    "sha256": "4035597b7aca7d8b01bc9f60eae6c4d6fab4c806977f75abeaac06c3c486b174"
+  },
+  "frozen_reviewer": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\stats-resistance-review-1792700834950436300\\review-stats-resistance-pages-20261022.py",
+    "sha256": "a0eb4fa50684791e385db7d1fd4cbbd4b550b0ccd67b0ac96b673f4656bf292f"
+  },
+  "independent_worker_audit": false,
+  "tests": 565,
+  "test_seconds": 34.584,
+  "native": [
+    {
+      "receipt": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T201520Z-stats-menu-run-8f0f646e\\result.json",
+        "sha256": "4b86de1da4a7e6cbb9f41d1e643154f91d79479f18e33c5288ff58442b0ad8c6"
+      },
+      "resolution": [
+        1024,
+        768
+      ],
+      "pid": 5304,
+      "exit_code": 0,
+      "cleanup_complete": true,
+      "checks": 156,
+      "captures": 53,
+      "callbacks": 41,
+      "preservation": {
+        "phase0": true,
+        "candidate": true,
+        "game": true,
+        "closure": true,
+        "probe": true,
+        "recruitment_parent": true,
+        "coherent_build": true
+      },
+      "collected_world_unchanged": true
+    },
+    {
+      "receipt": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T202136Z-stats-menu-run-efa0530e\\result.json",
+        "sha256": "f182281456209b1e13567bf36bdadad7bb05d6d5dfafe29fcad0d8168e2e5732"
+      },
+      "resolution": [
+        1280,
+        768
+      ],
+      "pid": 16956,
+      "exit_code": 0,
+      "cleanup_complete": true,
+      "checks": 156,
+      "captures": 53,
+      "callbacks": 41,
+      "preservation": {
+        "phase0": true,
+        "candidate": true,
+        "game": true,
+        "closure": true,
+        "probe": true,
+        "recruitment_parent": true,
+        "coherent_build": true
+      },
+      "collected_world_unchanged": true
+    }
+  ],
+  "baseline": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T202715Z-stats-base-4eeccc08\\result.json",
+    "sha256": "4a5cd6858bd077ff5e4a98fe80d9e8c730d44c7515d61d5fb12315fd7c069c85"
+  },
+  "production_feature_scope": "EE supplemental zero resistance presentation only",
+  "phase1_complete": false,
+  "exact_original_font_acceptance": false,
+  "physical_pointer_acceptance": false,
+  "baseline_result": {
+    "execution": "passed",
+    "compatibility": "differences",
+    "vanilla_assertions": {
+      "execution": "passed",
+      "assertions": {
+        "passed": 24,
+        "total": 24
+      },
+      "compatibility": "differences",
+      "skipped": 0
+    },
+    "gui_assertions": {
+      "execution": "passed",
+      "assertions": {
+        "passed": 20,
+        "total": 20
+      },
+      "compatibility": "differences",
+      "skipped": 0
+    },
+    "vanilla_difference_counts": [
+      4,
+      0,
+      24
+    ],
+    "gui_persistence_differences": 449,
+    "gui_legacy_differences": 53,
+    "reload_one_rows": [
+      {
+        "path": "/current_area_actors/3/base_stats/209",
+        "before": 3873892070,
+        "after": 2139062143
+      },
+      {
+        "path": "/current_area_actors/3/modified_stats/209",
+        "before": 3873892070,
+        "after": 2139062143
+      },
+      {
+        "path": "/current_area_actors/7/base_stats/212",
+        "before": 3520188881,
+        "after": 1566399837
+      },
+      {
+        "path": "/current_area_actors/7/modified_stats/212",
+        "before": 3520188881,
+        "after": 1566399837
+      }
+    ],
+    "phase0_preservation": {
+      "source": true,
+      "binaries": true,
+      "fixture": true
+    },
+    "candidate_preserved": true,
+    "inputs_preserved": true,
+    "difference_cause_or_acceptance_established": false
+  }
+}

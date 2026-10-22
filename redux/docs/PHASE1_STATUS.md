@@ -9,20 +9,30 @@ game typefaces are fidelity requirements. Modern UI direction remains approved.
 ## Requirements and order
 
 Current October 22 checkpoint: **Phase1 remains incomplete**. Coherent candidate
-`20261022T192339Z-candidate-650b61c7` builds from source `19de56ed5`, with protected
+`20261022T201023Z-candidate-be5f907d` builds from source `f8fbd45d9`, with protected
 Phase0 source/binaries/fixtures unchanged. New Phase1 work remains isolated in
 `C:/BGRedux/phase1-local/engine`. All completed results, including failures, remain
 preserved. See the full [backlog](roadmap/phase1-backlog.md).
 
 | Bounded evidence | Current result and scope |
 |---|---|
-| Source tooling | **556 tests pass**, 35.677 seconds, `phase1-inn-checkpoint-tooling-1792699134123508300/result.json`. This is distinct from engine CTest and native game validation. |
-| Fresh general baseline | `20261022T192958Z-inn-base-d3fa6872`: **24/24 import/reload + 20/20 GUI/save assertions**, zero skips, all preservation guards. Execution passes; compatibility remains **differences**. Vanilla2/0/24 and GUI449/53 residuals remain unreviewed. [Coordinator evidence](testing/phase1-inn-option-implementation.md). |
-| Menus at both required sizes | `20261022T124438Z-row-menu-run-c59be7e9`: **148 checks, 51 captures, 39 callbacks and 107 steps per resolution**, 1024x768 and 1280x768. [Independent audit](testing/phase1-right-row-menu-independent.md) verifies both processes and all seven guards. |
+| Source tooling | **565 tests pass**, 34.584 seconds, `phase1-stats-zero-tooling-1792699847692313400/result.json`. This is distinct from engine CTest and native game validation. |
+| Fresh general baseline | `20261022T202715Z-stats-base-4eeccc08`: **24/24 import/reload + 20/20 GUI/save assertions**, zero skips, all preservation guards. Execution passes; compatibility remains **differences**. Vanilla4/0/24 and GUI449/53 residuals are retained without a conformance or causal claim. [Coordinator evidence](testing/phase1-stats-zero-resistances.md). |
+| Menus at both required sizes | `20261022T201520Z-stats-menu-run-8f0f646e` and `20261022T202136Z-stats-menu-run-efa0530e`: **156 checks, 53 captures, 41 callbacks and 111 steps per resolution**, 1024x768 and 1280x768. All natural Stats pages and seven preservation guards pass. [Numeric/content review and selected visual scope](testing/phase1-stats-zero-resistances.md) are coordinator validation; earlier [independent menu audit](testing/phase1-right-row-menu-independent.md) retains its historical binding. |
 | Correct Feedback setting | `20261022T123904Z-confirmation-setting-mixed-e9957e50`: right checkbox 41/buddy 40/label 29; left Colored Markers label retained. Actual Cancel/Done, owned INI write, byte-exact configuration transfer, fresh-process option-one loading, both books' charged prompts and depleted-first mixed-copy removal, normal GUI save/wire/fresh reload pass. [Independent audit](testing/phase1-confirmation-right-row-independent.md). |
 | Spellbook information | Earlier candidate ced237a2, `20261022T122217Z-spellbook-information-ee-direct-97f61bc1`: both owned processes pass, visiting 13 natural ordinary-book pages each with 65/55 captures and 80/67 callbacks. [Independent 120-capture audit](testing/phase1-information-journey-independent.md) verifies names, selection/deselection, paging, actor/level resets, help/descriptions, scroll movement/exact return, spell actions/capacity guards, GUI save and fresh reload. This historical receipt does not certify later changed helper files. |
 
-BG2EE inn option production change19de56ed5 is built in650b61c7. Native OFF
+The EE Resists panel no longer stops at an empty heading when protection values
+are zero. Production changef8fbd45d9 lists all thirteen existing resistance
+values explicitly, while the default/legacy formatter retains zero omission.
+Actual-source tests cover negative and over-100 values; the native fixture has
+all-zero values. All six Stats sections' natural pages and exact return paths
+are captured at both resolutions. A separate coordinator review compares actual
+TLK labels and native actor statistics; all four resistance-page BMPs were
+viewed. Exact original font metrics, other locales, broader actors/effects and
+physical pointer paths remain open. [Defect/evidence](testing/phase1-stats-zero-resistances.md).
+
+Historical BG2EE inn option production change19de56ed5 is built in650b61c7. Native OFF
 direct rest/save and fresh reload pass; native ON ordinary checkbox/Done,
 prompt/Cancel/Confirm/rest/save and fresh save/INI reload also pass. Actual
 Rent/Cancel/Rent world boundaries are unchanged apart from selection; Confirm
@@ -60,9 +70,12 @@ reanalysis does not replace a fresh native pass. The physical original
 [option-ON/depleted-first reference](testing/phase1-original-confirmation-option-independent.md)
 remains separately pinned and bounded.
 
-Current baseline residuals are vanilla **2/0/24** and GUI **449/53**, compared
-with preceding e00 counts0/0/26 and451/55. These changing rows remain unreviewed;
-lower counts do not establish an improvement or waive persistence differences.
+Current baseline residuals are vanilla **4/0/24** and GUI **449/53**, compared
+with preceding650 counts2/0/24 and449/53 and e00 counts0/0/26 and451/55. The four
+reload-one rows now concern actor3's minor-color stat209 and actor7's leather-
+color stat212, base/modified. Identifying these fields does not establish cause
+or conformance. Other changed rows remain unreviewed; counts do not establish
+an improvement or waive persistence differences.
 The historical targeted setting audit retains885 broader fresh-import world/
 effect/time/selection residuals. Bounded spell/config/rest checks do not establish
 whole-world save purity, RNG non-interference or full campaign fidelity.
