@@ -105,6 +105,15 @@ class MenuReceiptTests(unittest.TestCase):
         (self.path / "capture-1.bmp").unlink()
         with self.assertRaises(OSError): harness.validate_stage(self.path)
 
+    def test_artifact_inventory_never_descends_private_asset_root(self):
+        game = self.path / 'stage/game/data'
+        game.mkdir(parents=True)
+        (game / 'licensed.bif').write_bytes(b'private asset stand-in')
+        (self.path / 'stage/result.json').write_text('{}')
+        result = harness.artifact_manifest(self.path)
+        self.assertIn('stage/result.json', result)
+        self.assertFalse(any('/game/' in p for p in result))
+
 
 class MenuRuntimeTests(unittest.TestCase):
     def setUp(self):

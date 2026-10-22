@@ -10,7 +10,7 @@ from pathlib import Path
 import GemRB
 from ie_stats import IE_HITPOINTS
 
-PACKS = ("GUIOPT", "GUIREC", "GUISAVE", "GUILOAD", "GUIMAP", "GUIWMAP", "GUIJRNL", "GUIMG", "GUIPR")
+PACKS = ("GUIOPT", "GUIREC", "GUISAVE", "GUILOAD", "GUIMAP", "GUIWMAP", "GUIJRNL", "GUIMG", "GUIPR", "WIN_KEYS", "OPTWIN")
 OUTPUT = None
 PLAN = []
 ROWS = []
@@ -106,7 +106,7 @@ def expect_page(expected):
 def Configure(output):
     global OUTPUT, PLAN, ROWS, INDEX, CAPTURE
     OUTPUT, PLAN, ROWS, INDEX, CAPTURE = Path(output), [], [], 0, 0
-    for key in ("Phase1MenuComplete", "Phase1MenuCapture", "Phase1PressPack", "Phase1FailedChecks"):
+    for key in ("Phase1MenuComplete", "Phase1MenuCapture", "Phase1PressPack", "Phase1FailedChecks", "Phase1DispatchKey", "Phase1NativeKeys", "Phase1NativeCallbacks"):
         GemRB.SetVar(key, 0)
     def add(name, action, capture=False): PLAN.append((name, action, capture))
     def top(name, module, opener, pack, wid=2, inspector=None):

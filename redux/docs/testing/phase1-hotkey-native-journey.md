@@ -1,0 +1,40 @@
+# Hotkey callback, dispatch and persistence journey
+
+This external adapter is ready for coordinator compilation/execution. It has not been run against a native game by the worker. It exercises the current supported plain letter menu routes; it is not full EE hotkey fidelity or a replacement for the original keyboard-options reference. Modifier/function/pause/international layouts and punctuation dispatch remain unvalidated here. Physical pointer hit testing, actual typing, visual/typeface fidelity and hidden RNG identity are not claimed.
+
+## Two owned launches
+
+Build the updated `redux/tools/phase1/menu_probe.cpp` through the existing `menu_harness.py build` command against the same coherent candidate core/plugins/headers. No engine build is performed by this adapter. Then, with LAB's native controller free:
+
+```powershell
+& $python -B redux/tools/phase1/hotkey_harness.py --source $source --build $build --prefix $prefix --output-root $results --probe $menuProbe --fixture $vanillaSave --game $cleanGame
+```
+
+The coordinator supplies absolute nominated paths. This creates a unique result directory, two independent cache/home/profile/save copies, two per-launch private game roots and two stage nonces. `GameName` includes the stage nonce. Actual loading uses the existing normal-loop `MenuStart` / registered GUILOAD callback. Process B receives only A's exact saved `gemrb-keymap.ini` and its hash/binding pins, plus a fresh vanilla save copy. It does not inherit A's process, other profile files or cached UI objects. The second launch is skipped if the first fails validation. The owned PID must match the embedded runtime PID; fresh startup nonces and distinct profiles are checked. Exit/failure receipts and captures remain in place.
+
+Both the original menu runner and this journey now use `private_game.py`: actual `CloseGameplayOptionsWindow` calls `SaveConfig`, which tries GamePath before SavePath. Small root inputs are copied into each private game root; only approved asset directories are junctioned. The clean game's root content hashes and recursive name/size/mtime inventory are checked, exact asset link targets and copied inputs must remain intact, and only `gem-baldur.ini` plus known GemRB root log/console/path outputs may change. Unexpected files/directories/input changes fail. This is isolation of known root writes and detection of other changes, not an OS security boundary or complete linked-asset content hashing. Source inventory/root hashes, wrapper receipt, allowed private writes and all test outputs are preserved. Artifact traversal prunes private `game` roots before walking; it cannot follow the asset junctions and hash the licensed archive tree into the result manifest.
+
+## Actual callbacks and outcomes
+
+`HotkeyRuntime.py` runs through `Interface::Main` timer/render boundaries. It opens normal Options then presses actual Gameplay/Keyboard controls. Editor page navigation, row selection, Assign, Replace conflict, Clear, Defaults, Apply and Cancel all request native dispatch of the real registered control. Input text is explicitly populated in the real editable control; this is labelled separately from physical typing. The harness never directly invokes `GUIHotkeys.Apply`, edits its Draft, calls `SetKeyBindings` or writes A's profile file to manufacture a pass. Read-only editor/native/profile observations are allowed.
+
+Process A performs:
+
+1. Observe the full native game-default binding catalogue and absent profile. Require distinct supported Inventory, Character Record and Journal plain letter routes.
+2. Assign Inventory's key to Record's current key: observe conflict refusal and unchanged staged/native maps. Press explicit Replace: observe Inventory changed and displaced Record unbound in staging only. Cancel: native catalogue and profile remain untouched. Dispatch the original three routes.
+3. Select Inventory and press Clear; observe only its staged key cleared. Cancel; native/profile unchanged.
+4. Explicitly replace the conflict, then assign Record the former Inventory key, creating a swap. Apply through the actual button: observe closed editor, complete native swapped map and exact profile bytes. Dispatch swapped Inventory/Record and unchanged Journal.
+5. Defaults then Cancel: observe defaults staged while live/profile retain the swap. Defaults then Apply: observe the full original map and exact defaults profile; dispatch the restored three routes.
+6. Reapply the swap through actual callbacks. Dispatch the final three routes and invoke the retained ordinary inventory sidebar mouse callback. Observe the correct inventory window at the next boundary, then close it. Preserve the final exact INI for process B.
+
+Process B starts with only that exact INI copied into its fresh profile. It observes the **native loaded** full swapped catalogue before any editor action, dispatches both swapped routes and unchanged Journal, verifies the retained sidebar callback, opens the editor and checks actual visible selected binding text, then cancels. No Apply or runtime rebind is used to create B's initial result.
+
+For every dispatch the external host constructs a down/up pair using public `EventMgr::CreateKeyEvent` and calls `EventMgr::DispatchEvent`. The inspected EventMgr stores the actual global HotKeys/Taps statically; a stateless EventMgr dispatcher therefore reaches the same registry/window routing as the video driver's events. This does not call `KeyMap::ResolveKey` as a substitute and does not inject OS input. A key request alone is insufficient: its target must be absent before dispatch, then the correct exclusive window must appear in native UI evidence after the next timer/render boundary. Native actor/action/resource/cache observations are recorded before and after each key; the validator rejects differences rather than normalizing them away. Such differences may expose an existing baseline cache behavior and require review of the preserved failure; they must not be silently called noninterference.
+
+## Acceptance evidence
+
+`hotkey_harness.validate_stage` independently derives the swap from the baseline, recomputes complete live/staged expectations and exact serialized INI bytes, and checks callback target/sequence/nonce receipts. It checks actual selected-row labels, full native binding/profile pins before/after key events, both native key-event halves and zero modifiers, the newly opened correct window, resolution/signature/length of screenshots, exact persisted file content and collected before/after world/observer state. `validate_pair` rejects reused profile/process identity, foreign PID evidence or mismatched persisted hashes/maps across launches. Frozen inputs include adapter sources, GUI scripts used by the editor, selected core/probe/plugin DLLs and original/copied save fixtures; the coordinator's broader source/runtime guard remains applicable.
+
+Unknown, stale, truncated, missing or incomplete evidence fails. A successful callback return, key lookup, window of the wrong type, staged dictionary without matching visible rows, native map without saved bytes, or same-process reread cannot independently pass. The outcome explicitly retains limitations for OS pointer/typing, typography, international/modifier/function-key fidelity and hidden RNG.
+
+Worker validation: **71/71 Python tests passed**, including 13 new journey/validator tests, 13 font-provenance tests, five private-game tests and the previous GUI/hotkey/menu checks. New tests cover cancel/profile boundaries, implicit conflict replacement, inert defaults, missing saved state, wrong visible row, callback target/nonce mismatch, ResolveKey-only/missing-key-up false positives, wrong window/boundary, truncated capture, changed world state, incorrect fresh-process loaded map, reused profile/foreign PID, and actual page/row callback requests that do not mutate the editor model. These are focused executable tests of the adapter and production Python paths; they do not claim C++ compilation or native execution. No engine/Font/core source or binary was changed in this journey commit.

@@ -4,7 +4,18 @@
 #include "../phase0/native/gui_probe.cpp"
 #undef main
 
-static const std::vector<const char*> MenuPacks = {"GUIOPT", "GUIREC", "GUISAVE", "GUILOAD", "GUIMAP", "GUIWMAP", "GUIJRNL", "GUIMG", "GUIPR"};
+static const std::vector<const char*> MenuPacks = {"GUIOPT", "GUIREC", "GUISAVE", "GUILOAD", "GUIMAP", "GUIWMAP", "GUIJRNL", "GUIMG", "GUIPR", "WIN_KEYS", "OPTWIN"};
+
+static void PressRegisteredMenu(const char* pack, ScriptingId windowId, ScriptingId controlId)
+{
+    // Resolve the requested alias itself, rather than assuming its ID equals
+    // the window's primary pack ID (WIN_KEYS/OPTWIN are ordinary aliases).
+    const auto* ref = static_cast<const ViewScriptingRef*>(ScriptEngine::GetScriptingRef(ScriptingGroup_t(pack), windowId));
+    auto* window = GetView<Window>(ref);
+    auto* control = window ? GetControl(controlId, window) : nullptr;
+    if (!control || control->IsDisabled() || !control->IsVisible() || !control->PerformAction())
+        throw std::runtime_error("Registered menu callback unavailable/refused");
+}
 
 static std::string MenuUIJSON()
 {
@@ -67,12 +78,16 @@ int main(int argc, char** argv)
     for (int i=1; i+1<argc; i+=2) args[argv[i]]=argv[i+1];
     for (auto required : {"--config", "--output", "--scripts"}) if (!args.count(required)) return 64;
     const auto out = args["--output"];
+    const auto journey = args.count("--journey") ? args["--journey"] : "menus";
+    if (journey != "menus" && journey != "hotkeys-edit" && journey != "hotkeys-reload") return 64;
+    if (journey != "menus" && !args.count("--nonce")) return 64;
+    const auto runtime = journey == "menus" ? "MenuRuntime" : "HotkeyRuntime";
     std::filesystem::create_directories(out);
     if (std::filesystem::exists(out+"/menu-host-result.json")) return 73;
     std::setlocale(LC_ALL,".UTF8");
     std::atexit(StopLog);
     std::unique_ptr<Interface> engine;
-    int rc=0, stage=-1, waits=0, ticks=0, captures=0, callbacks=0;
+    int rc=0, stage=-1, waits=0, ticks=0, captures=0, callbacks=0, keys=0;
     bool completed=false;
     try {
         const char* argvEngine[]={"redux-menu-probe","-c",args["--config"].c_str()};
@@ -80,7 +95,8 @@ int main(int argc, char** argv)
         ToggleLogging(true); AddLogWriter(createStdioLogWriter()); SetMainLogLevel(FATAL);
         engine=std::make_unique<Interface>(std::move(config));
         auto script=core->GetGUIScriptEngine();
-        if (!script->ExecString("import sys; sys.path.insert(0,"+Q(args["--scripts"])+"); import MenuRuntime; MenuRuntime.Configure("+Q(out)+")"))
+        const std::string configure = journey == "menus" ? Q(out) : Q(out)+","+Q(journey)+","+Q(args["--nonce"]);
+        if (!script->ExecString("import sys; sys.path.insert(0,"+Q(args["--scripts"])+"); import "+std::string(runtime)+"; "+runtime+".Configure("+configure+")"))
             throw std::runtime_error("Cannot initialize external menu plan");
         core->SetNextScript("MenuStart");
         core->SetTimer([&]() {
@@ -101,17 +117,43 @@ int main(int argc, char** argv)
                     Write(out+"/before.observer.json",ObserverJSON());
                     stage=1;
                 }
-                if (!script->ExecString("MenuRuntime.Step()")) throw std::runtime_error("Menu plan Python exception");
+                if (!script->ExecString(std::string(runtime)+".Step()")) throw std::runtime_error("Menu plan Python exception");
                 const int pack=core->GetDictionary().Get("Phase1PressPack",0);
                 if (pack) {
                     if (pack<1 || pack>int(MenuPacks.size())) throw std::runtime_error("Invalid menu callback pack");
                     const auto name="callback-"+NumberJSON(callbacks+1);
                     Write(out+"/"+name+"-before.state.json",Snapshot(core->GetGame()));
                     Write(out+"/"+name+"-before.observer.json",ObserverJSON());
-                    Press(MenuPacks[pack-1],core->GetDictionary().Get("Phase1PressWindow",0),core->GetDictionary().Get("Phase1PressControl",0));
+                    const int window=core->GetDictionary().Get("Phase1PressWindow",0);
+                    const int control=core->GetDictionary().Get("Phase1PressControl",0);
+                    PressRegisteredMenu(MenuPacks[pack-1],window,control);
+                    Write(out+"/"+name+".json",O({{"schema",Q("bg-redux-callback-dispatch/1")}, {"nonce",Q(args["--nonce"])},
+                        {"pack",Q(MenuPacks[pack-1])}, {"window",NumberJSON(window)}, {"control",NumberJSON(control)},
+                        {"performed","true"}, {"sequence",NumberJSON(callbacks+1)}, {"timer_tick",NumberJSON(ticks)}}));
                     Write(out+"/"+name+"-after.state.json",Snapshot(core->GetGame()));
                     Write(out+"/"+name+"-after.observer.json",ObserverJSON());
                     ++callbacks;
+                    core->GetDictionary().Set("Phase1NativeCallbacks",callbacks);
+                }
+                const int key=core->GetDictionary().Get("Phase1DispatchKey",0);
+                if (key) {
+                    if (journey=="menus" || key < 'a' || key > 'z') throw std::runtime_error("Unsupported journey key event");
+                    const auto name="key-"+NumberJSON(keys+1);
+                    Write(out+"/"+name+"-before.ui.json",MenuUIJSON());
+                    Write(out+"/"+name+"-before.state.json",Snapshot(core->GetGame()));
+                    Write(out+"/"+name+"-before.observer.json",ObserverJSON());
+                    EventMgr events;
+                    events.DispatchEvent(EventMgr::CreateKeyEvent(static_cast<KeyboardKey>(key),true,0));
+                    events.DispatchEvent(EventMgr::CreateKeyEvent(static_cast<KeyboardKey>(key),false,0));
+                    Write(out+"/"+name+"-after.ui.json",MenuUIJSON());
+                    Write(out+"/"+name+"-after.state.json",Snapshot(core->GetGame()));
+                    Write(out+"/"+name+"-after.observer.json",ObserverJSON());
+                    Write(out+"/"+name+".json",O({{"schema",Q("bg-redux-key-dispatch/1")}, {"nonce",Q(args["--nonce"])},
+                        {"sequence",NumberJSON(keys+1)}, {"keycode",NumberJSON(key)}, {"modifiers","0"},
+                        {"keydown_dispatched","true"}, {"keyup_dispatched","true"},
+                        {"route",Q("EventMgr::DispatchEvent")}, {"timer_tick",NumberJSON(ticks)}, {"os_input_injected","false"}}));
+                    ++keys;
+                    core->GetDictionary().Set("Phase1NativeKeys",keys);
                 }
                 const int capture=core->GetDictionary().Get("Phase1MenuCapture",0);
                 if (capture) {
@@ -144,6 +186,7 @@ int main(int argc, char** argv)
     }
     Write(out+"/menu-host-result.json",O({{"schema",Q("bg-redux-menu-host/1")}, {"completed",completed?"true":"false"},
         {"captures",NumberJSON(captures)},{"callbacks",NumberJSON(callbacks)}, {"timer_ticks",NumberJSON(ticks)},
+        {"native_keys",NumberJSON(keys)}, {"journey",Q(journey)}, {"nonce",Q(args["--nonce"])},
         {"load_waits",NumberJSON(waits)},{"visual_acceptance","false"},{"pointer_hit_testing","false"}}));
     if (engine) { engine.reset(); core=nullptr; VideoDriver.reset(); PluginMgr::Get()->RunCleanup(); }
     StopLog(); return rc;
