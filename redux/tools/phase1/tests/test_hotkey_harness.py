@@ -20,6 +20,7 @@ class HotkeyJourneyEvidenceTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.directory = Path(self.temp.name)
+        (self.directory/'process.log').write_text('',encoding='utf-8')
         self.profile = self.directory/'profile'
         self.profile.mkdir()
         self.base = dict(inventory='i', character_record='r', journal='j')

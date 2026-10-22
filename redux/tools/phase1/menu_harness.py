@@ -54,6 +54,13 @@ def write(path, value):
     Path(path).write_text(json.dumps(value, indent=2) + "\n", encoding="utf8")
 
 
+def callback_errors(path):
+    """Known native bridge failure prefixes, not arbitrary UI text 'error'."""
+    return [dict(line=i+1, text=line) for i,line in enumerate(Path(path).read_text(encoding='utf-8',errors='replace').splitlines())
+            if line.startswith('[Python/ERROR]: Traceback (most recent call last):')
+            or line.startswith('[GUIScript/ERROR]: Runtime Error:')]
+
+
 def run_owned(command, cwd, env, log, timeout):
     with Path(log).open("wb") as stream:
         process = subprocess.Popen(command, cwd=cwd, env=env, stdout=stream, stderr=subprocess.STDOUT,
@@ -105,6 +112,8 @@ def validate_stage(directory, resolution=None):
     checks = [row for row in runtime["checks"] if isinstance(row.get("passed"), bool)]
     if not checks:
         raise ValueError("No actionable menu assertions")
+    errors=callback_errors(directory/'process.log')
+    checks.append(dict(name='native-python-callback-log',passed=not errors, errors=errors))
     for action, pack, nameid, hpid, thacid in (
             ("inventory.observed", "GUIINV", 0x10000032, 0x10000039, 0x10000055),
             ("record.observed", "GUIREC", 0x1000000e, 0x10000029, 0x10000040)):
@@ -134,6 +143,7 @@ def validate_stage(directory, resolution=None):
     return dict(checks=checks, assertion_passed=all(row["passed"] for row in checks),
                 collected_world_unchanged=before == after, captures=len(ids),
                 context_required=runtime["context_required"], visual_acceptance=False,
+                applicability=[row for row in runtime['checks'] if 'applicable' in row],
                 pointer_hit_testing=False, hidden_rng_unchanged=None)
 
 

@@ -25,6 +25,7 @@ class MenuReceiptTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.path = Path(self.temp.name)
+        (self.path/'process.log').write_text('normal native log\n',encoding='utf-8')
         self.runtime = dict(steps=10, planned_steps=10, context_required=["store"],
             checks=[dict(action=name, capture=i+1) for i, name in enumerate(sorted(harness.REQUIRED_OBSERVATIONS))] +
                    [dict(name="actual-hp", passed=True)])
@@ -114,6 +115,12 @@ class MenuReceiptTests(unittest.TestCase):
         self.assertIn('stage/result.json', result)
         self.assertFalse(any('/game/' in p for p in result))
 
+    def test_python_callback_traceback_cannot_hide_behind_matching_initial_ui_value(self):
+        (self.path/'process.log').write_text('[Python/ERROR]: Traceback (most recent call last):\n',encoding='utf-8')
+        result=harness.validate_stage(self.path)
+        self.assertFalse(result['assertion_passed'])
+        self.assertFalse(next(c for c in result['checks'] if c['name']=='native-python-callback-log')['passed'])
+
 
 class MenuRuntimeTests(unittest.TestCase):
     def setUp(self):
@@ -154,6 +161,36 @@ class MenuRuntimeTests(unittest.TestCase):
         self.assertEqual(self.vars["Phase1PressPack"], 1)
         self.assertEqual(self.vars["Phase1PressWindow"], 2)
         self.assertEqual(self.vars["Phase1PressControl"], 7)
+
+    def test_spellbook_selects_real_eligible_actor_and_requests_ordinary_sidebar_callback(self):
+        self.gem.GetPartySize=lambda:2
+        self.gem.GetPlayerName=lambda pc,which:'Imoen' if pc==2 else 'Fighter'
+        self.gem.GetKnownSpellsCount=lambda pc,kind,level:4 if (pc,kind,level)==(2,1,0) else 0
+        self.gem.GetMemorizableSpellsCount=lambda *args:0
+        selected=[]
+        self.gem.GameSelectPCSingle=lambda pc:selected.append(pc)
+        self.runtime.select_spell_actor('mage-book',1,True)
+        self.assertEqual(selected,[2])
+        self.assertTrue(self.runtime.ROWS[-1]['applicable'])
+        item=types.SimpleNamespace(Flags=0,IsVisible=lambda:True)
+        self.gem.GetView=lambda *args:types.SimpleNamespace(IsVisible=lambda:True,GetControl=lambda cid:item)
+        self.runtime.open_spellbook('mage-book',5)
+        self.assertEqual(self.vars['Phase1PressPack'],self.runtime.PACKS.index('OPTWIN')+1)
+        self.assertEqual(self.vars['Phase1PressControl'],5)
+
+    def test_missing_required_wizard_fails_and_priest_context_does_not_force_an_opener(self):
+        self.gem.GetPartySize=lambda:1
+        self.gem.GetPlayerName=lambda *args:'Fighter'
+        self.gem.GetKnownSpellsCount=lambda *args:0
+        self.gem.GetMemorizableSpellsCount=lambda *args:0
+        with self.assertRaisesRegex(RuntimeError,'real spellbook actor absent'):
+            self.runtime.select_spell_actor('mage-book',1,True)
+        self.runtime.select_spell_actor('priest-book',0,False)
+        self.runtime.open_spellbook('priest-book',6)
+        self.assertEqual(self.vars['Phase1PressPack'],0)
+        self.runtime.inspect_spellbook('priest-book','GUIPR')
+        self.assertIsNone(self.runtime.ROWS[-1]['passed'])
+        self.assertEqual(self.runtime.ROWS[-1]['status'],'context-gated')
 
 
 if __name__ == "__main__": unittest.main()

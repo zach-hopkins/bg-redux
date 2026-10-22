@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 import GemRB
 from ie_stats import IE_HITPOINTS
+from GUIDefines import IE_SPELL_TYPE_PRIEST, IE_SPELL_TYPE_WIZARD
 
 PACKS = ("GUIOPT", "GUIREC", "GUISAVE", "GUILOAD", "GUIMAP", "GUIWMAP", "GUIJRNL", "GUIMG", "GUIPR", "WIN_KEYS", "OPTWIN")
 OUTPUT = None
@@ -16,6 +17,7 @@ PLAN = []
 ROWS = []
 INDEX = 0
 CAPTURE = 0
+SPELL_ACTORS = {}
 
 
 def view(pack, wid):
@@ -103,9 +105,41 @@ def expect_page(expected):
     record("stats.page-transition", int(actual.split("/")[0]) == expected, actual=actual, expected=expected)
 
 
+def select_spell_actor(name, kind, required):
+    candidates=[]
+    for pc in range(1, GemRB.GetPartySize() + 1):
+        known=sum(GemRB.GetKnownSpellsCount(pc, kind, level) for level in range(9 if kind==IE_SPELL_TYPE_WIZARD else 7))
+        slots=sum(GemRB.GetMemorizableSpellsCount(pc, kind, level, 1) for level in range(9 if kind==IE_SPELL_TYPE_WIZARD else 7))
+        candidates.append(dict(pc=pc, name=GemRB.GetPlayerName(pc,0), known=known, slots=slots))
+    eligible=[row for row in candidates if row['known'] or row['slots']]
+    SPELL_ACTORS[name]=eligible[0]['pc'] if eligible else None
+    ROWS.append(dict(name=name+'.applicability', applicable=bool(eligible), candidates=candidates,
+                     selected_actor=SPELL_ACTORS[name], status='applicable' if eligible else 'context-gated'))
+    if not eligible:
+        if required: raise RuntimeError('Required real spellbook actor absent: '+name)
+        return
+    GemRB.GameSelectPCSingle(SPELL_ACTORS[name])
+
+
+def open_spellbook(name, cid):
+    if SPELL_ACTORS.get(name):
+        # Wizard_Spells invokes ToggleSpellWindow, which initializes Sorcerer.
+        # Direct OpenMageWindow bypasses this ordinary entry point.
+        press('OPTWIN',0,cid)
+
+
+def inspect_spellbook(name, pack):
+    if SPELL_ACTORS.get(name):
+        expect_window(name,pack,2)
+    else:
+        ROWS.append(dict(name=name, passed=None, status='context-gated',
+                         reason='No party actor has this actual spellbook; no direct opener bypass'))
+
+
 def Configure(output):
-    global OUTPUT, PLAN, ROWS, INDEX, CAPTURE
+    global OUTPUT, PLAN, ROWS, INDEX, CAPTURE, SPELL_ACTORS
     OUTPUT, PLAN, ROWS, INDEX, CAPTURE = Path(output), [], [], 0, 0
+    SPELL_ACTORS={}
     for key in ("Phase1MenuComplete", "Phase1MenuCapture", "Phase1PressPack", "Phase1FailedChecks", "Phase1DispatchKey", "Phase1NativeKeys", "Phase1NativeCallbacks"):
         GemRB.SetVar(key, 0)
     def add(name, action, capture=False): PLAN.append((name, action, capture))
@@ -137,10 +171,13 @@ def Configure(output):
     add("export.closed", lambda: expect_window("export.closed", "GUIREC", 13, True), True)
     add("record.close", lambda: call("GUICommonWindows", "CloseTopWindow"))
     add("record.closed", lambda: expect_window("record.closed", "GUIREC", 2, True), True)
-    add("select-mage", lambda: GemRB.GameSelectPCSingle(2))
-    top("mage-book", "GUIMG", "OpenMageWindow", "GUIMG")
-    top("priest-book", "GUIPR", "OpenPriestWindow", "GUIPR")
-    # A non-priest's empty/disabled book does not validate memorization/casting.
+    for name,kind,cid,pack,required in (('mage-book',IE_SPELL_TYPE_WIZARD,5,'GUIMG',True),
+                                      ('priest-book',IE_SPELL_TYPE_PRIEST,6,'GUIPR',False)):
+        add(name+'.select-eligible',lambda name=name,kind=kind,required=required:select_spell_actor(name,kind,required))
+        add(name+'.open',lambda name=name,cid=cid:open_spellbook(name,cid))
+        add(name+'.observed',lambda name=name,pack=pack:inspect_spellbook(name,pack),True)
+        add(name+'.close',lambda name=name:call('GUICommonWindows','CloseTopWindow') if SPELL_ACTORS.get(name) else None)
+        add(name+'.closed',lambda name=name,pack=pack:expect_window(name+'.closed',pack,2,True),True)
     add("select-main", lambda: GemRB.GameSelectPCSingle(1))
     top("journal", "GUIJRNL", "OpenJournalWindow", "GUIJRNL")
     top("area-map", "GUIMA", "OpenMapWindow", "GUIMAP")
@@ -171,6 +208,11 @@ def Configure(output):
     add("load.observed", lambda: expect_window("load", "GUILOAD", 0), True)
     add("load.cancel-callback", lambda: press("GUILOAD", 0, 34))
     add("load.closed", lambda: expect_window("load.closed", "GUILOAD", 0, True), True)
+    # Finish ordinary window close callbacks while GameControl still exists,
+    # rather than invoking TopWindowClosed during Interface destruction.
+    add('finish.close-top',lambda:call('GUICommonWindows','CloseTopWindow'))
+    add('finish.closed',lambda:[expect_window('finish.'+pack,pack,wid,True)
+        for pack,wid in (('GUIOPT',2),('GUIMG',2),('GUIPR',2))],True)
 
 
 def inspect_hotkeys():

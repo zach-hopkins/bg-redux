@@ -1,0 +1,23 @@
+# First native menu run: defect disposition
+
+Evidence remains in `C:/BGRedux/phase1-local/results/20261022T010029Z-menu-run-bf0932e2/1024x768`. The first stage completed 124 actions / 67 captures / 128 timer ticks and exited 1. It was not a timeout. Native world and private-game preservation guards passed; content/callback/visual fidelity did not. The second stage was running during this audit; this document does not assign it a verdict.
+
+## Production fixes
+
+All 17 failed Stats outcomes derive from the callback argument defect: five nonzero category mismatches, six next-page mismatches and six attempts to use a still-disabled Previous button. `PythonComplexCallback::GetArgs` supplies a GControl whenever co_argcount is nonzero, including an optional/default first parameter. The category-0 check appeared true only because its failed callback left the initial section at zero; the native traceback still recorded the error. Captured section/step defaults must be the **second** parameter after an explicitly ignored control. The production fix also covers hotkey row/page callbacks and ensures Assign's optional replacement flag is not accidentally set by a truthy GButton. Tests now pass controls into those callbacks. This is separate from the stat-panel foreground fix in the UI fidelity report.
+
+## External scenario fixes
+
+The other two failed outcomes were `mage-book.open` (int(None)) and `mage-book.closed` (orphan visible window). This was not a missing eligible actor: the retained party state has Imoen with known and memorized wizard spells and four first-level wizard slots. The scenario already selected actor 2. Direct `GUIMG.OpenMageWindow` bypassed `ToggleSpellWindow`, leaving module global Sorcerer at its initial None. `InitMageWindow` calls int(Sorcerer) for EE geometry; initialization failed after creating the window and before registering its WIN_TOP close path.
+
+The external plan now discovers a real eligible party member through known spell/slot counts and uses ordinary selection. It dispatches the actual OPTWIN Wizard_Spells sidebar callback (control 5), which invokes the normal ToggleSpellWindow initialization path. It does not set Sorcerer or another production setup variable. The required wizard scenario fails if no eligible actor exists. A priest entry is likewise routed through the actual sidebar only when an actual priest book exists; this fixture has none, so it records an explicit context gate/candidate inventory and does not force an empty/disabled direct opener. The required observation is still captured, and its applicability remains explicit in the result. This is not priest spellbook/memorization coverage or completion of all context families.
+
+The final process-log traceback, `TopWindowClosed` → `GamePause` → “Can't find GameControl!”, occurred during Interface destruction with a top-window callback left alive. The external plan now closes the remaining ordinary top window before completion, while GameControl exists, and asserts Options/mage/priest windows closed. No production shutdown bridge change is made. The next run must demonstrate that the trace is gone; it has not been waived.
+
+The menu and hotkey validators now inspect the known native Python bridge error prefixes in `process.log` as well as semantic outcomes. A callback traceback cannot be accepted because an unchanged initial UI value happens to match an expectation. Arbitrary game text containing “error” is not a failure heuristic. Fresh native execution and unchanged inputs remain required.
+
+## Timing and validation
+
+Artifact timestamps show 308.44 seconds from first fonts receipt to host result, and 315.10 seconds from private-game preparation to host result. This workload averages approximately 2.4 seconds per timer tick, including rendering, semantic serialization, screenshots and callbacks. A 250-ms requested timer interval or a count of timer ticks is not a wall-clock upper bound when callback/render work dominates. The existing 330-second owned-process timeout was not reached in stage 1. Future budget changes should use measured complete runs and remain bounded; no assertion or timeout has been retroactively relabelled.
+
+External-only correction tests: **15 menu tests and 13 hotkey journey tests pass**, including eligible actor discovery, actual sidebar request, required-caster absence failure, explicit priest context gate and native traceback detection. Production callback fix tests are recorded separately (17 character-sheet / 14 hotkey). The worker did not launch or compile a native host, alter retained results, inject game state to bypass the failing path, or change engine/Font/core source. Native confirmation is pending coordinator integration after the active guard ends.

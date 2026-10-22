@@ -52,6 +52,8 @@ def capture(directory, number, resolution):
 def validate_stage(directory, pin, resolution=(1024, 768)):
     directory = Path(directory)
     runtime, host = read(directory / 'hotkey-runtime.json'), read(directory / 'menu-host-result.json')
+    if menu.callback_errors(directory/'process.log'):
+        raise ValueError('Native Python callback traceback recorded')
     if (runtime.get('schema') != 'bg-redux-hotkey-runtime/1' or runtime.get('nonce') != pin['nonce']
             or host.get('nonce') != pin['nonce'] or runtime.get('mode') != pin['mode']
             or host.get('journey') != pin['mode']):
