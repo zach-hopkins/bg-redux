@@ -49,7 +49,8 @@ bounded correction: repainting replaces only the active buffer's clip before
 drawing the translucent background. The corrected held response and twelve
 synthetic alpha/scale/clip cases pass, including216 image comparisons and96
 opacity probes. The first broad-clear correction and two fixture-oracle errors
-are preserved; ordinary save/reload and broader menu/world regressions are pending.
+are preserved. The ordinary eleven-branch dialogue/save/fresh-reload regression
+also passes on the new candidate; broader menu/world regressions remain pending.
 A direct public TextArea selection entry separately exposes
 a [reentrancy defect](compatibility/phase1-textarea-update-state-reentrancy.md);
 the normal selection route passes without an engine change. The bounded

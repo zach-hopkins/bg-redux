@@ -5,6 +5,21 @@ Evidence checkpoint: October 22, 2026 UTC, after the completed candidate `9aa69c
 Latest checkpoint: the later sections and linked summaries supersede pending
 descriptions below. Earlier failures and incomplete runs retain their verdicts.
 
+October22 UTC renderer checkpoint: **301 external Python tests pass**
+(`phase1-integrated-tests-20261022T0520.log`). User-observed stale dialogue choices
+led to a `Window::WillDraw` correction replacing only the active target's repaint
+clip before drawing translucent backgrounds. Fresh candidate
+`20261022T051113Z-candidate-df3a5c5e` retains all Phase0 preservation guards.
+Its held-response frames match a cleared reference, twelve synthetic alpha/scale
+cases pass216 image comparisons and96 opacity probes, and ordinary Jaheira
+dialogue/save/fresh reload passes in `20261022T052139Z-jaheira-dialogue-82159919`.
+The first broad-clear correction fails partial-clip tests and is rejected;
+fixture alpha/probe-oracle failures remain preserved. Correct-CWD core testing
+returns229 passes, one retained StringToUpper locale failure, nine skips and six
+disabled tests; the direct CTest CWD/teardown crash is separately retained.
+See [rendering evidence and limits](phase1-dialogue-rendering.md). Broader menu,
+GameControl/world, nonzero-origin scaled and campaign regressions remain open.
+
 October 22 UTC spell checkpoint: **276 external Python tests pass** in
 `results/phase1-integrated-tests-20261022T0431.log`. Native run
 `20261022T043347Z-spell-cast-journey-3dd76c87` passes ordinary Imoen portrait,

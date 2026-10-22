@@ -3,7 +3,7 @@
 Current correction: `cb2c09f3b`, isolated candidate
 `20261022T051113Z-candidate-df3a5c5e`. The held-response render and twelve
 synthetic alpha/scale/clip cases pass their bounded comparisons. The ordinary
-dialogue save/reload rerun and broader menu/world regression are still pending.
+dialogue save/reload rerun also passes; broader menu/world regression remains open.
 The external tooling suite passes301 tests in32.039s
 (`phase1-integrated-tests-20261022T0520.log`).
 
@@ -83,6 +83,18 @@ and0 for alpha255, within one channel rounding value. This is actual compositing
 evidence, not direct texture-alpha readback. It covers unmanaged controls at
 window origin0 with75/100/125% scale; dynamic GameControl rendering and nonzero
 origin scaled copying remain separate regression requirements.
+
+Ordinary dialogue regression `20261022T052139Z-jaheira-dialogue-82159919`
+passes all eleven branches and seventeen registered operations, GUI-created save
+and fresh-process reload. Talk PID7568 exits0 in77.218s; reload PID2844 exits0
+in18.349s with no talk request or resave. The expected TalkCount1, unique
+Unsolved journal34105, closed Cell01 and two-member party persist. All source,
+binary, fixture, candidate and input preservation guards pass. The full-screen
+branch1 capture visibly has no old red choices or overlapping old glyphs.
+Result SHA256:
+`2e266d89a2f378fa0b5e983fdc0374a419329074a3f2080ec335c201581f6824`.
+Candidate core DLL SHA256:
+`a7a5bc65a34fcee8b2f0a8b47d14531d00e48a7cbeed7734a63ee3dc7227df76`.
 
 The first candidate CTest run (`phase1-core-tests-20261022T0507.log`) passes6/7
 executables; the core executable crashes after the nine movement skips. This

@@ -1,5 +1,13 @@
 # Stock Jaheira dialogue, journal and fresh-process reload journey
 
+New renderer regression checkpoint: candidate `cb2c09f3b` passes the same ordinary
+eleven-branch route and GUI save/fresh reload in
+`20261022T052139Z-jaheira-dialogue-82159919`; both processes exit0 and preservation
+guards pass. The old red choice pixels are absent in the full-screen branch1
+capture. See the separate [rendering evidence](phase1-dialogue-rendering.md) for
+held-response, clipped/scaled and paired-backdrop checks and retained failures.
+The older callback/save pass below did not establish visual correctness.
+
 Coordinator checkpoint: **12 focused tests and the 272-test integrated tooling
 suite pass**. Corrected ordinary run
 `20261022T042747Z-jaheira-dialogue-30a50511` passes both processes: one talk
