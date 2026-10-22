@@ -526,8 +526,8 @@ def CloseQuitMsgWindow ():
 
 ###################################################
 def OpenHotkeyOptionsWindow ():
-	print("TODO: implement OpenHotkeyOptionsWindow!")
-	# check if pst's guiopt's OpenKeyboardMappingsWindow is reusable
+	import GUIHotkeys
+	GUIHotkeys.Open()
 	return
 
 def CloseHotkeyOptionsWindow ():

@@ -11,6 +11,8 @@
 #include "Strings/StringMap.h"
 #include "System/VFS.h"
 
+#include <map>
+
 namespace GemRB {
 
 class GEM_EXPORT KeyMap {
@@ -28,8 +30,21 @@ public:
 
 	const Function* LookupFunction(const StringView& name);
 
+	struct Binding {
+		Function action;
+		int defaultKey;
+	};
+	using BindingKeys = std::map<std::string, int>;
+	const std::map<std::string, Binding>& GetBindings() const { return bindings; }
+	// Empty means valid. No key/action changes happen unless the complete set
+	// validates. Dry-run supports persistence-before-commit in the editor.
+	std::string ApplyBindings(const BindingKeys& keys, bool dryRun = false);
+	static bool IsEditableKey(int key);
+	static std::string ValidateBindingKeys(const BindingKeys& keys);
+
 private:
 	StringMap<Function> keymap;
+	std::map<std::string, Binding> bindings;
 };
 
 }

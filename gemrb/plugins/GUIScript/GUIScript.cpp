@@ -12807,7 +12807,47 @@ static PyObject* GemRB_GetMultiClassPenalty(PyObject* /*self*/, PyObject* args)
 	return PyLong_FromLong(actor->GetFavoredPenalties());
 }
 
+PyDoc_STRVAR(GemRB_GetKeyBindings__doc, "GetKeyBindings() -> current/default supported plain-key bindings.");
+static PyObject* GemRB_GetKeyBindings(PyObject*, PyObject*)
+{
+	if (!core->GetKeyMap()) return RuntimeError("Key map unavailable in library mode");
+	PyObject* result = PyList_New(0);
+	for (const auto& entry : core->GetKeyMap()->GetBindings()) {
+		char key[2] = { static_cast<char>(entry.second.action.key), 0 };
+		char defaultKey[2] = { static_cast<char>(entry.second.defaultKey), 0 };
+		PyObject* row = Py_BuildValue("{s:s,s:s,s:s,s:i}", "name", entry.first.c_str(), "key", key,
+			"default", defaultKey, "group", entry.second.action.group);
+		if (!row || PyList_Append(result, row) != 0) { Py_XDECREF(row); Py_DECREF(result); return nullptr; }
+		Py_DECREF(row);
+	}
+	return result;
+}
+
+PyDoc_STRVAR(GemRB_SetKeyBindings__doc, "SetKeyBindings(mapping, dry_run=False): validate/apply a complete supported action-to-key set.");
+static PyObject* GemRB_SetKeyBindings(PyObject*, PyObject* args)
+{
+	PyObject* values;
+	int dryRun = false;
+	if (!PyArg_ParseTuple(args, "O!|p", &PyDict_Type, &values, &dryRun)) return nullptr;
+	if (!core->GetKeyMap()) return RuntimeError("Key map unavailable in library mode");
+	KeyMap::BindingKeys keys;
+	Py_ssize_t pos = 0;
+	PyObject* name;
+	PyObject* value;
+	while (PyDict_Next(values, &pos, &name, &value)) {
+		if (!PyUnicode_Check(name) || !PyUnicode_Check(value) || PyUnicode_GetLength(value) > 1)
+			return AttributeError("Bindings require action names and empty/single ASCII key strings");
+		const int key = PyUnicode_GetLength(value) ? static_cast<int>(PyUnicode_ReadChar(value, 0)) : 0;
+		keys.emplace(PyString_AsStringView(name).MakeString(), key);
+	}
+	const auto error = core->GetKeyMap()->ApplyBindings(keys, dryRun);
+	if (!error.empty()) return RuntimeError(error);
+	Py_RETURN_NONE;
+}
+
 static PyMethodDef GemRBMethods[] = {
+	METHOD(GetKeyBindings, METH_NOARGS),
+	METHOD(SetKeyBindings, METH_VARARGS),
 	METHOD(ActOnPC, METH_VARARGS),
 	METHOD(AddGameTypeHint, METH_VARARGS),
 	METHOD(AddNewArea, METH_VARARGS),

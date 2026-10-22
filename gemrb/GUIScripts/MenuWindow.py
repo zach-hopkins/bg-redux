@@ -62,6 +62,8 @@ else: # Baldurs Gate, Icewind Dale
 
 # Generic option button init. Pass it the options window. Index is a key to the dicts,
 # IsPage means whether the game should mark the button selected
+NamedKeyButtons = {}
+
 def InitOptionButton(Window, Index, HotKey = True):
 	Button = Window.GetControl (OptionControl[Index])
 	if not Button:
@@ -71,12 +73,32 @@ def InitOptionButton(Window, Index, HotKey = True):
 	Button.SetTooltip (OptionTip[Index])
 	if HotKey:
 		Button.SetHotKey (Index, True)
+		# Store scripting identities rather than retaining windows across loads.
+		NamedKeyButtons[(Window.SCRIPT_GROUP, Window.ID, Button.ControlID)] = Index.lower()
 		
 	# this variable isnt used anywhere (tho it might be useful to use it for knowing what window is open)
 	# however, we still need to set one because we do depend on the button having a value
 	Button.SetVarAssoc ("OPT_BTN", OptionControl[Index])
 
 	return Button
+
+
+def RebindNamedKeys(bindings):
+	"""Refresh already-created global menu shortcuts without changing actions.
+
+	Using SetHotKey(action-name) here would replace custom mouse callbacks.
+	Clear old keys first so key swaps cannot leave two live routes temporarily.
+	"""
+	buttons = []
+	for (group, wid, cid), name in list(NamedKeyButtons.items()):
+		window = GemRB.GetView(group, wid)
+		button = window.GetControl(cid) if window else None
+		if button and name in bindings:
+			buttons.append((button, bindings[name]))
+	for button, key in buttons:
+		button.SetHotKey(None, 0, True)
+	for button, key in buttons:
+		button.SetHotKey(key if key else None, 0, True)
 
 def SetupMenuWindowControls (Window, Gears = None, CloseWindowCallback = None):
 	"""Binds all of the basic controls and windows to the options pane."""

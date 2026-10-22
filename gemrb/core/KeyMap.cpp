@@ -90,9 +90,93 @@ bool KeyMap::InitializeKeyMap(const path_t& inifile, const ResRef& tablefile)
 		// lookup by either key or name
 		keymap.Set(val, func);
 		keymap.Set(key, func);
+		if (func.group == 0 && IsEditableKey(func.key) &&
+		    kmtable->GetRowIndex(key) != TableMgr::npos && func.function != "*") {
+			bindings.emplace(key, Binding { func, func.key });
+		}
 	}
 	delete config;
+
+	// Profile overrides never modify the game's keymap.ini. Invalid/stale files
+	// keep the complete original mapping rather than partially applying rows.
+	std::unique_ptr<DataStream> profile(core->config.SavePath.empty() ? nullptr :
+		FileStream::OpenFile(PathJoin(core->config.SavePath, "gemrb-keymap.ini")));
+	if (profile) {
+		BindingKeys keys;
+		for (const auto& binding : bindings) keys.emplace(binding.first, binding.second.action.key);
+		std::unordered_set<std::string> seen;
+		bool valid = true;
+		while (profile->ReadLine(line) != DataStream::Error) {
+			LTrim(line); RTrim(line);
+			if (line.empty() || line[0] == '#' || line[0] == ';' || line[0] == '[') continue;
+			StringToLower(line);
+			auto parts = Explode<std::string, std::string>(line, '=', 1);
+			if (parts.size() != 2) { valid = false; break; }
+			auto name = parts[0]; auto value = parts[1];
+			LTrim(name); RTrim(name); LTrim(value); RTrim(value);
+			if (bindings.count(name) == 0 || !seen.insert(name).second || value.size() > 1) { valid = false; break; }
+			keys[name] = value.empty() ? 0 : static_cast<unsigned char>(value[0]);
+		}
+		const auto error = valid ? ApplyBindings(keys) : "Malformed or stale profile keymap";
+		if (!error.empty()) Log(WARNING, "KeyMap", "Profile bindings ignored: {}", error);
+	}
 	return true;
+}
+
+bool KeyMap::IsEditableKey(int key)
+{
+	// Fixed party selection, pause, console, arrows/function keys and modified
+	// debug/script routes keep their existing dispatch. Only plain ASCII keys.
+	if (key < 0 || key > 127) return false;
+	return key == 0 || (key >= 'a' && key <= 'z') ||
+	       std::string(",./;'[]\\").find(static_cast<char>(key)) != std::string::npos;
+}
+
+std::string KeyMap::ValidateBindingKeys(const BindingKeys& keys)
+{
+	std::map<int, std::string> used;
+	for (const auto& entry : keys) {
+		if (entry.second < 0 || entry.second > 127 || !IsEditableKey(entry.second)) return "Unsupported or fixed key: " + entry.first;
+		if (entry.second && !used.emplace(entry.second, entry.first).second) return "Duplicate key: " + entry.first;
+	}
+	return {};
+}
+
+std::string KeyMap::ApplyBindings(const BindingKeys& keys, bool dryRun)
+{
+	if (keys.size() != bindings.size()) return "Complete binding set required";
+	const auto error = ValidateBindingKeys(keys);
+	if (!error.empty()) return error;
+	std::unordered_set<int> editableKeys;
+	for (const auto& binding : bindings) editableKeys.insert(binding.second.action.key);
+	for (const auto& entry : keys) {
+		if (bindings.count(entry.first) == 0) return "Unknown action: " + entry.first;
+		if (entry.second && editableKeys.count(entry.second) == 0) {
+			char character[2] = { static_cast<char>(entry.second), 0 };
+			if (keymap.Contains(character)) return "Key belongs to a non-editable action: " + entry.first;
+		}
+	}
+	if (dryRun) return {};
+	auto candidate = keymap;
+	auto updated = bindings;
+	// Remove every old alias before installing any new alias: swaps are safe.
+	for (auto& binding : updated) {
+		if (binding.second.action.key) {
+			char character[2] = { static_cast<char>(binding.second.action.key), 0 };
+			candidate.Erase(character);
+		}
+	}
+	for (auto& binding : updated) {
+		binding.second.action.key = keys.at(binding.first);
+		candidate.Set(binding.first, binding.second.action);
+		if (binding.second.action.key) {
+			char character[2] = { static_cast<char>(binding.second.action.key), 0 };
+			candidate.Set(character, binding.second.action);
+		}
+	}
+	keymap = std::move(candidate);
+	bindings = std::move(updated);
+	return {};
 }
 
 //group can be:
