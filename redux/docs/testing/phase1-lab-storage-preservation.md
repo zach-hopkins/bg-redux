@@ -32,3 +32,23 @@ receipts. Runtime DLLs/executables and Phase0 files were excluded. Receipt:
 `storage-completed-engine-objects-1792659009746664400/result.json`. This later
 operation includes b49 objects that were explicitly excluded from earlier passes;
 it changes allocation only, not compiled object contents.
+
+
+A further 681 completed spellbook evidence text/BMP files were compressed and
+verified with unchanged names, lengths and hashes. Receipt:
+`storage-completed-spellbook-evidence-1792660180936283600/result.json`.
+New spellbook runs use the compressed directory
+`results/compressed-spellbook-20261022`; individual files inherit compression.
+
+The archived-binary preparation attempt
+`storage-archived-phase1-binaries-1792660390559727500/result.json` failed a
+historical receipt hash check before any compression. Its failure is retained;
+it does not establish that those historical binaries match that receipt.
+A separate verified selection contains only completed archived builds
+`20261022T012223Z-candidate-9aa69cd5` and
+`20261022T051113Z-candidate-df3a5c5e`. All 122 receipt-pinned binary/support
+files matched before compression, and their exact lengths/hashes and both build
+receipts matched afterward. Receipt:
+`storage-archived-phase1-binaries-1792660672394588700/result.json`.
+Phase0 and the current b49 runtime build were excluded. No files were deleted,
+moved, or changed in logical content.
