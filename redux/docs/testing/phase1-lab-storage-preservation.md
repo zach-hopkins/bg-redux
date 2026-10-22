@@ -69,3 +69,19 @@ with exact actual before/after lengths/hashes and unchanged receipt files:
 `storage-reference-binaries-1792661210670941900/result.json`. This storage
 operation does not promote the failed build or claim historical receipt
 coherence. The current candidate and Phase0 were excluded from these targets.
+
+
+After both spellbook BEFORE runs were terminal, the completed b49 candidate's
+61 receipt-pinned binary/support files were compressed with exact hashes and
+lengths unchanged, as was its receipt:
+`storage-archived-phase1-binaries-1792661421165600900/result.json`.
+This changes physical allocation only; all earlier binary identity pins remain
+valid. The builds parent directory now requests inherited compression for new
+builds, without recursively changing existing files.
+
+A final completed-result BMP pass skips every directory junction/symlink and
+hardlinked file. All 2,690 previously uncompressed BMPs (1,671,673,914 logical
+bytes), plus preexisting result/artifact receipt hashes, match before/after:
+`storage-completed-result-bmps-1792661483761551500/result.json`.
+No native session was active. This recovered headroom for a fresh build while
+retaining all evidence in place; about 2.27 GB was free afterward.

@@ -98,3 +98,32 @@ Legacy operate retains 69 plan steps including charged confirmation cancellation
 EE-direct runs add `-ee-direct` to their distinct result directory label and retain the requested policy in the outer observation/result as well as host/runtime receipts. To characterize the repaired candidate after a coherent engine and external rebuild, append `--confirmation-policy ee-direct` to the run command. Add `--presentation-control spellname-permutation` only for the separate controlled-name case; stock AFTER stays empty override.
 
 This AFTER expectation is supported by original wizard physical-UI observation and both shipped menu callback sources. Eligible original priest operation remains unmeasured; this is not full priest runtime parity. Classic confirmation behavior and existing spontaneous restrictions remain separate production regression requirements. New focused source tests exercise actual policy selection for BG2EE/non-BG2EE and charged/depleted entries; external negatives reject implicit policy mismatches, omitted direct removal and wrong immediate deltas. No tests, builds or runtime were executed by the worker for this delivery.
+
+
+## Executed BEFORE passes, October 22
+
+The fresh stock run
+`compressed-spellbook-20261022/20261022T091807Z-spellbook-operation-5f358ffc`
+passes operation, ordinary GUI save and fresh-process reload. Its result SHA-256
+is `73501918d980527b9382f9d684c213bbfa6d23ce6d4b2fdec4f4aa0e74fb5acc`.
+Operate PID 13104 exited 0 in 187.058 seconds; reload PID 468 exited 0 in
+111.648 seconds. Actual callbacks, arrow/tab pixels, exact spellbook wire delta
+and all candidate/Phase0/input preservation guards pass. Stock known order is
+already sorted, so its explicit verdict retains the runtime permutation gap.
+The [independent stock audit](phase1-stock-spellbook-pass-audit.md) confirms
+raw callback, pixel, saved-order/duplicate and provenance evidence.
+
+The separate private name control
+`compressed-spellbook-20261022/20261022T092348Z-spellbook-operation-name-control-eda150fa`
+passes both processes with actual nonidentity ordering. Its result SHA-256 is
+`3e845d639093b8cbd4dcc7e04dd4a7e8422e44b671714652b0e6014b9bcb0459`.
+Operate PID 11696 exited 0 in 189.671 seconds; reload PID 5204 exited 0 in
+110.993 seconds. Each target displays at index 0, retains original known index
+2/4 and the correct saved resref delta. Four private name-only overrides and
+unchanged TLK are bound; all preservation guards pass. This is controlled
+presentation coverage, not a stock or original-parity result.
+
+Both passes characterize the legacy confirmation policy and precede the new
+heading/direct-removal production changes. Fresh AFTER execution must explicitly
+select `--confirmation-policy ee-direct`; neither historical pass validates the
+new production behavior. All earlier failed results remain unchanged.
