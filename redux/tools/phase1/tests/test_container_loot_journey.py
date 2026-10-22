@@ -17,7 +17,7 @@ from test_weapon_query_validation import setup_case
 def item(ref,slot=0,flags=0):return dict(resref=ref,slot=slot,flags=flags,expired=0,usages=[0,0,0])
 def inv(items):return dict(items=items,fist_slot=10,slot_count=39,equipped=1000,equipped_header=0)
 def focused(reload=False):
-    before=dict(schema='bg-redux-container-loot-state/1',container='Jailkeep Table',container_runtime_id=999,position=[3109,2829],type=5,flags=0,trapped=0,pc_runtime_id=10002,pc_position=[3741,2801],game_time=100,
+    before=dict(schema='bg-redux-container-loot-state/1',container='Jailkeep Table',container_script_name='jailkeeptable',container_runtime_id=999,position=[3109,2829],type=5,flags=0,trapped=0,pc_runtime_id=10002,pc_position=[3741,2801],game_time=100,
                 container_inventory=inv([item('SW1H04'),item('STAF01',1)]),pc_inventory=inv([item('FIST',10)]))
     after=copy.deepcopy(before);after['container_inventory']['items']=[item('STAF01')];after['pc_inventory']['items'].append(item('SW1H04',15,0x10));after['pc_position']=[3150,2840];after['game_time']=108
     return (copy.deepcopy(after),after) if reload else (before,after)
@@ -45,7 +45,7 @@ class LootOutcomeTests(unittest.TestCase):
         self.assertEqual(journey.outcome(*focused(True),reload=True)['pc_after'],1)
 
     def test_missing_duplicate_wrong_item_and_charge_changes_rejected(self):
-        for mutation in ('missing','duplicate','wrong','charges','stolen','other_loss','wrong_actor','locked'):
+        for mutation in ('missing','duplicate','wrong','charges','stolen','other_loss','wrong_actor','locked','script_name','missing_script_name','stored_name'):
             before,after=focused()
             if mutation=='missing':after['pc_inventory']['items'].pop()
             elif mutation=='duplicate':after['pc_inventory']['items'].append(item('SW1H04',16))
@@ -54,6 +54,9 @@ class LootOutcomeTests(unittest.TestCase):
             elif mutation=='stolen':after['pc_inventory']['items'][-1]['flags']|=4
             elif mutation=='other_loss':after['container_inventory']['items']=[]
             elif mutation=='wrong_actor':after['pc_runtime_id']=10003
+            elif mutation=='script_name':after['container_script_name']='anothercontainer'
+            elif mutation=='missing_script_name':after.pop('container_script_name')
+            elif mutation=='stored_name':after['container']='Another Table'
             else:after['flags']=1
             with self.subTest(mutation=mutation),self.assertRaises(ValueError):journey.outcome(before,after)
 

@@ -2,6 +2,17 @@
 
 Source-only external adapter, awaiting coordinator unit tests, compilation, and serial native execution. No engine change or original-parity claim is made. Existing GUI/color/inventory hosts are unchanged.
 
+Coordinator follow-up: 15 focused tests and the then-current 227-test integrated
+suite pass. The first native run `20261022T032531Z-container-loot-journey-c3703e13`
+and diagnostic rerun `20261022T032917Z-container-loot-journey-eff5ffad` both remain
+failed before transfer. The external host compared the stored ARE name with the
+runtime script name. `Scriptable::SetScriptName` removes internal spaces, while
+`AREImporter::GetContainer` retains the original name in `OriginalName`.
+The host now requires both exact stored identity `Jailkeep Table` and normalized
+runtime identity `jailkeeptable`, retaining all position/type/lock/trap guards.
+Fresh external compilation and execution are required; no engine correction is
+implied by this adapter defect.
+
 The protected stock saved fixture contains the unlocked, untrapped **Jailkeep Table** in AR0602 at (3109,2829). Its eleven items begin with SW1H04; the leader starts at (3741,2801) without that item. The tool copies this exact saved fixture, without changing GAM/ARE/CRE, adding items, or inserting success globals/scripts. It rejects other fixture roots and records exact source, copied input, and output manifests. The source table's complete item order, position, type, flags, and trap state are guarded.
 
 The first fresh host process selects the leader through `GemRB.GameSelectPC`, sets the real current container and queues parsed `UseContainer()` through `Actor::CommandActor`. This is the ordinary operation pair in `GameControl::HandleContainer`; mouse hit testing and its clicked trigger are outside this adapter. The normal running loop performs movement, proximity/unlock checks, and opening. The adapter waits for the shipped container window, sets the UI selection parameter LeftIndex=0, invokes control 0's real `Container.TakeItemContainer` callback, and invokes control 51's real `Container.LeaveContainer` callback. It never calls `ChangeContainerItem` directly. The action ID is bound to shipped ACTION.IDS and the callback sources are frozen.

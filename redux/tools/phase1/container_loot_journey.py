@@ -126,6 +126,7 @@ def actual_items(inv):
 
 def outcome(before,after,reload=False):
     for state in (before,after):
+        if state.get('container_script_name','').casefold()!='jailkeeptable':raise ValueError('Normalized runtime container script name differs')
         if state.get('schema')!='bg-redux-container-loot-state/1' or state.get('container','').casefold()!=TARGET.casefold() or state.get('position')!=[3109,2829] or state.get('type')!=5 or state.get('flags')!=0 or state.get('trapped')!=0 or type(state.get('pc_runtime_id'))is not int or state['pc_runtime_id']<=0 or type(state.get('container_runtime_id'))is not int or state['container_runtime_id']<=0:raise ValueError('Runtime target guard differs')
     if before['pc_runtime_id']!=after['pc_runtime_id'] or before['container_runtime_id']!=after['container_runtime_id']:raise ValueError('Leader/container identity changed within process')
     cb=raw_items(before['container_inventory']);ca=raw_items(after['container_inventory']);pb=actual_items(before['pc_inventory']);pa=actual_items(after['pc_inventory'])

@@ -12,12 +12,16 @@ static Container* LootContainer()
     Container* found=nullptr;
     for (const auto& holder : map->TMap->GetContainers()) {
         auto* c=holder.get();
-        if (c->GetScriptName()!="Jailkeep Table") continue;
+        // Scriptable::SetScriptName removes internal spaces; AREImporter
+        // retains the exact stored container name separately in OriginalName.
+        if (c->OriginalName!="Jailkeep Table") continue;
         if (found) throw std::runtime_error("Ambiguous Jailkeep Table");
         found=c;
     }
-    if (!found || found->Pos!=Point(3109,2829) || found->containerType!=5 || found->Flags!=0 || found->Trapped)
-        throw std::runtime_error("Stock table identity/position/type/lock/trap guard differs");
+    if (!found) throw std::runtime_error("Stock table absent");
+    if (found->GetScriptName()!="jailkeeptable" || found->Pos!=Point(3109,2829) || found->containerType!=5 || found->Flags!=0 || found->Trapped)
+        throw std::runtime_error("Stock table guard differs: "+O({{"position",PointJSON(found->Pos)},
+            {"type",NumberJSON(found->containerType)},{"flags",NumberJSON(found->Flags)},{"trapped",NumberJSON(found->Trapped)}}));
     return found;
 }
 
@@ -32,7 +36,8 @@ static Actor* LootPC()
 static std::string LootState()
 {
     auto* c=LootContainer();auto* actor=LootPC();
-    return O({{"schema",Q("bg-redux-container-loot-state/1")},{"container",Q(c->GetScriptName().c_str())},{"container_runtime_id",NumberJSON(c->GetGlobalID())},
+    return O({{"schema",Q("bg-redux-container-loot-state/1")},{"container",Q(c->OriginalName.c_str())},
+        {"container_script_name",Q(c->GetScriptName().c_str())},{"container_runtime_id",NumberJSON(c->GetGlobalID())},
         {"position",PointJSON(c->Pos)},{"type",NumberJSON(c->containerType)},{"flags",NumberJSON(c->Flags)},
         {"trapped",NumberJSON(c->Trapped)},{"container_inventory",InventoryJSON(c->inventory)},
         {"pc_runtime_id",NumberJSON(actor->GetGlobalID())},{"pc_position",PointJSON(actor->Pos)},{"pc_inventory",InventoryJSON(actor->inventory)},
