@@ -127,3 +127,13 @@ Both passes characterize the legacy confirmation policy and precede the new
 heading/direct-removal production changes. Fresh AFTER execution must explicitly
 select `--confirmation-policy ee-direct`; neither historical pass validates the
 new production behavior. All earlier failed results remain unchanged.
+
+
+The heading/direct-policy candidate is now built coherently in
+`20261022T093226Z-candidate-5a60a03d` (3,509 source files, 61 binaries, five
+support files). Its fresh [baseline audit](phase1-heading-policy-fresh-baseline-audit.md)
+confirms 44 assertions; compatibility differences remain unwaived. The external
+operation closure explicitly freezes the new `EESpellbookHeading.py` helper as
+well as the full engine receipt. `ee-direct-1` was built but never executed;
+adding this explicit frozen helper required the separate `ee-direct-2` build.
+Focused operation tests pass 29/29 after that closure addition.

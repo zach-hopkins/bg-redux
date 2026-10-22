@@ -85,3 +85,49 @@ bytes), plus preexisting result/artifact receipt hashes, match before/after:
 `storage-completed-result-bmps-1792661483761551500/result.json`.
 No native session was active. This recovered headroom for a fresh build while
 retaining all evidence in place; about 2.27 GB was free afterward.
+
+
+The next full candidate build completed, but baseline run
+`20261022T093528Z-spellbook-native-baseline-08493d1d` exhausted C: during GUI
+evidence writing. Its raw result remains failed, including incomplete files.
+A separate UTF-8 recovery check proves protected Phase0 and candidate byte
+inventories still equal their pre-run snapshots:
+`disk-exhaustion-recovery-utf8-1792662483858653400/result.json`.
+The earlier recovery reader used the Windows default encoding and misdecoded
+Unicode fixture paths; its failed receipt is retained separately.
+
+Windows COMPACT LZX was explored against an archived DLL. The pilot's exact
+bytes/receipt remain equal (`storage-archived-lzx-pilot-1792661807128431900/result.json`);
+a later allocation query reports 54,071,296 allocated bytes for 270,637,879
+logical bytes. The follow-up batch failed while writing its initial inventory
+under disk exhaustion, before its compression loop:
+`storage-archived-phase1-lzx-1792661841435548300/result.json`.
+COMPACT's quiet/continue mode and exit zero alone do not prove reclaimed space;
+logical before/after hashes establish preservation, not an allocation result
+for every requested file. Failed emergency compression attempts are retained.
+
+Recovery then atomically replaced exact duplicate archived bytes with NTFS
+hardlinks. All original file paths remain readable with identical lengths and
+SHA-256 values; this does not preserve independent physical allocation/inodes.
+One archived external-host pair is recorded in
+`storage-identical-host-link-1792662070508501600/result.json`.
+An initial 1,112-file cache inventory/993 duplicate pairs is recorded in
+`storage-identical-archived-caches-1792662192663312800/result.json`.
+The complete pass inventories 22,451 closed-session cache PVRZ files and shares
+21,199 duplicate paths, with all logical bytes verified afterward:
+`storage-identical-completed-caches-1792662245010672100/result.json`.
+All directory junctions/symlinks are skipped; engine sources/binaries, Phase0,
+original assets and live sessions are excluded. No logical result file is lost.
+About 9.5 GB was free after that pass. The 258 shared cache inodes were then
+marked read-only and rehashed to prevent accidental writes across aliases:
+`storage-shared-cache-readonly-1792662832877889600/result.json`.
+Archived profiles must remain archived; all new tests use fresh private caches.
+
+The results parent now requests inherited compression without recursion. A
+baseline retry nested in the longer compressed-container path failed while
+copying a 273-character Windows destination, before the GUI stages began.
+That failed run is retained under
+`compressed-spellbook-20261022/20261022T094643Z-spellbook-native-baseline-f2dae382`.
+The separate short-name run `20261022T094904Z-sb-base-4565dad5` passes all 44
+baseline assertions and preservation guards while keeping its compatibility
+differences explicit. See the [fresh baseline audit](phase1-heading-policy-fresh-baseline-audit.md).
