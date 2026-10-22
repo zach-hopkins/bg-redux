@@ -239,7 +239,7 @@ class CharacterSheetTests(unittest.TestCase):
         env = self.record_namespace()
         for name in ("GetClassTitles", "GetEffectIcons", "GetLore", "GetPartyReputation", "GetActiveAIscript",
                      "GetSkills", "GetSavingThrows", "GetResistances", "GetWeaponProficiencies", "GetWeaponStyleBonuses"):
-            env[name] = lambda *args, name=name: name
+            env[name] = lambda *args, name=name, **kwargs: name
         rows = [(10332, 1, 'p'), (10336, 2, 'p'), (10339, 3, 'p'), (10340, 4, 'p'),
                 (10337, 5, '0'), (10338, 6, '0'), (10342, 7, '0'), (10343, 8, '%')]
         env["GUIRECCommon"] = types.SimpleNamespace(GetAbilityBonuses=lambda *args: rows,
@@ -256,7 +256,7 @@ class CharacterSheetTests(unittest.TestCase):
         env = self.record_namespace()
         for name in ("GetClassTitles", "GetEffectIcons", "GetLore", "GetPartyReputation", "GetActiveAIscript",
                      "GetSkills", "GetSavingThrows", "GetResistances", "GetWeaponProficiencies", "GetWeaponStyleBonuses"):
-            env[name] = lambda *args: ""
+            env[name] = lambda *args, **kwargs: ""
         env["GUIRECCommon"] = types.SimpleNamespace(GetAbilityBonuses=lambda *args: [],
             TypeSetStats=lambda *args: "", GetBonusSpells=lambda *args: "")
         self.gem.GetCombatDetails = lambda *args: self.fail("unexpected repeated combat query")

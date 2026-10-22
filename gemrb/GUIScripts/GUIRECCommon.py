@@ -591,7 +591,7 @@ def GetBonusSpells(pc, expand = True):
 	else:
 		return stats
 
-def TypeSetStats (stats, pc, recolor = False):
+def TypeSetStats (stats, pc, recolor = False, showZero = False):
 	res = []
 	lines = 0
 	noP = False
@@ -614,7 +614,7 @@ def TypeSetStats (stats, pc, recolor = False):
 	for s in stats:
 		try:
 			strref, val, stattype = s
-			if val == 0 and stattype != '0':
+			if val == 0 and stattype != '0' and not showZero:
 				continue
 			if val == None:
 				val = str_None

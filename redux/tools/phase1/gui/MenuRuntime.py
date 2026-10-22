@@ -91,19 +91,33 @@ def inspect_stats(section):
     label = control("GUIREC", 2, 0x7fff0201).QueryText()
     page, total = (int(value.strip()) for value in label.split("/"))
     record("stats.page-state", 1 <= page <= total, page=page, total=total)
-    # Probe next/back only when there really is another page. Do not call a
-    # disabled callback and then misclassify its refusal as a product failure.
+    rec = importlib.import_module('GUIREC')
+    sheet = importlib.import_module('EECharacterSheet')
+    pc = GemRB.GameGetSelectedPCSingle()
+    expected = sheet.Pages(rec.GetSupplementalStats(pc)[section])
+    record('stats.initial-content', page == 1 and total == len(expected) and text == expected[0],
+           section=section, actor=pc, expected_pages=expected, actual=text)
+    # Visit every naturally present page, then return through each previous
+    # page. Never dispatch disabled controls or replace the ordinary callbacks.
     if total > 1 and page == 1:
-        PLAN[INDEX + 1:INDEX + 1] = [
-            ("stats.next", lambda: press("GUIREC", 2, 0x7fff0203), False),
-            ("stats.next-observed", lambda: expect_page(2), True),
-            ("stats.previous", lambda: press("GUIREC", 2, 0x7fff0202), False),
-            ("stats.previous-observed", lambda: expect_page(1), True)]
+        steps = []
+        for target in list(range(2, total + 1)) + list(range(total - 1, 0, -1)):
+            cid = 0x7fff0203 if len(steps) // 2 < total - 1 else 0x7fff0202
+            steps.append(('stats.page-action-%d-%d' % (section, target),
+                          lambda cid=cid: press('GUIREC', 2, cid), False))
+            steps.append(('stats.page-observed-%d-%d' % (section, target),
+                          lambda target=target: expect_page(target, section, pc, expected), True))
+        PLAN[INDEX + 1:INDEX + 1] = steps
 
 
-def expect_page(expected):
+def expect_page(expected, section, pc, pages):
     actual = control("GUIREC", 2, 0x7fff0201).QueryText()
-    record("stats.page-transition", int(actual.split("/")[0]) == expected, actual=actual, expected=expected)
+    shown, total = (int(value.strip()) for value in actual.split('/'))
+    text = control('GUIREC', 2, 45).QueryText()
+    record("stats.page-transition", shown == expected and total == len(pages)
+           and text == pages[expected - 1] and GemRB.GetVar('ReduxStatsSection') == section
+           and GemRB.GameGetSelectedPCSingle() == pc,
+           actual=actual, expected=expected, section=section, actor=pc, content=text)
 
 
 def select_spell_actor(name, kind, required):

@@ -315,7 +315,7 @@ def GetSupplementalStats(pc, combat=None):
 	return [
 		"\n".join((GetClassTitles(pc, [0, 0, 0]), GetEffectIcons(pc, [0, 0, 0]),
 			GetLore(pc), GetPartyReputation(pc), GetActiveAIscript(pc))),
-		GetSkills(pc), GetSavingThrows(pc), GetResistances(pc),
+		GetSkills(pc), GetSavingThrows(pc), GetResistances(pc, showZero=True),
 		weapons,
 		GUIRECCommon.TypeSetStats(bonuses, pc) + "\n" + GUIRECCommon.GetBonusSpells(pc),
 	]
@@ -667,7 +667,7 @@ def GetACBonuses(pc):
 
 ########################################################################
 
-def GetResistances(pc):
+def GetResistances(pc, showZero=False):
 	stats = []
 	# only bg2 displayed all the resistances, but it is useful information
 	# Resistances
@@ -724,7 +724,9 @@ def GetResistances(pc):
 	stats.append ((14017, GS (pc, IE_RESISTPOISON), '%'))
 	stats.append ("\n")
 
-	return GUIRECCommon.TypeSetStats (stats, pc)
+	# EE supplemental Stats lists every protection, including an explicit 0%.
+	# Legacy overview callers retain their existing omission of zero values.
+	return GUIRECCommon.TypeSetStats (stats, pc, showZero=showZero)
 
 ########################################################################
 
