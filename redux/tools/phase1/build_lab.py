@@ -87,7 +87,15 @@ def main():
     tracked = subprocess.check_output(['git', '-C', str(source), 'ls-files', '--cached', '--others', '--exclude-standard', '-z'])
     result['source_files'] = {name: digest(source/name) for name in tracked.decode('utf-8').split('\0')
                               if name and not name.startswith('redux/') and (source/name).is_file()}
+    support = [helper, source/'redux/tools/phase0/managed-test-main.cpp', *sorted(glew.glob('*.cmake'))]
+    result['build_support_files'] = {p.relative_to(source).as_posix(): digest(p) for p in support}
     try:
+        for name, expected in result['build_support_files'].items():
+            frozen = folder/'build-support'/name
+            frozen.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(source/name, frozen)
+            if digest(frozen) != expected or digest(source/name) != expected:
+                raise ValueError('Build support changed while freezing: '+name)
         for label, command, timeout in [('configure', configure, 120),
                                         ('build', [cmake, '--build', str(folder), '--parallel', str(args.jobs)], 1800)]:
             print('Running '+label+' in '+str(folder), flush=True)
@@ -108,6 +116,11 @@ def main():
     except (OSError, ValueError, subprocess.SubprocessError) as error:
         result['error'] = str(error)
     finally:
+        result['build_support_unchanged'] = all((source/name).is_file() and digest(source/name)==expected
+                                                for name, expected in result['build_support_files'].items())
+        if not result['build_support_unchanged']:
+            result['status'] = 'failed'
+            result['build_support_error'] = 'Compiled test entry or CMake support changed during build'
         after = protected(root)
         write(folder/'phase0-protected-after.json', after)
         result['phase0_preservation'] = {key: before[key] == after[key] for key in before}
