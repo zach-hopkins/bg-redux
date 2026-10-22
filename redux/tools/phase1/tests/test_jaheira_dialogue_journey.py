@@ -145,6 +145,13 @@ class DialogueValidationTests(unittest.TestCase):
             self.write(root,'branch-0.text.json',dict(expected_npc_strref=899,expected_npc_text='invented',message_text='invented'))
             with self.assertRaisesRegex(ValueError,'strref'):journey.validate_capture(root,nonce,texts=texts)
 
+    def test_render_intervention_cannot_pass_gameplay_acceptance(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary);nonce,texts,_=self.fixture(root)
+            native=json.loads((root/'dialogue-result.json').read_text());native['render_diagnostic']=True
+            self.write(root,'dialogue-result.json',native)
+            with self.assertRaisesRegex(ValueError,'incomplete dialogue receipt'):journey.validate_capture(root,nonce,texts=texts)
+
     def test_old_transcript_text_cannot_satisfy_fresh_branch(self):
         with tempfile.TemporaryDirectory() as temporary:
             root=Path(temporary);nonce,texts,_=self.fixture(root)

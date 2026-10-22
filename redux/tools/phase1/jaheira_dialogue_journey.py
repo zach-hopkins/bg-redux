@@ -117,7 +117,7 @@ def validate_capture(folder,nonce,reload=False,started_ns=None,texts=None):
     folder=Path(folder);native=evidence.read(folder/'dialogue-result.json')
     if (native.get('schema')!='bg-redux-jaheira-native/1' or native.get('nonce')!=nonce or native.get('journey')!=('reload' if reload else 'talk')
         or native.get('completed')is not True or native.get('error') or native.get('os_pointer_input')is not False
-        or native.get('forced_dialogue_state')is not False or native.get('talk_requests')!=(0 if reload else 1)
+        or native.get('forced_dialogue_state')is not False or native.get('render_diagnostic',False)is not False or native.get('talk_requests')!=(0 if reload else 1)
         or native.get('branches_completed')!=(0 if reload else 11)):
         raise ValueError('Wrong/stale/incomplete dialogue receipt')
     if started_ns is not None and any(p.stat().st_mtime_ns<started_ns for p in folder.iterdir() if p.is_file()):raise ValueError('Stale capture evidence')
@@ -306,7 +306,7 @@ def run(args):
             for name in ('cache','capture','override'):(stage/name).mkdir()
             config=dict(GameType='bg2ee',GamePath=private['game'],GemRBPath=source/'gemrb',PluginsPath=build/'gemrb/plugins',CachePath=stage/'cache',SavePath=stage/'profile',ModPath=stage/'override',UseAsLibrary=0,SaveAsOriginal=1,Width=1024,Height=768,FullScreen=0,CapFPS=30,AudioDriver='none',GameLanguagePath='lang/en_US',SkipIntroVideos=1,Logging=1,LogColor=0,PathfinderThreadsCount=0,PathfinderMainThreadMode='immediate')
             cfg=stage/'probe.cfg';cfg.write_text(''.join('%s=%s\n'%(k,str(v).replace('\\','/')) for k,v in config.items()),encoding='utf-8');pins[str(cfg)]=evidence.sha(cfg)
-            command=[str(host),'--config',str(cfg),'--output',str(stage/'capture'),'--scripts',str(startup),'--journey',mode,'--nonce',entry['nonce']]
+            command=[str(host),'--config',str(cfg),'--output',str(stage/'capture'),'--scripts',str(startup),'--journey','render' if args.render_diagnostic else mode,'--nonce',entry['nonce']]
             env=api.harness.environment(stage);prefix=project/'phase0-local/toolchain/msys64/ucrt64';env['PATH']=os.pathsep.join([str(build/'gemrb'),str(prefix/'bin'),env.get('PATH','')]);env['PYTHONDONTWRITEBYTECODE']='1'
             source_guard(receipt,project,source);shared.validate_private_game(private,stage)
             if evidence.manifest(driver)!=driver_files:raise ValueError('Frozen launch closure changed')
@@ -317,6 +317,10 @@ def run(args):
             started=time.time_ns();entry['process']=api.baseline_runner.execute(command,build,env,stage/'process.log',args.timeout)
             if args.debugger_trace:raise ValueError('Diagnostic debugger trace only; not an acceptance run')
             shared.require_process(entry['process'])
+            if args.render_diagnostic:
+                result['render_diagnostic']=dict(acceptance_run=False,stage=mode,
+                    method='Delayed ordinary, MarkDirty-only, then explicitly cleared window buffer repaint')
+                raise ValueError('Render diagnostic only; not a dialogue/save acceptance run')
             if 'Traceback (most recent call last)' in (stage/'process.log').read_text(encoding='utf-8',errors='replace'):raise ValueError('Stock callback traceback')
             entry['observation']=validate_capture(stage/'capture',entry['nonce'],mode=='reload',started,tlk_texts(project))
             if mode=='talk':
@@ -360,6 +364,7 @@ def main(argv=None):
         else:
             q.add_argument('--host-build',type=Path,required=True);q.add_argument('--results-root',type=Path,required=True)
             q.add_argument('--debugger-trace',action='store_true',help='Run only the first stage under pinned GDB, retain stacks, and always reject acceptance')
+            q.add_argument('--render-diagnostic',action='store_true',help='Hold the second NPC response and compare delayed, invalidated and cleared buffer renders; always reject gameplay acceptance')
     args=p.parse_args(argv)
     if not 1<=args.timeout<=300:p.error('Timeout must be bounded to 1..300 seconds')
     return build_host(args) if args.command=='build' else run(args)

@@ -131,11 +131,13 @@ int main(int argc,char** argv)
     if(argc!=11 || args.size()!=5)return 64;
     for(auto key:{"--config","--output","--scripts","--journey","--nonce"})if(!args.count(key))return 64;
     const bool reload=args["--journey"]=="reload";
-    if ((!reload && args["--journey"]!="talk") || args["--nonce"].size()!=32 ||
+    const bool renderDiagnostic=args["--journey"]=="render";
+    if ((!reload && !renderDiagnostic && args["--journey"]!="talk") || args["--nonce"].size()!=32 ||
         args["--nonce"].find_first_not_of("0123456789abcdef")!=std::string::npos)return 64;
     const auto out=args["--output"];std::setlocale(LC_ALL,".UTF8");std::atexit(StopLog);
     std::unique_ptr<Interface> engine;std::vector<std::string> events,samples,saves;
     bool completed=false;int ticks=0,phase=-2,idle=0,branch=0,requests=0;unsigned startTime=0;
+    int renderStep=0;
     std::string error;String previousMessage;
     try {
         const char* engineArgs[]={"redux-dialogue-journey","-c",args["--config"].c_str()};
@@ -194,6 +196,29 @@ int main(int argc,char** argv)
                 }
                 if(expected.response<0){auto* window=DialogueButtonWindow();auto* control=window?GetControl(0,window):nullptr;
                     if(!control || control->IsDisabled() || !control->IsVisible())return;}
+                if(renderDiagnostic && branch==1){
+                    // Diagnostic intervention only: never an accepted gameplay run.
+                    // Hold the identical semantic tree across ordinary delayed frames,
+                    // full invalidation and an explicitly cleared backing surface.
+                    auto* window=ta->GetWindow();
+                    if(!window)throw std::runtime_error("Message owning window absent");
+                    const std::string method=renderStep<4?"ordinary":renderStep<7?"dirty":renderStep==7?"clear":"after-clear-dirty";
+                    if(renderStep>=4)window->MarkDirty();
+                    if(renderStep==7){window->DrawWithoutComposition()->Clear();window->MarkDirty();}
+                    const auto name="render-"+NumberJSON(renderStep)+"-"+method;
+                    capture(name,false);
+                    Write(out+"/"+name+".text.json",O({{"message_text",Q(MBStringFromString(text))},
+                        {"observed_runtime_types",A(DialogueMessageTypes)},{"method",Q(method)},
+                        {"tick",NumberJSON(ticks)},{"window_flags",NumberJSON(window->Flags())},
+                        {"frame",O({{"x",NumberJSON(window->Frame().x)},{"y",NumberJSON(window->Frame().y)},
+                            {"w",NumberJSON(window->Frame().w)},{"h",NumberJSON(window->Frame().h)}})},
+                        {"acceptance_run","false"}}));
+                    PluginHolder<ImageWriter> writer=MakePluginHolder<ImageWriter>(PLUGIN_IMAGE_WRITER_BMP);FileStream file;
+                    if(!writer || !file.Create(out,name,IE_BMP_CLASS_ID))throw std::runtime_error("Render diagnostic capture failed");
+                    writer->PutImage(&file,core->GetWindowManager()->GetScreenshot(window));
+                    if(++renderStep==11){completed=true;core->QuitFlag=QF_KILL;}
+                    return;
+                }
                 const auto prefix="branch-"+NumberJSON(branch);capture(prefix,true);
                 Write(out+"/"+prefix+".text.json",O({{"message_text",Q(MBStringFromString(text))},
                     {"previous_text",Q(MBStringFromString(previousMessage))},{"npc_occurrences_before",NumberJSON(beforeOccurrences)},
@@ -246,6 +271,7 @@ int main(int argc,char** argv)
     Write(out+"/dialogue-result.json",O({{"schema",Q("bg-redux-jaheira-native/1")},{"nonce",Q(args["--nonce"])},
         {"journey",Q(args["--journey"])},{"completed",completed?"true":"false"},{"error",Q(error)},
         {"talk_requests",NumberJSON(requests)},{"branches_completed",NumberJSON(branch)},{"events",A(events)},
+        {"render_diagnostic",renderDiagnostic?"true":"false"},{"render_steps",NumberJSON(renderStep)},
         {"ticks_per_second",engine?NumberJSON(core->Time.defaultTicksPerSec):"0"},
         {"startup_samples",A(samples)},{"saves",A(saves)},{"os_pointer_input","false"},{"forced_dialogue_state","false"}}));
     if(engine){engine.reset();core=nullptr;VideoDriver.reset();PluginMgr::Get()->RunCleanup();}StopLog();

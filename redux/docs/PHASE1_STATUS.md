@@ -44,6 +44,11 @@ also passes its one-request, eleven-branch route and GUI save/fresh reload,
 preserving the expected talk counter, unique journal entry, closed cell and
 two-member party; its [independent audit](testing/phase1-jaheira-dialogue-lab-audit.md)
 confirms 567 retained artifacts and the saved/reloaded effects.
+Its [dialogue rendering defect](testing/phase1-dialogue-rendering.md) remains open:
+old red choice pixels survive beneath new text. A held-response diagnostic proves
+the pixels persist across ordinary frames and fade on repeated invalidation;
+clearing the backing buffer removes them. Callback/save success does not establish
+visual fidelity.
 A direct public TextArea selection entry separately exposes
 a [reentrancy defect](compatibility/phase1-textarea-update-state-reentrancy.md);
 the normal selection route passes without an engine change. The bounded
