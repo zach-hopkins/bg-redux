@@ -18,7 +18,7 @@ retained. Fresh private-folder query/cache/control and import/GUI reruns pass
 their preservation guards; the earlier diagnostic-write failure is retained.
 Both selected menu resolutions complete 107 checks and 51 captures. The opaque
 plain-key editor journey and measured calling-thread RNG snapshot cost pass
-their bounded checks. External tooling now passes 324 Python tests. Original
+their bounded checks. External tooling now passes 346 Python tests. Original
 controlled-color ordinary saves and candidate fresh-process saves both show
 237 to 46 to 46; the independently audited comparison establishes shared
 behavior for this controlled input, not a candidate-only persistence defect.
@@ -78,7 +78,9 @@ also passes both public UpdateState responses, all eleven branches, GUI save and
 fresh reload in `20261022T070508Z-jaheira-dialogue-direct-83a17bf8`. The fresh
 two-resolution menu run `20261022T064911Z-guarded-textarea-menu-run-eba67ffa`
 passes187 checks and51 captures each, with all preservation guards. Independent
-raw audits of those real-dialogue/menu runs remain pending. That fresh candidate's
+raw audits now pass for the [normal dialogue and menus](testing/phase1-b49-normal-dialogue-menu-audit.md)
+and [direct selection dialogue](testing/phase1-jaheira-direct-selection-native-audit.md).
+That fresh candidate's
 [checked string-test locale setup](testing/phase1-string-locale-fixture-fix.md)
 passes the three focused casing tests and the full corrected-CWD core suite:
 231 passed, zero failed, nine skips and six disabled tests. The six other CTest
