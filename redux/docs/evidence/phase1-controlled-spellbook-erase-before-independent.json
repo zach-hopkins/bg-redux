@@ -1,0 +1,250 @@
+{
+  "schema": "bg-redux-independent-controlled-erase-before-audit/1",
+  "audit_passed": true,
+  "raw_verdict": "failed",
+  "raw_error": "Erase changed wrong resref/order/flags/slots or left target copies",
+  "raw_result": "C:\\BGRedux\\phase1-local\\results\\20261022T103610Z-spellbook-erase-name-control-ee-direct-2899b4c1\\result.json",
+  "result_sha256": "4b2a1a15ce17b5b188f118b5664c6ea7ccdda513396a308e3495d5b94e2af010",
+  "manifest_sha256": "ddb46211a9fac3a0c7c2f912ae8317ae2de3667757b8ba3e1bfbb1cbc2cb6309",
+  "artifacts_rehashed": 563,
+  "source_closure": 74,
+  "engine_build_binding": {
+    "receipt_sha256": "c080bca9aea2e196ff6167f15dd5552e20962c6c38929c35c049666e2a0b88d2",
+    "source_files": 3509,
+    "binaries": 61,
+    "support_files": 5
+  },
+  "process": {
+    "command": [
+      "C:\\BGRedux\\phase1-local\\results\\20261022T103610Z-spellbook-erase-name-control-ee-direct-2899b4c1\\driver\\Redux_spellbook_erase_gui.exe",
+      "--config",
+      "C:\\BGRedux\\phase1-local\\results\\20261022T103610Z-spellbook-erase-name-control-ee-direct-2899b4c1\\operate\\probe.cfg",
+      "--output",
+      "C:\\BGRedux\\phase1-local\\results\\20261022T103610Z-spellbook-erase-name-control-ee-direct-2899b4c1\\operate\\capture",
+      "--scripts",
+      "C:\\BGRedux\\phase1-local\\results\\20261022T103610Z-spellbook-erase-name-control-ee-direct-2899b4c1\\driver\\startup",
+      "--mode",
+      "operate",
+      "--nonce",
+      "1cc327744a774545b1412e85ae1c35d1",
+      "--resources",
+      "C:\\BGRedux\\phase1-local\\results\\20261022T103610Z-spellbook-erase-name-control-ee-direct-2899b4c1\\driver\\resource-list.txt",
+      "--confirmation-policy",
+      "ee-direct"
+    ],
+    "cwd": "C:\\BGRedux\\phase1-local\\builds\\20261022T093226Z-candidate-5a60a03d",
+    "timeout_seconds": 240,
+    "timed_out": false,
+    "exit_code": 0,
+    "cleanup": "not required",
+    "pid": 15772,
+    "elapsed_seconds": 60.684,
+    "log_sha256": "1ee8a375aaa10cfee0482d94c1c17538e1781cdb06e2423091da019ac00cd9eb"
+  },
+  "nonce": "1cc327744a774545b1412e85ae1c35d1",
+  "callbacks": 14,
+  "captures": 6,
+  "steps": 16,
+  "target": {
+    "resref": "SPWI213",
+    "original_index": 2,
+    "shown_index": 0,
+    "control": 27
+  },
+  "actually_removed": "SPWI211",
+  "memorized_unchanged": [
+    [
+      "SPWI213",
+      1
+    ],
+    [
+      "SPWI214",
+      1
+    ],
+    [
+      "SPWI215",
+      1
+    ]
+  ],
+  "diagnostic_save_files": {
+    "baldur.bmp": {
+      "bytes": 93690,
+      "sha256": "c54aa8ec9cc5b57f4834e3f0f94c01551b06a9fb898a5312f0f6f7b976b1a1bc"
+    },
+    "baldur.gam": {
+      "bytes": 70152,
+      "sha256": "c61cf1cce63197846274512644161fd83ad7c5fab85af6329d0de9c0e2011c42"
+    },
+    "baldur.sav": {
+      "bytes": 19473,
+      "sha256": "d790ad3c27184367ffe072ef1406ad48c0bdf13f447e614dd150100d9dbbfad1"
+    },
+    "PORTRT0.bmp": {
+      "bytes": 13830,
+      "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+    },
+    "PORTRT1.bmp": {
+      "bytes": 13830,
+      "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+    },
+    "PORTRT2.bmp": {
+      "bytes": 13830,
+      "sha256": "7bd303526bb50f7dfe71d8503d9d5281df9010ce6f897fcbbbafc987febb182f"
+    },
+    "PORTRT3.bmp": {
+      "bytes": 13830,
+      "sha256": "5ca49744a57c13ffe91d2eebe5ebfd1da6f491ff549042e70155da7aa59ebf54"
+    }
+  },
+  "reload_launched": false,
+  "control_proof": [
+    {
+      "resref": "SPWI213",
+      "original_sha256": "cd1af476a141570d00f2ba84efd0167209632ab87053e92f9bafed2c6347e887",
+      "override_sha256": "8c91f8bd5f778221aa8bf3aa7e1677ba7a0c34877a6fd7212063101c58cea4c2",
+      "changed_offsets": [
+        8
+      ],
+      "original_name_ref": 12056,
+      "override_name_ref": 12033
+    },
+    {
+      "resref": "SPWI211",
+      "original_sha256": "837fd3be783d9ec9e91437cd849dc18c4ed6266117c0bebc63972f67dcaca89b",
+      "override_sha256": "6f67fdd2fff1f36889f6f309dbbd5942882e12f3876dc237103cdac4751d4cff",
+      "changed_offsets": [
+        8
+      ],
+      "original_name_ref": 12033,
+      "override_name_ref": 12056
+    },
+    {
+      "resref": "SPPR113",
+      "original_sha256": "81b3955ea7c3d1243d85c3391b5120a4d56a9d0e4fe47e4207e562c668b0fa99",
+      "override_sha256": "925f67705bea60a48f7e6b3b025fa7541ef5d391d8031acb80484bacf3e070a8",
+      "changed_offsets": [
+        8,
+        9
+      ],
+      "original_name_ref": 3351,
+      "override_name_ref": 25601
+    },
+    {
+      "resref": "SPPR111",
+      "original_sha256": "f21765bd5db520c8c50411d96052d03e3ab9d50b786c29b7899048bdc406099b",
+      "override_sha256": "36b39e87a82d53d13c240b99a9fb242c5a03b404c24767ba560ed97307f4a5b1",
+      "changed_offsets": [
+        8,
+        9
+      ],
+      "original_name_ref": 25601,
+      "override_name_ref": 3351
+    }
+  ],
+  "tlk_sha256": "9e685225ff3c3436a8a35fa7022550620d24a92efe35436a062c02955d9f0952",
+  "historical_guimg_sha256": "c9d85d57f2d81c9ac7e52ad85e3b97df3ab5fa8e03f57b12ad6dd925ba3c6033",
+  "auditor_sha256": "60c5658a0b1c38e6cb47845ddf6895bfb659b28867ea997e4038c897b50a471a",
+  "limits": [
+    "Historical frozen source only; source may now be fixed",
+    "Separate private presentation control, not stock/original parity",
+    "Strict failure preserved; diagnostic save only; no fresh reload",
+    "No validator imports or runtime/build/test launches"
+  ],
+  "wire_before_sha256": "f5012f15cb10da4cbc150a84dcc6aacaf6858c28ecfe8ac80a63d6d13f790db4",
+  "wire_before_target_page": [
+    {
+      "type": 1,
+      "level": 1,
+      "slots": 3,
+      "bonus": 3,
+      "known": [
+        {
+          "resref": "SPWI215",
+          "level": 1,
+          "type": 1
+        },
+        {
+          "resref": "SPWI214",
+          "level": 1,
+          "type": 1
+        },
+        {
+          "resref": "SPWI213",
+          "level": 1,
+          "type": 1
+        },
+        {
+          "resref": "SPWI212",
+          "level": 1,
+          "type": 1
+        },
+        {
+          "resref": "SPWI211",
+          "level": 1,
+          "type": 1
+        }
+      ],
+      "memorized": [
+        {
+          "resref": "SPWI213",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI214",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI215",
+          "flags": 1
+        }
+      ]
+    }
+  ],
+  "wire_diagnostic_sha256": "14e807b50a0f51258997222a60f1982f9af52e298c64301e7dfbd6717a98f42f",
+  "wire_diagnostic_target_page": [
+    {
+      "type": 1,
+      "level": 1,
+      "slots": 3,
+      "bonus": 3,
+      "known": [
+        {
+          "resref": "SPWI215",
+          "level": 1,
+          "type": 1
+        },
+        {
+          "resref": "SPWI214",
+          "level": 1,
+          "type": 1
+        },
+        {
+          "resref": "SPWI213",
+          "level": 1,
+          "type": 1
+        },
+        {
+          "resref": "SPWI212",
+          "level": 1,
+          "type": 1
+        }
+      ],
+      "memorized": [
+        {
+          "resref": "SPWI213",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI214",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI215",
+          "flags": 1
+        }
+      ]
+    }
+  ],
+  "private_audit": "C:\\BGRedux\\phase1-local\\results\\20261022T104803Z-controlled-erase-before-independent-c6a932f0\\audit.json",
+  "private_audit_sha256": "c2a27177dda7d801d7539a51e6e07f565bd60bc70152a84aee0e111471fb601a"
+}
