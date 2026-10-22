@@ -31,13 +31,13 @@ def mutate(s,c,kind):
 
 
 class ConfirmationJourneyTests(unittest.TestCase):
-    def test_added_copy_preserves_native_prepared_storage_spelling(self):
+    def test_added_copy_uses_known_ref_spelling_and_retains_existing_storage(self):
         c=v.CASES[0];a=state()
         for group in ('party','current_area_actors'):
             for row in v.page(a[group][1],1,1)['memorized']:row['resref']=row['resref'].lower()
         b=copy.deepcopy(a)
         for group in ('party','current_area_actors'):
-            v.page(b[group][1],1,1)['memorized'].append(dict(resref='spwi213',flags=0))
+            v.page(b[group][1],1,1)['memorized'].append(dict(resref='SPWI213',flags=0))
         v.world_delta(a,b,c,'add')
         b['party'][1]['spellbook'][0]['memorized'][-1]['resref']='spwi214'
         with self.assertRaises(ValueError):v.world_delta(a,b,c,'add')

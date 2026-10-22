@@ -56,10 +56,9 @@ def changed(rows,case,kind):
         if not found:raise ValueError('Declared charged filler absent')
         rows.pop(found[0])
     elif kind=='add':
-        # Native prepared ResRefs are lowercase; wire decoding is uppercase.
-        # Preserve the existing target's storage spelling in this exact delta.
-        target=next(x['resref']for x in rows if x['resref'].upper()==case['ref'])
-        rows.append(dict(resref=target,flags=0))
+        # Existing imported prepared refs are lowercase, but the callback adds
+        # the uppercase known ref. Preserve both actual storage spellings.
+        rows.append(dict(resref=case['ref'],flags=0))
     elif kind=='mixed':
         found=[i for i,x in enumerate(rows)if x['resref'].upper()==case['ref']and x['flags']==0]
         if len(found)!=1:raise ValueError('Exact measured mixed depleted copy absent/duplicate')
