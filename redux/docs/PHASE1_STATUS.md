@@ -14,10 +14,14 @@ ten-stage inventory replacement regression, and matches the four original AI
 branches with native attack/target samples. Its calling-thread RNG observer
 detects the deliberate draw and observes no changes in 1,100 normal calls.
 The native import/GUI scenarios pass 44 assertions with persistence differences
-retained. The two-process plain-key editor journey passes; broader menu traversal
-is underway. A strict source-root guard caught diagnostic writes from query
-hosts; private-folder host corrections pass 172 Python tests and compile, with
-fresh guarded native reruns pending. The batch descriptions below are
+retained. Fresh private-folder query/cache/control and import/GUI reruns pass
+their preservation guards; the earlier diagnostic-write failure is retained.
+Both selected menu resolutions complete 107 checks and 51 captures. The opaque
+plain-key editor journey and measured calling-thread RNG snapshot cost pass
+their bounded checks. External tooling now passes 212 Python tests. Original
+controlled-color ordinary saves show 237 to 46 across a fresh-process reload;
+that transition is shared behavior, not an established candidate-only defect.
+The batch descriptions below are
 historical checkpoints, superseded by the linked executed report where stated.
 
 The full [Phase 1 backlog](roadmap/phase1-backlog.md) remains the scope: preserve

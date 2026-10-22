@@ -1,0 +1,126 @@
+{
+  "schema": "bg-redux-phase1-isolated-regression-summary/1",
+  "candidate_build": "20261022T012223Z-candidate-9aa69cd5",
+  "core_dll_sha256": "79650612926d96a8748320bcf3d0f8f265f7d20747448a30a5ec8918b472ebb9",
+  "query": {
+    "path": "20261022T020452Z-phase1-weapon-query-54df55ff",
+    "result_sha256": "beb80762c1821670f72fa795ef9b92d72f9904f89cf2d42af7ec6f27a0468bfc",
+    "cases": 22,
+    "original_matches": 22,
+    "observations": 1100,
+    "calling_thread_rng_unchanged": true,
+    "collected_state_unchanged": true,
+    "private_game_validation": {
+      "clean_game_inventory_unchanged": true,
+      "clean_game_root_hashes_unchanged": true,
+      "copied_immutable_inputs_unchanged": true,
+      "allowed_private_root_changes": {
+        "GemRB.log": {
+          "before_sha256": "c298eb067db2c6c619c7791afc9b6fc0997a5dba9bd5bd03d6718f2facbbf6a7",
+          "after_sha256": "c91bda013018fa0daa9776093cbe2f2a53373b1c1304c3bf3f1b8153661fe052"
+        }
+      },
+      "linked_asset_content_fully_hashed": false
+    }
+  },
+  "cache": {
+    "path": "20261022T020405Z-inventory-journey-69ac9c88",
+    "result_sha256": "811471eba7e6c11bdd141570e8034e4cc5d10d1bfdb8024d32c90d996d3fbc2e",
+    "stages": 10,
+    "verdict": "journey-observed-cache-coherent",
+    "private_game_validation": {
+      "clean_game_inventory_unchanged": true,
+      "clean_game_root_hashes_unchanged": true,
+      "copied_immutable_inputs_unchanged": true,
+      "allowed_private_root_changes": {
+        "GemRB.log": {
+          "before_sha256": "c298eb067db2c6c619c7791afc9b6fc0997a5dba9bd5bd03d6718f2facbbf6a7",
+          "after_sha256": "deeb8e197e7a2429ddcc4356b6a32aeb1c4e2708b61448b737a8e93977ef74bd"
+        }
+      },
+      "linked_asset_content_fully_hashed": false
+    }
+  },
+  "control": {
+    "path": "20261022T020930Z-phase1-weapon-query-468541fb",
+    "result_sha256": "8b720b62714304d5f43f9673921c1940f10ca8f10894df5543e36a1f77376b3d",
+    "top_verdict": "failed",
+    "case_verdict": "calling-thread-rng-mutation",
+    "rng_mutations": [
+      {
+        "call": 3,
+        "expression": "WeaponEffectiveVs(Player2,MAINHAND)",
+        "initialization_changed": false,
+        "state_changed": true
+      }
+    ],
+    "collected_actor_mutations": [],
+    "private_game_validation": {
+      "clean_game_inventory_unchanged": true,
+      "clean_game_root_hashes_unchanged": true,
+      "copied_immutable_inputs_unchanged": true,
+      "allowed_private_root_changes": {
+        "GemRB.log": {
+          "before_sha256": "c298eb067db2c6c619c7791afc9b6fc0997a5dba9bd5bd03d6718f2facbbf6a7",
+          "after_sha256": "654453dd6862c938c1b66ddbbf2c39eb55923e04f14c2159912505fe11b674da"
+        }
+      },
+      "linked_asset_content_fully_hashed": false
+    }
+  },
+  "guarded_import_gui": {
+    "path": "runtime-candidate-9aa69cd5-guarded",
+    "result_sha256": "11b96805b896a93afd98afa5dfc824e1da966b4e06118bab423ae6885f242e42",
+    "candidate_unchanged": true,
+    "phase0_preservation": {
+      "source": true,
+      "binaries": true,
+      "fixture": true
+    },
+    "private_game": {
+      "clean_game_inventory_unchanged": true,
+      "clean_game_root_hashes_unchanged": true,
+      "copied_immutable_inputs_unchanged": true,
+      "allowed_private_root_changes": {
+        "GemRB.log": {
+          "before_sha256": "c298eb067db2c6c619c7791afc9b6fc0997a5dba9bd5bd03d6718f2facbbf6a7",
+          "after_sha256": "d4f7f930efc5c47732cf21ed5b88b45b5f4da5231c88ce9078adcc49428b5215"
+        },
+        "gemrb_path.txt": {
+          "before_sha256": "74f29a278dc2806d86620cd23bcd11130662c214b8854ef59d3aebcc7776fecd",
+          "after_sha256": "6e9fe6ce06c412e5bed150912448c8d3979f413aedb406517675b4acd51ae3ce"
+        }
+      },
+      "linked_asset_content_fully_hashed": false
+    },
+    "runs": {
+      "vanilla": {
+        "execution": "passed",
+        "assertions": {
+          "passed": 24,
+          "total": 24
+        },
+        "compatibility": "differences",
+        "skipped": 0
+      },
+      "gui": {
+        "execution": "passed",
+        "assertions": {
+          "passed": 20,
+          "total": 20
+        },
+        "compatibility": "differences",
+        "skipped": 0
+      }
+    },
+    "all_preserved": true
+  },
+  "prior_guard_failure_retained": "runtime-candidate-9aa69cd5/clean-game-guard-failure.json",
+  "source_snapshot": {
+    "path": "worktrees/candidate-9aa69cd5-source",
+    "source_files_matched": 3508,
+    "verification_sha256": "f46e9033f1d4da1d480b41714bfefc9404877ad94f9c32f899797e5e40af4e67"
+  },
+  "complete_save_menu_combat_or_campaign_fidelity": false,
+  "scope": "Calling-thread RNG and collected initialized-library query state only; normal-loop save callbacks separately checked. Persistence differences remain. Linked asset content is not fully hashed by private-folder manifests; 2324 pinned assets checked separately."
+}

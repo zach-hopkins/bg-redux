@@ -2,6 +2,41 @@
 
 Evidence checkpoint: October 22, 2026 UTC, after the completed candidate `9aa69cd5` inventory journey. Phase 1 engine work is authorized; the accepted Phase 0 source/build/results remain protected. This report updates the earlier first-batch pending descriptions. It does not declare Phase 1, all menus, combat or campaign fidelity complete.
 
+Latest checkpoint: the later sections and linked summaries supersede pending
+descriptions below. Earlier failures and incomplete runs retain their verdicts.
+
+## Fresh isolated regression checkpoint
+
+The [isolated regression summary](../compatibility/evidence/phase1-isolated-regression-lab.json)
+binds candidate `9aa69cd5` to new private-folder runs: query
+`20261022T020452Z-phase1-weapon-query-54df55ff` matches 22 original cases and
+preserves calling-thread RNG and collected state across 1,100 observations;
+cache run `20261022T020405Z-inventory-journey-69ac9c88` completes ten coherent
+stages. Deliberate draw control `20261022T020930Z-phase1-weapon-query-468541fb`
+remains failed as intended, detecting a real draw at call 3. All three pass
+source-root, private-input, candidate and protected Phase 0 preservation checks.
+
+Separate runtime `runtime-candidate-9aa69cd5-guarded` uses the frozen build-matched
+source from preparation onward. Vanilla run
+`20261022T021035Z-phase1-9aa-guarded-vanilla-60ea184f` passes 24 assertions and
+GUI run `20261022T021057Z-phase1-9aa-guarded-gui-c6ac9bbf` passes 20. The new
+preservation receipt records `all_preserved: true`; both compatibility verdicts
+still record persistence differences. This does not relabel the prior broad
+guard failure. Private-folder guards hash root inputs and inventory; the separate
+2,324-asset check supplies content coverage for linked assets.
+
+Selected menus now complete 107 checks, 107 actions and 51 captures at each of
+1024×768 and 1280×960 in `20261022T015239Z-menu-run-b9d5ebb2`.
+The [menu summary](../compatibility/evidence/phase1-menu-lab.json) retains the
+earlier callback failure and timeout. Selected actual font provider/face/size
+metadata is checked; complete typography, pointer and menu-family fidelity is open.
+The [opaque hotkey journey](../compatibility/evidence/phase1-hotkeys-opaque-lab.json)
+and [RNG snapshot cost](../compatibility/evidence/phase1-rng-cost-lab.json) have
+their own bounded native results. Neither establishes physical keyboard fidelity
+or full game performance. External tooling passes 212 Python tests in
+`results/phase1-integrated-tests-20261022T0255.log`; core GoogleTest retains its
+separate locale failure, skips and disabled cases.
+
 ## Executed results
 
 | Check | Retained evidence | Outcome and boundary |
