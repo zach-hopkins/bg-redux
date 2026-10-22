@@ -9,6 +9,35 @@ game typefaces are fidelity requirements. Modern UI direction remains approved.
 ## Requirements and order
 
 Latest LAB checkpoint (October 22 UTC): see the [executed validation report](testing/phase1-lab-validation.md).
+The wizard information-window Erase route now has a confirmed native wrong-spell
+failure when localized names reorder known entries. The stock route passes, but
+the controlled BEFORE deletes SPWI211 instead of the displayed SPWI213 and saves
+that wrong state. [Diagnostic evidence](testing/phase1-spellbook-erase-diagnostic.md)
+is retained. Commit `3f5cad097` carries the original known index into the information
+callback; all four fast regression cases and the full 447-test external tooling
+suite pass. Fresh candidate `20261022T104353Z-candidate-3f8cf4a0` builds with protected
+Phase0 inputs unchanged. Stock AFTER `20261022T104723Z-spellbook-erase-ee-direct-e0270854`
+and controlled AFTER `20261022T105032Z-spellbook-erase-name-control-ee-direct-1dd9a81c`
+pass intended removal, GUI save and fresh reload. The [independent AFTER audit](testing/phase1-spellbook-erase-after-independent.md)
+confirms selected SPWI213 removal with unrelated SPWI211 retained. Fresh general
+baseline `20261022T105238Z-erase-base-4ec5c4f2` passes 24/24 import/reload and 20/20
+GUI/save assertions, zero skips, with all baseline/candidate/input guards. Its
+compatibility verdict remains **differences**, with cross-build residuals
+unreviewed; independent general-baseline review is pending.
+
+The [upstream fidelity follow-up](compatibility/upstream-fidelity-followup-context.md)
+now records a fresh `game: ees` issue index check, fourteen targeted issues,
+all fifty-seven comments and four linked patches. It distinguishes older layout/
+portrait/scrollbar overlap from our measured retained-pixel and reentrancy faults;
+upstream closed status is not treated as candidate acceptance.
+
+The original game's [More Confirmation Prompts option binding](testing/phase1-confirmation-option-source-binding.md)
+also establishes an open fidelity gap: unconditional direct EE removal covers the
+measured option-OFF case only. Physical original option-ON behavior, a persistent
+candidate setting and same-resref depleted-instance behavior remain unverified.
+Persistent spell names/localized help, other menus and broader campaign gates
+remain part of the full Phase1 scope.
+
 New heading/direct-removal candidate `20261022T093226Z-candidate-5a60a03d`
 passes the fresh 44-assertion baseline (known differences retained), with an
 [independent audit](testing/phase1-heading-policy-fresh-baseline-audit.md).

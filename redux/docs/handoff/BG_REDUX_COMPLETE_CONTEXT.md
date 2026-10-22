@@ -7,8 +7,22 @@ October 21 LAB update: Phase 0 technical evidence is consolidated in [the releas
 October 22 upstream context: the user's requested review of known GUI issues is
 saved in the [EE issue/discussion index](../compatibility/upstream-ee-gui-issue-context.md)
 and [related dialogue research](../compatibility/upstream-dialogue-issue-context.md).
+The fresh [fidelity follow-up](../compatibility/upstream-fidelity-followup-context.md)
+adds fourteen targeted issues, all fifty-seven comments and four historical patches,
+distinguishing layout/portrait overlap from retained pixels and callback reentrancy.
 Consult these before duplicating upstream investigations; their issue states and
 hypotheses do not substitute for pinned-source review and local reproductions.
+
+October 22 Erase checkpoint: a controlled name-order test reproduced deletion of
+SPWI211 while the information window showed SPWI213. Production correction
+`3f5cad097` preserves the original known index through the info callback. Fresh
+candidate `20261022T104353Z-candidate-3f8cf4a0` passes stock and reordered Erase,
+ordinary GUI save and fresh reload, with an [independent raw audit](../testing/phase1-spellbook-erase-after-independent.md).
+The full external tooling suite passes 447 tests. Its fresh general baseline
+`20261022T105238Z-erase-base-4ec5c4f2` passes all 44 bounded assertions but retains
+unreviewed compatibility differences. Spell-name/help/selection assembly,
+persistent confirmation options, typography, other gameplay and campaign gates
+remain open; this checkpoint does not complete Phase1.
 
 Guest continuation, October 21: [LAB bring-up results](../testing/lab-guest-bringup.md)
 supersede historical physical-host-only status below. Guest execution and game

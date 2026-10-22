@@ -1,6 +1,6 @@
 # Wizard information → Erase identity diagnostic
 
-Status: **native wrong-spell Erase reproduced; narrow production correction applied, native AFTER validation pending**. Original Erase parity remains unmeasured. Historical operation/menu results retain their prior scope.
+Status: **native wrong-spell Erase reproduced and corrected; stock and controlled AFTER save/reload journeys pass**. Original Erase parity remains unmeasured. Historical operation/menu results retain their prior scope.
 
 ## Source reason and exact acceptance
 
@@ -12,7 +12,16 @@ Stock result `20261022T103257Z-spellbook-erase-ee-direct-05d986b6` passes intend
 
 Controlled result `20261022T103610Z-spellbook-erase-name-control-ee-direct-2899b4c1` **fails** intended identity (result SHA256 `4b2a1a15ce17b5b188f118b5664c6ea7ccdda513396a308e3495d5b94e2af010`). The information window shows SPWI213, original index 2/displayed index 0. Confirming Erase actually removes SPWI211 from known entries and leaves SPWI213 plus its memorized copy intact. The ordinary GUI save is preserved in `operate/diagnostic-frozen-save` and independently decoded before acceptance fails. No reload is launched after that failure. Candidate, protected baseline and input preservation guards pass.
 
-The resource-free regression executes the actual known-row rendering loop in four display orders: BEFORE has eleven failing subtests; AFTER all four tests pass. The full external tooling suite passes 447 tests, with source-bound receipt `phase1-known-info-tooling-1792665863856746800/result.json`. Native AFTER must still establish callback, save and reload correctness; fast tests alone do not close this defect.
+The resource-free regression executes the actual known-row rendering loop in four display orders: BEFORE has eleven failing subtests; AFTER all four tests pass. The full external tooling suite passes 447 tests, with source-bound receipt `phase1-known-info-tooling-1792665863856746800/result.json`. Fast tests are separate from the native evidence below.
+
+## Executed AFTER
+
+Fresh coherent candidate `20261022T104353Z-candidate-3f8cf4a0` binds source commit `3f5cad09776168c11946963332b5a96602365a93`, 3509 engine sources, 61 binaries and five build-support files. Core SHA256 is `004f807928cba3453cf13fcc82e89c6c2135d10c2c044aee7405d92e7d34e923`. Fresh external host `spellbook-probes/erase-after-1/build.json` is bound to that candidate.
+
+- Stock: `20261022T104723Z-spellbook-erase-ee-direct-e0270854/result.json`, SHA256 `eac09c6b3889588bbce3c2c74084cf21523c99e08fe5e6a04c9e283b9609d404`. Operate PID 17004 exits zero in 121.362 seconds; reload PID 17032 exits zero in 29.859 seconds. Intended removal, Cancel conservation, ordinary GUI save and fresh-process reload pass.
+- Name control: `20261022T105032Z-spellbook-erase-name-control-ee-direct-1dd9a81c/result.json`, SHA256 `52a99eecdd55acd712bb8aaa47c83b8827cce4fa99a13ab0ec29210ce0069b6a`. Operate PID 15476 exits zero in 60.557 seconds; reload PID 14952 exits zero in 30.027 seconds. Displayed index zero/original index two now removes SPWI213, preserves SPWI211 and unrelated memorized entries, and passes actual save/reload identity. The control still changes only four SpellName fields and makes no original parity claim.
+
+Both receipts pass candidate, protected Phase0 and private input preservation. The coordinator inspected stock information capture 2 and controlled after-Erase capture 6: readable full information and the resulting ordinary book are visible. This is not exact style/typeface parity or OS pointer coverage. The fixture has one target memorization; all-copy removal is required by the validator/source contract, but a multiple-target-copy native fixture is not proven by these runs. Fresh general import/reload/GUI/save baseline and independent AFTER review are recorded separately.
 
 `GUIScript.cpp`'s indexed `RemoveSpell` first resolves `GetKnownSpell(type, level, index)`. `Spellbook::RemoveSpell(const CREKnownSpell*)` erases that single known entry and calls `RemoveMemorization` for **all copies of that resref on that same page**, preserving the order and flags of unrelated memorized entries, then clears cached spell information. Therefore correct acceptance requires deleting the intended known SPWI213 and every same-page SPWI213 memorization. A count decrease, or deleting a different known spell with matching counts, is insufficient. Slot capacities, other pages/actors and collected world fields must remain unchanged, allowing ordinary selection changes only after natural startup readiness.
 
@@ -28,14 +37,14 @@ The normal GUI save chain executes even when deletion proves wrong: the native h
 
 Build/run guards freeze the imported external Python closure, compiled native/helper sources, production GUI/core/importer/policy sources, build receipt/support, compiler, candidate source/binaries, parent proof and selected resource bytes/provider hashes. The private wrapper and copied input/override/config/driver/frozen outputs are checked again on completion/failure; protected Phase 0 source/binaries/fixture are independently checked. Runtime provider path/bytes and source module identity remain strict. Existing Color/loot/native journeys are not modified.
 
-## Coordinator commands (not executed by this worker)
+## Coordinator commands
 
 Use the coordinator's configured Python executable, with the integrated source checkout as working directory. These example paths select the coherent heading/policy candidate; build receipt validation rejects a stale source/build combination rather than substituting an older engine.
 
 ```powershell
 $src = 'C:/BGRedux/phase1-local/engine'
-$build = 'C:/BGRedux/phase1-local/builds/20261022T093226Z-candidate-5a60a03d'
-$hostOut = 'C:/BGRedux/phase1-local/weapon-query-probes/heading-erase-1'
+$build = 'C:/BGRedux/phase1-local/builds/20261022T104353Z-candidate-3f8cf4a0'
+$hostOut = 'C:/BGRedux/phase1-local/spellbook-probes/erase-after-1'
 python -B redux/tools/phase1/spellbook_erase_journey.py build --project-root C:/BGRedux --engine-source-root $src --engine-build-root $build --output-dir $hostOut
 python -B redux/tools/phase1/spellbook_erase_journey.py run --project-root C:/BGRedux --engine-source-root $src --engine-build-root $build --host-build "$hostOut/build.json" --results-root C:/BGRedux/phase1-local/results --confirmation-policy ee-direct --presentation-control stock
 python -B redux/tools/phase1/spellbook_erase_journey.py run --project-root C:/BGRedux --engine-source-root $src --engine-build-root $build --host-build "$hostOut/build.json" --results-root C:/BGRedux/phase1-local/results --confirmation-policy ee-direct --presentation-control spellname-permutation
