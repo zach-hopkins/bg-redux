@@ -1,0 +1,400 @@
+{
+  "schema": "bg-redux-independent-erase-fresh-baseline-audit/1",
+  "execution": "passed",
+  "compatibility": "differences",
+  "source": "Current source matches3509files at audit time; frozen sources retained",
+  "result_sha256": "c39b468d4454870aab651ee309f41e605ea73bfc495d6c9e86a14332864b6cf3",
+  "build_receipt_sha256": "80ef37e112453c28624572cabcad745a673ca460f267ee4c7f0e6390c340caeb",
+  "raw_result": "C:\\BGRedux\\phase1-local\\results\\20261022T105238Z-erase-base-4ec5c4f2\\result.json",
+  "core_sha256": "004f807928cba3453cf13fcc82e89c6c2135d10c2c044aee7405d92e7d34e923",
+  "source_count": 3509,
+  "binary_count": 61,
+  "support_count": 5,
+  "frozen_top_sources": 5,
+  "runtime_input_count": 75,
+  "commands": [
+    {
+      "pid": 12156,
+      "exit_code": 0,
+      "elapsed_seconds": 4.294,
+      "timeout_seconds": 180
+    },
+    {
+      "pid": 5928,
+      "exit_code": 0,
+      "elapsed_seconds": 3.957,
+      "timeout_seconds": 180
+    },
+    {
+      "pid": 11780,
+      "exit_code": 0,
+      "elapsed_seconds": 0.241,
+      "timeout_seconds": 30
+    }
+  ],
+  "runs": {
+    "vanilla": {
+      "result_sha256": "413ddbe267ba1d3d1e3f45a816791cf7d39d1275dcb25538003309f3c78c4920",
+      "outer_process": {
+        "pid": 15708,
+        "exit_code": 1,
+        "elapsed_seconds": 15.07,
+        "timeout_seconds": 450
+      },
+      "stages": [
+        {
+          "pid": 1472,
+          "exit_code": 0,
+          "elapsed_seconds": 4.158,
+          "timeout_seconds": 90.0
+        },
+        {
+          "pid": 9884,
+          "exit_code": 0,
+          "elapsed_seconds": 3.218,
+          "timeout_seconds": 90.0
+        },
+        {
+          "pid": 17184,
+          "exit_code": 0,
+          "elapsed_seconds": 3.681,
+          "timeout_seconds": 90.0
+        },
+        {
+          "pid": 1360,
+          "exit_code": 0,
+          "elapsed_seconds": 3.106,
+          "timeout_seconds": 90.0
+        }
+      ],
+      "assertions": {
+        "passed": 24,
+        "total": 24
+      },
+      "cross_build_status": {
+        "status": "unreviewed-differences",
+        "reason": "Differences exceed or change the explicit reference; review required"
+      }
+    },
+    "gui": {
+      "result_sha256": "abbbb79561091198f05b87e1de193682630005bc57ffebe4392d928dc1c3528d",
+      "outer_process": {
+        "pid": 5684,
+        "exit_code": 1,
+        "elapsed_seconds": 86.925,
+        "timeout_seconds": 310
+      },
+      "stages": [
+        {
+          "pid": 14632,
+          "exit_code": 0,
+          "elapsed_seconds": 64.524,
+          "timeout_seconds": 140.0
+        },
+        {
+          "pid": 6448,
+          "exit_code": 0,
+          "elapsed_seconds": 21.6,
+          "timeout_seconds": 140.0
+        }
+      ],
+      "assertions": {
+        "passed": 20,
+        "total": 20
+      },
+      "cross_build_status": {
+        "status": "unreviewed-differences",
+        "reason": "Differences exceed or change the explicit reference; review required"
+      }
+    }
+  },
+  "residuals": {
+    "vanilla": {
+      "reload-1-semantic-diff.json": {
+        "new_count": 2,
+        "prior_count": 4,
+        "exact_rows_equal": false,
+        "new_rows": [
+          {
+            "path": "/current_area_actors/31/base_stats/210",
+            "before": 4109694196,
+            "after": 2896997548
+          },
+          {
+            "path": "/current_area_actors/31/modified_stats/210",
+            "before": 4109694196,
+            "after": 2896997548
+          }
+        ],
+        "prior_sha256": "67db718693f3648b8654098cdf4767d4b895eb0c1ce946055fcc2169f4a78ae8",
+        "new_sha256": "efb69fc27181a1340a834f3071ae116f7e7aa0db9a0c9b7872ca63dbff448ca2",
+        "new_paths": [],
+        "lost_paths": [
+          "/current_area_actors/3/base_stats/209",
+          "/current_area_actors/3/modified_stats/209"
+        ]
+      },
+      "reload-2-semantic-diff.json": {
+        "new_count": 0,
+        "prior_count": 0,
+        "exact_rows_equal": true,
+        "new_rows": [],
+        "prior_sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+        "new_sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+        "new_paths": [],
+        "lost_paths": []
+      },
+      "repeat-import-semantic-diff.json": {
+        "new_count": 26,
+        "prior_count": 22,
+        "exact_rows_equal": false,
+        "new_rows": [
+          {
+            "path": "/current_area_actors/3/base_stats/209",
+            "before": 690563369,
+            "after": 3385444809
+          },
+          {
+            "path": "/current_area_actors/3/base_stats/213",
+            "before": 1111638594,
+            "after": 909522486
+          },
+          {
+            "path": "/current_area_actors/3/modified_stats/209",
+            "before": 690563369,
+            "after": 3385444809
+          },
+          {
+            "path": "/current_area_actors/3/modified_stats/213",
+            "before": 1111638594,
+            "after": 909522486
+          },
+          {
+            "path": "/current_area_actors/4/base_stats/208",
+            "before": 218959117,
+            "after": 2762253476
+          },
+          {
+            "path": "/current_area_actors/4/modified_stats/208",
+            "before": 218959117,
+            "after": 2762253476
+          },
+          {
+            "path": "/current_area_actors/5/base_stats/209",
+            "before": 1111638594,
+            "after": 2358021260
+          },
+          {
+            "path": "/current_area_actors/5/base_stats/213",
+            "before": 1330597711,
+            "after": 2981212593
+          },
+          {
+            "path": "/current_area_actors/5/modified_stats/209",
+            "before": 1111638594,
+            "after": 2358021260
+          },
+          {
+            "path": "/current_area_actors/5/modified_stats/213",
+            "before": 1330597711,
+            "after": 2981212593
+          },
+          {
+            "path": "/current_area_actors/6/base_stats/213",
+            "before": 2425393296,
+            "after": 235802126
+          },
+          {
+            "path": "/current_area_actors/6/modified_stats/213",
+            "before": 2425393296,
+            "after": 235802126
+          },
+          {
+            "path": "/current_area_actors/7/base_stats/208",
+            "before": 2728567458,
+            "after": 2425393296
+          },
+          {
+            "path": "/current_area_actors/7/base_stats/212",
+            "before": 1549556828,
+            "after": 1077952576
+          },
+          {
+            "path": "/current_area_actors/7/base_stats/213",
+            "before": 2627509404,
+            "after": 2560137368
+          },
+          {
+            "path": "/current_area_actors/7/modified_stats/208",
+            "before": 2728567458,
+            "after": 2425393296
+          },
+          {
+            "path": "/current_area_actors/7/modified_stats/212",
+            "before": 1549556828,
+            "after": 1077952576
+          },
+          {
+            "path": "/current_area_actors/7/modified_stats/213",
+            "before": 2627509404,
+            "after": 2560137368
+          },
+          {
+            "path": "/current_area_actors/19/base_stats/210",
+            "before": 2004318071,
+            "after": 1010580540
+          },
+          {
+            "path": "/current_area_actors/19/modified_stats/210",
+            "before": 2004318071,
+            "after": 1010580540
+          },
+          {
+            "path": "/current_area_actors/24/base_stats/209",
+            "before": 2341178251,
+            "after": 875836468
+          },
+          {
+            "path": "/current_area_actors/24/modified_stats/209",
+            "before": 2341178251,
+            "after": 875836468
+          },
+          {
+            "path": "/current_area_actors/31/base_stats/209",
+            "before": 909522486,
+            "after": 1010580540
+          },
+          {
+            "path": "/current_area_actors/31/base_stats/210",
+            "before": 4109694196,
+            "after": 3065427638
+          },
+          {
+            "path": "/current_area_actors/31/modified_stats/209",
+            "before": 909522486,
+            "after": 1010580540
+          },
+          {
+            "path": "/current_area_actors/31/modified_stats/210",
+            "before": 4109694196,
+            "after": 3065427638
+          }
+        ],
+        "prior_sha256": "deaec4daf1f462c1806d9aa3ab462a809d82b744b42c9ba2bce77473b9141fa1",
+        "new_sha256": "bfeb484f3ba2f5eb09f5a1ccbcee5471eedcd5d1aee284be61fd940438ada29e",
+        "new_paths": [
+          "/current_area_actors/24/base_stats/209",
+          "/current_area_actors/24/modified_stats/209",
+          "/current_area_actors/31/base_stats/210",
+          "/current_area_actors/31/modified_stats/210",
+          "/current_area_actors/7/base_stats/208",
+          "/current_area_actors/7/modified_stats/208"
+        ],
+        "lost_paths": [
+          "/current_area_actors/5/base_stats/212",
+          "/current_area_actors/5/modified_stats/212"
+        ]
+      }
+    },
+    "gui": {
+      "gui-reload-differences.json": {
+        "new_count": 449,
+        "prior_count": 449,
+        "exact_rows_equal": true,
+        "prior_sha256": "31bb2a768a48fa20f05a56aec8bc24d1e59d19e2a8cce5cbe6daa3c9248e74e2",
+        "new_sha256": "31bb2a768a48fa20f05a56aec8bc24d1e59d19e2a8cce5cbe6daa3c9248e74e2",
+        "new_paths": [],
+        "lost_paths": []
+      },
+      "legacy-semantic-differences.json": {
+        "new_count": 53,
+        "prior_count": 53,
+        "exact_rows_equal": true,
+        "prior_sha256": "efdca9a0c3316e202d4d49c6036cd6bbf7d3f2b2241b00f8d5634ca62551cc1a",
+        "new_sha256": "efdca9a0c3316e202d4d49c6036cd6bbf7d3f2b2241b00f8d5634ca62551cc1a",
+        "new_paths": [],
+        "lost_paths": []
+      }
+    }
+  },
+  "phase0_preserved": true,
+  "candidate_preserved": true,
+  "inputs_preserved": true,
+  "private_game": {
+    "clean_game_inventory_unchanged": true,
+    "clean_game_root_hashes_unchanged": true,
+    "copied_immutable_inputs_unchanged": true,
+    "allowed_private_root_changes": {
+      "GemRB.log": {
+        "before_sha256": "c298eb067db2c6c619c7791afc9b6fc0997a5dba9bd5bd03d6718f2facbbf6a7",
+        "after_sha256": "4d9fc5f34ad23eeff86f67420f3c5da9de6eb9a2d1eaa8c75c716b29d7ffd5ab"
+      },
+      "gemrb_path.txt": {
+        "before_sha256": "74f29a278dc2806d86620cd23bcd11130662c214b8854ef59d3aebcc7776fecd",
+        "after_sha256": "4217b148695176e0cfbeb0e9675a174d1f37375fcf62de8eb179d0cc9a72aa91"
+      }
+    },
+    "linked_asset_content_fully_hashed": false
+  },
+  "previous_baseline": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T094904Z-sb-base-4565dad5\\result.json",
+    "sha256": "66f1e59566fff6c7c0946cfafda1fe9b4408b9218a6220529279fa3e26abd38e"
+  },
+  "b49_baseline": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T072341Z-b49-native-baseline-b6faf631\\result.json",
+    "sha256": "a9b5abb83ecfce153f58063ce5c63284fe58b02368e85c0b3b84963829048ee7"
+  },
+  "b49_comparison": {
+    "vanilla": {
+      "reload-1-semantic-diff.json": {
+        "new_count": 2,
+        "prior_count": 0,
+        "exact_rows_equal": false,
+        "new_sha256": "efb69fc27181a1340a834f3071ae116f7e7aa0db9a0c9b7872ca63dbff448ca2",
+        "prior_sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f"
+      },
+      "reload-2-semantic-diff.json": {
+        "new_count": 0,
+        "prior_count": 0,
+        "exact_rows_equal": true,
+        "new_sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+        "prior_sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f"
+      },
+      "repeat-import-semantic-diff.json": {
+        "new_count": 26,
+        "prior_count": 24,
+        "exact_rows_equal": false,
+        "new_sha256": "bfeb484f3ba2f5eb09f5a1ccbcee5471eedcd5d1aee284be61fd940438ada29e",
+        "prior_sha256": "ee6b9cfc9c09ab8f8e6a2b8cf4b48d7b25343c4da7becdca68a1b51a5efa7625"
+      }
+    },
+    "gui": {
+      "gui-reload-differences.json": {
+        "new_count": 449,
+        "prior_count": 449,
+        "exact_rows_equal": true,
+        "new_sha256": "31bb2a768a48fa20f05a56aec8bc24d1e59d19e2a8cce5cbe6daa3c9248e74e2",
+        "prior_sha256": "31bb2a768a48fa20f05a56aec8bc24d1e59d19e2a8cce5cbe6daa3c9248e74e2"
+      },
+      "legacy-semantic-differences.json": {
+        "new_count": 53,
+        "prior_count": 53,
+        "exact_rows_equal": true,
+        "new_sha256": "efdca9a0c3316e202d4d49c6036cd6bbf7d3f2b2241b00f8d5634ca62551cc1a",
+        "prior_sha256": "efdca9a0c3316e202d4d49c6036cd6bbf7d3f2b2241b00f8d5634ca62551cc1a"
+      }
+    }
+  },
+  "source_commit": "3f5cad09776168c11946963332b5a96602365a93",
+  "private_preparation_sha256": "baafa0c591aa254048520734db756aad548aefb253b38e261b89996744fe2014",
+  "auditor_sha256": "8c58cc9e3174f7ba45feabfda38d1d9795a657997fe1f212b9c020d660d17fe6",
+  "limits": [
+    "No compatibility promotion; both comparisons remain unreviewed-differences",
+    "Content callbacks are not physical pointer or visual fidelity",
+    "No new engine runtime, build or test launched by audit"
+  ],
+  "inner_artifacts_hashed": 1017,
+  "inner_inventory_sha256": "a3b265f2b1ed4e72c94d7ce399dad63c58c7470fc4d3516cda15fc20ea5409a9",
+  "private_audit": "C:\\BGRedux\\phase1-local\\results\\20261022T105610Z-fresh-erase-baseline-audit-af3be575\\audit.json",
+  "private_audit_sha256": "8fee475fef303e4e79dfab921156642624fdde2aa93cc921893f9b9446267cfe"
+}
