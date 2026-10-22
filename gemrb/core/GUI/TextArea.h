@@ -14,6 +14,7 @@
 #include "GUI/TextSystem/GemMarkup.h"
 #include "GUI/TextSystem/TextContainer.h"
 
+#include <cstdint>
 #include <vector>
 
 namespace GemRB {
@@ -184,6 +185,9 @@ private: // Private attributes
 	// dialog options container
 	SpanSelector* selectOptions = nullptr;
 	OptionContext optionContext;
+	// Selector monitor IDs are not unique for unnumbered options (id == -1).
+	// Invalidate any selection commit across removal or replacement callbacks.
+	std::uint64_t selectOptionsGeneration = 0;
 	// standard text display container
 	TextContainer* textContainer = nullptr;
 	ScrollView scrollview;

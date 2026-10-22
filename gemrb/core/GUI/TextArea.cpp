@@ -549,24 +549,44 @@ void TextArea::UpdateState(value_t opt)
 
 	auto it = std::find(values.begin(), values.end(), opt);
 	if (it == values.end()) {
+		if (selectOptions->Selection()) {
+			// MakeSelection reenters through UpdateStateWithSelection. That
+			// entry owns the invalid-value commit and may delete the selector.
+			selectOptions->MakeSelection(-1);
+			return;
+		}
+		optionContext = selectOptions->Context();
 		SetValue(INVALID_VALUE);
-		selectOptions->MakeSelection(-1);
 		return;
 	}
 
 	Option_t optIdx = std::distance(values.begin(), it);
-
-	// only run the handlers if the context has changed, or the selection is different
-	// note that handlers can trigger reentrancy back here
-	if (optionContext != selectOptions->Context() || optIdx != selectOptions->SelectionIdx()) {
-		optionContext = selectOptions->Context();
-
-		// this can be called from elsewhere (GUIScript), so we need to make sure we update the selected span
+	if (!selectOptions->Selection() || optIdx != selectOptions->SelectionIdx()) {
+		// Direct GUIScript entry must select the actual span first. The
+		// recursive entry commits its value/action; nothing may be read after
+		// it returns because either callback can replace the options.
 		selectOptions->MakeSelection(optIdx);
-
-		SetValue(values[optIdx]);
-		PerformAction(Action::Select);
+		return;
 	}
+
+	const auto context = selectOptions->Context();
+	if (optionContext == context) {
+		return;
+	}
+
+	const auto generation = selectOptionsGeneration;
+	const value_t selectedValue = *it;
+	// Commit context before dictionary redraw/ValueChange reentry, preserving
+	// SetValue's existing dictionary -> ValueChange -> Select ordering.
+	optionContext = context;
+	SetValue(selectedValue);
+	if (generation != selectOptionsGeneration || !selectOptions ||
+	    !selectOptions->Selection() || selectOptions->SelectionIdx() != optIdx ||
+	    selectOptions->Context() != context || optionContext != context ||
+	    GetValue() != selectedValue) {
+		return;
+	}
+	PerformAction(Action::Select);
 }
 
 void TextArea::UpdateStateWithSelection(Option_t optIdx)
@@ -638,6 +658,7 @@ String TextArea::QueryText() const
 
 void TextArea::ClearSelectOptions()
 {
+	++selectOptionsGeneration;
 	values.clear();
 	delete scrollview.RemoveSubview(selectOptions);
 	dialogBeginNode = NULL;
