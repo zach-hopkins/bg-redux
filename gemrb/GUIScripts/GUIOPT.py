@@ -15,6 +15,7 @@
 
 ###################################################
 import Container
+import BG2EEConfirmation
 import GameCheck
 import GemRB
 import GUICommonWindows
@@ -350,8 +351,11 @@ def OpenFeedbackOptionsWindow ():
 
 	GemRB.SetVar ("Circle Feedback", GemRB.GetVar ("GUI Feedback Level") - 1)
 
-	GUIOPTControls.OptDone (Window.Close, 26)
-	GUIOPTControls.OptCancel (Window.Close, 27)
+	Done, Cancel = Window.Close, Window.Close
+	if GameCheck.IsBG2EE ():
+		Done, Cancel = BG2EEConfirmation.BeginFeedback (Window)
+	GUIOPTControls.OptDone (Done, 26)
+	GUIOPTControls.OptCancel (Cancel, 27)
 
 	GUIOPTControls.OptSlider (18024, 8, 30, 13688, 'Circle Feedback', DisplayHelpMarkerFeedback)
 	GUIOPTControls.OptSlider (18025, 9, 31, 17769, 'Locator Feedback Level')

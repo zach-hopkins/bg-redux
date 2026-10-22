@@ -1,0 +1,229 @@
+{
+  "source_only": true,
+  "locales": [
+    {
+      "locale": "cs_CZ",
+      "tlk_sha256": "09b5b3e682f387efc8cb321a7a01b0f37563bd6afcc12b70780dc254915734f9",
+      "strings": {
+        "102476": {
+          "characters": 17,
+          "utf8_sha256": "ed4f0490d97792a99504f07c108ea8c0d5e7c412a75a5f49fcd4ff914d0d863e"
+        },
+        "102477": {
+          "characters": 238,
+          "utf8_sha256": "ed290b59a480a14235d9b4a4f5b61357e777420beafd869a8227a065f1c45981"
+        }
+      }
+    },
+    {
+      "locale": "de_DE",
+      "tlk_sha256": "b456e4b7839d71ad4b7301c2ddd9a91d365aaca66a752b34a4815fead34b6829",
+      "strings": {
+        "102476": {
+          "characters": 30,
+          "utf8_sha256": "3cf398dad662d6ff3e6f505b69e6a4339b7073068c5c3bb880fb96516a0c0084"
+        },
+        "102477": {
+          "characters": 392,
+          "utf8_sha256": "92f5ab32a11b5b315a508be6bce06e94f67b16e56c1ad3424eb5ae2ad71a8082"
+        }
+      }
+    },
+    {
+      "locale": "en_US",
+      "tlk_sha256": "9e685225ff3c3436a8a35fa7022550620d24a92efe35436a062c02955d9f0952",
+      "strings": {
+        "102476": {
+          "characters": 19,
+          "utf8_sha256": "a235610ef648238b61a24198bab10144876a052129ab2b92a33f7d30570f91ae"
+        },
+        "102477": {
+          "characters": 232,
+          "utf8_sha256": "f4e0c9385223a3c53245f473d9b8b687bfa345580ac55e4f60e3ea0e11e69d25"
+        }
+      }
+    },
+    {
+      "locale": "es_ES",
+      "tlk_sha256": "1afee96b04e5107cfc9c04bf287b536ef0c860bd5f83271a7f662ee2e67e0794",
+      "strings": {
+        "102476": {
+          "characters": 20,
+          "utf8_sha256": "78c2f5b0264133fb476d0362b544d166d563f3d216f63d28c20755a00e894d0b"
+        },
+        "102477": {
+          "characters": 185,
+          "utf8_sha256": "2962ecd635aa6ac31ca2d7ba1aaacdc794f7a6474dac96870f14b082f07f3c3c"
+        }
+      }
+    },
+    {
+      "locale": "fr_FR",
+      "tlk_sha256": "f65eb16e7e03e0ffae41deb41ee8fcd776a4d9c2b028e5f3331610dcd755647a",
+      "strings": {
+        "102476": {
+          "characters": 23,
+          "utf8_sha256": "c4055d19fef04f57bd4497f30aed6eb39d447ad0d9bb3159cee4e08748062249"
+        },
+        "102477": {
+          "characters": 303,
+          "utf8_sha256": "5a3295d20f8120385ef6e2f05395019b2ee2735e4e9f2ff42f73b125c6ef465d"
+        }
+      }
+    },
+    {
+      "locale": "it_IT",
+      "tlk_sha256": "75d01d983ade6cb77541c6585922a68173d6909be10274fde7f5f84205174b5e",
+      "strings": {
+        "102476": {
+          "characters": 15,
+          "utf8_sha256": "908d71ba5c05b402acc635e2076bfe0df18379cb3e50d4641e4cbf3b995f1bb4"
+        },
+        "102477": {
+          "characters": 234,
+          "utf8_sha256": "2dbff136f25cee0bf7b2e72f74ceea688b0f3f95ff81aa3a8174ecc03ccbc93d"
+        }
+      }
+    },
+    {
+      "locale": "ko_KR",
+      "tlk_sha256": "9d0581c14802a56174282128f34c4c931a886dbbf0243bf66f65bdac66c66868",
+      "strings": {
+        "102476": {
+          "characters": 5,
+          "utf8_sha256": "f9a59e7eea35d34a8a9dae17970f6b7fa9eff54d33af04fde9e3ab81290e3902"
+        },
+        "102477": {
+          "characters": 92,
+          "utf8_sha256": "39a7491b820d7a918a2597bcae875b6e9536fc20017b381f94b101fd404c0408"
+        }
+      }
+    },
+    {
+      "locale": "pl_PL",
+      "tlk_sha256": "ff316e609afd64a94fd15688cf5689bc2f67adcb3ea73b3ab4570b87daa0895b",
+      "strings": {
+        "102476": {
+          "characters": 19,
+          "utf8_sha256": "dc1f96a274fc327c95fb90c5272dfc28b0a24d661b1413df85fcf58736e220cf"
+        },
+        "102477": {
+          "characters": 238,
+          "utf8_sha256": "295835da126bef3cea311d050e95592573392ea76b6bb2b5778d29ea5721545d"
+        }
+      }
+    },
+    {
+      "locale": "pt_BR",
+      "tlk_sha256": "40f9d82cc3048f4eb6aa1647128ff0da32b889a80b45913ca9714121f619e7ab",
+      "strings": {
+        "102476": {
+          "characters": 18,
+          "utf8_sha256": "50f95b7464855f7a6b845bb113c2a23c7a1bceac7af7d0fd1326e6cb76c14436"
+        },
+        "102477": {
+          "characters": 189,
+          "utf8_sha256": "eb54883fbb9ced486c4dc20bcc0b5d4423f4982a72a32e64252212431c99ba83"
+        }
+      }
+    },
+    {
+      "locale": "ru_RU",
+      "tlk_sha256": "064d756d20839745255b463909ab28bebcffb1ab4f29aad739874488f33a1eb8",
+      "strings": {
+        "102476": {
+          "characters": 22,
+          "utf8_sha256": "6d7842c9e760154067778290cf367b39f08a97fa82840bc415375bdde4b89d81"
+        },
+        "102477": {
+          "characters": 156,
+          "utf8_sha256": "346c3d06aa8b5278ba5fce2e2bb1c52b2eb84c8190810e9020edec0d75847d5f"
+        }
+      }
+    },
+    {
+      "locale": "uk_UA",
+      "tlk_sha256": "69a3bcdce4b3c1dbb5f8399f56526c6f9f934bdb22b70d343c0f4ad2275f1772",
+      "strings": {
+        "102476": {
+          "characters": 31,
+          "utf8_sha256": "c0d630e768cbc37541e5429b96fb718cc9679fadae1d73d25a626f16b80003af"
+        },
+        "102477": {
+          "characters": 220,
+          "utf8_sha256": "6d0c8f27ddfa9551d3e2586011b4969f06708ecbd87268c146e3cda9f545dff7"
+        }
+      }
+    },
+    {
+      "locale": "zh_CN",
+      "tlk_sha256": "8e4d98c2b187cc84408da558f3beb46da28af4c10697f8b905b402a1896e8c06",
+      "strings": {
+        "102476": {
+          "characters": 3,
+          "utf8_sha256": "a57dc8c295a511b07fb8f6937bd9beca83b5bd3f88a99c663946b81283388da0"
+        },
+        "102477": {
+          "characters": 6,
+          "utf8_sha256": "0d1e1062e3adaf18a553fdde5ea2467089ffee2d4c8c728aeb36a36be026750b"
+        }
+      }
+    }
+  ],
+  "schema": "bg-redux-confirmation-setting-source-preparation/1",
+  "tests_executed": false,
+  "native_executed": false,
+  "private_receipt": "C:\\BGRedux\\phase1-local\\results\\20261022T110031Z-confirmation-setting-source-329012a8\\localization.json",
+  "private_receipt_sha256": "3edf7df1a31bfb0972afb5cbe8318c5401fcf92decfaa2797e0884c42cafba74",
+  "tlk_label": 102476,
+  "tlk_help": 102477,
+  "original_option": "Infinity_GetOption(41,9) -> Game Options/Over Confirm Everything",
+  "layout": {
+    "resource": "GUIOPT.chu",
+    "sha256": "93cb75819024668829444aa38a9dd1144db73bf21c846ce10827b7f19b583571",
+    "window": 9,
+    "window_size": [
+      864,
+      710
+    ],
+    "checkbox": {
+      "id": 38,
+      "frame": [
+        235,
+        258,
+        44,
+        44
+      ]
+    },
+    "buddy": {
+      "id": 39,
+      "frame": [
+        45,
+        243,
+        180,
+        59
+      ]
+    },
+    "label": {
+      "id": 268435496,
+      "frame": [
+        45,
+        243,
+        180,
+        59
+      ]
+    }
+  },
+  "limits": [
+    "Source-only preparation; no native settings persistence proof",
+    "Original physical option-on/default/reset semantics unobserved",
+    "No GUIMG/GUIPR consumer integration in this commit",
+    "Inn-rest confirmation consumer not implemented"
+  ],
+  "prepared_source_sha256": {
+    "gemrb/GUIScripts/BG2EEConfirmation.py": "ec1c3ad1a16178f7416054c2d877b9ba727662720ee38575f69670372f6ddaac",
+    "gemrb/GUIScripts/GUIOPT.py": "f129bf52eae32e66ddfb6a78996fa30f372668cdea719f778270e6295bb933b6",
+    "gemrb/unhardcoded/shared/defaults.ini": "5ac8d4b18c2ef107ffcbb719ba2281aacdae535a87792e6bd1c82cabc17797e7",
+    "redux/tools/phase1/tests/test_bg2ee_confirmation_setting.py": "236a54dac679b38e8e1633a9f54c970ff263cecff79468ddf7fe842779748a67"
+  }
+}
