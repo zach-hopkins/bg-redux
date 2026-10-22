@@ -1,0 +1,11 @@
+# Help-fix candidate baseline independent audit
+
+`20261022T121748Z-help-base-9fb35d02` completed all24 vanilla and20 GUI assertions, with six owned native children exiting0. Both outer comparison processes correctly exit1 for compatibility differences. This is execution success with retained, unreviewed differences.
+
+Independent raw checks reconstructed normalized persistence diffs, assertion inputs, save/cancel/checkpoint manifests and source/probe/build ownership. All3511 source hashes,61 binaries,5 support files,5 frozen top-level sources,75 runtime inputs, fixture and private-game guards were checked. The subsequently corrected BG2EEConfirmation.py was verified against its exact historical frozen `da27b1c3…e7ebaac` copy in the a92 confirmation driver;3510 other source files still matched at audit time. The candidate core SHA256 is `401b2f5a66062cea00e5fbad264c9b84f7e22345e788dab0bbe65e706a431fb7`, coherent build receipt `50f035461442c6102d931ad47ba4c89f83fd90864ebd9dc1ffe48364bf0205f7`. The reader rehashed1,016 child artifacts and verified all Phase0/candidate/input preservation flags. No new engine/runtime/test execution occurred.
+
+Compared with `20261022T112734Z-inf-base-68f94440`, vanilla residual counts are **0/0/26**, previously2/2/24. The two prior actor7 base/modified stat212 reload rows are absent in both reloads; repeat-import color values and some paths change. This observation is not evidence of a color fix: independently imported random palette values differ between runs.
+
+GUI residuals are **451/55**, previously449/53. Removing exactly the two new actor3 base/modified stat209 rows leaves the previous449/53 rows exactly equal. Both new rows change3385444809→2728567458. Existing effect growth, ordering/representation and other residuals remain. No color waiver, compatibility promotion or new whole-world equality is claimed.
+
+[Evidence](../evidence/phase1-help-baseline-independent.json) preserves exact new rows, gained/lost paths, prior and b49 comparisons, process IDs/timings, hashes and preservation bindings. The full private reader receipt remains `C:/BGRedux/phase1-local/results/20261022T123436Z-fresh-help-baseline-audit-1337da34/audit.json`. Historical failed runs and all prior audit versions remain unchanged.
