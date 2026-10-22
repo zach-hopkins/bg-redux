@@ -1,0 +1,1722 @@
+{
+  "schema": "bg-redux-phase1-paired-color-audit/1",
+  "verdict": "controlled-high-wire-sequence-matched",
+  "scope": "Independent read-only raw-evidence audit. Original numeric runtime palette, visual equivalence, whole-world/time persistence, RNG purity, and general saved-color semantics are not established.",
+  "native_result": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\result.json",
+    "bytes": 34925,
+    "sha256": "494d6431bb33381012dd717ee0a36a4e5977b2510fb7cff7571a40f26a3856ef"
+  },
+  "native_artifact_manifest": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\artifact-manifest.json",
+    "bytes": 113322,
+    "sha256": "996b355fe9fde2c4d5e5758efdeef6356e06803ac60b5e3d7e59e592ff59834b"
+  },
+  "artifact_hashes_rechecked": 655,
+  "preparation": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\preparation.json",
+    "bytes": 13438,
+    "sha256": "908c70249faf8b64d5096ea4cc69556fdb71db8766254c6336d4a5933e7c5ee9"
+  },
+  "original_installation": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T022308Z-original-color-installation-08d20bb7\\preparation.json",
+    "bytes": 1248719,
+    "sha256": "7df900bbb218d2f6d4e3ff4d561fc69be21762db1f283b638d8bda4cdd121406"
+  },
+  "nonce": 1455348314,
+  "native_stages": [
+    {
+      "id": "create",
+      "pid": 13968,
+      "process": {
+        "command": [
+          "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\driver\\Redux_color_gui.exe",
+          "--config",
+          "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\controlled-high\\create\\probe.cfg",
+          "--output",
+          "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\controlled-high\\create\\capture",
+          "--scripts",
+          "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\driver\\startup",
+          "--mode",
+          "live-clock",
+          "--clock-running-samples",
+          "40",
+          "--save-after-clock",
+          "1"
+        ],
+        "cwd": "C:\\BGRedux\\phase1-local\\builds\\20261022T012223Z-candidate-9aa69cd5",
+        "timeout_seconds": 90,
+        "timed_out": false,
+        "exit_code": 0,
+        "cleanup": "not required",
+        "pid": 13968,
+        "elapsed_seconds": 21.925,
+        "log_sha256": "bdcc1c64cdb009701d5f8f0205ba60134259390a196e9055b3460f724ed477e4"
+      },
+      "raw": {
+        "clock-before.state.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\controlled-high\\create\\capture\\clock-before.state.json",
+          "bytes": 703095,
+          "sha256": "6b6253a98ba08a374985e216daf8092299479b262cfd6e0625bb148b896c1c3f"
+        },
+        "clock-after.state.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\controlled-high\\create\\capture\\clock-after.state.json",
+          "bytes": 703144,
+          "sha256": "1930eb049cefd03cae9a4b6e5080b304ec2235736319c38558c39e2b7ec49a4a"
+        },
+        "clock-samples.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\controlled-high\\create\\capture\\clock-samples.json",
+          "bytes": 6124,
+          "sha256": "34d478e191fe894d112907c80129ddf73bd22eeff0762ec88b50af0602ec8ddc"
+        },
+        "color-before-save.state.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\controlled-high\\create\\capture\\color-before-save.state.json",
+          "bytes": 703144,
+          "sha256": "1930eb049cefd03cae9a4b6e5080b304ec2235736319c38558c39e2b7ec49a4a"
+        },
+        "color-after-save.state.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\controlled-high\\create\\capture\\color-after-save.state.json",
+          "bytes": 703144,
+          "sha256": "1930eb049cefd03cae9a4b6e5080b304ec2235736319c38558c39e2b7ec49a4a"
+        },
+        "color-save-result.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\controlled-high\\create\\capture\\color-save-result.json",
+          "bytes": 312,
+          "sha256": "10006cb1443c89769534b1fd9612df71e99120667ae55fe975904adf7a92550d"
+        },
+        "gui-result.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\controlled-high\\create\\capture\\gui-result.json",
+          "bytes": 141,
+          "sha256": "5c25ae276a821c4b67d3922c5829cabe7706965f162499af3c31348402648879"
+        }
+      },
+      "wire": {
+        "actor_index": 33,
+        "identity": "RDXCOLOR",
+        "leather_wire_byte": 237,
+        "cre_sha256": "ac988748ee3fb9b12e23a8f4e44eb06f208b49ab5eeaa3320bf3839e4ef3110f",
+        "position": [
+          3720,
+          2850
+        ],
+        "effects": 0,
+        "items": 0,
+        "scripts": [
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "scope": "Serialized CRE byte only; initial/fresh-reloaded runtime palette is not observed here."
+      },
+      "save_files": {
+        "baldur.bmp": {
+          "bytes": 93690,
+          "sha256": "9f3b36970418c630e7b218c472be0da71a1c15b3b203d608d0e635d5b9543fb8"
+        },
+        "baldur.gam": {
+          "bytes": 69960,
+          "sha256": "5568677226834de07e51435b3bb00155a56ccbe346e11419c6d778833583d849"
+        },
+        "baldur.sav": {
+          "bytes": 19449,
+          "sha256": "15d04ea464bf56feabc0266ed382632a85e213966242dbe0f8f82e98f9379b84"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+        }
+      },
+      "markers": {
+        "RDXCCASE": 1,
+        "RDXCNONCE": 1455348314,
+        "RDXCSTAGE": 2,
+        "RDXCREADY": 1
+      },
+      "native_markers": [
+        {
+          "RDXCCASE": 1,
+          "RDXCNONCE": 1455348314,
+          "RDXCSTAGE": 1
+        },
+        {
+          "RDXCCASE": 1,
+          "RDXCNONCE": 1455348314,
+          "RDXCREADY": 1,
+          "RDXCSTAGE": 2
+        },
+        {
+          "RDXCCASE": 1,
+          "RDXCNONCE": 1455348314,
+          "RDXCREADY": 1,
+          "RDXCSTAGE": 2
+        },
+        {
+          "RDXCCASE": 1,
+          "RDXCNONCE": 1455348314,
+          "RDXCREADY": 1,
+          "RDXCSTAGE": 2
+        }
+      ],
+      "runtime_colors": [
+        {
+          "boundary": "before",
+          "base": 3991793133,
+          "modified": 3991793133
+        },
+        {
+          "boundary": "after_clock",
+          "base": 3991793133,
+          "modified": 3991793133
+        },
+        {
+          "boundary": "before_save",
+          "base": 3991793133,
+          "modified": 3991793133
+        },
+        {
+          "boundary": "after_save",
+          "base": 3991793133,
+          "modified": 3991793133
+        }
+      ],
+      "clock": {
+        "samples": 49,
+        "running_samples": 40,
+        "before": 32717,
+        "after": 32896
+      },
+      "private_game_validation": {
+        "clean_game_inventory_unchanged": true,
+        "clean_game_root_hashes_unchanged": true,
+        "copied_immutable_inputs_unchanged": true,
+        "allowed_private_root_changes": {
+          "GemRB.log": {
+            "before_sha256": "c298eb067db2c6c619c7791afc9b6fc0997a5dba9bd5bd03d6718f2facbbf6a7",
+            "after_sha256": "938793213ba935f763e187a9948fdfc479de859df554fe65016b4908cec55f2b"
+          }
+        },
+        "linked_asset_content_fully_hashed": false
+      }
+    },
+    {
+      "id": "reload-1",
+      "pid": 6344,
+      "process": {
+        "command": [
+          "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\driver\\Redux_color_gui.exe",
+          "--config",
+          "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\controlled-high\\reload-1\\probe.cfg",
+          "--output",
+          "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\controlled-high\\reload-1\\capture",
+          "--scripts",
+          "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\driver\\startup",
+          "--mode",
+          "live-clock",
+          "--clock-running-samples",
+          "40",
+          "--save-after-clock",
+          "1"
+        ],
+        "cwd": "C:\\BGRedux\\phase1-local\\builds\\20261022T012223Z-candidate-9aa69cd5",
+        "timeout_seconds": 90,
+        "timed_out": false,
+        "exit_code": 0,
+        "cleanup": "not required",
+        "pid": 6344,
+        "elapsed_seconds": 20.067,
+        "log_sha256": "a73455f82a5cd7c22110650cdc12f373ed9629a08d744220ceee19e8d45aa7bb"
+      },
+      "raw": {
+        "clock-before.state.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\controlled-high\\reload-1\\capture\\clock-before.state.json",
+          "bytes": 703118,
+          "sha256": "b46f0d12146e80b3ab4f05a75200f7b57c580eff47e936d4307694307016a2b3"
+        },
+        "clock-after.state.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\controlled-high\\reload-1\\capture\\clock-after.state.json",
+          "bytes": 703118,
+          "sha256": "8a7771695c0b11f937b18e4508f28b4a86b26abc47ca91d086cb739756672986"
+        },
+        "clock-samples.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\controlled-high\\reload-1\\capture\\clock-samples.json",
+          "bytes": 6124,
+          "sha256": "61f3ac6358e56e37a8de49cd475e7273539d75efa62edc3b2477a0fa866cfaa3"
+        },
+        "color-before-save.state.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\controlled-high\\reload-1\\capture\\color-before-save.state.json",
+          "bytes": 703118,
+          "sha256": "8a7771695c0b11f937b18e4508f28b4a86b26abc47ca91d086cb739756672986"
+        },
+        "color-after-save.state.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\controlled-high\\reload-1\\capture\\color-after-save.state.json",
+          "bytes": 703118,
+          "sha256": "8a7771695c0b11f937b18e4508f28b4a86b26abc47ca91d086cb739756672986"
+        },
+        "color-save-result.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\controlled-high\\reload-1\\capture\\color-save-result.json",
+          "bytes": 314,
+          "sha256": "1238fff41d67296a3460564d778303b343132232d0849b88c508388717a23652"
+        },
+        "gui-result.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\controlled-high\\reload-1\\capture\\gui-result.json",
+          "bytes": 141,
+          "sha256": "5c25ae276a821c4b67d3922c5829cabe7706965f162499af3c31348402648879"
+        }
+      },
+      "wire": {
+        "actor_index": 33,
+        "identity": "RDXCOLOR",
+        "leather_wire_byte": 46,
+        "cre_sha256": "36aa0479247aa26a11aeec68bd8aaf7e0bfe70ea4e09a62ad588e23784fbd5dc",
+        "position": [
+          3720,
+          2850
+        ],
+        "effects": 0,
+        "items": 0,
+        "scripts": [
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "scope": "Serialized CRE byte only; initial/fresh-reloaded runtime palette is not observed here."
+      },
+      "save_files": {
+        "baldur.bmp": {
+          "bytes": 93690,
+          "sha256": "899756d9e8b162bafdd0a3eceb7a06b7c8a66509a55a84be75ee43bb8f6b180a"
+        },
+        "baldur.gam": {
+          "bytes": 69960,
+          "sha256": "96d3d2507f23a3da5f4a3d94e0f7c8166880ab1c4fb331f742451512a56eb3b6"
+        },
+        "baldur.sav": {
+          "bytes": 19441,
+          "sha256": "78ae2a2752a1f4a72381af1550d31d32d7af3d42591bb5ccd130aec4e450a483"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+        }
+      },
+      "markers": {
+        "RDXCCASE": 1,
+        "RDXCNONCE": 1455348314,
+        "RDXCSTAGE": 2,
+        "RDXCREADY": 1
+      },
+      "native_markers": [
+        {
+          "RDXCCASE": 1,
+          "RDXCNONCE": 1455348314,
+          "RDXCREADY": 1,
+          "RDXCSTAGE": 2
+        },
+        {
+          "RDXCCASE": 1,
+          "RDXCNONCE": 1455348314,
+          "RDXCREADY": 1,
+          "RDXCSTAGE": 2
+        },
+        {
+          "RDXCCASE": 1,
+          "RDXCNONCE": 1455348314,
+          "RDXCREADY": 1,
+          "RDXCSTAGE": 2
+        },
+        {
+          "RDXCCASE": 1,
+          "RDXCNONCE": 1455348314,
+          "RDXCREADY": 1,
+          "RDXCSTAGE": 2
+        }
+      ],
+      "runtime_colors": [
+        {
+          "boundary": "before",
+          "base": 774778414,
+          "modified": 774778414
+        },
+        {
+          "boundary": "after_clock",
+          "base": 774778414,
+          "modified": 774778414
+        },
+        {
+          "boundary": "before_save",
+          "base": 774778414,
+          "modified": 774778414
+        },
+        {
+          "boundary": "after_save",
+          "base": 774778414,
+          "modified": 774778414
+        }
+      ],
+      "clock": {
+        "samples": 49,
+        "running_samples": 40,
+        "before": 32896,
+        "after": 33073
+      },
+      "private_game_validation": {
+        "clean_game_inventory_unchanged": true,
+        "clean_game_root_hashes_unchanged": true,
+        "copied_immutable_inputs_unchanged": true,
+        "allowed_private_root_changes": {
+          "GemRB.log": {
+            "before_sha256": "c298eb067db2c6c619c7791afc9b6fc0997a5dba9bd5bd03d6718f2facbbf6a7",
+            "after_sha256": "0909bac58d70239e630184d7fd939dc0676f8e1d918b5ff400408d820c5e0f2d"
+          }
+        },
+        "linked_asset_content_fully_hashed": false
+      }
+    },
+    {
+      "id": "reload-2",
+      "pid": 2292,
+      "process": {
+        "command": [
+          "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\driver\\Redux_color_gui.exe",
+          "--config",
+          "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\controlled-high\\reload-2\\probe.cfg",
+          "--output",
+          "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\controlled-high\\reload-2\\capture",
+          "--scripts",
+          "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\driver\\startup",
+          "--mode",
+          "live-clock",
+          "--clock-running-samples",
+          "40",
+          "--save-after-clock",
+          "1"
+        ],
+        "cwd": "C:\\BGRedux\\phase1-local\\builds\\20261022T012223Z-candidate-9aa69cd5",
+        "timeout_seconds": 90,
+        "timed_out": false,
+        "exit_code": 0,
+        "cleanup": "not required",
+        "pid": 2292,
+        "elapsed_seconds": 20.047,
+        "log_sha256": "f009b34012ae2c0f63d147af7c996dfd8acc1de13d4f548977df969e0272a340"
+      },
+      "raw": {
+        "clock-before.state.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\controlled-high\\reload-2\\capture\\clock-before.state.json",
+          "bytes": 703144,
+          "sha256": "a83ef4715b59ff0f4e3b6f414832313d2a7544a7413b958e4fba2ae46a73691e"
+        },
+        "clock-after.state.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\controlled-high\\reload-2\\capture\\clock-after.state.json",
+          "bytes": 703144,
+          "sha256": "48ec7df3b9f58a4c83fa62499644b8fbabb1b9a43ba0e7d419e85d16bd9afea9"
+        },
+        "clock-samples.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\controlled-high\\reload-2\\capture\\clock-samples.json",
+          "bytes": 6124,
+          "sha256": "f12598b6c41709effc8715701fed0637de44fa15566420cbd2f647c94418dd64"
+        },
+        "color-before-save.state.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\controlled-high\\reload-2\\capture\\color-before-save.state.json",
+          "bytes": 703144,
+          "sha256": "48ec7df3b9f58a4c83fa62499644b8fbabb1b9a43ba0e7d419e85d16bd9afea9"
+        },
+        "color-after-save.state.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\controlled-high\\reload-2\\capture\\color-after-save.state.json",
+          "bytes": 703144,
+          "sha256": "48ec7df3b9f58a4c83fa62499644b8fbabb1b9a43ba0e7d419e85d16bd9afea9"
+        },
+        "color-save-result.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\controlled-high\\reload-2\\capture\\color-save-result.json",
+          "bytes": 314,
+          "sha256": "d3607608a145e6170ae8f3f8acd0ab2957c2a13cc7bc3187698ba223b187e238"
+        },
+        "gui-result.json": {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\controlled-high\\reload-2\\capture\\gui-result.json",
+          "bytes": 141,
+          "sha256": "5c25ae276a821c4b67d3922c5829cabe7706965f162499af3c31348402648879"
+        }
+      },
+      "wire": {
+        "actor_index": 33,
+        "identity": "RDXCOLOR",
+        "leather_wire_byte": 46,
+        "cre_sha256": "36aa0479247aa26a11aeec68bd8aaf7e0bfe70ea4e09a62ad588e23784fbd5dc",
+        "position": [
+          3720,
+          2850
+        ],
+        "effects": 0,
+        "items": 0,
+        "scripts": [
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "scope": "Serialized CRE byte only; initial/fresh-reloaded runtime palette is not observed here."
+      },
+      "save_files": {
+        "baldur.bmp": {
+          "bytes": 93690,
+          "sha256": "7386de1cfdfdbd61c40781da423c63f4b360d1b668f0dfc3ce2272c8520182ba"
+        },
+        "baldur.gam": {
+          "bytes": 69960,
+          "sha256": "9602d03ac055cb606900165b54eb17b5ed52b1606a9f2d086485492d82750283"
+        },
+        "baldur.sav": {
+          "bytes": 19444,
+          "sha256": "3e53c9c1eb66fcde0e2536900a6af1de9665dae08be5b4fd5c0955926df37144"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+        }
+      },
+      "markers": {
+        "RDXCCASE": 1,
+        "RDXCNONCE": 1455348314,
+        "RDXCSTAGE": 2,
+        "RDXCREADY": 1
+      },
+      "native_markers": [
+        {
+          "RDXCCASE": 1,
+          "RDXCNONCE": 1455348314,
+          "RDXCREADY": 1,
+          "RDXCSTAGE": 2
+        },
+        {
+          "RDXCCASE": 1,
+          "RDXCNONCE": 1455348314,
+          "RDXCREADY": 1,
+          "RDXCSTAGE": 2
+        },
+        {
+          "RDXCCASE": 1,
+          "RDXCNONCE": 1455348314,
+          "RDXCREADY": 1,
+          "RDXCSTAGE": 2
+        },
+        {
+          "RDXCCASE": 1,
+          "RDXCNONCE": 1455348314,
+          "RDXCREADY": 1,
+          "RDXCSTAGE": 2
+        }
+      ],
+      "runtime_colors": [
+        {
+          "boundary": "before",
+          "base": 774778414,
+          "modified": 774778414
+        },
+        {
+          "boundary": "after_clock",
+          "base": 774778414,
+          "modified": 774778414
+        },
+        {
+          "boundary": "before_save",
+          "base": 774778414,
+          "modified": 774778414
+        },
+        {
+          "boundary": "after_save",
+          "base": 774778414,
+          "modified": 774778414
+        }
+      ],
+      "clock": {
+        "samples": 49,
+        "running_samples": 40,
+        "before": 33062,
+        "after": 33240
+      },
+      "private_game_validation": {
+        "clean_game_inventory_unchanged": true,
+        "clean_game_root_hashes_unchanged": true,
+        "copied_immutable_inputs_unchanged": true,
+        "allowed_private_root_changes": {
+          "GemRB.log": {
+            "before_sha256": "c298eb067db2c6c619c7791afc9b6fc0997a5dba9bd5bd03d6718f2facbbf6a7",
+            "after_sha256": "6344cb98f596f45efd1c839c2d97416a44c4e910a9773f7386f9a594e7eda287"
+          }
+        },
+        "linked_asset_content_fully_hashed": false
+      }
+    }
+  ],
+  "original_saves": [
+    {
+      "boundary": 1,
+      "receipt": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T022308Z-original-color-installation-08d20bb7\\controlled-high-observation\\ordinary-save-1-observation.json",
+        "bytes": 1421,
+        "sha256": "485e2eb902ba9fa5e220751d54cf66ac1d1f995945c148e0f023afde301e087d"
+      },
+      "files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "29cac87ac6103b0b354307cfd2385ae2be3ac233c7ca10c0de5bf340399cb632"
+        },
+        "BALDUR.gam": {
+          "bytes": 74976,
+          "sha256": "c0af0eb52956d57571fb511b65add1be1aa3281544581a3b270d465974aaea9c"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19324,
+          "sha256": "96cbe75fef4cf24439f4602ad64ab006668159cea00c1a55d5ccb7fa61881232"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "2392f8f8a6fb3eea22f92c8a6ae445e58f0648316a549df82379c4a792cf5f82"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "4874f98ed7eb4171afab3b4c6c9edac3c99d2faa2b54d6d6f4b26b05f6bc4dcd"
+        }
+      },
+      "wire": {
+        "actor_index": 1,
+        "identity": "RDXCOLOR",
+        "leather_wire_byte": 237,
+        "cre_sha256": "37c973f5d1e64b3d436d923cd0f49a4bacef97086492c437f3cee90cd7efa9ac",
+        "position": [
+          3712,
+          2844
+        ],
+        "effects": 0,
+        "items": 0,
+        "scripts": [
+          "NONE",
+          "NONE",
+          "NONE",
+          "NONE",
+          "NONE"
+        ],
+        "scope": "Serialized CRE byte only; initial/fresh-reloaded runtime palette is not observed here."
+      },
+      "markers": {
+        "RDXCCASE": 1,
+        "RDXCNONCE": 1455348314,
+        "RDXCSTAGE": 2,
+        "RDXCREADY": 1
+      },
+      "phase": "original-save-observed",
+      "fresh_process_pid": null
+    },
+    {
+      "boundary": 2,
+      "receipt": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T022308Z-original-color-installation-08d20bb7\\controlled-high-observation\\ordinary-save-2-observation.json",
+        "bytes": 1540,
+        "sha256": "0e40cb7e8308c6ad40496314b2ea59d1df674acd5c50220209f10517c5086c5e"
+      },
+      "files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "1f63511cfa8b331320b58aaf2a13f51beb2f3a067e65db9e0ec14cc6ddbb05a3"
+        },
+        "BALDUR.gam": {
+          "bytes": 74976,
+          "sha256": "c5b4f05f54624a718588f70f82c7312488fc81f6ed34c4606284f564430d1ec8"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19331,
+          "sha256": "317e523c5f2d3a4370caf91bc7e07b495f26f0eeed03b396c3622199809e9cbd"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "a12715d28409aaf3fed3e4e55ac9690b6cd68863a8bd4ceb6de8dae819a72935"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "b90a7b7901ffc3dbb940d008b506ebb695c9cc2dfe7bce0275ef716365c30a1c"
+        }
+      },
+      "wire": {
+        "actor_index": 1,
+        "identity": "RDXCOLOR",
+        "leather_wire_byte": 46,
+        "cre_sha256": "154306102ddc71e7e6d7ecd44a29185134995bf3a01d1a80cafe8e2fa51f1476",
+        "position": [
+          3712,
+          2844
+        ],
+        "effects": 0,
+        "items": 0,
+        "scripts": [
+          "NONE",
+          "NONE",
+          "NONE",
+          "NONE",
+          "NONE"
+        ],
+        "scope": "Serialized CRE byte only; initial/fresh-reloaded runtime palette is not observed here."
+      },
+      "markers": {
+        "RDXCCASE": 1,
+        "RDXCNONCE": 1455348314,
+        "RDXCSTAGE": 2,
+        "RDXCREADY": 1
+      },
+      "phase": "original-reload1-save-observed",
+      "fresh_process_pid": 6456
+    },
+    {
+      "boundary": 3,
+      "receipt": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T022308Z-original-color-installation-08d20bb7\\controlled-high-observation\\ordinary-save-3-observation.json",
+        "bytes": 1541,
+        "sha256": "0ab3b4c672a7ec7c2b025c5b07369f8c4cb764c99b2d428019d42521034db937"
+      },
+      "files": {
+        "BALDUR.bmp": {
+          "bytes": 65590,
+          "sha256": "0e5efddc812747cbdc9f71b5d98ae027eb70bb4939b92b9eaba7aee808cf238c"
+        },
+        "BALDUR.gam": {
+          "bytes": 74976,
+          "sha256": "8ec3b1252746cea7b0b93e5f7d448d4d512233175a06240c07bcbe8771489160"
+        },
+        "BALDUR.SAV": {
+          "bytes": 19325,
+          "sha256": "6b5932557964d5d5fba586cdc5c48923fc9604d6a4d7f42d37b46ca85b0970a2"
+        },
+        "PORTRT0.bmp": {
+          "bytes": 13830,
+          "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+        },
+        "PORTRT1.bmp": {
+          "bytes": 13830,
+          "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+        }
+      },
+      "wire": {
+        "actor_index": 1,
+        "identity": "RDXCOLOR",
+        "leather_wire_byte": 46,
+        "cre_sha256": "154306102ddc71e7e6d7ecd44a29185134995bf3a01d1a80cafe8e2fa51f1476",
+        "position": [
+          3712,
+          2844
+        ],
+        "effects": 0,
+        "items": 0,
+        "scripts": [
+          "NONE",
+          "NONE",
+          "NONE",
+          "NONE",
+          "NONE"
+        ],
+        "scope": "Serialized CRE byte only; initial/fresh-reloaded runtime palette is not observed here."
+      },
+      "markers": {
+        "RDXCCASE": 1,
+        "RDXCNONCE": 1455348314,
+        "RDXCSTAGE": 2,
+        "RDXCREADY": 1
+      },
+      "phase": "original-reload2-save-observed",
+      "fresh_process_pid": 13072
+    }
+  ],
+  "build": {
+    "receipt": {
+      "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\driver\\build.json",
+      "bytes": 599301,
+      "sha256": "3fbb2a612f867bb09b748695e189d89d03e82d75351ee3ef8c9973d1a75bc534"
+    },
+    "binary_sha256": "f9937722943f5602f1144c3cb3c1f592bd63f659db24f792219845b7c94816bc",
+    "compiler_sha256": "5f30e02408ab97050fcbfa39bb391b0923cf9402063920b849ab8491e63334b3",
+    "sources": [
+      {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\saved_npc_color_journey.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-color-parser2\\sources\\0501789328beb195e9a0c55ea73a8ceb07b62857938923af7f665c67d02de852\\saved_npc_color_journey.py",
+        "sha256": "0501789328beb195e9a0c55ea73a8ceb07b62857938923af7f665c67d02de852"
+      },
+      {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\saved_npc_color_fixtures.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-color-parser2\\sources\\f923208a76a15f8e527dcb63052eb6ddf2f0969cc265290d09b8b70056c8e238\\saved_npc_color_fixtures.py",
+        "sha256": "f923208a76a15f8e527dcb63052eb6ddf2f0969cc265290d09b8b70056c8e238"
+      },
+      {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\weapon_query_observer.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-color-parser2\\sources\\4f9ef3dc6cb2c87c316279c3c488c23f83c01376a48fbc4ca96ed6433b6252fb\\weapon_query_observer.py",
+        "sha256": "4f9ef3dc6cb2c87c316279c3c488c23f83c01376a48fbc4ca96ed6433b6252fb"
+      },
+      {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\weapon_query_validation.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-color-parser2\\sources\\44c33b8452a74c94a4e78955fbc444c0dc1ac51689cf18a570e2a1fafa21ee4d\\weapon_query_validation.py",
+        "sha256": "44c33b8452a74c94a4e78955fbc444c0dc1ac51689cf18a570e2a1fafa21ee4d"
+      },
+      {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\weapon_oracle_fixtures.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-color-parser2\\sources\\46100d440c3bc9c4a36f5a0d2a35f4db8331b6f3fc1985747356086966ee4fa4\\weapon_oracle_fixtures.py",
+        "sha256": "46100d440c3bc9c4a36f5a0d2a35f4db8331b6f3fc1985747356086966ee4fa4"
+      },
+      {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\private_game.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-color-parser2\\sources\\9dce77132b5d39b2ac210a76cfd27388063887867cadad5e3ae0956b396a3582\\private_game.py",
+        "sha256": "9dce77132b5d39b2ac210a76cfd27388063887867cadad5e3ae0956b396a3582"
+      },
+      {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\native\\phase0_gui_probe_snapshot.cpp",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-color-parser2\\sources\\68142b1ef795995e145c2f4572d69a276d21dbf4a9500a1300a83fd191e65db4\\phase0_gui_probe_snapshot.cpp",
+        "sha256": "68142b1ef795995e145c2f4572d69a276d21dbf4a9500a1300a83fd191e65db4"
+      },
+      {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\native\\phase0_save_probe_snapshot.cpp",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-color-parser2\\sources\\d4f332b73c5a0bf579538de5624add4172d460ed880ae73d1c1cdfd13a11ad1e\\phase0_save_probe_snapshot.cpp",
+        "sha256": "d4f332b73c5a0bf579538de5624add4172d460ed880ae73d1c1cdfd13a11ad1e"
+      },
+      {
+        "source": "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\native\\color_save_after_clock.h",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-color-parser2\\sources\\092eeaef067999d64c15a32f662eb9691e5111a5fc1dc3d10d2a417583a7bab6\\color_save_after_clock.h",
+        "sha256": "092eeaef067999d64c15a32f662eb9691e5111a5fc1dc3d10d2a417583a7bab6"
+      },
+      {
+        "source": "C:\\BGRedux\\tools\\phase0\\native\\gui_probe.cpp",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-color-parser2\\sources\\68142b1ef795995e145c2f4572d69a276d21dbf4a9500a1300a83fd191e65db4\\gui_probe.cpp",
+        "sha256": "68142b1ef795995e145c2f4572d69a276d21dbf4a9500a1300a83fd191e65db4"
+      },
+      {
+        "source": "C:\\BGRedux\\tools\\phase0\\native\\save_probe.cpp",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-color-parser2\\sources\\d4f332b73c5a0bf579538de5624add4172d460ed880ae73d1c1cdfd13a11ad1e\\save_probe.cpp",
+        "sha256": "d4f332b73c5a0bf579538de5624add4172d460ed880ae73d1c1cdfd13a11ad1e"
+      },
+      {
+        "source": "C:\\BGRedux\\tools\\phase0\\gui\\ReduxStart.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-color-parser2\\sources\\32eaa9af6ae8630d42a17b1e8a3de44ec540d05625b3be3fe35eb5d637ae310c\\ReduxStart.py",
+        "sha256": "32eaa9af6ae8630d42a17b1e8a3de44ec540d05625b3be3fe35eb5d637ae310c"
+      },
+      {
+        "source": "C:\\BGRedux\\tools\\phase0\\baseline_runner.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-color-parser2\\sources\\c67c59fb1c6459883fb71aa781ae37315215f12e653079e634dc58fd6516dbf4\\baseline_runner.py",
+        "sha256": "c67c59fb1c6459883fb71aa781ae37315215f12e653079e634dc58fd6516dbf4"
+      },
+      {
+        "source": "C:\\BGRedux\\tools\\phase0\\query_side_effects.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-color-parser2\\sources\\c4b1256043b6c2a769077cc7d8dcf6dc20fbc353279590a900daffce5f6c897d\\query_side_effects.py",
+        "sha256": "c4b1256043b6c2a769077cc7d8dcf6dc20fbc353279590a900daffce5f6c897d"
+      },
+      {
+        "source": "C:\\BGRedux\\tools\\phase0\\harness.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-color-parser2\\sources\\ca13b211d19bbc637af795cf64521aebf17a88d4b75072da5f2cecaa472351cb\\harness.py",
+        "sha256": "ca13b211d19bbc637af795cf64521aebf17a88d4b75072da5f2cecaa472351cb"
+      },
+      {
+        "source": "C:\\BGRedux\\tools\\phase0\\save_harness.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-color-parser2\\sources\\8d1a4a0c9204858750c6a4339f4d29d0653c88557b68234e17b0943030f24eb8\\save_harness.py",
+        "sha256": "8d1a4a0c9204858750c6a4339f4d29d0653c88557b68234e17b0943030f24eb8"
+      },
+      {
+        "source": "C:\\BGRedux\\tools\\phase0\\legacy_oracle.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-color-parser2\\sources\\a1ea22ba4a5aec4d93e96fc6767e72c12a1ec41acd66c3109c95ff1ec60bc8f0\\legacy_oracle.py",
+        "sha256": "a1ea22ba4a5aec4d93e96fc6767e72c12a1ec41acd66c3109c95ff1ec60bc8f0"
+      },
+      {
+        "source": "C:\\BGRedux\\tools\\phase0\\equipped_defenses.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-color-parser2\\sources\\fb2aeebd0f70c29169ea33277b923bf429ed6d5af0d53ebfdaf76459ff8d2a3f\\equipped_defenses.py",
+        "sha256": "fb2aeebd0f70c29169ea33277b923bf429ed6d5af0d53ebfdaf76459ff8d2a3f"
+      },
+      {
+        "source": "C:\\BGRedux\\tools\\phase0\\script_query_probe.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-color-parser2\\sources\\bbc994164a3a3b6b017be99ba404587a7d257afaae10c384cbff862bc61d5107\\script_query_probe.py",
+        "sha256": "bbc994164a3a3b6b017be99ba404587a7d257afaae10c384cbff862bc61d5107"
+      },
+      {
+        "source": "C:\\BGRedux\\tools\\phase0\\probe_ui_resources.py",
+        "frozen": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-color-parser2\\sources\\5717f4bdbc6d3daa27ec2a60c39adc9f153d94b73d183e2b5f025d5b73efcc91\\probe_ui_resources.py",
+        "sha256": "5717f4bdbc6d3daa27ec2a60c39adc9f153d94b73d183e2b5f025d5b73efcc91"
+      }
+    ],
+    "compiled_sources": {
+      "color_gui_probe.cpp": {
+        "bytes": 21146,
+        "sha256": "932ceecf1b368ae805e7de75e3c9dc41cdcf9c2e9f135e0a6c02094e0aa57027"
+      },
+      "color_save_after_clock.h": {
+        "bytes": 1113,
+        "sha256": "092eeaef067999d64c15a32f662eb9691e5111a5fc1dc3d10d2a417583a7bab6"
+      },
+      "phase0_save_probe_snapshot.cpp": {
+        "bytes": 13126,
+        "sha256": "d4f332b73c5a0bf579538de5624add4172d460ed880ae73d1c1cdfd13a11ad1e"
+      }
+    },
+    "candidate_before": {
+      "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\candidate-before.json",
+      "bytes": 557012,
+      "sha256": "1dc93b58a6d2611b955f960999bb7c99a7886e5df9fc9cb0b5125c8dca75e5ec"
+    },
+    "candidate_after": {
+      "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\candidate-after.json",
+      "bytes": 557012,
+      "sha256": "1dc93b58a6d2611b955f960999bb7c99a7886e5df9fc9cb0b5125c8dca75e5ec"
+    },
+    "phase0_before": {
+      "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\phase0-before.json",
+      "bytes": 557927,
+      "sha256": "826707cafdb909ecb07c8fd7ecbf319303063d8f507a0b73ce552b202f4368ea"
+    },
+    "phase0_after": {
+      "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\phase0-after.json",
+      "bytes": 557927,
+      "sha256": "826707cafdb909ecb07c8fd7ecbf319303063d8f507a0b73ce552b202f4368ea"
+    }
+  },
+  "construction_binding": {
+    "schema": "bg-redux-color-construction-source-binding/1",
+    "mode": "explicit-historical-source",
+    "source": "C:\\BGRedux\\phase1-local\\weapon-query-probes\\candidate-9aa-ui1-color\\sources\\2e5203a4ddab899a61ea4f8f074ca312810d146c8a4e691efe4a15fe001524a3\\saved_npc_color_fixtures.py",
+    "construction_source_sha256": "2e5203a4ddab899a61ea4f8f074ca312810d146c8a4e691efe4a15fe001524a3",
+    "current_consumer_source": "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\saved_npc_color_fixtures.py",
+    "current_consumer_sha256": "f923208a76a15f8e527dcb63052eb6ddf2f0969cc265290d09b8b70056c8e238",
+    "ast_proof": {
+      "schema": "bg-redux-color-construction-ast-proof/1",
+      "outside_parser_ast_identical": true,
+      "allowed_differences": [
+        "top-level sav_records function body only"
+      ],
+      "common_outside_parser_ast_sha256": "8ed017940acda218e8afc0810282a7d79daffac77d029d18d540966beda0dae9",
+      "historical_parser_ast_sha256": "e4c5c06143de5a1737a103ac06f7fc47e77cbdbb45be30c46123ed851ddfdfdd",
+      "current_parser_ast_sha256": "e95cb9bfc1d06d010dae45932f24f3e2be1a9e03c8e2510a9e7adee216d67d63",
+      "parser_ast_changed": true,
+      "historical_code_executed": false,
+      "scope": "Syntactic equality outside the parser body; not a general proof of parser semantics."
+    },
+    "frozen_source": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\construction-source\\2e5203a4ddab899a61ea4f8f074ca312810d146c8a4e691efe4a15fe001524a3\\saved_npc_color_fixtures.py",
+    "proof_file": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\construction-source-proof.json"
+  },
+  "construction_proof": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025435Z-native-color-journey-27997ac9\\construction-source-proof.json",
+    "bytes": 1676,
+    "sha256": "2296819f13fb84f06896312ddeff0fa3d2eaa8865f41c92ff6ebfa12acfdbc9e"
+  },
+  "preservation": {
+    "receipt_source_before_after_equal": true,
+    "receipt_candidate_before_after_equal": true,
+    "original_source_fixture_rehashed": true,
+    "prepared_fixture_rehashed": true,
+    "prepared_override_rehashed": true,
+    "all_native_output_saves_rehashed": true,
+    "all_original_output_saves_rehashed": true,
+    "linked_assets_content_fully_hashed": false,
+    "native_input_profiles_rehashed": true,
+    "private_wrappers_independently_revalidated": true
+  },
+  "paired_serialized_leather_sequence": [
+    237,
+    46,
+    46
+  ],
+  "native_runtime_base_modified_sequence": [
+    "0xEDEDEDED",
+    "0x2E2E2E2E",
+    "0x2E2E2E2E"
+  ],
+  "save_chain_manifest_equal": true,
+  "time_boundary_caution": "reload-2 initial time33062 follows prior clock-after33073; no whole-world/time equivalence claim",
+  "prior_failed_result": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T023707Z-native-color-journey-21c334c5\\result.json",
+    "bytes": 9609,
+    "sha256": "8d1c396d9a8c8785bd1d60af3c9d579a7b5c6b6bf05a7a53d0b6a5c0d68b9150"
+  },
+  "prior_failed_execution": "failed",
+  "controls": {
+    "result": {
+      "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\result.json",
+      "bytes": 66322,
+      "sha256": "c4c3f96d1318a1589244794956f19a0203fb91343270be1a4101f3809e3a4972"
+    },
+    "artifact_manifest": {
+      "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\artifact-manifest.json",
+      "bytes": 222430,
+      "sha256": "52099c21a49d4797525b7d4792725a2100c53ef3daa5a564d3c33ebe5182437c"
+    },
+    "artifact_hashes_rechecked": 1284,
+    "cases": [
+      {
+        "id": "ordinary-low",
+        "stages": [
+          {
+            "id": "create",
+            "pid": 664,
+            "save_files": {
+              "baldur.bmp": {
+                "bytes": 93690,
+                "sha256": "72a201893d3e3db206614317b823362e597c3139ea3ac37244e51a160961755d"
+              },
+              "baldur.gam": {
+                "bytes": 69960,
+                "sha256": "9f4da448258a5ed5c1eb7cd632db5e9abe84bfbeaf6f7e896852c1aee87e6e42"
+              },
+              "baldur.sav": {
+                "bytes": 19449,
+                "sha256": "3a85fd3ed9623d0432156650ed7e9938525a7431955523d8aa5996463cb8174d"
+              },
+              "PORTRT0.bmp": {
+                "bytes": 13830,
+                "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+              },
+              "PORTRT1.bmp": {
+                "bytes": 13830,
+                "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+              }
+            },
+            "wire": {
+              "actor_index": 33,
+              "identity": "RDXCOLOR",
+              "leather_wire_byte": 46,
+              "cre_sha256": "36aa0479247aa26a11aeec68bd8aaf7e0bfe70ea4e09a62ad588e23784fbd5dc",
+              "position": [
+                3720,
+                2850
+              ],
+              "effects": 0,
+              "items": 0,
+              "scripts": [
+                "",
+                "",
+                "",
+                "",
+                ""
+              ],
+              "scope": "Serialized CRE byte only; initial/fresh-reloaded runtime palette is not observed here."
+            },
+            "markers": {
+              "RDXCCASE": 2,
+              "RDXCNONCE": 1455348314,
+              "RDXCSTAGE": 2,
+              "RDXCREADY": 1
+            },
+            "base": 774778414,
+            "modified": 774778414,
+            "clock": {
+              "before": 32717,
+              "after": 32895,
+              "samples": 49,
+              "running_samples": 40
+            },
+            "raw": {
+              "clock-after.state.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\ordinary-low\\create\\capture\\clock-after.state.json",
+                "bytes": 703010,
+                "sha256": "a2cd18316e734b476d469233b5538d7ab79d83d4952a8045f0c05c9970b2d7c0"
+              },
+              "clock-before.state.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\ordinary-low\\create\\capture\\clock-before.state.json",
+                "bytes": 702961,
+                "sha256": "dcc4b1d3ddf93a57725cd7597adff0b98c93bd56a061b0c3d255c09c8b4d3fc0"
+              },
+              "clock-samples.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\ordinary-low\\create\\capture\\clock-samples.json",
+                "bytes": 6124,
+                "sha256": "dbb077de42ecb5af8aac181685817aca4e58eabcdf82ecbc6dce9dfd0b65695a"
+              },
+              "color-after-save.state.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\ordinary-low\\create\\capture\\color-after-save.state.json",
+                "bytes": 703010,
+                "sha256": "a2cd18316e734b476d469233b5538d7ab79d83d4952a8045f0c05c9970b2d7c0"
+              },
+              "color-before-save.state.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\ordinary-low\\create\\capture\\color-before-save.state.json",
+                "bytes": 703010,
+                "sha256": "a2cd18316e734b476d469233b5538d7ab79d83d4952a8045f0c05c9970b2d7c0"
+              },
+              "color-save-result.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\ordinary-low\\create\\capture\\color-save-result.json",
+                "bytes": 309,
+                "sha256": "6b5ffd7905cfb55c8306eb0838385089cb847dcad2f39d72659432ae2fb55007"
+              },
+              "events.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\ordinary-low\\create\\capture\\events.json",
+                "bytes": 102,
+                "sha256": "0c643d5bd22e3daf81cc654bfd84e43899afed9306758e9744e24891f6eb7214"
+              },
+              "gui-result.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\ordinary-low\\create\\capture\\gui-result.json",
+                "bytes": 141,
+                "sha256": "5c25ae276a821c4b67d3922c5829cabe7706965f162499af3c31348402648879"
+              }
+            },
+            "private_game_validation": {
+              "clean_game_inventory_unchanged": true,
+              "clean_game_root_hashes_unchanged": true,
+              "copied_immutable_inputs_unchanged": true,
+              "allowed_private_root_changes": {
+                "GemRB.log": {
+                  "before_sha256": "c298eb067db2c6c619c7791afc9b6fc0997a5dba9bd5bd03d6718f2facbbf6a7",
+                  "after_sha256": "0a5f3a72c0eacfee3ab84a7f6ccb8a756c2afd426b3aa71a8b66b58aae928e89"
+                }
+              },
+              "linked_asset_content_fully_hashed": false
+            }
+          },
+          {
+            "id": "reload-1",
+            "pid": 5564,
+            "save_files": {
+              "baldur.bmp": {
+                "bytes": 93690,
+                "sha256": "cf895d4396b5805d8e789be67543cd067d7a1b736fb9b04972e61e39fcf188dc"
+              },
+              "baldur.gam": {
+                "bytes": 69960,
+                "sha256": "a97c8da57d734238fbbbbb31c33c67a4c2131f872bf48ffe2f8c93384881057f"
+              },
+              "baldur.sav": {
+                "bytes": 19441,
+                "sha256": "7dd94b9f8e46e3762c66d9b84eec71048f37dffeabbe333a3cc2174fddceb6d7"
+              },
+              "PORTRT0.bmp": {
+                "bytes": 13830,
+                "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+              },
+              "PORTRT1.bmp": {
+                "bytes": 13830,
+                "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+              }
+            },
+            "wire": {
+              "actor_index": 33,
+              "identity": "RDXCOLOR",
+              "leather_wire_byte": 46,
+              "cre_sha256": "36aa0479247aa26a11aeec68bd8aaf7e0bfe70ea4e09a62ad588e23784fbd5dc",
+              "position": [
+                3720,
+                2850
+              ],
+              "effects": 0,
+              "items": 0,
+              "scripts": [
+                "",
+                "",
+                "",
+                "",
+                ""
+              ],
+              "scope": "Serialized CRE byte only; initial/fresh-reloaded runtime palette is not observed here."
+            },
+            "markers": {
+              "RDXCCASE": 2,
+              "RDXCNONCE": 1455348314,
+              "RDXCSTAGE": 2,
+              "RDXCREADY": 1
+            },
+            "base": 774778414,
+            "modified": 774778414,
+            "clock": {
+              "before": 32897,
+              "after": 33073,
+              "samples": 49,
+              "running_samples": 40
+            },
+            "raw": {
+              "clock-after.state.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\ordinary-low\\reload-1\\capture\\clock-after.state.json",
+                "bytes": 703073,
+                "sha256": "656aae1cfb71a5bce71d06ce7781da8acc297b05638b3105604d2fa57d95406f"
+              },
+              "clock-before.state.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\ordinary-low\\reload-1\\capture\\clock-before.state.json",
+                "bytes": 703073,
+                "sha256": "d95dbb01e9aa645987f5f57ee4d9b2e0d31c4bc3ec055ce95991c61a2b6cd10f"
+              },
+              "clock-samples.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\ordinary-low\\reload-1\\capture\\clock-samples.json",
+                "bytes": 6124,
+                "sha256": "8551d92d9a72db76d2712d9c607d4cdeca54a42b5caa7c0f019ed436759625b9"
+              },
+              "color-after-save.state.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\ordinary-low\\reload-1\\capture\\color-after-save.state.json",
+                "bytes": 703073,
+                "sha256": "656aae1cfb71a5bce71d06ce7781da8acc297b05638b3105604d2fa57d95406f"
+              },
+              "color-before-save.state.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\ordinary-low\\reload-1\\capture\\color-before-save.state.json",
+                "bytes": 703073,
+                "sha256": "656aae1cfb71a5bce71d06ce7781da8acc297b05638b3105604d2fa57d95406f"
+              },
+              "color-save-result.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\ordinary-low\\reload-1\\capture\\color-save-result.json",
+                "bytes": 311,
+                "sha256": "3dc68551152d050892765fde441750a4948896be420638b7037d970b6776130d"
+              },
+              "events.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\ordinary-low\\reload-1\\capture\\events.json",
+                "bytes": 102,
+                "sha256": "0c643d5bd22e3daf81cc654bfd84e43899afed9306758e9744e24891f6eb7214"
+              },
+              "gui-result.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\ordinary-low\\reload-1\\capture\\gui-result.json",
+                "bytes": 141,
+                "sha256": "5c25ae276a821c4b67d3922c5829cabe7706965f162499af3c31348402648879"
+              }
+            },
+            "private_game_validation": {
+              "clean_game_inventory_unchanged": true,
+              "clean_game_root_hashes_unchanged": true,
+              "copied_immutable_inputs_unchanged": true,
+              "allowed_private_root_changes": {
+                "GemRB.log": {
+                  "before_sha256": "c298eb067db2c6c619c7791afc9b6fc0997a5dba9bd5bd03d6718f2facbbf6a7",
+                  "after_sha256": "f89734c7b5c9e4fc0512fa3582de58a419824e86cc1d23ac00b9f83629b02b5e"
+                }
+              },
+              "linked_asset_content_fully_hashed": false
+            }
+          },
+          {
+            "id": "reload-2",
+            "pid": 2312,
+            "save_files": {
+              "baldur.bmp": {
+                "bytes": 93690,
+                "sha256": "50e528bbc702848bb5a171b1e2cc9dae2349dd4bf8bce8ffcce79156f7e85c05"
+              },
+              "baldur.gam": {
+                "bytes": 69960,
+                "sha256": "76e0bad78b2f50ea0857e0cf976d8c4dc0b4c9ecb2ea9546dc7c35a58c2cb1a7"
+              },
+              "baldur.sav": {
+                "bytes": 19443,
+                "sha256": "dd5bdf170af4d2a726e69cc1352e84b4776774c86b704ad54cfcc76b62957b5c"
+              },
+              "PORTRT0.bmp": {
+                "bytes": 13830,
+                "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+              },
+              "PORTRT1.bmp": {
+                "bytes": 13830,
+                "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+              }
+            },
+            "wire": {
+              "actor_index": 33,
+              "identity": "RDXCOLOR",
+              "leather_wire_byte": 46,
+              "cre_sha256": "36aa0479247aa26a11aeec68bd8aaf7e0bfe70ea4e09a62ad588e23784fbd5dc",
+              "position": [
+                3720,
+                2850
+              ],
+              "effects": 0,
+              "items": 0,
+              "scripts": [
+                "",
+                "",
+                "",
+                "",
+                ""
+              ],
+              "scope": "Serialized CRE byte only; initial/fresh-reloaded runtime palette is not observed here."
+            },
+            "markers": {
+              "RDXCCASE": 2,
+              "RDXCNONCE": 1455348314,
+              "RDXCSTAGE": 2,
+              "RDXCREADY": 1
+            },
+            "base": 774778414,
+            "modified": 774778414,
+            "clock": {
+              "before": 33062,
+              "after": 33240,
+              "samples": 49,
+              "running_samples": 40
+            },
+            "raw": {
+              "clock-after.state.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\ordinary-low\\reload-2\\capture\\clock-after.state.json",
+                "bytes": 702986,
+                "sha256": "0a20ed708e4ad462f9e0fa1738ae10b47b52c37fa207fb2868c0808eb292a43d"
+              },
+              "clock-before.state.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\ordinary-low\\reload-2\\capture\\clock-before.state.json",
+                "bytes": 702986,
+                "sha256": "77a1ecf443f7a2c609d2cd68c37c288d3ce6b51f85d77797ff713b10b3b2271e"
+              },
+              "clock-samples.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\ordinary-low\\reload-2\\capture\\clock-samples.json",
+                "bytes": 6124,
+                "sha256": "47c07a44e78236e49580f9df4da74439d6ebadf38f7f10fe95e4f1f5e08b43a0"
+              },
+              "color-after-save.state.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\ordinary-low\\reload-2\\capture\\color-after-save.state.json",
+                "bytes": 702986,
+                "sha256": "0a20ed708e4ad462f9e0fa1738ae10b47b52c37fa207fb2868c0808eb292a43d"
+              },
+              "color-before-save.state.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\ordinary-low\\reload-2\\capture\\color-before-save.state.json",
+                "bytes": 702986,
+                "sha256": "0a20ed708e4ad462f9e0fa1738ae10b47b52c37fa207fb2868c0808eb292a43d"
+              },
+              "color-save-result.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\ordinary-low\\reload-2\\capture\\color-save-result.json",
+                "bytes": 311,
+                "sha256": "c2bf3ba3c26f07a0e6d08d3cfb153b7ec423f2383f76e94ebac4056f7eebaefc"
+              },
+              "events.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\ordinary-low\\reload-2\\capture\\events.json",
+                "bytes": 102,
+                "sha256": "0c643d5bd22e3daf81cc654bfd84e43899afed9306758e9744e24891f6eb7214"
+              },
+              "gui-result.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\ordinary-low\\reload-2\\capture\\gui-result.json",
+                "bytes": 141,
+                "sha256": "5c25ae276a821c4b67d3922c5829cabe7706965f162499af3c31348402648879"
+              }
+            },
+            "private_game_validation": {
+              "clean_game_inventory_unchanged": true,
+              "clean_game_root_hashes_unchanged": true,
+              "copied_immutable_inputs_unchanged": true,
+              "allowed_private_root_changes": {
+                "GemRB.log": {
+                  "before_sha256": "c298eb067db2c6c619c7791afc9b6fc0997a5dba9bd5bd03d6718f2facbbf6a7",
+                  "after_sha256": "0e9999fa4f65a5890e3682d1b63edd5adcf0703456a2994ebbcdd5dd8f0b9872"
+                }
+              },
+              "linked_asset_content_fully_hashed": false
+            }
+          }
+        ],
+        "wire_sequence": [
+          46,
+          46,
+          46
+        ],
+        "runtime_base_sequence": [
+          774778414,
+          774778414,
+          774778414
+        ],
+        "scope": "Candidate-only observed control. Original control unobserved; stock selector outcomes are observations, not fixed expected values."
+      },
+      {
+        "id": "stock-fresh-selector",
+        "stages": [
+          {
+            "id": "create",
+            "pid": 6760,
+            "save_files": {
+              "baldur.bmp": {
+                "bytes": 93690,
+                "sha256": "b5eb43536bd994518455a311932082ba574b58fc22fedb6733e14cb6eb8cd7da"
+              },
+              "baldur.gam": {
+                "bytes": 69960,
+                "sha256": "20aa7d1e16adbea4a098b1d2adad491124058b107b2399d879c05a3b7af1acfe"
+              },
+              "baldur.sav": {
+                "bytes": 19448,
+                "sha256": "754d327b1b29d0e0e3da24c5b15fc6ec3c48e046517dc4c27231e42129a6b307"
+              },
+              "PORTRT0.bmp": {
+                "bytes": 13830,
+                "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+              },
+              "PORTRT1.bmp": {
+                "bytes": 13830,
+                "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+              }
+            },
+            "wire": {
+              "actor_index": 33,
+              "identity": "RDXCOLOR",
+              "leather_wire_byte": 209,
+              "cre_sha256": "707c7ec3087108dcd4bb1d273ad4200a75378b773699861fc24d8cbd7483f4a4",
+              "position": [
+                3720,
+                2850
+              ],
+              "effects": 0,
+              "items": 0,
+              "scripts": [
+                "",
+                "",
+                "",
+                "",
+                ""
+              ],
+              "scope": "Serialized CRE byte only; initial/fresh-reloaded runtime palette is not observed here."
+            },
+            "markers": {
+              "RDXCCASE": 3,
+              "RDXCNONCE": 1455348314,
+              "RDXCSTAGE": 2,
+              "RDXCREADY": 1
+            },
+            "base": 3520188881,
+            "modified": 3520188881,
+            "clock": {
+              "before": 32717,
+              "after": 32895,
+              "samples": 49,
+              "running_samples": 40
+            },
+            "raw": {
+              "clock-after.state.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\stock-fresh-selector\\create\\capture\\clock-after.state.json",
+                "bytes": 703017,
+                "sha256": "9d36245b46625a4469675ab89a16bfdf8168544f911764803376bb94806baecc"
+              },
+              "clock-before.state.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\stock-fresh-selector\\create\\capture\\clock-before.state.json",
+                "bytes": 702968,
+                "sha256": "5a2b4f653137dc522e60fbe80ffd2104d7d4aa1a410d7df4c636ffe8bdb4c870"
+              },
+              "clock-samples.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\stock-fresh-selector\\create\\capture\\clock-samples.json",
+                "bytes": 6124,
+                "sha256": "9f1663dd75d06097a622564af456c9b8d2d5ca770139547897007562d95f7276"
+              },
+              "color-after-save.state.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\stock-fresh-selector\\create\\capture\\color-after-save.state.json",
+                "bytes": 703017,
+                "sha256": "9d36245b46625a4469675ab89a16bfdf8168544f911764803376bb94806baecc"
+              },
+              "color-before-save.state.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\stock-fresh-selector\\create\\capture\\color-before-save.state.json",
+                "bytes": 703017,
+                "sha256": "9d36245b46625a4469675ab89a16bfdf8168544f911764803376bb94806baecc"
+              },
+              "color-save-result.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\stock-fresh-selector\\create\\capture\\color-save-result.json",
+                "bytes": 317,
+                "sha256": "a71b34a9b0be680c88b68d7b9e7380cf8ac04d8ba722bb5bbeb03056c6a5037d"
+              },
+              "events.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\stock-fresh-selector\\create\\capture\\events.json",
+                "bytes": 102,
+                "sha256": "0c643d5bd22e3daf81cc654bfd84e43899afed9306758e9744e24891f6eb7214"
+              },
+              "gui-result.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\stock-fresh-selector\\create\\capture\\gui-result.json",
+                "bytes": 141,
+                "sha256": "5c25ae276a821c4b67d3922c5829cabe7706965f162499af3c31348402648879"
+              }
+            },
+            "private_game_validation": {
+              "clean_game_inventory_unchanged": true,
+              "clean_game_root_hashes_unchanged": true,
+              "copied_immutable_inputs_unchanged": true,
+              "allowed_private_root_changes": {
+                "GemRB.log": {
+                  "before_sha256": "c298eb067db2c6c619c7791afc9b6fc0997a5dba9bd5bd03d6718f2facbbf6a7",
+                  "after_sha256": "740b010bc29040fc6e5f2d94997a3b9e62fac398dba4dda9b9d35c24c93e5f73"
+                }
+              },
+              "linked_asset_content_fully_hashed": false
+            }
+          },
+          {
+            "id": "reload-1",
+            "pid": 4888,
+            "save_files": {
+              "baldur.bmp": {
+                "bytes": 93690,
+                "sha256": "e299bda7a85bf3a73508df35f9204b9e804659965956af0c3c9c114674febec0"
+              },
+              "baldur.gam": {
+                "bytes": 69960,
+                "sha256": "fcdd390a123cbd2f03cf6061407c4f74f4ac590039456e0f1b5bd602f60eefcb"
+              },
+              "baldur.sav": {
+                "bytes": 19440,
+                "sha256": "8329504ca8baa31e4e2e9015a0886464446cd94060007570231b19aa3915c551"
+              },
+              "PORTRT0.bmp": {
+                "bytes": 13830,
+                "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+              },
+              "PORTRT1.bmp": {
+                "bytes": 13830,
+                "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+              }
+            },
+            "wire": {
+              "actor_index": 33,
+              "identity": "RDXCOLOR",
+              "leather_wire_byte": 91,
+              "cre_sha256": "4e69c2f8a9594fc60218dea277de3832face840db1149f72c7c028c2d277f4fe",
+              "position": [
+                3720,
+                2850
+              ],
+              "effects": 0,
+              "items": 0,
+              "scripts": [
+                "",
+                "",
+                "",
+                "",
+                ""
+              ],
+              "scope": "Serialized CRE byte only; initial/fresh-reloaded runtime palette is not observed here."
+            },
+            "markers": {
+              "RDXCCASE": 3,
+              "RDXCNONCE": 1455348314,
+              "RDXCSTAGE": 2,
+              "RDXCREADY": 1
+            },
+            "base": 1532713819,
+            "modified": 1532713819,
+            "clock": {
+              "before": 32897,
+              "after": 33074,
+              "samples": 49,
+              "running_samples": 40
+            },
+            "raw": {
+              "clock-after.state.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\stock-fresh-selector\\reload-1\\capture\\clock-after.state.json",
+                "bytes": 703017,
+                "sha256": "bb44dea170bd3820a2b38a4821a7e76accfa8903478fb041d98125963354fe15"
+              },
+              "clock-before.state.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\stock-fresh-selector\\reload-1\\capture\\clock-before.state.json",
+                "bytes": 703017,
+                "sha256": "388e4e62ace7479bd500253c8199f43db2a1750c24234e2473252d602815443f"
+              },
+              "clock-samples.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\stock-fresh-selector\\reload-1\\capture\\clock-samples.json",
+                "bytes": 6124,
+                "sha256": "739b5fd599a7e78f5a9a8ba87a4e1a97237eec99122402e568331a77407f4b33"
+              },
+              "color-after-save.state.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\stock-fresh-selector\\reload-1\\capture\\color-after-save.state.json",
+                "bytes": 703017,
+                "sha256": "bb44dea170bd3820a2b38a4821a7e76accfa8903478fb041d98125963354fe15"
+              },
+              "color-before-save.state.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\stock-fresh-selector\\reload-1\\capture\\color-before-save.state.json",
+                "bytes": 703017,
+                "sha256": "bb44dea170bd3820a2b38a4821a7e76accfa8903478fb041d98125963354fe15"
+              },
+              "color-save-result.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\stock-fresh-selector\\reload-1\\capture\\color-save-result.json",
+                "bytes": 319,
+                "sha256": "f0acd2b46c5519b3bdefe1a873228899885084373362f9da119939febec66124"
+              },
+              "events.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\stock-fresh-selector\\reload-1\\capture\\events.json",
+                "bytes": 102,
+                "sha256": "0c643d5bd22e3daf81cc654bfd84e43899afed9306758e9744e24891f6eb7214"
+              },
+              "gui-result.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\stock-fresh-selector\\reload-1\\capture\\gui-result.json",
+                "bytes": 141,
+                "sha256": "5c25ae276a821c4b67d3922c5829cabe7706965f162499af3c31348402648879"
+              }
+            },
+            "private_game_validation": {
+              "clean_game_inventory_unchanged": true,
+              "clean_game_root_hashes_unchanged": true,
+              "copied_immutable_inputs_unchanged": true,
+              "allowed_private_root_changes": {
+                "GemRB.log": {
+                  "before_sha256": "c298eb067db2c6c619c7791afc9b6fc0997a5dba9bd5bd03d6718f2facbbf6a7",
+                  "after_sha256": "0799c8eeecd88594c153c33a3fc679500d3228e37efa2d64d8a9055014ae791e"
+                }
+              },
+              "linked_asset_content_fully_hashed": false
+            }
+          },
+          {
+            "id": "reload-2",
+            "pid": 13164,
+            "save_files": {
+              "baldur.bmp": {
+                "bytes": 93690,
+                "sha256": "0710e5fa5d2fef632a7c6a316c0fcdbf94830e264038f92e84cb7e56e50b29f0"
+              },
+              "baldur.gam": {
+                "bytes": 69960,
+                "sha256": "6e8743b31d5d13bc8d6dfeec0cd547085d485d17a7a3560b5e7ab22b732212c5"
+              },
+              "baldur.sav": {
+                "bytes": 19442,
+                "sha256": "70892b9a456694eb7ee06a135a816af023ecc92b70840b2c3eef91fd9da33497"
+              },
+              "PORTRT0.bmp": {
+                "bytes": 13830,
+                "sha256": "b2b3bc7efc8c070ebe25d7bde861bb5ed69ac3de54b88f460deca58682759f3e"
+              },
+              "PORTRT1.bmp": {
+                "bytes": 13830,
+                "sha256": "1052a71bf30f39d4c773112146ee32030b74c7c5dbc95c85733a5da539a0d4e2"
+              }
+            },
+            "wire": {
+              "actor_index": 33,
+              "identity": "RDXCOLOR",
+              "leather_wire_byte": 91,
+              "cre_sha256": "4e69c2f8a9594fc60218dea277de3832face840db1149f72c7c028c2d277f4fe",
+              "position": [
+                3720,
+                2850
+              ],
+              "effects": 0,
+              "items": 0,
+              "scripts": [
+                "",
+                "",
+                "",
+                "",
+                ""
+              ],
+              "scope": "Serialized CRE byte only; initial/fresh-reloaded runtime palette is not observed here."
+            },
+            "markers": {
+              "RDXCCASE": 3,
+              "RDXCNONCE": 1455348314,
+              "RDXCSTAGE": 2,
+              "RDXCREADY": 1
+            },
+            "base": 1532713819,
+            "modified": 1532713819,
+            "clock": {
+              "before": 33062,
+              "after": 33240,
+              "samples": 49,
+              "running_samples": 40
+            },
+            "raw": {
+              "clock-after.state.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\stock-fresh-selector\\reload-2\\capture\\clock-after.state.json",
+                "bytes": 703127,
+                "sha256": "5709ea696eb37f940969956bf49b620f4460ff3b194a6e2156d4e85de2aafe58"
+              },
+              "clock-before.state.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\stock-fresh-selector\\reload-2\\capture\\clock-before.state.json",
+                "bytes": 703127,
+                "sha256": "dafb175d3e71261f759229ee0ff82c4b99e4bcf973fb49fe708cb121e15d275f"
+              },
+              "clock-samples.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\stock-fresh-selector\\reload-2\\capture\\clock-samples.json",
+                "bytes": 6124,
+                "sha256": "19609eda86dbce923932574204d6e4334eb5265c80f802481133ce5162d5b591"
+              },
+              "color-after-save.state.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\stock-fresh-selector\\reload-2\\capture\\color-after-save.state.json",
+                "bytes": 703127,
+                "sha256": "5709ea696eb37f940969956bf49b620f4460ff3b194a6e2156d4e85de2aafe58"
+              },
+              "color-before-save.state.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\stock-fresh-selector\\reload-2\\capture\\color-before-save.state.json",
+                "bytes": 703127,
+                "sha256": "5709ea696eb37f940969956bf49b620f4460ff3b194a6e2156d4e85de2aafe58"
+              },
+              "color-save-result.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\stock-fresh-selector\\reload-2\\capture\\color-save-result.json",
+                "bytes": 319,
+                "sha256": "f49b0a2aac08f24fe3bd32b34ab78bd65e55e7d5585fb4f3106233ab87d8b8a7"
+              },
+              "events.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\stock-fresh-selector\\reload-2\\capture\\events.json",
+                "bytes": 102,
+                "sha256": "0c643d5bd22e3daf81cc654bfd84e43899afed9306758e9744e24891f6eb7214"
+              },
+              "gui-result.json": {
+                "path": "C:\\BGRedux\\phase1-local\\results\\20261022T025618Z-native-color-journey-e1b408b0\\stock-fresh-selector\\reload-2\\capture\\gui-result.json",
+                "bytes": 141,
+                "sha256": "5c25ae276a821c4b67d3922c5829cabe7706965f162499af3c31348402648879"
+              }
+            },
+            "private_game_validation": {
+              "clean_game_inventory_unchanged": true,
+              "clean_game_root_hashes_unchanged": true,
+              "copied_immutable_inputs_unchanged": true,
+              "allowed_private_root_changes": {
+                "GemRB.log": {
+                  "before_sha256": "c298eb067db2c6c619c7791afc9b6fc0997a5dba9bd5bd03d6718f2facbbf6a7",
+                  "after_sha256": "a3d32b9789a0e5ca67dba955aef97a25295c963d95225bde39b9feabdaa55646"
+                }
+              },
+              "linked_asset_content_fully_hashed": false
+            }
+          }
+        ],
+        "wire_sequence": [
+          209,
+          91,
+          91
+        ],
+        "runtime_base_sequence": [
+          3520188881,
+          1532713819,
+          1532713819
+        ],
+        "scope": "Candidate-only observed control. Original control unobserved; stock selector outcomes are observations, not fixed expected values."
+      }
+    ],
+    "original_controls_observed": false
+  },
+  "original_installed_inputs_rehashed": {
+    "fixture": {
+      "BALDUR.bmp": {
+        "bytes": 65590,
+        "sha256": "b5edf63cb6a13f46c04af68e352a51c376a99ef30f58ef529b732d6d5f5da15a"
+      },
+      "BALDUR.gam": {
+        "bytes": 69372,
+        "sha256": "6f64a4d3cf30baddfd8800a66e49e35e67cd03504227396f89279e6662fdd142"
+      },
+      "BALDUR.SAV": {
+        "bytes": 20438,
+        "sha256": "43f8b46c1dedd77e89e7730b916490b1d8f67a201aebba95ed8ab5ca446195d3"
+      },
+      "PORTRT0.bmp": {
+        "bytes": 13830,
+        "sha256": "7dfb6b8d7b5f1984b10b8648abea9a3291aa795714ab6ccaf90374f2abfa110e"
+      },
+      "PORTRT1.bmp": {
+        "bytes": 13830,
+        "sha256": "3daa9908591acfd191a0755b11a95060c7d83625d8407017db3456c771544211"
+      },
+      "save_000000033-GemRB.cloud.meta": {
+        "bytes": 10,
+        "sha256": "7682bf3b4122690682c69fbf6412fccd6d4907d1a95fe1c2d4be44c13fc8e33c"
+      }
+    },
+    "override": {
+      "CEDA5A01.bcs": {
+        "bytes": 1082,
+        "sha256": "229aed6c65680ac0668bd57acb69e475b9cb9ac157cdcd8e1c85ed83203d7ecf"
+      },
+      "RANDCOLR.2da": {
+        "bytes": 15917,
+        "sha256": "854de0203f0086f3a7e4573ab50b03666586517fb2a4b3d57b1571acf6a3bee6"
+      },
+      "RDXCOLOR.cre": {
+        "bytes": 1988,
+        "sha256": "b9e9a2a7698662b41daac840cb531fc9948c2195ab2f83a6e6b1892afc1e1ec6"
+      }
+    },
+    "executable_sha256": "b51093a49140b2b8a7c046b4652bb8e535be24ebbc12b1d735e0b94217a14d57"
+  }
+}
