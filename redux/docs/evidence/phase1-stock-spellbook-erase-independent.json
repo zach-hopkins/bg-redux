@@ -1,0 +1,607 @@
+{
+  "schema": "bg-redux-independent-stock-spellbook-erase-audit/1",
+  "passed": true,
+  "raw_result": "C:\\BGRedux\\phase1-local\\results\\20261022T103257Z-spellbook-erase-ee-direct-05d986b6\\result.json",
+  "result_sha256": "28ca5af36013ddb91e0f635788a3bd8ea480bb3db7925bbc9f2411e22855947e",
+  "manifest_sha256": "33b045c4325ec59a6a8e76f79a57821551c380e591763b8948ab2dc3c202aae9",
+  "artifacts_rehashed": 896,
+  "source_closure": 74,
+  "engine_build_binding": {
+    "receipt_sha256": "c080bca9aea2e196ff6167f15dd5552e20962c6c38929c35c049666e2a0b88d2",
+    "source_files": 3509,
+    "binaries": 61,
+    "support_files": 5
+  },
+  "stages": [
+    {
+      "mode": "operate",
+      "pid": 16188,
+      "exit_code": 0,
+      "elapsed_seconds": 61.372,
+      "callbacks": 14,
+      "captures": 6,
+      "steps": 16,
+      "nonce": "dae5ebc6d93041e49443ec5d4bc8b942",
+      "capture_names": [
+        "mage.before",
+        "mage.information",
+        "mage.confirmation",
+        "mage.after-cancel",
+        "mage.confirmation-again",
+        "mage.after-erase"
+      ]
+    },
+    {
+      "mode": "reload",
+      "pid": 888,
+      "exit_code": 0,
+      "elapsed_seconds": 31.141,
+      "callbacks": 6,
+      "captures": 1,
+      "steps": 6,
+      "nonce": "9a28e5be01894e5390fc8902c1ebf92f",
+      "capture_names": [
+        "mage.before"
+      ]
+    }
+  ],
+  "intended_target": "SPWI213",
+  "token_resolutions": [
+    {
+      "capture": 2,
+      "nonce": "dae5ebc6d93041e49443ec5d4bc8b942",
+      "raw_description_ref": 12181,
+      "raw_description_sha256": "15cc55d237cb8b39364049a5891668a68ec0026cf5146c39dbea8867fa4a192c",
+      "expected_description_sha256": "5b70af68d980aec28eab12749dfc0db5d6fdb11fd50ace1664af389029ab0c80",
+      "actor_runtime_id": 10002,
+      "slot": 0,
+      "protagonist_sex": 1,
+      "selected_imoen_sex": 2,
+      "word_ref": 27486,
+      "word": "his",
+      "occurrences": 1
+    },
+    {
+      "capture": 3,
+      "nonce": "dae5ebc6d93041e49443ec5d4bc8b942",
+      "raw_description_ref": 12181,
+      "raw_description_sha256": "15cc55d237cb8b39364049a5891668a68ec0026cf5146c39dbea8867fa4a192c",
+      "expected_description_sha256": "5b70af68d980aec28eab12749dfc0db5d6fdb11fd50ace1664af389029ab0c80",
+      "actor_runtime_id": 10002,
+      "slot": 0,
+      "protagonist_sex": 1,
+      "selected_imoen_sex": 2,
+      "word_ref": 27486,
+      "word": "his",
+      "occurrences": 1
+    },
+    {
+      "capture": 4,
+      "nonce": "dae5ebc6d93041e49443ec5d4bc8b942",
+      "raw_description_ref": 12181,
+      "raw_description_sha256": "15cc55d237cb8b39364049a5891668a68ec0026cf5146c39dbea8867fa4a192c",
+      "expected_description_sha256": "5b70af68d980aec28eab12749dfc0db5d6fdb11fd50ace1664af389029ab0c80",
+      "actor_runtime_id": 10002,
+      "slot": 0,
+      "protagonist_sex": 1,
+      "selected_imoen_sex": 2,
+      "word_ref": 27486,
+      "word": "his",
+      "occurrences": 1
+    },
+    {
+      "capture": 5,
+      "nonce": "dae5ebc6d93041e49443ec5d4bc8b942",
+      "raw_description_ref": 12181,
+      "raw_description_sha256": "15cc55d237cb8b39364049a5891668a68ec0026cf5146c39dbea8867fa4a192c",
+      "expected_description_sha256": "5b70af68d980aec28eab12749dfc0db5d6fdb11fd50ace1664af389029ab0c80",
+      "actor_runtime_id": 10002,
+      "slot": 0,
+      "protagonist_sex": 1,
+      "selected_imoen_sex": 2,
+      "word_ref": 27486,
+      "word": "his",
+      "occurrences": 1
+    }
+  ],
+  "token_table": {
+    "provider": "C:\\BGRedux\\phase1-local\\engine\\gemrb\\unhardcoded\\bg2ee\\gender.2da",
+    "sha256": "fc7f5f95df9ebe380307fa453f0110ba8a5a5f441736f4ee70e4cdcab190d8e4",
+    "row": [
+      "PRO_HISHER",
+      "0",
+      "27486",
+      "27487"
+    ],
+    "tlk_sha256": "9e685225ff3c3436a8a35fa7022550620d24a92efe35436a062c02955d9f0952"
+  },
+  "retained_failures": [
+    {
+      "path": "C:\\BGRedux\\phase1-local\\results\\20261022T102210Z-spellbook-erase-ee-direct-1bd64447\\result.json",
+      "sha256": "8b5730d36716561ba79b017f569b52cd15df171253331bd318b6e76a69bbddf1",
+      "error": "Information modal shows another spell/description"
+    },
+    {
+      "path": "C:\\BGRedux\\phase1-local\\spellbook-probes\\erase-before-2\\build.json",
+      "sha256": "831e5f10164414daa68dd35de8b24da8181f7fbc4aba6074be67db5e42b55a53",
+      "error": "[Errno 2] No such file or directory: 'C:\\\\BGRedux\\\\phase1-local\\\\engine\\\\gemrb\\\\core\\\\TableMgr.cpp'"
+    }
+  ],
+  "auditor_sha256": "a4c8d0020a9ce36228bb0e59f46c55b23a6b0b13e9669038ae7068d1bec5b003",
+  "limits": [
+    "No source validator imports or engine/runtime/test/build launches",
+    "Stock sorting only; nonidentity erase separate",
+    "No original erasure parity",
+    "Pronoun is protagonist modifiedsex context, not selected female caster",
+    "Exact known reverse wire mapping; memo direct; all other pages/slots/world retained"
+  ],
+  "known_before_sha256": "f5012f15cb10da4cbc150a84dcc6aacaf6858c28ecfe8ac80a63d6d13f790db4",
+  "known_before_nonempty_pages": [
+    {
+      "type": 1,
+      "level": 0,
+      "slots": 4,
+      "bonus": 4,
+      "known": [
+        {
+          "resref": "SPWI112",
+          "level": 0,
+          "type": 1
+        },
+        {
+          "resref": "SPWI110",
+          "level": 0,
+          "type": 1
+        },
+        {
+          "resref": "SPWI118",
+          "level": 0,
+          "type": 1
+        },
+        {
+          "resref": "SPWI102",
+          "level": 0,
+          "type": 1
+        }
+      ],
+      "memorized": [
+        {
+          "resref": "SPWI102",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI118",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI110",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI112",
+          "flags": 1
+        }
+      ]
+    },
+    {
+      "type": 1,
+      "level": 1,
+      "slots": 3,
+      "bonus": 3,
+      "known": [
+        {
+          "resref": "SPWI215",
+          "level": 1,
+          "type": 1
+        },
+        {
+          "resref": "SPWI214",
+          "level": 1,
+          "type": 1
+        },
+        {
+          "resref": "SPWI213",
+          "level": 1,
+          "type": 1
+        },
+        {
+          "resref": "SPWI212",
+          "level": 1,
+          "type": 1
+        },
+        {
+          "resref": "SPWI211",
+          "level": 1,
+          "type": 1
+        }
+      ],
+      "memorized": [
+        {
+          "resref": "SPWI213",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI214",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI215",
+          "flags": 1
+        }
+      ]
+    },
+    {
+      "type": 1,
+      "level": 2,
+      "slots": 3,
+      "bonus": 3,
+      "known": [
+        {
+          "resref": "SPWI302",
+          "level": 2,
+          "type": 1
+        },
+        {
+          "resref": "SPWI309",
+          "level": 2,
+          "type": 1
+        },
+        {
+          "resref": "SPWI308",
+          "level": 2,
+          "type": 1
+        },
+        {
+          "resref": "SPWI305",
+          "level": 2,
+          "type": 1
+        },
+        {
+          "resref": "SPWI304",
+          "level": 2,
+          "type": 1
+        }
+      ],
+      "memorized": [
+        {
+          "resref": "SPWI305",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI308",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI309",
+          "flags": 1
+        }
+      ]
+    },
+    {
+      "type": 1,
+      "level": 3,
+      "slots": 2,
+      "bonus": 2,
+      "known": [
+        {
+          "resref": "SPWI408",
+          "level": 3,
+          "type": 1
+        },
+        {
+          "resref": "SPWI406",
+          "level": 3,
+          "type": 1
+        },
+        {
+          "resref": "SPWI405",
+          "level": 3,
+          "type": 1
+        },
+        {
+          "resref": "SPWI418",
+          "level": 3,
+          "type": 1
+        },
+        {
+          "resref": "SPWI403",
+          "level": 3,
+          "type": 1
+        }
+      ],
+      "memorized": [
+        {
+          "resref": "SPWI406",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI408",
+          "flags": 1
+        }
+      ]
+    },
+    {
+      "type": 1,
+      "level": 4,
+      "slots": 0,
+      "bonus": 0,
+      "known": [
+        {
+          "resref": "SPWI504",
+          "level": 4,
+          "type": 1
+        },
+        {
+          "resref": "SPWI506",
+          "level": 4,
+          "type": 1
+        },
+        {
+          "resref": "SPWI508",
+          "level": 4,
+          "type": 1
+        },
+        {
+          "resref": "SPWI513",
+          "level": 4,
+          "type": 1
+        }
+      ],
+      "memorized": []
+    },
+    {
+      "type": 2,
+      "level": 0,
+      "slots": 2,
+      "bonus": 2,
+      "known": [
+        {
+          "resref": "SPCL412",
+          "level": 0,
+          "type": 2
+        }
+      ],
+      "memorized": [
+        {
+          "resref": "SPCL412",
+          "flags": 1
+        },
+        {
+          "resref": "SPCL412",
+          "flags": 1
+        }
+      ]
+    }
+  ],
+  "known_after_sha256": "c990222dbd3a6303fdfb71e8491b8a73bcc36994a011f7214d23fd9353192e8a",
+  "known_after_nonempty_pages": [
+    {
+      "type": 1,
+      "level": 0,
+      "slots": 4,
+      "bonus": 4,
+      "known": [
+        {
+          "resref": "SPWI112",
+          "level": 0,
+          "type": 1
+        },
+        {
+          "resref": "SPWI110",
+          "level": 0,
+          "type": 1
+        },
+        {
+          "resref": "SPWI118",
+          "level": 0,
+          "type": 1
+        },
+        {
+          "resref": "SPWI102",
+          "level": 0,
+          "type": 1
+        }
+      ],
+      "memorized": [
+        {
+          "resref": "SPWI102",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI118",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI110",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI112",
+          "flags": 1
+        }
+      ]
+    },
+    {
+      "type": 1,
+      "level": 1,
+      "slots": 3,
+      "bonus": 3,
+      "known": [
+        {
+          "resref": "SPWI215",
+          "level": 1,
+          "type": 1
+        },
+        {
+          "resref": "SPWI214",
+          "level": 1,
+          "type": 1
+        },
+        {
+          "resref": "SPWI212",
+          "level": 1,
+          "type": 1
+        },
+        {
+          "resref": "SPWI211",
+          "level": 1,
+          "type": 1
+        }
+      ],
+      "memorized": [
+        {
+          "resref": "SPWI214",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI215",
+          "flags": 1
+        }
+      ]
+    },
+    {
+      "type": 1,
+      "level": 2,
+      "slots": 3,
+      "bonus": 3,
+      "known": [
+        {
+          "resref": "SPWI302",
+          "level": 2,
+          "type": 1
+        },
+        {
+          "resref": "SPWI309",
+          "level": 2,
+          "type": 1
+        },
+        {
+          "resref": "SPWI308",
+          "level": 2,
+          "type": 1
+        },
+        {
+          "resref": "SPWI305",
+          "level": 2,
+          "type": 1
+        },
+        {
+          "resref": "SPWI304",
+          "level": 2,
+          "type": 1
+        }
+      ],
+      "memorized": [
+        {
+          "resref": "SPWI305",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI308",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI309",
+          "flags": 1
+        }
+      ]
+    },
+    {
+      "type": 1,
+      "level": 3,
+      "slots": 2,
+      "bonus": 2,
+      "known": [
+        {
+          "resref": "SPWI408",
+          "level": 3,
+          "type": 1
+        },
+        {
+          "resref": "SPWI406",
+          "level": 3,
+          "type": 1
+        },
+        {
+          "resref": "SPWI405",
+          "level": 3,
+          "type": 1
+        },
+        {
+          "resref": "SPWI418",
+          "level": 3,
+          "type": 1
+        },
+        {
+          "resref": "SPWI403",
+          "level": 3,
+          "type": 1
+        }
+      ],
+      "memorized": [
+        {
+          "resref": "SPWI406",
+          "flags": 1
+        },
+        {
+          "resref": "SPWI408",
+          "flags": 1
+        }
+      ]
+    },
+    {
+      "type": 1,
+      "level": 4,
+      "slots": 0,
+      "bonus": 0,
+      "known": [
+        {
+          "resref": "SPWI504",
+          "level": 4,
+          "type": 1
+        },
+        {
+          "resref": "SPWI506",
+          "level": 4,
+          "type": 1
+        },
+        {
+          "resref": "SPWI508",
+          "level": 4,
+          "type": 1
+        },
+        {
+          "resref": "SPWI513",
+          "level": 4,
+          "type": 1
+        }
+      ],
+      "memorized": []
+    },
+    {
+      "type": 2,
+      "level": 0,
+      "slots": 2,
+      "bonus": 2,
+      "known": [
+        {
+          "resref": "SPCL412",
+          "level": 0,
+          "type": 2
+        }
+      ],
+      "memorized": [
+        {
+          "resref": "SPCL412",
+          "flags": 1
+        },
+        {
+          "resref": "SPCL412",
+          "flags": 1
+        }
+      ]
+    }
+  ],
+  "private_audit": "C:\\BGRedux\\phase1-local\\results\\20261022T104225Z-stock-erase-independent-646754b4\\audit.json",
+  "private_audit_sha256": "172e4a1d27e5a536ae32c7b61532f0595c839b928f6cde6d3f2305ad8c6e8348"
+}
