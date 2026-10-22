@@ -5,6 +5,22 @@ Evidence checkpoint: October 22, 2026 UTC, after the completed candidate `9aa69c
 Latest checkpoint: the later sections and linked summaries supersede pending
 descriptions below. Earlier failures and incomplete runs retain their verdicts.
 
+October 22 UTC current-candidate checkpoint: the tracked external tooling suite
+passes **346 Python tests** (`phase1-integrated-tests-20261022T0727.log`), including
+22 focused methods for the promoted TextArea adapter. Candidate
+`20261022T063419Z-candidate-24f35a4e` passes the independently audited
+[normal dialogue and two-resolution menus](phase1-b49-normal-dialogue-menu-audit.md)
+and [direct public selection dialogue](phase1-jaheira-direct-selection-native-audit.md).
+Its fresh source-bound baseline run
+`20261022T072341Z-b49-native-baseline-b6faf631` completes capabilities, vanilla
+import/reloads (24 assertions), and GUI/save/reload (20 assertions), with source,
+binary and input preservation. Capabilities describe the external harness
+protocol; they are not an engine feature probe. The strict cross-build
+compatibility comparison remains `differences`, pending separate review of
+random-color residuals that occurred in the older reference but are absent in
+this run. All raw comparison verdicts remain preserved. These successful
+assertions do not establish full persistence or campaign fidelity.
+
 October22 UTC renderer checkpoint: **301 external Python tests pass**
 (`phase1-integrated-tests-20261022T0520.log`). User-observed stale dialogue choices
 led to a `Window::WillDraw` correction replacing only the active target's repaint
