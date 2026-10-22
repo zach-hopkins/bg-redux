@@ -1,6 +1,6 @@
 # First native menu run: defect disposition
 
-Evidence remains in `C:/BGRedux/phase1-local/results/20261022T010029Z-menu-run-bf0932e2/1024x768`. The first stage completed 124 actions / 67 captures / 128 timer ticks and exited 1. It was not a timeout. Native world and private-game preservation guards passed; content/callback/visual fidelity did not. The second stage was running during this audit; this document does not assign it a verdict.
+Evidence remains in `C:/BGRedux/phase1-local/results/20261022T010029Z-menu-run-bf0932e2`. The 1024×768 stage completed 124 actions / 67 captures / 128 timer ticks and exited 1 with 19 failed checks. It was not a timeout. Native world and private-game preservation guards passed; content/callback/visual fidelity did not. The 1280×960 stage timed out at the 330-second owned-process budget, with 85 of 124 actions retained in `menu-runtime.json` and no `menu-host-result.json`. Owned process cleanup and the private-game preservation guard passed. This second stage is incomplete, not accepted or waived.
 
 ## Production fixes
 
@@ -19,5 +19,7 @@ The menu and hotkey validators now inspect the known native Python bridge error 
 ## Timing and validation
 
 Artifact timestamps show 308.44 seconds from first fonts receipt to host result, and 315.10 seconds from private-game preparation to host result. This workload averages approximately 2.4 seconds per timer tick, including rendering, semantic serialization, screenshots and callbacks. A 250-ms requested timer interval or a count of timer ticks is not a wall-clock upper bound when callback/render work dominates. The existing 330-second owned-process timeout was not reached in stage 1. Future budget changes should use measured complete runs and remain bounded; no assertion or timeout has been retroactively relabelled.
+
+The coordinator's next fresh run will use an explicit 650-second per-stage wall-clock budget: stage 2's observed 85 actions / 330 seconds extrapolates to roughly 482 seconds for 124 actions, with bounded margin. That future budget does not change the retained timeout verdict. The host's guard is a 1200-callback count, not a demonstrated 300-second wall-clock limit; its diagnostic wording is being corrected separately.
 
 External-only correction tests: **15 menu tests and 13 hotkey journey tests pass**, including eligible actor discovery, actual sidebar request, required-caster absence failure, explicit priest context gate and native traceback detection. Production callback fix tests are recorded separately (17 character-sheet / 14 hotkey). The worker did not launch or compile a native host, alter retained results, inject game state to bypass the failing path, or change engine/Font/core source. Native confirmation is pending coordinator integration after the active guard ends.
