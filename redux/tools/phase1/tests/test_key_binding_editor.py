@@ -143,17 +143,28 @@ class UIControl:
 
 
 class UIWindow:
-    def __init__(self): self.controls, self.closed, self.onclose = {}, False, None
+    def __init__(self):
+        self.controls, self.closed, self.onclose = {}, False, None
+        # Match the inherited overlay: a regression must replace its partial
+        # opacity before presenting the editor, rather than hiding another UI.
+        self.background = dict(r=0, g=0, b=0, a=180)
+        self.background_at_show = None
     def GetControl(self, cid):
         if cid not in self.controls: self.controls[cid] = UIControl()
         return self.controls[cid]
     def CreateButton(self, cid, *args): return self.GetControl(cid)
     def CreateLabel(self, cid, *args): return self.GetControl(cid)
-    def CreateTextArea(self, cid, *args): return self.GetControl(cid)
+    def CreateTextArea(self, cid, *args):
+        control = self.GetControl(cid)
+        control.SetFont(args[-1])
+        return control
     def GetFrame(self): return dict(w=1024, h=768)
     def AddAlias(self, *args): pass
     def OnClose(self, callback): self.onclose = callback
-    def ShowModal(self, mode): self.modal = True
+    def SetBackground(self, value): self.background = dict(value)
+    def ShowModal(self, mode):
+        self.background_at_show = dict(self.background)
+        self.modal = True
     def Focus(self): pass
     def Close(self):
         self.closed = True
@@ -189,6 +200,23 @@ class EditorUITests(unittest.TestCase):
         self.assertTrue(self.window.closed)
         self.assertIsNone(self.ui.Editor)
         self.assertFalse((Path(self.temp.name) / "gemrb-keymap.ini").exists())
+
+    def test_full_viewport_editor_is_opaque_before_modal_at_both_resolutions(self):
+        for width, height in ((1024, 768), (1280, 960)):
+            with self.subTest(resolution=(width,height)):
+                self.window.Close()
+                self.window.GetFrame = lambda: dict(w=width,h=height)
+                self.window.background = dict(r=0,g=0,b=0,a=180)
+                self.window.background_at_show = None
+                self.ui.Open()
+                # The fill belongs to the full viewport, not a smaller stock
+                # mosaic or child text field; it is opaque before ShowModal.
+                self.assertEqual(self.window.GetFrame(),dict(w=width,h=height))
+                self.assertEqual(self.window.background_at_show['a'],255)
+                self.assertEqual(self.window.GetControl(6000).font,'NORMAL')
+                self.assertEqual(self.window.GetControl(11).frame,dict(x=width-270,y=height-46,w=120,h=30))
+                self.assertEqual(self.api.current['inventory'],'i')
+                self.assertFalse((Path(self.temp.name)/'gemrb-keymap.ini').exists())
 
     def test_conflict_clear_defaults_and_apply_use_real_callbacks(self):
         self.ui.Select(self.ui.Names.index("inventory"))

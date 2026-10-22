@@ -24,6 +24,9 @@ def Open():
 	Names = sorted(Editor.working)
 	Page = Selected = 0
 	Window = GUIOPTExtra.PrepareBlankWindow("Keyboard Shortcuts", "", [11, 14, 15, 16], [1, 16, 17])
+	# PrepareBlankWindow intentionally uses a translucent overlay for extras.
+	# This full-viewport editor must obscure the still-open Gameplay modal.
+	Window.SetBackground({'r': 0, 'g': 0, 'b': 0, 'a': 255})
 	Window.AddAlias("WIN_KEYS")
 	Window.OnClose(Closed)
 	w, h = Window.GetFrame()["w"], Window.GetFrame()["h"]
