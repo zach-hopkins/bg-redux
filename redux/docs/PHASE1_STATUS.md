@@ -60,12 +60,25 @@ external portrait-callback/content correction now passes both resolutions with
 187 checks and51 captures each in `20261022T061926Z-guarded-recruited-menu-run-0a25d610`;
 the [executed correction](testing/phase1-spellbook-display-selection.md) records
 the prior missing-nonce failure, fresh callback identity, content checks and scope.
-Independent artifact audit remains pending.
+The [independent artifact audit](testing/phase1-caster-menu-native-audit.md)
+passes and retains the faint priest-heading observation and visual scope limits.
 The [independent renderer audit](testing/phase1-window-render-lab-audit.md)
 rechecks the synthetic captures, preservation pins and ordinary-run artifact chain.
 A direct public TextArea selection entry separately exposes
 a [reentrancy defect](compatibility/phase1-textarea-update-state-reentrancy.md);
-the normal selection route passes without an engine change. The bounded
+the complete fifteen-case BEFORE matrix has three passes, seven crashes and five
+contract failures. A reviewed generation/context correction is now applied and
+built in isolated candidate `20261022T063419Z-candidate-24f35a4e`; its fifteen-case
+AFTER matrix passes exact traces/values and world/dictionary preservation.
+The ordinary eleven-branch Jaheira/GUI save/fresh-reload regression also passes
+in `20261022T064605Z-jaheira-dialogue-dbcdba69`, with all preservation guards.
+Independent AFTER audit, real-dialogue direct-API coverage and the fresh menu
+regression remain pending. That fresh candidate's
+[checked string-test locale setup](testing/phase1-string-locale-fixture-fix.md)
+passes the three focused casing tests and the full corrected-CWD core suite:
+231 passed, zero failed, nine skips and six disabled tests. The six other CTest
+executables also pass. The historical locale
+and wrong-CWD failures remain preserved. The bounded
 [Imoen Armor cast](testing/phase1-spell-cast-journey.md) also passes one ordinary
 cast, actual effects and depletion, GUI save/fresh reload/second save, with no
 reload cast. Transitions, broader spell/combat behavior and campaign

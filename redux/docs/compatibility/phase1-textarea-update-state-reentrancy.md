@@ -1,6 +1,8 @@
 # Confirmed direct TextArea::UpdateState selection reentrancy defect
 
-Status: **confirmed native assertion; engine correction unimplemented and unvalidated**. A direct public `TextArea::UpdateState(4)` selection of Jaheira's first response crashes the unchanged candidate core after the response handler replaces the options. The coordinator is separately changing the external ordinary journey to the public selection entry used by mouse/key selection. That adapter change does not fix or close this public-API defect. No complete dialogue, journal effect, save/reload or original-engine parity result follows from either failed run.
+Status: **correction passes the fifteen-case synthetic AFTER matrix and ordinary dialogue/save/reload; direct-API real-dialogue and menu regressions pending**. The [selection regression design and execution](../testing/phase1-textarea-selection-regression-design.md) records the isolated direct-entry reproduction, all fifteen BEFORE cases and the reviewed generation/context source correction. Fresh candidate `20261022T063419Z-candidate-24f35a4e` builds, passes its core suite and all fifteen dedicated cases with world/dictionary preservation. The ordinary eleven-branch Jaheira/GUI save/fresh-reload regression also passes. Independent AFTER artifact audit, a direct-API real-dialogue rerun and the fresh menu regression remain pending. The historical native evidence and unchanged-source analysis below describe the defect before that correction.
+
+A direct public `TextArea::UpdateState(4)` selection of Jaheira's first response crashes the unchanged candidate core after the response handler replaces the options. The separate ordinary journey's use of the public mouse/key selection entry does not fix or close this public-API defect. No complete dialogue, journal effect, save/reload or original-engine parity result follows from either failed run below.
 
 ## Bound native evidence
 
