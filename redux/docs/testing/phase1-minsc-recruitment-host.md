@@ -1,4 +1,24 @@
-# External Minsc recruitment host (source-only delivery)
+# External Minsc recruitment checkpoint
+
+Coordinator execution on October 22 UTC passes in
+`20261022T075243Z-minsc-recruitment-072650e1` (result SHA-256
+`93401ec89b0896ae8c69a846f81314afec75a69af9e62b173fdcd7c4ea8c8e6c`).
+The 22 focused tests pass, the external host builds, and the complete external
+suite passes 368 tests (`phase1-integrated-tests-20261022T0758.log`). Native
+recruitment PID 788 exits zero after 160.027 seconds, with all 21 branches,
+both Imoen interjections, one approach command and two observed stock dialogue
+starts. Zero host talk, door or restart commands are issued. The three prior
+party members' XP changes from `[90500,96500,90000]` to
+`[91500,97500,91000]`; newly joined Minsc retains 90000. Cell02 opens, Boo and
+prior solved quests persist, and an ordinary GUI save produces the exact
+four-member file inventory. Fresh reload PID 14756 exits zero after 27.861
+seconds with no new gameplay command. Source/binary, Phase0 and input guards
+pass. Independent artifact/wire audit remains pending. The coordinator viewed
+the recruited capture showing four portraits and the party experience message;
+this selected visual check does not establish complete layout fidelity.
+
+The source-only delivery description below retains its original proposed
+boundaries; the executed evidence above supersedes its pending execution status.
 
 `minsc_recruitment_journey.py` implements the separate checkpoint described in `phase1-minsc-recruitment-design.md`. It starts only from the exact measured three-party `054005Z-cell-recruitment-ac33ed70/recruit/frozen-save`; its parent result, complete artifact manifest, frozen GAM/SAV and Phase0 ancestor are revalidated. No licensed game assets are published.
 

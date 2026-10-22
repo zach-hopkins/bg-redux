@@ -18,7 +18,7 @@ retained. Fresh private-folder query/cache/control and import/GUI reruns pass
 their preservation guards; the earlier diagnostic-write failure is retained.
 Both selected menu resolutions complete 107 checks and 51 captures. The opaque
 plain-key editor journey and measured calling-thread RNG snapshot cost pass
-their bounded checks. External tooling now passes 346 Python tests. Original
+their bounded checks. External tooling now passes 368 Python tests. Original
 controlled-color ordinary saves and candidate fresh-process saves both show
 237 to 46 to 46; the independently audited comparison establishes shared
 behavior for this controlled input, not a candidate-only persistence defect.
@@ -100,6 +100,10 @@ GUI save and fresh reload in `20261022T054005Z-cell-recruitment-ac33ed70`.
 The [independent recruitment audit](testing/phase1-cell-recruitment-audit.md)
 confirms three-party membership, consumed key, open door, solved quest and actual
 XP persistence. This opening-area checkpoint does not satisfy the campaign gate.
+The subsequent [Minsc checkpoint](testing/phase1-minsc-recruitment-host.md)
+passes all 21 stock dialogue branches, the script-driven second cage opening,
+four-party recruitment, measured XP, GUI save and fresh reload with all guards.
+Independent raw audit is pending; this also remains an opening-area checkpoint.
 The dialogue renderer correction has a fresh isolated build with
 native full/clipped/scaled verification; broader runtime regressions remain open.
 The batch descriptions below are
