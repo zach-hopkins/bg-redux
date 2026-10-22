@@ -31,6 +31,25 @@ The coordinator's 22-case comparison on candidate `9aa69cd5`, with the new nonin
 
 This documentation audit read integrated source/docs and retained JSON/log metadata only. It launched no tests, native hosts or game processes and changed no engine or runtime files. All result paths above are private under `C:/BGRedux/phase1-local/`; licensed game assets and screenshots are not included in this report.
 
+## Candidate 9aa regression and isolation guard
+
+The fresh candidate core run `20261021-184124-phase1-9aa-core-31d3c584`
+has 229 passes, one retained locale failure, nine skips and six disabled tests.
+Both new RNG snapshot tests execute and pass. Vanilla run
+`20261022T014128Z-phase1-9aa-vanilla-68b7d20c` passes 24 assertions;
+GUI run `20261022T014148Z-phase1-9aa-gui-59c92810` passes 20. Both retain
+persistence `differences`. New inventory/record captures show readable summaries;
+this alone does not accept every menu or original typography fidelity.
+
+The broad runtime preservation receipt deliberately records `all_preserved: false`.
+Its private-game preparation preceded the separate query/control runs, whose
+library initialization still used the clean GamePath. The strict source guard
+detects a changed `GemRB.log` and `gemrb_path.txt` timestamp; the exact delta is
+retained in `runtime-candidate-9aa69cd5/clean-game-guard-failure.json`.
+Candidate source/binaries, Phase 0 source/binaries/fixture and all 2,324 pinned
+game assets pass their checks. The source-root guard failure is not waived.
+The query hosts need private writable game roots and a fresh guarded rerun.
+
 ## Candidate 9aa query/RNG follow-up
 
 The pending 22-case check above is now complete in `20261022T013614Z-phase1-weapon-query-af33ea1e`: execution and validation pass, all 22 selected original cases match, and all 1,100 observations (1,056 predicates plus 44 True/False controls) retain collected actor/cache state, stable repeated results and unchanged **calling-thread** RNG. Read-only review independently read every one of the 1,100 raw RNG before/after pairs: all were observed with the expected scope, and none changed initialization or serialized RNG state. The selected candidate core DLL is `79650612926d96a8748320bcf3d0f8f265f7d20747448a30a5ec8918b472ebb9`; result SHA256 is `10c440c1763c6eb6dc4bc50802acdf1e76a104e637effb00964e93e5b8023137`.
