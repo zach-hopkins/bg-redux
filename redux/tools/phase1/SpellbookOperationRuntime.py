@@ -119,5 +119,5 @@ def Step():
     if INDEX>=len(PLAN):GemRB.SetVar('RDXBookComplete',1)
     else:
         name,fn=PLAN[INDEX];GemRB.SetVar('RDXBookStep',INDEX);fn();INDEX+=1
-    result=dict(schema='bg-redux-book-runtime/1',nonce=NONCE,mode=MODE,planned=[name for name,_ in PLAN],steps=INDEX,completed=INDEX==len(PLAN),rows=ROWS,sort_permutation_runtime_coverage=False)
+    result=dict(schema='bg-redux-book-runtime/1',nonce=NONCE,mode=MODE,planned=[name for name,_ in PLAN],steps=INDEX,completed=INDEX==len(PLAN),rows=ROWS,sort_permutation_runtime_coverage=None,sort_assessment_owner="independent_external_validator")
     (OUTPUT/'book-runtime.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf8')

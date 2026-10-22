@@ -15,6 +15,7 @@ import saved_npc_color_fixtures as binary
 import weapon_query_observer as shared
 import weapon_query_validation as evidence
 import spellbook_operation_validation as v
+import spellbook_presentation_control as presentation
 HERE=Path(__file__).resolve().parent
 KIND='bg-redux-spellbook-operation-host/1'
 PARENT='20261022T075243Z-minsc-recruitment-072650e1'
@@ -87,8 +88,9 @@ def run(args):
     project,source,build=(getattr(args,k).resolve() for k in ('project_root','engine_source_root','engine_build_root'))
     root_guard(project,source,build)
     if not args.results_root.resolve().is_relative_to(project/'phase1-local/results'):raise ValueError('Private Phase1 results root required')
-    out=shared.new_output(args.results_root.resolve(),'spellbook-operation');result=dict(schema='bg-redux-spellbook-operation-journey/1',passed=False,stages=[],original_parity=None)
-    api=before=candidate=None;preserved=[];privates=[];pins={}
+    control_mode=getattr(args,'presentation_control','stock');label='spellbook-operation'if control_mode=='stock'else'spellbook-operation-name-control'
+    out=shared.new_output(args.results_root.resolve(),label);result=dict(presentation_control=control_mode,schema='bg-redux-spellbook-operation-journey/1',passed=False,stages=[],original_parity=None)
+    api=before=candidate=None;preserved=[];privates=[];pins={};override_pins=[];controls=[]
     try:
         api=shared.phase0(project);result['preflight']=api.baseline_runner.preflight(project)
         before=api.baseline_runner.protected(project);candidate=shared.candidate_inventory(source,build)
@@ -113,6 +115,12 @@ def run(args):
             preserved.extend([(incoming,input_files),(copied,input_files)]);entry['input_files']=input_files
             private=shared.prepare_private_game(project,stage);privates.append((private,stage))
             for name in ('cache','capture','override'):(stage/name).mkdir()
+            observed_receipt=receipt
+            if control_mode==presentation.CONTROL:
+                control=presentation.prepare(receipt,stage/'override');presentation.verify(control,receipt);controls.append(control)
+                shared.write(stage/'presentation-control.json',control);entry['presentation_control']=control
+                observed_receipt=dict(receipt,resources=control['resources'],presentation_control=presentation.CONTROL)
+            override_pins.append((stage/'override',evidence.manifest(stage/'override')))
             config=dict(GameType='bg2ee',GamePath=private['game'],GemRBPath=source/'gemrb',PluginsPath=build/'gemrb/plugins',CachePath=stage/'cache',SavePath=stage/'profile',ModPath=stage/'override',UseAsLibrary=0,SaveAsOriginal=1,Width=1024,Height=768,FullScreen=0,CapFPS=30,AudioDriver='none',GameLanguagePath='lang/en_US',SkipIntroVideos=1,Logging=1,LogColor=0,PathfinderThreadsCount=0,PathfinderMainThreadMode='immediate')
             cfg=stage/'probe.cfg';cfg.write_text(''.join('%s=%s\n'%(k,str(v).replace('\\','/')) for k,v in config.items()),encoding='utf-8');pins[str(cfg)]=evidence.sha(cfg)
             command=[str(host),'--config',str(cfg),'--output',str(stage/'capture'),'--scripts',str(startup),'--mode',mode,'--nonce',entry['nonce'],'--resources',str(driver/'resource-list.txt')]
@@ -123,8 +131,9 @@ def run(args):
             shared.require_process(entry['process'])
             if 'Traceback (most recent call last)' in (stage/'process.log').read_text(encoding='utf-8',errors='replace'):raise ValueError('Stock callback traceback')
             check_resources(receipt,api,project,source);parent_proof(project)
-            entry['runtime_providers']=check_runtime_resources(stage/'capture',receipt)
-            entry['observation']=validate_capture(stage/'capture',entry['nonce'],mode,started,receipt)
+            entry['runtime_providers']=check_runtime_resources(stage/'capture',observed_receipt)
+            entry['observation']=validate_capture(stage/'capture',entry['nonce'],mode,started,observed_receipt)
+            if control_mode==presentation.CONTROL and not entry['observation']['nonidentity_sort_runtime']:raise ValueError('Declared presentation control did not produce actual nonidentity sorting')
             if mode=='operate':
                 saved=Path(entry['observation']['save']).resolve()
                 if not saved.is_relative_to((stage/'profile/save').resolve()) or saved==copied.resolve():raise ValueError('Output escaped profile/overwrote input')
@@ -138,14 +147,17 @@ def run(args):
                 if entry['wire']!=result['stages'][0]['wire']:raise ValueError('Reload input wire differs from frozen operation output')
             entry['private_game_validation']=shared.validate_private_game(private,stage);entry['passed']=True
         if len({s['process']['pid'] for s in result['stages']})!=2:raise ValueError('Fresh-process ownership absent')
-        result['passed']=True;result['coverage']=dict(actual_callbacks=True,arrow_tab_pixels=True,spellbook_wire_conservation=True,nonidentity_sort_runtime=False);result['verdict']='passed-with-runtime-sort-permutation-gap'
+        result['passed']=True;result['coverage']=dict(actual_callbacks=True,arrow_tab_pixels=True,spellbook_wire_conservation=True,nonidentity_sort_runtime=all(s['observation']['nonidentity_sort_runtime']for s in result['stages']));result['verdict']='passed-private-presentation-control'if control_mode==presentation.CONTROL else'passed-with-runtime-sort-permutation-gap'
     except Exception as error:result.update(passed=False,error=str(error))
     finally:
         try:
             for folder,files in preserved:
                 if binary.manifest(folder)!=files:raise ValueError('Immutable input/frozen output drift')
             for path,digest in pins.items():
-                if evidence.sha(path)!=digest or evidence.manifest(Path(path).parent/'override')!={}:raise ValueError('Config/empty override changed')
+                if evidence.sha(path)!=digest:raise ValueError('Config changed')
+            for folder,manifest in override_pins:
+                if evidence.manifest(folder)!=manifest:raise ValueError('Declared private override changed')
+            for control in controls:presentation.verify(control,receipt)
             for private,stage in privates:shared.validate_private_game(private,stage)
             if 'receipt'in locals():check_build(args.host_build.resolve(),project,source,build)
             if 'driver_files'in locals() and evidence.manifest(driver)!=driver_files:raise ValueError('Frozen driver closure drift')
@@ -164,18 +176,18 @@ def main(argv=None):
         if mode=='build':
             q.add_argument('--timeout',type=int,default=240);q.add_argument('--output-dir',type=Path,required=True)
         else:
-            q.add_argument('--host-build',type=Path,required=True);q.add_argument('--results-root',type=Path,required=True)
+            q.add_argument('--host-build',type=Path,required=True);q.add_argument('--results-root',type=Path,required=True);q.add_argument('--presentation-control',choices=('stock',presentation.CONTROL),default='stock')
     args=p.parse_args(argv)
     if args.command=='build' and not 1<=args.timeout<=300:p.error('Timeout must be bounded to 1..300 seconds')
     return build_host(args) if args.command=='build' else run(args)
 
 def root_guard(project,source,build):
     if source==(project/'gemrb').resolve()or build==(project/'phase0-local/build').resolve():raise ValueError('Separate candidate source/build required')
-    if HERE!=source/'redux/tools/phase1'or any(Path(m.__file__).resolve().parent!=HERE for m in (common,binary,shared,evidence,checkpoint,tables,v)):raise ValueError('Exact candidate adapter/dependency roots required')
+    if HERE!=source/'redux/tools/phase1'or any(Path(m.__file__).resolve().parent!=HERE for m in (common,binary,shared,evidence,checkpoint,tables,v,presentation)):raise ValueError('Exact candidate adapter/dependency roots required')
     check_engine_receipt(source,build)
 
 def sources(project,source):
-    local=['spellbook_operation_journey.py','spellbook_operation_validation.py','SpellbookOperationRuntime.py','SpellbookOperationStart.py','native/spellbook_operation_journey.cpp','native/spellbook_operation_ui_snapshot.cpp']
+    local=['spellbook_presentation_control.py','spellbook_operation_journey.py','spellbook_operation_validation.py','SpellbookOperationRuntime.py','SpellbookOperationStart.py','native/spellbook_operation_journey.cpp','native/spellbook_operation_ui_snapshot.cpp']
     result={HERE/name for name in local}|set(common.sources(project))
     for module in tuple(sys.modules.values()):
         filename=getattr(module,'__file__',None)
@@ -318,6 +330,7 @@ def validate_capture(folder,nonce,mode,started_ns,receipt):
             else:v.equal_except_selection(before,after)
             if suffix in('known-add','known-readd'):
                 original=v.page(before['party'][case['pc']-1],case['kind'],case['level'])['known'];shown=sorted(enumerate(original),key=lambda pair:spell_names[pair[1]['resref'].upper()]['name']);matches=[i for i,pair in enumerate(shown)if pair[1]['resref'].upper()==case['ref']]
+                if receipt.get('presentation_control')==presentation.CONTROL and matches!=[0]:raise ValueError('Controlled target did not move from original index to visible index zero')
                 if len(matches)!=1 or event['actual_value']!=case['known']or event['control']!=27+matches[0]or event['actual_tooltip']!=spell_names[case['ref']]['name']:raise ValueError('Actual selected shown spell mapped to wrong original index/resref')
             if suffix=='confirm-remove'and(event['window']!=case['modal']or event['control']!=0 or event['actual_value']!=case['memo']):raise ValueError('Actual charged confirmation index differs')
         else:v.equal_except_selection(before,after)

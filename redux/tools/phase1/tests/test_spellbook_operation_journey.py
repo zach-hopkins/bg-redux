@@ -10,6 +10,7 @@ from unittest.mock import patch
 sys.path.insert(0,str(Path(__file__).parents[1]))
 import spellbook_operation_validation as v
 import spellbook_operation_journey as runner
+import spellbook_presentation_control as presentation
 
 def state():
     people=[]
@@ -54,6 +55,55 @@ def wire_fixture(folder):
             struct.pack_into('<6I',cre,0x2a0,ka,len(page['known']),ba,1,ma,len(page['memorized']))
         row=0xb4+index*0x160;struct.pack_into('<2I',gam,row+4,len(gam),len(cre));gam.extend(cre)
     (folder/'baldur.gam').write_bytes(gam);return source
+
+class PresentationControlContracts(unittest.TestCase):
+    def originals(self):
+        return {name:b'SPL V1  '+struct.pack('<I',i+100)+bytes(range(64))for i,name in enumerate(n for pair in presentation.PAIRS for n in pair)}
+    def fixture(self,folder):
+        resources={}
+        for name,raw in self.originals().items():
+            file=folder/name;file.write_bytes(raw);ref=struct.unpack_from('<I',raw,8)[0]
+            resources[name]=dict(frozen=str(file),sha256=runner.evidence.sha(file),bytes=len(raw),spell_name_ref=ref,spell_name='name'+str(ref),provider='archive.bif',provider_sha256='frozenarchive')
+        resources['tlk']=dict(path='dialog.tlk',sha256='frozenTLK',bytes=1000)
+        return dict(resources=resources)
+    def test_only_name_field_is_exchanged_and_spell_body_identity_retained(self):
+        originals=self.originals();changed=presentation.exchange(originals)
+        for left,right in presentation.PAIRS:
+            self.assertEqual(changed[left][8:12],originals[right][8:12])
+            self.assertEqual(changed[left][:8]+changed[left][12:],originals[left][:8]+originals[left][12:])
+            presentation.field_guard(originals[left],changed[left])
+        bad=bytearray(changed['SPWI213.spl']);bad[-1]^=1
+        with self.assertRaises(ValueError):presentation.field_guard(originals['SPWI213.spl'],bad)
+        with self.assertRaises(ValueError):presentation.field_guard(originals['SPWI213.spl'],originals['SPWI213.spl'])
+    def test_missing_extra_identical_names_and_truncated_header_rejected(self):
+        for mutation in ('missing','extra','same','truncated'):
+            originals=self.originals()
+            if mutation=='missing':originals.pop('SPPR111.spl')
+            elif mutation=='extra':originals['OTHER.spl']=originals['SPWI213.spl']
+            elif mutation=='same':originals['SPWI211.spl']=originals['SPWI213.spl']
+            else:originals['SPWI213.spl']=b'SPL V1  '
+            with self.subTest(mutation=mutation),self.assertRaises(ValueError):presentation.exchange(originals)
+    def test_private_override_provider_and_tlk_are_bound_and_tamper_rejected(self):
+        with tempfile.TemporaryDirectory()as tmp:
+            folder=Path(tmp);receipt=self.fixture(folder);private=folder/'override';private.mkdir();control=presentation.prepare(receipt,private)
+            self.assertTrue(presentation.verify(control,receipt));self.assertEqual(len(list(private.iterdir())),4)
+            for row in control['proof']:
+                name=row['resref']+'.spl';self.assertEqual(control['resources'][name]['provider'],str((private/name).resolve()));self.assertTrue(set(row['changed_offsets'])<=set(range(8,12)))
+            file=private/'SPWI213.spl';file.write_bytes(file.read_bytes()+b'bad')
+            with self.assertRaises(ValueError):presentation.verify(control,receipt)
+    def test_original_hash_drift_and_nonempty_private_override_rejected(self):
+        with tempfile.TemporaryDirectory()as tmp:
+            folder=Path(tmp);receipt=self.fixture(folder);private=folder/'override';private.mkdir();receipt['resources']['SPWI213.spl']['sha256']='wrong'
+            with self.assertRaises(ValueError):presentation.prepare(receipt,private)
+            (private/'unexpected').write_bytes(b'x')
+            with self.assertRaises(ValueError):presentation.prepare(receipt,private)
+    def test_tlk_proof_and_original_provider_cannot_be_rebound(self):
+        with tempfile.TemporaryDirectory()as tmp:
+            folder=Path(tmp);receipt=self.fixture(folder);private=folder/'override';private.mkdir();control=presentation.prepare(receipt,private)
+            bad=copy.deepcopy(control);bad['tlk']['sha256']='other'
+            with self.assertRaises(ValueError):presentation.verify(bad,receipt)
+            bad=copy.deepcopy(control);bad['proof'][0]['original_provider']='other'
+            with self.assertRaises(ValueError):presentation.verify(bad,receipt)
 
 class SpellbookOperationContracts(unittest.TestCase):
     def test_conflicting_party_map_spellbook_cannot_be_normalized_away(self):
