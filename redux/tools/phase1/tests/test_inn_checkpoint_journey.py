@@ -15,6 +15,15 @@ def state(area='AR0602',gold=0):
     return dict(current_area=area,gold=gold,selection=1,globals={'JAHEIRARELEASED':1},journal=[dict(text_ref=47518)],party=[dict(runtime_id=100+i,script_name=name,area=area,position=[10,20],inventory=['owned-item'],xp=90000,spellbook=['unchanged'])for i,name in enumerate(('none','imoen','jaheira','minsc'))])
 
 class InnCheckpointContracts(unittest.TestCase):
+    def test_dialogue_gender_uses_actual_speaker_and_exact_table_words(self):
+        table=b'2DA V1.0\n*\n TYPE MALE FEMALE\nSIRMAAM -1 27473 27475\n'
+        scene=dict(in_dialog=True,dialogue_speaker=102)
+        for sex,word in ((1,'sir'),(2,"ma'am"),(0,'sir')):
+            actor=dict(runtime_id=102,modified_stats=[0]*35+[sex])
+            self.assertEqual(v.resolved_dialogue('Certainly, <SIRMAAM>.',table,{'27473':'sir','27475':"ma'am"},dict(party=[actor]),scene),'Certainly, '+word+'.')
+        for raw,badtable,words,speaker in (('Certainly, <UNKNOWN>.',table,{'27473':'sir','27475':"ma'am"},102),('Certainly, <SIRMAAM>.',table.replace(b'-1',b'0'),{'27473':'sir','27475':"ma'am"},102),('Certainly, <SIRMAAM>.',table,{'27473':'sir'},102),('Certainly, <SIRMAAM>.',table,{'27473':'sir','27475':"ma'am"},999)):
+            with self.assertRaises(ValueError):v.resolved_dialogue(raw,badtable,words,dict(party=[actor]),dict(scene,dialogue_speaker=speaker))
+
     def test_actual_runtime_declares_the_same_independent_fixed_plan(self):
         for mode in ('prepare','observe'):
             values={};gem=types.SimpleNamespace(SetVar=lambda k,n:values.__setitem__(k,n))
@@ -73,6 +82,10 @@ class InnCheckpointContracts(unittest.TestCase):
         old=dict(gold=0,checkpoint={'retained':'quest/items/xp'},spellbooks=['exact'],locations=[dict(area='AR0602',position=[10,20])for _ in range(4)],inn_target=None)
         new=dict(old,gold=100,locations=[dict(area='AR0704',position=p)for p in v.POINTS],inn_target=dict(talk_count=1))
         v.wire_setup_guard(old,new)
+        approached=copy.deepcopy(new);approached['locations'][0]['position']=[792,438]
+        v.wire_setup_guard(old,approached)
+        remote=copy.deepcopy(new);remote['locations'][0]['position']=[2000,2000]
+        with self.assertRaises(ValueError):v.wire_setup_guard(old,remote)
         for key,value in (('gold',101),('checkpoint',{}),('spellbooks',[]),('inn_target',dict(talk_count=2))):
             with self.subTest(key=key),self.assertRaises(ValueError):v.wire_setup_guard(old,dict(new,**{key:value}))
 

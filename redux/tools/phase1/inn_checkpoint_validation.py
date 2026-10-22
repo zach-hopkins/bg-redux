@@ -8,6 +8,7 @@ import spellbook_operation_validation as base
 import saved_npc_color_journey as common
 import saved_npc_color_fixtures as binary
 import weapon_query_validation as evidence
+import spellbook_erase_journey as erase
 
 PINS={'AR0704.are':('are',1010,'c8061c51f2e009917a0b95ba537456da7adf3b308de4d202bbbdc8f8b41d1d32'),
  'WINNKEEP.cre':('cre',1009,'a42acbb669745443db9a263c09634474b406644642d2cf346d191bced2d9e851'),
@@ -15,6 +16,19 @@ PINS={'AR0704.are':('are',1010,'c8061c51f2e009917a0b95ba537456da7adf3b308de4d202
  'WINNKEEP.sto':('sto',1014,'d76502ca4a177d8c52eb0d1699b6d54d4b5004d9cbc2b9830b78c86d5cd559d4'),
  'guistore.chu':('chu',1002,None),'action.ids':('ids',1008,None),'trigger.ids':('ids',1008,None)}
 POINTS=[[690,550],[730,550],[690,590],[730,590]]
+
+def resolved_dialogue(raw,table,words,state,scene):
+    lines=[line.split('//',1)[0].split() for line in table.decode('ascii').splitlines()]
+    if [r for r in lines if r and r[0]=='SIRMAAM']!=[['SIRMAAM','-1','27473','27475']]:raise ValueError('Wrong current-speaker gender rule')
+    if set(words)!={'27473','27475'} or any(not isinstance(w,str) or not w or '<' in w or '>' in w for w in words.values()):raise ValueError('Wrong gender words')
+    speaker=[a for a in state['party'] if a['runtime_id']==scene['dialogue_speaker']]
+    if len(speaker)!=1 or not scene['in_dialog']:raise ValueError('Actual dialogue speaker absent')
+    actor=speaker[0];sex=actor['modified_stats'][35]
+    if type(sex)is not int or not 0<=sex<=0xffffffff:raise ValueError('Invalid actual speaker sex')
+    if any(t!='<SIRMAAM>' for t in re.findall(r'<[^<>]*>',raw)):raise ValueError('Unsupported dialogue token')
+    result=raw.replace('<SIRMAAM>',words['27475' if sex==2 else '27473'])
+    if '<' in result or '>' in result:raise ValueError('Unresolved dialogue token')
+    return result
 
 def plan(mode):
     if mode not in ('prepare','observe'):raise ValueError('Unsupported inn mode')
@@ -38,13 +52,15 @@ def resource_guard(api,project,source):
         if key not in cache:cache[key]=evidence.sha(provider)
         return dict(raw=raw,extension=ext,provider=key,provider_sha256=cache[key],sha256=digest,bytes=len(raw),origin=origin,policy='exact-stock-inn-debug-fixture')
     for name,(ext,kind,sha)in specs.items():rows[name]=read(name,ext,kind,sha)
+    gender,provider,policy=erase.gender_provider(api,source)
+    rows['gender.2da']=dict(raw=gender,extension='2da',provider=provider,provider_sha256=evidence.sha(provider),sha256=binary.digest(gender),bytes=len(gender),policy=policy)
     scripts={'BALDUR','BDDEFAI',text(rows['AR0704.are']['raw'],0x94,8).upper()}
     scripts.update(text(rows['WINNKEEP.cre']['raw'],offset,8).upper()for offset in (0x248,0x250,0x258,0x260,0x268))
     for ref in sorted(scripts-{'','NONE'}):rows[ref+'.bcs']=read(ref+'.bcs','bcs',1007,None)
     jumps=re.findall(rb'(?im)^\s*(\d+)\s+JumpToPoint\s*\(',rows['action.ids']['raw'])
     if len(jumps)!=1:raise ValueError('Actual action.ids lacks unique parsed JumpToPoint')
     rows['action.ids']['jump_action_id']=int(jumps[0])
-    raw=(game/'lang/en_US/dialog.tlk').read_bytes();refs=(30197,33355,28755,28763,28771,9371,11051,15358,11973,13727);strings={}
+    raw=(game/'lang/en_US/dialog.tlk').read_bytes();refs=(30197,33355,28755,28763,28771,9371,11051,15358,11973,13727,27473,27475);strings={}
     if raw[:8]!=b'TLK V1  ':raise ValueError('TLK signature')
     for ref in refs:
         if ref>=binary.u32(raw,10):raise ValueError('TLK ref bounds')
@@ -67,7 +83,6 @@ def wire(folder):
         area=binary.inflate(members[0]);base_=binary.u32(area,0x54);n=binary.u16(area,0x58);binary.block(area,base_,n*272);found=[]
         for i in range(n):
             at=base_+272*i
-            if text(area,at,32).casefold()!='innkeeper':continue
             start,size=binary.u32(area,at+136),binary.u32(area,at+140);cre=binary.block(area,start,size);binary.validate_cre(cre)
             if text(cre,0x2cc,8).upper()!='WINNKEEP'or binary.u32(cre,8)!=30197:continue
             found.append(dict(name_ref=30197,dialog='WINNKEEP',position=[binary.u16(area,at+32),binary.u16(area,at+34)],talk_count=binary.u32(area,at+68),cre_sha256=binary.digest(cre)))
@@ -84,8 +99,10 @@ def wire_setup_guard(before,after):
     if before['gold']!=0 or after['gold']!=100 or [r['area']for r in before['locations']]!=['AR0602']*4 or [r['area']for r in after['locations']]!=['AR0704']*4:raise ValueError('Undeclared saved area/currency setup')
     if before['checkpoint']!=after['checkpoint']or before['spellbooks']!=after['spellbooks']:raise ValueError('Debug setup altered retained quest/items/XP/spellbooks')
     if before['inn_target']is not None or not after['inn_target']or after['inn_target']['talk_count']!=1:raise ValueError('Wrong saved first inn conversation')
-    for row,point in zip(after['locations'],POINTS):
-        if sum((a-b)**2 for a,b in zip(row['position'],point))>96**2:raise ValueError('Saved party not coherent near inn')
+    # Ordinary TryToTalk walks the leader to the keeper after debug completion.
+    # Exact saved coordinates are separately bound to the final native snapshot.
+    for row in after['locations']:
+        if sum((a-b)**2 for a,b in zip(row['position'],[786,408]))>320**2:raise ValueError('Saved party not coherent near inn')
 
 def party_guard(before,after):
     a=copy.deepcopy(before['party']);b=copy.deepcopy(after['party'])
@@ -136,7 +153,10 @@ def validate_capture(folder,nonce,mode,started_ns,receipt):
         elif before['gold']!=after['gold']:raise ValueError('Ordinary conversation changed currency')
     for branch,ref in ((0,28755),(1,28771)):
         text_=evidence.read(folder/('branch-%d.text.json'%branch));scene=evidence.read(folder/('branch-%d.scene.json'%branch))
-        if text_.get('nonce')!=nonce or text_['strref']!=ref or text_['occurrences_after']<=text_['occurrences_before']or text_['text'].count(receipt['resources']['strings']['values'][str(ref)])!=text_['occurrences_after']:raise ValueError('Fresh stock dialogue text not observed')
+        strings=receipt['resources']['strings']['values'];table=(folder/'gender.2da.runtime').read_bytes()
+        if binary.digest(table)!=receipt['resources']['gender.2da']['sha256']:raise ValueError('Runtime gender table drift')
+        resolved=resolved_dialogue(strings[str(ref)],table,{k:strings[k] for k in ('27473','27475')},evidence.read(folder/('branch-%d.state.json'%branch)),scene)
+        if text_.get('nonce')!=nonce or text_['strref']!=ref or text_['occurrences_after']<=text_['occurrences_before']or text_['text'].count(resolved)!=text_['occurrences_after']or text_['previous'].count(resolved)!=text_['occurrences_before']:raise ValueError('Fresh stock dialogue text not observed')
         if branch==0 and '1. - '+receipt['resources']['strings']['values']['28763']not in text_['text']:raise ValueError('Pinned first response missing')
         if scene['target_position']!=[786,408]or scene['target_dialog'].upper()!='WINNKEEP'or scene['dialogue_target']!=scene['target_id']or scene['dialogue_speaker']!=ready['party'][0]['runtime_id']or scene['talk_count']!=(1 if mode=='prepare'else 2):raise ValueError('Wrong actual talk target/speaker/counter')
     labels=evidence.read(folder/'dialogue-end-label.json')
