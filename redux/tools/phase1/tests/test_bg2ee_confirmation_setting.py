@@ -90,6 +90,35 @@ class ConfirmationSettingTests(unittest.TestCase):
         self.assertTrue(self.prompt())
         self.assertEqual(self.queries, [])
 
+    def test_charged_click_preserves_charge_when_same_spell_has_depleted_copy(self):
+        self.spells = [{"SpellResRef": "SPWI213", "Flags": 1},
+                       {"SpellResRef": "SPWI215", "Flags": 1},
+                       {"SpellResRef": "spwi213", "Flags": 0}]
+        before = [dict(spell) for spell in self.spells]
+        self.assertEqual(self.module.PreparedRemovalIndex(2, 1, 1, 0), 2)
+        self.assertEqual(self.spells, before)
+        self.assertEqual(self.saved, [])
+
+    def test_other_spell_depletion_does_not_redirect_clicked_spell(self):
+        self.spells = [{"SpellResRef": "SPWI215", "Flags": 0},
+                       {"SpellResRef": "SPWI213", "Flags": 1}]
+        self.assertEqual(self.module.PreparedRemovalIndex(2, 1, 1, 1), 1)
+
+    def test_depleted_click_retains_its_original_index(self):
+        self.spells = [{"SpellResRef": "SPWI215", "Flags": 1},
+                       {"SpellResRef": "SPWI213", "Flags": 0}]
+        self.assertEqual(self.module.PreparedRemovalIndex(2, 1, 1, 1), 1)
+
+    def test_invalid_ee_index_cannot_remove_another_entry(self):
+        self.spells = [{"SpellResRef": "SPWI213", "Flags": 1}]
+        for index in (-1, 1, 4294967295):
+            self.assertIsNone(self.module.PreparedRemovalIndex(2, 1, 1, index))
+
+    def test_classic_preserves_clicked_index_without_ee_scan(self):
+        self.bg2ee = False
+        self.assertEqual(self.module.PreparedRemovalIndex(2, 1, 1, 4), 4)
+        self.assertEqual(self.queries, [])
+
     def test_feedback_binds_draft_and_localized_existing_row(self):
         self.module.BeginFeedback(self.window)
         self.assertEqual(self.labels, [102476])

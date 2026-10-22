@@ -15,6 +15,7 @@ import GUICommonWindows
 import Spellbook
 import EESpellbookHeading
 import EESpellbookInformation
+import BG2EEConfirmation
 from GUICommon import BindControlCallbackParams
 from GUIDefines import *
 from ie_stats import *
@@ -178,7 +179,7 @@ def UpdateMageWindow (MageWindow):
 				Button.SetSpellIcon (ms['SpellResRef'], 0)
 				if not GameCheck.IsBG2EE ():
 					Button.SetFlags (IE_GUI_BUTTON_PICTURE, OP_SET)
-				if ms['Flags'] and not GameCheck.IsBG2EE ():
+				if ms['Flags'] and BG2EEConfirmation.ShouldPromptPreparedRemoval (pc, spelltype, level, ms['SpellResRef']):
 					Button.OnPress (OpenMageSpellUnmemorizeWindow)
 				else:
 					Button.OnPress (OnMageUnmemorizeSpell)
@@ -407,7 +408,9 @@ def OnMageUnmemorizeSpell (btn):
 	pc = GemRB.GameGetSelectedPCSingle ()
 	level = MageSpellLevel
 	spelltype = IE_SPELL_TYPE_WIZARD
-	index = btn.Value
+	index = BG2EEConfirmation.PreparedRemovalIndex (pc, spelltype, level, btn.Value)
+	if index is None:
+		return
 
 	if GemRB.UnmemorizeSpell (pc, spelltype, level, index):
 		GemRB.PlaySound ("GAM_44")

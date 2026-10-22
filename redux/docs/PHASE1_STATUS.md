@@ -9,6 +9,16 @@ game typefaces are fidelity requirements. Modern UI direction remains approved.
 ## Requirements and order
 
 Latest LAB checkpoint (October 22 UTC): see the [executed validation report](testing/phase1-lab-validation.md).
+Current source additionally contains an **unvalidated** ordinary EE named-row/
+description/paging layout and persistent Feedback setting. The original physical
+option-ON and depleted-first reference now [passes independent inspection](testing/phase1-original-confirmation-option-independent.md).
+The [candidate policy integration](testing/phase1-confirmation-policy-integration.md)
+wires both prepared-book consumers and preserves a charged copy when a depleted
+same-resref copy exists. Twenty focused checks pass; the first 475-test combined
+source suite failed four heading-fixture bindings, retained as a failed result.
+Fresh full-suite/build/menu/action/config-save/reload validation is pending.
+The passing native results below describe their earlier frozen source versions.
+
 The wizard information-window Erase route now has a confirmed native wrong-spell
 failure when localized names reorder known entries. The stock route passes, but
 the controlled BEFORE deletes SPWI211 instead of the displayed SPWI213 and saves

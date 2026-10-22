@@ -15,6 +15,7 @@ import CommonTables
 import Spellbook
 import EESpellbookHeading
 import EESpellbookInformation
+import BG2EEConfirmation
 from GUICommon import BindControlCallbackParams
 from GUIDefines import *
 from ie_stats import *
@@ -118,7 +119,7 @@ def UpdatePriestWindow (Window):
 			Button.SetSpellIcon (ms['SpellResRef'], 0)
 			if not GameCheck.IsBG2EE ():
 				Button.SetFlags (IE_GUI_BUTTON_PICTURE, OP_SET)
-			if ms['Flags'] and not GameCheck.IsBG2EE ():
+			if ms['Flags'] and BG2EEConfirmation.ShouldPromptPreparedRemoval (pc, spelltype, level, ms['SpellResRef']):
 				Button.OnPress (OpenPriestSpellUnmemorizeWindow)
 			else:
 				Button.OnPress (OnPriestUnmemorizeSpell)
@@ -311,7 +312,9 @@ def OnPriestUnmemorizeSpell (btn):
 	pc = GemRB.GameGetSelectedPCSingle ()
 	level = PriestSpellLevel
 	spelltype = IE_SPELL_TYPE_PRIEST
-	index = btn.Value
+	index = BG2EEConfirmation.PreparedRemovalIndex (pc, spelltype, level, btn.Value)
+	if index is None:
+		return
 
 	if GemRB.UnmemorizeSpell (pc, spelltype, level, index):
 		GemRB.PlaySound ("GAM_44")

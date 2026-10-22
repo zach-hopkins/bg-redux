@@ -19,6 +19,21 @@ LABEL_STRREF = 102476
 HELP_STRREF = 102477
 
 
+def PreparedRemovalIndex (pc, spelltype, level, index):
+	"""Prefer an uncharged copy of the clicked spell, retaining storage identity."""
+	if not GameCheck.IsBG2EE ():
+		return index
+	count = GemRB.GetMemorizedSpellsCount (pc, spelltype, level, False)
+	if index < 0 or index >= count:
+		return None
+	clicked = GemRB.GetMemorizedSpell (pc, spelltype, level, index)
+	for candidate in range (count):
+		spell = GemRB.GetMemorizedSpell (pc, spelltype, level, candidate)
+		if spell['SpellResRef'].casefold () == clicked['SpellResRef'].casefold () and spell['Flags'] == 0:
+			return candidate
+	return index
+
+
 def ShouldPromptPreparedRemoval (pc, spelltype, level, resref):
 	# Preserve the existing charged-removal prompt for other games.
 	if not GameCheck.IsBG2EE ():
