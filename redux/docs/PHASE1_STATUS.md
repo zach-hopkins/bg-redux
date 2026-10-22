@@ -18,7 +18,7 @@ retained. Fresh private-folder query/cache/control and import/GUI reruns pass
 their preservation guards; the earlier diagnostic-write failure is retained.
 Both selected menu resolutions complete 107 checks and 51 captures. The opaque
 plain-key editor journey and measured calling-thread RNG snapshot cost pass
-their bounded checks. External tooling now passes 317 Python tests. Original
+their bounded checks. External tooling now passes 324 Python tests. Original
 controlled-color ordinary saves and candidate fresh-process saves both show
 237 to 46 to 46; the independently audited comparison establishes shared
 behavior for this controlled input, not a candidate-only persistence defect.
@@ -72,12 +72,18 @@ built in isolated candidate `20261022T063419Z-candidate-24f35a4e`; its fifteen-c
 AFTER matrix passes exact traces/values and world/dictionary preservation.
 The ordinary eleven-branch Jaheira/GUI save/fresh-reload regression also passes
 in `20261022T064605Z-jaheira-dialogue-dbcdba69`, with all preservation guards.
-Independent AFTER audit, real-dialogue direct-API coverage and the fresh menu
-regression remain pending. That fresh candidate's
+The [independent fifteen-case AFTER audit](testing/phase1-textarea-native-correction-audit.md)
+passes. The [real-dialogue direct-API regression](testing/phase1-jaheira-direct-selection-regression.md)
+also passes both public UpdateState responses, all eleven branches, GUI save and
+fresh reload in `20261022T070508Z-jaheira-dialogue-direct-83a17bf8`. The fresh
+two-resolution menu run `20261022T064911Z-guarded-textarea-menu-run-eba67ffa`
+passes187 checks and51 captures each, with all preservation guards. Independent
+raw audits of those real-dialogue/menu runs remain pending. That fresh candidate's
 [checked string-test locale setup](testing/phase1-string-locale-fixture-fix.md)
 passes the three focused casing tests and the full corrected-CWD core suite:
 231 passed, zero failed, nine skips and six disabled tests. The six other CTest
-executables also pass. The historical locale
+executables also pass; the [independent core audit](testing/phase1-source-bound-core-audit.md)
+confirms their counts and source/config/resource binding. The historical locale
 and wrong-CWD failures remain preserved. The bounded
 [Imoen Armor cast](testing/phase1-spell-cast-journey.md) also passes one ordinary
 cast, actual effects and depletion, GUI save/fresh reload/second save, with no
