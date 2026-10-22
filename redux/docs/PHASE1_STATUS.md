@@ -24,8 +24,18 @@ eligibility; both cases keep spell actions blocked. Before/after focused logs ar
 `phase1-disabled-help-after-20261022.log` (15 pass). The complete source-bound suite
 passes **523 tests in 60.832 seconds**, receipt
 `phase1-disabled-help-tooling-1792670115069129200/result.json`. Fresh candidate
-`20261022T115526Z-candidate-ced237a2` is building. Dedicated native information and
-confirmation-persistence journeys remain unexecuted for this fix. Earlier native
+`20261022T115526Z-candidate-ced237a2` builds with all preservation guards. Its first
+dedicated information run `20261022T115836Z-spellbook-information-ee-direct-90991fb5`
+is **failed**, not accepted: the actual native process completes 157 ticks,
+74 callbacks, 61 captures and an ordinary GUI save, but the independent validator
+rejects unsupported description tokens (PRO_HESHE/PRO_HIMHER in natural spells).
+All protected baseline, candidate and input guards pass. Native disabled-book
+capture 17 visibly retains full help. The chosen Stinking Cloud description also
+fits the panel, so it cannot prove scrolling; a naturally longer description is
+required without weakening the viewport-change oracle. No reload stage is accepted
+from this failed run. The diagnostic decoder and scroll target need refinement.
+The separate setting/mixed-copy journey is running at
+`20261022T120547Z-confirmation-setting-mixed-d8efb6d2`; its result is pending. Earlier native
 receipts do not validate the latest helper bytes. Phase1 remains incomplete.
 
 Latest LAB checkpoint (October 22 UTC): see the [executed validation report](testing/phase1-lab-validation.md).
