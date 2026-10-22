@@ -112,6 +112,15 @@ class SpellbookOperationContracts(unittest.TestCase):
         with self.assertRaises(ValueError):v.declared_world_delta(before,after,{'mage','priest'})
         with self.assertRaises(ValueError):v.callback_guard(before,after,v.CASES[0],'confirm-remove')
 
+    def test_unbound_python_null_only_matches_exact_native_invalid_sentinel(self):
+        self.assertTrue(v.request_value_guard(dict(value=None),dict(actual_value=0xffffffff,actual_variable='')))
+        for value,var in ((0,''),(-1,''),(0xfffffffe,''),(0xffffffff,'Memorized'),(None,''),(True,''),(0xffffffff,None)):
+            with self.subTest(value=value,var=var),self.assertRaises(ValueError):v.request_value_guard(dict(value=None),dict(actual_value=value,actual_variable=var))
+    def test_integer_control_values_remain_exact_without_null_coercion(self):
+        self.assertTrue(v.request_value_guard(dict(value=2),dict(actual_value=2,actual_variable='Memorized')))
+        for wanted,actual in ((2,3),(0,0xffffffff),(2,None),(2,'2'),(1,True),(True,1)):
+            with self.subTest(wanted=wanted,actual=actual),self.assertRaises(ValueError):v.request_value_guard(dict(value=wanted),dict(actual_value=actual,actual_variable='Memorized'))
+
     def test_initial_load_records_null_only_when_game_is_actually_absent(self):
         event=dict(sequence=1,step=-1,pack='GUILOAD',window=0,control=26,before_game_present=False,after_game_present=False)
         self.assertTrue(v.callback_game_boundary(event,None,None))

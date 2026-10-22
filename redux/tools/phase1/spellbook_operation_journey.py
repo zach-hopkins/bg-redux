@@ -296,7 +296,8 @@ def validate_capture(folder,nonce,mode,started_ns,receipt):
         state=evidence.read(folder/(sample['checkpoint']+'.state.json'));actual=evidence.read(folder/(sample['checkpoint']+'.scene.json'))
         if sample['game_time']!=state['game_time']or actual['game_time']!=state['game_time']or sample['idle']!=actual['idle']or len(actual['party_actions'])!=4:raise ValueError('Readiness diagnostics contradict raw state')
     requests=[r for r in rows if r['event']=='request'];observations=[r for r in rows if r['event']=='observe'];dispatched=[e for e in events if e['step']>=0]
-    if len(dispatched)!=len(requests)or any(e['step']!=r['step']or[e[k]for k in('pack','window','control')]!=[r[k]for k in('pack','window','control')]or e['actual_value']!=r['value']for r,e in zip(requests,dispatched)):raise ValueError('Actual registered callback differs from requested bound control')
+    if len(dispatched)!=len(requests)or any(e['step']!=r['step']or[e[k]for k in('pack','window','control')]!=[r[k]for k in('pack','window','control')]for r,e in zip(requests,dispatched)):raise ValueError('Actual registered callback differs from requested bound control')
+    for request,event in zip(requests,dispatched):v.request_value_guard(request,event)
     spell_names={name.rsplit('.',1)[0].upper():dict(name=row['spell_name'])for name,row in receipt['resources'].items()if row.get('extension')=='spl'};template=receipt['resources']['level_template']['value'];captures={};pixel_rows={};nonidentity=False
     for i,row in enumerate(observations,1):
         if row['capture']!=i or row['name']!=plan[row['step']]:raise ValueError('Observation inventory/name mismatch')

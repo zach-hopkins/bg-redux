@@ -194,3 +194,14 @@ def callback_game_boundary(event,before,after):
     elif not event['before_game_present']or not event['after_game_present']:
         raise ValueError('Ordinary post-load callback requires actual game snapshots')
     return initial
+
+
+def request_value_guard(request,event):
+    """Python None represents only an unbound native INVALID_VALUE control."""
+    wanted=request.get('value');actual=event.get('actual_value')
+    if wanted is None:
+        if event.get('actual_variable')!=''or type(actual)is not int or actual!=0xffffffff:
+            raise ValueError('Null request requires empty unbound variable and exact INVALID_VALUE')
+    elif type(wanted)is not int or type(actual)is not int or actual!=wanted:
+        raise ValueError('Bound control integer value differs')
+    return True
