@@ -28,7 +28,9 @@ def digest(data): return hashlib.sha256(data).hexdigest()
 def block(data, offset, size):
     if type(offset) is not int or type(size) is not int or min(offset, size) < 0 or offset+size > len(data):
         raise ValueError('Field exceeds declared binary bounds')
-    return data[offset:offset+size]
+    # Parsing may read a mutable area under construction. Return an immutable
+    # field value consistently, including identities used in sets/dictionaries.
+    return bytes(data[offset:offset+size])
 
 
 def u32(data, at): return struct.unpack('<I', block(data, at, 4))[0]

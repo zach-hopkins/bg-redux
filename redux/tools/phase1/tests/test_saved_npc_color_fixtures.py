@@ -58,6 +58,17 @@ TABLE=b'2DA V1.0\r\n0\r\n       Leather Other Hair\r\n0      228     237   200\r
 
 
 class ColorBinaryFixtureTests(unittest.TestCase):
+    def test_mutable_binary_fields_are_immutable_and_idle_replacement_keeps_inputs(self):
+        source=bytearray(sav());idle=bytearray(c.inert_cre(cre(),46,'RDXIDLE'))
+        source_before,idle_before=bytes(source),bytes(idle)
+        identity=c.block(idle,0x280,32).split(b'\0')[0].upper()
+        self.assertIs(type(identity),bytes)
+        self.assertIn(identity,{b'RDXCOLOR',b'RDXIDLE'})
+        changed,guard=c.install_idle(source,idle)
+        expected,expected_guard=c.install_idle(source_before,idle_before)
+        self.assertEqual(changed,expected);self.assertEqual(guard,expected_guard)
+        self.assertEqual(bytes(source),source_before);self.assertEqual(bytes(idle),idle_before)
+
     def test_inert_clone_preserves_source_and_declared_regions_only(self):
         source=cre();npc=c.inert_cre(source,228)
         self.assertEqual(source,cre())
