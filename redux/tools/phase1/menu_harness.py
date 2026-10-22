@@ -38,6 +38,18 @@ def manifest(path):
             for p in sorted(Path(path).rglob("*")) if p.is_file()}
 
 
+def artifact_manifest(path):
+    """Never traverse private GamePath asset junctions into licensed archives."""
+    path = Path(path)
+    result = {}
+    for parent, directories, files in os.walk(path, followlinks=False):
+        directories[:] = [d for d in directories if d != 'game']
+        for name in files:
+            item = Path(parent) / name
+            result[str(item.relative_to(path)).replace('\\', '/')] = sha(item)
+    return result
+
+
 def write(path, value):
     Path(path).write_text(json.dumps(value, indent=2) + "\n", encoding="utf8")
 
@@ -221,7 +233,7 @@ def main():
     receipt["source_inputs_unchanged"] = all(sha(Path(path)) == expected for path, expected in identities.items())
     receipt["passed"] = receipt["passed"] and receipt["engine_dll_unchanged"] and receipt["source_inputs_unchanged"]
     write(directory / "result.json", receipt)
-    write(directory / "artifact-manifest.json", manifest(directory))
+    write(directory / "artifact-manifest.json", artifact_manifest(directory))
     print(directory)
     return 0 if receipt["passed"] else 1
 
