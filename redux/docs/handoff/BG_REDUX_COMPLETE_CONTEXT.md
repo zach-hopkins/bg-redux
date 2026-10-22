@@ -2,12 +2,22 @@
 
 Latest October22 continuation: Phase1 remains active and incomplete. Current
 coherent candidatebe5f907d builds production sourcef8fbd45d9; source tooling
-passes565 tests at the same source commit. Fresh baseline stats-base-4eeccc08 passes
+passes584 external tests at27cd16cdc. Current baseline stats-base-4eeccc08 passes
 24/24 import/reload and20/20 GUI/save assertions, no skips, all guards.
 Compatibility remains differences: vanilla4/0/24, GUI449/53. The four reload-one
 rows are actor3 minor color209 and actor7 leather color212, base/modified;
 causal/conformance conclusions remain open. Earlier e00 menu/settings and ced information audits remain
 historical with their original source/binary bindings.
+
+New four-actor Stats runs7e89a03f/7098280f complete92 steps each at1024x768 and
+1280x768, with77 passing runtime assertions,45 captures,44 callbacks,24 sections
+and40 page visits. **Both strict journeys remain rejected**: Minsc's raw modified
+THAC0 changes14→12, including the same area actor. All preservation guards pass.
+Query-only isolation376e3659 reproduces the change without Record/portrait
+callbacks; actual trigger isolationc4e45d44 observes CheckStatGT(Player4,13,7)
+true→false, with missing/unchanged controls. Source writing path exists in the
+protected baseline; script/save/attack and original parity remain unproven.
+No engine change or cache-field waiver was made. [Current frontier and pins](../testing/phase1-stats-actors-query-side-effect.md).
 
 Stats now explicitly lists all thirteen resistance values, including0%, instead
 of showing only a heading. Default/legacy zero omission remains unchanged.
@@ -30,7 +40,9 @@ need their own correction/validation. All rejected attempts remain preserved.
 See [current status](../PHASE1_STATUS.md) and
 [inn implementation evidence](../testing/phase1-inn-option-implementation.md).
 
-Next: continue P1-03 actor/class/effect coverage and exact typeface/size work.
+Next: pair original EE THAC0 stat-trigger behavior before/after Record with a
+nonzero ability adjustment, resolve the P1-03 query contract and script/save/
+attack implications, then continue actor/class/effect and exact typeface/size work.
 Carry the private first-execution/rest-reload runner integration and matched
 rest/store/dream/movie fidelity cases into P1-06, while preserving full
 P1-01..P1-07 acceptance. Existing workers remain

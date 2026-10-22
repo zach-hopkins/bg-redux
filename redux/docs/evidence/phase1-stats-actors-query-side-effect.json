@@ -1,0 +1,585 @@
+{
+  "schema": "bg-redux-stats-actors-evidence/1",
+  "accepted": false,
+  "phase1_complete": false,
+  "coordinator_review_only": true,
+  "source_commit": "27cd16cdc7af9c494f0c84c381bf9841df79bbe2",
+  "runs": [
+    {
+      "receipt": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T204320Z-stats-actors-menu-run-7e89a03f\\result.json",
+        "sha256": "03d68ed07ccfd5ce2d3885be43927a2f331ec0ec9ebc3ce4270ffaadba8727c5"
+      },
+      "resolution": [
+        1024,
+        768
+      ],
+      "owned_pid": 16828,
+      "process_exit": 0,
+      "strict_accepted": false,
+      "forensic_review": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\stats-actors-completed-failure-review-1792702897328430200\\1024x768.review.json",
+        "sha256": "d299323839f2f13bad8028e239246cfd2c222245e9dec423f7b597d459b1d50e"
+      },
+      "preservation": {
+        "phase0": true,
+        "candidate": true,
+        "game": true,
+        "closure": true,
+        "probe": true,
+        "recruitment_parent": true,
+        "coherent_build": true
+      },
+      "steps": 92,
+      "runtime_assertions": 77,
+      "actor_sections": 24,
+      "page_visits": 40,
+      "captures": 45,
+      "callbacks": 44,
+      "actors": [
+        {
+          "name": "stats.actor-selected",
+          "passed": true,
+          "actor": 1,
+          "actor_name": "wfsdf",
+          "section": 0,
+          "actor_class": 2,
+          "levels": [
+            7,
+            0,
+            0
+          ],
+          "states": []
+        },
+        {
+          "name": "stats.actor-selected",
+          "passed": true,
+          "actor": 2,
+          "actor_name": "Imoen",
+          "section": 5,
+          "actor_class": 13,
+          "levels": [
+            8,
+            7,
+            0
+          ],
+          "states": []
+        },
+        {
+          "name": "stats.actor-selected",
+          "passed": true,
+          "actor": 3,
+          "actor_name": "Jaheira",
+          "section": 5,
+          "actor_class": 16,
+          "levels": [
+            6,
+            7,
+            1
+          ],
+          "states": []
+        },
+        {
+          "name": "stats.actor-selected",
+          "passed": true,
+          "actor": 4,
+          "actor_name": "Minsc",
+          "section": 5,
+          "actor_class": 12,
+          "levels": [
+            7,
+            1,
+            1
+          ],
+          "states": []
+        }
+      ],
+      "raw_differences": [
+        {
+          "path": "/current_area_actors/36/modified_stats/7",
+          "before": 14,
+          "after": 12
+        },
+        {
+          "path": "/party/3/modified_stats/7",
+          "before": 14,
+          "after": 12
+        },
+        {
+          "path": "/selection",
+          "before": 1,
+          "after": 4
+        }
+      ],
+      "selected_capture_pins": [
+        {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T204320Z-stats-actors-menu-run-7e89a03f\\native\\20261022T204326Z-menu-run-d74dd65b\\1024x768\\capture-22.bmp",
+          "sha256": "76c63cb6e36a9147dfe8c95a0e0ea5207dc0e1fa7c73d1a1e83d130924f13fb8"
+        },
+        {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T204320Z-stats-actors-menu-run-7e89a03f\\native\\20261022T204326Z-menu-run-d74dd65b\\1024x768\\capture-24.bmp",
+          "sha256": "5f85ef83983af77b5375afa42733c272bb73290b68ed7a4430c8a0ddd87d4f31"
+        },
+        {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T204320Z-stats-actors-menu-run-7e89a03f\\native\\20261022T204326Z-menu-run-d74dd65b\\1024x768\\capture-33.bmp",
+          "sha256": "d4ca126a5d11d86676e5f0fbd467dd7cd033fbd9b1e338a8ace854f55950af19"
+        },
+        {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T204320Z-stats-actors-menu-run-7e89a03f\\native\\20261022T204326Z-menu-run-d74dd65b\\1024x768\\capture-38.bmp",
+          "sha256": "b6074036132146add192910ef868162e0932c0eb25e02dedf2a965bf6ad98259"
+        }
+      ]
+    },
+    {
+      "receipt": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T205334Z-stats-actors-menu-run-7098280f\\result.json",
+        "sha256": "c8e26f64b4db7beb0f1d3d8e9d69f2a6bf9febc271a02c0127b1629960b8c87f"
+      },
+      "resolution": [
+        1280,
+        768
+      ],
+      "owned_pid": 5908,
+      "process_exit": 0,
+      "strict_accepted": false,
+      "forensic_review": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\stats-actors-completed-failure-review-1792702897328430200\\1280x768.review.json",
+        "sha256": "b21d0b1eebd0f6a42f1424fb064ea87a84e5fe594b4ead574ee13ecb01f002c0"
+      },
+      "preservation": {
+        "phase0": true,
+        "candidate": true,
+        "game": true,
+        "closure": true,
+        "probe": true,
+        "recruitment_parent": true,
+        "coherent_build": true
+      },
+      "steps": 92,
+      "runtime_assertions": 77,
+      "actor_sections": 24,
+      "page_visits": 40,
+      "captures": 45,
+      "callbacks": 44,
+      "actors": [
+        {
+          "name": "stats.actor-selected",
+          "passed": true,
+          "actor": 1,
+          "actor_name": "wfsdf",
+          "section": 0,
+          "actor_class": 2,
+          "levels": [
+            7,
+            0,
+            0
+          ],
+          "states": []
+        },
+        {
+          "name": "stats.actor-selected",
+          "passed": true,
+          "actor": 2,
+          "actor_name": "Imoen",
+          "section": 5,
+          "actor_class": 13,
+          "levels": [
+            8,
+            7,
+            0
+          ],
+          "states": []
+        },
+        {
+          "name": "stats.actor-selected",
+          "passed": true,
+          "actor": 3,
+          "actor_name": "Jaheira",
+          "section": 5,
+          "actor_class": 16,
+          "levels": [
+            6,
+            7,
+            1
+          ],
+          "states": []
+        },
+        {
+          "name": "stats.actor-selected",
+          "passed": true,
+          "actor": 4,
+          "actor_name": "Minsc",
+          "section": 5,
+          "actor_class": 12,
+          "levels": [
+            7,
+            1,
+            1
+          ],
+          "states": []
+        }
+      ],
+      "raw_differences": [
+        {
+          "path": "/current_area_actors/36/modified_stats/7",
+          "before": 14,
+          "after": 12
+        },
+        {
+          "path": "/party/3/modified_stats/7",
+          "before": 14,
+          "after": 12
+        },
+        {
+          "path": "/selection",
+          "before": 1,
+          "after": 4
+        }
+      ],
+      "selected_capture_pins": [
+        {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T205334Z-stats-actors-menu-run-7098280f\\native\\20261022T205339Z-menu-run-5cad39d6\\1280x768\\capture-22.bmp",
+          "sha256": "e6d69acca35b57df0748cb99e6c57a2dd366e627a0e45a9b2ec0b9a215755921"
+        },
+        {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T205334Z-stats-actors-menu-run-7098280f\\native\\20261022T205339Z-menu-run-5cad39d6\\1280x768\\capture-24.bmp",
+          "sha256": "fecfec901438a62ef51676ead400e0437ba84cd8dd5378f041c82d0dd5914653"
+        },
+        {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T205334Z-stats-actors-menu-run-7098280f\\native\\20261022T205339Z-menu-run-5cad39d6\\1280x768\\capture-33.bmp",
+          "sha256": "7124fefe0fc8ff54269052653beeae719e81b07eda25b4fa54c26481984a3c46"
+        },
+        {
+          "path": "C:\\BGRedux\\phase1-local\\results\\20261022T205334Z-stats-actors-menu-run-7098280f\\native\\20261022T205339Z-menu-run-5cad39d6\\1280x768\\capture-38.bmp",
+          "sha256": "c338f643a9495f1218657aab917014379fdfdab7fa16365451b2182463308153"
+        }
+      ]
+    }
+  ],
+  "frozen_review_sources": {
+    "C:\\BGRedux\\phase1-local\\record-stats-actors-evidence-20261022.py": {
+      "path": "C:\\BGRedux\\phase1-local\\results\\stats-actors-completed-failure-review-1792702897328430200\\sources\\d082b82e7f6a5e68d26e344a550125b235b7fd3791986f7ab5ae1f3d6d243eca\\record-stats-actors-evidence-20261022.py",
+      "sha256": "d082b82e7f6a5e68d26e344a550125b235b7fd3791986f7ab5ae1f3d6d243eca"
+    },
+    "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\stats_failed_review.py": {
+      "path": "C:\\BGRedux\\phase1-local\\results\\stats-actors-completed-failure-review-1792702897328430200\\sources\\2f628cfe1690125839db7066126b2678158d179e96be9d25c50d2c2fdafa43da\\stats_failed_review.py",
+      "sha256": "2f628cfe1690125839db7066126b2678158d179e96be9d25c50d2c2fdafa43da"
+    },
+    "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\stats_validation.py": {
+      "path": "C:\\BGRedux\\phase1-local\\results\\stats-actors-completed-failure-review-1792702897328430200\\sources\\6f21e15e49805591e5f9501af9eb7212817bc74ed47f17035f31597edb66a6f1\\stats_validation.py",
+      "sha256": "6f21e15e49805591e5f9501af9eb7212817bc74ed47f17035f31597edb66a6f1"
+    },
+    "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\gui\\StatsRuntime.py": {
+      "path": "C:\\BGRedux\\phase1-local\\results\\stats-actors-completed-failure-review-1792702897328430200\\sources\\8a5e61a09c5db2cf0ef7ef94355bfdcbe8664e60796294296596e69800d160aa\\StatsRuntime.py",
+      "sha256": "8a5e61a09c5db2cf0ef7ef94355bfdcbe8664e60796294296596e69800d160aa"
+    },
+    "C:\\BGRedux\\phase1-local\\engine\\redux\\tools\\phase1\\gui\\MenuRuntime.py": {
+      "path": "C:\\BGRedux\\phase1-local\\results\\stats-actors-completed-failure-review-1792702897328430200\\sources\\5897c22ff79b7bbf3610bc383ccc159024c808d0dd96f74d40dc2d283c064e46\\MenuRuntime.py",
+      "sha256": "5897c22ff79b7bbf3610bc383ccc159024c808d0dd96f74d40dc2d283c064e46"
+    }
+  },
+  "query_characterization": [
+    {
+      "receipt": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T205135Z-minsc-stats-query-isolation-376e3659\\result.json",
+        "sha256": "d7ecbd87458ac033c96852b34c67929b121a9ae2b2b82f29e62bed14422c8f31"
+      },
+      "queries": [
+        {
+          "name": "query.observed",
+          "passed": true,
+          "actor": 4,
+          "actor_name": "Minsc",
+          "before": 14,
+          "after": 12,
+          "details": {
+            "Slot": 10,
+            "Flags": 33,
+            "Enchantment": 0,
+            "Range": 1,
+            "Proficiency": 254,
+            "DamageBonus": 0,
+            "Speed": 0,
+            "CriticalBonus": 0,
+            "Style": 113,
+            "APR": 2,
+            "CriticalMultiplier": 2,
+            "CriticalRange": 20,
+            "ProfDmgBon": 0,
+            "LauncherDmgBon": 0,
+            "WeaponStrBonus": 5,
+            "HitHeaderNumDice": 1,
+            "HitHeaderDiceSides": 2,
+            "HitHeaderDiceBonus": 0,
+            "AC": {
+              "Total": 8,
+              "Natural": 10,
+              "Armor": 0,
+              "Shield": 0,
+              "Deflection": 0,
+              "Generic": 0,
+              "Dexterity": -2,
+              "Wisdom": 0
+            },
+            "ToHitStats": {
+              "Total": 12,
+              "Base": 14,
+              "Armor": 0,
+              "Shield": 0,
+              "Proficiency": 0,
+              "Generic": 0,
+              "Ability": -2,
+              "Weapon": 0
+            },
+            "DamageOpcodes": []
+          }
+        },
+        {
+          "name": "query.observed",
+          "passed": true,
+          "actor": 4,
+          "actor_name": "Minsc",
+          "before": 12,
+          "after": 12,
+          "details": {
+            "Slot": 10,
+            "Flags": 33,
+            "Enchantment": 0,
+            "Range": 1,
+            "Proficiency": 254,
+            "DamageBonus": 0,
+            "Speed": 0,
+            "CriticalBonus": 0,
+            "Style": 113,
+            "APR": 2,
+            "CriticalMultiplier": 2,
+            "CriticalRange": 20,
+            "ProfDmgBon": 0,
+            "LauncherDmgBon": 0,
+            "WeaponStrBonus": 5,
+            "HitHeaderNumDice": 1,
+            "HitHeaderDiceSides": 2,
+            "HitHeaderDiceBonus": 0,
+            "AC": {
+              "Total": 8,
+              "Natural": 10,
+              "Armor": 0,
+              "Shield": 0,
+              "Deflection": 0,
+              "Generic": 0,
+              "Dexterity": -2,
+              "Wisdom": 0
+            },
+            "ToHitStats": {
+              "Total": 12,
+              "Base": 14,
+              "Armor": 0,
+              "Shield": 0,
+              "Proficiency": 0,
+              "Generic": 0,
+              "Ability": -2,
+              "Weapon": 0
+            },
+            "DamageOpcodes": []
+          }
+        }
+      ],
+      "trigger_observation": null,
+      "preservation": {
+        "phase0": true,
+        "candidate": true,
+        "game": true,
+        "closure": true,
+        "fixture": true
+      },
+      "production_accepted": false
+    },
+    {
+      "receipt": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T205833Z-minsc-stats-trigger-isolation-c4e45d44\\result.json",
+        "sha256": "d9dc11894c11bacc9b1d4a5663de69feaf9a977f66df3d8853cf52601e2c39e6"
+      },
+      "queries": [
+        {
+          "name": "query.observed",
+          "passed": true,
+          "actor": 4,
+          "actor_name": "Minsc",
+          "before": 14,
+          "after": 12,
+          "details": {
+            "Slot": 10,
+            "Flags": 33,
+            "Enchantment": 0,
+            "Range": 1,
+            "Proficiency": 254,
+            "DamageBonus": 0,
+            "Speed": 0,
+            "CriticalBonus": 0,
+            "Style": 113,
+            "APR": 2,
+            "CriticalMultiplier": 2,
+            "CriticalRange": 20,
+            "ProfDmgBon": 0,
+            "LauncherDmgBon": 0,
+            "WeaponStrBonus": 5,
+            "HitHeaderNumDice": 1,
+            "HitHeaderDiceSides": 2,
+            "HitHeaderDiceBonus": 0,
+            "AC": {
+              "Total": 8,
+              "Natural": 10,
+              "Armor": 0,
+              "Shield": 0,
+              "Deflection": 0,
+              "Generic": 0,
+              "Dexterity": -2,
+              "Wisdom": 0
+            },
+            "ToHitStats": {
+              "Total": 12,
+              "Base": 14,
+              "Armor": 0,
+              "Shield": 0,
+              "Proficiency": 0,
+              "Generic": 0,
+              "Ability": -2,
+              "Weapon": 0
+            },
+            "DamageOpcodes": []
+          },
+          "signals_before": {
+            "gt13": true,
+            "old14": true,
+            "new12": false,
+            "missing": false,
+            "control": true
+          },
+          "signals_after": {
+            "gt13": false,
+            "old14": false,
+            "new12": true,
+            "missing": false,
+            "control": true
+          }
+        },
+        {
+          "name": "query.observed",
+          "passed": true,
+          "actor": 4,
+          "actor_name": "Minsc",
+          "before": 12,
+          "after": 12,
+          "details": {
+            "Slot": 10,
+            "Flags": 33,
+            "Enchantment": 0,
+            "Range": 1,
+            "Proficiency": 254,
+            "DamageBonus": 0,
+            "Speed": 0,
+            "CriticalBonus": 0,
+            "Style": 113,
+            "APR": 2,
+            "CriticalMultiplier": 2,
+            "CriticalRange": 20,
+            "ProfDmgBon": 0,
+            "LauncherDmgBon": 0,
+            "WeaponStrBonus": 5,
+            "HitHeaderNumDice": 1,
+            "HitHeaderDiceSides": 2,
+            "HitHeaderDiceBonus": 0,
+            "AC": {
+              "Total": 8,
+              "Natural": 10,
+              "Armor": 0,
+              "Shield": 0,
+              "Deflection": 0,
+              "Generic": 0,
+              "Dexterity": -2,
+              "Wisdom": 0
+            },
+            "ToHitStats": {
+              "Total": 12,
+              "Base": 14,
+              "Armor": 0,
+              "Shield": 0,
+              "Proficiency": 0,
+              "Generic": 0,
+              "Ability": -2,
+              "Weapon": 0
+            },
+            "DamageOpcodes": []
+          },
+          "signals_before": {
+            "gt13": false,
+            "old14": false,
+            "new12": true,
+            "missing": false,
+            "control": true
+          },
+          "signals_after": {
+            "gt13": false,
+            "old14": false,
+            "new12": true,
+            "missing": false,
+            "control": true
+          }
+        }
+      ],
+      "trigger_observation": {
+        "before": {
+          "gt13": true,
+          "old14": true,
+          "new12": false,
+          "missing": false,
+          "control": true
+        },
+        "after": {
+          "gt13": false,
+          "old14": false,
+          "new12": true,
+          "missing": false,
+          "control": true
+        },
+        "scope": "Actual GameScript evaluator via area sender, explicit Player4 target. Trigger evaluation itself sets LastTrigger on positive results; not an AI execution or non-interference proof."
+      },
+      "preservation": {
+        "phase0": true,
+        "candidate": true,
+        "game": true,
+        "closure": true,
+        "fixture": true
+      },
+      "production_accepted": false
+    }
+  ],
+  "baseline_source_correspondence": {
+    "actor_combat_region_byte_identical": true,
+    "actor_region_sha256": "b3e5f467a58fc5d93b6b22aa4f83d736ac0004eceb186a05c81edd820092f4c5",
+    "combat_info_original": {
+      "path": "C:\\BGRedux\\gemrb\\gemrb\\core\\Scriptable\\CombatInfo.cpp",
+      "sha256": "e4e516bc1a95b7b4e3c130fde111fbf6e6589b0872d94f17b0b88a8100a2134b"
+    },
+    "combat_info_current": {
+      "path": "C:\\BGRedux\\phase1-local\\engine\\gemrb\\core\\Scriptable\\CombatInfo.cpp",
+      "sha256": "e4e516bc1a95b7b4e3c130fde111fbf6e6589b0872d94f17b0b88a8100a2134b"
+    },
+    "phase0_runtime_paired_run": false
+  },
+  "source_tooling": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\phase1-stats-actors-review-tooling-1792702586761031600\\result.json",
+    "sha256": "0379851141e6465715821eaa894f11ed542174547715d38270ab625b7bbb4110"
+  },
+  "tests": 584,
+  "test_seconds": 41.987,
+  "all_native_sessions_terminal": true,
+  "production_source_and_binaries_changed": false,
+  "selected_visual_scope": "Coordinator viewed 1024 captures22/24/33 and1280 captures22/33/38; no exact font metric claim",
+  "active_portrait_effect_fixture_covered": false,
+  "next_required": "Resolve presentation-query THAC0 side effects and script/save/attack implications without hiding Modified[7]; complete independent mechanics/font/locale/pointer coverage",
+  "full_private_review": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\stats-actors-completed-failure-review-1792702897328430200\\evidence.json",
+    "sha256": "ebfa403e9396d920234f9ba7fd5d39f6c283d7d5738d416aa3c3c118e9216709"
+  }
+}
