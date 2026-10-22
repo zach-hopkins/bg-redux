@@ -275,6 +275,7 @@ def main():
         cfg.write_text(''.join('%s=%s\n' % (k,str(v).replace('\\','/')) for k,v in config.items()), encoding='utf-8')
         config_hash = menu.sha(cfg)
         env = os.environ.copy()
+        env['PYTHONDONTWRITEBYTECODE'] = '1'
         env.update(HOME=str(profile), USERPROFILE=str(profile), APPDATA=str(profile/'AppData/Roaming'))
         env['PATH'] = os.pathsep.join([str(args.prefix/'bin'), str(args.build/'gemrb'), env.get('PATH','')])
         command = [str(args.probe), '--config', str(cfg), '--output', str(stage), '--scripts', str(HERE/'gui'),

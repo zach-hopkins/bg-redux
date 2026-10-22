@@ -164,6 +164,7 @@ def main():
     directory = args.output_root / (stamp + "-menu-" + args.mode + "-" + uuid.uuid4().hex[:8])
     directory.mkdir(parents=True, exist_ok=False)
     env = os.environ.copy()
+    env["PYTHONDONTWRITEBYTECODE"] = "1"
     env["PATH"] = os.pathsep.join([str(args.prefix / "bin"), str(args.build / "gemrb"), env.get("PATH", "")])
     dll = args.build / "gemrb/libgemrb_core.dll"
     source_files = [HERE / "menu_probe.cpp", HERE / "gui/MenuRuntime.py", HERE / "gui/MenuStart.py",
