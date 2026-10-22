@@ -34,8 +34,17 @@ capture 17 visibly retains full help. The chosen Stinking Cloud description also
 fits the panel, so it cannot prove scrolling; a naturally longer description is
 required without weakening the viewport-change oracle. No reload stage is accepted
 from this failed run. The diagnostic decoder and scroll target need refinement.
-The separate setting/mixed-copy journey is running at
-`20261022T120547Z-confirmation-setting-mixed-d8efb6d2`; its result is pending. Earlier native
+The first setting/mixed-copy journey
+`20261022T120547Z-confirmation-setting-mixed-d8efb6d2` is also failed: the validator
+compared uppercase Python observations against lowercase native imported prepared
+refs. Native actions and GUI save complete; all guards pass. The [first-attempt
+analysis](testing/phase1-confirmation-native-first-attempt.md) preserves the casing
+boundary, exact mixed-case world deltas and passing diagnostic-only reanalysis.
+The complete corrected source suite passes **524 tests in 35.095 seconds**,
+`phase1-confirmation-case-tooling-1792671175315062400/result.json`. Fresh host
+`confirmation-setting-4` is running at
+`20261022T121354Z-confirmation-setting-mixed-a92b7cdc`; persistence remains pending.
+Earlier native
 receipts do not validate the latest helper bytes. Phase1 remains incomplete.
 
 Latest LAB checkpoint (October 22 UTC): see the [executed validation report](testing/phase1-lab-validation.md).
