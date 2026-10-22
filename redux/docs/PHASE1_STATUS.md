@@ -38,8 +38,8 @@ attempts are immutable evidence; new builds/results use separate destinations.
   `phase1-local/builds/baseline-lab-20261021`, using the transferred UCRT64 compiler
   and dependencies. It does not use or rewrite the copied historical CMake cache.
   Existing external managed test entry enables logger shutdown and guarded tests;
-  engine/assertion sources are unchanged in this before-build. Build/test evidence
-  and candidate comparison are pending.
+  engine/assertion sources are unchanged in this before-build. Before-build and
+  baseline runs are complete as recorded below; candidate runtime comparison is pending.
 - P1-02: worker implementing distinct immunity/enchantment and damage-resistance
   predicates through existing dispatch and cached weapon data. Querying must not
   roll, attack, consume ammunition or apply effects. Additional offhand/both-hand,
@@ -95,3 +95,38 @@ The Phase 0 protected source/binaries/fixture still match the accepted release.
 A separate cache investigation and functional hotkey editor are in progress.
 All Phase 1 work remains unaccepted pending runtime/journey/campaign evidence;
 this status does not replace the full backlog completion requirements.
+
+## October 22 UTC continuation
+
+The hotkey editor now supports the existing plain-key binding surface, with
+atomic validation/apply, cancel/defaults and explicit conflict replacement.
+Modifiers, international combinations and full EE hotkey fidelity remain open.
+Fresh candidate `20261022T002042Z-candidate-e825e411` failed during GUIScript
+compilation because a transitional Python string wrapper has no `MakeString`.
+Its complete build log and preservation receipt are retained. The correction
+copies `PyUnicode_AsUTF8AndSize` into an owned, length-delimited string; native
+rebuild is pending. The integrated Python suite passes 94 tests in
+`phase1-local/results/phase1-integrated-tests-20261022T0034.log`.
+
+Read-only font import provenance now records the selected stream and actual
+FreeType face/size for the external observer. It does not change rendering or
+BAM metrics. Independent numeric fingerprints match seven historical TTF roles,
+but actual provider metadata and original visual fidelity still require fresh
+native observations. See [typography audit](testing/phase1-typography-audit.md).
+
+All eight original ammunition cases (9–16) are frozen and independently reviewed.
+At enchantment threshold zero, normal bow/+1 arrows is effective while +1 bow/
+normal arrows is ineffective. PFMW blocks the enchanted arrows but permits the
+normal arrows. Thresholds one and two reject both configurations. Damage queries
+remain true for the occupied main hand in these cases. These are query contracts,
+not authority to change combat hit/damage resolution. Before-fix native comparison
+uses the preserved `1c6316a3` build and a detached source snapshot at `987aad4de`;
+all 3,503 recorded source hashes match. Its external query host compiles, with no
+execution while the original session is active.
+
+The inventory mutation observer initially failed compilation on three implicit
+`const char*` conversions to explicit `ResRef`; that attempt is retained under
+`weapon-query-probes/baseline-cache-20261022`. Explicit construction fixes the
+external host, which now compiles against the unchanged baseline as
+`baseline-cache-fixed-20261022`. The suspected same-animation item cache issue
+still needs runtime reproduction before any engine correction.

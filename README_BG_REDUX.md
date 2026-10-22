@@ -1,8 +1,8 @@
-# BG Redux — Phase 0
+# BG Redux — Phase 1 development
 
 A GemRB derivative for a modern, extensible Baldur's Gate runtime. Preserve the game, modernize the engine, refine the experience.
 
-**Phase 0 research, baseline validation, architecture contracts and external test tooling now have fresh LAB evidence. Engine source is unchanged from `bcb5cfaa9f19ffbe8a51f25a3c014fa344173351`.** See the release record for technical acceptance and explicit compatibility limits. This is not a native-like compatibility release.
+**Phase 1 implementation is authorized and in progress in an isolated checkout.** See [Phase 1 status](redux/docs/PHASE1_STATUS.md) for current source, builds, evidence and remaining gates. The accepted Phase 0 release and its unchanged engine baseline remain preserved. This development branch is not an accepted compatibility release.
 
 - [Complete continuation context, accepted decisions and embedded charter/reports](redux/docs/handoff/BG_REDUX_COMPLETE_CONTEXT.md)
 - [Phase 0 release and technical acceptance](redux/docs/PHASE0_RELEASE.md)
@@ -13,7 +13,7 @@ A GemRB derivative for a modern, extensible Baldur's Gate runtime. Preserve the 
 - [AI-first harness specification](redux/docs/testing/ai-first-harness.md)
 - [External harness sources](redux/tools/phase0)
 
-The default Phase 0 branch is `codex/phase0-audit`. Original GemRB documentation and license notices remain intact. Engine changes and gameplay enhancements need separate authorization. The modern UI and BG2EE-import/versioned-Redux-save directions are approved; neither is implemented by this publication.
+The preserved Phase 0 branch is `codex/phase0-audit`; implementation work uses `codex/phase1-engine`. Original GemRB documentation and license notices remain intact. The current authorization covers the Phase 1 backlog; later gameplay enhancements retain their separate decision boundaries.
 
 ## Workspace layout
 
