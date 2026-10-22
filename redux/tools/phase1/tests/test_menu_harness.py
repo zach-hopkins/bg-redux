@@ -44,10 +44,10 @@ class MenuReceiptTests(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory()
         self.path = Path(self.temp.name)
         (self.path/'process.log').write_text('normal native log\n',encoding='utf-8')
-        self.runtime = dict(steps=10, planned_steps=10, context_required=["store"],
+        self.runtime = dict(nonce="0123456789abcdef0123456789abcdef", steps=10, planned_steps=10, context_required=["store"],
             checks=[dict(action=name, capture=i+1) for i, name in enumerate(sorted(harness.REQUIRED_OBSERVATIONS))] +
                    [dict(name="actual-hp", passed=True)])
-        self.host = dict(completed=True, captures=len(harness.REQUIRED_OBSERVATIONS), nonce='fixture-fresh')
+        self.host = dict(completed=True, captures=len(harness.REQUIRED_OBSERVATIONS), nonce='0123456789abcdef0123456789abcdef')
         self.before = dict(selection=1, hp=20, ammo=8, effects=[1, 2], globals={"QUEST": 3})
         self.after = dict(self.before, selection=2)
         bmp = bytearray(58)
@@ -88,43 +88,68 @@ class MenuReceiptTests(unittest.TestCase):
     def tearDown(self): self.temp.cleanup()
 
     def test_selection_is_allowed_but_visual_rng_claims_remain_unproven(self):
-        value = harness.validate_stage(self.path)
+        value = harness.validate_stage(self.path, expected_nonce='0123456789abcdef0123456789abcdef')
         self.assertTrue(value["assertion_passed"])
         self.assertTrue(value["collected_world_unchanged"])
         self.assertFalse(value["visual_acceptance"])
         self.assertIsNone(value["hidden_rng_unchanged"])
 
+    def test_nonce_must_be_pinned_by_caller_not_only_match_between_outputs(self):
+        # An internally consistent old pair must still fail a fresh launch pin.
+        with self.assertRaisesRegex(ValueError,'caller-pinned menu nonce'):
+            harness.validate_stage(self.path, expected_nonce='fedcba9876543210fedcba9876543210')
+        for value in ('', None, 'short', 'G'*32):
+            with self.subTest(value=value):
+                with self.assertRaisesRegex(ValueError,'caller-pinned menu nonce'):
+                    harness.validate_stage(self.path, expected_nonce=value)
+
+    def test_missing_or_mismatched_runtime_host_nonces_fail(self):
+        for which in (self.host,self.runtime):
+            original=which.pop('nonce')
+            self.save()
+            with self.assertRaisesRegex(ValueError,'caller-pinned menu nonce'):
+                harness.validate_stage(self.path, expected_nonce='0123456789abcdef0123456789abcdef')
+            which['nonce']='fedcba9876543210fedcba9876543210'
+            self.save()
+            with self.assertRaisesRegex(ValueError,'caller-pinned menu nonce'):
+                harness.validate_stage(self.path, expected_nonce='0123456789abcdef0123456789abcdef')
+            which['nonce']=original
+        self.save()
+
+    def test_validation_has_no_unpinned_call_compatibility_bypass(self):
+        with self.assertRaises(TypeError): harness.validate_stage(self.path)
+
     def test_same_process_success_cannot_hide_changed_effects_or_ammo(self):
         self.after["ammo"] -= 1
         self.save()
-        self.assertFalse(harness.validate_stage(self.path)["collected_world_unchanged"])
+        self.assertFalse(harness.validate_stage(self.path, expected_nonce='0123456789abcdef0123456789abcdef')["collected_world_unchanged"])
 
     def test_known_unimplemented_hotkey_failure_is_retained(self):
         self.runtime["checks"].append(dict(name="hotkeys.opens-real-window", passed=False))
         self.save()
-        self.assertFalse(harness.validate_stage(self.path)["assertion_passed"])
+        self.assertFalse(harness.validate_stage(self.path, expected_nonce='0123456789abcdef0123456789abcdef')["assertion_passed"])
 
     def test_visible_sheet_must_match_independent_native_cache(self):
         index = next(row["capture"] for row in self.runtime["checks"] if row.get("action") == "inventory.observed")
         harness.write(self.path / ("capture-%d.observer.json" % index), dict(actors=[dict(party_index=1, cached_thac0=9)]))
-        value = harness.validate_stage(self.path)
+        value = harness.validate_stage(self.path, expected_nonce='0123456789abcdef0123456789abcdef')
         self.assertFalse(value["assertion_passed"])
         self.assertFalse(next(row["passed"] for row in value["checks"] if row["name"] == "inventory.observed.native-cached-thac0"))
 
     def test_missing_category_is_not_complete(self):
         self.runtime["checks"] = [row for row in self.runtime["checks"] if row.get("action") != "stats.observed-5"]
         self.save()
-        with self.assertRaisesRegex(ValueError, "coverage"): harness.validate_stage(self.path)
+        with self.assertRaisesRegex(ValueError, "coverage"): harness.validate_stage(self.path, expected_nonce='0123456789abcdef0123456789abcdef')
 
     def test_old_window_only_book_receipt_is_rejected(self):
         self.runtime['checks']=[r for r in self.runtime['checks'] if r.get('name')!='mage-book.content-contract']
         self.save()
-        with self.assertRaisesRegex(ValueError,'semantic contract'): harness.validate_stage(self.path)
+        with self.assertRaisesRegex(ValueError,'semantic contract'): harness.validate_stage(self.path, expected_nonce='0123456789abcdef0123456789abcdef')
 
     def test_context_gated_book_cannot_carry_content(self):
         self.runtime['checks'].append(dict(name='priest-book.content-contract',actor=3))
         self.save()
-        with self.assertRaisesRegex(ValueError,'fabricated content'): harness.validate_stage(self.path)
+        with self.assertRaisesRegex(ValueError,'fabricated content'): harness.validate_stage(self.path, expected_nonce='0123456789abcdef0123456789abcdef')
 
     def test_stale_wrong_or_duplicate_portrait_receipt_cannot_prove_selection(self):
         path=self.path/'callback-1.json'
@@ -133,31 +158,31 @@ class MenuReceiptTests(unittest.TestCase):
             with self.subTest(key=key):
                 harness.write(path,dict(original,**{key:value}))
                 with self.assertRaisesRegex(ValueError,'spellbook registered callback'):
-                    harness.validate_stage(self.path)
+                    harness.validate_stage(self.path, expected_nonce='0123456789abcdef0123456789abcdef')
         harness.write(path,original)
         harness.write(self.path/'callback-3.json',original)
         with self.assertRaisesRegex(ValueError,'spellbook registered callback'):
-            harness.validate_stage(self.path)
+            harness.validate_stage(self.path, expected_nonce='0123456789abcdef0123456789abcdef')
 
     def test_capture_must_belong_to_observation_and_match_resolution(self):
-        with self.assertRaisesRegex(ValueError, "resolution"): harness.validate_stage(self.path, (1024, 768))
+        with self.assertRaisesRegex(ValueError, "resolution"): harness.validate_stage(self.path, (1024, 768), expected_nonce='0123456789abcdef0123456789abcdef')
         self.runtime["checks"][0].pop("capture")
         self.save()
-        with self.assertRaisesRegex(ValueError, "lacks its capture"): harness.validate_stage(self.path)
+        with self.assertRaisesRegex(ValueError, "lacks its capture"): harness.validate_stage(self.path, expected_nonce='0123456789abcdef0123456789abcdef')
 
     def test_duplicate_capture_and_incomplete_plan_rejected(self):
         self.runtime["checks"].append(dict(step=2, capture=1))
         self.save()
-        with self.assertRaisesRegex(ValueError, "ambiguous"): harness.validate_stage(self.path)
+        with self.assertRaisesRegex(ValueError, "ambiguous"): harness.validate_stage(self.path, expected_nonce='0123456789abcdef0123456789abcdef')
         self.runtime["steps"] -= 1
         self.save()
-        with self.assertRaisesRegex(ValueError, "incomplete"): harness.validate_stage(self.path)
+        with self.assertRaisesRegex(ValueError, "incomplete"): harness.validate_stage(self.path, expected_nonce='0123456789abcdef0123456789abcdef')
 
     def test_truncated_or_absent_screenshot_rejected(self):
         (self.path / "capture-1.bmp").write_bytes(b"BM")
-        with self.assertRaisesRegex(ValueError, "screenshot"): harness.validate_stage(self.path)
+        with self.assertRaisesRegex(ValueError, "screenshot"): harness.validate_stage(self.path, expected_nonce='0123456789abcdef0123456789abcdef')
         (self.path / "capture-1.bmp").unlink()
-        with self.assertRaises(OSError): harness.validate_stage(self.path)
+        with self.assertRaises(OSError): harness.validate_stage(self.path, expected_nonce='0123456789abcdef0123456789abcdef')
 
     def test_artifact_inventory_never_descends_private_asset_root(self):
         game = self.path / 'stage/game/data'
@@ -170,7 +195,7 @@ class MenuReceiptTests(unittest.TestCase):
 
     def test_python_callback_traceback_cannot_hide_behind_matching_initial_ui_value(self):
         (self.path/'process.log').write_text('[Python/ERROR]: Traceback (most recent call last):\n',encoding='utf-8')
-        result=harness.validate_stage(self.path)
+        result=harness.validate_stage(self.path, expected_nonce='0123456789abcdef0123456789abcdef')
         self.assertFalse(result['assertion_passed'])
         self.assertFalse(next(c for c in result['checks'] if c['name']=='native-python-callback-log')['passed'])
 
@@ -188,7 +213,7 @@ class MenuRuntimeTests(unittest.TestCase):
         self.modules.start()
         self.runtime = load("menu_runtime_test", HERE / "gui/MenuRuntime.py")
         self.temp = tempfile.TemporaryDirectory()
-        self.runtime.Configure(self.temp.name)
+        self.runtime.Configure(self.temp.name, '0123456789abcdef0123456789abcdef')
 
     def tearDown(self):
         self.modules.stop()
@@ -200,6 +225,24 @@ class MenuRuntimeTests(unittest.TestCase):
         self.assertFalse(harness.REQUIRED_OBSERVATIONS - names)
         self.assertIn("hotkeys.callback", names)
         self.assertEqual(self.vars["Phase1MenuComplete"], 0)
+
+    def test_runtime_requires_explicit_valid_nonce(self):
+        with self.assertRaises(TypeError): self.runtime.Configure(self.temp.name)
+        for nonce in ('',None,'not-a-run','F'*32):
+            with self.subTest(nonce=nonce):
+                with self.assertRaises(ValueError): self.runtime.Configure(self.temp.name,nonce)
+
+    def test_hotkey_runtime_passes_owned_nonce_through_real_shared_menu_configuration(self):
+        nonce='0123456789abcdef0123456789abcdef'
+        self.gem.GetSystemVariable=lambda key:self.temp.name
+        Path(self.temp.name,'journey-input.json').write_text(json.dumps(dict(
+            nonce=nonce,mode='hotkeys-edit',profile=self.temp.name)))
+        with patch.dict(sys.modules,{'MenuRuntime':self.runtime}):
+            hotkeys=load('hotkey_runtime_menu_nonce_test',HERE/'gui/HotkeyRuntime.py')
+            hotkeys.Configure(self.temp.name,'hotkeys-edit',nonce)
+        self.assertEqual(hotkeys.NONCE,nonce)
+        self.assertEqual(self.runtime.NONCE,nonce)
+        self.assertEqual([r[0] for r in self.runtime.PLAN],['initial'])
 
     def test_missing_hotkey_transition_fails_even_after_dispatch(self):
         self.gem.GetView = lambda *args: None

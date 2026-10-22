@@ -238,7 +238,7 @@ def build_reload():
 
 def Configure(output, mode, nonce):
     global INPUT, MODE, NONCE, STATES, REQUESTS, KEYS, PROCESS_IDENTITY
-    Menu.Configure(output)
+    Menu.Configure(output, nonce)
     Menu.PLAN = [('initial', initialize, True)]
     INPUT = json.loads((Path(output) / 'journey-input.json').read_text(encoding='utf-8'))
     if mode not in ('hotkeys-edit', 'hotkeys-reload') or INPUT['nonce'] != nonce or INPUT['mode'] != mode:

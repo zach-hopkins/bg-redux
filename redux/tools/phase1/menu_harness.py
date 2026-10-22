@@ -125,11 +125,15 @@ def validate_spellbook_capture(contract, state, ui):
     return checks
 
 
-def validate_stage(directory, resolution=None):
+def validate_stage(directory, resolution=None, *, expected_nonce):
     """Fail incomplete/missing evidence; never turn screenshots into visual QA."""
     directory = Path(directory)
     host = json.loads((directory / "menu-host-result.json").read_text(encoding="utf8"))
     runtime = json.loads((directory / "menu-runtime.json").read_text(encoding="utf8"))
+    if (not isinstance(expected_nonce, str) or len(expected_nonce) != 32 or
+        any(c not in '0123456789abcdef' for c in expected_nonce) or
+        host.get('nonce') != expected_nonce or runtime.get('nonce') != expected_nonce):
+        raise ValueError('Missing/mismatched caller-pinned menu nonce')
     if not host.get("completed") or runtime["steps"] != runtime["planned_steps"]:
         raise ValueError("Menu plan incomplete")
     if REQUIRED_OBSERVATIONS - {row.get("action") for row in runtime["checks"]}:
@@ -181,7 +185,7 @@ def validate_stage(directory, resolution=None):
             dispatch = [r for r in callbacks if r.get('runtime_step') == steps[0]['step']+1]
             if (len(dispatch) != 1 or dispatch[0].get('pack') != pack or dispatch[0].get('window') != 0 or
                 dispatch[0].get('control') != control_id or dispatch[0].get('performed') is not True or
-                not host.get('nonce') or dispatch[0].get('nonce') != host['nonce']):
+                dispatch[0].get('nonce') != expected_nonce):
                 raise ValueError('Missing/stale/wrong spellbook registered callback')
         capture = next(r['capture'] for r in runtime['checks'] if r.get('action') == name+'.observed')
         prefix = directory / ('capture-%d' % capture)
@@ -295,17 +299,24 @@ def main():
             cfg = stage / "menu.cfg"
             cfg.write_text("".join("%s=%s\n" % (key, str(value).replace("\\", "/")) for key, value in config.items()), encoding="utf8")
             config_before = sha(cfg)
-            command = [str(args.probe), "--config", str(cfg), "--output", str(stage), "--scripts", str(HERE / "gui")]
+            stage_nonce = uuid.uuid4().hex
+            command = [str(args.probe), "--config", str(cfg), "--output", str(stage), "--scripts", str(HERE / "gui"),
+                       "--nonce", stage_nonce]
+            # Freeze identity before the owned process can produce evidence.
+            write(stage / 'launch-pin.json', dict(schema='bg-redux-menu-launch-pin/1',
+                  nonce=stage_nonce, resolution=[width, height], command=command,
+                  config_sha256=config_before, probe_sha256=receipt['probe_sha256']))
             stage_env = env.copy()
             stage_env.update(HOME=str(profile), USERPROFILE=str(profile), APPDATA=str(profile / "AppData/Roaming"))
-            row = dict(resolution=[width, height], process=run_owned(command, args.build, stage_env, stage / "process.log", args.timeout))
+            row = dict(resolution=[width, height], expected_nonce=stage_nonce,
+                       process=run_owned(command, args.build, stage_env, stage / "process.log", args.timeout))
             row.update(config_sha256_before=config_before, config_sha256_after=sha(cfg))
             try:
                 row['private_game_validation'] = private_game.validate(private)
             except (ValueError, OSError) as error:
                 row['private_game_error'] = str(error)
             try:
-                row["validation"] = validate_stage(stage, (width, height))
+                row["validation"] = validate_stage(stage, (width, height), expected_nonce=stage_nonce)
             except (ValueError, OSError, KeyError, IndexError, TypeError, StopIteration) as error:
                 row["error"] = str(error)
             row["fixture_copy_unchanged"] = manifest(copied) == original

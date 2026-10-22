@@ -18,6 +18,7 @@ ROWS = []
 INDEX = 0
 CAPTURE = 0
 SPELL_ACTORS = {}
+NONCE = None
 
 
 def view(pack, wid):
@@ -184,8 +185,11 @@ def inspect_spellbook(name, pack):
                          reason='No party actor has this actual spellbook; no direct opener bypass'))
 
 
-def Configure(output):
-    global OUTPUT, PLAN, ROWS, INDEX, CAPTURE, SPELL_ACTORS
+def Configure(output, nonce):
+    global OUTPUT, PLAN, ROWS, INDEX, CAPTURE, SPELL_ACTORS, NONCE
+    if not isinstance(nonce, str) or len(nonce) != 32 or any(c not in '0123456789abcdef' for c in nonce):
+        raise ValueError('Menu run requires a fresh 32-digit lowercase hex nonce')
+    NONCE = nonce
     OUTPUT, PLAN, ROWS, INDEX, CAPTURE = Path(output), [], [], 0, 0
     SPELL_ACTORS={}
     for key in ("Phase1MenuComplete", "Phase1MenuCapture", "Phase1PressPack", "Phase1FailedChecks", "Phase1DispatchKey", "Phase1NativeKeys", "Phase1NativeCallbacks"):
@@ -305,7 +309,7 @@ def Step():
     INDEX += 1
     GemRB.SetVar("Phase1FailedChecks", sum(row.get("passed") is False for row in ROWS))
     (OUTPUT / "menu-runtime.json").write_text(json.dumps(dict(schema="bg-redux-menu-runtime/1",
-        steps=INDEX, planned_steps=len(PLAN), checks=ROWS,
+        nonce=NONCE, steps=INDEX, planned_steps=len(PLAN), checks=ROWS,
         context_required=["priest memorization/casting needs priest", "store/merchant", "container/bag/loot",
                           "dialogue/cutscene", "character generation", "world travel", "level-up/dual-class",
                           "sequencer/contingency", "rest confirmation", "export/customization submenus"],
