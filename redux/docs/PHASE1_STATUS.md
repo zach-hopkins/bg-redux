@@ -8,6 +8,26 @@ game typefaces are fidelity requirements. Modern UI direction remains approved.
 
 ## Requirements and order
 
+October 22 follow-up: the named-layout candidate's [independent audit](testing/phase1-information-candidate-regression-audit.md)
+confirms all 44 general assertions and correct stock/reordered Erase save/reload.
+The compatibility verdict remains differences: vanilla residuals are 2/2/24,
+including reload-2 actor 7 color stat 212; GUI residuals remain 449/53. These
+differences are open. The two-resolution menu receipt
+`20261022T113936Z-inf-menu-run-918c978e/result.json` passes, pending its independent
+audit. Actual priest help/names are visible; Feedback has two identically labeled
+confirmation controls, an open presentation issue requiring original-label research.
+
+Two actual-helper regressions reproduced blank help for ineligible and initially
+hidden books. The source now preserves localized help independently of action
+eligibility; both cases keep spell actions blocked. Before/after focused logs are
+`phase1-disabled-help-before-20261022.log` (2 failures of 15) and
+`phase1-disabled-help-after-20261022.log` (15 pass). The complete source-bound suite
+passes **523 tests in 60.832 seconds**, receipt
+`phase1-disabled-help-tooling-1792670115069129200/result.json`. Fresh candidate
+`20261022T115526Z-candidate-ced237a2` is building. Dedicated native information and
+confirmation-persistence journeys remain unexecuted for this fix. Earlier native
+receipts do not validate the latest helper bytes. Phase1 remains incomplete.
+
 Latest LAB checkpoint (October 22 UTC): see the [executed validation report](testing/phase1-lab-validation.md).
 Current source additionally contains an **unvalidated** ordinary EE named-row/
 description/paging layout and persistent Feedback setting. The original physical

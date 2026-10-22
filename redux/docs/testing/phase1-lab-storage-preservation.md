@@ -123,6 +123,13 @@ marked read-only and rehashed to prevent accidental writes across aliases:
 `storage-shared-cache-readonly-1792662832877889600/result.json`.
 Archived profiles must remain archived; all new tests use fresh private caches.
 
+A later pass ran only after all owned native sessions were terminal. Receipt
+`storage-identical-completed-caches-readonly-1792669011654661600/result.json`
+pins 26,674 completed cache files, shares 4,222 additional identical paths,
+and verifies the retained bytes and read-only aliases. Free space increased from
+1,842,335,744 to 4,864,077,824 bytes. No result path was removed. New tests continue
+to use fresh private caches; archived caches must not be reused for writes.
+
 The results parent now requests inherited compression without recursion. A
 baseline retry nested in the longer compressed-container path failed while
 copying a 273-character Windows destination, before the GUI stages began.

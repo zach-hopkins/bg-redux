@@ -1,5 +1,15 @@
 # BG Redux — complete continuation context
 
+Latest October 22 continuation: consult the leading checkpoint in
+[Phase 1 status](../PHASE1_STATUS.md). Named-layout general/Erase results have an
+[independent audit](../testing/phase1-information-candidate-regression-audit.md);
+44 assertions and correct intended deletion/save/reload pass, with compatibility
+differences retained (vanilla 2/2/24, GUI 449/53). The latest help fix has a retained
+two-failure BEFORE and 15-pass AFTER, plus 523 passing source checks. Candidate
+`20261022T115526Z-candidate-ced237a2` is building; dedicated native paging/selection
+and setting save/fresh-process reload remain pending. Feedback's duplicate
+confirmation labels and exact typeface metrics remain open. Preserve every result.
+
 October 22 UTC implementation update: the user has explicitly authorized Phase 1 engine work with two workers and a coordinator. Follow [Phase 1 status](../PHASE1_STATUS.md) and the full [backlog](../roadmap/phase1-backlog.md). Work is isolated in `C:\BGRedux\phase1-local\engine`; the original Phase 0 checkout, binaries, fixtures and evidence remain preserved. The freeze and immediate assignment below describe the accepted historical Phase 0 baseline, not a prohibition on the separately authorized Phase 1 work. Phase 1 has not been accepted; original behavior, native non-interference, menu/typeface fidelity, ordinary journeys and campaign checkpoints remain required.
 
 October 21 LAB update: Phase 0 technical evidence is consolidated in [the release record](../PHASE0_RELEASE.md). Base/context transfer and native validation are complete; engine source/binaries are unchanged. Host input isolation is user-confirmed. VM snapshots are optional and excluded from gates by explicit user instruction. Earlier pending-transfer/snapshot statements below are historical. Phase 1 engine implementation remains separately authorized work.
