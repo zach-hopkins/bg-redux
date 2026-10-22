@@ -1,0 +1,386 @@
+{
+  "schema": "bg-redux-phase1-active-slot-lab-summary/1",
+  "run_id": "20261022T033723Z-active-slot-run-81396091",
+  "result_sha256": "71244e9fc3343e9ad40604d8b26d980b343afd3db643a3391702dbfbf3963753",
+  "artifact_manifest_sha256": "50f91175b4d0def970d72f87761a9f22211fdfdf34575c3e6127225ff7428a10",
+  "build_run_id": "20261022T033147Z-active-slot-build-41d00737",
+  "build_receipt_sha256": "d4d33f42546b1dfc1f48381d68d6803a94a531823002adefa886cdc440a80204",
+  "build_artifact_manifest_sha256": "f613f1362c78aeb42dc96242bf7e108433bb5b30be6c484301ea0987545a4838",
+  "driver_sha256": "3b08aa82fb5c6030bebb604c520ba69c2b41cd2fcf99f181ac413f0a0be8a38b",
+  "core_dll_sha256": "79650612926d96a8748320bcf3d0f8f265f7d20747448a30a5ec8918b472ebb9",
+  "core_import_archive_sha256": "cc2511e867f8c903f47a7cdbd0e8d8ab37d519860acd251915085c35e0784c99",
+  "compiler_sha256": "5f30e02408ab97050fcbfa39bb391b0923cf9402063920b849ab8491e63334b3",
+  "cmake_cache_sha256": "5d7d9aac215679011478a89eb1c27229f0cfe1a1a83252e49b3896ccde315027",
+  "native_source_sha256": "86707441163f61ff5f237befb679175c219bbf015c9eb49e84810995626c9b6c",
+  "adapter_source_sha256": "b174ff9ca2b219cad6dd07e8f74e0cac670f6b56da642080f84e445612c607f9",
+  "preparation_sha256": "b18bb391c451fb9ace9bdab3a43313c554f82cddf170af0751d95dd06ece1ce4",
+  "raw_item_metadata_sha256": "c0dea20534d2e1d3b47a038652d2e36a47fec003f3ce4296c196b885c7565269",
+  "passed": true,
+  "repetitions": 2,
+  "stages": 14,
+  "calls": 196,
+  "predicate_calls": 168,
+  "control_calls": 28,
+  "query_state_cache_rng_equal_pairs": 588,
+  "query_capture_files": 1274,
+  "query_noninterference": true,
+  "calling_thread_query_rng_unchanged": true,
+  "stable_values": true,
+  "cache_coherent": true,
+  "target_collected_state_unchanged": true,
+  "route_boundaries": {
+    "initial_noop": 2,
+    "explicit_slot_CreateItem": 6,
+    "ordinary_remove_add_select": 3,
+    "parsed_TransformItem": 3
+  },
+  "deliberate_mutation_rng_changes": [
+    "main/02-ordinary-main-plus",
+    "ranged/03-ordinary-ammo-plus",
+    "ranged/07-ordinary-launcher-normal"
+  ],
+  "whole_journey_rng_unchanged": false,
+  "query_order": [
+    "WeaponEffectiveVs(Player2,MAINHAND)",
+    "WeaponCanDamage(Player2,MAINHAND)",
+    "WeaponEffectiveVs(Player2,OFFHAND)",
+    "WeaponCanDamage(Player2,OFFHAND)",
+    "WeaponEffectiveVs(Player2,BOTH)",
+    "WeaponCanDamage(Player2,BOTH)"
+  ],
+  "cases": [
+    {
+      "scenario": "main",
+      "nonce": "2f8ae11af927495a8b2d462e0d5b690e",
+      "owned_pid": 13532,
+      "exit_code": 0,
+      "timed_out": false,
+      "timeout_seconds": 120.0,
+      "elapsed_seconds": 9.175,
+      "sender_runtime_id": 10002,
+      "target_runtime_id": 10003,
+      "physical_main_slot": 35,
+      "physical_ammo_slot": null,
+      "ammo_count": null,
+      "stages": [
+        {
+          "id": "00-initial",
+          "route": "none",
+          "main": "sw1h02",
+          "ammo": null,
+          "selected_header": 0,
+          "combat_enchantment": 1,
+          "launcher_damage_bonus": 0,
+          "launcher_thac0_bonus": 0,
+          "predicate_values": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "deliberate_rng_changed": false
+        },
+        {
+          "id": "01-create-main-normal",
+          "route": "CreateItem explicit-slot",
+          "main": "sw1h01",
+          "ammo": null,
+          "selected_header": 0,
+          "combat_enchantment": 0,
+          "launcher_damage_bonus": 0,
+          "launcher_thac0_bonus": 0,
+          "predicate_values": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "deliberate_rng_changed": false
+        },
+        {
+          "id": "02-ordinary-main-plus",
+          "route": "ordinary remove/add/select",
+          "main": "sw1h02",
+          "ammo": null,
+          "selected_header": 0,
+          "combat_enchantment": 1,
+          "launcher_damage_bonus": 0,
+          "launcher_thac0_bonus": 0,
+          "predicate_values": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "deliberate_rng_changed": true
+        },
+        {
+          "id": "03-transform-main-normal",
+          "route": "parsed TransformItem",
+          "main": "sw1h01",
+          "ammo": null,
+          "selected_header": 0,
+          "combat_enchantment": 0,
+          "launcher_damage_bonus": 0,
+          "launcher_thac0_bonus": 0,
+          "predicate_values": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "deliberate_rng_changed": false
+        },
+        {
+          "id": "04-create-main-plus",
+          "route": "CreateItem explicit-slot",
+          "main": "sw1h02",
+          "ammo": null,
+          "selected_header": 0,
+          "combat_enchantment": 1,
+          "launcher_damage_bonus": 0,
+          "launcher_thac0_bonus": 0,
+          "predicate_values": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "deliberate_rng_changed": false
+        }
+      ]
+    },
+    {
+      "scenario": "ranged",
+      "nonce": "a107b10547c140c99e597b0a9e472ee4",
+      "owned_pid": 14184,
+      "exit_code": 0,
+      "timed_out": false,
+      "timeout_seconds": 120.0,
+      "elapsed_seconds": 11.417,
+      "sender_runtime_id": 10002,
+      "target_runtime_id": 10003,
+      "physical_main_slot": 35,
+      "physical_ammo_slot": 11,
+      "ammo_count": 40,
+      "stages": [
+        {
+          "id": "00-initial",
+          "route": "none",
+          "main": "bow01",
+          "ammo": "arow02",
+          "selected_header": 0,
+          "combat_enchantment": 1,
+          "launcher_damage_bonus": 1,
+          "launcher_thac0_bonus": 1,
+          "predicate_values": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "deliberate_rng_changed": false
+        },
+        {
+          "id": "01-create-ammo-normal",
+          "route": "CreateItem explicit-slot",
+          "main": "bow01",
+          "ammo": "arow01",
+          "selected_header": 0,
+          "combat_enchantment": 0,
+          "launcher_damage_bonus": 1,
+          "launcher_thac0_bonus": 1,
+          "predicate_values": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "deliberate_rng_changed": false
+        },
+        {
+          "id": "02-transform-launcher-plus",
+          "route": "parsed TransformItem",
+          "main": "bow02",
+          "ammo": "arow01",
+          "selected_header": 0,
+          "combat_enchantment": 1,
+          "launcher_damage_bonus": 1,
+          "launcher_thac0_bonus": 2,
+          "predicate_values": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "deliberate_rng_changed": false
+        },
+        {
+          "id": "03-ordinary-ammo-plus",
+          "route": "ordinary remove/add/select",
+          "main": "bow02",
+          "ammo": "arow02",
+          "selected_header": 0,
+          "combat_enchantment": 1,
+          "launcher_damage_bonus": 1,
+          "launcher_thac0_bonus": 2,
+          "predicate_values": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "deliberate_rng_changed": true
+        },
+        {
+          "id": "04-transform-launcher-normal",
+          "route": "parsed TransformItem",
+          "main": "bow01",
+          "ammo": "arow02",
+          "selected_header": 0,
+          "combat_enchantment": 1,
+          "launcher_damage_bonus": 1,
+          "launcher_thac0_bonus": 1,
+          "predicate_values": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "deliberate_rng_changed": false
+        },
+        {
+          "id": "05-create-ammo-normal",
+          "route": "CreateItem explicit-slot",
+          "main": "bow01",
+          "ammo": "arow01",
+          "selected_header": 0,
+          "combat_enchantment": 0,
+          "launcher_damage_bonus": 1,
+          "launcher_thac0_bonus": 1,
+          "predicate_values": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "deliberate_rng_changed": false
+        },
+        {
+          "id": "06-create-launcher-plus",
+          "route": "CreateItem explicit-slot",
+          "main": "bow02",
+          "ammo": "arow01",
+          "selected_header": 0,
+          "combat_enchantment": 1,
+          "launcher_damage_bonus": 1,
+          "launcher_thac0_bonus": 2,
+          "predicate_values": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "deliberate_rng_changed": false
+        },
+        {
+          "id": "07-ordinary-launcher-normal",
+          "route": "ordinary remove/add/select",
+          "main": "bow01",
+          "ammo": "arow01",
+          "selected_header": 0,
+          "combat_enchantment": 0,
+          "launcher_damage_bonus": 1,
+          "launcher_thac0_bonus": 1,
+          "predicate_values": [
+            1,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "deliberate_rng_changed": true
+        },
+        {
+          "id": "08-create-ammo-plus",
+          "route": "CreateItem explicit-slot",
+          "main": "bow01",
+          "ammo": "arow02",
+          "selected_header": 0,
+          "combat_enchantment": 1,
+          "launcher_damage_bonus": 1,
+          "launcher_thac0_bonus": 1,
+          "predicate_values": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "deliberate_rng_changed": false
+        }
+      ]
+    }
+  ],
+  "independent_audit": {
+    "method": "Read-only PowerShell JSON ingestion, SHA256 rehashes, raw snapshot equality and continuity; no test/build/native execution",
+    "run_artifact_hashes_checked": 1683,
+    "build_artifact_hashes_checked": 25,
+    "candidate_source_files_checked": 3507,
+    "candidate_build_files_checked": 48,
+    "protected_phase0_source_files_checked": 3500,
+    "protected_phase0_build_files_checked": 50,
+    "protected_phase0_fixture_files_checked": 6,
+    "live_and_frozen_helper_entries_checked_per_receipt": 18,
+    "helper_receipts_checked": 2,
+    "final_fixture_source_and_copy_files_checked": 24,
+    "script_source_and_copy_files_checked": 4,
+    "loaded_resource_metadata_comparisons": 12,
+    "differences": 0
+  },
+  "preservation": {
+    "phase0_before_after_equal": true,
+    "candidate_before_after_equal": true,
+    "live_current_pins_match": true,
+    "private_game_inventory_and_immutable_inputs_preserved": true,
+    "only_allowed_private_root_change": "GemRB.log",
+    "all_linked_asset_content_rehashed": false
+  },
+  "limits": [
+    "Only these initialized diagnostic actor/inventory paths and six repeated query expressions; no normal-loop combat or complete AI proof.",
+    "Calling-thread RNG snapshots cover query refreshes. Three intentional ordinary mutations changed RNG state; no all-journey RNG-preservation claim.",
+    "Retaining item resources changes diagnostic resource lifetime; no proof against uninstrumented lifetime failures.",
+    "Loaded resource/header metadata matched preparation-bound raw metadata; linked asset bytes were not comprehensively rehashed.",
+    "Original mutation parity is unobserved; existing original 22-case query evidence and old offhand receipts retain their own scope.",
+    "Magic-slot mutation coverage is unobserved.",
+    "Coordinator reported 10 focused tests and 237 full-suite tests passing; independent audit did not rerun tests."
+  ],
+  "original_mutation_parity": null,
+  "magic_slot_covered": false
+}
