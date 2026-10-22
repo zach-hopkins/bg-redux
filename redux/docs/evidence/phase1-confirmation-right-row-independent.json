@@ -1,0 +1,464 @@
+{
+  "schema": "bg-redux-independent-right-row-confirmation-audit/1",
+  "passed": true,
+  "fresh": {
+    "raw_result": "C:\\BGRedux\\phase1-local\\results\\20261022T123904Z-confirmation-setting-mixed-e9957e50\\result.json",
+    "result_sha256": "9fa6ea8e3ce9d9ae1f400fbfb4ecd93a67ebb8a835a792bcda0ea1464734a272",
+    "raw_passed": true,
+    "raw_error": null,
+    "audit_passed": true,
+    "artifacts_rehashed": 1325,
+    "source_closure": 89,
+    "engine_binding": {
+      "receipt_sha256": "d6893b4203933ec6e5e964e8043be70a9633c176aed09016011d334df13f36f8",
+      "source_files": 3511,
+      "binaries": 61,
+      "support_files": 5
+    },
+    "source_commit": "9b30077b76aaa0f92f9e5387eb1ede8a1a54d325",
+    "core_sha256": "da9d137d02eed781ee3859c0d3f5f298457bb4d62028e4993f44516cd9edac7f",
+    "historical_source_recovery": [],
+    "settings_control": 41,
+    "placement_scope": "Right41/buddy40/label29; leftlabel77524/checkbox38 retained",
+    "stages": [
+      {
+        "mode": "operate",
+        "pid": 13540,
+        "exit_code": 0,
+        "elapsed_seconds": 194.96,
+        "nonce": "db3e15a816524657b0f9e1590446175f",
+        "steps": 54,
+        "callbacks": 36,
+        "captures": 22
+      },
+      {
+        "mode": "reload",
+        "pid": 16656,
+        "exit_code": 0,
+        "elapsed_seconds": 40.24,
+        "nonce": "70e4eff356414e3e8a720ac7ae083e46",
+        "steps": 12,
+        "callbacks": 10,
+        "captures": 3
+      }
+    ],
+    "config_observations": [
+      {
+        "mode": "operate",
+        "actual_ini_sha256": "a35121d4e11845e5da91bb344c8198bb729ae8eaf9554b7b8495aa8ee1588783",
+        "actual_ini_bytes": 2465,
+        "option_loaded": 0,
+        "draft_loaded": null
+      },
+      {
+        "mode": "reload",
+        "actual_ini_sha256": "a35121d4e11845e5da91bb344c8198bb729ae8eaf9554b7b8495aa8ee1588783",
+        "actual_ini_bytes": 2465,
+        "option_loaded": 1,
+        "draft_loaded": null
+      },
+      {
+        "mode": "reload",
+        "ini_sha256": "a35121d4e11845e5da91bb344c8198bb729ae8eaf9554b7b8495aa8ee1588783",
+        "ini_bytes": 2465,
+        "option_loaded": 1,
+        "draft_loaded": null
+      }
+    ],
+    "headings": [
+      {
+        "mode": "operate",
+        "name": "mage.before",
+        "text": "Memorized: 3/3",
+        "allocated": 3,
+        "ready": 3,
+        "capacity": 3
+      },
+      {
+        "mode": "operate",
+        "name": "mage.target-modal",
+        "text": "Memorized: 3/3",
+        "allocated": 3,
+        "ready": 3,
+        "capacity": 3
+      },
+      {
+        "mode": "operate",
+        "name": "mage.after-cancel",
+        "text": "Memorized: 3/3",
+        "allocated": 3,
+        "ready": 3,
+        "capacity": 3
+      },
+      {
+        "mode": "operate",
+        "name": "mage.filler-modal",
+        "text": "Memorized: 3/3",
+        "allocated": 3,
+        "ready": 3,
+        "capacity": 3
+      },
+      {
+        "mode": "operate",
+        "name": "mage.after-filler",
+        "text": "Memorized: 2/3",
+        "allocated": 2,
+        "ready": 2,
+        "capacity": 3
+      },
+      {
+        "mode": "operate",
+        "name": "mage.mixed-before",
+        "text": "Memorized: 3/3",
+        "allocated": 3,
+        "ready": 2,
+        "capacity": 3
+      },
+      {
+        "mode": "operate",
+        "name": "mage.after-mixed",
+        "text": "Memorized: 2/3",
+        "allocated": 2,
+        "ready": 2,
+        "capacity": 3
+      },
+      {
+        "mode": "operate",
+        "name": "priest.before",
+        "text": "Memorized: 5/5",
+        "allocated": 5,
+        "ready": 5,
+        "capacity": 5
+      },
+      {
+        "mode": "operate",
+        "name": "priest.target-modal",
+        "text": "Memorized: 5/5",
+        "allocated": 5,
+        "ready": 5,
+        "capacity": 5
+      },
+      {
+        "mode": "operate",
+        "name": "priest.after-cancel",
+        "text": "Memorized: 5/5",
+        "allocated": 5,
+        "ready": 5,
+        "capacity": 5
+      },
+      {
+        "mode": "operate",
+        "name": "priest.filler-modal",
+        "text": "Memorized: 5/5",
+        "allocated": 5,
+        "ready": 5,
+        "capacity": 5
+      },
+      {
+        "mode": "operate",
+        "name": "priest.after-filler",
+        "text": "Memorized: 4/5",
+        "allocated": 4,
+        "ready": 4,
+        "capacity": 5
+      },
+      {
+        "mode": "operate",
+        "name": "priest.selected",
+        "text": "Memorized: 4/5",
+        "allocated": 4,
+        "ready": 4,
+        "capacity": 5
+      },
+      {
+        "mode": "operate",
+        "name": "priest.mixed-before",
+        "text": "Memorized: 5/5",
+        "allocated": 5,
+        "ready": 4,
+        "capacity": 5
+      },
+      {
+        "mode": "operate",
+        "name": "priest.after-mixed",
+        "text": "Memorized: 4/5",
+        "allocated": 4,
+        "ready": 4,
+        "capacity": 5
+      },
+      {
+        "mode": "reload",
+        "name": "mage.before",
+        "text": "Memorized: 2/3",
+        "allocated": 2,
+        "ready": 2,
+        "capacity": 3
+      },
+      {
+        "mode": "reload",
+        "name": "priest.before",
+        "text": "Memorized: 4/5",
+        "allocated": 4,
+        "ready": 4,
+        "capacity": 5
+      }
+    ],
+    "wire_target_pages_before": [
+      {
+        "type": 1,
+        "level": 1,
+        "slots": 3,
+        "bonus": 3,
+        "known": [
+          {
+            "resref": "SPWI215",
+            "level": 1,
+            "type": 1
+          },
+          {
+            "resref": "SPWI214",
+            "level": 1,
+            "type": 1
+          },
+          {
+            "resref": "SPWI213",
+            "level": 1,
+            "type": 1
+          },
+          {
+            "resref": "SPWI212",
+            "level": 1,
+            "type": 1
+          },
+          {
+            "resref": "SPWI211",
+            "level": 1,
+            "type": 1
+          }
+        ],
+        "memorized": [
+          {
+            "resref": "SPWI213",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI214",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI215",
+            "flags": 1
+          }
+        ]
+      },
+      {
+        "type": 0,
+        "level": 0,
+        "slots": 3,
+        "bonus": 3,
+        "known": [
+          {
+            "resref": "SPPR110",
+            "level": 0,
+            "type": 0
+          },
+          {
+            "resref": "SPPR105",
+            "level": 0,
+            "type": 0
+          },
+          {
+            "resref": "SPPR113",
+            "level": 0,
+            "type": 0
+          },
+          {
+            "resref": "SPPR104",
+            "level": 0,
+            "type": 0
+          },
+          {
+            "resref": "SPPR103",
+            "level": 0,
+            "type": 0
+          },
+          {
+            "resref": "SPPR101",
+            "level": 0,
+            "type": 0
+          },
+          {
+            "resref": "SPPR111",
+            "level": 0,
+            "type": 0
+          }
+        ],
+        "memorized": [
+          {
+            "resref": "SPPR113",
+            "flags": 1
+          },
+          {
+            "resref": "SPPR105",
+            "flags": 1
+          },
+          {
+            "resref": "SPPR105",
+            "flags": 1
+          },
+          {
+            "resref": "SPPR103",
+            "flags": 1
+          },
+          {
+            "resref": "SPPR103",
+            "flags": 1
+          }
+        ]
+      }
+    ],
+    "wire_target_pages_after": [
+      {
+        "type": 1,
+        "level": 1,
+        "slots": 3,
+        "bonus": 3,
+        "known": [
+          {
+            "resref": "SPWI215",
+            "level": 1,
+            "type": 1
+          },
+          {
+            "resref": "SPWI214",
+            "level": 1,
+            "type": 1
+          },
+          {
+            "resref": "SPWI213",
+            "level": 1,
+            "type": 1
+          },
+          {
+            "resref": "SPWI212",
+            "level": 1,
+            "type": 1
+          },
+          {
+            "resref": "SPWI211",
+            "level": 1,
+            "type": 1
+          }
+        ],
+        "memorized": [
+          {
+            "resref": "SPWI213",
+            "flags": 1
+          },
+          {
+            "resref": "SPWI215",
+            "flags": 1
+          }
+        ]
+      },
+      {
+        "type": 0,
+        "level": 0,
+        "slots": 3,
+        "bonus": 3,
+        "known": [
+          {
+            "resref": "SPPR110",
+            "level": 0,
+            "type": 0
+          },
+          {
+            "resref": "SPPR105",
+            "level": 0,
+            "type": 0
+          },
+          {
+            "resref": "SPPR113",
+            "level": 0,
+            "type": 0
+          },
+          {
+            "resref": "SPPR104",
+            "level": 0,
+            "type": 0
+          },
+          {
+            "resref": "SPPR103",
+            "level": 0,
+            "type": 0
+          },
+          {
+            "resref": "SPPR101",
+            "level": 0,
+            "type": 0
+          },
+          {
+            "resref": "SPPR111",
+            "level": 0,
+            "type": 0
+          }
+        ],
+        "memorized": [
+          {
+            "resref": "SPPR113",
+            "flags": 1
+          },
+          {
+            "resref": "SPPR105",
+            "flags": 1
+          },
+          {
+            "resref": "SPPR103",
+            "flags": 1
+          },
+          {
+            "resref": "SPPR103",
+            "flags": 1
+          }
+        ]
+      }
+    ],
+    "limits": [
+      "Raw failed receipt remains failed even if completed prefix independently agrees",
+      "Original parity absent; no inn/OSpointer/multipledepleted/purity claim",
+      "Case-only resref comparison at declared API/wire boundary; added entry preserves selected-known storage spelling; retained imported memo spelling remains exact"
+    ],
+    "fresh_reload_residual_summary": {
+      "count": 885,
+      "non_effect_rows": [
+        {
+          "path": "/current_area_actors/25/modified_stats/1",
+          "before": 42,
+          "after": 37
+        },
+        {
+          "path": "/game_time",
+          "before": 33242,
+          "after": 33241
+        },
+        {
+          "path": "/selection",
+          "before": 3,
+          "after": 1
+        }
+      ],
+      "effect_length_rows": [
+        {
+          "path": "/current_area_actors/2/effects/length",
+          "before": 43,
+          "after": 50
+        }
+      ],
+      "interpretation": "All raw differences preserved privately; not whole-world equality"
+    }
+  },
+  "auditor_sha256": "d95f899833232738aef17198da8d31718506c4a23ade56e656a2402c5fae74f8",
+  "private_receipt": "C:\\BGRedux\\phase1-local\\results\\20261022T124437Z-confirmation-right-row-independent-8c76d8ec\\audit.json",
+  "private_receipt_sha256": "14e2c346e24ace079b8435196e7424a6c51bcb78956d09a40f1870cecf53ff2b",
+  "visual_inspection": "operate/capture-2.bmp: separate left Colored Markers and right Enable Confirmation visible; no exact font/style metrics"
+}
