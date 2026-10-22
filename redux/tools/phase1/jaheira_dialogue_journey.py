@@ -27,6 +27,7 @@ BRANCHES=[(0,899,4,4,904),(47,20128,94,0,None),(5,909,9,0,None),
  (51,20142,98,0,None),(8,912,12,0,None),(49,20132,96,0,None),
  (50,20136,97,0,None),(9,921,14,1,923),(58,20176,105,0,None),
  (59,20177,106,0,None),(14,945,45,0,None)]
+RESPONSE_STATE_COUNTS={0:5,9:7}
 
 
 def sources(project,source):
@@ -38,6 +39,7 @@ def sources(project,source):
         'gemrb/core/GUI/Button.cpp','gemrb/core/GUI/Button.h',
         'gemrb/core/GUI/TextSystem/TextContainer.cpp','gemrb/core/Scriptable/Scriptable.h',
         'gemrb/GUIScripts/GUIWORLD.py','gemrb/GUIScripts/GUISAVE.py','gemrb/GUIScripts/GUILOAD.py')]
+    paths += [source/'gemrb/core/DialogHandler.h',source/'gemrb/plugins/DLGImporter/DLGImporter.cpp']
     return sorted(set(paths))
 
 
@@ -113,7 +115,7 @@ def scene_guard(scene,state,talked,journaled=None):
         raise ValueError('Wrong dialogue branch quest effects')
 
 
-def validate_capture(folder,nonce,reload=False,started_ns=None,texts=None):
+def validate_capture(folder,nonce,reload=False,started_ns=None,texts=None,direct_selection=False,direct_mapping=None):
     folder=Path(folder);native=evidence.read(folder/'dialogue-result.json')
     if (native.get('schema')!='bg-redux-jaheira-native/1' or native.get('nonce')!=nonce or native.get('journey')!=('reload' if reload else 'talk')
         or native.get('completed')is not True or native.get('error') or native.get('os_pointer_input')is not False
@@ -121,6 +123,11 @@ def validate_capture(folder,nonce,reload=False,started_ns=None,texts=None):
         or native.get('window_render_diagnostic',False)is not False or native.get('talk_requests')!=(0 if reload else 1)
         or native.get('branches_completed')!=(0 if reload else 11)):
         raise ValueError('Wrong/stale/incomplete dialogue receipt')
+    if (native.get('direct_selection_regression',False)is not direct_selection or
+        native.get('response_selection_entry','TextArea::SelectAvailableOption')!=('TextArea::UpdateState'if direct_selection else'TextArea::SelectAvailableOption')):
+        raise ValueError('Requested dialogue selection entry differs from native receipt')
+    if direct_selection and not reload:
+        if direct_mapping is None or evidence.sha(folder/'selection-dialogue.runtime')!=DLG_SHA:raise ValueError('Pinned runtime DLG mapping evidence required')
     if started_ns is not None and any(p.stat().st_mtime_ns<started_ns for p in folder.iterdir() if p.is_file()):raise ValueError('Stale capture evidence')
     samples=native.get('startup_samples',[])
     if len(samples)<4 or len(samples)>1000 or not all(s.get('idle')is True for s in samples[-4:]):raise ValueError('Four natural idle samples required')
@@ -167,7 +174,8 @@ def validate_capture(folder,nonce,reload=False,started_ns=None,texts=None):
             state_id,strref,tr,local,response=expected;detail=event['details']
             visible=(4 if index==0 else 1) if response is not None else None
             wanted=dict(state=state_id,npc_strref=strref,transition=tr,local_transition=local,response_strref=response,performed=True,
-                        selection_entry='TextArea::SelectAvailableOption' if response is not None else 'Control::PerformAction',visible_index=visible)
+                        selection_entry=('TextArea::UpdateState'if direct_selection else'TextArea::SelectAvailableOption') if response is not None else 'Control::PerformAction',visible_index=visible)
+            if direct_selection and response is not None:wanted['selected_value']=local
             if (detail!=wanted or detail.get('performed')is not True
                 or any(type(detail.get(k))is not int for k in ('state','npc_strref','transition','local_transition'))
                 or (visible is not None and type(detail.get('visible_index'))is not int)
@@ -181,6 +189,9 @@ def validate_capture(folder,nonce,reload=False,started_ns=None,texts=None):
                 or text.get('npc_occurrences_after')!=new_count):raise ValueError('Stale transcript is not fresh branch evidence')
             previous_text=text['message_text']
             if response is not None and str(visible+1)+'. - '+texts[response]not in text['message_text']:raise ValueError('Actual numbered response text absent')
+            if direct_selection and response is not None:
+                mapping=evidence.read(folder/('branch-'+str(index)+'.selection.json'))
+                validate_direct_mapping(mapping,direct_mapping[state_id],state_id,visible,local,tr,response,text['message_text'],texts)
             if response is None:
                 button=evidence.read(folder/('branch-'+str(index)+'.button.json'));ref=9371 if index==10 else 9372;flags=button.get('flags')
                 if type(flags)is not int or not 0<=flags<=0xffffffff or button.get('label_strref')!=ref or button.get('raw_label')!=texts[ref]:raise ValueError('Continue/End label source/flags differ')
@@ -210,8 +221,39 @@ def validate_capture(folder,nonce,reload=False,started_ns=None,texts=None):
     if not reload and evidence.read(folder/'before-save.state.json')!=evidence.read(folder/'final.state.json'):
         raise ValueError('GUI save changed collected state')
     return dict(completed=True,callbacks=len(events),startup_samples=len(samples),target_id=last_ids[1],
-        save=native['saves'][0] if not reload else None,original_parity=None,os_pointer_input=False,
+        save=native['saves'][0] if not reload else None,original_parity=None,os_pointer_input=False,direct_selection_regression=direct_selection,
         state_identity='Sequential displayed NPC strref transcript matching; private dialogue state index not sampled')
+
+
+def dialogue_selection_mapping(raw):
+    if raw[:8]!=b'DLG V1.0':raise ValueError('DLG mapping version differs')
+    states,state_at,total,transition_at=struct.unpack('<4I',binary.block(raw,8,16))
+    if states>10000 or total>100000:raise ValueError('DLG mapping counts exceed bound')
+    binary.block(raw,state_at,states*16);binary.block(raw,transition_at,total*32);result={}
+    for state,ref,global_transition,local,response in (b for b in BRANCHES if b[4]is not None):
+        if state>=states:raise ValueError('Expected response state missing')
+        actual,first,count=struct.unpack('<3I',binary.block(raw,state_at+16*state,12))
+        if actual!=ref or count!=RESPONSE_STATE_COUNTS[state] or first>total or count>total-first or local>=count or first+local!=global_transition:raise ValueError('DLG local/global response mapping differs')
+        choices=[]
+        for value in range(local+1):
+            flags,text_ref=struct.unpack('<2I',binary.block(raw,transition_at+32*(first+value),8))
+            if text_ref==0xffffffff:raise ValueError('Hidden response in required prefix unsupported')
+            choices.append(dict(visible_index=value,value=value,transition=first+value,strref=text_ref,flags=flags))
+        if choices[local]['strref']!=response:raise ValueError('Chosen DLG response text differs')
+        result[state]=choices
+    return result
+
+
+def validate_direct_mapping(receipt,choices,state,visible,value,transition,response,message,texts):
+    selected=choices[visible]if type(visible)is int and 0<=visible<len(choices)else None
+    if (receipt.get('schema')!='bg-redux-dialogue-direct-selection/1' or receipt.get('choices')!=choices or receipt.get('state')!=state or receipt.get('state_transition_count')!=RESPONSE_STATE_COUNTS[state]
+        or receipt.get('visible_index')!=visible or receipt.get('selected_value')!=value or receipt.get('selection_entry')!='TextArea::UpdateState'
+        or receipt.get('host_dispatch_calls')!=1 or selected is None or selected['value']!=value or selected['transition']!=transition or selected['strref']!=response
+        or any(type(receipt.get(k))is not int for k in ('state','state_transition_count','visible_index','selected_value','host_dispatch_calls'))
+        or any(any(type(row.get(k))is not int for k in ('visible_index','value','transition','strref','flags'))for row in receipt.get('choices',[]))):raise ValueError('Direct response value/visible mapping differs')
+    for choice in choices:
+        text=texts.get(choice['strref'])
+        if not text or str(choice['visible_index']+1)+'. - '+text not in message:raise ValueError('Every direct mapped visible response must appear')
 
 
 def resource_guard(api,project):
@@ -219,14 +261,16 @@ def resource_guard(api,project):
     data,origin=api.probe_ui_resources.read_resource('jaheira','dlg')
     tlk=project/'phase0-local/bg2ee-clean/lang/en_US/dialog.tlk'
     if data is None or binary.digest(data)!=DLG_SHA or evidence.sha(tlk)!=TLK_SHA:raise ValueError('Shipped DLG/TLK input differs')
-    return dict(dialog='JAHEIRA',dlg_sha256=DLG_SHA,dlg_origin=origin,tlk_sha256=TLK_SHA)
+    return dict(dialog='JAHEIRA',dlg_sha256=DLG_SHA,dlg_origin=origin,tlk_sha256=TLK_SHA,direct_selection_mapping=dialogue_selection_mapping(data))
 
 
-def tlk_texts(project):
+def tlk_texts(project,direct_mapping=None):
     raw=(project/'phase0-local/bg2ee-clean/lang/en_US/dialog.tlk').read_bytes()
     if binary.digest(raw)!=TLK_SHA or raw[:8]!=b'TLK V1  ':raise ValueError('Pinned TLK required')
     count,offset=binary.u32(raw,10),binary.u32(raw,14);result={}
-    for ref in {b[1] for b in BRANCHES}|{b[4] for b in BRANCHES if b[4]is not None}|{9371,9372}:
+    refs={b[1] for b in BRANCHES}|{b[4] for b in BRANCHES if b[4]is not None}|{9371,9372}
+    if direct_mapping is not None:refs|={row['strref']for choices in direct_mapping.values()for row in choices}
+    for ref in refs:
         if ref>=count:raise ValueError('TLK strref out of bounds')
         row=18+ref*26;start,length=binary.u32(raw,row+18),binary.u32(raw,row+22)
         text=binary.block(raw,offset+start,length).decode('utf-8')
@@ -284,7 +328,8 @@ def run(args):
     project,source,build=(getattr(args,k).resolve() for k in ('project_root','engine_source_root','engine_build_root'))
     root_guard(project,source,build)
     if not args.results_root.resolve().is_relative_to(project/'phase1-local/results'):raise ValueError('Private Phase1 results root required')
-    out=shared.new_output(args.results_root.resolve(),'jaheira-dialogue');result=dict(schema='bg-redux-jaheira-journey/1',passed=False,stages=[],original_parity=None)
+    direct=getattr(args,'direct_selection_regression',False)
+    out=shared.new_output(args.results_root.resolve(),'jaheira-dialogue-direct'if direct else'jaheira-dialogue');result=dict(schema='bg-redux-jaheira-journey/1',passed=False,stages=[],original_parity=None,direct_selection_regression=direct)
     api=before=candidate=None;preserved=[];privates=[];pins={}
     try:
         api=shared.phase0(project);result['preflight']=api.baseline_runner.preflight(project)
@@ -308,6 +353,7 @@ def run(args):
             config=dict(GameType='bg2ee',GamePath=private['game'],GemRBPath=source/'gemrb',PluginsPath=build/'gemrb/plugins',CachePath=stage/'cache',SavePath=stage/'profile',ModPath=stage/'override',UseAsLibrary=0,SaveAsOriginal=1,Width=1024,Height=768,FullScreen=0,CapFPS=30,AudioDriver='none',GameLanguagePath='lang/en_US',SkipIntroVideos=1,Logging=1,LogColor=0,PathfinderThreadsCount=0,PathfinderMainThreadMode='immediate')
             cfg=stage/'probe.cfg';cfg.write_text(''.join('%s=%s\n'%(k,str(v).replace('\\','/')) for k,v in config.items()),encoding='utf-8');pins[str(cfg)]=evidence.sha(cfg)
             command=[str(host),'--config',str(cfg),'--output',str(stage/'capture'),'--scripts',str(startup),'--journey','window-render' if args.window_render_diagnostic else 'render' if args.render_diagnostic else mode,'--nonce',entry['nonce']]
+            if direct:command+=['--selection-entry','direct-value']
             env=api.harness.environment(stage);prefix=project/'phase0-local/toolchain/msys64/ucrt64';env['PATH']=os.pathsep.join([str(build/'gemrb'),str(prefix/'bin'),env.get('PATH','')]);env['PYTHONDONTWRITEBYTECODE']='1'
             source_guard(receipt,project,source);shared.validate_private_game(private,stage)
             if evidence.manifest(driver)!=driver_files:raise ValueError('Frozen launch closure changed')
@@ -323,7 +369,8 @@ def run(args):
                     method='Synthetic alpha/opaque/scaled/clipped window fixture' if args.window_render_diagnostic else 'Delayed ordinary, MarkDirty-only, then explicitly cleared window buffer repaint')
                 raise ValueError('Render diagnostic only; not a dialogue/save acceptance run')
             if 'Traceback (most recent call last)' in (stage/'process.log').read_text(encoding='utf-8',errors='replace'):raise ValueError('Stock callback traceback')
-            entry['observation']=validate_capture(stage/'capture',entry['nonce'],mode=='reload',started,tlk_texts(project))
+            mapping=result['resources']['direct_selection_mapping']if direct else None
+            entry['observation']=validate_capture(stage/'capture',entry['nonce'],mode=='reload',started,tlk_texts(project,mapping),direct_selection=direct,direct_mapping=mapping)
             if mode=='talk':
                 saved=Path(entry['observation']['save']).resolve()
                 if not saved.is_relative_to((stage/'profile/save').resolve()) or saved==copied.resolve():raise ValueError('Output escaped profile/overwrote input')
@@ -367,8 +414,10 @@ def main(argv=None):
             q.add_argument('--debugger-trace',action='store_true',help='Run only the first stage under pinned GDB, retain stacks, and always reject acceptance')
             q.add_argument('--render-diagnostic',action='store_true',help='Hold the second NPC response and compare delayed, invalidated and cleared buffer renders; always reject gameplay acceptance')
             q.add_argument('--window-render-diagnostic',action='store_true',help='Run synthetic alpha/scaled/clipped window readbacks; always reject gameplay acceptance')
+            q.add_argument('--direct-selection-regression',action='store_true',help='Opt-in public TextArea::UpdateState(local value) response regression with independently guarded DLG/visible mapping')
     args=p.parse_args(argv)
     if not 1<=args.timeout<=300:p.error('Timeout must be bounded to 1..300 seconds')
+    if args.command=='run'and args.direct_selection_regression and(args.debugger_trace or args.render_diagnostic or args.window_render_diagnostic):p.error('Direct selection regression cannot be combined with diagnostic-only modes')
     return build_host(args) if args.command=='build' else run(args)
 
 

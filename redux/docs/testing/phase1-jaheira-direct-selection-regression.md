@@ -1,0 +1,25 @@
+# Opt-in real dialogue direct-selection regression
+
+The default eleven-branch Jaheira journey still uses `TextArea::SelectAvailableOption(visibleIndex)` for its two numbered responses. The run-only flag `--direct-selection-regression` explicitly selects public `TextArea::UpdateState(localValue)` for those responses. Continue/End controls, actual transcript/participant checks, journal effects, ordinary GUI save and fresh-process reload remain the same. No production engine, existing fixture, dialogue/global setter or original resource changes are included.
+
+The host accepts only `--selection-entry available-index` or `direct-value`; omitted selection entry preserves the existing default. Invalid entries or combinations with render-only diagnostics fail before initialization. The Python CLI also rejects combining direct regression with debugger/render-only modes. Raw native results record the requested selection entry, and numbered-response events record its actual dispatch entry and selected local value. Validation requires agreement with the explicit run flag; an edited response receipt cannot silently opt into direct mode.
+
+This mapping is deliberately narrow. `DialogHandler::GetDialogOptions` stores the local transition index as each SelectOption value, filters conditional rows, then reverses the collected list into ascending order. Global transition numbers and visible indices are not generally interchangeable. The pinned JAHEIRA.DLG has five response rows in state0, with chosen visible4/local4/global4/ref904. State9 has seven rows, several conditional; chosen local1/global14/ref923 has visible ordinal1 only if the preceding local0/ref922 is displayed too. The guard therefore parses actual runtime DLG bytes and requires the complete numbered prefix through the chosen row: state0 locals0–4; state9 locals0–1. It does not assume all seven state9 rows are visible or evaluate its conditions independently.
+
+Each direct response retains `branch-N.selection.json` before dispatch, including the source-derived local values, global transitions, text refs, flags, actual state transition count and visible indices. Every prefix response must appear with its exact numbered text in the actual captured transcript. Python independently parses the pinned DLG and checks the mapping and selected value; `selection-dialogue.runtime` must match the exact protected DLG SHA256. These are source-and-visible-text proofs of the values used by the shipped setter, not a private-vector memory probe. If an earlier conditional option is missing or the numbering differs, the guard fails rather than guessing a value.
+
+The host dispatches each response entry once. Existing eleven fresh NPC-text/branch checkpoints, exact ordered event inventory, participant identity, quest/journal outcomes and save/reload assertions remain required. This proves the intended progression when measured; there is no new independent internal responder-call counter. Extra responders that alter progression must still satisfy neither a skipped checkpoint nor a cached transcript. Immediate control deletion, arbitrary nested selections, general dialogue coverage and original parity remain unmeasured.
+
+Coordinator validation after the active synthetic AFTER matrix is terminal:
+
+```powershell
+$py = 'C:/BGRedux/phase0-local/toolchain/msys64/ucrt64/bin/python.exe'
+$tool = 'C:/BGRedux/phase1-local/engine/redux/tools/phase1/jaheira_dialogue_journey.py'
+$build = 'C:/BGRedux/phase1-local/builds/20261022T063419Z-candidate-24f35a4e'
+$host = 'C:/BGRedux/phase1-local/weapon-query-probes/b49-jaheira-direct1'
+& $py -B -m unittest discover -s C:/BGRedux/phase1-local/engine/redux/tools/phase1/tests -p test_jaheira_dialogue_journey.py -v
+& $py -B $tool build --project-root C:/BGRedux --engine-source-root C:/BGRedux/phase1-local/engine --engine-build-root $build --output-dir $host --timeout 240
+& $py -B $tool run --project-root C:/BGRedux --engine-source-root C:/BGRedux/phase1-local/engine --engine-build-root $build --host-build "$host/build.json" --results-root C:/BGRedux/phase1-local/results --timeout 180 --direct-selection-regression
+```
+
+A fresh external host is required because its source closure changes. This source-only contribution has not been compiled or executed by its author. New tests cover conditional-prefix mapping, local/global/visible confusion, corrupted DLG bounds/counts/text refs, missing visible prefix text, forged mapping, duplicate dispatch claims and mode mismatch. Prior BEFORE crashes and existing default-path passes remain historical evidence, not results of this new mode.

@@ -161,4 +161,60 @@ class DialogueValidationTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'Stale transcript'):journey.validate_capture(root,nonce,texts=texts)
 
 
+class DirectMappingTest(unittest.TestCase):
+    def dlg(self):
+        import struct
+        raw=bytearray(0x34+10*16+20*32);raw[:8]=b'DLG V1.0';states=0x34;transitions=states+10*16
+        struct.pack_into('<4I',raw,8,10,states,20,transitions)
+        struct.pack_into('<3I',raw,states,899,0,5);struct.pack_into('<3I',raw,states+9*16,921,13,7)
+        for local in range(5):struct.pack_into('<2I',raw,transitions+32*local,1,900+local)
+        for local,ref in enumerate((922,923,924,925,933,37799,37800)):struct.pack_into('<2I',raw,transitions+32*(13+local),3 if local in (0,1,5,6)else 1,ref)
+        return raw
+
+    def proof(self,state=9):
+        choices=journey.dialogue_selection_mapping(self.dlg())[state];visible=4 if state==0 else 1;value=visible;transition=4 if state==0 else 14;response=904 if state==0 else 923
+        receipt=dict(schema='bg-redux-dialogue-direct-selection/1',state=state,state_transition_count=journey.RESPONSE_STATE_COUNTS[state],choices=choices,visible_index=visible,selected_value=value,selection_entry='TextArea::UpdateState',host_dispatch_calls=1)
+        texts={r['strref']:'RESPONSE_'+str(r['strref'])for r in choices};message='\n'.join(str(r['visible_index']+1)+'. - '+texts[r['strref']]for r in choices)
+        return receipt,choices,state,visible,value,transition,response,message,texts
+
+    def test_actual_conditional_state_nine_uses_only_proven_prefix(self):
+        mapping=journey.dialogue_selection_mapping(self.dlg());self.assertEqual(len(mapping[0]),5);self.assertEqual(len(mapping[9]),2)
+        self.assertEqual(mapping[9][1],dict(visible_index=1,value=1,transition=14,strref=923,flags=3))
+        journey.validate_direct_mapping(*self.proof(0));journey.validate_direct_mapping(*self.proof(9))
+
+    def test_local_value_cannot_be_global_transition_or_wrong_visible_index(self):
+        for key,value in [('selected_value',14),('visible_index',0),('selection_entry','TextArea::SelectAvailableOption'),('host_dispatch_calls',2),('state',0),('state_transition_count',2)]:
+            proof=list(self.proof());proof[0]=dict(proof[0]);proof[0][key]=value
+            with self.subTest(key=key),self.assertRaisesRegex(ValueError,'mapping'):journey.validate_direct_mapping(*proof)
+
+    def test_missing_prefix_response_cannot_authorize_direct_value(self):
+        proof=list(self.proof());proof[7]='2. - RESPONSE_923'
+        with self.assertRaisesRegex(ValueError,'prefix|visible response'):journey.validate_direct_mapping(*proof)
+
+    def test_forged_choices_cannot_authorize_direct_value(self):
+        proof=list(self.proof());proof[0]=dict(proof[0]);proof[0]['choices']=[dict(row)for row in proof[1]];proof[0]['choices'][1]['value']=14
+        with self.assertRaisesRegex(ValueError,'mapping'):journey.validate_direct_mapping(*proof)
+
+    def test_dlg_bounds_hidden_prefix_and_wrong_chosen_ref_rejected(self):
+        import struct
+        raw=self.dlg();transitions=0x34+10*16
+        for location,value in ((transitions+4,0xffffffff),(transitions+32*14+4,999),(0x34+9*16+4,12),(0x34+9*16+8,99)):
+            bad=bytearray(raw);struct.pack_into('<I',bad,location,value)
+            with self.subTest(location=location),self.assertRaises(ValueError):journey.dialogue_selection_mapping(bad)
+        with self.assertRaises(ValueError):journey.dialogue_selection_mapping(raw[:-1])
+
+    def test_direct_flag_cannot_be_inferred_from_edited_response_receipt(self):
+        fixture=DialogueValidationTests()
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary);nonce,texts,native=fixture.fixture(root)
+            native['events'][2]['details']['selection_entry']='TextArea::UpdateState';fixture.write(root,'dialogue-result.json',native)
+            with self.assertRaisesRegex(ValueError,'selection entry'):journey.validate_capture(root,nonce,texts=texts,direct_selection=True)
+
+    def test_default_mode_rejects_native_direct_mode_claim(self):
+        fixture=DialogueValidationTests()
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary);nonce,texts,native=fixture.fixture(root);native['direct_selection_regression']=True;native['response_selection_entry']='TextArea::UpdateState';fixture.write(root,'dialogue-result.json',native)
+            with self.assertRaisesRegex(ValueError,'selection entry'):journey.validate_capture(root,nonce,texts=texts)
+
+
 if __name__=='__main__':unittest.main()

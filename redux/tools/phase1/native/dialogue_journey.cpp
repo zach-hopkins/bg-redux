@@ -16,6 +16,36 @@ static const DialogueBranch Branches[] = {
     {59,20177,106,0,-1},{14,945,45,0,-1}
 };
 
+// This narrow direct-entry probe requires every local response up to the chosen
+// one to be visibly numbered in ascending order. Conditional rows later in the
+// state cannot change this prefix. No private TextArea vector access.
+static unsigned GuardDirectSelection(const DialogueBranch& branch,unsigned visible,
+    const String& displayed,const std::string& out,const std::string& prefix)
+{
+    std::unique_ptr<DataStream> stream(gamedata->GetResourceStream(ResRef("JAHEIRA"),IE_DLG_CLASS_ID));
+    if(!stream || stream->Size()<0x30 || stream->Size()>1024*1024)throw std::runtime_error("Bounded runtime JAHEIRA.DLG missing");
+    std::vector<unsigned char> raw(stream->Size());
+    if(stream->Read(raw.data(),raw.size())!=static_cast<strret_t>(raw.size()) || std::string(reinterpret_cast<const char*>(raw.data()),8)!="DLG V1.0")throw std::runtime_error("Runtime DLG read/version failed");
+    const auto word=[&](size_t at){if(at>raw.size() || raw.size()-at<4)throw std::runtime_error("DLG mapping bounds");return unsigned(raw[at])|(unsigned(raw[at+1])<<8)|(unsigned(raw[at+2])<<16)|(unsigned(raw[at+3])<<24);};
+    const auto states=word(8),stateAt=word(12),transitions=word(16),transitionAt=word(20);
+    if(unsigned(branch.state)>=states || states>10000 || transitions>100000)throw std::runtime_error("DLG state/count mapping differs");
+    const size_t row=size_t(stateAt)+16*unsigned(branch.state);const auto first=word(row+4),count=word(row+8);
+    if(word(row)!=unsigned(branch.strref) || count==0 || count>16 || first>transitions || count>transitions-first || visible>=count)throw std::runtime_error("DLG expected response state differs");
+    std::vector<std::string> choices;
+    for(unsigned local=0;local<=unsigned(branch.local);++local){const size_t at=size_t(transitionAt)+32*(first+local);const auto flags=word(at),ref=word(at+4);
+        if(ref==0xffffffffu)throw std::runtime_error("Hidden response in required prefix unsupported");
+        const auto text=core->GetString(ieStrRef(ref));const auto numbered=StringFromASCII(std::to_string(local+1)+". - ")+text;
+        if(text.empty() || displayed.find(numbered)==String::npos)throw std::runtime_error("Every response in chosen prefix must be displayed");
+        choices.push_back(O({{"visible_index",NumberJSON(local)},{"value",NumberJSON(local)},{"transition",NumberJSON(first+local)},{"strref",NumberJSON(ref)},{"flags",NumberJSON(flags)}}));
+    }
+    if(visible!=unsigned(branch.local) || first+visible!=unsigned(branch.transition) || word(size_t(transitionAt)+32*(first+visible)+4)!=unsigned(branch.response))throw std::runtime_error("Direct local value is not the chosen visible response");
+    std::ofstream resource(out+"/selection-dialogue.runtime",std::ios::binary);resource.write(reinterpret_cast<const char*>(raw.data()),raw.size());resource.close();if(!resource)throw std::runtime_error("Runtime DLG evidence write failed");
+    Write(out+"/"+prefix+".selection.json",O({{"schema",Q("bg-redux-dialogue-direct-selection/1")},{"state",NumberJSON(branch.state)},{"state_transition_count",NumberJSON(count)},{"choices",A(choices)},
+        {"visible_index",NumberJSON(visible)},{"selected_value",NumberJSON(branch.local)},{"selection_entry",Q("TextArea::UpdateState")},{"host_dispatch_calls","1"},
+        {"mapping_basis",Q("Runtime DLG chosen prefix plus pinned ascending DialogHandler ordering and every displayed numbered prefix response")}}));
+    return unsigned(branch.local);
+}
+
 static Actor* DialogueTarget()
 {
     auto* game=core->GetGame();auto* map=game->GetCurrentArea();Actor* found=nullptr;
@@ -129,13 +159,17 @@ int main(int argc,char** argv)
 {
     std::map<std::string,std::string> args;
     for(int i=1;i+1<argc;i+=2) { if(args.count(argv[i]))return 64;args[argv[i]]=argv[i+1]; }
-    if(argc!=11 || args.size()!=5)return 64;
+    if((argc!=11 && argc!=13) || args.size()!=size_t((argc-1)/2))return 64;
     for(auto key:{"--config","--output","--scripts","--journey","--nonce"})if(!args.count(key))return 64;
+    const std::string selectionEntry=args.count("--selection-entry")?args["--selection-entry"]:"available-index";
+    if((args.size()==6 && !args.count("--selection-entry")) || (selectionEntry!="available-index" && selectionEntry!="direct-value"))return 64;
+    const bool directSelection=selectionEntry=="direct-value";
     const bool reload=args["--journey"]=="reload";
     const bool renderDiagnostic=args["--journey"]=="render";
     const bool windowDiagnostic=args["--journey"]=="window-render";
     if ((!reload && !renderDiagnostic && !windowDiagnostic && args["--journey"]!="talk") || args["--nonce"].size()!=32 ||
         args["--nonce"].find_first_not_of("0123456789abcdef")!=std::string::npos)return 64;
+    if(directSelection && (renderDiagnostic || windowDiagnostic))return 64;
     const auto out=args["--output"];std::setlocale(LC_ALL,".UTF8");std::atexit(StopLog);
     std::unique_ptr<Interface> engine;std::vector<std::string> events,samples,saves;
     bool completed=false;int ticks=0,phase=-2,idle=0,branch=0,requests=0;unsigned startTime=0;
@@ -235,11 +269,12 @@ int main(int argc,char** argv)
                     // The two guarded states expose all their responses; these
                     // are visible ordinal indices, not a general transition map.
                     const unsigned visibleIndex=branch==0?4:1;
-                    String prefix=u"0. - ";prefix[0]=char16_t('1'+visibleIndex);
-                    if(response.empty() || text.find(prefix+response)==String::npos)throw std::runtime_error("Expected numbered response is not displayed");
+                    String numberedPrefix=u"0. - ";numberedPrefix[0]=char16_t('1'+visibleIndex);
+                    if(response.empty() || text.find(numberedPrefix+response)==String::npos)throw std::runtime_error("Expected numbered response is not displayed");
                     if(!ta->SupportsAction(ControlActionResponder::ActionKey(TextArea::Action::Select)))throw std::runtime_error("Registered dialogue response callback missing");
                     // Same selector entry as numeric-key and mouse selection.
-                    ta->SelectAvailableOption(visibleIndex);
+                    if(directSelection)ta->UpdateState(GuardDirectSelection(expected,visibleIndex,text,out,prefix));
+                    else ta->SelectAvailableOption(visibleIndex);
                 }else{
                     auto* window=DialogueButtonWindow();auto* control=window?GetControl(0,window):nullptr;
                     const int labelRef=branch==10?9371:9372;
@@ -253,11 +288,13 @@ int main(int argc,char** argv)
                         {"expected_label",Q(MBStringFromString(label))},{"actual_label",Q(MBStringFromString(control->QueryText()))}}));
                     if(control->QueryText()!=label || !control->PerformAction())throw std::runtime_error("Stock Continue/End callback absent/wrong label");
                 }
-                event(expected.response>=0?"registered-response":"registered-continue-end",O({{"state",NumberJSON(expected.state)},
+                Fields details={{"state",NumberJSON(expected.state)},
                     {"npc_strref",NumberJSON(expected.strref)},{"transition",NumberJSON(expected.transition)},{"local_transition",NumberJSON(expected.local)},
                     {"response_strref",expected.response>=0?NumberJSON(expected.response):"null"},
-                    {"selection_entry",Q(expected.response>=0?"TextArea::SelectAvailableOption":"Control::PerformAction")},
-                    {"visible_index",expected.response>=0?NumberJSON(branch==0?4:1):"null"},{"performed","true"}}));previousMessage=text;++branch;return;
+                    {"selection_entry",Q(expected.response>=0?(directSelection?"TextArea::UpdateState":"TextArea::SelectAvailableOption"):"Control::PerformAction")},
+                    {"visible_index",expected.response>=0?NumberJSON(branch==0?4:1):"null"},{"performed","true"}};
+                if(directSelection && expected.response>=0)details.emplace_back("selected_value",NumberJSON(expected.local));
+                event(expected.response>=0?"registered-response":"registered-continue-end",O(details));previousMessage=text;++branch;return;
             }
             core->SetPause(PauseState::On,3);
             if(phase==2){button("GUIOPT",2,6);phase=3;return;}
@@ -274,6 +311,7 @@ int main(int argc,char** argv)
     }catch(const std::exception& failure){error=failure.what();}
     Write(out+"/dialogue-result.json",O({{"schema",Q("bg-redux-jaheira-native/1")},{"nonce",Q(args["--nonce"])},
         {"journey",Q(args["--journey"])},{"completed",completed?"true":"false"},{"error",Q(error)},
+        {"direct_selection_regression",directSelection?"true":"false"},{"response_selection_entry",Q(directSelection?"TextArea::UpdateState":"TextArea::SelectAvailableOption")},
         {"talk_requests",NumberJSON(requests)},{"branches_completed",NumberJSON(branch)},{"events",A(events)},
         {"render_diagnostic",renderDiagnostic?"true":"false"},{"render_steps",NumberJSON(renderStep)},
         {"window_render_diagnostic",windowDiagnostic?"true":"false"},
