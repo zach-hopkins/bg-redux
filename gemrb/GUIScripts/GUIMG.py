@@ -218,7 +218,7 @@ def UpdateMageWindow (MageWindow):
 		Button.SetSpellIcon (ks['SpellResRef'], 0)
 		Button.OnPress (OnMageMemorizeSpell)
 		spell = GemRB.GetSpell (ks['SpellResRef'])
-		spell['CurrentIndex'] = i # save it for later
+		spell['CurrentIndex'] = knownSpells[i][1] # preserve the original index after sorting
 		Button.OnRightPress (BindControlCallbackParams(OpenMageSpellInfoWindow, spell, Button.VarName))
 		Button.SetTooltip (spell['SpellName'])
 
