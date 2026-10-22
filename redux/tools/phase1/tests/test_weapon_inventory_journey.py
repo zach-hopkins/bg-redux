@@ -42,6 +42,10 @@ def make_journey(folder, stale=False):
         step = dict(id=identity, expected_off=off_ref, route='actual route recorded by native driver',
                     completed=True, observations=data['observations'])
         write(location/'step.json', step); steps.append(step)
+        if identity == '07-transform-plus':
+            write(location/'transform-action.json', dict(parsed=True, action_id=356, has_objects=False, flags=0,
+                expression='TransformItem("sw1h01","sw1h02")',
+                old_item='sw1h01', new_item='sw1h02', target_count=8, resolved_runtime_id=10002))
         previous_state, previous_cache = state, cache
     root = dict(schema='bg-redux-phase1-inventory-journey-native/1', completed=True, case_id=row['spec']['id'], repeats=1,
                 sender_runtime_id=10002, target_runtime_id=10003, parsed_queries=data['parsed_queries'], steps=steps, error='')
@@ -78,6 +82,28 @@ class InventoryJourneyEvidenceTests(unittest.TestCase):
         original.update(completed=False, error='Unknown cache pointer; queries refused')
         write(self.folder/'journey.json', original)
         with self.assertRaisesRegex(ValueError, 'incomplete'): journey.validate_journey(self.folder, row, metadata, 1)
+
+    def test_explicit_incomplete_prefix_review_keeps_failed_completion(self):
+        row, metadata, data = make_journey(self.folder, stale=True)
+        data.update(completed=False, error='TransformItem action parse/target failed', steps=data['steps'][:7])
+        write(self.folder/'journey.json', data)
+        result = journey.review_completed_prefix(self.folder, row, metadata, 1)
+        self.assertFalse(result['native_completed'])
+        self.assertTrue(result['partial_review_only'])
+        self.assertEqual(result['reviewed_completed_steps'], 7)
+        self.assertEqual(result['cache_mismatch_steps'], ['05-create-plus'])
+        with self.assertRaisesRegex(ValueError, 'incomplete'):
+            journey.validate_journey(self.folder, row, metadata, 1)
+
+    def test_transform_implicit_sender_accepts_multiple_targets_rejects_wrong_resolution(self):
+        row, metadata, _ = make_journey(self.folder)
+        journey.validate_journey(self.folder, row, metadata, 1)
+        path = self.folder/'07-transform-plus/transform-action.json'; valid = evidence.read(path)
+        for changed in [dict(target_count=0), dict(target_count=True), dict(resolved_runtime_id=10003),
+                        dict(has_objects=True), dict(action_id=355), dict(flags=0x2000), dict(new_item='hamm01')]:
+            write(path, valid | changed)
+            with self.assertRaisesRegex(ValueError, 'TransformItem'):
+                journey.validate_journey(self.folder, row, metadata, 1)
 
     def test_wrong_physical_result_after_mutation_is_setup_failure(self):
         row, metadata, _ = make_journey(self.folder)

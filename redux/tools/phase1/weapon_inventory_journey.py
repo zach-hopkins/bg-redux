@@ -24,9 +24,20 @@ STEPS = [
 
 
 def validate_journey(folder, row, metadata, repeats):
+    return _validate_journey(folder, row, metadata, repeats, allow_incomplete_prefix=False)
+
+
+def review_completed_prefix(folder, row, metadata, repeats):
+    """Forensic review only; never promotes an incomplete native run to success."""
+    return _validate_journey(folder, row, metadata, repeats, allow_incomplete_prefix=True)
+
+
+def _validate_journey(folder, row, metadata, repeats, allow_incomplete_prefix):
     folder = Path(folder); data = evidence.read(folder/'journey.json')
-    if (data.get('schema') != 'bg-redux-phase1-inventory-journey-native/1' or data.get('completed') is not True
-            or data.get('case_id') != row['spec']['id'] or data.get('repeats') != repeats or data.get('error')):
+    complete = data.get('completed') is True and not data.get('error')
+    if (data.get('schema') != 'bg-redux-phase1-inventory-journey-native/1'
+            or data.get('case_id') != row['spec']['id'] or data.get('repeats') != repeats
+            or not complete and not (allow_incomplete_prefix and data.get('completed') is False and data.get('error'))):
         raise ValueError('Native journey incomplete/wrong identity')
     parsed = data.get('parsed_queries', [])
     if len(parsed) != 6:
@@ -36,11 +47,13 @@ def validate_journey(folder, row, metadata, repeats):
                 or query.get('trigger_id') != (0xf2 if index % 2 else 0xec) or query.get('target_count') != 1
                 or query.get('target_runtime_id') != data['target_runtime_id']):
             raise ValueError('Journey actual query parser/target mismatch')
-    if [(s.get('id'), s.get('expected_off')) for s in data.get('steps', [])] != STEPS:
+    expected_steps = STEPS if complete else STEPS[:len(data.get('steps', []))]
+    if (not expected_steps or not complete and len(expected_steps) >= len(STEPS)
+            or [(s.get('id'), s.get('expected_off')) for s in data.get('steps', [])] != expected_steps):
         raise ValueError('Actual mutation journey coverage/order incomplete')
     previous_state = previous_cache = None
     results = []
-    for index, ((identity, expected_off), step) in enumerate(zip(STEPS, data['steps'])):
+    for index, ((identity, expected_off), step) in enumerate(zip(expected_steps, data['steps'])):
         location = folder/identity
         if evidence.read(location/'step.json') != step or step.get('completed') is not True:
             raise ValueError('Journey step receipt contradicts root/completion')
@@ -80,6 +93,16 @@ def validate_journey(folder, row, metadata, repeats):
         values = {q: [] for q in evidence.QUERIES}; mutations = []
         expected_files = {'before-mutation.state.json', 'before-mutation.weapons.json',
                           'initialized.state.json', 'initialized.weapons.json', 'final.state.json', 'final.weapons.json', 'step.json'}
+        if identity == '07-transform-plus':
+            action = evidence.read(location/'transform-action.json')
+            if (action.get('parsed') is not True or action.get('action_id') != 356 or action.get('has_objects') is not False
+                    or action.get('expression') != 'TransformItem("sw1h01","sw1h02")'
+                    or action.get('old_item', '').lower() != 'sw1h01' or action.get('new_item', '').lower() != 'sw1h02'
+                    or type(action.get('target_count')) is not int or action['target_count'] < 1
+                    or action.get('resolved_runtime_id') != data['sender_runtime_id']
+                    or type(action.get('flags')) is not int or action['flags'] & 0x2000):
+                raise ValueError('Actual TransformItem action/implicit-sender resolution differs')
+            expected_files.add('transform-action.json')
         for call, (query, (expression, repetition)) in enumerate(zip(step['observations'], expected_order), 1):
             if (query.get('call') != call or query.get('expression') != expression or query.get('repetition') != repetition
                     or type(query.get('value')) is not int or query['value'] not in (0, 1)):
@@ -117,7 +140,9 @@ def validate_journey(folder, row, metadata, repeats):
                             query_values=values, stable_values=all(len(set(v)) == 1 for v in values.values()),
                             query_mutations=mutations))
         previous_state, previous_cache = final, final_cache
-    return dict(steps=results, cache_mismatch_steps=[s['id'] for s in results if not s['cache_coherent']],
+    return dict(native_completed=complete, native_error=data.get('error'), reviewed_completed_steps=len(results),
+                expected_full_step_count=len(STEPS), partial_review_only=not complete,
+                steps=results, cache_mismatch_steps=[s['id'] for s in results if not s['cache_coherent']],
                 query_mutation_steps=[s['id'] for s in results if s['query_mutations']],
                 unstable_query_steps=[s['id'] for s in results if not s['stable_values']],
                 hidden_state_unchanged=None, scope=evidence.LIMIT,
@@ -209,6 +234,8 @@ def run_journey(args):
         env = api.harness.environment(output); prefix = project/'phase0-local/toolchain/msys64/ucrt64'
         env['PATH'] = os.pathsep.join([str(build/'gemrb'), str(prefix/'bin'), env.get('PATH', '')]); env['PYTHONDONTWRITEBYTECODE'] = '1'
         result['process'] = baseline.execute(command, build, env, output/'process.log', args.timeout)
+        result['execution'] = ('passed' if result['process'].get('exit_code') == 0
+                               and result['process'].get('timed_out') is False else 'failed')
         observer.require_process(result['process']); result['execution'] = 'passed'
         result['observation'] = validate_journey(output/'capture', row, prep['item_metadata'], args.repeats)
         observation = result['observation']

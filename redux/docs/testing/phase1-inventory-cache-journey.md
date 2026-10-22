@@ -4,6 +4,37 @@ This is external diagnostic tooling. No engine cache fix is included and no
 native journey has been compiled or launched by the implementing worker.
 The coordinator must reproduce any cache defect before changing Inventory.
 
+The first coordinator baseline run now supplies a bounded reproduction:
+`20261022T005119Z-inventory-journey-a4f2c27f` completed00–06 and then failed
+an external action-target guard at07. At05-create-plus, physical slot9 contains
+SW1H02 but the actual off-hand cache still names SW1H01 with enchantment0.
+Ordinary remove/restore/shield changes and06-reset-normal remain coherent.
+All98 completed calls (84 predicates and14 controls) preserve collected
+state/cache across query evaluation. The baseline predicates remain stubs;
+these zeros do not establish candidate query behavior.
+
+An independent prefix review rehashed597 artifacts and checked both
+preservation inventory pairs, retaining the original exit1/completedfalse:
+`C:/BGRedux/phase1-local/results/20261022T005545Z-inventory-prefix-review-f7dc6d31/review.json`.
+This is a seven-stage observation, not successful ten-stage acceptance.
+
+## TransformItem guard correction
+
+The shipped definition is `356 TransformItem(S:OldItem*,S:NewItem*)`, with no
+object argument. The parser leaves object parameters absent. Matching.cpp's
+GetAllObjects returns all actors, sender first, for this no-object action;
+the TransformItem handler's GetScriptableFromObject chooses the first ST_ANY
+target. Requiring a singleton actor list was an external-harness error.
+
+The corrected guard retains the actual parsed action and engine handler.
+It requires action356, exact old/new resources, no objects or ANYONE flag,
+one or more returned actors and the sender as first ST_ANY target. It records
+the parsed fields, flags, count and resolved runtime ID in transform-action.json
+before dispatch. It does not invent an object, change the action ID or call
+TransformItemCore directly. Wrong action/resource/target/selector evidence
+fails Python ingestion as well. A separate review_completed_prefix helper
+supports forensic inspection without weakening normal full-journey acceptance.
+
 The coordinator's first baseline-host compile failed at three resource-API
 calls because ResRef has an explicit constructor. The external source now
 constructs ResRef explicitly for GetItem, CreateItemCore and SetSlotItemRes.
@@ -133,10 +164,11 @@ failure or query state mutation. It does not claim an original mutation
 journey comparison. Baseline and candidate should both be retained so any
 preexisting cache defect is distinguished from predicate changes.
 
-The six focused journey evidence tests cover complete intentional mutations,
+The eight focused journey evidence tests cover complete intentional mutations,
 stale cached item identity, unsafe/partial completion, wrong physical output,
-inter-step continuity, stale extra files, and query mutation/equality flags.
-The total Phase1 Python suite passes43 tests. These validate ingestion policy,
+inter-step continuity, stale extra files, query mutation/equality flags,
+implicit-sender action resolution and explicit failed-prefix review.
+The total Phase1 Python suite passes45 tests. These validate ingestion policy,
 not engine cache behavior; the actual API host remains unexecuted by this
 worker. No shared files, existing results, engine source or binaries were
 changed during this review/extension task.

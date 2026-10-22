@@ -168,10 +168,26 @@ int main(int argc, char** argv)
         observe("06-reset-normal", "ordinary remove+AddSlotItem", "sw1h01", [&](){ ordinary("sw1h01"); });
         observe("07-transform-plus", "GameScript::TransformItem actual dispatch", "sw1h02", [&](){
             auto action = GenerateAction("TransformItem(\"sw1h01\",\"sw1h02\")");
-            if (!action || action->actionID != 356)
+            if (!action) {
+                Write(output+"/07-transform-plus/transform-action.json", O({{"parsed","false"}}));
                 throw std::runtime_error("TransformItem action parse failed");
+            }
             std::unique_ptr<Targets> targets(GetAllObjects(game->GetCurrentArea(), sender, action, 0));
-            if (!targets || targets->Count() != 1 || targets->GetTarget(0, ST_ACTOR) != sender)
+            const Scriptable* resolved = targets && targets->Count() ? targets->GetTarget(0, ST_ANY) : nullptr;
+            const bool hasObjects = action->objects[0] || action->objects[1] || action->objects[2];
+            Write(output+"/07-transform-plus/transform-action.json", O({{"parsed","true"},
+                {"expression",Q("TransformItem(\"sw1h01\",\"sw1h02\")")}, {"action_id",NumberJSON(action->actionID)},
+                {"flags",NumberJSON(action->flags)}, {"has_objects",hasObjects ? "true" : "false"},
+                {"old_item",Q(action->resref0Parameter.c_str())}, {"new_item",Q(action->resref1Parameter.c_str())},
+                {"target_count",NumberJSON(targets ? targets->Count() : 0)},
+                {"resolved_runtime_id",resolved ? NumberJSON(resolved->GetGlobalID()) : "null"},
+                {"resolution",Q("No-object action: GetAllActors puts sender first; handler selects first ST_ANY target")}}));
+            // Shipped ACTION.IDS has only two strings, no object parameter.
+            // Matching.cpp returns all actors, sender first, for this case;
+            // TransformItem's handler chooses the first target, not a singleton.
+            if (action->actionID != 356 || hasObjects || action->flags & ACF_MISSING_OBJECT
+                || action->resref0Parameter != ResRef("sw1h01") || action->resref1Parameter != ResRef("sw1h02")
+                || !targets || targets->Count() < 1 || resolved != sender)
                 throw std::runtime_error("TransformItem action parse/target failed");
             GameScript::TransformItem(sender, std::move(action));
         });
