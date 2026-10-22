@@ -6,6 +6,31 @@ continuation. The external inn host uses coherent candidate
 The original Phase0 checkout, binaries, fixtures and every attempted result remain
 preserved. Phase1 remains incomplete.
 
+## Current native acceptance
+
+`20261022T185045Z-debug-inn-checkpoint-87848de6/result.json` **passes** the complete
+declared debug-checkpoint/current-policy journey. Prepare process9872 exits0 in
+122.834 seconds; fresh observe process16948 exits0 in85.969 seconds. Both stages,
+all Phase0 source/binary/fixture guards, candidate preservation and immutable
+inputs pass. Preparation records eight GUI callbacks/seven captures; observation
+records five callbacks/six captures. Source tooling is now **545 pass** in34.718
+seconds (`phase1-inn-checkpoint-tooling-1792695001497315400/result.json`).
+
+Correction `ba507858f` binds exactly saved AR0704.are and WINNKEEP.sto to their
+members in the input SAV, recording archive hash, member name, uncompressed
+size/hash and expected owned-cache path. Duplicate/missing members and invalid
+signatures fail closed; other resources retain their exact stock provider and
+bytes. Runtime member bytes/path/size remain mandatory. New negative tests reject
+wrong bytes/path/size, extra providers, missing/duplicate members and wrong headers.
+Diagnostic-only reanalysis `inn-saved-resource-reanalysis-1792694962010686400`
+passes the previous observation with all previous files unchanged; the fresh
+87848de6 run supplies native acceptance rather than rewriting that failed result.
+
+This proves ordinary no-money handling, the explicitly declared debug setup,
+normal GUI save/fresh reload and the current forced prompt at actual optionOFF,
+followed by Cancel without charge/rest. It does not prove native rest completion,
+original parity, ordinary campaign travel or whole-world purity.
+
 ## Preserved first attempt
 
 `20261022T183414Z-debug-inn-checkpoint-9bd3bbb6/result.json` is **failed**, although
@@ -60,6 +85,11 @@ waive provider/byte checks or treat a successful host exit as validation. Both
 attempts retain successful protected baseline/candidate preservation guards.
 
 ## Original setup only
+
+Subsequent stock-UI OFF/ON runtime work is now preserved in the
+[original inn reference](phase1-original-inn-confirmation-reference.md): OFF direct
+rest, ON Cancel/Confirm, one-gold charges, eight-hour advances and exact saved
+Stoneskin readiness. The paragraphs below describe the earlier setup checkpoint.
 
 The private original setup session16324 closed normally with exit0. Its normal
 GUI save `000000026-a` is frozen under

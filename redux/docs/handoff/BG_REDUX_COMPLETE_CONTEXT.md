@@ -2,7 +2,7 @@
 
 Latest October 22 continuation: Phase1 remains active and incomplete. Current
 coherent candidate is `20261022T123435Z-candidate-e00bb8b5`; source tooling passes
-543 tests. The right-row Feedback setting, actual INI persistence/fresh-process
+545 tests. The right-row Feedback setting, actual INI persistence/fresh-process
 loading, both books' mixed-copy removal, two-resolution menus and fresh 44-assertion
 general baseline pass their bounded execution checks with protected baseline and
 all results retained. Compatibility remains differences (vanilla0/0/26,GUI451/55),
@@ -11,17 +11,19 @@ ced237a2 information journey97f61bc1 has an independent 120-capture audit coveri
 13 natural ordinary-book pages per process, scrolling and save/fresh reload.
 See [current Phase1 status](../PHASE1_STATUS.md) for exact receipts and scope.
 
-Inn continuation: the private original setup save is frozen and a fresh
-stock-UI original profile is prepared, not yet runtime validated. External native
-inn attempt7058ace7 passes preparation/save validation, but overall remains failed
-because saved AR0704/inn-store providers differ from stock asset providers on
-reload. Bind them to the exact frozen save members before accepting the stage.
-Both owned processes exited zero; no rest/parity or completed-reload claim.
-See [inn execution evidence](../testing/phase1-inn-checkpoint-execution.md).
-Production source/binaries remain unchanged in this continuation; all failures
-and original setup guards are retained. Existing workers hit usage limits, so
-new coordinator work has no new independent worker audit. All game sessions are
-closed. Prepared original profile: original-inn-stock-reload-aaaca1a0.
+Inn continuation: native checkpoint87848de6 passes ordinary no-money handling,
+declared setup, GUI save/fresh reload, exact input-SAV member binding for saved
+AR0704/inn-store resources, current option-OFF forced prompt and Cancel. Both
+processes exit0 and all preservation guards pass. Retain earlier failures.
+[Original stock-UI OFF/ON reference](../testing/phase1-original-inn-confirmation-reference.md)
+now proves OFF direct rest, ON Cancel/Confirm, one-gold charge, eight-hour advance
+and exact Stoneskin saved readiness. Original OFF Imoen conversation/journal
+versus ON store/world timing is preserved without attributing cause.
+Next: implement the narrow BG2EE inn-option consumer, then validate native
+OFF/ON/Cancel/Confirm/rest/save/reload and separately address rest-script fidelity.
+Current coherent candidate e00bb8b5 remains unchanged. Two original profiles and
+all native sessions are closed normally; no game process remains. Workers hit
+usage limits, so new coordinator work has no new independent worker audit.
 Phase1 remains incomplete. VM snapshots remain optional. Historical pending
 statements below refer to their earlier frozen checkpoints.
 
