@@ -24,6 +24,11 @@ def validate_stage(directory, resolution, *, expected_nonce, expected_input):
         and all(c in '0123456789abcdef' for c in expected_nonce)
         and host.get('nonce')==runtime.get('nonce')==expected_nonce,'Armed display nonce missing/stale')
     require(read('armed-input.json')==expected_input,'Armed display caller input drift')
+    legacy_style_control=bool(expected_input.get('legacy_style_control',False))
+    require(host.get('style_thac0_flag_loaded') is True
+        and host.get('legacy_style_control') is legacy_style_control
+        and host.get('style_thac0_flag_effective') is (not legacy_style_control),
+        'Armed display style profile/control not observed')
     require(host.get('completed') is True and host.get('journey')=='display-armed'
         and host.get('captures')==8 and host.get('callbacks')==3
         and runtime.get('steps')==runtime.get('planned_steps')==20,'Armed display plan incomplete')
@@ -43,9 +48,20 @@ def validate_stage(directory, resolution, *, expected_nonce, expected_input):
         return values[0]
     before=read('before.state.json');observer=read('before.observer.json')
     guard=runtime_guard(expected_input['row'],expected_input['item_metadata'],before,read('before.weapons.json'))
+    for stat,value in expected_input.get('actor1_stat_expectations',{}).items():
+        require(before['party'][0]['modified_stats'][int(stat)]==value,
+            'Armed display declared actor stat/effect not active')
+    for effect in expected_input.get('actor1_effect_expectations',[]):
+        matches=[fx for fx in before['party'][0]['effects'] if fx.get('source_ref','').upper()==effect['source_ref']]
+        require(len(matches)==1 and matches[0]['opcode']==effect['opcode']
+            and matches[0]['parameters'][:2]==effect['parameters'] and matches[0]['timing']==9,
+            'Armed display declared actor effect missing/wrong')
     cold, refreshed=row('armed.matrix.cold'),row('armed.matrix.refreshed')
     require(1<=row('armed.rng-control')['result']<=20,'Armed display die-roll control missing')
     samples=cold['samples']
+    if expected_input.get('nonzero_proficiency_damage'):
+        require(all(s['details'].get('ProfDmgBon',0)>0 for s in samples[:2]),
+            'Armed display nonzero proficiency damage not exercised')
     require(samples==refreshed['samples'],'Armed display refresh changed queried results')
     for matrix in (cold,refreshed):
         require(matrix['api_calls']==128 and matrix['repeats']==32
@@ -143,6 +159,7 @@ def validate_stage(directory, resolution, *, expected_nonce, expected_input):
             'Armed display cost observation missing')
     return dict(assertion_passed=True,pure_phase_world_unchanged=True,collected_world_unchanged=False,
         case_id=spec['id'],actual_dual_wield=dual,actual_ranged=bool(spec['ammo']),
+        legacy_style_control=legacy_style_control,style_thac0_penalties_enabled=not legacy_style_control,
         actual_items=guard['inventory'],display_api_calls=256,sheet_observations=4,portrait_callbacks=3,
         legacy_result_parity=True,legacy_control_changed_actor_bytes=not native[3]['actor_stats_and_cache_bytes_unchanged'],
         matrix_step_nanoseconds=[r['python_step_nanoseconds'] for r in native if r['kind']==1],

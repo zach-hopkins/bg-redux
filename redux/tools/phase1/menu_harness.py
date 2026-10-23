@@ -346,12 +346,17 @@ def main():
                         help='Require eligible ordinary wizard and priest heading evidence; context gating is not heading acceptance')
     parser.add_argument('--journey', choices=('menus', 'stats', 'display-query', 'display-armed'), default='menus')
     parser.add_argument('--armed-input', type=Path, help='Caller-pinned prepared weapon case and metadata for display-armed')
+    parser.add_argument('--legacy-style-control', action='store_true', help='Isolated flag-off style path control; not an original Classic installation')
     args = parser.parse_args()
     if args.journey != 'menus' and args.require_ordinary_spellbooks:
         parser.error('Stats journey does not validate ordinary spellbooks')
     if (args.journey=='display-armed') != bool(args.armed_input):
         parser.error('display-armed requires --armed-input, which is exclusive to that journey')
+    if args.legacy_style_control and args.journey!='display-armed':
+        parser.error('--legacy-style-control requires display-armed')
     armed_input = json.loads(args.armed_input.read_text(encoding='utf8')) if args.armed_input else None
+    if armed_input is not None and bool(armed_input.get('legacy_style_control',False))!=args.legacy_style_control:
+        parser.error('Armed input and requested style control disagree')
     stamp = datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     directory = args.output_root / (stamp + "-menu-" + args.mode + "-" + uuid.uuid4().hex[:8])
     directory.mkdir(parents=True, exist_ok=False)
@@ -421,6 +426,8 @@ def main():
                        "--nonce", stage_nonce]
             if args.journey != 'menus':
                 command += ['--journey', args.journey]
+            if args.legacy_style_control:
+                command += ['--legacy-style-control', '1']
             # Freeze identity before the owned process can produce evidence.
             write(stage / 'launch-pin.json', dict(schema='bg-redux-menu-launch-pin/1',
                   nonce=stage_nonce, resolution=[width, height], command=command,

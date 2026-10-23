@@ -2588,3 +2588,35 @@ source-only diagnostic; it has no native result or production correction yet.
 Keep the full P1-01 through P1-07 scope active, including broader menus,
 inventory/record information, persistence, ordinary journeys and campaign gates.
 No release or Phase 1 completion is claimed.
+
+### Phase 1 combat-display checkpoint — October 23, 2026 UTC
+
+This checkpoint supersedes the older next-action/candidate notes above. Engine
+changes are authorized in the separate Phase1 checkout; the Phase0 checkout,
+binaries, assets and fixtures remain protected. The current fresh candidate is
+`phase1-local/builds/20261022T233409Z-candidate-15cbd18d`, built from production
+commit `139fbcac4011966ed634750481118db7a1d6d141` (288 targets completed).
+
+The [two-weapon correction report](../testing/phase1-weapon-style-correction.md)
+records a stock BG2EE reference of main18/off21 versus the prior native6/9,
+followed by a matching freshly built native18/21. The correction uses a BG2EE
+profile feature to fix hand-column lookup and penalty sign in shared actor
+math. A same-content flag-off control retains6/9. These are bounded display
+and state-preservation results, not delivered-attack or complete combat proof.
+The source tooling suite passes625 tests. All14 serial native weapon/style/effect
+follow-ups pass, and an additional exact-input stock comparison accepts the
+combined rank3/longsword/attack-modifier case at10/11, including APR/damage and
+the displayed breakdown. The fresh core suite passes231 (9 skipped,6 disabled),
+read-only query144 calls pass, both full Stats resolutions pass, and all22 weapon
+predicate cases match original references. The fresh external baseline completes
+44 assertions with execution/preservation passed and compatibility differences
+retained. Against the preceding build, there are no added GUI residual rows;
+two prior color rows are absent, and all remaining rows match exactly. See the
+report and its pinned evidence for hashes, scopes and preserved raw results.
+
+Keep all historical results, rejected comparisons, partial runs and private
+profiles. Closed caches may share verified identical read-only files; new runs
+require fresh writable caches. The existing workers hit usage limits and have
+not supplied independent review of this correction. Full Phase1 remains active:
+unarmed APR, Jaheira HP, save-color residuals, complete menus/fonts/pointer
+behavior, ordinary gameplay journeys and campaign gates remain open.

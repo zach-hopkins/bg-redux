@@ -57,7 +57,8 @@ class ArmedDisplayValidationTests(unittest.TestCase):
         checks+=sheets
         self.write('armed-input.json',self.bundle)
         self.write('menu-runtime.json',dict(nonce=NONCE,steps=20,planned_steps=20,checks=checks))
-        self.write('menu-host-result.json',dict(nonce=NONCE,completed=True,journey='display-armed',captures=8,callbacks=3))
+        self.write('menu-host-result.json',dict(nonce=NONCE,completed=True,journey='display-armed',captures=8,callbacks=3,
+            style_thac0_flag_loaded=True,style_thac0_flag_effective=True,legacy_style_control=False))
         self.write('before.state.json',state);self.write('before.observer.json',observer);self.write('before.weapons.json',cache)
         (self.path/'process.log').write_text('normal native output\n',encoding='utf8')
         final=copy.deepcopy(state);final['party'][0]['modified_stats'][7]=13
@@ -162,6 +163,33 @@ class ArmedDisplayValidationTests(unittest.TestCase):
             next(c for c in r['checks'] if c.get('name')=='armed.rng-control')['result']=0
         self.mutate('menu-runtime.json',change)
         with self.assertRaisesRegex(ValueError,'die-roll'):self.validate()
+
+    def test_rejects_missing_enabled_game_profile(self):
+        self.mutate('menu-host-result.json',lambda r:r.update(style_thac0_flag_loaded=False))
+        with self.assertRaisesRegex(ValueError,'style profile'):self.validate()
+
+    def test_rejects_unrequested_old_style_path(self):
+        self.mutate('menu-host-result.json',lambda r:r.update(style_thac0_flag_effective=False,legacy_style_control=True))
+        with self.assertRaisesRegex(ValueError,'style profile'):self.validate()
+
+    def test_accepts_declared_flag_off_boundary_control(self):
+        self.bundle['legacy_style_control']=True;self.write('armed-input.json',self.bundle)
+        self.mutate('menu-host-result.json',lambda r:r.update(style_thac0_flag_effective=False,legacy_style_control=True))
+        result=self.validate();self.assertTrue(result['legacy_style_control'])
+        self.assertFalse(result['style_thac0_penalties_enabled'])
+
+    def test_rejects_inactive_declared_stat(self):
+        self.bundle['actor1_stat_expectations']={'114':1};self.write('armed-input.json',self.bundle)
+        with self.assertRaisesRegex(ValueError,'stat/effect not active'):self.validate()
+
+    def test_rejects_missing_declared_effect(self):
+        self.bundle['actor1_effect_expectations']=[dict(source_ref='RDXRANK',opcode=233,parameters=[1,114])]
+        self.write('armed-input.json',self.bundle)
+        with self.assertRaisesRegex(ValueError,'effect missing/wrong'):self.validate()
+
+    def test_rejects_zero_proficiency_case_claimed_nonzero(self):
+        self.bundle['nonzero_proficiency_damage']=True;self.write('armed-input.json',self.bundle)
+        with self.assertRaisesRegex(ValueError,'nonzero proficiency'):self.validate()
 
 
 if __name__=='__main__':unittest.main()

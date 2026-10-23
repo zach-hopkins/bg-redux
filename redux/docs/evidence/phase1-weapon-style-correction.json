@@ -1,0 +1,462 @@
+{
+  "schema": "bg-redux-weapon-style-correction/1",
+  "production_source_commit": "139fbcac4011966ed634750481118db7a1d6d141",
+  "fresh_build": {
+    "path": "C:\\BGRedux\\phase1-local\\builds\\20261022T233409Z-candidate-15cbd18d\\build-receipt.json",
+    "sha256": "317d9d6c14b1ea15943484e1c14d5400b8ec4219e84e34e8251247de2f1f1bed"
+  },
+  "exact_stock_display_example_matched": true,
+  "complete_combat_fidelity": false,
+  "phase1_complete": false,
+  "independent_worker_review": false,
+  "primary": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T234439Z-style-armed-8b431f06\\result.json",
+    "sha256": "a53f9092d2bf5809dc67b8451fb08d89ab33d781c08edf55626a5321e10ac266"
+  },
+  "feature_off_control": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T234636Z-style-armed-1d2bb6cd\\result.json",
+    "sha256": "33f4e68efef5e31a842317ce0cc88abde16fa9bfadf37622abbeac072e36c337"
+  },
+  "stock_comparison": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T234635Z-original-armed-math-check-7554cf38\\result.json",
+    "sha256": "1f43fa9ec1b44bd5b486629266fc21a550a1f9c289f9b6266b89534045855784"
+  },
+  "batch": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261022T235211Z-style-followups-60777a28\\result.json",
+    "sha256": "b516cbfb745b3105c9d83ec71ef1bf0fc4ad0ee7963bc4f70c55e2d706f71049"
+  },
+  "cases": [
+    {
+      "case": "02-plus-normal-pfmw",
+      "resolution": "1024x768",
+      "options": [],
+      "hands": [
+        17,
+        22
+      ],
+      "proficiency_damage": [
+        0,
+        0
+      ],
+      "result": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T235211Z-style-armed-ccc6bb4f\\result.json",
+        "sha256": "ef761721821178c5542f77c093eb3beb52a66ae45d4df90976d4d4d8a6e69729"
+      },
+      "preserved": {
+        "phase0": true,
+        "candidate": true,
+        "game": true,
+        "fixture": true,
+        "original_preparation": true,
+        "sources": true,
+        "coherent_build": true
+      }
+    },
+    {
+      "case": "03-crush-slash-slash100",
+      "resolution": "1024x768",
+      "options": [],
+      "hands": [
+        20,
+        22
+      ],
+      "proficiency_damage": [
+        0,
+        0
+      ],
+      "result": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T235307Z-style-armed-0bac31d1\\result.json",
+        "sha256": "e0822b8bae5e8f9f866f203c6b81a575ecde45353e143111d1fd5ec8bdb6f32d"
+      },
+      "preserved": {
+        "phase0": true,
+        "candidate": true,
+        "game": true,
+        "fixture": true,
+        "original_preparation": true,
+        "sources": true,
+        "coherent_build": true
+      }
+    },
+    {
+      "case": "05-normal-empty",
+      "resolution": "1024x768",
+      "options": [],
+      "hands": [
+        14,
+        14
+      ],
+      "proficiency_damage": [
+        0,
+        0
+      ],
+      "result": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T235402Z-style-armed-0b0ae123\\result.json",
+        "sha256": "de6ff8fedd46d7990b263dd988465efe65dd32db15c906f8a803926212bcfcac"
+      },
+      "preserved": {
+        "phase0": true,
+        "candidate": true,
+        "game": true,
+        "fixture": true,
+        "original_preparation": true,
+        "sources": true,
+        "coherent_build": true
+      }
+    },
+    {
+      "case": "06-normal-shield",
+      "resolution": "1024x768",
+      "options": [],
+      "hands": [
+        14,
+        14
+      ],
+      "proficiency_damage": [
+        0,
+        0
+      ],
+      "result": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T235458Z-style-armed-e0119863\\result.json",
+        "sha256": "80afa1d37fb25047e00df26affef212ccda74e3ad77c856a364b7e896d29dddd"
+      },
+      "preserved": {
+        "phase0": true,
+        "candidate": true,
+        "game": true,
+        "fixture": true,
+        "original_preparation": true,
+        "sources": true,
+        "coherent_build": true
+      }
+    },
+    {
+      "case": "ammo-plus-ench1",
+      "resolution": "1024x768",
+      "options": [],
+      "hands": [
+        14,
+        14
+      ],
+      "proficiency_damage": [
+        0,
+        0
+      ],
+      "result": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T235553Z-style-armed-1bb04a3f\\result.json",
+        "sha256": "58f423669a3ce973dc8a3f5feb7bb7a175aa0ea8b3e11ecdca6b38cd92707c03"
+      },
+      "preserved": {
+        "phase0": true,
+        "candidate": true,
+        "game": true,
+        "fixture": true,
+        "original_preparation": true,
+        "sources": true,
+        "coherent_build": true
+      }
+    },
+    {
+      "case": "bow-plus-ench1",
+      "resolution": "1024x768",
+      "options": [],
+      "hands": [
+        14,
+        14
+      ],
+      "proficiency_damage": [
+        0,
+        0
+      ],
+      "result": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T235648Z-style-armed-1f4439ab\\result.json",
+        "sha256": "591d3b1ed1135a18656e1a6125310a37771a997f1198505cf287515fd2b22a37"
+      },
+      "preserved": {
+        "phase0": true,
+        "candidate": true,
+        "game": true,
+        "fixture": true,
+        "original_preparation": true,
+        "sources": true,
+        "coherent_build": true
+      }
+    },
+    {
+      "case": "01-normal-plus-pfmw",
+      "resolution": "1280x768",
+      "options": [],
+      "hands": [
+        18,
+        21
+      ],
+      "proficiency_damage": [
+        0,
+        0
+      ],
+      "result": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T235744Z-style-armed-3f6920db\\result.json",
+        "sha256": "97ffab3e0f6aa01070e4248f71276daef1e3ec9c2971d89fea2f4c9bcdc05a81"
+      },
+      "preserved": {
+        "phase0": true,
+        "candidate": true,
+        "game": true,
+        "fixture": true,
+        "original_preparation": true,
+        "sources": true,
+        "coherent_build": true
+      }
+    },
+    {
+      "case": "ammo-plus-ench1",
+      "resolution": "1280x768",
+      "options": [],
+      "hands": [
+        14,
+        14
+      ],
+      "proficiency_damage": [
+        0,
+        0
+      ],
+      "result": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T235847Z-style-armed-41dd4929\\result.json",
+        "sha256": "777f89be2418678c85e8d9dca93cdf467587e3de957d57009890b7a885da6a1e"
+      },
+      "preserved": {
+        "phase0": true,
+        "candidate": true,
+        "game": true,
+        "fixture": true,
+        "original_preparation": true,
+        "sources": true,
+        "coherent_build": true
+      }
+    },
+    {
+      "case": "01-normal-plus-pfmw",
+      "resolution": "1024x768",
+      "options": [
+        "--rank=1"
+      ],
+      "hands": [
+        16,
+        19
+      ],
+      "proficiency_damage": [
+        0,
+        0
+      ],
+      "result": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261022T235951Z-style-armed-1178bb46\\result.json",
+        "sha256": "d7a9f9a77f591b1043e9b0d27720b40f7a7d90991d5af801b62d45df7e5a4c1d"
+      },
+      "preserved": {
+        "phase0": true,
+        "candidate": true,
+        "game": true,
+        "fixture": true,
+        "original_preparation": true,
+        "sources": true,
+        "coherent_build": true
+      }
+    },
+    {
+      "case": "01-normal-plus-pfmw",
+      "resolution": "1024x768",
+      "options": [
+        "--rank=2"
+      ],
+      "hands": [
+        14,
+        17
+      ],
+      "proficiency_damage": [
+        0,
+        0
+      ],
+      "result": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261023T000046Z-style-armed-edb33e20\\result.json",
+        "sha256": "d767d444a63eb906c9d0deaed1cb892e22f5b9d90c2ce5a52dd70903268a57d7"
+      },
+      "preserved": {
+        "phase0": true,
+        "candidate": true,
+        "game": true,
+        "fixture": true,
+        "original_preparation": true,
+        "sources": true,
+        "coherent_build": true
+      }
+    },
+    {
+      "case": "01-normal-plus-pfmw",
+      "resolution": "1024x768",
+      "options": [
+        "--rank=3"
+      ],
+      "hands": [
+        14,
+        15
+      ],
+      "proficiency_damage": [
+        0,
+        0
+      ],
+      "result": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261023T000142Z-style-armed-1db484f5\\result.json",
+        "sha256": "a9edda9518c39f65953ab3b5b2a5a84ca3ec390633d5e6682f8b36009363c5f2"
+      },
+      "preserved": {
+        "phase0": true,
+        "candidate": true,
+        "game": true,
+        "fixture": true,
+        "original_preparation": true,
+        "sources": true,
+        "coherent_build": true
+      }
+    },
+    {
+      "case": "01-normal-plus-pfmw",
+      "resolution": "1024x768",
+      "options": [
+        "--longswords"
+      ],
+      "hands": [
+        15,
+        18
+      ],
+      "proficiency_damage": [
+        4,
+        4
+      ],
+      "result": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261023T000237Z-style-armed-b14efc3d\\result.json",
+        "sha256": "f62b006ee0f6c0de6ec833bfc5ea38628cf4b4d4f336335d3825e55ad59d74d7"
+      },
+      "preserved": {
+        "phase0": true,
+        "candidate": true,
+        "game": true,
+        "fixture": true,
+        "original_preparation": true,
+        "sources": true,
+        "coherent_build": true
+      }
+    },
+    {
+      "case": "01-normal-plus-pfmw",
+      "resolution": "1024x768",
+      "options": [
+        "--self-hit"
+      ],
+      "hands": [
+        17,
+        20
+      ],
+      "proficiency_damage": [
+        0,
+        0
+      ],
+      "result": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261023T000333Z-style-armed-172b0a93\\result.json",
+        "sha256": "c6e21b1311e2ff2443b315053c9e8058d5eed181d16b6141af1f112c747551b1"
+      },
+      "preserved": {
+        "phase0": true,
+        "candidate": true,
+        "game": true,
+        "fixture": true,
+        "original_preparation": true,
+        "sources": true,
+        "coherent_build": true
+      }
+    },
+    {
+      "case": "01-normal-plus-pfmw",
+      "resolution": "1024x768",
+      "options": [
+        "--rank=3",
+        "--longswords",
+        "--self-hit"
+      ],
+      "hands": [
+        10,
+        11
+      ],
+      "proficiency_damage": [
+        4,
+        4
+      ],
+      "result": {
+        "path": "C:\\BGRedux\\phase1-local\\results\\20261023T000429Z-style-armed-c9493678\\result.json",
+        "sha256": "dd40bac22ebaa047cf03bddb0d08e200f5f1ab4c140baf8dcacb57cdaed048ec"
+      },
+      "preserved": {
+        "phase0": true,
+        "candidate": true,
+        "game": true,
+        "fixture": true,
+        "original_preparation": true,
+        "sources": true,
+        "coherent_build": true
+      }
+    }
+  ],
+  "core": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261023T000532Z-source-bound-core-fac6226c\\result.json",
+    "sha256": "d025bd5fa9d6c38775271a41c71ef09f7685130e5440cb9648260df708eb0f38"
+  },
+  "display_query": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261023T000600Z-style-display-query-contract-94575fd7\\result.json",
+    "sha256": "21ad6481bb174f810385621d639540293e61672c098b8b54d27deafa442c74a5"
+  },
+  "tooling": {
+    "passed": 625,
+    "log": {
+      "path": "C:\\BGRedux\\phase1-local\\results\\weapon-style-final-tooling-20261022.log",
+      "sha256": "013b8a23b9c2da3008df96c58961d36dc759a82930c28b98992077b769d82403"
+    }
+  },
+  "limits": [
+    "Original delivered attacks are unmeasured.",
+    "Rank-only expectations come from loaded tables, not separate stock observations.",
+    "The feature-off control uses BG2EE content; it is not a Classic installation.",
+    "Unarmed APR, Jaheira HP, save-color residuals and broad Phase1 journeys remain open."
+  ],
+  "stats": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261023T000637Z-style-stats-menu-run-ae3e21f0\\result.json",
+    "sha256": "eb28c092af3ad210d3f93f2f072b2d26324d05261e6d751c5051eae8b1028bbe"
+  },
+  "weapons": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261023T001501Z-phase1-weapon-query-c72efd5f\\result.json",
+    "sha256": "70fff7fd6e438bac59f92531e06ecf169e98f4263e883e8152c7da1ffef79c5b"
+  },
+  "baseline_compatibility_verdict": "differences",
+  "baseline": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261023T001833Z-style-base-2b9a469d\\result.json",
+    "sha256": "c55f864ba8ec8ca611ed2247019a2a02aee1ae6d2cfb16abd9702312c2f127e5"
+  },
+  "residual_review": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261023T002052Z-style-baseline-residual-review-16b80246\\result.json",
+    "sha256": "c08b4acc800159d0fe057cd51cd35cedd224c5d9f96fc440f902d05ffe4b04a6"
+  },
+  "residual_disposition": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261023T002506Z-style-baseline-residual-disposition-d338d08f\\result.json",
+    "sha256": "b587067dbf4d8eb6cafb8ad4d6cfc9d2cfec6ad52af62fc20905d7a460f7e8d2"
+  },
+  "combined_stock_reference": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261023T001642Z-original-style-reference-0c22df3d\\closed-reference-verification.json",
+    "sha256": "e64d3b46ddb57ad51b3bc816250b649941d7049c6a13a7f5901979e69610cc7c"
+  },
+  "combined_stock_comparison": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261023T002420Z-original-style-math-check-0f56af00\\result.json",
+    "sha256": "e86b3b3d3266d869dbe345ae628b8ea0c4e559c6e81dca391fc56bd75b9b6a08"
+  },
+  "combined_stock_details": {
+    "path": "C:\\BGRedux\\phase1-local\\results\\20261023T002553Z-original-style-details-check-1be7040e\\result.json",
+    "sha256": "e670c7d9740dc28ccb67fc7b956c5f87b121aece7d1e243860b09b3606451bd6"
+  }
+}

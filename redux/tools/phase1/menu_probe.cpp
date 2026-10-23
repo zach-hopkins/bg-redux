@@ -154,6 +154,8 @@ int main(int argc, char** argv)
     for (auto required : {"--config", "--output", "--scripts"}) if (!args.count(required)) return 64;
     const auto out = args["--output"];
     const auto journey = args.count("--journey") ? args["--journey"] : "menus";
+    const bool legacyStyleControl=args.count("--legacy-style-control");
+    if (legacyStyleControl && (journey!="display-armed" || args["--legacy-style-control"]!="1")) return 64;
     if (journey != "menus" && journey != "stats" && journey != "display-query" && journey != "display-armed" && journey != "hotkeys-edit" && journey != "hotkeys-reload") return 64;
     if (!args.count("--nonce") || args["--nonce"].size()!=32 ||
         args["--nonce"].find_first_not_of("0123456789abcdef")!=std::string::npos) return 64;
@@ -166,11 +168,18 @@ int main(int argc, char** argv)
     int rc=0, stage=-1, waits=0, ticks=0, captures=0, callbacks=0, keys=0;
     bool completed=false;
     int queryObservations=0;
+    bool styleFlagLoaded=false, styleFlagEffective=false;
     try {
         const char* argvEngine[]={"redux-menu-probe","-c",args["--config"].c_str()};
         auto config=LoadFromArgs(3,const_cast<char**>(argvEngine));
         ToggleLogging(true); AddLogWriter(createStdioLogWriter()); SetMainLogLevel(FATAL);
         engine=std::make_unique<Interface>(std::move(config));
+        styleFlagLoaded=core->HasFeature(GFFlags::WEAPON_STYLE_THAC0_PENALTIES);
+        if (legacyStyleControl) {
+            if (!styleFlagLoaded) throw std::runtime_error("Legacy style control requires enabled BG2EE style profile");
+            core->ClearFeature(GFFlags::WEAPON_STYLE_THAC0_PENALTIES);
+        }
+        styleFlagEffective=core->HasFeature(GFFlags::WEAPON_STYLE_THAC0_PENALTIES);
         auto script=core->GetGUIScriptEngine();
         const std::string configure = (journey == "menus" || journey == "stats" || journey == "display-query" || journey == "display-armed") ? Q(out)+","+Q(args["--nonce"]) : Q(out)+","+Q(journey)+","+Q(args["--nonce"]);
         if (!script->ExecString("import sys; sys.path.insert(0,"+Q(args["--scripts"])+"); import "+std::string(runtime)+"; "+runtime+".Configure("+configure+")"))
@@ -299,6 +308,9 @@ int main(int argc, char** argv)
     Write(out+"/menu-host-result.json",O({{"schema",Q("bg-redux-menu-host/1")}, {"completed",completed?"true":"false"},
         {"captures",NumberJSON(captures)},{"callbacks",NumberJSON(callbacks)}, {"timer_ticks",NumberJSON(ticks)},
         {"native_keys",NumberJSON(keys)}, {"journey",Q(journey)}, {"nonce",Q(args["--nonce"])},
+        {"style_thac0_flag_loaded",styleFlagLoaded?"true":"false"},
+        {"style_thac0_flag_effective",styleFlagEffective?"true":"false"},
+        {"legacy_style_control",legacyStyleControl?"true":"false"},
         {"load_waits",NumberJSON(waits)},{"visual_acceptance","false"},{"pointer_hit_testing","false"}}));
     if (engine) { engine.reset(); core=nullptr; VideoDriver.reset(); PluginMgr::Get()->RunCleanup(); }
     StopLog(); return rc;
